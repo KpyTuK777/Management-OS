@@ -1,11 +1,43 @@
-.primary-btn
+.primary-btn {
 
-.filter
+	padding:var(--space-16) var(--space-24);
 
-.project-card
+	border-radius:var(--radius-md);
 
-.overview-card
+	transition:var(--transition-normal);
+}
 
-.priority
+.filter {
+	padding:var(--space-16) var(--space-24);
 
-.progress-bar
+	border-radius:var(--radius-md);
+
+	transition:var(--transition-normal);
+}
+
+.project-card {
+	padding:var(--space-16) var(--space-24);
+
+	border-radius:var(--radius-md);
+
+	transition:var(--transition-normal);
+}
+
+.overview-card {
+	padding:var(--space-16) var(--space-24);
+
+	border-radius:var(--radius-md);
+
+	transition:var(--transition-normal);
+}
+
+.priority {
+	padding:var(--space-16) var(--space-24);
+
+	border-radius:var(--radius-md);
+
+	transition:var(--transition-normal);
+}
+
+
+.progress-bar {}

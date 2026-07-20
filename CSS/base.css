@@ -89,3 +89,29 @@ body{
     color:var(--text);
 
 }
+
+h1{
+
+    font-size:var(--font-xl);
+
+}
+
+h2{
+
+    font-size:var(--font-lg);
+
+}
+
+h3{
+
+    font-size:var(--font-md);
+
+}
+
+p{
+
+    font-size:var(--font-xs);
+
+    color:var(--text-light);
+
+}

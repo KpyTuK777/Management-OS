@@ -1,5 +1,11 @@
-.portfolio-overview
+.portfolio-overview {
+	margin-bottom:var(--space-48);
+}
 
-.focus-projects
+.focus-projects {
+	margin-bottom:var(--space-48);
+}
 
-.project-filters
+.project-filters {
+	margin-bottom:var(--space-48);
+}

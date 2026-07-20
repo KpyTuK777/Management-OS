@@ -1,8 +1,12 @@
 .app
 
-.sidebar
+.sidebar {
+	width:var(--sidebar-width);
+}
 
-main
+main {
+	padding:var(--space-40);
+}
 
 .page-header
 
@@ -10,4 +14,4 @@ main
 
 .grid
 
-.container
+.container {}
