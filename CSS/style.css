@@ -882,3 +882,81 @@ body{
     color:var(--primary);
 
 }
+
+.timeline{
+
+    margin-bottom:36px;
+
+}
+
+.timeline-header{
+
+    margin-bottom:20px;
+
+}
+
+.timeline-header h2{
+
+    font-size:32px;
+
+    margin-bottom:6px;
+
+}
+
+.timeline-header span{
+
+    color:var(--text-light);
+
+}
+
+.timeline-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.timeline-row{
+
+    display:grid;
+
+    grid-template-columns:100px 1fr;
+
+    gap:20px;
+
+    align-items:center;
+
+}
+
+.timeline-time{
+
+    color:var(--text-light);
+
+    font-weight:700;
+
+}
+
+.timeline-content{
+
+    background:white;
+
+    padding:18px 22px;
+
+    border-radius:16px;
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+    transition:.2s;
+
+}
+
+.timeline-content:hover{
+
+    border-color:var(--primary);
+
+}
