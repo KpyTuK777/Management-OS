@@ -2,26 +2,23 @@
 <html lang="uk">
 
 	<head>
-
 		<meta charset="UTF-8">
-
-		<meta name="viewport"
-			content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<title>Management OS</title>
 
-		<link rel="stylesheet"
-			href="style.css">
-
+		<link rel="stylesheet" href="./css/style.css">
 	</head>
 
 	<body>
 
 		<div class="app">
 
+			<!-- SIDEBAR -->
+
 			<aside class="sidebar">
 
-				<div class="logo">
+				<div class="sidebar__logo">
 
 					<h1>Management OS</h1>
 
@@ -29,172 +26,62 @@
 
 				</div>
 
-				<nav>
+				<nav class="sidebar__nav">
 
-					<a class="active"
-						href="#">
+					<a class="active" href="#">Поточний фокус</a>
 
-						Поточний фокус
+					<a href="#">Робоча пам'ять</a>
 
-					</a>
+					<a href="#">База знань</a>
 
-					<a href="#">
+					<a href="#">Навички</a>
 
-						Робоча пам'ять
-
-					</a>
-
-					<a href="#">
-
-						База знань
-
-					</a>
-
-					<a href="#">
-
-						Навички
-
-					</a>
-
-					<a href="#">
-
-						Налаштування
-
-					</a>
+					<a href="#">Налаштування</a>
 
 				</nav>
 
 			</aside>
 
+			<!-- WORKSPACE -->
+
 			<main class="workspace">
+
 				<!-- HERO -->
 
 				<section class="hero">
 
-					<div class="hero-text">
+					<span class="hero__label">
 
-						<span class="hero-label">
+						Система
 
-							Система
+					</span>
 
-						</span>
+					<h2>
 
-						<h2>
+						Management OS
 
-							Management OS
+					</h2>
 
-						</h2>
+					<p>
 
-						<p>
+						Система, яка будується навколо мене,
+						мого професійного розвитку та моїх цілей.
 
-							Система, що розвивається разом зі мною.
-
-						</p>
-
-					</div>
+					</p>
 
 				</section>
 
-				<!-- CURRENT FOCUS -->
+				<!-- DASHBOARD -->
 
-				<section class="card current-focus">
-
-					<div class="card-header">
-
-						<div>
-
-							<h3>
-
-								Поточний фокус
-
-							</h3>
-
-							<span>
-
-								Над чим я працюю прямо зараз
-
-							</span>
-
-						</div>
-
-					</div>
-
-					<div class="tasks">
-
-						<div class="task">
-
-							<div class="task-left">
-
-								<div class="checkbox"></div>
-
-								<span>
-
-									Побудувати інтерфейс Management OS
-
-								</span>
-
-							</div>
-
-							<div class="priority high">
-
-								Високий
-
-							</div>
-
-						</div>
-
-						<div class="task">
-
-							<div class="task-left">
-
-								<div class="checkbox"></div>
-
-								<span>
-
-									Завершити Dashboard
-
-								</span>
-
-							</div>
-
-							<div class="priority medium">
-
-								Середній
-
-							</div>
-
-						</div>
-
-						<div class="task">
-
-							<div class="task-left">
-
-								<div class="checkbox"></div>
-
-								<span>
-
-									Підготувати Базу знань
-
-								</span>
-
-							</div>
-
-							<div class="priority low">
-
-								Низький
-
-							</div>
-
-						</div>
-
-					</div>
+				<section class="dashboard">
 
 				</section>
+
 			</main>
 
 		</div>
 
-		<script src="js/script.js"></script>
+		<script src="./js/script.js"></script>
 
 	</body>
 
