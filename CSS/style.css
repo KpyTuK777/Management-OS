@@ -1138,3 +1138,75 @@ body{
     font-weight:600;
 
 }
+
+.sop{
+
+    margin-bottom:40px;
+
+}
+
+.sop-header{
+
+    margin-bottom:22px;
+
+}
+
+.sop-header h2{
+
+    font-size:32px;
+
+    margin-bottom:6px;
+
+}
+
+.sop-header span{
+
+    color:var(--text-light);
+
+}
+
+.sop-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:22px;
+
+}
+
+.sop-card{
+
+    background:white;
+
+    padding:28px;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+    transition:.25s;
+
+}
+
+.sop-card:hover{
+
+    transform:translateY(-3px);
+
+    border:1px solid var(--primary);
+
+}
+
+.sop-card h3{
+
+    margin-bottom:12px;
+
+}
+
+.sop-card p{
+
+    color:var(--text-light);
+
+    line-height:1.6;
+
+}
