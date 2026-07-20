@@ -1392,3 +1392,67 @@ body{
     transform:translateY(-2px);
 
 }
+
+.activity-feed{
+
+    margin-bottom:60px;
+
+}
+
+.activity-header{
+
+    margin-bottom:22px;
+
+}
+
+.activity-header h2{
+
+    font-size:32px;
+
+    margin-bottom:6px;
+
+}
+
+.activity-header span{
+
+    color:var(--text-light);
+
+}
+
+.activity-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+.activity-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:24px;
+
+    padding:20px 24px;
+
+    background:white;
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.activity-time{
+
+    min-width:70px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+}
