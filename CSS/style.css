@@ -1210,3 +1210,65 @@ body{
     line-height:1.6;
 
 }
+
+.weekly-review{
+
+    margin-bottom:48px;
+
+}
+
+.review-header{
+
+    margin-bottom:24px;
+
+}
+
+.review-header h2{
+
+    font-size:32px;
+
+    margin-bottom:6px;
+
+}
+
+.review-header span{
+
+    color:var(--text-light);
+
+}
+
+.review-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:22px;
+
+}
+
+.review-card{
+
+    background:white;
+
+    padding:28px;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.review-card h3{
+
+    margin-bottom:18px;
+
+}
+
+.review-card ul{
+
+    margin-left:18px;
+
+    line-height:1.9;
+
+}
