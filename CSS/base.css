@@ -1,0 +1,91 @@
+:root/* ====================================================== */
+/*                     DESIGN TOKENS                       */
+/* ====================================================== */{
+
+    /* ===== Colors ===== */
+
+    --primary:#4F46E5;
+
+    --background:#F5F7FB;
+
+    --surface:#FFFFFF;
+
+    --text:#1E293B;
+
+    --text-light:#64748B;
+
+    --border:#E2E8F0;
+
+    --shadow:0 10px 30px rgba(15,23,42,.08);
+
+    /* ===== Spacing ===== */
+
+    --space-8:8px;
+
+    --space-16:16px;
+
+    --space-24:24px;
+
+    --space-32:32px;
+
+    --space-40:40px;
+
+    --space-48:48px;
+
+    --space-64:64px;
+
+    /* ===== Radius ===== */
+
+    --radius-sm:12px;
+
+    --radius-md:16px;
+
+    --radius-lg:24px;
+
+	 /* ===== TRANSITIONS ===== */
+
+	--transition-fast:.2s;
+
+	--transition-normal:.3s;
+
+	/* ===== SIDEBAR ===== */
+
+	--sidebar-width:280px;
+
+	/* ===== HEADER ===== */
+
+	--header-height:80px;
+
+	/* ===== TYPOGRAPHY ===== */
+
+	--font-xl:42px;
+	
+	--font-lg:32px;
+	
+	--font-md:24px;
+	
+	--font-sm:18px;
+	
+	--font-xs:16px;
+
+}
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+body{
+
+    font-family:Inter, sans-serif;
+
+    background:var(--background);
+
+    color:var(--text);
+
+}
