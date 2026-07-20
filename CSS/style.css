@@ -136,6 +136,13 @@ body{
 
     box-shadow:var(--shadow);
 
+	 min-height:260px;
+
+	display:flex;
+
+	flex-direction:column;
+
+	justify-content:center;
 }
 
 .hero__label{
@@ -182,7 +189,7 @@ body{
 
     display:grid;
 
-    grid-template-columns:2.2fr 1fr;
+    grid-template-columns:2fr 1fr;
 
     gap:24px;
 
@@ -499,6 +506,214 @@ body{
 }
 
 .system-banner p{
+
+    color:var(--text-light);
+
+}
+
+.memory{
+
+    background:var(--surface);
+
+    border-radius:20px;
+
+    padding:32px;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:32px;
+
+}
+
+.memory-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:24px;
+
+}
+
+.memory-header h3{
+
+    font-size:28px;
+
+    margin-bottom:4px;
+
+}
+
+.memory-header span{
+
+    color:var(--text-light);
+
+}
+
+.memory-list{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:14px;
+
+}
+
+.memory-item{
+
+    padding:14px 18px;
+
+    background:#F9FAFB;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    transition:.2s;
+
+}
+
+.memory-item:hover{
+
+    border-color:var(--primary);
+
+    background:#EEF2FF;
+
+    cursor:pointer;
+
+}
+
+.knowledge-card{
+
+    margin-top:24px;
+
+}
+
+.knowledge-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+.knowledge-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    transition:.2s;
+
+}
+
+.knowledge-item:hover{
+
+    background:#F9FAFB;
+
+    border-color:var(--primary);
+
+}
+
+.knowledge-title{
+
+    font-weight:600;
+
+}
+
+.knowledge-tag{
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    background:#EEF2FF;
+
+    color:var(--primary);
+
+    font-size:13px;
+
+}
+
+.operations{
+
+    margin-bottom:32px;
+
+}
+
+.operations-header{
+
+    margin-bottom:24px;
+
+}
+
+.operations-header h2{
+
+    font-size:34px;
+
+    margin-bottom:6px;
+
+}
+
+.operations-header span{
+
+    color:var(--text-light);
+
+}
+
+.operations-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.operation-card{
+
+    background:var(--surface);
+
+    border-radius:20px;
+
+    padding:28px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.operation-card h4{
+
+    margin-bottom:16px;
+
+    font-size:20px;
+
+}
+
+.operation-card ul{
+
+    margin-left:18px;
+
+    line-height:1.8;
+
+}
+
+.operation-card p{
+
+    line-height:1.7;
 
     color:var(--text-light);
 
