@@ -8,6 +8,26 @@ const projectDescription = document.getElementById("projectDescription");
 
 const projectsList = document.getElementById("projectsList");
 
+const PROJECT_STATUSES = [
+	"Активний",
+	"На паузі",
+	"Завершений",
+	"Архів"
+];
+
+const PROJECT_STATUS_CLASSES = {
+	"Активний": "project-status--active",
+	"На паузі": "project-status--paused",
+	"Завершений": "project-status--completed",
+	"Архів": "project-status--archived"
+};
+
+function getProjectStatusClass(status) {
+
+	return PROJECT_STATUS_CLASSES[status] ?? "project-status--active";
+
+}
+
 // =========================
 // Дані
 // =========================
@@ -25,6 +45,8 @@ function renderProjects() {
 
 	projects.forEach(project => {
 
+		const projectStatus = project.status || PROJECT_STATUSES[0];
+
 		const card = document.createElement("div");
 
 		card.className = "project-card";
@@ -35,11 +57,15 @@ function renderProjects() {
 
         <h3>${project.name}</h3>
 
-        <span class="project-status">
-
-            ${project.status}
-
-        </span>
+        <select
+            class="project-status ${getProjectStatusClass(projectStatus)}"
+            aria-label="Статус проєкту">
+            ${PROJECT_STATUSES.map(status => `
+                <option value="${status}" ${status === projectStatus ? "selected" : ""}>
+                    ${status}
+                </option>
+            `).join("")}
+        </select>
 
     </div>
 
@@ -66,6 +92,17 @@ function renderProjects() {
     </div>
 
 `;
+
+		const statusSelect = card.querySelector(".project-status");
+
+		statusSelect.addEventListener("change", () => {
+
+			project.status = statusSelect.value;
+			statusSelect.className = `project-status ${getProjectStatusClass(project.status)}`;
+
+			saveProjects(projects);
+
+		});
 
 		const editProjectBtn = document.createElement("button");
 

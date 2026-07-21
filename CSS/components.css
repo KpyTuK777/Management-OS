@@ -114,16 +114,48 @@
 
 .project-status{
 
-    background:#DCFCE7;
-
-    color:#15803D;
-
     padding:6px 12px;
+
+    border:0;
 
     border-radius:999px;
 
     font-size:14px;
 
     font-weight:600;
+
+    cursor:pointer;
+
+}
+
+.project-status--active{
+
+    background:#DCFCE7;
+
+    color:#15803D;
+
+}
+
+.project-status--paused{
+
+    background:#FEF3C7;
+
+    color:#B45309;
+
+}
+
+.project-status--completed{
+
+    background:#DBEAFE;
+
+    color:#1D4ED8;
+
+}
+
+.project-status--archived{
+
+    background:#E2E8F0;
+
+    color:#475569;
 
 }
