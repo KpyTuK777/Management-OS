@@ -27,3 +27,30 @@ Surface trends and operational insight from project, task, and review data.
 ## Phase 6 — Optimization
 
 Improve the system through AI, automation, integrations, performance work, UX improvements, and refactoring.
+
+### Future Learning Layer — Recommendations Center
+
+After sufficient Review and execution evidence exists, introduce an explainable
+Recommendations Center. This is long-term direction and is not currently
+implemented.
+
+The Center may surface:
+
+- Workspace optimization;
+- Knowledge and SOP candidates;
+- SOP improvement suggestions;
+- planning and workflow recommendations;
+- opportunities to reduce cognitive load.
+
+Recommended delivery sequence:
+
+1. establish reliable observation signals;
+2. explain detected patterns and evidence;
+3. expose confidence without overstating certainty;
+4. propose one explicit action;
+5. provide **Accept**, **Reject**, and **Remind me later** controls;
+6. execute an accepted action through the owning feature's approved workflow.
+
+No phase may introduce autonomous workspace or interface changes. Recommendation
+generation and recommendation application must remain separate capabilities, and
+user approval is the boundary between them.

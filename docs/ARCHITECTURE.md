@@ -214,6 +214,51 @@ Review is observation only. It never updates Execution, SOP, Knowledge, or Notes
 Future Insights may interpret Review signals, but AI interpretation and automatic
 SOP recommendations are outside the current Learning Layer.
 
+### Future Recommendations Center boundary
+
+The Recommendations Center is a future Learning Layer capability, not part of the
+current implementation. No module, storage collection, inference service, or
+automatic interface behavior is introduced by this architectural direction.
+
+Its conceptual responsibilities are:
+
+- observe patterns across domain-owned evidence;
+- identify an opportunity without modifying its source records;
+- explain what was observed and why it matters;
+- expose an evidence-based confidence level;
+- propose one bounded action;
+- wait for **Accept**, **Reject**, or **Remind me later**.
+
+A recommendation must contain:
+
+| Element | Architectural purpose |
+| --- | --- |
+| What was observed | Traceable evidence from existing domain records. |
+| Why this conclusion was reached | Explainable reasoning rather than an opaque result. |
+| Confidence level | A calibrated indication of evidence strength, not a guarantee. |
+| Proposed action | The exact bounded mutation that could be authorized. |
+| Accept / Reject / Remind me later | An explicit decision boundary controlled by the user. |
+
+Possible recommendation categories include Workspace optimization, Knowledge
+candidates, SOP candidates, SOP improvement suggestions, Planning recommendations,
+Workflow improvements, and cognitive-load reduction opportunities.
+
+#### Ownership and mutation boundary
+
+Observation and proposal generation must be read-only. The Recommendations Center
+must not own domain CRUD and must never mutate Notes, Knowledge, SOPs, Executions,
+Reviews, plans, or Layout state directly.
+
+If the user accepts a recommendation, the owning feature or Workflow Layer remains
+responsible for validation, preview where appropriate, and the approved mutation.
+Reject performs no product mutation. Remind me later postpones the decision and is
+not implicit approval. Major architectural or product changes still follow the
+governance Proposal and approval process.
+
+This separation preserves explainability and prevents AI interpretation from
+becoming autonomous product authority. Automatic interface changes are explicitly
+outside the permitted architecture.
+
 ## Module responsibilities
 
 - **Home:** present today-focused, static dashboard information.

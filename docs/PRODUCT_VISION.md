@@ -19,6 +19,7 @@ The product should be calm, intentional, and useful. Information belongs in a cl
 7. **Analytics explains change.** It should reveal trends, not merely display numbers.
 8. **Every feature must earn its place.** It should save time, reduce errors, or improve decisions.
 9. **Work now. Learn forever.** Reflection should be lightweight while operational experience compounds over time.
+10. **Recommend, never take control.** Management OS explains opportunities and waits for explicit user approval before changing the workspace.
 
 ## Long-term vision
 
@@ -56,6 +57,42 @@ Knowledge stores understanding. SOP stores procedure. Execution stores historica
 evidence. Keeping these responsibilities independent makes improvement explainable:
 future recommendations can compare the intended procedure with observed outcomes,
 while users retain control over changes to the SOP.
+
+### Recommendations Center
+
+The Recommendations Center is a future Learning Layer capability. Its purpose is
+to turn observed usage patterns into explainable, user-controlled opportunities for
+improvement. It is product direction, not implemented functionality.
+
+Management OS never changes the user's workspace autonomously. Instead, it:
+
+1. observes usage patterns;
+2. explains a detected opportunity;
+3. proposes an improvement;
+4. waits for explicit user approval.
+
+Future recommendation categories may include:
+
+- Workspace optimization;
+- Knowledge candidates;
+- SOP candidates;
+- SOP improvement suggestions;
+- Planning recommendations;
+- Workflow improvements;
+- cognitive-load reduction opportunities.
+
+Every recommendation should communicate:
+
+- **What was observed** — the evidence or pattern behind the recommendation;
+- **Why the system reached this conclusion** — an understandable explanation;
+- **Confidence level** — how strongly the available evidence supports it;
+- **Proposed action** — the exact change offered to the user;
+- **Accept / Reject / Remind me later** — explicit user control over the outcome.
+
+Acceptance authorizes only the action shown in that recommendation. Rejection must
+not trigger an alternative change, and postponement must not be treated as consent.
+No recommendation may silently alter content, relationships, priorities, status,
+layout, or another part of the interface.
 
 ## User value
 
