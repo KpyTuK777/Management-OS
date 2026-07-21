@@ -4,7 +4,8 @@
 
 Management OS is a static, client-side web application. It has no build system,
 server, API, or external database. Browser `localStorage` persists domain
-collections including Projects, Notes, Knowledge, Categories, SOPs, and SOP Executions.
+collections including Projects, Notes, Knowledge, Categories, SOPs, SOP Executions,
+and Execution Reviews.
 
 ## Project structure
 
@@ -16,6 +17,7 @@ Management-OS/
 ├── knowledge-base.html     # Functional Knowledge Base page
 ├── sop.html                # SOP definitions and Knowledge workflow target
 ├── sop-executions.html     # Active SOP sessions and immutable execution history
+├── review.html             # Pending and completed Execution Reviews
 ├── projects.html           # Legacy portfolio-page prototype
 ├── css/                    # Design tokens, layout, components, utilities
 ├── js/                     # Layout, platform utilities, storage, and page behavior
@@ -30,8 +32,9 @@ Management-OS/
 - `knowledge-base.html` is the active Knowledge Base implementation.
 - `sop.html` manages repeatable procedure definitions.
 - `sop-executions.html` guides active SOP sessions and presents execution history.
+- `review.html` captures lightweight reflection after completed Executions.
 - `projects.html` is a legacy prototype and is not the active Portfolio page.
-- `analytics.html`, `calendar.html`, `knowledge.html`, `reviews.html`, `settings.html`, and `tasks.html` are currently placeholders.
+- `analytics.html`, `calendar.html`, `knowledge.html`, `reviews.html`, `settings.html`, and `tasks.html` are currently placeholders. `reviews.html` is legacy; the active Review Layer is `review.html`.
 
 ## CSS architecture
 
@@ -52,13 +55,14 @@ See [Design System](DESIGN_SYSTEM.md) for UI conventions.
 - `js/render-utils.js` exposes small, safe DOM creation and text-assignment helpers.
 - `js/storage-utils.js` owns generic JSON reads and writes for browser storage.
 - `js/storage.js` exposes domain-specific helpers for Projects, Knowledge Entries,
-  Knowledge Categories, Notes, and SOPs.
+  Knowledge Categories, Notes, SOPs, SOP Executions, and Execution Reviews.
 - `js/portfolio.js` owns Portfolio rendering and project create, edit, and delete actions.
 - `js/notes.js` owns Notes CRUD, search orchestration, and rendering.
 - `js/note-knowledge-flow.js` coordinates the Notes → Knowledge workflow.
 - `js/knowledge-sop-flow.js` coordinates the Knowledge → SOP workflow.
 - `js/sop.js` owns SOP CRUD, search orchestration, ordered fields, and rendering.
 - `js/sop-execution.js` owns SOP execution state, transitions, progress, and history rendering.
+- `js/review.js` owns Review creation, pending Review discovery, search, and rendering.
 - `js/app.js` owns Dashboard statistics and attention rendering.
 
 ## Platform utilities
@@ -189,6 +193,27 @@ Execution history is evidence, not a live projection of the SOP definition. Late
 SOP edits and deletion cannot rewrite stored runs. This boundary also allows future
 AI recommendations to inspect outcomes without coupling them to SOP CRUD.
 
+## Learning layer
+
+The Learning layer captures structured interpretation of immutable Execution
+evidence. `js/review.js` is its first feature module and owns:
+
+- validating that the referenced Execution is finished;
+- allowing at most one Review per Execution;
+- collecting rating, outcome, blockers, improvements, and lessons learned;
+- deriving pending Reviews from finished Executions without mutating them;
+- rendering Review history and real-time search through Platform Utilities.
+
+After an Execution finishes, `sop-execution.js` offers Review immediately but does
+not require it. A short-lived `sessionStorage` value under `reviewExecutionId`
+carries the selected Execution to `review.html`. Deferral creates no stored state;
+the missing Review remains discoverable later from the finished Execution and the
+Review page.
+
+Review is observation only. It never updates Execution, SOP, Knowledge, or Notes.
+Future Insights may interpret Review signals, but AI interpretation and automatic
+SOP recommendations are outside the current Learning Layer.
+
 ## Module responsibilities
 
 - **Home:** present today-focused, static dashboard information.
@@ -196,6 +221,7 @@ AI recommendations to inspect outcomes without coupling them to SOP CRUD.
 - **Notes:** provide a friction-free Inbox for capturing ideas before organization.
 - **SOP:** turn structured knowledge into independently editable procedures.
 - **Execution:** run SOP snapshots and preserve historical evidence without modifying definitions.
+- **Review:** capture structured operational learning without modifying source domains.
 - **Workflow:** coordinate explicit transitions and relationships between modules.
 - **Storage:** keep domain storage helpers stable while shared utilities isolate
   `localStorage` reads, JSON parsing, and serialization.

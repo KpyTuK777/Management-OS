@@ -18,6 +18,7 @@ The product should be calm, intentional, and useful. Information belongs in a cl
 6. **Reflection drives improvement.** Review Center supports daily, weekly, and monthly learning.
 7. **Analytics explains change.** It should reveal trends, not merely display numbers.
 8. **Every feature must earn its place.** It should save time, reduce errors, or improve decisions.
+9. **Work now. Learn forever.** Reflection should be lightweight while operational experience compounds over time.
 
 ## Long-term vision
 
@@ -39,8 +40,17 @@ future lifecycle stage and are not implied by the current workflow.
 Knowledge answers **What do I know?** SOP answers **What do I do?** The
 Knowledge → SOP workflow connects those stages while preserving each record as an
 independent source of truth. Execution records what happened without modifying the
-procedure definition. Review and adaptive improvement remain later stages of the
-product lifecycle.
+procedure definition. Lightweight Execution Review now captures operational
+learning; interpretation and adaptive improvement remain later stages.
+
+Execution Review establishes the first Learning Layer after work is completed:
+
+**Execution → Review → Future Insights**
+
+Review captures rating, outcome, blockers, improvements, and lessons without
+turning reflection into reporting. It never silently modifies the SOP or another
+source domain. Interpretation, recommendations, and AI-generated insights remain
+future work requiring established approval boundaries.
 
 Knowledge stores understanding. SOP stores procedure. Execution stores historical
 evidence. Keeping these responsibilities independent makes improvement explainable:

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Огляди виконань — Management OS</title>
+		<link rel="stylesheet" href="CSS/style.css">
+	</head>
+
+	<body>
+		<div class="app">
+			<aside class="sidebar" id="sidebar"></aside>
+
+			<main id="reviewPage">
+				<header class="page-header">
+					<div>
+						<h1>Огляди виконань</h1>
+						<p>Працюйте зараз. Навчайтесь завжди.</p>
+					</div>
+					<a class="btn-secondary" href="sop-executions.html">До виконань</a>
+				</header>
+
+				<form class="review-form hidden" id="reviewForm">
+					<div class="review-form__header">
+						<div>
+							<span class="review-form__eyebrow">Короткий огляд</span>
+							<h2 id="reviewFormTitle">Як пройшло виконання?</h2>
+						</div>
+						<p id="reviewExecutionSummary"></p>
+					</div>
+
+					<fieldset class="review-rating">
+						<legend>Оцінка</legend>
+						<div class="review-rating__options">
+							<label><input type="radio" name="reviewRating" value="1" required><span>1</span></label>
+							<label><input type="radio" name="reviewRating" value="2"><span>2</span></label>
+							<label><input type="radio" name="reviewRating" value="3"><span>3</span></label>
+							<label><input type="radio" name="reviewRating" value="4"><span>4</span></label>
+							<label><input type="radio" name="reviewRating" value="5"><span>5</span></label>
+						</div>
+						<small>1 — складно, 5 — відмінно</small>
+					</fieldset>
+
+					<div class="form-group">
+						<label for="reviewOutcome">Результат</label>
+						<select id="reviewOutcome" required>
+							<option value="">Оберіть результат</option>
+							<option value="successful">Успішно</option>
+							<option value="partial">Частково</option>
+							<option value="failed">Неуспішно</option>
+						</select>
+					</div>
+
+					<div class="review-form__optional-grid">
+						<div class="form-group">
+							<label for="reviewBlockers">Що завадило?</label>
+							<textarea id="reviewBlockers" rows="2" placeholder="Коротко, якщо було"></textarea>
+						</div>
+						<div class="form-group">
+							<label for="reviewImprovements">Що покращити?</label>
+							<textarea id="reviewImprovements" rows="2" placeholder="Одна ідея на майбутнє"></textarea>
+						</div>
+						<div class="form-group">
+							<label for="reviewLessons">Який урок зберегти?</label>
+							<textarea id="reviewLessons" rows="2" placeholder="Головний висновок"></textarea>
+						</div>
+					</div>
+
+					<div class="review-form__actions">
+						<button class="btn-primary" type="submit">Зберегти огляд</button>
+						<button class="btn-secondary" type="button" id="reviewLaterBtn">Зробити пізніше</button>
+					</div>
+				</form>
+
+				<section class="review-pending" aria-labelledby="pendingReviewsTitle">
+					<div class="section-header">
+						<div>
+							<h2 id="pendingReviewsTitle">Очікують огляду</h2>
+							<p>Завершені виконання, до яких можна повернутися пізніше.</p>
+						</div>
+					</div>
+					<div class="review-pending__list" id="pendingReviewList"></div>
+				</section>
+
+				<section class="review-history" aria-labelledby="reviewHistoryTitle">
+					<div class="section-header">
+						<div>
+							<h2 id="reviewHistoryTitle">Збережені огляди</h2>
+							<p>Операційний досвід, що стане основою для майбутніх інсайтів.</p>
+						</div>
+					</div>
+
+					<section class="project-filters review-search hidden" id="reviewSearch" aria-label="Пошук оглядів">
+						<label class="project-filter" for="reviewSearchInput">
+							<span>Пошук</span>
+							<input type="search" id="reviewSearchInput" placeholder="Пошук оглядів...">
+						</label>
+					</section>
+
+					<div class="review-list" id="reviewList" aria-live="polite"></div>
+					<div class="review-empty-state" id="reviewEmptyState">
+						<h3>Оглядів поки немає.</h3>
+						<p>Завершіть SOP і зафіксуйте те, що зробить наступне виконання простішим.</p>
+					</div>
+				</section>
+			</main>
+		</div>
+
+		<script src="js/sidebar.js"></script>
+		<script src="js/search.js"></script>
+		<script src="js/render-utils.js"></script>
+		<script src="js/storage-utils.js"></script>
+		<script src="js/storage.js"></script>
+		<script src="js/review.js"></script>
+	</body>
+
+</html>

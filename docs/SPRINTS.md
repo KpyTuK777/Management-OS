@@ -31,4 +31,10 @@
 - **Feature 04:** Knowledge → SOP Workflow
 - **Feature 05:** SOP Execution MVP
 
+## Sprint 6 — Learning Layer
+
+### Completed
+
+- **Feature 01:** Execution Review — Learning Layer Foundation
+
 See [Roadmap](ROADMAP.md) for product phases beyond this sprint.

@@ -86,3 +86,15 @@ function loadSopExecutions() {
 	return getStorageItem("sopExecutions", []);
 
 }
+
+function saveExecutionReviews(reviews) {
+
+	setStorageItem("executionReviews", reviews);
+
+}
+
+function loadExecutionReviews() {
+
+	return getStorageItem("executionReviews", []);
+
+}

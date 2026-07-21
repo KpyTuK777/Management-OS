@@ -32,3 +32,11 @@
 - Refined the Dashboard into a clearer operational command center.
 - Prioritized attention, current focus, project position, and supporting context.
 - Preserved early prototype experiments inside a secondary Additional Context area.
+
+### Learning Layer
+
+- Added optional lightweight Reviews after completed SOP Executions.
+- Added pending Review discovery so reflection can be completed later.
+- Added structured rating, outcome, blocker, improvement, and lesson signals.
+- Added Review persistence under the `executionReviews` storage key and real-time search.
+- Kept Review observations independent from immutable Execution and SOP definitions.

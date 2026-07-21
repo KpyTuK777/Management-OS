@@ -25,6 +25,7 @@ Domain collections are serialized as JSON in browser `localStorage`.
 | `knowledgeCategories` | Array of category-name strings |
 | `sops` | Array of SOP objects |
 | `sopExecutions` | Array of SOP Execution objects |
+| `executionReviews` | Array of Execution Review objects |
 
 Storage access is implemented in `js/storage.js`.
 
@@ -127,3 +128,26 @@ history, and execution never updates the source SOP.
 The SOP → Execution launch temporarily stores the selected SOP ID in
 `sessionStorage` under `sopExecutionSourceId`. It is consumed and removed when the
 Execution page initializes.
+
+## Execution Review
+
+Execution Reviews are stored as objects in the `executionReviews` collection.
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | number | Unique identifier generated when the Review is saved. |
+| `executionId` | number | Finished SOP Execution being reviewed. |
+| `rating` | number | Simple execution-quality rating from 1 to 5. |
+| `outcome` | string | Structured result: `successful`, `partial`, or `failed`. |
+| `blockers` | string | Optional obstacles observed during execution. |
+| `improvements` | string | Optional idea for improving future work. |
+| `lessonsLearned` | string | Optional reusable operational lesson. |
+| `createdAt` | string | ISO timestamp when the Review was saved. |
+
+An Execution Review references immutable evidence but does not modify it. A missing
+Review for a finished Execution represents pending reflection; no status or skipped
+record is persisted. The Execution → Review handoff temporarily stores an Execution
+ID in `sessionStorage` under `reviewExecutionId`.
+
+Rating, outcome, blockers, improvements, and lessons provide structured signals for
+future analysis. AI interpretation is not part of the current data flow.

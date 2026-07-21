@@ -27,6 +27,11 @@ const Layout = (() => {
 			pages: ["sop-executions.html"]
 		},
 		{
+			label: "Огляди",
+			href: "review.html",
+			pages: ["review.html"]
+		},
+		{
 			label: "Навички",
 			href: "#",
 			pages: []

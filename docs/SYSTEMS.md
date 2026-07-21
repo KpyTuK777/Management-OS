@@ -40,9 +40,9 @@ Management OS is organized as a collection of business systems. Each system has 
 
 ## Review Center
 
-- **Purpose:** Support structured reflection and continuous improvement.
-- **Current status:** Placeholder page.
-- **Future responsibilities:** Daily, weekly, and monthly reviews, observations, decisions, and improvement actions.
+- **Purpose:** Capture operational experience after execution with minimal cognitive load.
+- **Current status:** Execution Review creation, deferral, pending discovery, persistence, and search are implemented in `review.html`.
+- **Future responsibilities:** Cross-execution insights, repeated-pattern detection, approved SOP improvement proposals, and broader daily, weekly, and monthly reflection.
 
 ## Analytics
 

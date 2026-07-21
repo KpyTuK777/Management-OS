@@ -1,4 +1,12 @@
 const SOP_EXECUTION_SOURCE_KEY = "sopExecutionSourceId";
+const REVIEW_EXECUTION_CONTEXT_KEY = "reviewExecutionId";
+
+function startExecutionReview(executionId) {
+
+	sessionStorage.setItem(REVIEW_EXECUTION_CONTEXT_KEY, String(executionId));
+	window.location.href = "review.html";
+
+}
 
 function startSopExecution(sopId) {
 
@@ -27,6 +35,7 @@ function initSopExecutionPage() {
 	const executionEmptyState = document.getElementById("executionEmptyState");
 	let executions = loadSopExecutions();
 	let searchQuery = "";
+	let justCompletedExecutionId = null;
 
 	function createExecutionItems(items) {
 
@@ -303,6 +312,7 @@ function initSopExecutionPage() {
 
 			execution.notes = notes.value.trim();
 			execution.finishedAt = new Date().toISOString();
+			justCompletedExecutionId = execution.id;
 			saveSopExecutions(executions);
 			window.location.hash = `execution-${execution.id}`;
 			renderActiveExecution();
@@ -404,6 +414,74 @@ function initSopExecutionPage() {
 		card.appendChild(summary);
 		card.appendChild(dates);
 		card.appendChild(details);
+
+		const review = loadExecutionReviews().find(
+			item => item.executionId === execution.id
+		);
+
+		if (review) {
+
+			const reviewLink = createTextElement(
+				"a",
+				"Переглянути огляд →",
+				"relationship-link"
+			);
+
+			reviewLink.href = `review.html#review-${review.id}`;
+			card.appendChild(reviewLink);
+
+		} else {
+
+			const reviewActions = createElement("div", "execution-review-actions");
+			const reviewButton = createTextElement(
+				"button",
+				justCompletedExecutionId === execution.id
+					? "Короткий огляд"
+					: "Додати огляд",
+				"btn-primary"
+			);
+
+			reviewButton.type = "button";
+			reviewButton.addEventListener("click", () => {
+
+				startExecutionReview(execution.id);
+
+			});
+
+			if (justCompletedExecutionId === execution.id) {
+
+				const prompt = createTextElement(
+					"p",
+					"Зафіксувати результат зараз? Це займе менше хвилини.",
+					"execution-review-prompt"
+				);
+				const laterButton = createTextElement(
+					"button",
+					"Зробити пізніше",
+					"btn-secondary"
+				);
+
+				laterButton.type = "button";
+				laterButton.addEventListener("click", () => {
+
+					justCompletedExecutionId = null;
+					renderHistory();
+
+				});
+
+				card.appendChild(prompt);
+				reviewActions.appendChild(reviewButton);
+				reviewActions.appendChild(laterButton);
+
+			} else {
+
+				reviewActions.appendChild(reviewButton);
+
+			}
+
+			card.appendChild(reviewActions);
+
+		}
 
 		return card;
 
