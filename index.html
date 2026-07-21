@@ -592,37 +592,49 @@
 
 					</section>
 
-					<!-- RIGHT COLUMN -->
+					<section class="dashboard-overview" aria-labelledby="dashboardOverviewTitle">
 
-					<section class="stats">
+						<div class="dashboard-overview__header">
 
-						<div class="stat-card">
+							<h2 id="dashboardOverviewTitle">Огляд проєктів</h2>
 
-							<h4>Стан системи</h4>
-
-							<strong>Online</strong>
-
-							<p>Усі модулі працюють.</p>
+							<span>Поточна статистика портфоліо</span>
 
 						</div>
 
-						<div class="stat-card">
+						<div class="dashboard-overview__grid">
 
-							<h4>Робоча пам'ять</h4>
+							<article class="dashboard-stat-card">
 
-							<strong>7</strong>
+								<span>Всього проєктів</span>
 
-							<p>Активних елементів.</p>
+								<strong id="totalProjects">0</strong>
 
-						</div>
+							</article>
 
-						<div class="stat-card">
+							<article class="dashboard-stat-card">
 
-							<h4>База знань</h4>
+								<span>Активні</span>
 
-							<strong>154</strong>
+								<strong id="activeProjects">0</strong>
 
-							<p>Накопичених записів.</p>
+							</article>
+
+							<article class="dashboard-stat-card">
+
+								<span>Завершені</span>
+
+								<strong id="completedProjects">0</strong>
+
+							</article>
+
+							<article class="dashboard-stat-card">
+
+								<span>Середній прогрес</span>
+
+								<strong id="averageProgress">0%</strong>
+
+							</article>
 
 						</div>
 
@@ -635,7 +647,6 @@
 		</div>
 
 		<script src="js/storage.js"></script>
-		<script src="js/portfolio.js"></script>
 		<script src="js/app.js"></script>
 
 	</body>
