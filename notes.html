@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Вхідні нотатки — Management OS</title>
+
+		<link rel="stylesheet" href="CSS/style.css">
+	</head>
+
+	<body>
+
+		<div class="app">
+
+			<aside class="sidebar" id="sidebar"></aside>
+
+			<main>
+
+				<header class="page-header">
+
+					<div>
+
+						<h1>Вхідні нотатки</h1>
+
+						<p>Зафіксуйте зараз. Організуйте пізніше.</p>
+
+					</div>
+
+					<button class="btn-primary" type="button" data-action="new-note">
+
+						+ Нова нотатка
+
+					</button>
+
+				</header>
+
+				<form class="notes-form hidden" id="noteForm">
+
+					<h2 id="noteFormTitle">Нова нотатка</h2>
+
+					<div class="form-group">
+
+						<label for="noteTitle">Назва</label>
+
+						<input type="text" id="noteTitle" required>
+
+					</div>
+
+					<div class="form-group">
+
+						<label for="noteContent">Текст нотатки</label>
+
+						<textarea id="noteContent" rows="8" required></textarea>
+
+					</div>
+
+					<button class="btn-primary" type="submit" id="noteSubmitBtn">
+
+						Зберегти нотатку
+
+					</button>
+
+				</form>
+
+				<section class="project-filters notes-search hidden" id="notesSearch" aria-label="Пошук нотаток">
+
+					<label class="project-filter" for="notesSearchInput">
+
+						<span>Пошук</span>
+
+						<input
+							type="search"
+							id="notesSearchInput"
+							placeholder="Пошук нотаток...">
+
+					</label>
+
+				</section>
+
+				<section class="notes-list hidden" id="notesList" aria-live="polite"></section>
+
+				<section class="notes-empty-state" id="notesEmptyState">
+
+					<div class="notes-empty-state__content">
+
+						<h2>Зафіксуйте першу думку.</h2>
+
+						<p>Додайте коротку нотатку зараз — упорядкувати її можна пізніше.</p>
+
+						<button class="btn-primary" type="button" data-action="new-note">
+
+							Нова нотатка
+
+						</button>
+
+					</div>
+
+				</section>
+
+			</main>
+
+		</div>
+
+		<script src="js/sidebar.js"></script>
+		<script src="js/search.js"></script>
+		<script src="js/render-utils.js"></script>
+		<script src="js/storage-utils.js"></script>
+		<script src="js/storage.js"></script>
+		<script src="js/notes.js"></script>
+
+	</body>
+
+</html>

@@ -58,7 +58,8 @@
 
 }
 
-.knowledge-empty-state{
+.knowledge-empty-state,
+.notes-empty-state{
 
     display:grid;
 
@@ -80,7 +81,8 @@
 
 }
 
-.knowledge-empty-state__content{
+.knowledge-empty-state__content,
+.notes-empty-state__content{
 
     display:grid;
 
@@ -90,7 +92,8 @@
 
 }
 
-.knowledge-form{
+.knowledge-form,
+.notes-form{
 
     display:grid;
 
@@ -110,7 +113,8 @@
 
 }
 
-.knowledge-form.hidden{
+.knowledge-form.hidden,
+.notes-form.hidden{
 
     display:none;
 
@@ -238,7 +242,8 @@
 
 }
 
-.knowledge-entries{
+.knowledge-entries,
+.notes-list{
 
     display:grid;
 
@@ -256,7 +261,16 @@
 
 }
 
-.knowledge-entries__empty{
+.project-filters.notes-search{
+
+    grid-template-columns:1fr;
+
+    margin-bottom:var(--space-48);
+
+}
+
+.knowledge-entries__empty,
+.notes-list__empty{
 
     grid-column:1 / -1;
 
@@ -268,13 +282,15 @@
 
 }
 
-.knowledge-entries.hidden{
+.knowledge-entries.hidden,
+.notes-list.hidden{
 
     display:none;
 
 }
 
-.knowledge-card{
+.knowledge-card,
+.notes-card{
 
     display:flex;
 
@@ -332,7 +348,24 @@
 
 }
 
-.knowledge-card__actions{
+.notes-card__content{
+
+    white-space:pre-wrap;
+
+}
+
+.notes-card__date{
+
+    margin-top:auto;
+
+    color:var(--text-secondary);
+
+    font-size:var(--font-small);
+
+}
+
+.knowledge-card__actions,
+.notes-card__actions{
 
     display:flex;
 
@@ -342,13 +375,15 @@
 
 }
 
-.knowledge-card__delete-btn{
+.knowledge-card__delete-btn,
+.notes-card__delete-btn{
 
     background:var(--danger);
 
 }
 
-.knowledge-card__delete-btn:hover{
+.knowledge-card__delete-btn:hover,
+.notes-card__delete-btn:hover{
 
     background:#DC2626;
 

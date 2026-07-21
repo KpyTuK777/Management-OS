@@ -23,6 +23,14 @@ The product should be calm, intentional, and useful. Information belongs in a cl
 
 Management OS becomes a unified workspace for managing execution, institutional knowledge, operating processes, performance insight, and continuous improvement.
 
+### Information lifecycle
+
+The long-term product vision is to help information mature through a deliberate lifecycle:
+
+**Idea → Notes → Knowledge Base → SOP → Execution → Review → Improvement**
+
+Notes provide the friction-free capture point. Later stages progressively add structure, operational reuse, action, reflection, and improvement. This lifecycle describes product direction rather than functionality that is fully implemented today.
+
 ## User value
 
 Users gain a focused daily workspace, a reliable view of active projects, less fragmented information, and a foundation for better operational decisions.

@@ -15,4 +15,17 @@
 - **Feature 06:** Filters
 - **Feature 07:** Sorting
 
+## Sprint 4 — Foundation 2.0
+
+### Completed
+
+- **Feature 01:** Shared Sidebar
+- **Platform Feature PF-02:** Shared Search Component
+
+## Sprint 5 — Knowledge Ecosystem
+
+### Completed
+
+- **Feature 01:** Notes Module MVP
+
 See [Roadmap](ROADMAP.md) for product phases beyond this sprint.

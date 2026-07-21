@@ -47,14 +47,13 @@ function includeExistingEntryCategories() {
 
 function renderCategoryOptions(selectedCategory = "") {
 
-	knowledgeCategory.innerHTML = "";
+	knowledgeCategory.replaceChildren();
 
 	knowledgeCategories.forEach(category => {
 
-		const option = document.createElement("option");
+		const option = createTextElement("option", category);
 
 		option.value = category;
-		option.textContent = category;
 		knowledgeCategory.appendChild(option);
 
 	});
@@ -111,32 +110,34 @@ renderCategoryOptions();
 
 function createKnowledgeCard(entry) {
 
-	const card = document.createElement("article");
-	const header = document.createElement("div");
-	const title = document.createElement("h3");
-	const category = document.createElement("span");
-	const summary = document.createElement("p");
-	const createdAt = document.createElement("small");
-	const actions = document.createElement("div");
-	const editButton = document.createElement("button");
-	const deleteButton = document.createElement("button");
+	const card = createElement("article", "knowledge-card");
+	const header = createElement("div", "knowledge-card__header");
+	const title = createTextElement("h3", entry.title);
+	const category = createTextElement(
+		"span",
+		entry.category,
+		"knowledge-card__category"
+	);
+	const summary = createTextElement("p", entry.summary);
+	const createdAt = createTextElement(
+		"small",
+		`Створено: ${new Date(entry.createdAt).toLocaleDateString("uk-UA")}`,
+		"knowledge-card__date"
+	);
+	const actions = createElement("div", "knowledge-card__actions");
+	const editButton = createTextElement(
+		"button",
+		"Редагувати",
+		"btn-primary knowledge-card__edit-btn"
+	);
+	const deleteButton = createTextElement(
+		"button",
+		"Видалити",
+		"btn-primary knowledge-card__delete-btn"
+	);
 
-	card.className = "knowledge-card";
-	header.className = "knowledge-card__header";
-	category.className = "knowledge-card__category";
-	createdAt.className = "knowledge-card__date";
-	actions.className = "knowledge-card__actions";
-	editButton.className = "btn-primary knowledge-card__edit-btn";
 	editButton.type = "button";
-	deleteButton.className = "btn-primary knowledge-card__delete-btn";
 	deleteButton.type = "button";
-
-	title.textContent = entry.title;
-	category.textContent = entry.category;
-	summary.textContent = entry.summary;
-	createdAt.textContent = `Створено: ${new Date(entry.createdAt).toLocaleDateString("uk-UA")}`;
-	editButton.textContent = "Редагувати";
-	deleteButton.textContent = "Видалити";
 
 	editButton.addEventListener("click", () => {
 
@@ -219,28 +220,9 @@ newCategoryName.addEventListener("keydown", event => {
 
 });
 
-function filterKnowledgeEntries(entries) {
-
-	const normalizedQuery = searchQuery.toLowerCase();
-
-	return entries.filter(entry => {
-
-		return [
-			entry.title,
-			entry.category,
-			entry.summary,
-			entry.content
-		].some(value =>
-			(value || "").toLowerCase().includes(normalizedQuery)
-		);
-
-	});
-
-}
-
 function renderKnowledgeEntries() {
 
-	knowledgeEntriesList.innerHTML = "";
+	knowledgeEntriesList.replaceChildren();
 
 	if (knowledgeEntries.length === 0) {
 
@@ -252,7 +234,11 @@ function renderKnowledgeEntries() {
 
 	}
 
-	const filteredEntries = filterKnowledgeEntries(knowledgeEntries);
+	const filteredEntries = filterCollection(
+		knowledgeEntries,
+		["title", "category", "summary", "content"],
+		searchQuery
+	);
 
 	knowledgeSearch.classList.remove("hidden");
 	knowledgeEmptyState.classList.add("hidden");
@@ -260,10 +246,11 @@ function renderKnowledgeEntries() {
 
 	if (filteredEntries.length === 0) {
 
-		const noResults = document.createElement("p");
-
-		noResults.className = "knowledge-entries__empty";
-		noResults.textContent = "Записів не знайдено.";
+		const noResults = createTextElement(
+			"p",
+			"Записів не знайдено.",
+			"knowledge-entries__empty"
+		);
 		knowledgeEntriesList.appendChild(noResults);
 
 		return;

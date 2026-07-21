@@ -41,16 +41,15 @@ let searchQuery = "";
 
 function filterProjects(projects) {
 
-	return projects.filter(project => {
+	const matchingProjects = filterCollection(projects, ["name"], searchQuery);
+
+	return matchingProjects.filter(project => {
 
 		const projectStatus = project.status || PROJECT_STATUSES[0];
 		const matchesStatus =
 			selectedStatus === "Усі" || projectStatus === selectedStatus;
-		const matchesSearch = project.name
-			.toLowerCase()
-			.includes(searchQuery.toLowerCase());
 
-		return matchesStatus && matchesSearch;
+		return matchesStatus;
 
 	});
 
@@ -62,14 +61,15 @@ function filterProjects(projects) {
 
 function renderProjects() {
 
-	projectsList.innerHTML = "";
+	projectsList.replaceChildren();
 
 	const filteredProjects = filterProjects(projects);
 
 	if (filteredProjects.length === 0) {
 
-		projectsList.innerHTML =
-			'<p class="projects-list__empty">Проєкти не знайдено.</p>';
+		projectsList.appendChild(
+			createTextElement("p", "Проєкти не знайдено.", "projects-list__empty")
+		);
 
 		return;
 
@@ -80,15 +80,13 @@ function renderProjects() {
 		const projectStatus = project.status || PROJECT_STATUSES[0];
 		const projectProgress = Number(project.progress) || 0;
 
-		const card = document.createElement("div");
-
-		card.className = "project-card";
+		const card = createElement("div", "project-card");
 
 		card.innerHTML = `
 
     <div class="project-card__header">
 
-        <h3>${project.name}</h3>
+        <h3 class="project-card__title"></h3>
 
         <select
             class="project-status ${getProjectStatusClass(projectStatus)}"
@@ -102,19 +100,11 @@ function renderProjects() {
 
     </div>
 
-    <p>
-
-        ${project.description}
-
-    </p>
+    <p class="project-card__description"></p>
 
     <div class="project-card__footer">
 
-        <small>
-
-            Створено: ${project.createdAt}
-
-        </small>
+        <small class="project-card__date"></small>
 
     </div>
 
@@ -153,6 +143,10 @@ function renderProjects() {
 
 `;
 
+		setText(card.querySelector(".project-card__title"), project.name);
+		setText(card.querySelector(".project-card__description"), project.description);
+		setText(card.querySelector(".project-card__date"), `Створено: ${project.createdAt}`);
+
 		const statusSelect = card.querySelector(".project-status");
 
 		statusSelect.addEventListener("change", () => {
@@ -182,11 +176,13 @@ function renderProjects() {
 
 		});
 
-		const editProjectBtn = document.createElement("button");
+		const editProjectBtn = createTextElement(
+			"button",
+			"Редагувати",
+			"btn-primary project-card__edit-btn"
+		);
 
-		editProjectBtn.className = "btn-primary project-card__edit-btn";
 		editProjectBtn.type = "button";
-		editProjectBtn.textContent = "Редагувати";
 
 		editProjectBtn.addEventListener("click", () => {
 
@@ -194,11 +190,13 @@ function renderProjects() {
 
 		});
 
-		const deleteProjectBtn = document.createElement("button");
+		const deleteProjectBtn = createTextElement(
+			"button",
+			"Видалити",
+			"btn-primary project-card__delete-btn"
+		);
 
-		deleteProjectBtn.className = "btn-primary project-card__delete-btn";
 		deleteProjectBtn.type = "button";
-		deleteProjectBtn.textContent = "Видалити";
 
 		deleteProjectBtn.addEventListener("click", () => {
 

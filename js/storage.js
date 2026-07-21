@@ -1,28 +1,24 @@
 function saveProjects(projects) {
 
-	localStorage.setItem("projects", JSON.stringify(projects));
+	setStorageItem("projects", projects);
 
 }
 
 function loadProjects() {
 
-	const data = localStorage.getItem("projects");
-
-	return data ? JSON.parse(data) : [];
+	return getStorageItem("projects", []);
 
 }
 
 function saveKnowledgeEntries(entries) {
 
-	localStorage.setItem("knowledgeEntries", JSON.stringify(entries));
+	setStorageItem("knowledgeEntries", entries);
 
 }
 
 function loadKnowledgeEntries() {
 
-	const data = localStorage.getItem("knowledgeEntries");
-
-	return data ? JSON.parse(data) : [];
+	return getStorageItem("knowledgeEntries", []);
 
 }
 
@@ -37,20 +33,32 @@ const DEFAULT_KNOWLEDGE_CATEGORIES = [
 
 function saveKnowledgeCategories(categories) {
 
-	localStorage.setItem("knowledgeCategories", JSON.stringify(categories));
+	setStorageItem("knowledgeCategories", categories);
 
 }
 
 function loadKnowledgeCategories() {
 
-	const data = localStorage.getItem("knowledgeCategories");
+	const categories = getStorageItem("knowledgeCategories", null);
 
-	if (data !== null) return JSON.parse(data);
+	if (categories !== null) return categories;
 
-	const categories = [...DEFAULT_KNOWLEDGE_CATEGORIES];
+	const defaultCategories = [...DEFAULT_KNOWLEDGE_CATEGORIES];
 
-	saveKnowledgeCategories(categories);
+	saveKnowledgeCategories(defaultCategories);
 
-	return categories;
+	return defaultCategories;
+
+}
+
+function saveNotes(notes) {
+
+	setStorageItem("notes", notes);
+
+}
+
+function loadNotes() {
+
+	return getStorageItem("notes", []);
 
 }
