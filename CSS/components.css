@@ -90,6 +90,154 @@
 
 }
 
+.knowledge-form{
+
+    display:grid;
+
+    gap:var(--space-24);
+
+    margin-bottom:var(--space-48);
+
+    padding:var(--space-24);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    background:var(--surface);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.knowledge-form.hidden{
+
+    display:none;
+
+}
+
+.form-group{
+
+    display:grid;
+
+    gap:var(--space-8);
+
+}
+
+.form-group label{
+
+    font-weight:600;
+
+}
+
+.form-group input,
+.form-group textarea{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-sm);
+
+    background:var(--surface);
+
+    color:var(--text);
+
+    font:inherit;
+
+}
+
+.form-group textarea{
+
+    resize:vertical;
+
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+
+    outline:2px solid var(--primary);
+
+    outline-offset:2px;
+
+}
+
+.knowledge-entries{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+
+    gap:var(--space-24);
+
+}
+
+.knowledge-entries.hidden{
+
+    display:none;
+
+}
+
+.knowledge-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:var(--space-16);
+
+    padding:var(--space-24);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    background:var(--surface);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.knowledge-card__header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:var(--space-16);
+
+}
+
+.knowledge-card__category{
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    background:var(--border);
+
+    color:var(--text-secondary);
+
+    font-size:var(--font-small);
+
+    font-weight:600;
+
+}
+
+.knowledge-card__date{
+
+    margin-top:auto;
+
+    color:var(--text-secondary);
+
+    font-size:var(--font-small);
+
+}
+
 /* ====================================================== */
 /*                   PROJECT CARD                         */
 /* ====================================================== */

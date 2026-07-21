@@ -52,15 +52,63 @@
 
 					</div>
 
+					<button class="btn-primary" type="button" data-action="new-entry">
+
+						+ Створити запис
+
+					</button>
+
 				</header>
 
-				<section class="knowledge-empty-state">
+				<form class="knowledge-form hidden" id="knowledgeEntryForm">
+
+					<h2>Новий запис</h2>
+
+					<div class="form-group">
+
+						<label for="knowledgeTitle">Назва</label>
+
+						<input type="text" id="knowledgeTitle" required>
+
+					</div>
+
+					<div class="form-group">
+
+						<label for="knowledgeCategory">Категорія</label>
+
+						<input type="text" id="knowledgeCategory" required>
+
+					</div>
+
+					<div class="form-group">
+
+						<label for="knowledgeSummary">Короткий опис</label>
+
+						<textarea id="knowledgeSummary" rows="3" required></textarea>
+
+					</div>
+
+					<div class="form-group">
+
+						<label for="knowledgeContent">Вміст</label>
+
+						<textarea id="knowledgeContent" rows="8" required></textarea>
+
+					</div>
+
+					<button class="btn-primary" type="submit">Зберегти запис</button>
+
+				</form>
+
+				<section class="knowledge-entries hidden" id="knowledgeEntriesList" aria-live="polite"></section>
+
+				<section class="knowledge-empty-state" id="knowledgeEmptyState">
 
 					<div class="knowledge-empty-state__content">
 
 						<h2>Знань поки що немає.</h2>
 
-						<button class="btn-primary" type="button" disabled>
+						<button class="btn-primary" type="button" data-action="new-entry">
 
 							Створити запис
 
@@ -73,6 +121,9 @@
 			</main>
 
 		</div>
+
+		<script src="js/storage.js"></script>
+		<script src="js/knowledge-base.js"></script>
 
 	</body>
 
