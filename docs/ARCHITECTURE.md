@@ -19,6 +19,7 @@ Management-OS/
 ├── sop-executions.html     # Active SOP sessions and immutable execution history
 ├── review.html             # Pending and completed Execution Reviews
 ├── insights.html           # Read-only deterministic operational patterns
+├── hypotheses.html         # Explainable possible interpretations of Insights
 ├── projects.html           # Legacy portfolio-page prototype
 ├── css/                    # Design tokens, layout, components, utilities
 ├── js/                     # Layout, platform utilities, storage, and page behavior
@@ -35,6 +36,7 @@ Management-OS/
 - `sop-executions.html` guides active SOP sessions and presents execution history.
 - `review.html` captures lightweight reflection after completed Executions.
 - `insights.html` presents deterministic aggregates across existing domains.
+- `hypotheses.html` presents evidence-based explanations without proposed actions.
 - `projects.html` is a legacy prototype and is not the active Portfolio page.
 - `analytics.html`, `calendar.html`, `knowledge.html`, `reviews.html`, `settings.html`, and `tasks.html` are currently placeholders. `reviews.html` is legacy; the active Review Layer is `review.html`.
 
@@ -66,6 +68,8 @@ See [Design System](DESIGN_SYSTEM.md) for UI conventions.
 - `js/sop-execution.js` owns SOP execution state, transitions, progress, and history rendering.
 - `js/review.js` owns Review creation, pending Review discovery, search, and rendering.
 - `js/insights.js` owns read-only aggregation, calculations, search orchestration, and Insights rendering.
+- `js/learning-analysis.js` owns pure deterministic Learning Layer aggregation without storage or DOM access.
+- `js/hypotheses.js` owns deterministic hypothesis rules, confidence, limitations, search, and rendering.
 - `js/app.js` owns Dashboard statistics and attention rendering.
 
 ## Platform utilities
@@ -83,8 +87,8 @@ or UI behavior. `js/storage.js` remains the public domain boundary and delegates
 these primitives.
 
 `loadInsightsSourceCollections()` composes existing read helpers into a read-only
-source snapshot for the Insights module. It introduces no storage key, cached
-metric, or write path; all calculations remain owned by `js/insights.js`.
+source snapshot for Learning Layer consumers. It introduces no storage key, cached
+metric, or write path. Pure calculations are owned by `js/learning-analysis.js`.
 
 `js/render-utils.js` provides `createElement(tag, className)`,
 `createTextElement(tag, text, className)`, and `setText(element, text)`. These
@@ -260,9 +264,9 @@ SOP recommendations are outside the current Learning Layer.
 ### Insights foundation
 
 `js/insights.js` provides the first observational Insights layer. It reads current
-domain collections, calculates deterministic aggregates, and renders them through
-`render-utils.js`. It does not own CRUD, workflow behavior, or source-data
-mutation.
+domain collections, delegates deterministic aggregation to `js/learning-analysis.js`,
+and renders results through `render-utils.js`. It does not own CRUD, workflow
+behavior, or source-data mutation.
 
 Initial Insights cover:
 
@@ -285,6 +289,34 @@ interface changes, or optimization.
 The calculated metrics may later become read-only inputs for the Recommendations
 Center, Adaptive Workspace, or AI Assistant. Those future consumers must preserve
 their own approval and mutation boundaries and are not implemented here.
+
+### Hypotheses foundation
+
+`js/hypotheses.js` consumes the same deterministic analysis as Insights and applies
+an explicit, feature-owned rule set. It formulates possible explanations only when
+documented evidence thresholds are met.
+
+Each runtime Hypothesis preserves:
+
+- its type, subject, and cautious statement;
+- structured supporting Evidence;
+- deterministic confidence level and confidence basis;
+- evidence limitations;
+- originating source modules.
+
+Hypotheses are recalculated on page load and are not persisted. The module has no
+storage write path, entity CRUD, workflow behavior, Recommendation actions, or AI
+dependency. An empty result is valid when the available evidence does not meet a
+rule threshold.
+
+`js/learning-analysis.js` is a Learning Layer domain service, not a Platform
+Utility. It is shared by Insights and Hypotheses because both require identical
+facts, but it contains no hypothesis language or rule evaluation. This prevents
+page-DOM coupling and duplicated metric logic.
+
+The Hypotheses layer preserves the Learning Decision Pipeline: Recommendations may
+later reference a Hypothesis, but Hypotheses cannot create proposed actions or
+bypass User Approval.
 
 ### Future Recommendations Center boundary
 
@@ -340,6 +372,7 @@ outside the permitted architecture.
 - **Execution:** run SOP snapshots and preserve historical evidence without modifying definitions.
 - **Review:** capture structured operational learning without modifying source domains.
 - **Insights:** expose deterministic patterns across existing operational evidence.
+- **Hypotheses:** formulate explainable possible interpretations while preserving Evidence.
 - **Workflow:** coordinate explicit transitions and relationships between modules.
 - **Storage:** keep domain storage helpers stable while shared utilities isolate
   `localStorage` reads, JSON parsing, and serialization.

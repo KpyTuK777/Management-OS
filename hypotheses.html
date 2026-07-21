@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Гіпотези — Management OS</title>
+		<link rel="stylesheet" href="CSS/style.css">
+	</head>
+
+	<body>
+		<div class="app">
+			<aside class="sidebar" id="sidebar"></aside>
+
+			<main id="hypothesesPage">
+				<header class="page-header">
+					<div>
+						<h1>Гіпотези</h1>
+						<p>Можливі пояснення закономірностей у вашій роботі.</p>
+					</div>
+				</header>
+
+				<section class="hypotheses-boundary" aria-label="Межі гіпотез">
+					<strong>Пояснення, а не рекомендації</strong>
+					<p>Гіпотези описують можливі причини, не пропонують дій і не змінюють робочий простір.</p>
+				</section>
+
+				<section class="hypotheses-coverage" aria-labelledby="hypothesesCoverageTitle">
+					<div class="section-header">
+						<h2 id="hypothesesCoverageTitle">Покриття доказів</h2>
+						<span>Контекст для оцінки репрезентативності</span>
+					</div>
+					<div class="hypotheses-coverage__grid" id="hypothesesCoverage"></div>
+				</section>
+
+				<section class="project-filters hypotheses-search" aria-label="Пошук гіпотез">
+					<label class="project-filter" for="hypothesesSearchInput">
+						<span>Пошук</span>
+						<input type="search" id="hypothesesSearchInput" placeholder="Пошук гіпотез...">
+					</label>
+				</section>
+
+				<div class="hypotheses-sections" id="hypothesesSections" aria-live="polite"></div>
+				<section class="hypotheses-empty-state hidden" id="hypothesesEmptyState">
+					<h2>Доказів поки недостатньо для формування гіпотез.</h2>
+					<p>Нові виконання та огляди поступово зроблять можливі закономірності видимими.</p>
+				</section>
+			</main>
+		</div>
+
+		<script src="js/sidebar.js"></script>
+		<script src="js/search.js"></script>
+		<script src="js/render-utils.js"></script>
+		<script src="js/storage-utils.js"></script>
+		<script src="js/storage.js"></script>
+		<script src="js/learning-analysis.js"></script>
+		<script src="js/hypotheses.js"></script>
+	</body>
+
+</html>

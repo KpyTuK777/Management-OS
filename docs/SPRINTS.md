@@ -37,5 +37,6 @@
 
 - **Feature 01:** Execution Review — Learning Layer Foundation
 - **Feature 02:** Insights Foundation
+- **Feature 03:** Hypotheses Foundation
 
 See [Roadmap](ROADMAP.md) for product phases beyond this sprint.

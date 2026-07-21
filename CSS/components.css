@@ -1871,3 +1871,327 @@
     text-align:center;
 
 }
+
+/* ====================================================== */
+/*                      HYPOTHESES                        */
+/* ====================================================== */
+
+.hypotheses-boundary{
+
+    display:grid;
+
+    gap:var(--space-8);
+
+    margin-bottom:var(--space-48);
+
+    padding:var(--space-16) var(--space-24);
+
+    border-left:4px solid var(--warning);
+
+    border-radius:var(--radius-sm);
+
+    background:var(--surface);
+
+}
+
+.hypotheses-coverage{
+
+    display:grid;
+
+    gap:var(--space-24);
+
+    margin-bottom:var(--space-48);
+
+}
+
+.hypotheses-coverage .section-header,
+.hypotheses-group .section-header{
+
+    margin-bottom:0;
+
+}
+
+.hypotheses-coverage .section-header > span,
+.hypotheses-group__count{
+
+    color:var(--text-secondary);
+
+    font-size:var(--font-small);
+
+}
+
+.hypotheses-coverage__grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4, minmax(0, 1fr));
+
+    gap:var(--space-16);
+
+}
+
+.hypotheses-coverage-card{
+
+    display:grid;
+
+    gap:var(--space-8);
+
+    padding:var(--space-16);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    background:var(--surface);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.hypotheses-coverage-card span{
+
+    color:var(--text-secondary);
+
+    font-size:var(--font-small);
+
+}
+
+.hypotheses-coverage-card strong{
+
+    font-size:var(--font-md);
+
+}
+
+.project-filters.hypotheses-search{
+
+    grid-template-columns:1fr;
+
+    margin-bottom:var(--space-48);
+
+}
+
+.hypotheses-sections,
+.hypotheses-group{
+
+    display:grid;
+
+    gap:var(--space-24);
+
+}
+
+.hypotheses-sections{
+
+    gap:var(--space-48);
+
+}
+
+.hypotheses-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit, minmax(340px, 1fr));
+
+    gap:var(--space-24);
+
+}
+
+.hypothesis-card{
+
+    display:grid;
+
+    align-content:start;
+
+    gap:var(--space-16);
+
+    padding:var(--space-24);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    background:var(--surface);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.hypothesis-card__header{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    justify-content:space-between;
+
+    gap:var(--space-16);
+
+}
+
+.hypothesis-card__confidence{
+
+    flex:0 0 auto;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    font-size:var(--font-small);
+
+    font-weight:600;
+
+}
+
+.hypothesis-card__confidence--low{
+
+    background:var(--border);
+
+    color:var(--text-secondary);
+
+}
+
+.hypothesis-card__confidence--medium{
+
+    background:#FEF3C7;
+
+    color:#B45309;
+
+}
+
+.hypothesis-card__confidence--high{
+
+    background:#DCFCE7;
+
+    color:#15803D;
+
+}
+
+.hypothesis-card__explanation{
+
+    color:var(--text);
+
+}
+
+.hypothesis-card__evidence{
+
+    display:grid;
+
+    grid-template-columns:minmax(0, 1fr) auto;
+
+    gap:var(--space-8) var(--space-16);
+
+    padding:var(--space-16);
+
+    border-radius:var(--radius-sm);
+
+    background:var(--background);
+
+    font-size:var(--font-small);
+
+}
+
+.hypothesis-card__evidence dt{
+
+    color:var(--text-secondary);
+
+}
+
+.hypothesis-card__evidence dd{
+
+    font-weight:600;
+
+    text-align:right;
+
+}
+
+.hypothesis-card__context{
+
+    display:grid;
+
+    gap:var(--space-8);
+
+    padding-top:var(--space-16);
+
+    border-top:1px solid var(--border);
+
+}
+
+.hypothesis-card__context h4,
+.hypothesis-card > h4{
+
+    font-size:var(--font-base);
+
+}
+
+.hypothesis-card__context p{
+
+    font-size:var(--font-small);
+
+}
+
+.hypothesis-card__sources{
+
+    color:var(--text-secondary);
+
+}
+
+.hypothesis-card__boundary{
+
+    color:var(--primary);
+
+    font-size:var(--font-small);
+
+}
+
+.hypotheses-empty-state,
+.hypotheses-search-empty{
+
+    padding:var(--space-48);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    background:var(--surface);
+
+    text-align:center;
+
+}
+
+.hypotheses-empty-state.hidden{
+
+    display:none;
+
+}
+
+.hypotheses-empty-state p{
+
+    margin-top:var(--space-8);
+
+}
+
+@media (max-width:1000px){
+
+    .hypotheses-coverage__grid{
+
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+
+    }
+
+}
+
+@media (max-width:650px){
+
+    .hypotheses-coverage__grid,
+    .hypotheses-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .hypothesis-card__header{
+
+        flex-direction:column;
+
+    }
+
+}

@@ -29,6 +29,10 @@ conversion rates, distributions, repeated phrases, duration, and execution
 frequency. Future Analytics may add time windows and comparisons, but observation
 must remain separate from recommendations.
 
+The Hypotheses Foundation now adds deterministic, evidence-preserving possible
+explanations after Insights. It introduces no actions or AI. The next future
+Learning Layer boundary remains Recommendations with explicit User Approval.
+
 ## Phase 6 — Optimization
 
 Improve the system through AI, automation, integrations, performance work, UX improvements, and refactoring.

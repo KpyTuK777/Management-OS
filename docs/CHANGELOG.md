@@ -44,3 +44,7 @@
 - Added Execution and Review statistics, distributions, and repeated-pattern visibility.
 - Added Notes and Knowledge conversion metrics plus SOP usage statistics.
 - Added real-time Insight-card search without introducing stored Insights or recommendations.
+- Extracted deterministic Learning Layer calculations into a shared domain analysis module.
+- Added runtime-only, evidence-preserving Hypotheses with confidence and limitations.
+- Added deterministic hypothesis rules for Review, execution, SOP usage, and Information Lifecycle patterns.
+- Kept Hypotheses read-only and separate from Recommendations, AI, and workspace changes.

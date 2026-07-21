@@ -51,6 +51,13 @@ Management OS is organized as a collection of business systems. Each system has 
 - **Future responsibilities:** Additional time-based comparisons and reliable inputs for user-controlled Recommendations, Adaptive Workspace, and AI Assistant capabilities.
 - **Boundary:** Insights never modify entities, recommend actions, clean data, optimize automatically, or change workspace layout.
 
+## Hypotheses
+
+- **Purpose:** Formulate possible explanations for deterministic Insights while preserving their Evidence.
+- **Current status:** Runtime-only recurring-pattern, outcome, coverage, SOP-usage, and Information Lifecycle hypotheses are implemented in `hypotheses.html`.
+- **Future responsibilities:** Provide traceable inputs to the user-controlled Recommendations Center after separate approval.
+- **Boundary:** Hypotheses never persist interpretations, propose actions, modify data, optimize the workspace, or invoke AI.
+
 ## Analytics
 
 - **Purpose:** Explain operational change and trends.

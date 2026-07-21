@@ -139,6 +139,18 @@ This separation ensures that future Recommendations Center, Adaptive Workspace,
 and AI Assistant capabilities begin with visible evidence rather than hidden
 interpretation. Those future systems are not part of the Insights Foundation.
 
+### Explainable hypotheses
+
+The Hypotheses layer adds possible explanations after deterministic Insights. A
+Hypothesis answers **What might this pattern mean?** without answering **What should
+change?**
+
+Every Hypothesis preserves its supporting Evidence, confidence basis, and
+limitations. Confidence describes evidence strength rather than certainty.
+Hypotheses are not stored decisions, contain no proposed action, and cannot modify
+the workspace. Recommendations remain a separate future stage that must preserve
+the supporting Hypothesis and wait for User Approval.
+
 ## User value
 
 Users gain a focused daily workspace, a reliable view of active projects, less fragmented information, and a foundation for better operational decisions.

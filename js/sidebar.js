@@ -37,6 +37,11 @@ const Layout = (() => {
 			pages: ["insights.html"]
 		},
 		{
+			label: "Гіпотези",
+			href: "hypotheses.html",
+			pages: ["hypotheses.html"]
+		},
+		{
 			label: "Навички",
 			href: "#",
 			pages: []

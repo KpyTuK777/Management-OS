@@ -169,3 +169,36 @@ Current deterministic definitions include:
 - a repeated blocker or improvement is the same normalized phrase in at least two Reviews.
 
 Derived metrics never update their source records and are not a new source of truth.
+
+## Hypothesis
+
+Hypotheses are derived runtime models and are not stored. No `hypotheses` storage
+key exists.
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | string | Deterministic identity based on the rule and subject. |
+| `type` | string | Stable deterministic rule category. |
+| `group` | string | Presentation group within the Hypotheses page. |
+| `subject` | string | Optional phrase, SOP, or lifecycle stage being interpreted. |
+| `statement` | string | Cautious possible explanation, never a proposed action. |
+| `explanation` | string | Why the Evidence may support the statement. |
+| `evidence` | Array of Evidence Items | Traceable deterministic facts supporting the Hypothesis. |
+| `confidence` | string | `low`, `medium`, or `high`; evidence strength rather than probability. |
+| `confidenceBasis` | string | Explanation of the deterministic confidence assignment. |
+| `limitations` | Array of strings | Missing context, coverage, or ambiguity. |
+| `sourceModules` | Array of strings | Domains that supplied the Evidence. |
+
+### Hypothesis Evidence Item
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `metric` | string | Deterministic measurement being cited. |
+| `observedValue` | number or string | Value observed in current source data. |
+| `comparisonValue` | number, string, or null | Documented rule threshold or baseline. |
+| `sampleSize` | number | Amount of source evidence considered. |
+| `source` | string | Insight or domain source of the measurement. |
+
+Confidence never claims truth or statistical probability. Each Hypothesis type owns
+explicit thresholds, and the rendered model preserves both its Evidence and known
+limitations. Hypotheses do not contain Recommendation actions or approval state.
