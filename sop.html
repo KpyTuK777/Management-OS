@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>SOP — Management OS</title>
+
+		<link rel="stylesheet" href="CSS/style.css">
+	</head>
+
+	<body>
+
+		<div class="app">
+
+			<aside class="sidebar" id="sidebar"></aside>
+
+			<main>
+
+				<header class="page-header">
+
+					<div>
+
+						<h1>SOP</h1>
+
+						<p>Перетворюйте знання на повторювані дії.</p>
+
+					</div>
+
+					<button class="btn-primary" type="button" data-action="new-sop">
+
+						+ Новий SOP
+
+					</button>
+
+				</header>
+
+				<form class="sop-form hidden" id="sopForm">
+
+					<h2 id="sopFormTitle">Новий SOP</h2>
+
+					<section class="sop-source-context hidden" id="sopSourceContext">
+
+						<strong>Джерельне знання</strong>
+
+						<p id="sopSourceContent"></p>
+
+					</section>
+
+					<div class="form-group">
+
+						<label for="sopTitle">Назва</label>
+
+						<input type="text" id="sopTitle" required>
+
+					</div>
+
+					<div class="form-group">
+
+						<label for="sopPurpose">Мета</label>
+
+						<textarea id="sopPurpose" rows="3" required></textarea>
+
+					</div>
+
+					<div class="form-group">
+
+						<label for="sopTrigger">Тригер</label>
+
+						<textarea id="sopTrigger" rows="2" required></textarea>
+
+					</div>
+
+					<div class="form-group">
+
+						<span class="form-group__label">Послідовні кроки</span>
+
+						<div class="sop-items" id="sopSteps"></div>
+
+						<button class="btn-secondary sop-add-item" type="button" id="addSopStepBtn">
+
+							+ Додати крок
+
+						</button>
+
+					</div>
+
+					<div class="form-group">
+
+						<span class="form-group__label">Чекліст</span>
+
+						<div class="sop-items" id="sopChecklist"></div>
+
+						<button class="btn-secondary sop-add-item" type="button" id="addSopChecklistBtn">
+
+							+ Додати пункт
+
+						</button>
+
+					</div>
+
+					<button class="btn-primary" type="submit" id="sopSubmitBtn">
+
+						Зберегти SOP
+
+					</button>
+
+				</form>
+
+				<section class="project-filters sop-search hidden" id="sopSearch" aria-label="Пошук SOP">
+
+					<label class="project-filter" for="sopSearchInput">
+
+						<span>Пошук</span>
+
+						<input type="search" id="sopSearchInput" placeholder="Пошук SOP...">
+
+					</label>
+
+				</section>
+
+				<section class="sop-list hidden" id="sopList" aria-live="polite"></section>
+
+				<section class="sop-empty-state" id="sopEmptyState">
+
+					<div class="sop-empty-state__content">
+
+						<h2>Процедур поки немає.</h2>
+
+						<p>Створіть перший SOP, щоб перетворити знання на повторюваний процес.</p>
+
+						<button class="btn-primary" type="button" data-action="new-sop">
+
+							Створити SOP
+
+						</button>
+
+					</div>
+
+				</section>
+
+			</main>
+
+		</div>
+
+		<script src="js/sidebar.js"></script>
+		<script src="js/search.js"></script>
+		<script src="js/render-utils.js"></script>
+		<script src="js/storage-utils.js"></script>
+		<script src="js/storage.js"></script>
+		<script src="js/knowledge-sop-flow.js"></script>
+		<script src="js/sop.js"></script>
+
+	</body>
+
+</html>

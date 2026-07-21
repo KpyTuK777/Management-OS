@@ -17,8 +17,20 @@ Management OS is organized as a collection of business systems. Each system has 
 ## Knowledge Base
 
 - **Purpose:** Act as the user's reusable second brain.
-- **Current status:** Placeholder page.
-- **Future responsibilities:** Notes, methods, practice, tags, search, and links between knowledge items.
+- **Current status:** CRUD, categories, search, Notes provenance, and Knowledge → SOP conversion are implemented.
+- **Future responsibilities:** Keywords, richer relationships, quality review, and SOP recommendations.
+
+## Notes
+
+- **Purpose:** Provide a friction-free Inbox for quick capture.
+- **Current status:** CRUD, search, and Notes → Knowledge conversion are implemented.
+- **Future responsibilities:** Capture assistance, lifecycle states, and history.
+
+## SOP
+
+- **Purpose:** Define repeatable actions that operationalize structured knowledge.
+- **Current status:** CRUD, search, ordered steps, checklist definition, Knowledge conversion, and bidirectional navigation are implemented.
+- **Future responsibilities:** Execution instances, completion history, approvals, versioning, and improvement feedback.
 
 ## Review Center
 

@@ -2,7 +2,9 @@
 
 ## Overview
 
-Management OS is a static, client-side web application. It has no build system, server, API, or external database. Browser `localStorage` persists Portfolio data.
+Management OS is a static, client-side web application. It has no build system,
+server, API, or external database. Browser `localStorage` persists domain
+collections including Projects, Notes, Knowledge, Categories, and SOPs.
 
 ## Project structure
 
@@ -11,6 +13,8 @@ Management-OS/
 ├── index.html              # Static Home dashboard
 ├── portfolio.html          # Functional Portfolio page
 ├── notes.html              # Notes Inbox for quick capture
+├── knowledge-base.html     # Functional Knowledge Base page
+├── sop.html                # SOP definitions and Knowledge workflow target
 ├── projects.html           # Legacy portfolio-page prototype
 ├── css/                    # Design tokens, layout, components, utilities
 ├── js/                     # Layout, platform utilities, storage, and page behavior
@@ -22,6 +26,8 @@ Management-OS/
 - `index.html` is the static Home dashboard.
 - `portfolio.html` is the active Portfolio implementation.
 - `notes.html` is the Notes Inbox for quick capture and later organization.
+- `knowledge-base.html` is the active Knowledge Base implementation.
+- `sop.html` manages repeatable procedure definitions.
 - `projects.html` is a legacy prototype and is not the active Portfolio page.
 - `analytics.html`, `calendar.html`, `knowledge.html`, `reviews.html`, `settings.html`, and `tasks.html` are currently placeholders.
 
@@ -44,10 +50,13 @@ See [Design System](DESIGN_SYSTEM.md) for UI conventions.
 - `js/render-utils.js` exposes small, safe DOM creation and text-assignment helpers.
 - `js/storage-utils.js` owns generic JSON reads and writes for browser storage.
 - `js/storage.js` exposes domain-specific helpers for Projects, Knowledge Entries,
-  Knowledge Entries, Knowledge Categories, and Notes.
+  Knowledge Categories, Notes, and SOPs.
 - `js/portfolio.js` owns Portfolio rendering and project create, edit, and delete actions.
 - `js/notes.js` owns Notes CRUD, search orchestration, and rendering.
-- `js/app.js` is currently empty.
+- `js/note-knowledge-flow.js` coordinates the Notes → Knowledge workflow.
+- `js/knowledge-sop-flow.js` coordinates the Knowledge → SOP workflow.
+- `js/sop.js` owns SOP CRUD, search orchestration, ordered fields, and rendering.
+- `js/app.js` owns Dashboard statistics and attention rendering.
 
 ## Platform utilities
 
@@ -69,11 +78,41 @@ helpers create DOM elements and assign dynamic text through `textContent`. They 
 not contain feature logic, styling decisions, event binding, templates, or render
 orchestration; those responsibilities remain in feature modules.
 
-Portfolio, Knowledge Base, and Notes provide their own collections, searchable
+Portfolio, Knowledge Base, Notes, and SOP provide their own collections, searchable
 fields, and queries. Their page modules continue to own input events, additional
 filters, empty states, and rendering. Future shared CRUD and Categories utilities
 should follow the same separation: generic behavior belongs in a Platform Utility,
 while domain rules remain in page modules.
+
+## Workflow layer
+
+The Workflow layer coordinates domain transitions that span feature modules without
+moving domain CRUD or rendering into Platform Utilities. `js/note-knowledge-flow.js`
+is the first workflow coordinator.
+
+The Notes → Knowledge coordinator:
+
+- stores a source Note ID temporarily in `sessionStorage`;
+- consumes and clears that context when Knowledge Base initializes;
+- validates that the Note exists and has no `knowledgeEntryId`;
+- maps Note title and content into the Knowledge Entry form;
+- links the saved records through `sourceNoteId` and `knowledgeEntryId`;
+- leaves the Note visible and does not alter its content timestamps.
+
+`notes.js` initiates the workflow and continues to own Notes UI. `knowledge-base.js`
+owns the Knowledge form, persistence, and result rendering. The coordinator is
+domain-specific and must not become a generic workflow engine until additional
+cross-module workflows establish a stable shared contract.
+
+`js/knowledge-sop-flow.js` follows the same explicit coordinator boundary for the
+Knowledge → SOP transition. It consumes temporary `sessionStorage` context,
+validates and maps the source Knowledge Entry, creates the provenance relationship,
+and resolves linked records for navigation. SOP CRUD, ordered-field controls,
+search, rendering, and fragment presentation remain in `js/sop.js`.
+
+The two coordinators intentionally remain separate. Their lifecycle shape is
+similar, but their domain mappings and approval requirements differ. No generic
+workflow or relationship engine is introduced.
 
 ## Layout layer
 
@@ -117,11 +156,19 @@ Notes load through `loadNotes()` and persist through `saveNotes()` under the
 and rendering while delegating shared search, storage, and safe DOM operations to
 Platform Utilities.
 
+SOP definitions load through `loadSops()` and persist through `saveSops()` under
+the `sops` key. `sop.js` owns the collection and UI behavior, while
+`knowledge-sop-flow.js` links `KnowledgeEntry.sopId` with
+`SOP.sourceKnowledgeEntryId`. Fragment navigation presents related cards without a
+router or global state.
+
 ## Module responsibilities
 
 - **Home:** present today-focused, static dashboard information.
 - **Portfolio:** manage the browser-stored project collection.
 - **Notes:** provide a friction-free Inbox for capturing ideas before organization.
+- **SOP:** turn structured knowledge into independently editable procedures.
+- **Workflow:** coordinate explicit transitions and relationships between modules.
 - **Storage:** keep domain storage helpers stable while shared utilities isolate
   `localStorage` reads, JSON parsing, and serialization.
 - **Layout:** render reusable application-shell components from shared modules.

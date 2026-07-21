@@ -62,3 +62,15 @@ function loadNotes() {
 	return getStorageItem("notes", []);
 
 }
+
+function saveSops(sops) {
+
+	setStorageItem("sops", sops);
+
+}
+
+function loadSops() {
+
+	return getStorageItem("sops", []);
+
+}

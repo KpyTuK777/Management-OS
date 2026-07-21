@@ -31,6 +31,16 @@ The long-term product vision is to help information mature through a deliberate 
 
 Notes provide the friction-free capture point. Later stages progressively add structure, operational reuse, action, reflection, and improvement. This lifecycle describes product direction rather than functionality that is fully implemented today.
 
+The Notes module remains an Inbox guided by **Capture now. Organize later.**
+Creating Knowledge from a Note records that the Note was added to the Knowledge
+Base, but the Note remains visible. Archive, Done, and History states belong to a
+future lifecycle stage and are not implied by the current workflow.
+
+Knowledge answers **What do I know?** SOP answers **What do I do?** The
+Knowledge → SOP workflow connects those stages while preserving each record as an
+independent source of truth. Procedure execution, review, and adaptive improvement
+remain later stages of the product lifecycle.
+
 ## User value
 
 Users gain a focused daily workspace, a reliable view of active projects, less fragmented information, and a foundation for better operational decisions.

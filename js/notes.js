@@ -24,6 +24,7 @@ function createNoteCard(note) {
 		"notes-card__date"
 	);
 	const actions = createElement("div", "notes-card__actions");
+	let knowledgeState = null;
 	const editButton = createTextElement(
 		"button",
 		"Редагувати",
@@ -37,6 +38,33 @@ function createNoteCard(note) {
 
 	editButton.type = "button";
 	deleteButton.type = "button";
+
+	if (note.knowledgeEntryId) {
+
+		knowledgeState = createTextElement(
+			"span",
+			"Додано до бази знань",
+			"notes-card__knowledge-state"
+		);
+
+	} else {
+
+		const convertButton = createTextElement(
+			"button",
+			"До бази знань",
+			"btn-primary notes-card__knowledge-btn"
+		);
+
+		convertButton.type = "button";
+		convertButton.addEventListener("click", () => {
+
+			startNoteKnowledgeFlow(note.id);
+
+		});
+
+		actions.appendChild(convertButton);
+
+	}
 
 	editButton.addEventListener("click", () => {
 
@@ -58,6 +86,9 @@ function createNoteCard(note) {
 	card.appendChild(title);
 	card.appendChild(content);
 	card.appendChild(createdAt);
+
+	if (knowledgeState) card.appendChild(knowledgeState);
+
 	actions.appendChild(editButton);
 	actions.appendChild(deleteButton);
 	card.appendChild(actions);

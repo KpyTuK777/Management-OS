@@ -10,6 +10,7 @@ const knowledgeCategory = document.getElementById("knowledgeCategory");
 const knowledgeSummary = document.getElementById("knowledgeSummary");
 const knowledgeContent = document.getElementById("knowledgeContent");
 const knowledgeSubmitBtn = document.getElementById("knowledgeSubmitBtn");
+const knowledgeFormTitle = document.getElementById("knowledgeFormTitle");
 const newCategoryBtn = document.getElementById("newCategoryBtn");
 const knowledgeCategoryForm = document.getElementById("knowledgeCategoryForm");
 const newCategoryName = document.getElementById("newCategoryName");
@@ -20,6 +21,7 @@ let knowledgeEntries = loadKnowledgeEntries();
 let knowledgeCategories = loadKnowledgeCategories();
 let editingEntryId = null;
 let searchQuery = "";
+let activeNoteKnowledgeWorkflow = consumeNoteKnowledgeFlow();
 
 function includeExistingEntryCategories() {
 
@@ -125,6 +127,7 @@ function createKnowledgeCard(entry) {
 		"knowledge-card__date"
 	);
 	const actions = createElement("div", "knowledge-card__actions");
+	let sopRelationship = null;
 	const editButton = createTextElement(
 		"button",
 		"Редагувати",
@@ -138,6 +141,53 @@ function createKnowledgeCard(entry) {
 
 	editButton.type = "button";
 	deleteButton.type = "button";
+
+	if (entry.sopId) {
+
+		const relatedSop = getSopForKnowledgeEntry(entry);
+
+		if (relatedSop) {
+
+			sopRelationship = createElement("p", "relationship-row");
+			const label = createTextElement("span", "Створений SOP: ");
+			const link = createTextElement(
+				"a",
+				`${relatedSop.title} →`,
+				"relationship-link"
+			);
+
+			link.href = `sop.html#sop-${relatedSop.id}`;
+			sopRelationship.appendChild(label);
+			sopRelationship.appendChild(link);
+
+		} else {
+
+			sopRelationship = createTextElement(
+				"p",
+				"Пов’язаний SOP недоступний",
+				"relationship-missing"
+			);
+
+		}
+
+	} else {
+
+		const createSopButton = createTextElement(
+			"button",
+			"Створити SOP",
+			"btn-primary knowledge-card__sop-btn"
+		);
+
+		createSopButton.type = "button";
+		createSopButton.addEventListener("click", () => {
+
+			startKnowledgeSopFlow(entry.id);
+
+		});
+
+		actions.appendChild(createSopButton);
+
+	}
 
 	editButton.addEventListener("click", () => {
 
@@ -161,9 +211,14 @@ function createKnowledgeCard(entry) {
 	card.appendChild(header);
 	card.appendChild(summary);
 	card.appendChild(createdAt);
+
+	if (sopRelationship) card.appendChild(sopRelationship);
+
 	actions.appendChild(editButton);
 	actions.appendChild(deleteButton);
 	card.appendChild(actions);
+	card.id = `knowledge-entry-${entry.id}`;
+	card.tabIndex = -1;
 
 	return card;
 
@@ -171,6 +226,7 @@ function createKnowledgeCard(entry) {
 
 function startEditingEntry(entry) {
 
+	activeNoteKnowledgeWorkflow = null;
 	editingEntryId = entry.id;
 
 	knowledgeTitle.value = entry.title;
@@ -178,6 +234,7 @@ function startEditingEntry(entry) {
 	knowledgeSummary.value = entry.summary;
 	knowledgeContent.value = entry.content;
 
+	knowledgeFormTitle.textContent = "Редагувати запис";
 	knowledgeSubmitBtn.textContent = "Зберегти зміни";
 	knowledgeEntryForm.classList.remove("hidden");
 	knowledgeTitle.focus();
@@ -188,8 +245,52 @@ function resetKnowledgeForm() {
 
 	knowledgeEntryForm.reset();
 	closeCategoryForm();
+	activeNoteKnowledgeWorkflow = null;
 	editingEntryId = null;
+	knowledgeFormTitle.textContent = "Новий запис";
 	knowledgeSubmitBtn.textContent = "Зберегти запис";
+
+}
+
+function startNoteKnowledgeEntry() {
+
+	if (!activeNoteKnowledgeWorkflow) return;
+
+	knowledgeTitle.value = activeNoteKnowledgeWorkflow.title;
+	knowledgeSummary.value = "";
+	knowledgeContent.value = activeNoteKnowledgeWorkflow.content;
+	knowledgeFormTitle.textContent = "Нове знання з нотатки";
+	knowledgeSubmitBtn.textContent = "Зберегти в базі знань";
+	knowledgeEntryForm.classList.remove("hidden");
+	knowledgeSummary.focus();
+
+}
+
+function presentKnowledgeEntry(entryId) {
+
+	const entryCard = document.getElementById(`knowledge-entry-${entryId}`);
+
+	if (!entryCard) return;
+
+	entryCard.classList.add("knowledge-card--workflow-result");
+	entryCard.scrollIntoView({ behavior: "smooth", block: "center" });
+	entryCard.focus({ preventScroll: true });
+
+	setTimeout(() => {
+
+		entryCard.classList.remove("knowledge-card--workflow-result");
+
+	}, 2500);
+
+}
+
+function presentKnowledgeEntryFromFragment() {
+
+	const prefix = "#knowledge-entry-";
+
+	if (!window.location.hash.startsWith(prefix)) return;
+
+	presentKnowledgeEntry(window.location.hash.slice(prefix.length));
 
 }
 
@@ -296,6 +397,8 @@ knowledgeEntryForm.addEventListener("submit", event => {
 	if (!title || !category || !summary || !content) return;
 
 	const timestamp = new Date().toISOString();
+	let createdEntryId = null;
+	let sourceNoteId = null;
 
 	if (editingEntryId !== null) {
 
@@ -313,7 +416,7 @@ knowledgeEntryForm.addEventListener("submit", event => {
 
 	} else {
 
-		knowledgeEntries.push({
+		const entry = {
 			id: Date.now(),
 			title,
 			category,
@@ -321,15 +424,38 @@ knowledgeEntryForm.addEventListener("submit", event => {
 			content,
 			createdAt: timestamp,
 			updatedAt: timestamp
-		});
+		};
+
+		if (activeNoteKnowledgeWorkflow) {
+
+			entry.sourceNoteId = activeNoteKnowledgeWorkflow.sourceNoteId;
+			sourceNoteId = activeNoteKnowledgeWorkflow.sourceNoteId;
+
+		}
+
+		knowledgeEntries.push(entry);
+		createdEntryId = entry.id;
 
 	}
 
 	saveKnowledgeEntries(knowledgeEntries);
+
+	if (sourceNoteId !== null) {
+
+		completeNoteKnowledgeFlow(sourceNoteId, createdEntryId);
+		searchQuery = "";
+		knowledgeSearchInput.value = "";
+
+	}
+
 	resetKnowledgeForm();
 	knowledgeEntryForm.classList.add("hidden");
 	renderKnowledgeEntries();
 
+	if (sourceNoteId !== null) presentKnowledgeEntry(createdEntryId);
+
 });
 
 renderKnowledgeEntries();
+startNoteKnowledgeEntry();
+presentKnowledgeEntryFromFragment();

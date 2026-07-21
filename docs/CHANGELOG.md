@@ -17,3 +17,9 @@
 - Added the Notes Inbox for quick capture.
 - Added Notes create, edit, delete, and real-time search.
 - Added Notes persistence under the `notes` storage key.
+- Added the Notes → Knowledge Base workflow using temporary session context.
+- Notes and Knowledge Entries now retain links to their source and result records.
+- Converted Notes remain visible with a `Додано до бази знань` indicator.
+- Added the SOP module with create, edit, delete, ordered steps, checklist definition, and real-time search.
+- Added the Knowledge → SOP workflow with bidirectional provenance and fragment navigation.
+- Related Knowledge and SOP cards now handle missing records without modifying stored relationships.
