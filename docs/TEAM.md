@@ -80,42 +80,64 @@ Design Owner.
 ```text
 Idea
   ↓
-Proposal
+Architecture Proposal
+  ↓
+APPROVE
+  ↓
+APPLY
+  ↓
+Implementation
   ↓
 Architecture Review
   ↓
 Product Review
   ↓
-Approval
-  ↓
-Implementation
-  ↓
-Testing
-  ↓
-Final Approval
-  ↓
-Commit
+COMMIT
   ↓
 GitHub
+  ↓
+Architecture Consistency Audit
 ```
 
 ### Workflow responsibilities
 
 1. **Idea:** A product opportunity or problem is identified.
-2. **Proposal:** The intended outcome, scope, constraints, and user experience are documented.
-3. **Architecture Review:** The Product Architect validates system boundaries and long-term compatibility.
-4. **Product Review:** The proposal is evaluated against Product Vision, priorities, and philosophy.
-5. **Approval:** The Product Owner authorizes implementation.
-6. **Implementation:** The Lead Software Engineer implements the approved scope; the Design Owner governs approved UX/UI decisions.
-7. **Testing:** Functionality, regressions, code quality, responsiveness, and relevant design behavior are verified.
-8. **Final Approval:** The Product Owner accepts the completed product outcome after the required reviews.
-9. **Commit:** Approved changes are recorded in version control.
-10. **GitHub:** The commit is published to the shared repository.
+2. **Architecture Proposal:** The intended outcome, scope, constraints, user experience, and architectural boundaries are documented.
+3. **APPROVE:** The appropriate decision owners authorize the documented proposal.
+4. **APPLY:** Explicit implementation authorization is given. Approval of architecture alone is not treated as an instruction to modify the product.
+5. **Implementation:** The Lead Software Engineer implements and tests the approved scope; the Design Owner governs approved UX/UI decisions.
+6. **Architecture Review:** The Product Architect verifies that the implementation preserves the approved boundaries and long-term compatibility.
+7. **Product Review:** The implementation is evaluated against Product Vision, priorities, philosophy, and the approved outcome. This review includes final product acceptance.
+8. **COMMIT:** Reviewed and approved changes are recorded in version control.
+9. **GitHub:** The commit is published to the shared repository.
+10. **Architecture Consistency Audit:** The completed Sprint is checked for consistency between approvals, implementation, and documentation.
+
+Testing remains mandatory during Implementation and before Product Review.
+Functionality, regressions, code quality, responsiveness, and relevant design
+behavior must be verified before the work can be committed.
 
 Implementation must not begin before approval when a task explicitly requests a
 proposal or review first. Material changes to approved product, architecture, or
 design decisions must return to the appropriate owner before implementation
 continues.
+
+## Architecture Consistency Audit
+
+The Architecture Consistency Audit is the final mandatory checkpoint for every
+Sprint. A Sprint is not considered complete until its audit has been performed.
+
+The audit verifies that:
+
+- every approved proposal has been implemented;
+- documentation and implementation remain synchronized;
+- partially implemented features are identified;
+- obsolete approved proposals are explicitly closed rather than forgotten.
+
+The audit has no authority to introduce architecture, redesign approved features,
+or reinterpret Product Philosophy. It verifies implementation consistency only.
+When it identifies missing or partial work, the finding returns to the standard
+ownership and approval process. When an approval is obsolete, the responsible
+owner closes it explicitly instead of leaving it silently unresolved.
 
 ## AI collaboration policy
 

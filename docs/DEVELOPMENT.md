@@ -32,3 +32,45 @@ Use a current version of Chrome, Edge, Firefox, or Safari with JavaScript and `l
 - Snapshot SOP definitions when execution begins; execution history must never depend on mutable SOP content.
 - Use 8px-based spacing and existing CSS variables where applicable.
 - Follow the approval and ownership boundaries in [Team Governance](TEAM.md).
+
+## Architecture Consistency Audit
+
+Every Sprint must end with an Architecture Consistency Audit after the approved
+work has been committed and published to GitHub. A Sprint is not considered
+complete until this audit has been performed.
+
+The mandatory delivery sequence is:
+
+```text
+Idea
+  ↓
+Architecture Proposal
+  ↓
+APPROVE
+  ↓
+APPLY
+  ↓
+Implementation
+  ↓
+Architecture Review
+  ↓
+Product Review
+  ↓
+COMMIT
+  ↓
+GitHub
+  ↓
+Architecture Consistency Audit
+```
+
+The audit verifies that:
+
+- every approved proposal has been implemented;
+- documentation and implementation remain synchronized;
+- partially implemented features are identified;
+- obsolete approved proposals are explicitly closed rather than forgotten.
+
+The Architecture Consistency Audit is a verification activity. It introduces no
+new architecture, does not redesign approved features, and does not reinterpret
+product decisions. Any missing, partial, or obsolete work is reported through the
+existing ownership and approval process before further action is taken.
