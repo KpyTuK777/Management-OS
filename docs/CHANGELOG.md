@@ -23,3 +23,6 @@
 - Added the SOP module with create, edit, delete, ordered steps, checklist definition, and real-time search.
 - Added the Knowledge → SOP workflow with bidirectional provenance and fragment navigation.
 - Related Knowledge and SOP cards now handle missing records without modifying stored relationships.
+- Added SOP execution sessions with step and checklist progress, skip decisions, and notes.
+- Added immutable execution history stored under the `sopExecutions` key.
+- Added SOP execution search, resume behavior, and bidirectional SOP navigation.

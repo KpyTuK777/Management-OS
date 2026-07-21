@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Виконання SOP — Management OS</title>
+		<link rel="stylesheet" href="CSS/style.css">
+	</head>
+
+	<body>
+		<div class="app">
+			<aside class="sidebar" id="sidebar"></aside>
+
+			<main id="executionPage">
+				<header class="page-header">
+					<div>
+						<h1>Виконання SOP</h1>
+						<p>Виконуйте процедуру крок за кроком і зберігайте фактичний результат.</p>
+					</div>
+					<a class="btn-secondary" href="sop.html">До бібліотеки SOP</a>
+				</header>
+
+				<section class="execution-active hidden" id="activeExecution" aria-live="polite"></section>
+
+				<section class="execution-history">
+					<div class="section-header">
+						<div>
+							<h2>Історія виконань</h2>
+							<p>Завершені сесії залишаються незмінним свідченням виконаної роботи.</p>
+						</div>
+					</div>
+
+					<section class="project-filters execution-search hidden" id="executionSearch" aria-label="Пошук виконань">
+						<label class="project-filter" for="executionSearchInput">
+							<span>Пошук</span>
+							<input type="search" id="executionSearchInput" placeholder="Пошук виконань...">
+						</label>
+					</section>
+
+					<div class="execution-history__list" id="executionHistoryList" aria-live="polite"></div>
+					<div class="execution-empty-state" id="executionEmptyState">
+						<h3>Виконань поки немає.</h3>
+						<p>Почніть процедуру з бібліотеки SOP, коли будете готові діяти.</p>
+					</div>
+				</section>
+			</main>
+		</div>
+
+		<script src="js/sidebar.js"></script>
+		<script src="js/search.js"></script>
+		<script src="js/render-utils.js"></script>
+		<script src="js/storage-utils.js"></script>
+		<script src="js/storage.js"></script>
+		<script src="js/sop-execution.js"></script>
+	</body>
+
+</html>

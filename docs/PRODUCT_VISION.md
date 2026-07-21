@@ -38,8 +38,14 @@ future lifecycle stage and are not implied by the current workflow.
 
 Knowledge answers **What do I know?** SOP answers **What do I do?** The
 Knowledge → SOP workflow connects those stages while preserving each record as an
-independent source of truth. Procedure execution, review, and adaptive improvement
-remain later stages of the product lifecycle.
+independent source of truth. Execution records what happened without modifying the
+procedure definition. Review and adaptive improvement remain later stages of the
+product lifecycle.
+
+Knowledge stores understanding. SOP stores procedure. Execution stores historical
+evidence. Keeping these responsibilities independent makes improvement explainable:
+future recommendations can compare the intended procedure with observed outcomes,
+while users retain control over changes to the SOP.
 
 ## User value
 

@@ -16,7 +16,9 @@ Create a searchable second brain for notes, methods, practice, tags, and linked 
 
 ## Phase 4 — SOP
 
-Provide a reusable process library for standardized, repeatable work.
+Provide a reusable process library for standardized, repeatable work, with guided
+execution and historical evidence. Review and continuous improvement follow the
+Execution MVP.
 
 ## Phase 5 — Analytics
 

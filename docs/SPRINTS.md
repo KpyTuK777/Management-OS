@@ -29,5 +29,6 @@
 - **Feature 01:** Notes Module MVP
 - **Feature 02:** Notes → Knowledge Flow
 - **Feature 04:** Knowledge → SOP Workflow
+- **Feature 05:** SOP Execution MVP
 
 See [Roadmap](ROADMAP.md) for product phases beyond this sprint.

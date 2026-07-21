@@ -46,6 +46,13 @@ The `.app` shell is a two-column grid with a 280px sidebar (`--sidebar-width`) a
 
 Portfolio forms use `.form-group` with native inputs and textareas. Hidden form state uses the `.hidden` utility class. New form components should reuse the existing spacing, colors, radius, and typography tokens.
 
+## Execution states
+
+Execution items use the existing semantic colors: success for completed items and
+warning for skipped items. Progress combines a text count with a bar so state does
+not depend on color alone. Finished execution cards use the standard surface,
+border, radius, and shadow tokens.
+
 ## Naming conventions
 
 - Use lowercase, hyphenated CSS class names.

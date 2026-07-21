@@ -74,3 +74,15 @@ function loadSops() {
 	return getStorageItem("sops", []);
 
 }
+
+function saveSopExecutions(executions) {
+
+	setStorageItem("sopExecutions", executions);
+
+}
+
+function loadSopExecutions() {
+
+	return getStorageItem("sopExecutions", []);
+
+}

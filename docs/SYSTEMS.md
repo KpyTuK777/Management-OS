@@ -29,8 +29,14 @@ Management OS is organized as a collection of business systems. Each system has 
 ## SOP
 
 - **Purpose:** Define repeatable actions that operationalize structured knowledge.
-- **Current status:** CRUD, search, ordered steps, checklist definition, Knowledge conversion, and bidirectional navigation are implemented.
-- **Future responsibilities:** Execution instances, completion history, approvals, versioning, and improvement feedback.
+- **Current status:** CRUD, search, ordered steps, checklist definition, Knowledge conversion, bidirectional navigation, execution sessions, and completion history are implemented.
+- **Future responsibilities:** Approvals, versioning, and evidence-driven improvement feedback.
+
+## SOP Execution
+
+- **Purpose:** Guide real work step by step and preserve historical evidence without changing the procedure definition.
+- **Current status:** Start/resume, progress, complete/skip decisions, notes, guarded finish, search, and immutable history are implemented.
+- **Future responsibilities:** Review signals, duration forecasts, reminders, and improvement recommendations.
 
 ## Review Center
 

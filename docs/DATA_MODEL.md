@@ -24,6 +24,7 @@ Domain collections are serialized as JSON in browser `localStorage`.
 | `knowledgeEntries` | Array of Knowledge Entry objects |
 | `knowledgeCategories` | Array of category-name strings |
 | `sops` | Array of SOP objects |
+| `sopExecutions` | Array of SOP Execution objects |
 
 Storage access is implemented in `js/storage.js`.
 
@@ -93,3 +94,36 @@ records provenance and does not synchronize later changes.
 The Knowledge → SOP workflow temporarily stores the source Knowledge Entry ID in
 `sessionStorage` under `knowledgeSopSourceId`. The context is consumed and removed
 when the SOP page initializes.
+
+## SOP Execution
+
+SOP Executions are stored as objects in the `sopExecutions` collection.
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | number | Unique identifier generated when execution starts. |
+| `sopId` | number | Source SOP identifier. |
+| `sopTitle` | string | Snapshot of the SOP title at execution start. |
+| `startedAt` | string | ISO execution start timestamp. |
+| `finishedAt` | string, null | ISO finish timestamp; `null` identifies an active session. |
+| `steps` | Array of Execution Item objects | Snapshot and outcome of the ordered SOP steps. |
+| `checklist` | Array of Execution Item objects | Snapshot and outcome of the SOP checklist. |
+| `notes` | string | Notes about the execution as a whole. |
+
+### Execution Item
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `order` | number | Original position in the SOP snapshot. |
+| `text` | string | Instruction or check captured at execution start. |
+| `status` | string | `pending`, `completed`, or `skipped`. |
+| `resolvedAt` | string, null | ISO timestamp of the latest completion or skip decision. |
+| `note` | string | Optional observation for this item. |
+
+Completed/skipped counts, progress, and duration are derived rather than stored.
+Execution data is independent from the SOP definition: later SOP edits do not alter
+history, and execution never updates the source SOP.
+
+The SOP → Execution launch temporarily stores the selected SOP ID in
+`sessionStorage` under `sopExecutionSourceId`. It is consumed and removed when the
+Execution page initializes.

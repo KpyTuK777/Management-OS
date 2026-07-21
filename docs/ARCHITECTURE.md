@@ -4,7 +4,7 @@
 
 Management OS is a static, client-side web application. It has no build system,
 server, API, or external database. Browser `localStorage` persists domain
-collections including Projects, Notes, Knowledge, Categories, and SOPs.
+collections including Projects, Notes, Knowledge, Categories, SOPs, and SOP Executions.
 
 ## Project structure
 
@@ -15,6 +15,7 @@ Management-OS/
 ├── notes.html              # Notes Inbox for quick capture
 ├── knowledge-base.html     # Functional Knowledge Base page
 ├── sop.html                # SOP definitions and Knowledge workflow target
+├── sop-executions.html     # Active SOP sessions and immutable execution history
 ├── projects.html           # Legacy portfolio-page prototype
 ├── css/                    # Design tokens, layout, components, utilities
 ├── js/                     # Layout, platform utilities, storage, and page behavior
@@ -28,6 +29,7 @@ Management-OS/
 - `notes.html` is the Notes Inbox for quick capture and later organization.
 - `knowledge-base.html` is the active Knowledge Base implementation.
 - `sop.html` manages repeatable procedure definitions.
+- `sop-executions.html` guides active SOP sessions and presents execution history.
 - `projects.html` is a legacy prototype and is not the active Portfolio page.
 - `analytics.html`, `calendar.html`, `knowledge.html`, `reviews.html`, `settings.html`, and `tasks.html` are currently placeholders.
 
@@ -56,6 +58,7 @@ See [Design System](DESIGN_SYSTEM.md) for UI conventions.
 - `js/note-knowledge-flow.js` coordinates the Notes → Knowledge workflow.
 - `js/knowledge-sop-flow.js` coordinates the Knowledge → SOP workflow.
 - `js/sop.js` owns SOP CRUD, search orchestration, ordered fields, and rendering.
+- `js/sop-execution.js` owns SOP execution state, transitions, progress, and history rendering.
 - `js/app.js` owns Dashboard statistics and attention rendering.
 
 ## Platform utilities
@@ -162,12 +165,37 @@ the `sops` key. `sop.js` owns the collection and UI behavior, while
 `SOP.sourceKnowledgeEntryId`. Fragment navigation presents related cards without a
 router or global state.
 
+SOP Executions load through `loadSopExecutions()` and persist through
+`saveSopExecutions()` under `sopExecutions`. Each execution snapshots the SOP title,
+steps, and checklist at start. `sop-execution.js` owns the active-session state
+machine and history UI; it never edits the source SOP. A temporary
+`sessionStorage` value carries the selected SOP to the execution page, while
+fragment identifiers present active or historical records without a router.
+
+## Execution layer
+
+The Execution layer records what happened when a procedure was used. It is a child
+domain of SOP rather than a cross-module conversion, so it does not use a workflow
+coordinator. `js/sop-execution.js` owns:
+
+- creating one active execution per SOP;
+- snapshotting the SOP definition at execution start;
+- completing, skipping, and restoring execution items before finish;
+- deriving progress and duration from stored state;
+- finalizing sessions into read-only history;
+- search, fragment presentation, and missing-SOP messaging.
+
+Execution history is evidence, not a live projection of the SOP definition. Later
+SOP edits and deletion cannot rewrite stored runs. This boundary also allows future
+AI recommendations to inspect outcomes without coupling them to SOP CRUD.
+
 ## Module responsibilities
 
 - **Home:** present today-focused, static dashboard information.
 - **Portfolio:** manage the browser-stored project collection.
 - **Notes:** provide a friction-free Inbox for capturing ideas before organization.
 - **SOP:** turn structured knowledge into independently editable procedures.
+- **Execution:** run SOP snapshots and preserve historical evidence without modifying definitions.
 - **Workflow:** coordinate explicit transitions and relationships between modules.
 - **Storage:** keep domain storage helpers stable while shared utilities isolate
   `localStorage` reads, JSON parsing, and serialization.

@@ -153,6 +153,19 @@ function createSopCard(sop) {
 	);
 	const relationship = createSopRelationship(sop);
 	const actions = createElement("div", "sop-card__actions");
+	const activeExecution = loadSopExecutions().find(
+		execution => execution.sopId === sop.id && execution.finishedAt === null
+	);
+	const executeButton = createTextElement(
+		"button",
+		activeExecution ? "Продовжити виконання" : "Почати виконання",
+		"btn-primary sop-card__execute-btn"
+	);
+	const historyLink = createTextElement(
+		"a",
+		"Історія виконань",
+		"btn-secondary sop-card__history-link"
+	);
 	const editButton = createTextElement(
 		"button",
 		"Редагувати",
@@ -166,8 +179,16 @@ function createSopCard(sop) {
 
 	card.id = `sop-${sop.id}`;
 	card.tabIndex = -1;
+	executeButton.type = "button";
 	editButton.type = "button";
 	deleteButton.type = "button";
+	historyLink.href = `sop-executions.html#sop-history-${sop.id}`;
+
+	executeButton.addEventListener("click", () => {
+
+		startSopExecution(sop.id);
+
+	});
 
 	editButton.addEventListener("click", () => {
 
@@ -193,6 +214,8 @@ function createSopCard(sop) {
 
 	if (relationship) card.appendChild(relationship);
 
+	actions.appendChild(executeButton);
+	actions.appendChild(historyLink);
 	actions.appendChild(editButton);
 	actions.appendChild(deleteButton);
 	card.appendChild(actions);

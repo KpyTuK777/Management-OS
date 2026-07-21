@@ -26,4 +26,5 @@ Use a current version of Chrome, Edge, Firefox, or Safari with JavaScript and `l
 - Keep CSS concerns separated by the files described in [Architecture](ARCHITECTURE.md).
 - Keep browser persistence behind `js/storage.js`.
 - Keep one responsibility per JavaScript module and avoid duplicating UI logic.
+- Snapshot SOP definitions when execution begins; execution history must never depend on mutable SOP content.
 - Use 8px-based spacing and existing CSS variables where applicable.
