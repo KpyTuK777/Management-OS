@@ -1,5 +1,8 @@
 # Development
 
+Team responsibilities, decision ownership, and the official delivery process are
+defined in [Team Governance](TEAM.md).
+
 ## Run the project
 
 1. Open the repository folder in Visual Studio Code.
@@ -28,3 +31,4 @@ Use a current version of Chrome, Edge, Firefox, or Safari with JavaScript and `l
 - Keep one responsibility per JavaScript module and avoid duplicating UI logic.
 - Snapshot SOP definitions when execution begins; execution history must never depend on mutable SOP content.
 - Use 8px-based spacing and existing CSS variables where applicable.
+- Follow the approval and ownership boundaries in [Team Governance](TEAM.md).

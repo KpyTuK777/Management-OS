@@ -31,6 +31,7 @@ Open the repository in VS Code and launch `index.html` or `portfolio.html` with 
 - [Systems](docs/SYSTEMS.md)
 - [Data model](docs/DATA_MODEL.md)
 - [Development](docs/DEVELOPMENT.md)
+- [Team governance](docs/TEAM.md)
 - [Roadmap](docs/ROADMAP.md)
 - [Sprint tracker](docs/SPRINTS.md)
 - [Design system](docs/DESIGN_SYSTEM.md)
