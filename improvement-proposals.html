@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Пропозиції покращень — Management OS</title>
+		<link rel="stylesheet" href="CSS/style.css">
+	</head>
+
+	<body>
+		<div class="app">
+			<aside class="sidebar" id="sidebar"></aside>
+
+			<main id="improvementProposalsPage">
+				<header class="page-header">
+					<div>
+						<h1>Пропозиції покращень</h1>
+						<p>Контрольовані пропозиції для ручного вдосконалення SOP.</p>
+					</div>
+				</header>
+
+				<section class="proposal-boundary">
+					<strong>Пропозиція не змінює SOP</strong>
+					<p>Прийняття відкриває наявний редактор із контекстом. Будь-які зміни користувач вносить вручну.</p>
+				</section>
+
+				<form class="proposal-form hidden" id="proposalForm">
+					<h2 id="proposalFormTitle">Нова пропозиція</h2>
+					<section class="proposal-source" id="proposalSource"></section>
+
+					<div class="form-group">
+						<label for="proposalSop">Джерельний SOP</label>
+						<select id="proposalSop" required></select>
+					</div>
+					<div class="form-group">
+						<label for="proposalTitle">Назва пропозиції</label>
+						<input type="text" id="proposalTitle" required>
+					</div>
+					<div class="form-group">
+						<label for="proposalImprovement">Запропоноване покращення</label>
+						<textarea id="proposalImprovement" rows="3" required></textarea>
+					</div>
+					<div class="form-group">
+						<label for="proposalBenefit">Очікувана користь</label>
+						<textarea id="proposalBenefit" rows="2" required></textarea>
+					</div>
+					<div class="proposal-form__actions">
+						<button class="btn-primary" type="submit">Зберегти пропозицію</button>
+						<button class="btn-secondary" type="button" id="proposalCancelBtn">Скасувати</button>
+					</div>
+				</form>
+
+				<form class="proposal-decision-form hidden" id="proposalDecisionForm">
+					<h2 id="proposalDecisionTitle">Рішення</h2>
+					<div class="form-group">
+						<label for="proposalDecisionReason">Причина рішення (необов’язково)</label>
+						<textarea id="proposalDecisionReason" rows="2"></textarea>
+					</div>
+					<div class="proposal-form__actions">
+						<button class="btn-primary" type="submit">Підтвердити</button>
+						<button class="btn-secondary" type="button" id="proposalDecisionCancelBtn">Скасувати</button>
+					</div>
+				</form>
+
+				<section class="project-filters proposal-filters" aria-label="Фільтри пропозицій">
+					<label class="project-filter" for="proposalSearchInput"><span>Пошук</span><input type="search" id="proposalSearchInput" placeholder="Пошук пропозицій..."></label>
+					<label class="project-filter" for="proposalStatusFilter"><span>Статус</span><select id="proposalStatusFilter"><option value="all">Усі</option><option value="open">Відкриті</option><option value="accepted">Прийняті</option><option value="rejected">Відхилені</option></select></label>
+				</section>
+
+				<section class="proposal-list" id="proposalList" aria-live="polite"></section>
+				<section class="proposal-empty-state" id="proposalEmptyState">
+					<h2>Пропозицій поки немає.</h2>
+					<p>Почніть із Гіпотези, коли захочете зафіксувати можливе покращення SOP.</p>
+					<a class="btn-secondary" href="hypotheses.html">До гіпотез</a>
+				</section>
+			</main>
+		</div>
+
+		<script src="js/sidebar.js"></script>
+		<script src="js/search.js"></script>
+		<script src="js/render-utils.js"></script>
+		<script src="js/storage-utils.js"></script>
+		<script src="js/storage.js"></script>
+		<script src="js/learning-analysis.js"></script>
+		<script src="js/hypothesis-analysis.js"></script>
+		<script src="js/improvement-proposal-flow.js"></script>
+		<script src="js/improvement-proposals.js"></script>
+	</body>
+
+</html>

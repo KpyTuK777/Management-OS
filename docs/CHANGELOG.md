@@ -48,3 +48,7 @@
 - Added runtime-only, evidence-preserving Hypotheses with confidence and limitations.
 - Added deterministic hypothesis rules for Review, execution, SOP usage, and Information Lifecycle patterns.
 - Kept Hypotheses read-only and separate from Recommendations, AI, and workspace changes.
+- Added evidence-linked SOP Improvement Proposals with open, accepted, and rejected decisions.
+- Added immutable Hypothesis and SOP traceability snapshots for every proposal.
+- Accepted proposals now open the existing SOP editor with read-only context and no automatic changes.
+- Separated deterministic Hypothesis analysis from page rendering for Workflow Layer reuse.

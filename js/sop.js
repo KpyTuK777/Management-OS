@@ -3,6 +3,11 @@ const sopForm = document.getElementById("sopForm");
 const sopFormTitle = document.getElementById("sopFormTitle");
 const sopSourceContext = document.getElementById("sopSourceContext");
 const sopSourceContent = document.getElementById("sopSourceContent");
+const sopProposalContext = document.getElementById("sopProposalContext");
+const sopProposalTitle = document.getElementById("sopProposalTitle");
+const sopProposalImprovement = document.getElementById("sopProposalImprovement");
+const sopProposalBenefit = document.getElementById("sopProposalBenefit");
+const sopProposalEvidence = document.getElementById("sopProposalEvidence");
 const sopTitle = document.getElementById("sopTitle");
 const sopPurpose = document.getElementById("sopPurpose");
 const sopTrigger = document.getElementById("sopTrigger");
@@ -20,6 +25,7 @@ let sops = loadSops();
 let editingSopId = null;
 let searchQuery = "";
 let activeKnowledgeSopWorkflow = consumeKnowledgeSopFlow();
+let activeImprovementProposalContext = consumeSopImprovementProposalContext();
 
 function createSopItem(container, value, type) {
 
@@ -233,8 +239,47 @@ function resetSopForm() {
 	sopSubmitBtn.textContent = "Зберегти SOP";
 	sopSourceContext.classList.add("hidden");
 	sopSourceContent.textContent = "";
+	sopProposalContext.classList.add("hidden");
+	sopProposalTitle.textContent = "";
+	sopProposalImprovement.textContent = "";
+	sopProposalBenefit.textContent = "";
+	sopProposalEvidence.replaceChildren();
 	renderSopItems(sopSteps, [], "step");
 	renderSopItems(sopChecklist, [], "checklist");
+
+}
+
+function renderImprovementProposalContext(proposal) {
+
+	sopProposalTitle.textContent = proposal.title;
+	sopProposalImprovement.textContent = `Запропоноване покращення: ${proposal.suggestedImprovement}`;
+	sopProposalBenefit.textContent = `Очікувана користь: ${proposal.expectedBenefit}`;
+	sopProposalEvidence.appendChild(createTextElement("p", proposal.hypothesisSummary));
+
+	const evidenceList = createElement("ul");
+
+	proposal.observedEvidence.forEach(item => {
+
+		evidenceList.appendChild(
+			createTextElement("li", `${item.metric}: ${item.observedValue}`)
+		);
+
+	});
+
+	sopProposalEvidence.appendChild(evidenceList);
+	sopProposalContext.classList.remove("hidden");
+
+}
+
+function startImprovementProposalEdit() {
+
+	if (!activeImprovementProposalContext) return;
+
+	const context = activeImprovementProposalContext;
+
+	startEditingSop(context.sop);
+	activeImprovementProposalContext = context;
+	renderImprovementProposalContext(context.proposal);
 
 }
 
@@ -468,4 +513,5 @@ renderSopItems(sopSteps, [], "step");
 renderSopItems(sopChecklist, [], "checklist");
 renderSops();
 startKnowledgeSopEntry();
+startImprovementProposalEdit();
 presentSopFromFragment();

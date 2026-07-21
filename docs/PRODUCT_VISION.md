@@ -73,11 +73,11 @@ Insights
       ↓
 Hypotheses
       ↓
-Recommendations
+Improvement Proposals or future Recommendations
       ↓
 User Approval
       ↓
-System Improvement
+Manual System Improvement
 ```
 
 No stage may silently bypass another. Every Hypothesis must preserve the Evidence
@@ -88,6 +88,18 @@ Explainability is a core product value, not an implementation detail. The user
 must be able to understand what was observed, how it became evidence, why a
 possible explanation was formed, and what authorized change would follow from an
 accepted Recommendation.
+
+### Controlled improvement before recommendations
+
+The first implemented improvement path is deliberately narrower than the future
+Recommendations Center. A user may turn an explainable Hypothesis into an SOP
+Improvement Proposal, review it, and then open the existing SOP editor with that
+proposal visible as context.
+
+Acceptance never changes the workspace. It expresses intent to consider the
+proposal; the user still owns the SOP edit and save decision. This preserves the
+principle that Management OS explains and assists without silently redefining how
+the user works.
 
 ### Recommendations Center
 

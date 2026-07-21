@@ -2195,3 +2195,221 @@
     }
 
 }
+
+/* Improvement proposals */
+
+.proposal-boundary,
+.proposal-form,
+.proposal-decision-form,
+.sop-proposal-context{
+
+    display:grid;
+
+    gap:var(--space-16);
+
+    padding:var(--space-24);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    background:var(--surface);
+
+}
+
+.proposal-boundary{
+
+    margin-bottom:var(--space-24);
+
+    border-left:4px solid var(--primary);
+
+}
+
+.proposal-form,
+.proposal-decision-form{
+
+    max-width:800px;
+
+    margin-bottom:var(--space-24);
+
+}
+
+.proposal-source,
+.sop-proposal-context{
+
+    padding:var(--space-16);
+
+    border-radius:var(--radius-sm);
+
+    background:var(--background);
+
+}
+
+.proposal-source small{
+
+    display:block;
+
+    color:var(--text-secondary);
+
+}
+
+.proposal-evidence{
+
+    display:grid;
+
+    grid-template-columns:minmax(0, 1fr) auto;
+
+    gap:var(--space-8) var(--space-16);
+
+}
+
+.proposal-evidence dd{
+
+    font-weight:600;
+
+    text-align:right;
+
+}
+
+.proposal-list{
+
+    display:grid;
+
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+
+    gap:var(--space-24);
+
+}
+
+.proposal-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:var(--space-16);
+
+    padding:var(--space-24);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    background:var(--surface);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.proposal-card__header,
+.proposal-card__actions{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    justify-content:space-between;
+
+    gap:var(--space-12);
+
+    flex-wrap:wrap;
+
+}
+
+.proposal-card__context{
+
+    padding-top:var(--space-12);
+
+    border-top:1px solid var(--border);
+
+}
+
+.proposal-card__context p,
+.proposal-card__date,
+.proposal-list__empty{
+
+    color:var(--text-secondary);
+
+}
+
+.proposal-card__evidence-content{
+
+    display:grid;
+
+    gap:var(--space-12);
+
+    padding-top:var(--space-12);
+
+}
+
+.proposal-status{
+
+    padding:var(--space-4) var(--space-8);
+
+    border-radius:999px;
+
+    font-size:var(--font-small);
+
+    font-weight:600;
+
+}
+
+.proposal-status--open{
+
+    background:#FEF3C7;
+
+    color:#92400E;
+
+}
+
+.proposal-status--accepted{
+
+    background:#DCFCE7;
+
+    color:#15803D;
+
+}
+
+.proposal-status--rejected{
+
+    background:#FEE2E2;
+
+    color:#B91C1C;
+
+}
+
+.proposal-empty-state{
+
+    padding:var(--space-48);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    background:var(--surface);
+
+    text-align:center;
+
+}
+
+.sop-proposal-context{
+
+    border-left:4px solid var(--primary);
+
+}
+
+.sop-proposal-context small{
+
+    color:var(--text-secondary);
+
+}
+
+@media (max-width:850px){
+
+    .proposal-list{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

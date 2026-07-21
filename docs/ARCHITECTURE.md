@@ -5,7 +5,7 @@
 Management OS is a static, client-side web application. It has no build system,
 server, API, or external database. Browser `localStorage` persists domain
 collections including Projects, Notes, Knowledge, Categories, SOPs, SOP Executions,
-and Execution Reviews.
+Execution Reviews, and Improvement Proposals.
 
 ## Project structure
 
@@ -20,6 +20,7 @@ Management-OS/
 ├── review.html             # Pending and completed Execution Reviews
 ├── insights.html           # Read-only deterministic operational patterns
 ├── hypotheses.html         # Explainable possible interpretations of Insights
+├── improvement-proposals.html # User-authored, evidence-linked SOP improvement proposals
 ├── projects.html           # Legacy portfolio-page prototype
 ├── css/                    # Design tokens, layout, components, utilities
 ├── js/                     # Layout, platform utilities, storage, and page behavior
@@ -37,6 +38,7 @@ Management-OS/
 - `review.html` captures lightweight reflection after completed Executions.
 - `insights.html` presents deterministic aggregates across existing domains.
 - `hypotheses.html` presents evidence-based explanations without proposed actions.
+- `improvement-proposals.html` manages controlled SOP improvement proposals and decisions.
 - `projects.html` is a legacy prototype and is not the active Portfolio page.
 - `analytics.html`, `calendar.html`, `knowledge.html`, `reviews.html`, `settings.html`, and `tasks.html` are currently placeholders. `reviews.html` is legacy; the active Review Layer is `review.html`.
 
@@ -70,6 +72,9 @@ See [Design System](DESIGN_SYSTEM.md) for UI conventions.
 - `js/insights.js` owns read-only aggregation, calculations, search orchestration, and Insights rendering.
 - `js/learning-analysis.js` owns pure deterministic Learning Layer aggregation without storage or DOM access.
 - `js/hypotheses.js` owns deterministic hypothesis rules, confidence, limitations, search, and rendering.
+- `js/hypothesis-analysis.js` owns pure deterministic Hypothesis generation without page or storage access.
+- `js/improvement-proposal-flow.js` coordinates Hypothesis context and accepted-proposal SOP handoff.
+- `js/improvement-proposals.js` owns Improvement Proposal CRUD, decisions, search, and rendering.
 - `js/app.js` owns Dashboard statistics and attention rendering.
 
 ## Platform utilities
@@ -292,9 +297,10 @@ their own approval and mutation boundaries and are not implemented here.
 
 ### Hypotheses foundation
 
-`js/hypotheses.js` consumes the same deterministic analysis as Insights and applies
-an explicit, feature-owned rule set. It formulates possible explanations only when
-documented evidence thresholds are met.
+`js/hypothesis-analysis.js` consumes the same deterministic analysis as Insights
+and applies an explicit, feature-owned rule set. `js/hypotheses.js` renders and
+searches those results. A possible explanation is formulated only when documented
+evidence thresholds are met.
 
 Each runtime Hypothesis preserves:
 
@@ -317,6 +323,29 @@ page-DOM coupling and duplicated metric logic.
 The Hypotheses layer preserves the Learning Decision Pipeline: Recommendations may
 later reference a Hypothesis, but Hypotheses cannot create proposed actions or
 bypass User Approval.
+
+### Improvement Proposal workflow
+
+`js/improvement-proposal-flow.js` is a bounded Workflow Layer coordinator between
+runtime Hypotheses, persisted Improvement Proposals, and the existing SOP editor.
+It validates source records, creates traceability snapshots, carries short-lived
+context through `sessionStorage`, and opens an accepted proposal beside its source
+SOP. It does not render cards, own CRUD, edit an SOP, or act as a generic workflow
+engine.
+
+`js/improvement-proposals.js` owns the persisted review artifact. Source Hypothesis
+Evidence, confidence, limitations, and SOP identity are snapshotted when the user
+creates a proposal. Only user-authored proposal text is editable while its status
+is `open`. Accept and Reject are explicit, terminal review decisions.
+
+Acceptance does not mean application. It saves the decision and launches the
+existing SOP editor with read-only proposal context. The SOP remains unchanged
+until the user manually edits its owned fields and saves. Missing source SOPs are
+reported without repairing, deleting, or rewriting traceability.
+
+This is the first controlled improvement workflow. It does not introduce a
+Recommendation entity, AI interpretation, autonomous changes, or a general
+relationship engine.
 
 ### Future Recommendations Center boundary
 
@@ -373,6 +402,7 @@ outside the permitted architecture.
 - **Review:** capture structured operational learning without modifying source domains.
 - **Insights:** expose deterministic patterns across existing operational evidence.
 - **Hypotheses:** formulate explainable possible interpretations while preserving Evidence.
+- **Improvement Proposals:** preserve a user-authored, reviewable suggestion without changing its source SOP.
 - **Workflow:** coordinate explicit transitions and relationships between modules.
 - **Storage:** keep domain storage helpers stable while shared utilities isolate
   `localStorage` reads, JSON parsing, and serialization.

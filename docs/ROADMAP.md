@@ -29,9 +29,17 @@ conversion rates, distributions, repeated phrases, duration, and execution
 frequency. Future Analytics may add time windows and comparisons, but observation
 must remain separate from recommendations.
 
-The Hypotheses Foundation now adds deterministic, evidence-preserving possible
-explanations after Insights. It introduces no actions or AI. The next future
-Learning Layer boundary remains Recommendations with explicit User Approval.
+The Hypotheses Foundation adds deterministic, evidence-preserving possible
+explanations after Insights. The first controlled Improvement Proposal workflow
+now lets the user author and review an SOP change while keeping application manual.
+The broader Recommendations Center remains future work.
+
+### Controlled SOP improvement
+
+Improvement Proposals preserve Hypothesis Evidence, confidence, limitations, and
+SOP provenance. Accepting one opens the SOP editor with read-only context; it does
+not apply or prefill a change. Recommendation generation, automatic drafting, and
+automatic application remain outside the current roadmap milestone.
 
 ## Phase 6 — Optimization
 

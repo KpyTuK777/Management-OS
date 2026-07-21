@@ -42,6 +42,11 @@ const Layout = (() => {
 			pages: ["hypotheses.html"]
 		},
 		{
+			label: "Пропозиції",
+			href: "improvement-proposals.html",
+			pages: ["improvement-proposals.html"]
+		},
+		{
 			label: "Навички",
 			href: "#",
 			pages: []

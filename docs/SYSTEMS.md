@@ -58,6 +58,13 @@ Management OS is organized as a collection of business systems. Each system has 
 - **Future responsibilities:** Provide traceable inputs to the user-controlled Recommendations Center after separate approval.
 - **Boundary:** Hypotheses never persist interpretations, propose actions, modify data, optimize the workspace, or invoke AI.
 
+## Improvement Proposals
+
+- **Purpose:** Capture a user-authored, evidence-linked suggestion for improving an SOP without changing the procedure.
+- **Current status:** Create, edit-open, search, accept, reject, traceability snapshots, and manual SOP-editor handoff are implemented in `improvement-proposals.html`.
+- **Future responsibilities:** Decision history and explicit confirmation that a manually revised SOP addresses a proposal.
+- **Boundary:** Proposals never edit SOPs, rewrite Evidence, modify history, update Knowledge or Notes, or act as Recommendations.
+
 ## Analytics
 
 - **Purpose:** Explain operational change and trends.

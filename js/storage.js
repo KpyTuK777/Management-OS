@@ -110,3 +110,15 @@ function loadInsightsSourceCollections() {
 	};
 
 }
+
+function saveImprovementProposals(proposals) {
+
+	setStorageItem("improvementProposals", proposals);
+
+}
+
+function loadImprovementProposals() {
+
+	return getStorageItem("improvementProposals", []);
+
+}

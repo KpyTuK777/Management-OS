@@ -26,6 +26,7 @@ Domain collections are serialized as JSON in browser `localStorage`.
 | `sops` | Array of SOP objects |
 | `sopExecutions` | Array of SOP Execution objects |
 | `executionReviews` | Array of Execution Review objects |
+| `improvementProposals` | Array of Improvement Proposal objects |
 
 Storage access is implemented in `js/storage.js`.
 
@@ -202,3 +203,33 @@ key exists.
 Confidence never claims truth or statistical probability. Each Hypothesis type owns
 explicit thresholds, and the rendered model preserves both its Evidence and known
 limitations. Hypotheses do not contain Recommendation actions or approval state.
+
+## Improvement Proposal
+
+Improvement Proposals are stored in the `improvementProposals` collection. They are
+review artifacts and never mutate their source Hypothesis snapshot or SOP.
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | number | Stable proposal identifier. |
+| `sourceHypothesisId` | string | Deterministic source Hypothesis identity. |
+| `sourceHypothesisType` | string | Source Hypothesis rule category. |
+| `sourceSopId` | number | Related SOP identifier. |
+| `sourceSopTitle` | string | SOP title snapshot for durable traceability. |
+| `title` | string | User-authored proposal title. |
+| `observedEvidence` | Array of Evidence Items | Immutable Evidence snapshot. |
+| `hypothesisSummary` | string | Immutable source statement snapshot. |
+| `hypothesisLimitations` | Array of strings | Immutable limitations snapshot. |
+| `suggestedImprovement` | string | User-authored change proposal. |
+| `expectedBenefit` | string | User-authored expected result. |
+| `confidence` | object | Immutable `level` and `basis` snapshot. |
+| `status` | string | `open`, `accepted`, or `rejected`. |
+| `decisionReason` | string | Optional rationale supplied at review. |
+| `createdAt` | ISO datetime | Creation time. |
+| `updatedAt` | ISO datetime | Last edit to open proposal text. |
+| `reviewedAt` | ISO datetime or null | Accept or Reject decision time. |
+| `sourceModules` | Array of strings | Evidence-origin domains snapshot. |
+
+`accepted` records approval of the proposal for manual consideration; it does not
+assert that the SOP was changed. There is no automatic application, synchronization,
+archive, reopen, delete, or Recommendation lifecycle in this MVP.
