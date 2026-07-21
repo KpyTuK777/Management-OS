@@ -151,3 +151,21 @@ ID in `sessionStorage` under `reviewExecutionId`.
 
 Rating, outcome, blockers, improvements, and lessons provide structured signals for
 future analysis. AI interpretation is not part of the current data flow.
+
+## Insights
+
+Insights are derived values and are not stored entities. No `insights` storage key
+exists. `js/insights.js` calculates a read-only snapshot from Notes, Knowledge
+Entries, SOPs, SOP Executions, and Execution Reviews whenever the page loads.
+
+Current deterministic definitions include:
+
+- a completed Execution has a non-null `finishedAt`;
+- Review completion counts unique reviewed finished Executions;
+- average duration uses valid start and finish timestamps from completed Executions;
+- conversion uses the existing `knowledgeEntryId` or `sopId` relationship field;
+- a never-executed SOP has no active or completed Execution;
+- a frequently executed SOP has at least two completed Executions;
+- a repeated blocker or improvement is the same normalized phrase in at least two Reviews.
+
+Derived metrics never update their source records and are not a new source of truth.

@@ -44,6 +44,13 @@ Management OS is organized as a collection of business systems. Each system has 
 - **Current status:** Execution Review creation, deferral, pending discovery, persistence, and search are implemented in `review.html`.
 - **Future responsibilities:** Cross-execution insights, repeated-pattern detection, approved SOP improvement proposals, and broader daily, weekly, and monthly reflection.
 
+## Insights
+
+- **Purpose:** Make existing operational patterns visible before recommendations are introduced.
+- **Current status:** Deterministic Execution, Review, Knowledge, SOP, and Notes aggregates are implemented in `insights.html` with read-only search.
+- **Future responsibilities:** Additional time-based comparisons and reliable inputs for user-controlled Recommendations, Adaptive Workspace, and AI Assistant capabilities.
+- **Boundary:** Insights never modify entities, recommend actions, clean data, optimize automatically, or change workspace layout.
+
 ## Analytics
 
 - **Purpose:** Explain operational change and trends.

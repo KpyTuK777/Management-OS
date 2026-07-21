@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Інсайти — Management OS</title>
+		<link rel="stylesheet" href="CSS/style.css">
+	</head>
+
+	<body>
+		<div class="app">
+			<aside class="sidebar" id="sidebar"></aside>
+
+			<main id="insightsPage">
+				<header class="page-header">
+					<div>
+						<h1>Інсайти</h1>
+						<p>Зробіть закономірності видимими, перш ніж формувати рекомендації.</p>
+					</div>
+				</header>
+
+				<section class="insights-boundary" aria-label="Межі інсайтів">
+					<strong>Лише спостереження</strong>
+					<p>Інсайти узагальнюють наявні дані. Вони не змінюють робочий простір і не пропонують дій.</p>
+				</section>
+
+				<section class="project-filters insights-search" aria-label="Пошук інсайтів">
+					<label class="project-filter" for="insightsSearchInput">
+						<span>Пошук</span>
+						<input type="search" id="insightsSearchInput" placeholder="Пошук інсайтів...">
+					</label>
+				</section>
+
+				<div class="insights-sections" id="insightsSections" aria-live="polite"></div>
+			</main>
+		</div>
+
+		<script src="js/sidebar.js"></script>
+		<script src="js/search.js"></script>
+		<script src="js/render-utils.js"></script>
+		<script src="js/storage-utils.js"></script>
+		<script src="js/storage.js"></script>
+		<script src="js/insights.js"></script>
+	</body>
+
+</html>

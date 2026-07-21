@@ -32,6 +32,11 @@ const Layout = (() => {
 			pages: ["review.html"]
 		},
 		{
+			label: "Інсайти",
+			href: "insights.html",
+			pages: ["insights.html"]
+		},
+		{
 			label: "Навички",
 			href: "#",
 			pages: []

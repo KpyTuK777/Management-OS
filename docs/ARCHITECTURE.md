@@ -18,6 +18,7 @@ Management-OS/
 ├── sop.html                # SOP definitions and Knowledge workflow target
 ├── sop-executions.html     # Active SOP sessions and immutable execution history
 ├── review.html             # Pending and completed Execution Reviews
+├── insights.html           # Read-only deterministic operational patterns
 ├── projects.html           # Legacy portfolio-page prototype
 ├── css/                    # Design tokens, layout, components, utilities
 ├── js/                     # Layout, platform utilities, storage, and page behavior
@@ -33,6 +34,7 @@ Management-OS/
 - `sop.html` manages repeatable procedure definitions.
 - `sop-executions.html` guides active SOP sessions and presents execution history.
 - `review.html` captures lightweight reflection after completed Executions.
+- `insights.html` presents deterministic aggregates across existing domains.
 - `projects.html` is a legacy prototype and is not the active Portfolio page.
 - `analytics.html`, `calendar.html`, `knowledge.html`, `reviews.html`, `settings.html`, and `tasks.html` are currently placeholders. `reviews.html` is legacy; the active Review Layer is `review.html`.
 
@@ -63,6 +65,7 @@ See [Design System](DESIGN_SYSTEM.md) for UI conventions.
 - `js/sop.js` owns SOP CRUD, search orchestration, ordered fields, and rendering.
 - `js/sop-execution.js` owns SOP execution state, transitions, progress, and history rendering.
 - `js/review.js` owns Review creation, pending Review discovery, search, and rendering.
+- `js/insights.js` owns read-only aggregation, calculations, search orchestration, and Insights rendering.
 - `js/app.js` owns Dashboard statistics and attention rendering.
 
 ## Platform utilities
@@ -78,6 +81,10 @@ matching across named object properties and returns a new filtered array.
 parsing and serialization but contains no domain keys, migration rules, validation,
 or UI behavior. `js/storage.js` remains the public domain boundary and delegates to
 these primitives.
+
+`loadInsightsSourceCollections()` composes existing read helpers into a read-only
+source snapshot for the Insights module. It introduces no storage key, cached
+metric, or write path; all calculations remain owned by `js/insights.js`.
 
 `js/render-utils.js` provides `createElement(tag, className)`,
 `createTextElement(tag, text, className)`, and `setText(element, text)`. These
@@ -214,6 +221,35 @@ Review is observation only. It never updates Execution, SOP, Knowledge, or Notes
 Future Insights may interpret Review signals, but AI interpretation and automatic
 SOP recommendations are outside the current Learning Layer.
 
+### Insights foundation
+
+`js/insights.js` provides the first observational Insights layer. It reads current
+domain collections, calculates deterministic aggregates, and renders them through
+`render-utils.js`. It does not own CRUD, workflow behavior, or source-data
+mutation.
+
+Initial Insights cover:
+
+- Execution totals, completion, duration, Review rating, and Review completion;
+- rating and outcome distributions;
+- repeated blocker and improvement phrases;
+- Notes → Knowledge and Knowledge → SOP conversion;
+- unused and frequently executed SOPs.
+
+Repeated themes currently mean case-insensitive, whitespace-normalized exact
+phrases appearing at least twice. Frequently executed SOPs have at least two
+completed Executions. These explicit rules prevent semantic inference from being
+presented as observed fact.
+
+Insights are recalculated from source data when the page loads and are never
+persisted. Search filters rendered Insight cards without modifying metrics or
+source collections. The layer performs no recommendations, automatic cleanup,
+interface changes, or optimization.
+
+The calculated metrics may later become read-only inputs for the Recommendations
+Center, Adaptive Workspace, or AI Assistant. Those future consumers must preserve
+their own approval and mutation boundaries and are not implemented here.
+
 ### Future Recommendations Center boundary
 
 The Recommendations Center is a future Learning Layer capability, not part of the
@@ -267,6 +303,7 @@ outside the permitted architecture.
 - **SOP:** turn structured knowledge into independently editable procedures.
 - **Execution:** run SOP snapshots and preserve historical evidence without modifying definitions.
 - **Review:** capture structured operational learning without modifying source domains.
+- **Insights:** expose deterministic patterns across existing operational evidence.
 - **Workflow:** coordinate explicit transitions and relationships between modules.
 - **Storage:** keep domain storage helpers stable while shared utilities isolate
   `localStorage` reads, JSON parsing, and serialization.

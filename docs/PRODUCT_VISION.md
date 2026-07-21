@@ -20,6 +20,7 @@ The product should be calm, intentional, and useful. Information belongs in a cl
 8. **Every feature must earn its place.** It should save time, reduce errors, or improve decisions.
 9. **Work now. Learn forever.** Reflection should be lightweight while operational experience compounds over time.
 10. **Recommend, never take control.** Management OS explains opportunities and waits for explicit user approval before changing the workspace.
+11. **Make patterns visible before making recommendations.** Observed evidence must be separated from interpretation and proposed action.
 
 ## Long-term vision
 
@@ -93,6 +94,20 @@ Acceptance authorizes only the action shown in that recommendation. Rejection mu
 not trigger an alternative change, and postponement must not be treated as consent.
 No recommendation may silently alter content, relationships, priorities, status,
 layout, or another part of the interface.
+
+### Insights before recommendations
+
+The Insights layer is the observational foundation of the Learning Layer. It
+summarizes patterns already present in Notes, Knowledge, SOPs, Executions, and
+Reviews through deterministic calculations.
+
+Insights answer **What is happening?** They do not answer **What should change?**
+They never modify data, create recommendations, perform cleanup, optimize the
+workspace, or change interface layout.
+
+This separation ensures that future Recommendations Center, Adaptive Workspace,
+and AI Assistant capabilities begin with visible evidence rather than hidden
+interpretation. Those future systems are not part of the Insights Foundation.
 
 ## User value
 

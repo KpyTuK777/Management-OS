@@ -40,3 +40,7 @@
 - Added structured rating, outcome, blocker, improvement, and lesson signals.
 - Added Review persistence under the `executionReviews` storage key and real-time search.
 - Kept Review observations independent from immutable Execution and SOP definitions.
+- Added a read-only Insights page with deterministic cross-module aggregation.
+- Added Execution and Review statistics, distributions, and repeated-pattern visibility.
+- Added Notes and Knowledge conversion metrics plus SOP usage statistics.
+- Added real-time Insight-card search without introducing stored Insights or recommendations.

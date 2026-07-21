@@ -98,3 +98,15 @@ function loadExecutionReviews() {
 	return getStorageItem("executionReviews", []);
 
 }
+
+function loadInsightsSourceCollections() {
+
+	return {
+		executions: loadSopExecutions(),
+		reviews: loadExecutionReviews(),
+		knowledgeEntries: loadKnowledgeEntries(),
+		sops: loadSops(),
+		notes: loadNotes()
+	};
+
+}

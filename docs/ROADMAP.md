@@ -24,6 +24,11 @@ Execution MVP.
 
 Surface trends and operational insight from project, task, and review data.
 
+The first Insights Foundation now exposes deterministic cross-module totals,
+conversion rates, distributions, repeated phrases, duration, and execution
+frequency. Future Analytics may add time windows and comparisons, but observation
+must remain separate from recommendations.
+
 ## Phase 6 — Optimization
 
 Improve the system through AI, automation, integrations, performance work, UX improvements, and refactoring.
@@ -44,7 +49,7 @@ The Center may surface:
 
 Recommended delivery sequence:
 
-1. establish reliable observation signals;
+1. establish reliable observation signals through the Insights layer;
 2. explain detected patterns and evidence;
 3. expose confidence without overstating certainty;
 4. propose one explicit action;
