@@ -26,3 +26,9 @@
 - Added SOP execution sessions with step and checklist progress, skip decisions, and notes.
 - Added immutable execution history stored under the `sopExecutions` key.
 - Added SOP execution search, resume behavior, and bidirectional SOP navigation.
+
+### Design Improvements
+
+- Refined the Dashboard into a clearer operational command center.
+- Prioritized attention, current focus, project position, and supporting context.
+- Preserved early prototype experiments inside a secondary Additional Context area.

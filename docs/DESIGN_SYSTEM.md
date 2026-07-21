@@ -34,6 +34,10 @@ Spacing follows an 8px rhythm. Available tokens are `--space-8`, `--space-16`, `
 
 The `.app` shell is a two-column grid with a 280px sidebar (`--sidebar-width`) and a fluid content area. The sidebar is sticky and the main content uses 40px padding. `.container` limits content width to 1440px when used.
 
+Dashboard sections use the same 1440px content limit and a 48px vertical rhythm.
+Operational content is ordered by importance, while prototype experiments remain
+available in the visually secondary `Additional Context` disclosure.
+
 ## Buttons
 
 `.btn-primary` is the implemented primary button. It uses the primary color, 10px radius, 12px × 20px padding, hover elevation, and an active state. Other button variants should be documented only when they are implemented.
@@ -41,6 +45,10 @@ The `.app` shell is a two-column grid with a 280px sidebar (`--sidebar-width`) a
 ## Cards
 
 `.project-card` is the implemented reusable card pattern: surface background, border, 16px radius, spacing, and a small shadow. Supporting elements include `.project-card__header`, `.project-card__footer`, and `.project-status`.
+
+Dashboard surfaces reuse the same background, border, `--radius-md`, 24px padding,
+and `--shadow-sm`. Primary attention uses the existing warning color as a restrained
+left-border accent; supporting cards do not introduce another visual language.
 
 ## Forms
 
