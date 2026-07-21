@@ -2,6 +2,8 @@ const newEntryButtons = document.querySelectorAll("[data-action='new-entry']");
 const knowledgeEntryForm = document.getElementById("knowledgeEntryForm");
 const knowledgeEntriesList = document.getElementById("knowledgeEntriesList");
 const knowledgeEmptyState = document.getElementById("knowledgeEmptyState");
+const knowledgeSearch = document.getElementById("knowledgeSearch");
+const knowledgeSearchInput = document.getElementById("knowledgeSearchInput");
 
 const knowledgeTitle = document.getElementById("knowledgeTitle");
 const knowledgeCategory = document.getElementById("knowledgeCategory");
@@ -11,6 +13,7 @@ const knowledgeSubmitBtn = document.getElementById("knowledgeSubmitBtn");
 
 let knowledgeEntries = loadKnowledgeEntries();
 let editingEntryId = null;
+let searchQuery = "";
 
 function createKnowledgeCard(entry) {
 
@@ -94,12 +97,32 @@ function resetKnowledgeForm() {
 
 }
 
+function filterKnowledgeEntries(entries) {
+
+	const normalizedQuery = searchQuery.toLowerCase();
+
+	return entries.filter(entry => {
+
+		return [
+			entry.title,
+			entry.category,
+			entry.summary,
+			entry.content
+		].some(value =>
+			(value || "").toLowerCase().includes(normalizedQuery)
+		);
+
+	});
+
+}
+
 function renderKnowledgeEntries() {
 
 	knowledgeEntriesList.innerHTML = "";
 
 	if (knowledgeEntries.length === 0) {
 
+		knowledgeSearch.classList.add("hidden");
 		knowledgeEntriesList.classList.add("hidden");
 		knowledgeEmptyState.classList.remove("hidden");
 
@@ -107,16 +130,38 @@ function renderKnowledgeEntries() {
 
 	}
 
+	const filteredEntries = filterKnowledgeEntries(knowledgeEntries);
+
+	knowledgeSearch.classList.remove("hidden");
 	knowledgeEmptyState.classList.add("hidden");
 	knowledgeEntriesList.classList.remove("hidden");
 
-	knowledgeEntries.forEach(entry => {
+	if (filteredEntries.length === 0) {
+
+		const noResults = document.createElement("p");
+
+		noResults.className = "knowledge-entries__empty";
+		noResults.textContent = "Записів не знайдено.";
+		knowledgeEntriesList.appendChild(noResults);
+
+		return;
+
+	}
+
+	filteredEntries.forEach(entry => {
 
 		knowledgeEntriesList.appendChild(createKnowledgeCard(entry));
 
 	});
 
 }
+
+knowledgeSearchInput.addEventListener("input", () => {
+
+	searchQuery = knowledgeSearchInput.value.trim();
+	renderKnowledgeEntries();
+
+});
 
 newEntryButtons.forEach(button => {
 
