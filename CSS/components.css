@@ -160,6 +160,76 @@
 
 }
 
+.project-filters{
+
+    display:grid;
+
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+
+    gap:var(--space-16);
+
+    padding:var(--space-16);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    background:var(--surface);
+
+}
+
+.project-filter{
+
+    display:grid;
+
+    gap:var(--space-8);
+
+    color:var(--text-secondary);
+
+    font-size:var(--font-small);
+
+    font-weight:600;
+
+}
+
+.project-filter select,
+.project-filter input{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-sm);
+
+    background:var(--surface);
+
+    color:var(--text);
+
+    font:inherit;
+
+}
+
+.project-filter select:focus,
+.project-filter input:focus{
+
+    outline:2px solid var(--primary);
+
+    outline-offset:2px;
+
+}
+
+.projects-list__empty{
+
+    padding:var(--space-32);
+
+    color:var(--text-secondary);
+
+    text-align:center;
+
+}
+
 .project-progress{
 
     display:grid;

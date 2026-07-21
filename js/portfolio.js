@@ -7,6 +7,8 @@ const projectName = document.getElementById("projectName");
 const projectDescription = document.getElementById("projectDescription");
 
 const projectsList = document.getElementById("projectsList");
+const statusFilter = document.getElementById("statusFilter");
+const projectSearch = document.getElementById("projectSearch");
 
 const PROJECT_STATUSES = [
 	"Активний",
@@ -34,6 +36,25 @@ function getProjectStatusClass(status) {
 
 let projects = loadProjects();
 let editingProjectId = null;
+let selectedStatus = "Усі";
+let searchQuery = "";
+
+function filterProjects(projects) {
+
+	return projects.filter(project => {
+
+		const projectStatus = project.status || PROJECT_STATUSES[0];
+		const matchesStatus =
+			selectedStatus === "Усі" || projectStatus === selectedStatus;
+		const matchesSearch = project.name
+			.toLowerCase()
+			.includes(searchQuery.toLowerCase());
+
+		return matchesStatus && matchesSearch;
+
+	});
+
+}
 
 // =========================
 // Відображення проєктів
@@ -43,7 +64,18 @@ function renderProjects() {
 
 	projectsList.innerHTML = "";
 
-	projects.forEach(project => {
+	const filteredProjects = filterProjects(projects);
+
+	if (filteredProjects.length === 0) {
+
+		projectsList.innerHTML =
+			'<p class="projects-list__empty">Проєкти не знайдено.</p>';
+
+		return;
+
+	}
+
+	filteredProjects.forEach(project => {
 
 		const projectStatus = project.status || PROJECT_STATUSES[0];
 		const projectProgress = Number(project.progress) || 0;
@@ -195,6 +227,20 @@ function renderProjects() {
 newProjectBtn.addEventListener("click", () => {
 
 	projectForm.classList.toggle("hidden");
+
+});
+
+statusFilter.addEventListener("change", () => {
+
+	selectedStatus = statusFilter.value;
+	renderProjects();
+
+});
+
+projectSearch.addEventListener("input", () => {
+
+	searchQuery = projectSearch.value.trim();
+	renderProjects();
 
 });
 
