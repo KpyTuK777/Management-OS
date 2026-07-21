@@ -23,6 +23,19 @@ function calculateDashboardStatistics(projects) {
 
 }
 
+function getAttentionProjects(projects) {
+
+	return projects.filter(project => {
+
+		const progress = Number(project.progress || 0);
+		const status = project.status || "Активний";
+
+		return status === "На паузі" || progress < 30 || progress === 0;
+
+	});
+
+}
+
 function renderDashboardStatistics() {
 
 	const totalProjectsElement = document.getElementById("totalProjects");
@@ -41,14 +54,63 @@ function renderDashboardStatistics() {
 
 }
 
+function renderAttentionProjects() {
+
+	const attentionProjectsElement =
+		document.getElementById("attentionProjects");
+
+	if (!attentionProjectsElement) return;
+
+	const attentionProjects = getAttentionProjects(loadProjects());
+
+	if (attentionProjects.length === 0) {
+
+		attentionProjectsElement.innerHTML =
+			'<p class="dashboard-attention__empty">' +
+			'Наразі немає проєктів, що потребують уваги.' +
+			'</p>';
+
+		return;
+
+	}
+
+	attentionProjectsElement.innerHTML = attentionProjects.map(project => {
+
+		const status = project.status || "Активний";
+		const progress = Number(project.progress || 0);
+
+		return `
+			<article class="dashboard-attention-card">
+
+				<h3>${project.name}</h3>
+
+				<div class="dashboard-attention-card__meta">
+					<span>Статус: ${status}</span>
+					<span>Прогрес: ${progress}%</span>
+				</div>
+
+			</article>
+		`;
+
+	}).join("");
+
+}
+
+function renderDashboard() {
+
+	renderDashboardStatistics();
+	renderAttentionProjects();
+
+}
+
 window.addEventListener("storage", event => {
 
 	if (event.key === "projects") {
 
-		renderDashboardStatistics();
+		renderDashboard();
 
 	}
 
 });
 
-renderDashboardStatistics();
+renderDashboard();
