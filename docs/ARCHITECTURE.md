@@ -211,6 +211,42 @@ evidence. `js/review.js` is its first feature module and owns:
 - deriving pending Reviews from finished Executions without mutating them;
 - rendering Review history and real-time search through Platform Utilities.
 
+### Learning Decision Pipeline
+
+The long-term Learning Layer architecture must preserve this ordered pipeline:
+
+```text
+Observed Facts
+      ↓
+Evidence
+      ↓
+Insights
+      ↓
+Hypotheses
+      ↓
+Recommendations
+      ↓
+User Approval
+      ↓
+System Improvement
+```
+
+No stage may silently bypass another. Each transition has a distinct ownership
+boundary:
+
+- Observed Facts remain owned by their source domains;
+- Evidence preserves traceable facts used in analysis;
+- Insights expose deterministic patterns in that Evidence;
+- Hypotheses preserve their supporting Evidence and express possible explanations;
+- Recommendations preserve their supporting Hypothesis and propose a bounded action;
+- User Approval authorizes only the action that was presented;
+- System Improvement is performed by the owning feature or Workflow Layer.
+
+Traceability must remain intact across the full pipeline. A downstream object or
+view must not detach a conclusion from its supporting stage, silently increase
+confidence, or convert interpretation into fact. Explainability is an architectural
+quality and core product value, not a presentation concern that can be added later.
+
 After an Execution finishes, `sop-execution.js` offers Review immediately but does
 not require it. A short-lived `sessionStorage` value under `reviewExecutionId`
 carries the selected Execution to `review.html`. Deferral creates no stored state;

@@ -21,6 +21,7 @@ The product should be calm, intentional, and useful. Information belongs in a cl
 9. **Work now. Learn forever.** Reflection should be lightweight while operational experience compounds over time.
 10. **Recommend, never take control.** Management OS explains opportunities and waits for explicit user approval before changing the workspace.
 11. **Make patterns visible before making recommendations.** Observed evidence must be separated from interpretation and proposed action.
+12. **Preserve the Learning Decision Pipeline.** Every conclusion and improvement must remain traceable from observed facts through explicit user approval.
 
 ## Long-term vision
 
@@ -58,6 +59,35 @@ Knowledge stores understanding. SOP stores procedure. Execution stores historica
 evidence. Keeping these responsibilities independent makes improvement explainable:
 future recommendations can compare the intended procedure with observed outcomes,
 while users retain control over changes to the SOP.
+
+### Learning Decision Pipeline
+
+Management OS follows a deliberate decision pipeline:
+
+```text
+Observed Facts
+      ↓
+Evidence
+      ↓
+Insights
+      ↓
+Hypotheses
+      ↓
+Recommendations
+      ↓
+User Approval
+      ↓
+System Improvement
+```
+
+No stage may silently bypass another. Every Hypothesis must preserve the Evidence
+that supports it, and every Recommendation must preserve its supporting
+Hypothesis. System Improvement may occur only after explicit User Approval.
+
+Explainability is a core product value, not an implementation detail. The user
+must be able to understand what was observed, how it became evidence, why a
+possible explanation was formed, and what authorized change would follow from an
+accepted Recommendation.
 
 ### Recommendations Center
 
