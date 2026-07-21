@@ -20,24 +20,41 @@ function createKnowledgeCard(entry) {
 	const category = document.createElement("span");
 	const summary = document.createElement("p");
 	const createdAt = document.createElement("small");
+	const actions = document.createElement("div");
 	const editButton = document.createElement("button");
+	const deleteButton = document.createElement("button");
 
 	card.className = "knowledge-card";
 	header.className = "knowledge-card__header";
 	category.className = "knowledge-card__category";
 	createdAt.className = "knowledge-card__date";
+	actions.className = "knowledge-card__actions";
 	editButton.className = "btn-primary knowledge-card__edit-btn";
 	editButton.type = "button";
+	deleteButton.className = "btn-primary knowledge-card__delete-btn";
+	deleteButton.type = "button";
 
 	title.textContent = entry.title;
 	category.textContent = entry.category;
 	summary.textContent = entry.summary;
 	createdAt.textContent = `Створено: ${new Date(entry.createdAt).toLocaleDateString("uk-UA")}`;
 	editButton.textContent = "Редагувати";
+	deleteButton.textContent = "Видалити";
 
 	editButton.addEventListener("click", () => {
 
 		startEditingEntry(entry);
+
+	});
+
+	deleteButton.addEventListener("click", () => {
+
+		if (!confirm("Видалити цей запис?")) return;
+
+		knowledgeEntries = knowledgeEntries.filter(item => item.id !== entry.id);
+
+		saveKnowledgeEntries(knowledgeEntries);
+		renderKnowledgeEntries();
 
 	});
 
@@ -46,7 +63,9 @@ function createKnowledgeCard(entry) {
 	card.appendChild(header);
 	card.appendChild(summary);
 	card.appendChild(createdAt);
-	card.appendChild(editButton);
+	actions.appendChild(editButton);
+	actions.appendChild(deleteButton);
+	card.appendChild(actions);
 
 	return card;
 

@@ -238,9 +238,25 @@
 
 }
 
-.knowledge-card__edit-btn{
+.knowledge-card__actions{
 
-    align-self:flex-start;
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:var(--space-8);
+
+}
+
+.knowledge-card__delete-btn{
+
+    background:var(--danger);
+
+}
+
+.knowledge-card__delete-btn:hover{
+
+    background:#DC2626;
 
 }
 
