@@ -159,3 +159,65 @@
     color:#475569;
 
 }
+
+.project-progress{
+
+    display:grid;
+
+    gap:var(--space-8);
+
+}
+
+.project-progress__header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:var(--text-secondary);
+
+    font-size:var(--font-small);
+
+}
+
+.project-progress__value{
+
+    color:var(--text);
+
+    font-weight:600;
+
+}
+
+.project-progress__bar{
+
+    height:8px;
+
+    overflow:hidden;
+
+    border-radius:999px;
+
+    background:var(--border);
+
+}
+
+.project-progress__fill{
+
+    height:100%;
+
+    border-radius:inherit;
+
+    background:var(--primary);
+
+    transition:width var(--transition);
+
+}
+
+.project-progress__slider{
+
+    width:100%;
+
+    accent-color:var(--primary);
+
+    cursor:pointer;
+
+}

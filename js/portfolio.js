@@ -46,6 +46,7 @@ function renderProjects() {
 	projects.forEach(project => {
 
 		const projectStatus = project.status || PROJECT_STATUSES[0];
+		const projectProgress = Number(project.progress) || 0;
 
 		const card = document.createElement("div");
 
@@ -83,11 +84,38 @@ function renderProjects() {
 
         </small>
 
-        <small>
+    </div>
 
-            Прогрес: ${project.progress}%
+    <div class="project-progress">
 
-        </small>
+        <div class="project-progress__header">
+
+            <span>Прогрес</span>
+
+            <span class="project-progress__value">${projectProgress}%</span>
+
+        </div>
+
+        <div
+            class="project-progress__bar"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="${projectProgress}">
+
+            <div
+                class="project-progress__fill"
+                style="width: ${projectProgress}%"></div>
+
+        </div>
+
+        <input
+            class="project-progress__slider"
+            type="range"
+            min="0"
+            max="100"
+            value="${projectProgress}"
+            aria-label="Прогрес проєкту">
 
     </div>
 
@@ -99,6 +127,24 @@ function renderProjects() {
 
 			project.status = statusSelect.value;
 			statusSelect.className = `project-status ${getProjectStatusClass(project.status)}`;
+
+			saveProjects(projects);
+
+		});
+
+		const progressSlider = card.querySelector(".project-progress__slider");
+		const progressFill = card.querySelector(".project-progress__fill");
+		const progressValue = card.querySelector(".project-progress__value");
+		const progressBar = card.querySelector(".project-progress__bar");
+
+		progressSlider.addEventListener("input", () => {
+
+			const progress = Number(progressSlider.value);
+
+			project.progress = progress;
+			progressFill.style.width = `${progress}%`;
+			progressValue.textContent = `${progress}%`;
+			progressBar.setAttribute("aria-valuenow", progress);
 
 			saveProjects(projects);
 
