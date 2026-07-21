@@ -10,10 +10,104 @@ const knowledgeCategory = document.getElementById("knowledgeCategory");
 const knowledgeSummary = document.getElementById("knowledgeSummary");
 const knowledgeContent = document.getElementById("knowledgeContent");
 const knowledgeSubmitBtn = document.getElementById("knowledgeSubmitBtn");
+const newCategoryBtn = document.getElementById("newCategoryBtn");
+const knowledgeCategoryForm = document.getElementById("knowledgeCategoryForm");
+const newCategoryName = document.getElementById("newCategoryName");
+const addCategoryBtn = document.getElementById("addCategoryBtn");
+const cancelCategoryBtn = document.getElementById("cancelCategoryBtn");
 
 let knowledgeEntries = loadKnowledgeEntries();
+let knowledgeCategories = loadKnowledgeCategories();
 let editingEntryId = null;
 let searchQuery = "";
+
+function includeExistingEntryCategories() {
+
+	let categoriesChanged = false;
+
+	knowledgeEntries.forEach(entry => {
+
+		const categoryName = (entry.category || "").trim();
+		const categoryExists = knowledgeCategories.some(category =>
+			category.toLowerCase() === categoryName.toLowerCase()
+		);
+
+		if (categoryName && !categoryExists) {
+
+			knowledgeCategories.push(categoryName);
+			categoriesChanged = true;
+
+		}
+
+	});
+
+	if (categoriesChanged) saveKnowledgeCategories(knowledgeCategories);
+
+}
+
+function renderCategoryOptions(selectedCategory = "") {
+
+	knowledgeCategory.innerHTML = "";
+
+	knowledgeCategories.forEach(category => {
+
+		const option = document.createElement("option");
+
+		option.value = category;
+		option.textContent = category;
+		knowledgeCategory.appendChild(option);
+
+	});
+
+	if (selectedCategory) knowledgeCategory.value = selectedCategory;
+
+}
+
+function closeCategoryForm() {
+
+	newCategoryName.value = "";
+	newCategoryName.setCustomValidity("");
+	knowledgeCategoryForm.classList.add("hidden");
+
+}
+
+function createKnowledgeCategory() {
+
+	const categoryName = newCategoryName.value.trim();
+
+	newCategoryName.setCustomValidity("");
+
+	if (!categoryName) {
+
+		newCategoryName.setCustomValidity("Введіть назву категорії.");
+		newCategoryName.reportValidity();
+
+		return;
+
+	}
+
+	const duplicateCategory = knowledgeCategories.find(category =>
+		category.toLowerCase() === categoryName.toLowerCase()
+	);
+
+	if (duplicateCategory) {
+
+		newCategoryName.setCustomValidity("Категорія вже існує.");
+		newCategoryName.reportValidity();
+
+		return;
+
+	}
+
+	knowledgeCategories.push(categoryName);
+	saveKnowledgeCategories(knowledgeCategories);
+	renderCategoryOptions(categoryName);
+	closeCategoryForm();
+
+}
+
+includeExistingEntryCategories();
+renderCategoryOptions();
 
 function createKnowledgeCard(entry) {
 
@@ -79,7 +173,7 @@ function startEditingEntry(entry) {
 	editingEntryId = entry.id;
 
 	knowledgeTitle.value = entry.title;
-	knowledgeCategory.value = entry.category;
+	renderCategoryOptions(entry.category);
 	knowledgeSummary.value = entry.summary;
 	knowledgeContent.value = entry.content;
 
@@ -92,10 +186,38 @@ function startEditingEntry(entry) {
 function resetKnowledgeForm() {
 
 	knowledgeEntryForm.reset();
+	closeCategoryForm();
 	editingEntryId = null;
 	knowledgeSubmitBtn.textContent = "Зберегти запис";
 
 }
+
+newCategoryBtn.addEventListener("click", () => {
+
+	newCategoryName.setCustomValidity("");
+	knowledgeCategoryForm.classList.remove("hidden");
+	newCategoryName.focus();
+
+});
+
+addCategoryBtn.addEventListener("click", createKnowledgeCategory);
+
+cancelCategoryBtn.addEventListener("click", closeCategoryForm);
+
+newCategoryName.addEventListener("input", () => {
+
+	newCategoryName.setCustomValidity("");
+
+});
+
+newCategoryName.addEventListener("keydown", event => {
+
+	if (event.key !== "Enter") return;
+
+	event.preventDefault();
+	createKnowledgeCategory();
+
+});
 
 function filterKnowledgeEntries(entries) {
 

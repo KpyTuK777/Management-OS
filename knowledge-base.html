@@ -76,7 +76,29 @@
 
 						<label for="knowledgeCategory">Категорія</label>
 
-						<input type="text" id="knowledgeCategory" required>
+						<select id="knowledgeCategory" required></select>
+
+						<button class="knowledge-category-toggle" type="button" id="newCategoryBtn">
+
+							+ Нова категорія
+
+						</button>
+
+						<div class="knowledge-category-form hidden" id="knowledgeCategoryForm">
+
+							<label for="newCategoryName">Назва категорії</label>
+
+							<input type="text" id="newCategoryName">
+
+							<div class="knowledge-category-form__actions">
+
+								<button class="btn-primary" type="button" id="addCategoryBtn">Додати</button>
+
+								<button class="btn-secondary" type="button" id="cancelCategoryBtn">Скасувати</button>
+
+							</div>
+
+						</div>
 
 					</div>
 

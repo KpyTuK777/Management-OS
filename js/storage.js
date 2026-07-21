@@ -25,3 +25,32 @@ function loadKnowledgeEntries() {
 	return data ? JSON.parse(data) : [];
 
 }
+
+const DEFAULT_KNOWLEDGE_CATEGORIES = [
+	"Management",
+	"Frontend",
+	"Backend",
+	"Design",
+	"Learning",
+	"Personal"
+];
+
+function saveKnowledgeCategories(categories) {
+
+	localStorage.setItem("knowledgeCategories", JSON.stringify(categories));
+
+}
+
+function loadKnowledgeCategories() {
+
+	const data = localStorage.getItem("knowledgeCategories");
+
+	if (data !== null) return JSON.parse(data);
+
+	const categories = [...DEFAULT_KNOWLEDGE_CATEGORIES];
+
+	saveKnowledgeCategories(categories);
+
+	return categories;
+
+}

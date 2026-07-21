@@ -131,6 +131,7 @@
 }
 
 .form-group input,
+.form-group select,
 .form-group textarea{
 
     width:100%;
@@ -156,11 +157,84 @@
 }
 
 .form-group input:focus,
+.form-group select:focus,
 .form-group textarea:focus{
 
     outline:2px solid var(--primary);
 
     outline-offset:2px;
+
+}
+
+.knowledge-category-toggle{
+
+    justify-self:start;
+
+    border:0;
+
+    background:transparent;
+
+    color:var(--primary);
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+.knowledge-category-form{
+
+    display:grid;
+
+    gap:var(--space-8);
+
+    padding:var(--space-16);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-sm);
+
+    background:var(--background);
+
+}
+
+.knowledge-category-form.hidden{
+
+    display:none;
+
+}
+
+.knowledge-category-form__actions{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:var(--space-8);
+
+}
+
+.btn-secondary{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:12px 20px;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-sm);
+
+    background:var(--surface);
+
+    color:var(--text);
+
+    font-weight:600;
+
+    cursor:pointer;
 
 }
 
