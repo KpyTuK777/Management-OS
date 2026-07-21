@@ -1,17 +1,87 @@
-.app
+/* ====================================================== */
+/*                        LAYOUT                          */
+/* ====================================================== */
 
-.sidebar {
-	width:var(--sidebar-width);
+.app{
+
+    display:grid;
+
+    grid-template-columns:var(--sidebar-width) 1fr;
+
+    min-height:100vh;
+
 }
 
-main {
-	padding:var(--space-40);
+/* ================= Sidebar ================= */
+
+.sidebar{
+
+    background:var(--surface);
+
+    border-right:1px solid var(--border);
+
+    padding:var(--space-32);
+
+    position:sticky;
+
+    top:0;
+
+    height:100vh;
+
 }
 
-.page-header
+.sidebar nav{
 
-.section-header
+    display:flex;
 
-.grid
+    flex-direction:column;
 
-.container {}
+    gap:var(--space-8);
+
+    margin-top:var(--space-40);
+
+}
+
+/* ================= Main ================= */
+
+main{
+
+    padding:var(--space-40);
+
+}
+
+/* ================= Header ================= */
+
+.page-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:var(--space-48);
+
+}
+
+.section-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:var(--space-24);
+
+}
+
+/* ================= Container ================= */
+
+.container{
+
+    max-width:1440px;
+
+    margin:0 auto;
+
+}

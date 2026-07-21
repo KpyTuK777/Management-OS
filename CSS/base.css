@@ -1,74 +1,69 @@
-:root/* ====================================================== */
-/*                     DESIGN TOKENS                       */
-/* ====================================================== */{
+/* ====================================================== */
+/*                MANAGEMENT OS DESIGN SYSTEM             */
+/* ====================================================== */
 
-    /* ===== Colors ===== */
+:root{
+
+    /* ===== COLORS ===== */
 
     --primary:#4F46E5;
+    --primary-hover:#4338CA;
 
-    --background:#F5F7FB;
-
+    --background:#F8FAFC;
     --surface:#FFFFFF;
 
-    --text:#1E293B;
-
-    --text-light:#64748B;
+    --text:#0F172A;
+    --text-secondary:#64748B;
 
     --border:#E2E8F0;
 
-    --shadow:0 10px 30px rgba(15,23,42,.08);
+    --success:#22C55E;
+    --warning:#F59E0B;
+    --danger:#EF4444;
 
-    /* ===== Spacing ===== */
+    /* ===== SHADOW ===== */
+
+    --shadow-sm:0 1px 2px rgba(15,23,42,.05);
+
+    --shadow-md:0 8px 24px rgba(15,23,42,.06);
+
+    --shadow-lg:0 20px 40px rgba(15,23,42,.08);
+
+    /* ===== SPACING ===== */
 
     --space-8:8px;
-
     --space-16:16px;
-
     --space-24:24px;
-
     --space-32:32px;
-
     --space-40:40px;
-
     --space-48:48px;
-
     --space-64:64px;
 
-    /* ===== Radius ===== */
+    /* ===== RADIUS ===== */
 
-    --radius-sm:12px;
-
+    --radius-sm:10px;
     --radius-md:16px;
-
     --radius-lg:24px;
 
-	 /* ===== TRANSITIONS ===== */
+    /* ===== TYPOGRAPHY ===== */
 
-	--transition-fast:.2s;
+    --font-xl:40px;
+    --font-lg:32px;
+    --font-md:24px;
+    --font-base:16px;
+    --font-small:14px;
 
-	--transition-normal:.3s;
+    /* ===== LAYOUT ===== */
 
-	/* ===== SIDEBAR ===== */
+    --sidebar-width:280px;
 
-	--sidebar-width:280px;
+    /* ===== ANIMATION ===== */
 
-	/* ===== HEADER ===== */
-
-	--header-height:80px;
-
-	/* ===== TYPOGRAPHY ===== */
-
-	--font-xl:42px;
-	
-	--font-lg:32px;
-	
-	--font-md:24px;
-	
-	--font-sm:18px;
-	
-	--font-xs:16px;
+    --transition:.25s ease;
 
 }
+
+/* ====================================================== */
 
 *{
 
@@ -80,19 +75,31 @@
 
 }
 
+html{
+
+    scroll-behavior:smooth;
+
+}
+
 body{
 
-    font-family:Inter, sans-serif;
+    font-family:"Inter",sans-serif;
 
     background:var(--background);
 
     color:var(--text);
 
+    line-height:1.6;
+
 }
+
+/* ====================================================== */
 
 h1{
 
     font-size:var(--font-xl);
+
+    font-weight:700;
 
 }
 
@@ -100,18 +107,42 @@ h2{
 
     font-size:var(--font-lg);
 
+    font-weight:700;
+
 }
 
 h3{
 
     font-size:var(--font-md);
 
+    font-weight:600;
+
 }
 
 p{
 
-    font-size:var(--font-xs);
+    color:var(--text-secondary);
 
-    color:var(--text-light);
+}
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+button{
+
+    font:inherit;
+
+}
+
+img{
+
+    max-width:100%;
+
+    display:block;
 
 }
