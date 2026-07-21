@@ -1,0 +1,53 @@
+# Systems
+
+Management OS is organized as a collection of business systems. Each system has a distinct purpose and evolves independently while contributing to one operating workspace.
+
+## Home
+
+- **Purpose:** Show what matters today.
+- **Current status:** Static dashboard content in `index.html`.
+- **Future responsibilities:** Daily focus, prioritized tasks, KPI signals, inbox, timeline, and recent activity.
+
+## Portfolio
+
+- **Purpose:** Maintain the full project portfolio.
+- **Current status:** Implemented in `portfolio.html` with create, edit, delete, render, and browser persistence.
+- **Future responsibilities:** Status and progress updates, filters, sorting, project history, and project-level task relationships.
+
+## Knowledge Base
+
+- **Purpose:** Act as the user's reusable second brain.
+- **Current status:** Placeholder page.
+- **Future responsibilities:** Notes, methods, practice, tags, search, and links between knowledge items.
+
+## Review Center
+
+- **Purpose:** Support structured reflection and continuous improvement.
+- **Current status:** Placeholder page.
+- **Future responsibilities:** Daily, weekly, and monthly reviews, observations, decisions, and improvement actions.
+
+## Analytics
+
+- **Purpose:** Explain operational change and trends.
+- **Current status:** Placeholder page.
+- **Future responsibilities:** Metrics, trend analysis, project performance, and decision support.
+
+## Calendar
+
+- **Purpose:** Provide time-based operational planning.
+- **Current status:** Placeholder page.
+- **Future responsibilities:** Schedule, milestones, deadlines, and planning views.
+
+## Tasks
+
+- **Purpose:** Manage actionable work.
+- **Current status:** Placeholder page.
+- **Future responsibilities:** Task capture, priorities, completion, and project association.
+
+## Settings
+
+- **Purpose:** Configure the workspace.
+- **Current status:** Placeholder page.
+- **Future responsibilities:** Preferences, terminology, visual settings, and future integrations.
+
+See [Architecture](ARCHITECTURE.md) for implementation boundaries and [Roadmap](ROADMAP.md) for delivery direction.
