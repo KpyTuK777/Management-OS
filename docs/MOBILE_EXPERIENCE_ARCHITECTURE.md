@@ -21,6 +21,10 @@ retrieval, capture, interruption, offline, and interaction boundaries of mobile.
 It participates in the [Owner Journey](OWNER_JOURNEY.md) without redesigning
 existing domain modules or changing their ownership.
 
+The [Platform Responsibility Model](PLATFORM_RESPONSIBILITY_MODEL.md) is canonical
+for the responsibility boundary between Desktop and Mobile. This document applies
+that boundary specifically to the mobile experience.
+
 The [AI-first Workspace Architecture](AI_FIRST_WORKSPACE_ARCHITECTURE.md),
 [Natural Capture Architecture](NATURAL_CAPTURE_ARCHITECTURE.md), and
 [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md) remain authoritative

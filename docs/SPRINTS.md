@@ -125,6 +125,7 @@ incomplete.
 ### Completed
 
 - **Product Experience — Architecture:** Canonical Mobile Experience Architecture
+- **Platform Architecture:** Canonical Platform Responsibility Model
 
 ### Implementation status
 
@@ -136,5 +137,8 @@ incomplete.
   runtime behavior was implemented.
 - Each mobile implementation increment requires separate Implementation Planning,
   approval, and APPLY.
+- The Platform Responsibility Model allocates complementary Desktop and Mobile
+  responsibilities without introducing feature parity, synchronization, or
+  platform implementation.
 
 See [Roadmap](ROADMAP.md) for product phases beyond this sprint.

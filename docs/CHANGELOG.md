@@ -120,6 +120,10 @@ separately in [Sprint Tracker](SPRINTS.md).
   retrieval, Capture, continuity, and bounded-decision companion to desktop, with
   Search-first navigation, interruption restraint, offline trust states, explicit
   handoff, and no implementation claim.
+- Added the canonical Platform Responsibility Model, defining Desktop as the
+  operational-system construction and governance surface and Mobile as its
+  retrieval, Capture, continuity, and lightweight-interaction companion, with one
+  organizational truth and no feature-parity requirement.
 - Added the canonical Product Principle that Management OS should quietly remove
   cognitive noise while preserving decisions that require human judgment.
 - Extended the standard Product Review guidance with a mandatory evaluation of
