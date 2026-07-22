@@ -64,6 +64,15 @@ separately in [Sprint Tracker](SPRINTS.md).
 - Added a non-authoritative Knowledge Evolution Map that routes temporary ideas,
   canonical truth, durable rationale, delivery evidence, and release history to
   their existing documentation authorities.
+- Added the approved AI Assistant product architecture for contextual operational
+  intelligence, confidence and clarification, bounded approval, explicit learning,
+  cognitive-load reduction, layered memory, and distributed Assistant presence.
+- Added the canonical Product Principle that Management OS should quietly remove
+  cognitive noise while preserving decisions that require human judgment.
+- Extended the standard Product Review guidance with a mandatory evaluation of
+  cognitive-noise reduction and preservation of human judgment.
+- Kept AI Assistant implementation, model technology, providers, APIs, and
+  infrastructure outside the documented architecture change.
 - Retained `UI_LANGUAGE.md` as a temporary compatibility path.
 
 ### Learning Layer

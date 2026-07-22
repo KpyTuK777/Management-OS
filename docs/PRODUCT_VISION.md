@@ -22,9 +22,10 @@ The product should be calm, intentional, and useful. Information belongs in a cl
 7. **Analytics explains change.** It should reveal trends, not merely display numbers.
 8. **Every feature must earn its place.** It should save time, reduce errors, or improve decisions.
 9. **Work now. Learn forever.** Reflection should be lightweight while operational experience compounds over time.
-10. **Recommend, never take control.** Management OS explains opportunities and waits for explicit user approval before changing the workspace.
-11. **Make patterns visible before making recommendations.** Observed evidence must be separated from interpretation and proposed action.
-12. **Preserve the Learning Decision Pipeline.** Every conclusion and improvement must remain traceable from observed facts through explicit user approval.
+10. **Leave only decisions that require human judgment.** We build an operational partner that quietly removes cognitive noise, leaving the owner only the decisions that genuinely require human judgment.
+11. **Recommend, never take control.** Management OS explains opportunities and waits for explicit user approval before changing the workspace.
+12. **Make patterns visible before making recommendations.** Observed evidence must be separated from interpretation and proposed action.
+13. **Preserve the Learning Decision Pipeline.** Every conclusion and improvement must remain traceable from observed facts through explicit user approval.
 
 ## Long-term vision
 

@@ -14,6 +14,7 @@ When documents overlap, the canonical authority for the relevant domain prevails
 | Ownership and approval | [Team Governance](TEAM.md) |
 | Product-system responsibilities | [Systems](SYSTEMS.md) |
 | Technical structure and boundaries | [Architecture](ARCHITECTURE.md) |
+| AI Assistant product architecture | [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md) |
 | Data contracts | [Data Model](DATA_MODEL.md) |
 | Engineering practice | [Development](DEVELOPMENT.md) |
 | Visual conventions | [Design System](DESIGN_SYSTEM.md) |
@@ -40,6 +41,7 @@ product status or scope.
 | `docs/ROADMAP.md` | Product | Sequence future product horizons and milestones. | Product Owner | Product and delivery planning | At milestone changes | Canonical | Product Vision, Sprints, Systems |
 | `docs/SYSTEMS.md` | Product architecture | Catalog systems, responsibilities, current state, and boundaries. | Product Architect | Product, architecture, engineering | After system-level changes | Canonical | Architecture, Roadmap, Data Model |
 | `docs/ARCHITECTURE.md` | Engineering architecture | Define technical structure, layers, workflows, and boundaries. | Product Architect | Architects and engineers | With architectural changes | Canonical | Systems, Data Model, Development |
+| `docs/AI_ASSISTANT_ARCHITECTURE.md` | AI product architecture | Define Assistant responsibilities, interaction, confidence, approval, learning, memory, cognitive-load, and presence boundaries. | Product Architect & AI Strategist | Product, architecture, design, engineering, and AI collaborators | With approved AI Assistant architecture changes | Canonical future architecture; not implemented | Product Vision, Architecture, Team, Product Language, Recommendations Center direction |
 | `docs/DATA_MODEL.md` | Data | Define entities, fields, relationships, and persistence semantics. | Product Architect | Engineers and reviewers | With model or persistence changes | Canonical | Architecture, Systems |
 | `docs/DEVELOPMENT.md` | Development | Define setup, tooling, and engineering conventions. | Lead Software Engineer | Contributors and AI implementers | With tooling or practice changes | Canonical | Team, Architecture, Product Language |
 | `docs/DESIGN_SYSTEM.md` | Design | Define visual tokens, shared components, interaction states, and accessibility conventions. | Design Owner | Designers and frontend engineers | With shared presentation changes | Canonical | Product Language, Architecture |

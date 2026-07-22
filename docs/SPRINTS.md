@@ -85,4 +85,19 @@ incomplete.
 - **Governance:** Lightweight Decision Log and ADR routing boundary
 - **Governance:** Knowledge Evolution Map and permanence boundary
 
+## Sprint 7 — AI Operational Layer
+
+### Completed
+
+- **Feature 01 — Architecture:** AI Assistant Architecture
+- **Documentation:** Cognitive-load reduction promoted to a canonical Product Principle
+- **Documentation:** Cognitive-load principle added as a mandatory Product Review criterion
+
+### Implementation status
+
+- No AI Assistant runtime behavior was implemented.
+- Implementation remains subject to a separate approved proposal and APPLY.
+- AI governance, privacy, explainability, correction, retention, revocation, and
+  safety controls remain prerequisites.
+
 See [Roadmap](ROADMAP.md) for product phases beyond this sprint.

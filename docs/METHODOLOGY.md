@@ -161,6 +161,12 @@ No later stage silently substitutes for an earlier approval or review.
 | Documentation Review | Are canonical documents complete, accurate, and internally consistent? | Accountable document owner |
 | Consistency Audit | Do approval, implementation, and documentation agree? | Product Architect |
 
+Product Review applies the canonical
+[Product Vision principle](PRODUCT_VISION.md#core-principles) by asking:
+
+> Does this change reduce the owner's cognitive noise while preserving every
+> decision that genuinely requires human judgment?
+
 ## Design and Product Language integration
 
 Interface work follows both [Design System](DESIGN_SYSTEM.md) and

@@ -30,6 +30,7 @@ Open the repository in VS Code and launch `index.html` or `portfolio.html` with 
 ## Documentation
 
 - [Architecture](docs/ARCHITECTURE.md)
+- [AI Assistant architecture](docs/AI_ASSISTANT_ARCHITECTURE.md)
 - [Product vision](docs/PRODUCT_VISION.md)
 - [Product maturity](docs/PRODUCT_MATURITY.md)
 - [Systems](docs/SYSTEMS.md)

@@ -427,6 +427,11 @@ No storage, API, model, training approach, service, module, or new runtime behav
 is defined by this vision. The current architecture and v1.0 implementation scope
 remain unchanged.
 
+The approved product architecture for the future operational intelligence layer is
+defined separately in [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md).
+It extends these boundaries without introducing current runtime behavior or
+redesigning existing modules.
+
 ## Module responsibilities
 
 - **Home:** present today-focused, static dashboard information.
