@@ -120,4 +120,21 @@ incomplete.
 - AI governance, privacy, explainability, correction, retention, revocation, and
   safety controls remain prerequisites.
 
+## Sprint 8
+
+### Completed
+
+- **Product Experience — Architecture:** Canonical Mobile Experience Architecture
+
+### Implementation status
+
+- The approved mobile architecture defines retrieval, Capture, active-work
+  continuity, bounded decisions, notifications, offline trust states, interaction
+  limits, and desktop handoff.
+- No mobile application, cross-device synchronization, global intelligent Search,
+  voice Capture, notification delivery, offline mutation, recommendation, or AI
+  runtime behavior was implemented.
+- Each mobile implementation increment requires separate Implementation Planning,
+  approval, and APPLY.
+
 See [Roadmap](ROADMAP.md) for product phases beyond this sprint.

@@ -116,6 +116,10 @@ separately in [Sprint Tracker](SPRINTS.md).
 - Added the Owner Journey Validation Framework as standard feature-impact evidence
   within existing Product and Design Reviews, without creating a new approval
   process.
+- Added the canonical Mobile Experience Architecture, defining mobile as the
+  retrieval, Capture, continuity, and bounded-decision companion to desktop, with
+  Search-first navigation, interruption restraint, offline trust states, explicit
+  handoff, and no implementation claim.
 - Added the canonical Product Principle that Management OS should quietly remove
   cognitive noise while preserving decisions that require human judgment.
 - Extended the standard Product Review guidance with a mandatory evaluation of
