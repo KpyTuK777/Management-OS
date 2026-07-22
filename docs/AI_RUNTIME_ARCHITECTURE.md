@@ -27,6 +27,10 @@ The approved [Protected AI Runtime Platform](PROTECTED_AI_RUNTIME_PLATFORM.md)
 defines the container and Cloud Run boundary that will host this architecture. It
 selects no AI provider and does not alter the runtime contracts defined here.
 
+The [Owner Identity Architecture](OWNER_IDENTITY_ARCHITECTURE.md) defines the
+authenticated Account, Workspace Membership, and bounded Auth Context required
+before a capability workflow may execute.
+
 ## Current implementation boundary
 
 Management OS currently has no AI runtime, Model Gateway, provider adapter, model

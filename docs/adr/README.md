@@ -12,6 +12,7 @@ made, the alternatives considered, and its consequences.
 | ADR | Status | Decision |
 | --- | --- | --- |
 | [ADR-0001](0001-protected-ai-runtime-platform.md) | Accepted | Use a containerized Node.js runtime on Google Cloud Run for the protected AI runtime platform |
+| [ADR-0002](0002-owner-identity-and-session-boundary.md) | Accepted | Use OIDC, stable internal Accounts, Workspace Membership, and server-managed browser sessions |
 
 ## Lifecycle
 

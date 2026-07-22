@@ -19,6 +19,11 @@ containerized Node.js service on Google Cloud Run as the future v1 host. No
 container, cloud resource, authenticated runtime, or deployment pipeline is
 currently implemented.
 
+The approved future [Owner Identity Architecture](OWNER_IDENTITY_ARCHITECTURE.md)
+defines OIDC authentication, server-managed browser sessions, stable Accounts,
+Workspace Membership, and bounded runtime Auth Context. None is currently
+implemented.
+
 ## Project structure
 
 ```text

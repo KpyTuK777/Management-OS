@@ -129,6 +129,8 @@ incomplete.
 - **AI Operational Layer — Architecture:** Canonical AI Runtime Architecture
 - **AI Operational Layer — Platform Architecture:** Protected AI Runtime Platform
 - **Architecture Decision:** ADR-0001 selects a containerized Node.js runtime on Google Cloud Run
+- **Identity Architecture:** Canonical Owner Identity Architecture
+- **Architecture Decision:** ADR-0002 establishes OIDC, internal Accounts, Workspace Membership, and server-managed browser sessions
 
 ### Implementation status
 
@@ -149,5 +151,9 @@ incomplete.
 - The Protected AI Runtime Platform selects Cloud Run as the managed host for a
   portable Node.js container while leaving identity and AI provider selection as
   explicit prerequisites.
+- The Owner Identity Architecture defines provider-neutral web and native
+  authentication, revocable sessions, token separation, runtime authorization, and
+  future multi-device and multi-owner boundaries without selecting an identity
+  provider or implementing authentication.
 
 See [Roadmap](ROADMAP.md) for product phases beyond this sprint.

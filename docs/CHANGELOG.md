@@ -132,6 +132,11 @@ separately in [Sprint Tracker](SPRINTS.md).
   containerized Node.js service on Google Cloud Run for v1 with Secret Manager,
   least-privilege runtime identity, bounded scaling, redacted operations, and no AI
   provider selection or implementation.
+- Added the canonical Owner Identity Architecture and ADR-0002, defining stable
+  internal Accounts, issuer-and-subject identity mapping, Workspace Membership,
+  OIDC with PKCE, server-managed browser sessions, native token boundaries,
+  runtime authorization, revocation, offline limits, and future multi-owner scope
+  without selecting or implementing an identity provider.
 - Added the canonical Product Principle that Management OS should quietly remove
   cognitive noise while preserving decisions that require human judgment.
 - Extended the standard Product Review guidance with a mandatory evaluation of

@@ -33,6 +33,10 @@ This decision must be followed by approved owner identity and authentication
 architecture, runtime security and retention configuration, and AI provider
 selection before production Intent Recognition can operate.
 
+The approved [Owner Identity Architecture](OWNER_IDENTITY_ARCHITECTURE.md) defines
+the Account, Workspace Membership, Session Gateway, token, and runtime Auth Context
+boundary. An identity provider and session-store technology remain unselected.
+
 ## Architectural decision
 
 Management OS v1 uses:
@@ -448,7 +452,8 @@ Proceed in this order:
 
 ```text
 Protected AI Runtime Platform
-  -> Owner identity and authentication architecture
+  -> Owner identity and authentication architecture (approved)
+  -> Identity-provider and session-store decisions
   -> Runtime security and retention configuration
   -> AI provider evaluation and selection
   -> Intent Recognition implementation
