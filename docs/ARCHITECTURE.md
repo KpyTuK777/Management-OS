@@ -1,5 +1,8 @@
 # Architecture
 
+Architecture and source identifiers may remain in English, while user-facing copy
+follows [Ukrainian Product Terminology](TERMINOLOGY_UK.md).
+
 ## Overview
 
 Management OS is a static, client-side web application. It has no build system,

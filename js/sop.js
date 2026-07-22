@@ -115,7 +115,7 @@ function createSopRelationship(sop) {
 
 		return createTextElement(
 			"p",
-			"Джерельний запис бази знань недоступний",
+			"Пов’язаний запис бази знань недоступний",
 			"relationship-missing"
 		);
 

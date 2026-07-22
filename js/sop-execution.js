@@ -249,7 +249,7 @@ function initSopExecutionPage() {
 		const sourceSop = loadSops().find(sop => sop.id === execution.sopId);
 		const source = sourceSop
 			? createTextElement("a", "Відкрити SOP →", "relationship-link")
-			: createTextElement("p", "Джерельний SOP недоступний", "relationship-missing");
+			: createTextElement("p", "Пов’язаний SOP недоступний", "relationship-missing");
 		const progress = createElement("div", "execution-progress");
 		const progressText = createTextElement(
 			"strong",
@@ -361,7 +361,7 @@ function initSopExecutionPage() {
 		const sourceSop = loadSops().find(sop => sop.id === execution.sopId);
 		const source = sourceSop
 			? createTextElement("a", "Відкрити SOP →", "relationship-link")
-			: createTextElement("p", "Джерельний SOP недоступний", "relationship-missing");
+			: createTextElement("p", "Пов’язаний SOP недоступний", "relationship-missing");
 		const completed = [...execution.steps, ...execution.checklist].filter(
 			item => item.status === "completed"
 		).length;

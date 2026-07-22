@@ -47,14 +47,14 @@ const HypothesisAnalysis = (() => {
 						observedValue: pattern.count,
 						comparisonValue: 2,
 						sampleSize: insights.reviews.total,
-						source: "Execution Reviews"
+						source: "Огляди виконань"
 					},
 					{
 						metric: "Повнота оглядів",
 						observedValue: `${insights.executions.reviewCompletionRate}%`,
 						comparisonValue: null,
 						sampleSize: insights.executions.completed,
-						source: "Insights"
+						source: "Інсайти"
 					}
 				],
 				confidence,
@@ -66,7 +66,7 @@ const HypothesisAnalysis = (() => {
 				limitations: insights.executions.reviewCompletionRate < 60
 					? ["Огляди охоплюють менше 60% завершених виконань."]
 					: ["Однакова фраза може мати різний контекст у різних оглядах."],
-				sourceModules: ["Reviews", "Insights"]
+				sourceModules: ["Огляди", "Інсайти"]
 			});
 
 		});
@@ -94,11 +94,11 @@ const HypothesisAnalysis = (() => {
 				subject: "",
 				statement: "Наявні огляди можуть вказувати на несталі результати виконання.",
 				explanation: "Значна частина оглядів має частковий або неуспішний результат.",
-				evidence: [{ metric: "Часткові та неуспішні результати", observedValue: `${adverseRate}%`, comparisonValue: "40%", sampleSize: insights.reviews.total, source: "Review outcome distribution" }],
+				evidence: [{ metric: "Часткові та неуспішні результати", observedValue: `${adverseRate}%`, comparisonValue: "40%", sampleSize: insights.reviews.total, source: "Розподіл результатів оглядів" }],
 				confidence: sampleConfidence(insights.reviews.total, 8, 15),
 				confidenceBasis: `Висновок базується на ${insights.reviews.total} оглядах.`,
 				limitations: ["Результат огляду відображає оцінку користувача, а не причинний аналіз."],
-				sourceModules: ["Reviews", "Insights"]
+				sourceModules: ["Огляди", "Інсайти"]
 			}));
 
 		}
@@ -113,11 +113,11 @@ const HypothesisAnalysis = (() => {
 				subject: "",
 				statement: "Поточні закономірності оглядів можуть не представляти всю історію виконань.",
 				explanation: "Огляди збережено менш ніж для 60% завершених виконань.",
-				evidence: [{ metric: "Повнота оглядів", observedValue: `${insights.executions.reviewCompletionRate}%`, comparisonValue: "60%", sampleSize: insights.executions.completed, source: "Execution and Review Insights" }],
+				evidence: [{ metric: "Повнота оглядів", observedValue: `${insights.executions.reviewCompletionRate}%`, comparisonValue: "60%", sampleSize: insights.executions.completed, source: "Інсайти виконань та оглядів" }],
 				confidence: insights.executions.completed >= 10 ? "high" : "medium",
 				confidenceBasis: "Порівняно кількість завершених виконань і унікальних пов’язаних оглядів.",
 				limitations: ["Відсутність огляду не означає відсутність операційного досвіду."],
-				sourceModules: ["Executions", "Reviews", "Insights"]
+				sourceModules: ["Виконання", "Огляди", "Інсайти"]
 			}));
 
 		}
@@ -137,11 +137,11 @@ const HypothesisAnalysis = (() => {
 					subject: "",
 					statement: "Частина бібліотеки SOP може ще не відображатися у фактичному виконанні.",
 					explanation: "Для значної частини поточних SOP не створено жодної сесії виконання.",
-					evidence: [{ metric: "SOP без виконань", observedValue: `${unusedRate}%`, comparisonValue: "40%", sampleSize: insights.sops.total, source: "SOP usage Insights" }],
+					evidence: [{ metric: "SOP без виконань", observedValue: `${unusedRate}%`, comparisonValue: "40%", sampleSize: insights.sops.total, source: "Інсайти використання SOP" }],
 					confidence: sampleConfidence(insights.sops.total, 5, 10),
 					confidenceBasis: `Спостереження охоплює ${insights.sops.total} SOP.`,
 					limitations: ["SOP може бути новим, сезонним або навмисно рідко використовуваним."],
-					sourceModules: ["SOP", "Executions", "Insights"]
+					sourceModules: ["SOP", "Виконання", "Інсайти"]
 				}));
 
 			}
@@ -163,11 +163,11 @@ const HypothesisAnalysis = (() => {
 					subject: topSop.title,
 					statement: `Операційна активність може бути зосереджена навколо SOP «${topSop.title}».`,
 					explanation: "Один SOP становить більшість завершених виконань.",
-					evidence: [{ metric: "Частка завершених виконань", observedValue: `${share}%`, comparisonValue: "60%", sampleSize: insights.executions.completed, source: "SOP execution frequency Insight" }],
+					evidence: [{ metric: "Частка завершених виконань", observedValue: `${share}%`, comparisonValue: "60%", sampleSize: insights.executions.completed, source: "Інсайт частоти виконання SOP" }],
 					confidence: sampleConfidence(insights.executions.completed, 8, 15),
 					confidenceBasis: `Розподіл базується на ${insights.executions.completed} завершених виконаннях.`,
 					limitations: ["Висока частота може бути нормальною для основного або сезонного процесу."],
-					sourceModules: ["SOP", "Executions", "Insights"]
+					sourceModules: ["SOP", "Виконання", "Інсайти"]
 				}));
 
 			}
@@ -175,8 +175,8 @@ const HypothesisAnalysis = (() => {
 		}
 
 		[
-			{ id: "notes-lifecycle", label: "Нотатки", target: "структурованими знаннями", data: insights.notes, sources: ["Notes", "Knowledge", "Insights"] },
-			{ id: "knowledge-lifecycle", label: "Записи Knowledge Base", target: "операційними процедурами", data: insights.knowledge, sources: ["Knowledge", "SOP", "Insights"] }
+			{ id: "notes-lifecycle", label: "Нотатки", target: "структурованими знаннями", data: insights.notes, sources: ["Нотатки", "База знань", "Інсайти"] },
+			{ id: "knowledge-lifecycle", label: "Записи бази знань", target: "операційними процедурами", data: insights.knowledge, sources: ["База знань", "SOP", "Інсайти"] }
 		].forEach(stage => {
 
 			if (stage.data.total < 5) return;
@@ -193,7 +193,7 @@ const HypothesisAnalysis = (() => {
 					? `${stage.label} можуть переважно залишатися на поточному етапі життєвого циклу.`
 					: `${stage.label} можуть часто ставати ${stage.target}.`,
 				explanation: `Зафіксований рівень конверсії становить ${stage.data.conversionRate}%.`,
-				evidence: [{ metric: "Конверсія життєвого циклу", observedValue: `${stage.data.conversionRate}%`, comparisonValue: lowConversion ? "≤20%" : "≥80%", sampleSize: stage.data.total, source: "Information Lifecycle Insights" }],
+				evidence: [{ metric: "Конверсія життєвого циклу", observedValue: `${stage.data.conversionRate}%`, comparisonValue: lowConversion ? "≤20%" : "≥80%", sampleSize: stage.data.total, source: "Інсайти життєвого циклу інформації" }],
 				confidence: sampleConfidence(stage.data.total, 10, 20),
 				confidenceBasis: `Спостереження охоплює ${stage.data.total} записів.`,
 				limitations: ["Конверсія описує зв’язки між записами, але не наміри користувача."],

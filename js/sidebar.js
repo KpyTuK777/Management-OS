@@ -98,7 +98,7 @@ const Layout = (() => {
 		logo.className = "sidebar__logo";
 		navigation.className = "sidebar__nav";
 		title.textContent = "Management OS";
-		mode.textContent = "Student Mode";
+		mode.textContent = "Навчальний режим";
 
 		logo.appendChild(title);
 		logo.appendChild(mode);

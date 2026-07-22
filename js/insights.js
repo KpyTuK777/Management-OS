@@ -117,7 +117,7 @@ function buildInsightCards(data) {
 			section: "Знання",
 			title: "Записи бази знань",
 			value: String(data.knowledge.total),
-			explanation: "Усі структуровані записи Knowledge Base."
+			explanation: "Усі структуровані записи бази знань."
 		},
 		{
 			section: "Знання",
@@ -127,7 +127,7 @@ function buildInsightCards(data) {
 		},
 		{
 			section: "Знання",
-			title: "Конверсія Knowledge → SOP",
+			title: "Конверсія: База знань → SOP",
 			value: `${data.knowledge.conversionRate}%`,
 			explanation: `${data.knowledge.converted} із ${data.knowledge.total} записів перетворено на SOP.`
 		},
@@ -157,17 +157,17 @@ function buildInsightCards(data) {
 			section: "Нотатки",
 			title: "Усього нотаток",
 			value: String(data.notes.total),
-			explanation: "Усі записи швидкого захоплення в Inbox."
+			explanation: "Усі записи швидкого захоплення у Вхідних."
 		},
 		{
 			section: "Нотатки",
 			title: "Додано до бази знань",
 			value: String(data.notes.converted),
-			explanation: "Нотатки, пов’язані зі створеним записом Knowledge Base."
+			explanation: "Нотатки, пов’язані зі створеним записом бази знань."
 		},
 		{
 			section: "Нотатки",
-			title: "Конверсія Notes → Knowledge",
+			title: "Конверсія: Нотатки → База знань",
 			value: `${data.notes.conversionRate}%`,
 			explanation: `${data.notes.converted} із ${data.notes.total} нотаток додано до бази знань.`
 		}

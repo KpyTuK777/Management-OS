@@ -1,5 +1,8 @@
 # Product Vision
 
+User-facing Ukrainian terminology follows the official
+[Ukrainian Product Terminology](TERMINOLOGY_UK.md) glossary.
+
 ## Purpose
 
 Management OS is a personal operating system for an operations manager. It helps turn daily work, projects, knowledge, reflection, and improvement into a coherent practice.

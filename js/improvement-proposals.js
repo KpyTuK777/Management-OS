@@ -92,7 +92,7 @@ function renderSourceContext(source, isSnapshot) {
 		? source.hypothesisLimitations
 		: source.limitations;
 
-	proposalSource.appendChild(createTextElement("strong", "Джерельна гіпотеза"));
+	proposalSource.appendChild(createTextElement("strong", "Пов’язана гіпотеза"));
 	proposalSource.appendChild(createTextElement("p", statement));
 	renderEvidence(proposalSource, evidence);
 	proposalSource.appendChild(
@@ -226,7 +226,7 @@ function createProposalCard(proposal) {
 	const sourceSop = loadSops().find(sop => sop.id === proposal.sourceSopId);
 	const source = sourceSop
 		? createTextElement("a", `${sourceSop.title} →`, "relationship-link")
-		: createTextElement("p", "Джерельний SOP недоступний", "relationship-missing");
+		: createTextElement("p", "Пов’язаний SOP недоступний", "relationship-missing");
 	const evidenceDetails = createElement("details", "proposal-card__evidence");
 	const evidenceSummary = createTextElement("summary", "Докази та гіпотеза");
 	const evidenceContent = createElement("div", "proposal-card__evidence-content");
