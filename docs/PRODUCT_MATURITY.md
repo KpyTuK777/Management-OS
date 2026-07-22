@@ -223,7 +223,7 @@ Post-v1 has no terminal exit. It is a governed evolution state.
 | --- | --- | --- |
 | Product scope | Product Owner | Product Owner |
 | Architecture | Product Architect | Product Architect |
-| Engineering and testing | Lead Software Engineer | Lead Software Engineer |
+| Engineering and testing | Lead Software Engineer and assigned Quality Lead | Lead Software Engineer; Quality Lead provides evidence findings, not approval |
 | Design and accessibility | Design Owner | Design Owner |
 | Product Language | Design Owner | Design Owner |
 | Documentation readiness | Relevant document owners | Product Architect verifies through the Documentation DoD |
@@ -257,6 +257,7 @@ entry and exit criteria, and required evidence categories.
 - **Accountable owner:** Product Owner
 - **Responsible for maintenance:** Product Architect
 - **Engineering evidence:** Lead Software Engineer
+- **Quality validation evidence:** Assigned Quality Lead
 - **Design and accessibility evidence:** Design Owner
 - **Final stage approval:** Product Owner after all mandatory domain gates pass
 

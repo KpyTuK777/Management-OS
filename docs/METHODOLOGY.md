@@ -16,7 +16,7 @@ prevails.
 | Adoption milestone | Before Beta |
 | Accountable owner | Product Architect |
 | Approval authority | Product Owner |
-| Consulted owners | Design Owner and Lead Software Engineer |
+| Consulted owners | Design Owner, Lead Software Engineer, and assigned Quality Lead |
 | Public status | Internal through v1.0; reconsider after multiple release cycles |
 
 This methodology explains how authorities interact. Canonical documents define
@@ -161,12 +161,20 @@ No later stage silently substitutes for an earlier approval or review.
 | Review | Primary question | Owner |
 | --- | --- | --- |
 | Code review | Is the implementation correct, maintainable, and tested? | Lead Software Engineer |
+| Quality validation | Is applicable evidence complete, credible, reproducible, and traceable to approved expectations? | Assigned Quality Lead |
 | Architecture Review | Does the result preserve approved boundaries and long-term compatibility? | Product Architect |
 | Design Review | Does the experience follow the Design System and reduce cognitive load? | Design Owner |
 | Language Review | Does user-facing communication follow Product Language? | Design Owner |
 | Product Review | Does the result deliver the approved product outcome? | Product Owner |
 | Documentation Review | Are canonical documents complete, accurate, and internally consistent? | Accountable document owner |
 | Consistency Audit | Do approval, implementation, and documentation agree? | Product Architect |
+
+Quality validation is an evidence responsibility inside existing Reviews and
+Validation, not a new approval stage. The assigned Quality Lead verifies coverage,
+reproducibility, traceability, defects, limitations, and readiness evidence;
+Product, Architecture, Design, Language, Documentation, maturity, and release
+decisions remain with their existing owners under
+[Team Governance](TEAM.md#quality-lead-responsibility).
 
 Product Review applies the canonical
 [Product Vision principle](PRODUCT_VISION.md#core-principles) by asking:
@@ -298,6 +306,7 @@ does not automatically advance product maturity.
 | Plan Approval | Provide readiness analysis; never self-approve or treat approval as APPLY. |
 | APPLY | Act only after explicit authorization. |
 | Implementation | Make scoped changes and validate them. |
+| Quality validation | Execute available checks, inspect boundaries, and report reproducible evidence and untested areas without self-approval. |
 | Reviews | Identify inconsistencies, risks, and missing evidence. |
 | Documentation | Update authorized canonical documents. |
 | Audit | Compare approved intent, implementation, and records. |

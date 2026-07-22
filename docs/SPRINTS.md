@@ -95,6 +95,7 @@ incomplete.
 - **Communication Architecture:** AI Communication Style Guide
 - **Identity Architecture:** AI Assistant Identity synthesis
 - **Governance:** Implementation Planning Standard between Architecture Approval and APPLY
+- **Governance:** Quality Lead responsibility within existing Reviews and Validation
 - **UX Evolution — Architecture:** AI-first Workspace
 - **UX Evolution — Implementation:** AI-first Home Phase 1 presentation foundation
 - **Feature 02 — Implementation:** Natural Capture Interaction Foundation Phase 2

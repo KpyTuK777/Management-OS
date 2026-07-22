@@ -69,6 +69,23 @@ The Design Owner is responsible for:
 
 Design decisions belong to the Design Owner, within the approved product direction.
 
+### Quality Lead — assigned per material feature
+
+The Quality Lead is responsible for coordinating and verifying the evidence that
+an implemented change satisfies its approved product outcome, architectural
+boundaries, UX, accessibility, trust, regression, and documentation expectations
+before COMMIT.
+
+The role owns validation coverage, evidence completeness, reproducibility, defect
+and limitation visibility, and traceability from approved outcomes to executed
+checks. It does not own Product Review, Architecture Review, design decisions,
+implementation strategy, risk exceptions, APPLY, COMMIT authorization, maturity
+transition, or release approval.
+
+The Quality Lead answers whether sufficient credible evidence exists for current
+decision owners to review the work. Existing owners continue to accept, reject, or
+resolve tradeoffs in their domains.
+
 ## Decision ownership
 
 | Decision area | Owner |
@@ -77,6 +94,7 @@ Design decisions belong to the Design Owner, within the approved product directi
 | Architecture, Platform Layer, Workflow Layer, and technical boundaries | Product Architect |
 | UX/UI, Design System, visual consistency, and responsive behavior | Design Owner |
 | Implementation approach, refactoring, testing, and code quality | Lead Software Engineer |
+| Validation coordination, coverage, reproducibility, and readiness evidence | Assigned Quality Lead |
 
 Each owner makes decisions within their area while respecting approved decisions
 from the other ownership domains. A decision that changes product scope returns to
@@ -120,7 +138,7 @@ Architecture Consistency Audit
 4. **Implementation Planning:** The Implementation Lead inspects the current product and defines the smallest coherent delivery strategy, dependencies, order, risks, validation, effort, and increment structure without changing files.
 5. **Plan APPROVE:** The applicable owners accept the implementation strategy as faithful, coherent, and ready for explicit authorization. This does not authorize mutation.
 6. **APPLY:** Explicit implementation authorization is given for the approved architecture and plan. Neither prior approval alone is an instruction to modify the product.
-7. **Implementation:** The Lead Software Engineer implements and tests the approved scope; the Design Owner governs approved UX/UI and Product Language decisions.
+7. **Implementation:** The Lead Software Engineer implements and tests the approved scope; the Design Owner governs approved UX/UI and Product Language decisions; the assigned Quality Lead verifies applicable validation evidence.
 8. **Architecture Review:** The Product Architect verifies that the implementation preserves the approved boundaries and long-term compatibility.
 9. **Product Review:** The implementation is evaluated against Product Vision, priorities, philosophy, the approved outcome, and the coherent increment. This review includes final product acceptance.
 10. **COMMIT:** Reviewed and approved changes are recorded in version control.
@@ -130,6 +148,10 @@ Architecture Consistency Audit
 Testing remains mandatory during Implementation and before Product Review.
 Functionality, regressions, code quality, responsiveness, and relevant design
 behavior must be verified before the work can be committed.
+
+Quality validation supports these existing reviews and does not add a delivery
+stage. A Quality Lead finding informs review and commit readiness but never grants
+approval.
 
 When a change creates or modifies canonical documentation, Product Review, commit
 readiness, and Sprint closure also require the
@@ -181,6 +203,9 @@ Every applicable plan identifies:
 8. an effort range, including validation, documentation, and uncertainty;
 9. a recommendation to deliver in one increment or several;
 10. readiness: ready for Plan APPROVE or requiring a named owner decision.
+
+The plan also identifies who will perform the Quality Lead responsibility for the
+increment and which evidence they must verify.
 
 Estimates are planning ranges with assumptions, not delivery promises.
 
@@ -267,6 +292,103 @@ The governing distinction is:
 
 > Architecture approval authorizes the intended outcome. Plan approval accepts the
 > delivery strategy. Only APPLY authorizes implementation.
+
+## Quality Lead responsibility
+
+### Relationship with existing owners
+
+- The **Product Owner** retains Product Review, final product acceptance, maturity,
+  and release authority. The Quality Lead supplies product-behavior evidence.
+- The **Product Architect** retains Architecture Review and decides whether
+  boundaries are satisfied. The Quality Lead supplies architecture and prohibited-
+  dependency evidence.
+- The **Implementation Lead** produces the change, technical tests, and defect
+  corrections. The Quality Lead independently verifies applicable behavior,
+  coverage, and evidence; the Implementation Lead chooses correction technique
+  within approved boundaries.
+- The **Design Owner** retains UX, responsive, accessibility, Design System, and
+  Product Language authority. The Quality Lead verifies observable conformance and
+  reports ambiguity to the Design Owner.
+- **Document owners** retain canonical-document authority. The Quality Lead verifies
+  that required documentation evidence exists and temporary artifacts are removed.
+
+### Responsibilities
+
+Before implementation, the Quality Lead reviews the planned validation strategy,
+acceptance scenarios, environments, edge cases, accessibility needs, and trust or
+authority boundaries. During implementation, the role maintains traceability,
+tests stable slices, reports reproducible defects, and verifies corrections. Before
+COMMIT, the role verifies that applicable objectives were executed, failures have
+a disposition, reviews received their evidence, documentation checks passed, and
+temporary validation artifacts were removed.
+
+The Quality Lead orchestrates validation rather than personally executing every
+check. Evidence may be produced by engineering, design, architecture,
+documentation, accessibility, or other contributors. Verification of evidence
+does not transfer their decision authority.
+
+### Quality Validation Record
+
+Material implementations produce a compact record containing:
+
+- approved feature and coherent increment;
+- environments, scenarios, and checks executed;
+- passed, failed, untested, and not-applicable checks;
+- regression, responsive, accessibility, architecture, and trust evidence as
+  applicable;
+- known defects and limitations with owner disposition;
+- confirmation that temporary artifacts were removed;
+- a final evidence finding.
+
+The record may live in the implementation conversation, issue, pull request, or
+Sprint evidence. A permanent standalone file is not required for every feature.
+
+### Evidence findings
+
+| Finding | Meaning |
+| --- | --- |
+| **Ready for existing reviews** | Applicable validation passed and evidence is sufficient. |
+| **Ready with approved limitations** | Evidence is sufficient and remaining limitations have explicit owner disposition. |
+| **Not ready** | A material defect, missing control, or failed applicable check remains unresolved. |
+| **Not assessed** | Applicable evidence is incomplete or unavailable. |
+| **Not applicable** | The dimension does not apply, with rationale when not obvious. |
+
+These are evidence findings, not approvals. No composite score may average away a
+material authority, accessibility, data-integrity, or trust failure.
+
+### Release-readiness evidence
+
+Quality evidence traces:
+
+```text
+Approved requirement
+  → Planned validation
+  → Executed check
+  → Result
+  → Defect or limitation
+  → Owner disposition
+  → Review outcome
+```
+
+Applicable evidence covers scope fidelity, product behavior, architecture, UX,
+accessibility, Product Language, trust, technical integrity, regression,
+documentation, and known limitations. It may feed Product, Architecture, Design,
+Language, and Documentation Reviews, Project Health, Product Maturity, Sprint
+closure, and release readiness. The Quality Lead aggregates this evidence but does
+not approve a release or maturity transition.
+
+### Independence and role combination
+
+Independent verification is preferred. In the current small team, one person may
+hold Implementation Lead and Quality Lead responsibilities when the passes remain
+explicitly separate, the role combination is disclosed, reproducible evidence is
+preferred, and material findings return to independent domain owners. Combining
+roles does not combine authority.
+
+AI may execute available checks, inspect boundaries, generate edge cases, compare
+implementation with approvals, and report evidence or limitations. It may not
+approve its own work, invent test results, claim manual or assistive-technology
+testing it did not perform, resolve owner exceptions, or declare release approval.
 
 ## Architecture Consistency Audit
 

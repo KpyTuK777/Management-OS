@@ -57,6 +57,25 @@ language, or governance boundaries return to the applicable proposal and owner.
 Plan approval does not authorize file changes—implementation begins only after
 explicit APPLY.
 
+## Quality validation
+
+Material implementation plans identify the assigned Quality Lead and required
+evidence. The canonical responsibility, findings, independence, and authority
+boundaries are defined in
+[Team Governance](TEAM.md#quality-lead-responsibility).
+
+Implementers supply reproducible technical evidence and correct defects. The
+Quality Lead verifies applicable product, architecture, regression, responsive,
+accessibility, trust, and documentation evidence in a separate validation pass.
+Untested applicable areas, failed checks, known limitations, role combination, and
+owner dispositions remain explicit.
+
+Corrections require retesting of the original failure and proportionate regression
+coverage. Before COMMIT, temporary test pages, browser profiles, screenshots, and
+other validation artifacts must be removed unless they are approved maintained
+test assets. Quality findings support existing reviews and never authorize COMMIT
+or release.
+
 ## Architecture Consistency Audit
 
 The mandatory delivery workflow and Architecture Consistency Audit are defined in

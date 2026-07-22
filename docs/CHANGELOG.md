@@ -98,6 +98,9 @@ separately in [Sprint Tracker](SPRINTS.md).
   APPLY, with proportionate plan requirements, ownership, readiness review,
   validation expectations, and explicit separation of plan approval from mutation
   authority.
+- Added the Quality Lead responsibility for validation coverage, reproducible
+  evidence, defect and limitation visibility, and release-readiness support within
+  existing reviews, without introducing a new approval stage.
 - Added the approved AI-first Workspace architecture, evolving future Home from a
   traditional information dashboard into an intent-first operational surface while
   preserving specialized modules, direct navigation, and degraded non-AI access.
