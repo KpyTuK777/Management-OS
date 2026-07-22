@@ -27,6 +27,11 @@ Its primary future presence is Home, whose intent-first role is defined in
 Its place in the complete owner experience is described in the
 [Owner Journey](OWNER_JOURNEY.md).
 
+The approved pre-interpretation interaction boundary is defined in
+[Natural Capture Interaction Foundation — Phase 2](NATURAL_CAPTURE_INTERACTION_FOUNDATION.md).
+It permits temporary text entry and owner-controlled review only; it does not
+implement or change the interpretation architecture in this document.
+
 ## Capture lifecycle
 
 ```text
@@ -162,6 +167,9 @@ the capability gap and prepare a safe existing fallback rather than lower the
 classification confidence or simulate the missing module.
 
 ## Clarification strategy
+
+Clarification, uncertainty, approval, confirmation, and failure language follows
+the canonical [AI Communication Style Guide](AI_COMMUNICATION_STYLE_GUIDE.md).
 
 Before asking, Natural Capture checks whether the answer exists in current input,
 current context, or related records; whether a safe reversible draft can proceed;

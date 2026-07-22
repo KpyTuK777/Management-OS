@@ -35,6 +35,12 @@ Natural Capture behavior, AI interpretation, classification, recommendations,
 Home approval workflows, contextual handoff, permanent learning, and Adaptive
 Workspace behavior remain unimplemented.
 
+The approved
+[Natural Capture Interaction Foundation — Phase 2](NATURAL_CAPTURE_INTERACTION_FOUNDATION.md)
+defines a future session-scoped text, review, edit, and discard interaction. It is
+not implemented and authorizes no AI interpretation, domain routing, or permanent
+storage.
+
 ## Architecture assessment
 
 The current Dashboard follows a traditional aggregation model: attention items,
@@ -66,6 +72,11 @@ deep editing, audit, correction, accessibility, and degraded operation when AI i
 unavailable.
 
 ## Workspace interaction model
+
+Home communication follows the
+[AI Communication Style Guide](AI_COMMUNICATION_STYLE_GUIDE.md). Message roles and
+temporary, unavailable, uncertain, recommended, awaiting-approval, completed, and
+failed states must remain linguistically distinct.
 
 The primary interaction is one natural input area. Text is the initial channel;
 future voice must enter the same Natural Capture lifecycle rather than create a

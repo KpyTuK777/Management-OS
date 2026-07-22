@@ -353,6 +353,10 @@ Session close
 
 ## AI participation
 
+System and Assistant communication throughout the journey follows the canonical
+[AI Communication Style Guide](AI_COMMUNICATION_STYLE_GUIDE.md), preserving calm,
+truthful state, uncertainty, recommendation, approval, and completion language.
+
 | Mode | Typical moment | AI responsibility | Prohibited behavior |
 | --- | --- | --- | --- |
 | Quiet | Resting Home, focused execution | Remain available without interruption | Filling space with suggestions |

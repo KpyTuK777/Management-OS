@@ -161,6 +161,13 @@ may not reasonably know the term.
 
 ## Future AI communication
 
+Message roles, capability and limitation claims, uncertainty, temporary-state
+language, recommendations, approvals, confirmations, failures, and interruption
+behavior follow the canonical
+[AI Communication Style Guide](AI_COMMUNICATION_STYLE_GUIDE.md). This section
+continues to govern general writing and official Ukrainian language without
+duplicating that communication architecture.
+
 Future AI-generated content must follow the same product language as authored UI
 copy. The AI should:
 

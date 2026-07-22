@@ -76,6 +76,11 @@ Natural input or current context
 
 ## Interaction model
 
+All future Assistant messages follow the canonical
+[AI Communication Style Guide](AI_COMMUNICATION_STYLE_GUIDE.md), which preserves
+the distinction between system state, AI interpretation, recommendations,
+approval requests, operational confirmations, warnings, and failures.
+
 The standard interaction cycle is:
 
 ```text

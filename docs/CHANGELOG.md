@@ -79,6 +79,13 @@ separately in [Sprint Tracker](SPRINTS.md).
 - Added the approved Natural Capture architecture for intent recognition,
   context-aware routing, concise clarification, safe Inbox fallback, bounded
   approval, failure handling, and explicit learning.
+- Added the approved Natural Capture Interaction Foundation Phase 2 architecture
+  for honest text entry, session-scoped temporary review, editing, discard, and
+  validation before any AI interpretation or permanent storage.
+- Added the canonical AI Communication Style Guide for truthful capability and
+  limitation claims, calm tone, distinct message roles, uncertainty, temporary
+  state, recommendations, approvals, confirmations, failures, learning, and
+  interruption restraint.
 - Added the approved AI-first Workspace architecture, evolving future Home from a
   traditional information dashboard into an intent-first operational surface while
   preserving specialized modules, direct navigation, and degraded non-AI access.
