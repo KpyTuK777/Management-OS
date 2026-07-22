@@ -215,7 +215,7 @@
 .inbox-item,
 .memory-item,
 .knowledge-item {
-	dis:flex;
+	display:flex;
 	align-items:center;
 	gap:var(--space-16);
 	min-height:48px;
@@ -244,7 +244,7 @@
 }
 
 .dashboard-additional summary {
-	dis:flex;
+	display:flex;
 	align-items:center;
 	justify-content:space-between;
 	padding:var(--space-24);
@@ -267,7 +267,7 @@
 }
 
 .dashboard-additional summary span {
-	dis:grid;
+	display:grid;
 	gap:var(--space-8);
 }
 
@@ -277,7 +277,7 @@
 }
 
 .dashboard-additional__content {
-	dis:grid;
+	display:grid;
 	grid-template-columns:repeat(2, minmax(0, 1fr));
 	gap:var(--space-16);
 	padding:0 var(--space-24) var(--space-24);
@@ -301,13 +301,13 @@
 }
 
 .operations-grid {
-	dis:grid;
+	display:grid;
 	grid-template-columns:repeat(4, minmax(0, 1fr));
 	gap:var(--space-16);
 }
 
 .operation-card {
-	dis:grid;
+	display:grid;
 	align-content:start;
 	gap:var(--space-8);
 	padding:var(--space-16);
@@ -322,7 +322,7 @@
 
 .inbox-input,
 .search-box {
-	dis:grid;
+	display:grid;
 	grid-template-columns:minmax(0, 1fr) auto;
 	gap:var(--space-8);
 }
@@ -339,7 +339,7 @@
 }
 
 .dashboard-prototype .btn {
-	dis:inline-flex;
+	display:inline-flex;
 	align-items:center;
 	justify-content:center;
 	min-width:48px;
