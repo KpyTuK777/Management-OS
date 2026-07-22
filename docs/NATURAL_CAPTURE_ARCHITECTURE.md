@@ -24,6 +24,8 @@ should leave the owner only decisions requiring human judgment.
 
 Its primary future presence is Home, whose intent-first role is defined in
 [AI-first Workspace Architecture](AI_FIRST_WORKSPACE_ARCHITECTURE.md).
+Its place in the complete owner experience is described in the
+[Owner Journey](OWNER_JOURNEY.md).
 
 ## Capture lifecycle
 

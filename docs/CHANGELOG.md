@@ -16,6 +16,15 @@ separately in [Sprint Tracker](SPRINTS.md).
 - Existing domain storage helpers now delegate to the shared utility.
 - Added shared DOM creation and safe text-rendering utilities.
 - Portfolio no longer interpolates stored project text into HTML templates.
+- Replaced the dashboard-centric Home with the AI-first Home Phase 1 presentation
+  foundation.
+- Added an honest unavailable Natural Capture surface and future Assistant-response
+  placeholder without AI, classification, storage, or workflow behavior.
+- Added a read-only Home projection for up to three active SOP Executions with
+  direct resume links.
+- Removed project statistics, static focus, KPI, timeline, activity, and quick-action
+  panels from the primary Home hierarchy while preserving sidebar access to all
+  existing modules.
 
 ### Knowledge Ecosystem
 
@@ -73,6 +82,18 @@ separately in [Sprint Tracker](SPRINTS.md).
 - Added the approved AI-first Workspace architecture, evolving future Home from a
   traditional information dashboard into an intent-first operational surface while
   preserving specialized modules, direct navigation, and degraded non-AI access.
+- Added the canonical AI Capability Roadmap for capability hierarchy, dependencies,
+  Beta, v1.0, and post-v1 evolution, and risk-aware sequencing toward an
+  operational partner.
+- Added the canonical AI Quality Framework for product-oriented evaluation of
+  owner value, cognitive load, usefulness, approval, correction, explainability,
+  confidence, context, authority, privacy, degraded operation, and long-term trust.
+- Added the canonical Owner Journey describing the intended experience from first
+  launch through intent, focused work, completion, learning, recommendations,
+  personalization, and calm session closure.
+- Added the Owner Journey Validation Framework as standard feature-impact evidence
+  within existing Product and Design Reviews, without creating a new approval
+  process.
 - Added the canonical Product Principle that Management OS should quietly remove
   cognitive noise while preserving decisions that require human judgment.
 - Extended the standard Product Review guidance with a mandatory evaluation of

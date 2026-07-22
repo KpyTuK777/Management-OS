@@ -92,12 +92,20 @@ incomplete.
 - **Feature 01 — Architecture:** AI Assistant Architecture
 - **Feature 02 — Architecture:** Natural Capture Architecture
 - **UX Evolution — Architecture:** AI-first Workspace
+- **UX Evolution — Implementation:** AI-first Home Phase 1 presentation foundation
+- **Planning:** Canonical AI Capability Roadmap
+- **Governance:** Canonical AI Quality Framework
+- **Product Experience — Architecture:** Canonical Owner Journey
+- **Product Experience — Governance:** Owner Journey Validation Framework
 - **Documentation:** Cognitive-load reduction promoted to a canonical Product Principle
 - **Documentation:** Cognitive-load principle added as a mandatory Product Review criterion
 
 ### Implementation status
 
 - No AI Assistant runtime behavior was implemented.
+- AI-first Home Phase 1 replaces the dashboard-centric primary experience with an
+  intent-first shell and a deterministic active-Execution projection.
+- Natural Capture remains explicitly unavailable and does not analyze or save text.
 - Implementation remains subject to a separate approved proposal and APPLY.
 - AI governance, privacy, explainability, correction, retention, revocation, and
   safety controls remain prerequisites.

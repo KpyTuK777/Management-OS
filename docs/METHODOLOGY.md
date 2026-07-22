@@ -167,6 +167,15 @@ Product Review applies the canonical
 > Does this change reduce the owner's cognitive noise while preserving every
 > decision that genuinely requires human judgment?
 
+Product and Design Reviews may use the [Owner Journey](OWNER_JOURNEY.md) to assess
+end-to-end continuity, cognitive load, handoffs, correction, degraded operation,
+and session closure without creating a separate review process.
+
+Every future feature supplies a compact assessment using the
+[Owner Journey Validation Framework](OWNER_JOURNEY_VALIDATION.md). Product Review
+evaluates the product impact, while UX evaluation remains a lens within the
+existing Design Review. No additional approval stage is introduced.
+
 ## Design and Product Language integration
 
 Interface work follows both [Design System](DESIGN_SYSTEM.md) and

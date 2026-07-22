@@ -14,7 +14,7 @@ Execution Reviews, and Improvement Proposals.
 
 ```text
 Management-OS/
-├── index.html              # Static Home dashboard
+├── index.html              # AI-first Home Phase 1 presentation shell
 ├── portfolio.html          # Functional Portfolio page
 ├── notes.html              # Notes Inbox for quick capture
 ├── knowledge-base.html     # Functional Knowledge Base page
@@ -32,7 +32,9 @@ Management-OS/
 
 ## HTML pages
 
-- `index.html` is the static Home dashboard.
+- `index.html` is the AI-first Home Phase 1 presentation shell. It exposes an
+  explicitly unavailable Natural Capture surface, a future-response placeholder,
+  and a read-only projection of active SOP Executions without implementing AI.
 - `portfolio.html` is the active Portfolio implementation.
 - `notes.html` is the Notes Inbox for quick capture and later organization.
 - `knowledge-base.html` is the active Knowledge Base implementation.
@@ -78,7 +80,9 @@ See [Design System](DESIGN_SYSTEM.md) for UI conventions.
 - `js/hypothesis-analysis.js` owns pure deterministic Hypothesis generation without page or storage access.
 - `js/improvement-proposal-flow.js` coordinates Hypothesis context and accepted-proposal SOP handoff.
 - `js/improvement-proposals.js` owns Improvement Proposal CRUD, decisions, search, and rendering.
-- `js/app.js` owns Dashboard statistics and attention rendering.
+- `js/app.js` owns Home's deterministic active-Execution projection. It reads
+  existing SOP Executions, renders up to three unfinished records, and never
+  mutates domain state.
 
 ## Platform utilities
 
@@ -440,6 +444,14 @@ Home's approved future interaction role is defined in
 [AI-first Workspace Architecture](AI_FIRST_WORKSPACE_ARCHITECTURE.md). Home remains
 a presentation and coordination surface rather than a domain-data owner, and the
 current Dashboard implementation is unchanged.
+
+The dependency and maturity order of approved and future intelligence capabilities
+is maintained in the [AI Capability Roadmap](AI_CAPABILITY_ROADMAP.md). Capability
+placement does not define runtime implementation architecture.
+
+Product-oriented evaluation of implemented AI behavior is governed by the
+[AI Quality Framework](AI_QUALITY_FRAMEWORK.md). The framework evaluates behavior
+without redefining capability architecture or release authority.
 
 ## Module responsibilities
 

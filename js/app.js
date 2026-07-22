@@ -1,116 +1,109 @@
-function calculateDashboardStatistics(projects) {
+function getExecutionItems(execution) {
 
-	const totalProjects = projects.length;
-	const activeProjects = projects.filter(
-		project => project.status === "Активний"
-	).length;
-	const completedProjects = projects.filter(
-		project => project.status === "Завершений"
-	).length;
-	const totalProgress = projects.reduce(
-		(sum, project) => sum + Number(project.progress || 0),
-		0
-	);
+	return [
+		...(Array.isArray(execution.steps) ? execution.steps : []),
+		...(Array.isArray(execution.checklist) ? execution.checklist : [])
+	];
+
+}
+
+function getExecutionProgress(execution) {
+
+	const items = getExecutionItems(execution);
+	const resolved = items.filter(item => item.status !== "pending").length;
 
 	return {
-		totalProjects,
-		activeProjects,
-		completedProjects,
-		averageProgress: totalProjects
-			? Math.round(totalProgress / totalProjects)
-			: 0
+		resolved,
+		total: items.length,
+		percentage: items.length === 0
+			? 100
+			: Math.round((resolved / items.length) * 100)
 	};
 
 }
 
-function getAttentionProjects(projects) {
+function formatStartedAt(value) {
 
-	return projects.filter(project => {
+	const date = new Date(value);
 
-		const progress = Number(project.progress || 0);
-		const status = project.status || "Активний";
+	if (Number.isNaN(date.getTime())) return "Час початку не вказано";
 
-		return status === "На паузі" || progress < 30 || progress === 0;
+	return `Розпочато ${date.toLocaleString("uk-UA", {
+		dateStyle: "medium",
+		timeStyle: "short"
+	})}`;
+
+}
+
+function createActiveWorkCard(execution) {
+
+	const card = createElement("article", "active-work-card");
+	const title = createTextElement(
+		"h3",
+		execution.sopTitle || "Виконання SOP"
+	);
+	const progress = getExecutionProgress(execution);
+	const progressText = createTextElement(
+		"p",
+		`${progress.resolved} із ${progress.total} пунктів · ${progress.percentage}%`,
+		"active-work-card__progress"
+	);
+	const startedAt = createTextElement(
+		"p",
+		formatStartedAt(execution.startedAt),
+		"active-work-card__meta"
+	);
+	const link = createTextElement(
+		"a",
+		`Продовжити «${execution.sopTitle || "виконання SOP"}»`,
+		"active-work-card__link"
+	);
+
+	link.href = `sop-executions.html#execution-${encodeURIComponent(execution.id)}`;
+	card.append(title, progressText, startedAt, link);
+
+	return card;
+
+}
+
+function renderActiveWork() {
+
+	const list = document.getElementById("activeWorkList");
+	const empty = document.getElementById("activeWorkEmpty");
+
+	if (!list || !empty) return;
+
+	const activeExecutions = loadSopExecutions()
+		.filter(execution => execution && execution.finishedAt === null)
+		.sort((first, second) => {
+
+			const firstStartedAt = new Date(first.startedAt).getTime() || 0;
+			const secondStartedAt = new Date(second.startedAt).getTime() || 0;
+
+			return secondStartedAt - firstStartedAt;
+
+		})
+		.slice(0, 3);
+
+	list.replaceChildren();
+	empty.classList.toggle("hidden", activeExecutions.length > 0);
+
+	activeExecutions.forEach(execution => {
+
+		list.appendChild(createActiveWorkCard(execution));
 
 	});
 
 }
 
-function renderDashboardStatistics() {
-
-	const totalProjectsElement = document.getElementById("totalProjects");
-
-	if (!totalProjectsElement) return;
-
-	const statistics = calculateDashboardStatistics(loadProjects());
-
-	totalProjectsElement.textContent = statistics.totalProjects;
-	document.getElementById("activeProjects").textContent =
-		statistics.activeProjects;
-	document.getElementById("completedProjects").textContent =
-		statistics.completedProjects;
-	document.getElementById("averageProgress").textContent =
-		`${statistics.averageProgress}%`;
-
-}
-
-function renderAttentionProjects() {
-
-	const attentionProjectsElement =
-		document.getElementById("attentionProjects");
-
-	if (!attentionProjectsElement) return;
-
-	const attentionProjects = getAttentionProjects(loadProjects());
-
-	if (attentionProjects.length === 0) {
-
-		attentionProjectsElement.innerHTML =
-			'<p class="dashboard-attention__empty">' +
-			'Наразі немає проєктів, що потребують уваги.' +
-			'</p>';
-
-		return;
-
-	}
-
-	attentionProjectsElement.innerHTML = attentionProjects.map(project => {
-
-		const status = project.status || "Активний";
-		const progress = Number(project.progress || 0);
-
-		return `
-			<article class="dashboard-attention-card">
-
-				<h3>${project.name}</h3>
-
-				<div class="dashboard-attention-card__meta">
-					<span>Статус: ${status}</span>
-					<span>Прогрес: ${progress}%</span>
-				</div>
-
-			</article>
-		`;
-
-	}).join("");
-
-}
-
-function renderDashboard() {
-
-	renderDashboardStatistics();
-	renderAttentionProjects();
-
-}
-
 window.addEventListener("storage", event => {
 
-	if (event.key === "projects") {
+	if (event.key === "sopExecutions") {
 
-		renderDashboard();
+		renderActiveWork();
 
 	}
 
 });
 
-renderDashboard();
+renderActiveWork();

@@ -12,6 +12,193 @@
 
 /* Dashboard */
 
+.ai-home {
+	width:min(100%, 1040px);
+	margin:0 auto;
+}
+
+.ai-home__intro {
+	align-items:flex-start;
+}
+
+.ai-home__intro > div {
+	display:grid;
+	gap:var(--space-8);
+	max-width:760px;
+}
+
+.ai-home__intro p {
+	color:var(--text-secondary);
+	font-size:var(--font-md);
+}
+
+.ai-home__eyebrow {
+	color:var(--primary);
+	font-size:var(--font-small);
+	font-weight:600;
+	letter-spacing:.04em;
+	text-transform:uppercase;
+}
+
+.ai-home__flow {
+	display:grid;
+	gap:var(--space-32);
+}
+
+.natural-capture {
+	display:grid;
+	gap:var(--space-16);
+	padding:clamp(var(--space-24), 4vw, var(--space-48));
+	border:1px solid var(--border);
+	border-radius:var(--radius-md);
+	background:var(--surface);
+	box-shadow:var(--shadow-sm);
+}
+
+.natural-capture__header,
+.natural-capture__footer,
+.active-work__header {
+	display:flex;
+	align-items:flex-start;
+	justify-content:space-between;
+	gap:var(--space-16);
+}
+
+.natural-capture__header > div,
+.active-work__header > div,
+.assistant-response-placeholder > div {
+	display:grid;
+	gap:var(--space-8);
+}
+
+.natural-capture__availability {
+	flex:0 0 auto;
+	padding:6px 12px;
+	border-radius:999px;
+	background:var(--background);
+	color:var(--text-secondary);
+	font-size:var(--font-small);
+	font-weight:600;
+}
+
+.natural-capture label {
+	font-weight:600;
+}
+
+.natural-capture textarea {
+	width:100%;
+	min-height:150px;
+	resize:vertical;
+	padding:var(--space-16);
+	border:1px solid var(--border);
+	border-radius:var(--radius-sm);
+	background:var(--background);
+	color:var(--text);
+	font:inherit;
+	line-height:1.6;
+}
+
+.natural-capture textarea:disabled {
+	cursor:not-allowed;
+	opacity:.78;
+}
+
+.natural-capture__footer {
+	align-items:center;
+}
+
+.natural-capture__footer p,
+.natural-capture__status,
+.assistant-response-placeholder p,
+.active-work__empty {
+	color:var(--text-secondary);
+}
+
+.natural-capture__footer p {
+	max-width:620px;
+}
+
+.natural-capture__status {
+	padding-top:var(--space-16);
+	border-top:1px solid var(--border);
+	font-size:var(--font-small);
+}
+
+.assistant-response-placeholder {
+	display:grid;
+	gap:var(--space-16);
+	padding:var(--space-24);
+	border:1px dashed var(--border);
+	border-radius:var(--radius-md);
+	background:var(--background);
+}
+
+.active-work {
+	display:grid;
+	gap:var(--space-24);
+	padding:var(--space-24);
+	border:1px solid var(--border);
+	border-radius:var(--radius-md);
+	background:var(--surface);
+}
+
+.active-work__header {
+	align-items:center;
+}
+
+.active-work__header > a {
+	color:var(--primary);
+	font-weight:600;
+}
+
+.active-work__list {
+	display:grid;
+	grid-template-columns:repeat(3, minmax(0, 1fr));
+	gap:var(--space-16);
+}
+
+.active-work-card {
+	display:grid;
+	align-content:start;
+	gap:var(--space-12);
+	min-width:0;
+	padding:var(--space-16);
+	border:1px solid var(--border);
+	border-radius:var(--radius-sm);
+	background:var(--background);
+}
+
+.active-work-card h3 {
+	overflow-wrap:anywhere;
+}
+
+.active-work-card__meta {
+	color:var(--text-secondary);
+	font-size:var(--font-small);
+}
+
+.active-work-card__progress {
+	font-weight:600;
+}
+
+.active-work-card__link {
+	justify-self:start;
+	margin-top:auto;
+	color:var(--primary);
+	font-weight:600;
+}
+
+.active-work__empty {
+	padding:var(--space-16);
+	border-radius:var(--radius-sm);
+	background:var(--background);
+}
+
+.legacy-prototype-reference {
+	margin-top:var(--space-16);
+	opacity:.78;
+}
+
 .dashboard-page {
 	max-width:1440px;
 	width:100%;
@@ -387,6 +574,10 @@
 }
 
 @media (max-width:800px) {
+	.active-work__list {
+		grid-template-columns:1fr;
+	}
+
 	.dashboard-supporting__grid,
 	.dashboard-additional__content {
 		grid-template-columns:1fr;
@@ -406,6 +597,21 @@
 }
 
 @media (max-width:600px) {
+	.natural-capture__header,
+	.natural-capture__footer,
+	.active-work__header {
+		align-items:stretch;
+		flex-direction:column;
+	}
+
+	.natural-capture__availability {
+		align-self:flex-start;
+	}
+
+	.natural-capture__footer .btn-primary {
+		width:100%;
+	}
+
 	.dashboard-page .dashboard-overview__grid,
 	.dashboard-page .dashboard-quick-actions__grid,
 	.daily-kpi-grid,

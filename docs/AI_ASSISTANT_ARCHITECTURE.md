@@ -23,6 +23,9 @@ Improvement Proposals. The existing [Architecture](ARCHITECTURE.md),
 [Product Vision](PRODUCT_VISION.md), [Team Governance](TEAM.md), and domain
 documents remain authoritative for their subjects.
 
+The Assistant's participation across the complete operational experience is
+described in the [Owner Journey](OWNER_JOURNEY.md).
+
 ## Core principle
 
 The Assistant should never ask the owner to perform organizational work it can

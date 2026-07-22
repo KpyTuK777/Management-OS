@@ -9,7 +9,7 @@ deeper work into the existing specialized workspace that owns it.
 
 | Property | Decision |
 | --- | --- |
-| Status | Approved product architecture; not implemented |
+| Status | Approved product architecture; Phase 1 presentation foundation implemented |
 | Delivery milestone | Sprint 7 — UX Evolution |
 | Accountable owner | Product Architect & AI Strategist |
 | Product approval | Product Owner |
@@ -21,6 +21,19 @@ This architecture extends [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.
 and [Natural Capture Architecture](NATURAL_CAPTURE_ARCHITECTURE.md). It does not
 create an AI Workspace module, redesign existing domain modules, prescribe a UI,
 or implement runtime behavior.
+
+Home's role across the complete operational experience is described in the
+[Owner Journey](OWNER_JOURNEY.md).
+
+## Current implementation boundary
+
+Phase 1 establishes the intent-first Home hierarchy, an honest unavailable Natural
+Capture surface, a non-simulated future-response region, read-only continuity for
+active SOP Executions, responsive behavior, and preserved direct sidebar access.
+
+Natural Capture behavior, AI interpretation, classification, recommendations,
+Home approval workflows, contextual handoff, permanent learning, and Adaptive
+Workspace behavior remain unimplemented.
 
 ## Architecture assessment
 
@@ -243,4 +256,3 @@ Implementation requires separate approved proposals for Home information
 architecture, attention and interruption policy, contextual recommendation
 selection, degraded non-AI behavior, handoff and return, direct-navigation
 preservation, privacy and AI governance, and measurable cognitive-load review.
-

@@ -233,3 +233,8 @@ change the current implementation scope.
 ## User value
 
 Users gain a focused daily workspace, a reliable view of active projects, less fragmented information, and a foundation for better operational decisions.
+
+The intended end-to-end experience is defined in the
+[Owner Journey](OWNER_JOURNEY.md), which applies these principles from first launch
+through focused work, learning, improvement, and session closure without replacing
+the architecture of individual systems.

@@ -5,163 +5,70 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Management OS</title>
-		<link rel="stylesheet" href="CSS/style.css">
+		<link rel="stylesheet" href="css/style.css">
 	</head>
 
 	<body>
 		<div class="app">
 			<aside class="sidebar" id="sidebar"></aside>
 
-			<main class="workspace dashboard-page">
-				<header class="page-header dashboard-page__header">
+			<main class="workspace ai-home">
+				<header class="page-header ai-home__intro">
 					<div>
-						<h1>Поточний фокус</h1>
-						<p>Те, що потребує вашої уваги зараз.</p>
+						<span class="ai-home__eyebrow">Головна</span>
+						<h1>З чого почнемо?</h1>
+						<p>Опишіть намір своїми словами. Management OS підготує доречний операційний результат.</p>
 					</div>
 				</header>
 
-				<div class="dashboard-page__sections">
-					<section class="dashboard-attention dashboard-section dashboard-section--primary" aria-labelledby="attentionTitle">
-						<div class="section-header">
+				<div class="ai-home__flow">
+					<section class="natural-capture" aria-labelledby="naturalCaptureTitle">
+						<div class="natural-capture__header">
 							<div>
-								<span class="dashboard-section__eyebrow">Потребує уваги</span>
-								<h2 id="attentionTitle">Операційні ризики</h2>
+								<span class="ai-home__eyebrow">Природне введення</span>
+								<h2 id="naturalCaptureTitle">Висловіть намір</h2>
 							</div>
-							<span>Проєкти з ризиком затримки</span>
+							<span class="natural-capture__availability">Ще не активно</span>
 						</div>
-						<div class="dashboard-attention__list" id="attentionProjects"></div>
+
+						<label for="naturalCaptureInput">Що ви хочете зробити, зберегти або зрозуміти?</label>
+						<textarea id="naturalCaptureInput" rows="5" placeholder="Наприклад: Мені потрібно зателефонувати постачальнику завтра" aria-describedby="naturalCaptureGuidance naturalCaptureStatus" disabled></textarea>
+						<div class="natural-capture__footer">
+							<p id="naturalCaptureGuidance">Природне введення готується. На цьому етапі текст не аналізується і не зберігається.</p>
+							<button class="btn-primary" type="button" disabled>Підготувати</button>
+						</div>
+						<p class="natural-capture__status" id="naturalCaptureStatus">AI-функції не активні. Для поточного збереження скористайтеся розділом «Вхідні» в бічній навігації.</p>
 					</section>
 
-					<section class="dashboard-focus dashboard-section" aria-labelledby="currentFocusTitle">
-						<div class="section-header">
-							<div>
-								<span class="dashboard-section__eyebrow">Наступні дії</span>
-								<h2 id="currentFocusTitle">Поточний фокус</h2>
-							</div>
-							<span>Найважливіше зараз</span>
+					<section class="assistant-response-placeholder" aria-labelledby="assistantResponseTitle">
+						<div>
+							<span class="ai-home__eyebrow">Майбутня відповідь</span>
+							<h2 id="assistantResponseTitle">Тут з’явиться підготовлений результат</h2>
 						</div>
-
-						<div class="dashboard-task-list">
-							<div class="dashboard-task">
-								<div class="dashboard-task__content">
-									<div class="dashboard-task__checkbox"></div>
-									<span>Завершити прототип 0.1</span>
-								</div>
-								<span class="dashboard-priority dashboard-priority--high">Високий</span>
-							</div>
-
-							<div class="dashboard-task">
-								<div class="dashboard-task__content">
-									<div class="dashboard-task__checkbox"></div>
-									<span>Продумати Робочу пам'ять</span>
-								</div>
-								<span class="dashboard-priority dashboard-priority--medium">Середній</span>
-							</div>
-
-							<div class="dashboard-task">
-								<div class="dashboard-task__content">
-									<div class="dashboard-task__checkbox"></div>
-									<span>Підготувати структуру Бази знань</span>
-								</div>
-								<span class="dashboard-priority dashboard-priority--low">Низький</span>
-							</div>
-						</div>
+						<p>У наступних фазах Асистент показуватиме інтерпретацію, контекст і точну дію до вашого підтвердження.</p>
 					</section>
 
-					<section class="dashboard-overview dashboard-section" aria-labelledby="dashboardOverviewTitle">
-						<div class="section-header">
+					<section class="active-work" aria-labelledby="activeWorkTitle">
+						<div class="active-work__header">
 							<div>
-								<span class="dashboard-section__eyebrow">Поточний стан</span>
-								<h2 id="dashboardOverviewTitle">Огляд проєктів</h2>
+								<span class="ai-home__eyebrow">Продовжити роботу</span>
+								<h2 id="activeWorkTitle">Активні виконання</h2>
 							</div>
-							<span>Поточна статистика портфоліо</span>
+							<a href="sop-executions.html">Усі виконання</a>
 						</div>
-
-						<div class="dashboard-overview__grid">
-							<article class="dashboard-stat-card">
-								<span>Усього проєктів</span>
-								<strong id="totalProjects">0</strong>
-							</article>
-							<article class="dashboard-stat-card">
-								<span>Активні</span>
-								<strong id="activeProjects">0</strong>
-							</article>
-							<article class="dashboard-stat-card">
-								<span>Завершені</span>
-								<strong id="completedProjects">0</strong>
-							</article>
-							<article class="dashboard-stat-card">
-								<span>Середній прогрес</span>
-								<strong id="averageProgress">0%</strong>
-							</article>
-						</div>
+						<div class="active-work__list" id="activeWorkList"></div>
+						<p class="active-work__empty" id="activeWorkEmpty">Активних виконань немає. Нове виконання можна розпочати в розділі SOP.</p>
 					</section>
 
-					<section class="dashboard-supporting dashboard-section" aria-labelledby="supportingContextTitle">
-						<div class="section-header">
-							<div>
-								<span class="dashboard-section__eyebrow">Контекст</span>
-								<h2 id="supportingContextTitle">Сьогодні</h2>
-							</div>
-							<span>План, показники та останні зміни</span>
-						</div>
-
-						<div class="dashboard-supporting__grid">
-							<article class="dashboard-context-card daily-kpi">
-								<header class="dashboard-context-card__header">
-									<h3>KPI сьогодні</h3>
-									<span>Ключові показники</span>
-								</header>
-								<div class="daily-kpi-grid">
-									<div class="kpi-card"><span>Глибока робота</span><strong>0 / 4 год</strong></div>
-									<div class="kpi-card"><span>Навчання</span><strong>0 / 2 год</strong></div>
-									<div class="kpi-card"><span>Виконано завдань</span><strong>0 / 3</strong></div>
-									<div class="kpi-card"><span>Енергія</span><strong>🙂</strong></div>
-								</div>
-							</article>
-
-							<article class="dashboard-context-card timeline">
-								<header class="dashboard-context-card__header">
-									<h3>План дня</h3>
-									<span>Часовий розклад</span>
-								</header>
-								<div class="timeline-list">
-									<div class="timeline-row"><time class="timeline-time">08:00</time><div class="timeline-content">Ранковий огляд системи</div></div>
-									<div class="timeline-row"><time class="timeline-time">09:00</time><div class="timeline-content">Глибока робота</div></div>
-									<div class="timeline-row"><time class="timeline-time">13:00</time><div class="timeline-content">Навчання</div></div>
-									<div class="timeline-row"><time class="timeline-time">16:00</time><div class="timeline-content">Робота над Management OS</div></div>
-								</div>
-							</article>
-
-							<article class="dashboard-context-card activity-feed">
-								<header class="dashboard-context-card__header">
-									<h3>Останні зміни</h3>
-									<span>Активність у системі</span>
-								</header>
-								<div class="activity-list">
-									<div class="activity-item"><span class="activity-time">10:15</span><p>Створено новий проєкт <strong>Management OS</strong></p></div>
-									<div class="activity-item"><span class="activity-time">09:40</span><p>Додано SOP "Початок робочого дня"</p></div>
-									<div class="activity-item"><span class="activity-time">Вчора</span><p>Оновлено KPI Frontend</p></div>
-								</div>
-							</article>
-						</div>
-					</section>
-
-					<details class="dashboard-additional dashboard-section">
+					<details class="dashboard-additional legacy-prototype-reference">
 						<summary>
 							<span>
-								<strong>Додатковий контекст</strong>
-								<small>Прототипні блоки та експерименти ранньої версії</small>
+								<strong>Архів ранніх прототипів</strong>
+								<small>Неопераційні концепти без окремого реалізованого робочого простору</small>
 							</span>
 						</summary>
 
 						<div class="dashboard-additional__content">
-							<section class="dashboard-prototype hero">
-								<span class="hero__label">Система</span>
-								<h2>Management OS</h2>
-								<p>Персональна система управління знаннями, завданнями, навичками та професійним розвитком. Кожен день починається тут.</p>
-							</section>
-
 							<section class="dashboard-prototype operations">
 								<header class="dashboard-context-card__header"><h3>Операційний центр</h3><span>Моя панель управління сьогодні</span></header>
 								<div class="operations-grid">
@@ -172,19 +79,9 @@
 								</div>
 							</section>
 
-							<section class="dashboard-prototype inbox">
-								<header class="dashboard-context-card__header"><h3>Вхідні</h3><span>Усе нове потрапляє сюди</span></header>
-								<div class="inbox-input"><input type="text" placeholder="Записати думку, ідею або завдання..."><button class="btn" type="button">+</button></div>
-								<div class="inbox-list"><div class="inbox-item">Приклад нотатки</div><div class="inbox-item">Ідея для покращення Management OS</div></div>
-							</section>
-
 							<section class="dashboard-prototype global-search">
 								<header class="dashboard-context-card__header"><h3>Глобальний пошук</h3><span>Швидкий пошук у всій системі</span></header>
-								<div class="search-box"><input type="text" placeholder="Пошук проєктів, SOP, знань, завдань..."><button class="btn" type="button">🔍</button></div>
-							</section>
-
-							<section class="dashboard-prototype system-banner">
-								<span>СИСТЕМА</span><h3>Management OS працює.</h3><p>Усі знання, завдання, пам'ять і навички об'єднані в одну систему.</p>
+								<div class="search-box"><input type="text" placeholder="Пошук проєктів, SOP, знань, завдань..." disabled><button class="btn" type="button" disabled>Пошук</button></div>
 							</section>
 
 							<section class="dashboard-prototype memory">
@@ -192,33 +89,8 @@
 								<div class="memory-list"><div class="memory-item">Прототип Management OS 0.1</div><div class="memory-item">План розвитку Frontend</div><div class="memory-item">Кар’єра в AI</div><div class="memory-item">Англійська B2</div></div>
 							</section>
 
-							<section class="dashboard-prototype dashboard-knowledge-preview">
-								<header class="dashboard-context-card__header"><h3>База знань</h3><span>Останні матеріали</span></header>
-								<div class="knowledge-list">
-									<div class="knowledge-item"><div class="knowledge-title">Семантична структура HTML</div><div class="knowledge-tag">Frontend</div></div>
-									<div class="knowledge-item"><div class="knowledge-title">Система CSS Grid</div><div class="knowledge-tag">CSS</div></div>
-									<div class="knowledge-item"><div class="knowledge-title">Ідеї для Management OS</div><div class="knowledge-tag">Система</div></div>
-								</div>
-							</section>
 						</div>
 					</details>
-
-					<section class="dashboard-quick-actions dashboard-section" aria-labelledby="quickActionsTitle">
-						<div class="section-header">
-							<div>
-								<span class="dashboard-section__eyebrow">Навігація</span>
-								<h2 id="quickActionsTitle">Швидкі дії</h2>
-							</div>
-							<span>Швидкий доступ до основних систем</span>
-						</div>
-
-						<div class="dashboard-quick-actions__grid">
-							<article class="quick-action-card"><h3>Новий проєкт</h3><p>Перейдіть до портфоліо, щоб створити проєкт.</p><a class="btn-primary quick-action-card__button" href="portfolio.html">Створити проєкт</a></article>
-							<article class="quick-action-card"><h3>Відкрити портфоліо</h3><p>Переглядайте свої проєкти та керуйте ними.</p><a class="btn-primary quick-action-card__button" href="portfolio.html">Відкрити портфоліо</a></article>
-							<article class="quick-action-card"><h3>База знань</h3><p>Зберігайте нотатки, методики та практики.</p><button class="btn-primary quick-action-card__button" type="button" disabled>Скоро</button></article>
-							<article class="quick-action-card"><h3>SOP</h3><p>Стандартизуйте повторювані робочі процеси.</p><button class="btn-primary quick-action-card__button" type="button" disabled>Скоро</button></article>
-						</div>
-					</section>
 				</div>
 			</main>
 		</div>

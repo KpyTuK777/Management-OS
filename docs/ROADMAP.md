@@ -75,6 +75,10 @@ automatic application remain outside the current roadmap milestone.
 
 Improve the system through AI, automation, integrations, performance work, UX improvements, and refactoring.
 
+AI capability dependencies and maturity sequencing are maintained separately in
+the [AI Capability Roadmap](AI_CAPABILITY_ROADMAP.md). That roadmap does not replace
+this product sequencing or authorize implementation.
+
 ### Future Learning Layer — Recommendations Center
 
 After sufficient Review and execution evidence exists, introduce an explainable

@@ -6,10 +6,18 @@ unchanged.
 
 Management OS is organized as a collection of business systems. Each system has a distinct purpose and evolves independently while contributing to one operating workspace.
 
+The [Owner Journey](OWNER_JOURNEY.md) describes how the owner experiences these
+systems as one continuous operating relationship without changing their distinct
+responsibilities.
+
 ## Home
 
 - **Purpose:** Show what matters today.
-- **Current status:** Static dashboard content in `index.html`.
+- **Current status:** AI-first Home Phase 1 is implemented in `index.html` with an
+  intent-first presentation shell, an explicit unavailable Natural Capture state,
+  a future Assistant-response placeholder, and read-only active SOP Execution
+  continuity. No AI interpretation, capture, classification, or recommendation
+  behavior is implemented.
 - **Future responsibilities:** Act as an AI-first operational workspace for Natural
   Capture, decisions requiring human judgment, active-work continuity, contextual
   recommendations, and routing into specialized modules. Supporting metrics,
