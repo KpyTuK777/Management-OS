@@ -3,6 +3,10 @@
 Team responsibilities, decision ownership, and the official delivery process are
 defined in [Team Governance](TEAM.md).
 
+See [Development Methodology](METHODOLOGY.md) for the integrated operating model
+that connects product intent, approval, implementation, reviews, documentation,
+and consistency auditing.
+
 ## Run the project
 
 1. Open the repository folder in Visual Studio Code.
@@ -41,3 +45,16 @@ The mandatory delivery workflow and Architecture Consistency Audit are defined i
 canonical documents synchronized according to the
 [Documentation Map](DOCUMENTATION_MAP.md) and report missing, partial, or obsolete
 work through the approved ownership process.
+
+## Documentation completion
+
+When implementation affects canonical documentation, use the
+[Documentation Definition of Done](DOCUMENTATION_MAP.md#documentation-definition-of-done)
+as the operational completion checklist. Documentation validation must finish
+before commit readiness; the later Architecture Consistency Audit verifies that
+completion rather than replacing it.
+
+When implementation depends on an approved decision whose rationale would not be
+clear from Git history, record it in the [Decision Log](DECISIONS.md) before or
+alongside the change. Material architectural commitments require a future ADR
+rather than a lightweight log entry.

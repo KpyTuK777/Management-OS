@@ -46,6 +46,24 @@ separately in [Sprint Tracker](SPRINTS.md).
 - Added the canonical Product Language Guide for terminology, voice, naming, and
   future AI communication.
 - Added documentation ownership, authority, and lifecycle governance.
+- Added a staged Documentation Backlog aligned with beta, v1.0, post-v1.0, and
+  long-term maturity.
+- Added a canonical Documentation Definition of Done and connected it to Team,
+  Development, Sprint, and backlog completion rules.
+- Added the internal Management OS Development Methodology as a synthesis of
+  product, architecture, delivery, design, language, documentation, and AI
+  governance.
+- Formally adopted the methodology as an internal operating standard before Beta,
+  with explicit canonical precedence and no standing implementation authority.
+- Added the Product Maturity Model with evidence-based Prototype, Alpha, Beta,
+  v1.0, and post-v1 readiness gates.
+- Added an internal Project Health Dashboard that aggregates canonical evidence
+  into qualitative release-readiness states without introducing new authority.
+- Added a lightweight, append-only Decision Log for consequential approved rationale
+  below the ADR threshold.
+- Added a non-authoritative Knowledge Evolution Map that routes temporary ideas,
+  canonical truth, durable rationale, delivery evidence, and release history to
+  their existing documentation authorities.
 - Retained `UI_LANGUAGE.md` as a temporary compatibility path.
 
 ### Learning Layer

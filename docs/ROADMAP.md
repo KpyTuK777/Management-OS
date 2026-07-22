@@ -2,6 +2,28 @@
 
 This roadmap describes product direction. Implementation-level progress is tracked in [Sprints](SPRINTS.md).
 
+Release-stage readiness is governed by the
+[Product Maturity Model](PRODUCT_MATURITY.md). Roadmap phases describe capability
+direction and do not by themselves confer Prototype, Alpha, Beta, or stable status.
+
+## Documentation readiness
+
+Documentation evolves with the product and is a release-readiness condition rather
+than a separate product phase. Detailed documentation work, priorities, and
+dependencies are maintained in the
+[Documentation Backlog](DOCUMENTATION_BACKLOG.md).
+
+- **Beta:** requires the Stage 1 documentation exit criteria. No P0 Stage 1 item
+  may remain open at Beta readiness review.
+- **v1.0:** requires the Stage 2 documentation exit criteria, including release,
+  verification, user-guidance, and canonical-consistency requirements.
+- **Post-v1 evolution:** activates the relevant Stage 3 or Stage 4 work when its
+  product trigger occurs, such as a major architecture decision, external
+  contribution, multiple supported releases, or future AI implementation.
+
+The Roadmap owns these maturity gates. The Documentation Backlog owns their
+detailed work, and the Sprint Tracker records scheduled execution and completion.
+
 ## Phase 1 — Portfolio
 
 Build a dependable project workspace with lifecycle management, status, progress, filters, and sorting.

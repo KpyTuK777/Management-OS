@@ -3,6 +3,14 @@
 This document defines the official roles, ownership boundaries, and delivery
 workflow for Management OS.
 
+The [Development Methodology](METHODOLOGY.md) explains how this governance works
+with architecture, implementation, design, language, documentation, and AI
+collaboration. This document remains authoritative for roles and approvals.
+
+The [Product Maturity Model](PRODUCT_MATURITY.md) defines release-readiness gates.
+The Product Owner approves a maturity transition only after all mandatory domain
+evidence owners have completed their reviews.
+
 ## Team roles
 
 ### Product Owner — Serhii
@@ -117,6 +125,11 @@ Testing remains mandatory during Implementation and before Product Review.
 Functionality, regressions, code quality, responsiveness, and relevant design
 behavior must be verified before the work can be committed.
 
+When a change creates or modifies canonical documentation, Product Review, commit
+readiness, and Sprint closure also require the
+[Documentation Definition of Done](DOCUMENTATION_MAP.md#documentation-definition-of-done).
+The accountable document owner reviews material changes within their domain.
+
 Implementation must not begin before approval when a task explicitly requests a
 proposal or review first. Material changes to approved product, architecture, or
 design decisions must return to the appropriate owner before implementation
@@ -167,3 +180,10 @@ architecture, design, and implementation decisions remain with the owners define
 in this document. When proposed work materially changes an approved boundary, the
 AI agent must return it to the appropriate review and approval stage before
 implementation.
+
+## Decision recording
+
+Approved decisions with durable rationale may be recorded in the
+[Decision Log](DECISIONS.md). The owner of the relevant decision domain approves
+the entry. The log preserves rationale and does not transfer authority or replace
+the current canonical document.

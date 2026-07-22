@@ -31,6 +31,7 @@ Open the repository in VS Code and launch `index.html` or `portfolio.html` with 
 
 - [Architecture](docs/ARCHITECTURE.md)
 - [Product vision](docs/PRODUCT_VISION.md)
+- [Product maturity](docs/PRODUCT_MATURITY.md)
 - [Systems](docs/SYSTEMS.md)
 - [Data model](docs/DATA_MODEL.md)
 - [Development](docs/DEVELOPMENT.md)
@@ -40,6 +41,10 @@ Open the repository in VS Code and launch `index.html` or `portfolio.html` with 
 - [Design system](docs/DESIGN_SYSTEM.md)
 - [Product language](docs/PRODUCT_LANGUAGE.md)
 - [Documentation map](docs/DOCUMENTATION_MAP.md)
+- [Documentation backlog](docs/DOCUMENTATION_BACKLOG.md)
+- [Development methodology](docs/METHODOLOGY.md)
+- [Project health](docs/PROJECT_HEALTH.md)
+- [Decision log](docs/DECISIONS.md)
 
 ## Product direction
 
