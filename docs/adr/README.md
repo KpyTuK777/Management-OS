@@ -13,6 +13,7 @@ made, the alternatives considered, and its consequences.
 | --- | --- | --- |
 | [ADR-0001](0001-protected-ai-runtime-platform.md) | Accepted | Use a containerized Node.js runtime on Google Cloud Run for the protected AI runtime platform |
 | [ADR-0002](0002-owner-identity-and-session-boundary.md) | Accepted | Use OIDC, stable internal Accounts, Workspace Membership, and server-managed browser sessions |
+| [ADR-0003](0003-google-sign-in-for-v1.md) | Accepted | Use Google Sign-In behind the provider-neutral identity boundary for v1 |
 
 ## Lifecycle
 

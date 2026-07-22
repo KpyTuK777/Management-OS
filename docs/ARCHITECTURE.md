@@ -24,6 +24,10 @@ defines OIDC authentication, server-managed browser sessions, stable Accounts,
 Workspace Membership, and bounded runtime Auth Context. None is currently
 implemented.
 
+The [Owner Identity and Authentication](OWNER_AUTHENTICATION_ARCHITECTURE.md)
+specialization selects Google Sign-In behind that provider-neutral boundary for
+v1. Google authentication is not currently implemented.
+
 ## Project structure
 
 ```text

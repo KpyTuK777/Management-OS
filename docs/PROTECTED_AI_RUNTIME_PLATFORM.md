@@ -15,7 +15,7 @@ adapter, validation, confidence, and authority boundaries.
 | Product approval | Product Owner |
 | Canonical v1 platform | Containerized Node.js service on Google Cloud Run |
 | Scope | Deployment and runtime-platform architecture only |
-| Excluded | AI provider, model, API, identity provider, database, and implementation |
+| Excluded | AI provider, model, API, session store, database, and implementation |
 
 The [AI Runtime Architecture](AI_RUNTIME_ARCHITECTURE.md) remains canonical for
 provider-independent AI execution. This document is canonical for the production
@@ -35,7 +35,9 @@ selection before production Intent Recognition can operate.
 
 The approved [Owner Identity Architecture](OWNER_IDENTITY_ARCHITECTURE.md) defines
 the Account, Workspace Membership, Session Gateway, token, and runtime Auth Context
-boundary. An identity provider and session-store technology remain unselected.
+boundary. The approved
+[Owner Identity and Authentication](OWNER_AUTHENTICATION_ARCHITECTURE.md) selects
+Google Sign-In for v1; session-store technology remains unselected.
 
 ## Architectural decision
 
@@ -298,8 +300,9 @@ runtime verifies authenticity, audience, expiry, owner or organization identity,
 capability permission, and applicable replay protection.
 
 Deployment identity, runtime service identity, and human administration remain
-separate and least-privileged. Identity-provider selection remains outside this
-decision. Absence of authenticated owner sessions is a production blocker.
+separate and least-privileged. Google Sign-In is selected in the authentication
+architecture rather than by this platform decision. Absence of authenticated owner
+sessions is a production blocker.
 
 ### Secret management
 
@@ -453,7 +456,7 @@ Proceed in this order:
 ```text
 Protected AI Runtime Platform
   -> Owner identity and authentication architecture (approved)
-  -> Identity-provider and session-store decisions
+  -> Google OAuth configuration plan and session-store decision
   -> Runtime security and retention configuration
   -> AI provider evaluation and selection
   -> Intent Recognition implementation

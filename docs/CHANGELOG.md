@@ -137,6 +137,11 @@ separately in [Sprint Tracker](SPRINTS.md).
   OIDC with PKCE, server-managed browser sessions, native token boundaries,
   runtime authorization, revocation, offline limits, and future multi-owner scope
   without selecting or implementing an identity provider.
+- Added the canonical Owner Identity and Authentication specialization and
+  ADR-0003, selecting Google Sign-In for v1 behind a provider adapter while
+  preserving internal Account ownership, identity-only scopes, server-managed
+  sessions, secure logout, multi-device revocation, runtime Auth Context, and
+  future-provider portability without implementation.
 - Added the canonical Product Principle that Management OS should quietly remove
   cognitive noise while preserving decisions that require human judgment.
 - Extended the standard Product Review guidance with a mandatory evaluation of

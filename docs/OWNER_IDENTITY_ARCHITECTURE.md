@@ -16,13 +16,18 @@ Protected AI Runtime, future synchronization, and future multi-device use.
 | Browser strategy | Server-managed Backend-for-Frontend session |
 | V1 membership | One Account, one Workspace, one Owner membership |
 | Scope | Identity, authentication, session, and authorization architecture |
-| Excluded | Identity provider, SDK, session store, database, and implementation |
+| V1 provider specialization | [Google Sign-In architecture](OWNER_AUTHENTICATION_ARCHITECTURE.md) |
+| Excluded | Authentication SDK, session store, database, and implementation |
 
 The [Protected AI Runtime Platform](PROTECTED_AI_RUNTIME_PLATFORM.md) remains
 canonical for hosting and protecting the runtime. This document defines the owner
 trust boundary required before that runtime may be exposed. The durable identity
 and session decision is recorded in
 [ADR-0002](adr/0002-owner-identity-and-session-boundary.md).
+
+The approved [Owner Identity and Authentication](OWNER_AUTHENTICATION_ARCHITECTURE.md)
+specialization selects Google Sign-In for v1 without changing the provider-neutral
+Account, Membership, session, or authorization model defined here.
 
 ## Current implementation boundary
 
@@ -31,9 +36,9 @@ Session, Identity and Session Gateway, OIDC integration, protected API session,
 native token flow, synchronization identity, or multi-owner authorization.
 Browser `localStorage` is domain persistence, not authentication or identity.
 
-This architecture selects no identity provider, authentication SDK, session-store
-technology, database, or implementation. Identity-provider selection remains a
-separate deployment decision.
+Google Sign-In is selected separately for v1 but is not implemented. This base
+architecture selects no authentication SDK, session-store technology, database, or
+implementation.
 
 ## Identity principles
 
@@ -559,7 +564,7 @@ session consequences, or prevents useful degraded operation.
 Adopt this canonical model:
 
 ```text
-Managed standards-compatible identity provider
+Google Sign-In for v1 through a provider-neutral adapter
   -> OIDC Authorization Code with PKCE
   -> Management OS Identity and Session Gateway
   -> stable internal Account
@@ -581,7 +586,7 @@ Proceed in this order:
 
 ```text
 Owner Identity Architecture
-  -> Identity-provider evaluation and selection
+  -> Google OAuth project and consent configuration plan
   -> Session-store and identity-data architecture
   -> Web authentication Implementation Plan
   -> Protected Runtime authentication
@@ -594,5 +599,5 @@ Provider selection should evaluate OIDC conformance, PKCE, passkeys or
 phishing-resistant MFA, recovery, revocation, auditability, regional availability,
 exportability, cost, and subject stability.
 
-This architecture selects no identity provider, SDK, session store, database, or
-implementation.
+The v1 specialization selects Google Sign-In. This base architecture selects no
+authentication SDK, session store, database, or implementation.

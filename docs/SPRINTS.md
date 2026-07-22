@@ -131,6 +131,8 @@ incomplete.
 - **Architecture Decision:** ADR-0001 selects a containerized Node.js runtime on Google Cloud Run
 - **Identity Architecture:** Canonical Owner Identity Architecture
 - **Architecture Decision:** ADR-0002 establishes OIDC, internal Accounts, Workspace Membership, and server-managed browser sessions
+- **Authentication Architecture:** Google Sign-In v1 provider specialization
+- **Architecture Decision:** ADR-0003 selects Google Sign-In behind the provider-neutral identity boundary
 
 ### Implementation status
 
@@ -153,7 +155,10 @@ incomplete.
   explicit prerequisites.
 - The Owner Identity Architecture defines provider-neutral web and native
   authentication, revocable sessions, token separation, runtime authorization, and
-  future multi-device and multi-owner boundaries without selecting an identity
-  provider or implementing authentication.
+  future multi-device and multi-owner boundaries. Its Google Sign-In
+  specialization selects the v1 verifier without implementing authentication.
+- The Owner Identity and Authentication specialization selects Google Sign-In for
+  v1 while preserving Management OS Account ownership, provider abstraction,
+  persistent Device Sessions, runtime Auth Context, and future-provider readiness.
 
 See [Roadmap](ROADMAP.md) for product phases beyond this sprint.
