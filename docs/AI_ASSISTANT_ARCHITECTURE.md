@@ -2,6 +2,11 @@
 
 ## Purpose and status
 
+The coherent character produced by this architecture is synthesized in
+[AI Assistant Identity](AI_ASSISTANT_IDENTITY.md). That identity introduces no new
+responsibility, boundary, authority, or implementation scope; this document
+remains authoritative for Assistant architecture.
+
 The AI Assistant is the future operational intelligence layer of Management OS.
 It is not a chatbot, a domain-data owner, or an autonomous actor. Its purpose is
 to understand operational context, reduce cognitive load, organize information,

@@ -2,6 +2,10 @@
 
 ## Purpose and authority
 
+The Assistant whose implemented behavior this framework evaluates is synthesized
+in [AI Assistant Identity](AI_ASSISTANT_IDENTITY.md). Identity consistency is not a
+substitute for the quality Evidence and review requirements defined here.
+
 This framework defines how Management OS evaluates the quality of implemented AI
 behavior. It determines whether a capability behaves like a useful, understandable,
 bounded, correctable, and trustworthy operational partner.
@@ -464,4 +468,3 @@ The framework is approved as a risk-aware, product-oriented evaluation standard.
 Future AI capability architecture must identify its applicable quality dimensions.
 Numerical thresholds belong only in capability-specific validation plans when the
 measure is meaningful and justified.
-

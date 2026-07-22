@@ -356,6 +356,9 @@ Session close
 System and Assistant communication throughout the journey follows the canonical
 [AI Communication Style Guide](AI_COMMUNICATION_STYLE_GUIDE.md), preserving calm,
 truthful state, uncertainty, recommendation, approval, and completion language.
+The Assistant's consistent relationship with the owner is synthesized in
+[AI Assistant Identity](AI_ASSISTANT_IDENTITY.md); this journey remains
+authoritative for the intended experience.
 
 | Mode | Typical moment | AI responsibility | Prohibited behavior |
 | --- | --- | --- | --- |

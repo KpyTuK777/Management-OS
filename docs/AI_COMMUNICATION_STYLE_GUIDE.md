@@ -8,6 +8,10 @@ governs message roles, capability and limitation claims, uncertainty, temporary
 state, recommendations, approvals, confirmations, failures, learning language,
 and interruption behavior.
 
+The character expressed through these rules is synthesized in
+[AI Assistant Identity](AI_ASSISTANT_IDENTITY.md). The identity does not replace
+this guide's authority over communication behavior.
+
 | Property | Decision |
 | --- | --- |
 | Status | Canonical communication architecture; not an implementation claim |

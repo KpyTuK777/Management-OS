@@ -24,6 +24,9 @@ or implement runtime behavior.
 
 Home's role across the complete operational experience is described in the
 [Owner Journey](OWNER_JOURNEY.md).
+The consistent Assistant presence within Home is synthesized in
+[AI Assistant Identity](AI_ASSISTANT_IDENTITY.md); this document remains
+authoritative for workspace architecture and hierarchy.
 
 ## Current implementation boundary
 

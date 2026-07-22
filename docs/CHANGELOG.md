@@ -86,6 +86,9 @@ separately in [Sprint Tracker](SPRINTS.md).
   limitation claims, calm tone, distinct message roles, uncertainty, temporary
   state, recommendations, approvals, confirmations, failures, learning, and
   interruption restraint.
+- Added the canonical, technology-independent AI Assistant Identity synthesis for
+  consistent character, trust, authority, owner relationship, and behavior under
+  uncertainty without redefining its source architectures or principles.
 - Added the approved AI-first Workspace architecture, evolving future Home from a
   traditional information dashboard into an intent-first operational surface while
   preserving specialized modules, direct navigation, and degraded non-AI access.

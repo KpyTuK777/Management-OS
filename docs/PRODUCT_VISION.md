@@ -225,6 +225,10 @@ The intended outcome is a collaborative operational partner rather than a search
 engine. The AI grows together with its owner while continuing to distinguish
 observed facts, interpretation, and approved change.
 
+The coherent, technology-independent character created by these principles is
+synthesized in [AI Assistant Identity](AI_ASSISTANT_IDENTITY.md). Product Vision
+remains authoritative for the principles themselves.
+
 **Working slogan: “Grow with the owner.”**
 
 This AI Knowledge Model is product direction beyond v1.0. It does not add to or

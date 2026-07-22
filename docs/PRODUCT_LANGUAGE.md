@@ -161,6 +161,10 @@ may not reasonably know the term.
 
 ## Future AI communication
 
+The technology-independent Assistant character is synthesized in
+[AI Assistant Identity](AI_ASSISTANT_IDENTITY.md). This Product Language Guide
+remains authoritative for terminology and writing.
+
 Message roles, capability and limitation claims, uncertainty, temporary-state
 language, recommendations, approvals, confirmations, failures, and interruption
 behavior follow the canonical

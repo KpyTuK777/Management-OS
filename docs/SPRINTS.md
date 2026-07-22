@@ -93,6 +93,7 @@ incomplete.
 - **Feature 02 — Architecture:** Natural Capture Architecture
 - **Feature 02 — Interaction Architecture:** Natural Capture Interaction Foundation Phase 2
 - **Communication Architecture:** AI Communication Style Guide
+- **Identity Architecture:** AI Assistant Identity synthesis
 - **UX Evolution — Architecture:** AI-first Workspace
 - **UX Evolution — Implementation:** AI-first Home Phase 1 presentation foundation
 - **Planning:** Canonical AI Capability Roadmap
