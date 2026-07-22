@@ -14,7 +14,7 @@ Execution Reviews, and Improvement Proposals.
 
 ```text
 Management-OS/
-├── index.html              # AI-first Home Phase 1 presentation shell
+├── index.html              # AI-first Home with Phase 2 temporary capture interaction
 ├── portfolio.html          # Functional Portfolio page
 ├── notes.html              # Notes Inbox for quick capture
 ├── knowledge-base.html     # Functional Knowledge Base page
@@ -32,9 +32,9 @@ Management-OS/
 
 ## HTML pages
 
-- `index.html` is the AI-first Home Phase 1 presentation shell. It exposes an
-  explicitly unavailable Natural Capture surface, a future-response placeholder,
-  and a read-only projection of active SOP Executions without implementing AI.
+- `index.html` is the AI-first Home. It exposes the Phase 2 page-memory-only
+  Natural Capture interaction and a read-only projection of active SOP Executions
+  without implementing AI, routing, domain mutation, or persistent capture.
 - `portfolio.html` is the active Portfolio implementation.
 - `notes.html` is the Notes Inbox for quick capture and later organization.
 - `knowledge-base.html` is the active Knowledge Base implementation.
@@ -83,6 +83,10 @@ See [Design System](DESIGN_SYSTEM.md) for UI conventions.
 - `js/app.js` owns Home's deterministic active-Execution projection. It reads
   existing SOP Executions, renders up to three unfinished records, and never
   mutates domain state.
+- `js/natural-capture.js` owns Home's Phase 2 temporary interaction state. It
+  accepts one text value, renders unchanged review and editing transitions,
+  coordinates explicit discard and leave safeguards, and has no storage or domain
+  dependency.
 
 ## Platform utilities
 

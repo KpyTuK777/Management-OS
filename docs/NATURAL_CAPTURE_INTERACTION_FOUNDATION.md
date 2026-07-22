@@ -9,7 +9,7 @@ permanently saved it.
 
 | Property | Decision |
 | --- | --- |
-| Status | Approved interaction architecture; not implemented |
+| Status | Approved interaction architecture; Phase 2 implemented |
 | Delivery milestone | Sprint 7 — Natural Capture Interaction Foundation, Phase 2 |
 | Accountable owner | Product Architect & AI Strategist |
 | Product approval | Product Owner |
@@ -28,6 +28,18 @@ Raw input → preserve original meaning → owner-controlled temporary review
 
 Phase 2 is a temporary-draft architecture, not an early classification system, a
 Notes workflow, or a new domain entity.
+
+## Current implementation boundary
+
+Home now supports one page-memory-only capture through text entry, unchanged-text
+review, continued editing, explicit discard confirmation, accessible state
+announcements, and a best-effort browser leave warning. Text is held only by the
+page's JavaScript controller and is discarded on navigation, refresh, or closure.
+
+No `localStorage`, `sessionStorage`, domain storage helper, AI behavior,
+classification, context lookup, routing, Recommendation, permanent record,
+analytics event, or learning signal is involved. Browser leave prompts are
+best-effort safeguards and are not described as recovery.
 
 ## Interaction flow
 
@@ -278,13 +290,14 @@ change blocks readiness.
 
 ## Recommendation
 
-Implement Phase 2 later as the bounded sequence:
+Phase 2 implements the bounded sequence:
 
 ```text
 Type → Review unchanged text → Edit or explicitly discard
 ```
 
-Session-scoped navigation continuity is permitted. Cross-refresh, cross-session,
+The initial implementation deliberately chooses page-memory continuity rather than
+session navigation retention. Cross-navigation, cross-refresh, cross-session,
 device persistence, AI behavior, and domain handoff remain excluded until
 separately proposed and approved.
 

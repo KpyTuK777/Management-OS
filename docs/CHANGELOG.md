@@ -20,6 +20,11 @@ separately in [Sprint Tracker](SPRINTS.md).
   foundation.
 - Added an honest unavailable Natural Capture surface and future Assistant-response
   placeholder without AI, classification, storage, or workflow behavior.
+- Activated the Natural Capture Phase 2 interaction foundation with page-memory
+  text entry, unchanged review, continued editing, explicit discard confirmation,
+  accessible status announcements, and best-effort navigation-loss protection.
+- Natural Capture Phase 2 performs no AI interpretation, classification, routing,
+  recommendation, domain mutation, persistent storage, analytics, or learning.
 - Added a read-only Home projection for up to three active SOP Executions with
   direct resume links.
 - Removed project statistics, static focus, KPI, timeline, activity, and quick-action

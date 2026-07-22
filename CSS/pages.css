@@ -103,6 +103,12 @@
 	opacity:.78;
 }
 
+.natural-capture textarea:focus {
+	border-color:var(--primary);
+	outline:3px solid var(--focus-ring);
+	outline-offset:0;
+}
+
 .natural-capture__footer {
 	align-items:center;
 }
@@ -131,6 +137,100 @@
 	border:1px dashed var(--border);
 	border-radius:var(--radius-md);
 	background:var(--background);
+}
+
+.capture-review {
+	display:grid;
+	gap:var(--space-24);
+	padding:clamp(var(--space-24), 4vw, var(--space-40));
+	border:1px solid var(--border);
+	border-radius:var(--radius-md);
+	background:var(--surface);
+	box-shadow:var(--shadow-sm);
+}
+
+.capture-review.hidden {
+	display:none;
+}
+
+.capture-review > div:first-child {
+	display:grid;
+	gap:var(--space-8);
+}
+
+.capture-review__text {
+	max-width:none;
+	margin:0;
+	padding:var(--space-24);
+	border:1px solid var(--border);
+	border-radius:var(--radius-sm);
+	background:var(--background);
+	font-size:var(--font-md);
+	line-height:1.65;
+	overflow-wrap:anywhere;
+	white-space:pre-wrap;
+}
+
+.capture-review__status {
+	color:var(--text-secondary);
+	font-size:var(--font-small);
+}
+
+.capture-review__actions,
+.capture-discard-dialog__actions {
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:flex-end;
+	gap:var(--space-12);
+}
+
+.btn-danger {
+	display:inline-flex;
+	align-items:center;
+	justify-content:center;
+	min-height:44px;
+	padding:10px var(--space-16);
+	border:1px solid var(--danger);
+	border-radius:10px;
+	background:var(--danger);
+	color:#fff;
+	font:inherit;
+	font-size:.925rem;
+	font-weight:600;
+	cursor:pointer;
+}
+
+.btn-danger:hover {
+	filter:brightness(.92);
+}
+
+.btn-danger:focus-visible {
+	outline:3px solid var(--focus-ring);
+	outline-offset:2px;
+}
+
+.capture-discard-dialog {
+	width:min(calc(100% - 32px), 520px);
+	padding:0;
+	border:1px solid var(--border);
+	border-radius:var(--radius-md);
+	background:var(--surface);
+	color:var(--text);
+	box-shadow:var(--shadow-lg);
+}
+
+.capture-discard-dialog::backdrop {
+	background:rgba(16, 24, 40, .52);
+}
+
+.capture-discard-dialog__content {
+	display:grid;
+	gap:var(--space-24);
+	padding:var(--space-24);
+}
+
+.capture-discard-dialog__content p {
+	color:var(--text-secondary);
 }
 
 .active-work {
@@ -609,6 +709,16 @@
 	}
 
 	.natural-capture__footer .btn-primary {
+		width:100%;
+	}
+
+	.capture-review__actions,
+	.capture-discard-dialog__actions {
+		flex-direction:column;
+	}
+
+	.capture-review__actions button,
+	.capture-discard-dialog__actions button {
 		width:100%;
 	}
 

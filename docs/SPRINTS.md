@@ -96,6 +96,7 @@ incomplete.
 - **Identity Architecture:** AI Assistant Identity synthesis
 - **UX Evolution — Architecture:** AI-first Workspace
 - **UX Evolution — Implementation:** AI-first Home Phase 1 presentation foundation
+- **Feature 02 — Implementation:** Natural Capture Interaction Foundation Phase 2
 - **Planning:** Canonical AI Capability Roadmap
 - **Governance:** Canonical AI Quality Framework
 - **Product Experience — Architecture:** Canonical Owner Journey
@@ -108,9 +109,11 @@ incomplete.
 - No AI Assistant runtime behavior was implemented.
 - AI-first Home Phase 1 replaces the dashboard-centric primary experience with an
   intent-first shell and a deterministic active-Execution projection.
-- Natural Capture remains explicitly unavailable and does not analyze or save text.
-- Natural Capture Phase 2 interaction architecture is approved but not implemented;
-  it permits only future session-scoped text entry, review, edit, and discard.
+- Natural Capture Phase 2 supports page-memory-only text entry, unchanged review,
+  continued editing, explicit discard, accessible state communication, and a
+  best-effort leave warning.
+- Natural Capture does not analyze, classify, route, recommend, create domain
+  records, persist captures, or learn from interaction.
 - Implementation remains subject to a separate approved proposal and APPLY.
 - AI governance, privacy, explainability, correction, retention, revocation, and
   safety controls remain prerequisites.

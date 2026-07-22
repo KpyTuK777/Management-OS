@@ -29,6 +29,9 @@ user-facing language must follow this guide.
 | Needs Attention | Потребує уваги |
 | Supporting / Additional Context | Додатковий контекст |
 | Search | Пошук; **Глобальний пошук** for product-wide search |
+| Natural Capture | Природне введення |
+| Temporary capture | Тимчасове введення |
+| Review capture | Переглянути введене |
 | Student Mode | Навчальний режим |
 
 ## Writing style

@@ -13,10 +13,11 @@ responsibilities.
 ## Home
 
 - **Purpose:** Show what matters today.
-- **Current status:** AI-first Home Phase 1 is implemented in `index.html` with an
-  intent-first presentation shell, an explicit unavailable Natural Capture state,
-  a future Assistant-response placeholder, and read-only active SOP Execution
-  continuity. No AI interpretation, capture, classification, or recommendation
+- **Current status:** AI-first Home Phase 1 and the Natural Capture Phase 2
+  interaction foundation are implemented in `index.html`. Home supports one
+  page-memory-only text capture with unchanged review, continued editing, explicit
+  discard, and read-only active SOP Execution continuity. No AI interpretation,
+  classification, routing, recommendation, domain mutation, or persistent capture
   behavior is implemented.
 - **Future responsibilities:** Act as an AI-first operational workspace for Natural
   Capture, decisions requiring human judgment, active-work continuity, contextual

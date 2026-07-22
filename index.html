@@ -17,36 +17,42 @@
 					<div>
 						<span class="ai-home__eyebrow">Головна</span>
 						<h1>З чого почнемо?</h1>
-						<p>Опишіть намір своїми словами. Management OS підготує доречний операційний результат.</p>
+						<p>Опишіть намір своїми словами та перевірте текст перед наступним кроком.</p>
 					</div>
 				</header>
 
 				<div class="ai-home__flow">
-					<section class="natural-capture" aria-labelledby="naturalCaptureTitle">
+					<section class="natural-capture" id="naturalCapture" aria-labelledby="naturalCaptureTitle">
 						<div class="natural-capture__header">
 							<div>
-								<span class="ai-home__eyebrow">Природне введення</span>
+								<span class="ai-home__eyebrow">Тимчасове введення</span>
 								<h2 id="naturalCaptureTitle">Висловіть намір</h2>
 							</div>
-							<span class="natural-capture__availability">Ще не активно</span>
+							<span class="natural-capture__availability" id="naturalCaptureState">Не збережено</span>
 						</div>
 
 						<label for="naturalCaptureInput">Що ви хочете зробити, зберегти або зрозуміти?</label>
-						<textarea id="naturalCaptureInput" rows="5" placeholder="Наприклад: Мені потрібно зателефонувати постачальнику завтра" aria-describedby="naturalCaptureGuidance naturalCaptureStatus" disabled></textarea>
+						<textarea id="naturalCaptureInput" rows="5" placeholder="Наприклад: Мені потрібно зателефонувати постачальнику завтра" aria-describedby="naturalCaptureGuidance naturalCaptureStatus"></textarea>
 						<div class="natural-capture__footer">
-							<p id="naturalCaptureGuidance">Природне введення готується. На цьому етапі текст не аналізується і не зберігається.</p>
-							<button class="btn-primary" type="button" disabled>Підготувати</button>
+							<p id="naturalCaptureGuidance">Введіть текст своїми словами. Management OS не аналізує його і не зберігає постійно.</p>
+							<button class="btn-primary" id="naturalCaptureReviewButton" type="button" disabled>Переглянути введене</button>
 						</div>
-						<p class="natural-capture__status" id="naturalCaptureStatus">AI-функції не активні. Для поточного збереження скористайтеся розділом «Вхідні» в бічній навігації.</p>
+						<p class="natural-capture__status" id="naturalCaptureStatus">Текст існує лише на цій сторінці. Якщо залишити або оновити її, введене може бути втрачено.</p>
 					</section>
 
-					<section class="assistant-response-placeholder" aria-labelledby="assistantResponseTitle">
+					<section class="capture-review hidden" id="naturalCaptureReview" aria-labelledby="assistantResponseTitle" tabindex="-1">
 						<div>
-							<span class="ai-home__eyebrow">Майбутня відповідь</span>
-							<h2 id="assistantResponseTitle">Тут з’явиться підготовлений результат</h2>
+							<span class="ai-home__eyebrow">Тимчасове введення</span>
+							<h2 id="assistantResponseTitle">Перевірте свій текст</h2>
 						</div>
-						<p>У наступних фазах Асистент показуватиме інтерпретацію, контекст і точну дію до вашого підтвердження.</p>
+						<p class="capture-review__text" id="naturalCaptureReviewText"></p>
+						<p class="capture-review__status">Текст не інтерпретовано і не збережено постійно. Він буде втрачений, якщо залишити або оновити цю сторінку.</p>
+						<div class="capture-review__actions">
+							<button class="btn-secondary" id="naturalCaptureEditButton" type="button">Продовжити редагування</button>
+							<button class="btn-danger" id="naturalCaptureDiscardButton" type="button">Відкинути введене</button>
+						</div>
 					</section>
+					<p class="sr-only" id="naturalCaptureAnnouncement" aria-live="polite" aria-atomic="true"></p>
 
 					<section class="active-work" aria-labelledby="activeWorkTitle">
 						<div class="active-work__header">
@@ -95,10 +101,22 @@
 			</main>
 		</div>
 
+		<dialog class="capture-discard-dialog" id="naturalCaptureDiscardDialog" aria-labelledby="naturalCaptureDiscardTitle" aria-describedby="naturalCaptureDiscardDescription">
+			<div class="capture-discard-dialog__content">
+				<h2 id="naturalCaptureDiscardTitle">Відкинути тимчасове введення?</h2>
+				<p id="naturalCaptureDiscardDescription">Введений текст буде видалено без можливості відновлення.</p>
+				<div class="capture-discard-dialog__actions">
+					<button class="btn-secondary" id="naturalCaptureKeepButton" type="button">Залишити введене</button>
+					<button class="btn-danger" id="naturalCaptureConfirmDiscardButton" type="button">Відкинути введене</button>
+				</div>
+			</div>
+		</dialog>
+
 		<script src="js/sidebar.js"></script>
 		<script src="js/render-utils.js"></script>
 		<script src="js/storage-utils.js"></script>
 		<script src="js/storage.js"></script>
+		<script src="js/natural-capture.js"></script>
 		<script src="js/app.js"></script>
 	</body>
 

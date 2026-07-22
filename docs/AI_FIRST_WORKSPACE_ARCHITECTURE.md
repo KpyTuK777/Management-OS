@@ -30,19 +30,19 @@ authoritative for workspace architecture and hierarchy.
 
 ## Current implementation boundary
 
-Phase 1 establishes the intent-first Home hierarchy, an honest unavailable Natural
-Capture surface, a non-simulated future-response region, read-only continuity for
+Phase 1 establishes the intent-first Home hierarchy, read-only continuity for
 active SOP Executions, responsive behavior, and preserved direct sidebar access.
+Phase 2 activates an honest page-memory-only Natural Capture interaction for text
+entry, unchanged review, continued editing, and explicit discard.
 
-Natural Capture behavior, AI interpretation, classification, recommendations,
-Home approval workflows, contextual handoff, permanent learning, and Adaptive
-Workspace behavior remain unimplemented.
+AI interpretation, classification, recommendations, domain approval workflows,
+contextual handoff, permanent storage and learning, and Adaptive Workspace behavior
+remain unimplemented.
 
 The approved
 [Natural Capture Interaction Foundation — Phase 2](NATURAL_CAPTURE_INTERACTION_FOUNDATION.md)
-defines a future session-scoped text, review, edit, and discard interaction. It is
-not implemented and authorizes no AI interpretation, domain routing, or permanent
-storage.
+defines the implemented page-memory text, review, edit, and discard interaction.
+It authorizes no AI interpretation, domain routing, or permanent storage.
 
 ## Architecture assessment
 
