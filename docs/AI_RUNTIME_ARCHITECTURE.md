@@ -33,6 +33,11 @@ defines the first production capability contract executed through this runtime.
 Its responsibility stops at explainable interpretations and grants no routing,
 recommendation, approval, or mutation authority.
 
+[AI Capability 02 — Context Collection](AI_CAPABILITY_CONTEXT_COLLECTION.md)
+defines conditional context preparation. The runtime bypasses collection when the
+consuming capability already has sufficient authorized Evidence and invokes it
+only for a declared evidence gap.
+
 The approved [Protected AI Runtime Platform](PROTECTED_AI_RUNTIME_PLATFORM.md)
 defines the container and Cloud Run boundary that will host this architecture. It
 selects no AI provider and does not alter the runtime contracts defined here.
@@ -75,7 +80,9 @@ AI capability contract
         |
 Capability workflow
         |
-Context preparation
+Evidence sufficiency evaluation
+        |
+Conditional Context Collection or bypass
         |
 Task and prompt assembly
         |
@@ -137,8 +144,10 @@ A provider cannot alter this business sequence.
 
 ### Context preparation
 
-Context preparation creates a bounded, capability-specific evidence package. It
-is responsible for:
+When a consuming capability declares an evidence gap, context preparation creates
+a bounded, capability-specific evidence package. When sufficient authorized
+Evidence is already available, the runtime bypasses collection. Preparation is
+responsible for:
 
 - permission enforcement;
 - source selection and provenance;
@@ -234,9 +243,9 @@ The canonical execution lifecycle is:
 1. Receive the capability request.
 2. Validate the caller and its authority.
 3. Load the capability contract.
-4. Determine required context.
-5. Gather permitted sources.
-6. Prepare and minimize context.
+4. Evaluate declared evidence sufficiency.
+5. Bypass Context Collection when sufficient; otherwise declare the evidence gap.
+6. Gather, prepare, and minimize only the permitted requested sources.
 7. Select an eligible runtime profile.
 8. Assemble the task and prompt.
 9. Select a compatible provider adapter.

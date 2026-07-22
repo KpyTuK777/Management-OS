@@ -134,6 +134,9 @@ separately in [Sprint Tracker](SPRINTS.md).
 - Added the canonical Intent Recognition capability architecture, treating owner
   wording as primary Evidence and context as supporting Evidence while producing
   explainable interpretations without routing, recommendation, or mutation.
+- Added the canonical Context Collection capability architecture, establishing
+  zero-collection bypass when Evidence is sufficient and declared-need invocation
+  with authorization, minimization, provenance, freshness, and conflict controls.
 - Added the canonical Protected AI Runtime Platform and ADR-0001, selecting a
   containerized Node.js service on Google Cloud Run for v1 with Secret Manager,
   least-privilege runtime identity, bounded scaling, redacted operations, and no AI

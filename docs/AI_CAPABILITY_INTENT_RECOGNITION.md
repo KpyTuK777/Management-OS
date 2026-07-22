@@ -83,9 +83,10 @@ cannot replace, contradict, or override an explicit current statement.
 | Capability contract version | Establish taxonomy, output, validation, and failure behavior | Product-owned and provider-independent |
 | Language and locale context | Preserve meaning affected by language | Cannot manufacture semantic certainty |
 
-Intent Recognition does not independently search organizational data. It declares
-its context needs; Context Collection supplies only authorized and relevant
-material.
+Intent Recognition does not independently search organizational data. It first
+evaluates whether the preserved wording is sufficient. Only a declared evidence
+gap invokes [Context Collection](AI_CAPABILITY_CONTEXT_COLLECTION.md), which
+supplies authorized and relevant material.
 
 ### Intent taxonomy
 
@@ -150,9 +151,9 @@ chain-of-thought.
 Natural Capture
   → Preserve original temporary input
   → Validate owner session and capability authority
-  → Determine bounded context requirements
-  → Context Collection
-  → Prepare minimized context package
+  → Evaluate evidence sufficiency
+      ├── Sufficient → Bypass Context Collection
+      └── Evidence gap → Context Collection → Minimized context package
   → Execute Intent Recognition through the Model Gateway
   → Normalize and validate candidate response
   → Evaluate product-owned confidence
@@ -180,10 +181,11 @@ explicit permission for durable learning.
 
 ### Interaction with Context Collection
 
-Context Collection is a runtime responsibility, not part of Intent Recognition.
-The capability declares context categories that could materially improve the
-interpretation; Context Collection returns a minimized, authorized,
-source-attributed package.
+Context Collection is a conditional runtime capability, not part of Intent
+Recognition. Intent Recognition proceeds directly from preserved wording when that
+Evidence is sufficient. When it declares a material evidence gap and eligible
+categories, Context Collection returns a minimized, authorized, source-attributed
+package.
 
 Context may include the current surface, active Execution or entity, relevant
 Notes, Knowledge, SOPs or Reviews, immediate Session or Working Memory, and
