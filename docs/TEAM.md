@@ -104,6 +104,35 @@ Design Owner.
 
 ## Standard delivery workflow
 
+Management OS uses two architecture-first delivery lanes. Classification occurs
+before approval, and the strongest applicable lane governs the change.
+
+### Established-architecture implementation lane
+
+```text
+Implementation Proposal
+  -> Proposal APPROVE
+  -> APPLY
+  -> Implementation
+  -> Validation and applicable Reviews
+  -> COMMIT
+  -> GitHub
+  -> Architecture Consistency Audit
+```
+
+This direct lane applies when the proposal extends approved product and
+architecture, introduces no new canonical decision, and includes proportionate
+scope, dependencies, order, risks, and validation. A separate Implementation Plan
+and Plan APPROVE are not required.
+
+### Extended decision lane
+
+The workflow below is the extended lane. It is required when a change modifies
+canonical Product Principles, product or system responsibilities, architecture
+layers or boundaries, data or persistence semantics, governance, approval
+authority, security or privacy models, runtime platform, integration boundaries,
+migration strategy, or another ADR-level commitment.
+
 ```text
 Idea
   ↓
@@ -130,7 +159,7 @@ GitHub
 Architecture Consistency Audit
 ```
 
-### Workflow responsibilities
+### Extended-lane responsibilities
 
 1. **Idea:** A product opportunity or problem is identified.
 2. **Architecture Proposal:** The intended outcome, scope, constraints, user experience, and architectural boundaries are documented.
@@ -145,6 +174,27 @@ Architecture Consistency Audit
 11. **GitHub:** The commit is published to the shared repository.
 12. **Architecture Consistency Audit:** The completed Sprint is checked for consistency between approvals, planning, implementation, and documentation.
 
+### Direct-lane responsibilities
+
+1. **Classification:** Confirm that the work follows established architecture and
+   contains no canonical or ADR-level decision. Uncertainty uses the extended lane.
+2. **Implementation Proposal:** Document the intended outcome, canonical basis,
+   scope, exclusions, affected systems, coherent increment, dependencies, order,
+   material risks, and validation at proportionate depth.
+3. **Proposal APPROVE:** Applicable owners accept both the bounded outcome and its
+   contained implementation strategy. Approval does not authorize mutation.
+4. **APPLY:** The Product Owner or explicitly authorized decision owner permits
+   workspace mutation within the approved proposal.
+5. **Implementation and validation:** The Lead Software Engineer implements and
+   tests the scope; the Quality Lead verifies applicable evidence; domain owners
+   retain their existing authority.
+6. **Applicable Reviews:** Product Review remains required for user-visible
+   features. Architecture, Design, Security, Privacy, AI, Language, and other
+   Reviews apply when their domains are affected. Routine work does not create a
+   separate review solely to repeat an unchanged boundary.
+7. **COMMIT, GitHub, and Audit:** Accepted work follows the same completion,
+   publication, and consistency requirements as the extended lane.
+
 Testing remains mandatory during Implementation and before Product Review.
 Functionality, regressions, code quality, responsiveness, and relevant design
 behavior must be verified before the work can be committed.
@@ -158,31 +208,42 @@ readiness, and Sprint closure also require the
 [Documentation Definition of Done](DOCUMENTATION_MAP.md#documentation-definition-of-done).
 The accountable document owner reviews material changes within their domain.
 
-Implementation must not begin before approval when a task explicitly requests a
-proposal or review first. Material changes to approved product, architecture, or
-design decisions must return to the appropriate owner before implementation
+Implementation must not begin before APPROVE and APPLY when a task requests a
+proposal or review first. A direct-lane proposal may receive APPROVE and APPLY
+without a separate planning gate. Material discoveries that change canonical
+product, architecture, governance, design, data, language, security, privacy, or an
+ADR-level decision move the work to the extended lane before implementation
 continues.
 
 ## Implementation Planning Standard
 
-Implementation Planning is the read-only delivery-readiness stage between approved
-architecture and APPLY. Architecture defines what must be true; the plan determines
-how to deliver it safely; APPLY authorizes the planned modifications. Planning must
-not redefine architecture, implement code, or assume authorization.
+Implementation Planning is required in every implementation proposal but is
+proportionate to novelty and consequence. Architecture defines what must be true;
+planning defines how to deliver it safely; APPLY authorizes modification.
+
+For work within established architecture, planning is contained in the
+Implementation Proposal and accepted by Proposal APPROVE. In the extended lane, a
+separate read-only Implementation Plan follows approval of the new canonical
+decision and receives Plan APPROVE before APPLY. Planning never redefines
+architecture, implements code, or assumes authorization.
 
 ### When a plan is required
 
-An Implementation Plan is required before APPLY for new features, workflows,
-persisted-data changes, AI behavior, material UX interactions, destructive or
-difficult-to-reverse operations, shared infrastructure, security or recovery work,
-substantial refactoring, multi-increment delivery, and work with material
-regression risk. It is also required whenever an approved proposal was explicitly
-architecture-only.
+A separate Implementation Plan and Plan APPROVE are required after an approved
+proposal changes canonical Product Principles, product or system architecture,
+data or persistence contracts, governance or approval authority, security or
+privacy architecture, runtime platform, integration boundaries, migration
+strategy, or another ADR-level commitment.
 
-A compact plan is sufficient for small presentation changes, isolated defects,
-low-risk refactoring, accessibility corrections, and similarly bounded work.
+Routine features, defects, presentation changes, accessibility corrections,
+refactoring, and other implementation work may use the direct lane when they trace
+to approved architecture and their proposal contains the applicable minimum plan
+content. Complexity may require a deeper proposal or internal working plan, but it
+does not create a second approval gate while canonical boundaries remain unchanged.
+
 Documentation-only changes, spelling or formatting corrections, non-mutating
-analysis, and routine status maintenance do not require a separate plan.
+analysis, and routine status maintenance use proportionate proposal and owner
+approval and do not require a separate Implementation Plan.
 
 Emergency restoration of clearly broken behavior may use a compact scope, risk,
 validation, and follow-up record. Urgency does not authorize architecture or scope
@@ -190,7 +251,8 @@ expansion.
 
 ### Minimum plan content
 
-Every applicable plan identifies:
+Every implementation-bearing proposal or separate plan identifies, proportionate
+to risk:
 
 1. approved scope, canonical sources, assumptions, and exclusions;
 2. current implementation state and affected systems;
@@ -202,7 +264,8 @@ Every applicable plan identifies:
    failure, and documentation validation as applicable;
 8. an effort range, including validation, documentation, and uncertainty;
 9. a recommendation to deliver in one increment or several;
-10. readiness: ready for Plan APPROVE or requiring a named owner decision.
+10. readiness: eligible for direct APPROVE and APPLY, ready for Plan APPROVE in the
+    extended lane, or requiring a named owner decision.
 
 The plan also identifies who will perform the Quality Lead responsibility for the
 increment and which evidence they must verify.
@@ -227,20 +290,26 @@ AI collaborators may inspect, plan, analyze dependencies and risks, estimate, an
 recommend increment boundaries. They may not approve their own plan, issue APPLY,
 change files while planning, or redefine approved boundaries.
 
-### Plan Review and approval
+### Proposal and Plan Review
 
-Plan Review determines whether the plan traces to approved architecture, preserves
-exclusions and ownership, proposes a coherent increment, controls material risk,
-defines proportionate validation, identifies documentation impact, and contains no
-unresolved decision disguised as implementation detail.
+Review determines whether the proposal or plan traces to approved architecture,
+preserves exclusions and ownership, proposes a coherent increment, controls
+material risk, defines proportionate validation, identifies documentation impact,
+and contains no unresolved canonical decision disguised as implementation detail.
 
 Review participation is proportional: the Lead Software Engineer owns technical
 feasibility; the Product Architect reviews architecture; the Product Owner reviews
 scope; and the Design Owner reviews applicable experience and language. Data,
 privacy, AI authority, or other affected domains require their existing owners.
-This is implementation-readiness review, not a new Product or Architecture Review.
+For the direct lane, this assessment is part of Proposal APPROVE rather than a new
+Plan Review. For the extended lane, Plan Review remains implementation-readiness
+review after the canonical decision is approved; it is not a second Architecture
+or Product Review.
 
-Use explicit state names in records:
+Use explicit state names in records. **Implementation Proposal approved** means
+established-architecture scope and its delivery strategy were accepted through the
+direct lane. **Architecture / Governance approved** means a new canonical decision
+was accepted through the extended lane. Existing extended-lane states remain:
 
 - **Architecture approved** — intended outcome and boundaries accepted;
 - **Implementation Plan approved** — delivery strategy accepted;
@@ -249,15 +318,15 @@ Use explicit state names in records:
 
 ### Change control
 
-Planning discoveries that materially change product scope, architecture, system
-responsibility, data model, approved experience, approval boundaries, governance,
-or official Product Language return to the relevant Proposal and Architecture
-APPROVE stage.
+Planning discoveries that materially change Product Principles, product scope,
+architecture, system responsibility, data model, approved experience, approval
+boundaries, governance, security, privacy, or official Product Language move to the
+extended Proposal and applicable APPROVE stage.
 
 During implementation, a materially changed dependency, risk, increment, affected
-system, or validation strategy returns to planning. Replanning within approved
-boundaries requires proportionate Plan Review; boundary changes require renewed
-architecture approval.
+system, or validation strategy returns to proportionate proposal or planning
+review. Changes within approved boundaries do not automatically create a separate
+gate; canonical boundary changes require the extended lane and renewed approval.
 
 ### Validation expectations
 
@@ -271,13 +340,17 @@ Implementation may adapt validation technique to repository constraints but may
 not silently omit a material objective. Required evidence must be available before
 post-implementation review and COMMIT.
 
-### Plan lifecycle
+### Planning lifecycle
 
-An Implementation Plan is delivery knowledge, not canonical product truth. It may
-live in an approved conversation, feature record, issue, or temporary dedicated
-plan for substantial work. After reviewed implementation, canonical documents,
-Sprint history, Changelog, and Git describe the effective result. Only qualifying
-rationale enters the Decision Log or an ADR.
+Implementation planning is delivery knowledge, not canonical product truth. It may
+live inside an approved Implementation Proposal, feature record, issue, or a
+temporary dedicated extended-lane plan. After reviewed implementation, canonical
+documents, Sprint history, Changelog, and Git describe the effective result. Only
+qualifying rationale enters the Decision Log or an ADR.
+
+The diagram below describes a separate extended-lane plan. Direct-lane planning is
+approved inside the Implementation Proposal and becomes an active delivery
+constraint at Proposal APPROVE.
 
 ```text
 Working plan
@@ -290,8 +363,9 @@ Working plan
 
 The governing distinction is:
 
-> Architecture approval authorizes the intended outcome. Plan approval accepts the
-> delivery strategy. Only APPLY authorizes implementation.
+> APPROVE accepts the documented scope and applicable delivery strategy. Extended
+> decisions retain separate architecture and plan approvals. Only APPLY authorizes
+> implementation.
 
 ## Quality Lead responsibility
 

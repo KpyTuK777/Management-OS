@@ -453,6 +453,8 @@ Sequence future capability planning as follows:
    behavior only after synchronization, privacy, conflict, retention, and trust
    dependencies are approved.
 
-Each stage requires a separate approved Implementation Plan before APPLY. This
-architecture does not authorize implementation or alter approved module
-architecture.
+Each stage requires proportionate Implementation Planning, explicit APPROVE, and
+APPLY under [Team Governance](TEAM.md#implementation-planning-standard). A
+separate Implementation Plan and Plan APPROVE are required only when the stage
+changes a canonical or ADR-level boundary. This architecture does not authorize
+implementation or alter approved module architecture.

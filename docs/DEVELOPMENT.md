@@ -40,9 +40,12 @@ Use a current version of Chrome, Edge, Firefox, or Safari with JavaScript and `l
 
 ## Implementation Planning
 
-Implementation-bearing approved features require an approved, proportionate
-Implementation Plan before APPLY. The canonical requirements, ownership, review,
-and approval semantics are defined in
+Implementation-bearing work requires proportionate planning before APPLY. Routine
+work that extends approved architecture includes planning in its Implementation
+Proposal and may proceed through Proposal APPROVE directly to APPLY. A separate
+Implementation Plan and Plan APPROVE are reserved for changes to canonical product,
+architecture, governance, security, privacy, or another ADR-level boundary. The
+canonical requirements and approval semantics are defined in
 [Team Governance](TEAM.md#implementation-planning-standard).
 
 Before implementation, contributors must verify the current repository state and
@@ -51,11 +54,11 @@ implementation order, risks and edge cases, validation strategy, effort range, a
 increment recommendation. Planning is read-only and must identify applicable
 documentation updates.
 
-Implementation follows both the approved architecture and approved plan. Material
-discoveries return to planning; changes to product, architecture, data, design,
-language, or governance boundaries return to the applicable proposal and owner.
-Plan approval does not authorize file changes—implementation begins only after
-explicit APPLY.
+Implementation follows approved architecture and the approved proposal or
+extended-lane plan. Material discoveries return to proportionate planning;
+canonical boundary changes move to the extended lane and applicable owners.
+APPROVE does not authorize file changes—implementation begins only after explicit
+APPLY.
 
 ## Quality validation
 

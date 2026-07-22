@@ -13,7 +13,7 @@ When documents overlap, the canonical authority for the relevant domain prevails
 | End-to-end owner experience | [Owner Journey](OWNER_JOURNEY.md) |
 | Owner Journey feature validation | [Owner Journey Validation Framework](OWNER_JOURNEY_VALIDATION.md) |
 | Product maturity and release readiness | [Product Maturity Model](PRODUCT_MATURITY.md) |
-| Ownership, approval, APPLY, Implementation Planning, and Quality Lead responsibility | [Team Governance](TEAM.md) |
+| Ownership, direct and extended delivery lanes, APPROVE, APPLY, Implementation Planning, and Quality Lead responsibility | [Team Governance](TEAM.md) |
 | Product-system responsibilities | [Systems](SYSTEMS.md) |
 | Technical structure and boundaries | [Architecture](ARCHITECTURE.md) |
 | AI Assistant product architecture | [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md) |
@@ -51,7 +51,7 @@ product status or scope.
 | Document | Category | Purpose | Owner | Primary audience | Update frequency | Status | Related documents |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `README.md` | Entry point | Introduce the repository, setup, and documentation index. | Lead Software Engineer | New contributors and reviewers | When setup or documentation structure changes | Informational | All canonical documents |
-| `docs/TEAM.md` | Governance | Define decision ownership, delivery workflow, Implementation Planning, Quality Lead responsibility, approval, APPLY, and AI collaboration rules. | Product Owner | Entire team and AI collaborators | When governance changes | Canonical | Development, Product Vision, Methodology |
+| `docs/TEAM.md` | Governance | Define decision ownership, direct and extended delivery lanes, proportionate Implementation Planning, Quality Lead responsibility, APPROVE, APPLY, and AI collaboration rules. | Product Owner | Entire team and AI collaborators | When governance changes | Canonical | Development, Product Vision, Methodology |
 | `docs/PRODUCT_VISION.md` | Product | Define purpose, principles, and long-term direction. | Product Owner | Product, architecture, design, engineering | When product direction changes | Canonical | Roadmap, Systems, Product Language |
 | `docs/OWNER_JOURNEY.md` | Product experience | Define the canonical end-to-end operational experience from first launch through work, learning, improvement, and session closure. | Product Owner; maintained by Design Owner | Product, architecture, design, engineering, documentation, and AI collaborators | With approved end-to-end experience changes | Canonical product-experience journey; source architectures prevail for detailed boundaries | Product Vision, Systems, AI Assistant, Natural Capture, AI-first Home, Product Language, Design System, Team |
 | `docs/OWNER_JOURNEY_VALIDATION.md` | Product experience governance | Define standard journey-impact evidence for future features and integrate it into existing Product and Design Reviews. | Product Owner; maintained by Design Owner | Product, architecture, design, engineering, documentation, and AI collaborators | With approved journey-validation changes | Canonical product-experience validation standard; creates no review stage | Owner Journey, Product Vision, Methodology, Team, Design System, Product Language, AI Quality Framework |

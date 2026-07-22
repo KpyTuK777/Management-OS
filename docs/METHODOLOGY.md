@@ -49,11 +49,11 @@ direction and does not silently create it.
 
 ### Approval is separate from planning and application
 
-**Architecture APPROVE** accepts intended outcomes and boundaries.
-**Implementation Planning** defines the delivery strategy, and **Plan APPROVE**
-accepts its readiness. **APPLY** alone authorizes the approved modification.
-Discussion, review, architecture approval, or plan approval is not permission to
-modify the product.
+For implementation within established architecture, **Proposal APPROVE** accepts
+the bounded outcome and contained delivery strategy. Changes to canonical product,
+architecture, governance, security, privacy, or ADR-level commitments use the
+extended Architecture / Governance APPROVE and separate Plan APPROVE path.
+**APPLY** alone authorizes modification in either lane.
 
 ### One decision, one owner
 
@@ -122,6 +122,25 @@ The formal workflow, approval meaning, and role responsibilities remain defined 
 [Team Governance](TEAM.md). The summary below explains how its stages connect; it
 does not redefine them.
 
+Routine implementation follows the direct lane:
+
+```text
+Implementation Proposal within approved architecture
+  -> Proposal APPROVE
+  -> APPLY
+  -> Implementation
+  -> Validation and applicable Reviews
+  -> Documentation Definition of Done
+  -> COMMIT
+  -> GitHub
+  -> Architecture Consistency Audit
+```
+
+The existing detailed sequence below is the extended lane for canonical or
+ADR-level decisions. Its separate Architecture / Governance approval,
+Implementation Planning, and Plan APPROVE are not mandatory for a routine proposal
+that remains within established architecture.
+
 ```text
 Idea
   → Architecture Proposal
@@ -140,6 +159,9 @@ Idea
 
 | Stage | Purpose | Completion condition |
 | --- | --- | --- |
+| Classification | Determine whether work follows established architecture or changes canonical authority. | The governing lane and owners are explicit. |
+| Implementation Proposal | Define bounded scope and proportionate delivery strategy under approved architecture. | Canonical sources are identified and no new architectural decision is concealed. |
+| Proposal APPROVE | Accept direct-lane scope and implementation readiness. | Applicable owners approve; no mutation is authorized. |
 | Idea | Identify an opportunity or problem. | The intended outcome is clear enough to assess. |
 | Architecture Proposal | Define scope, constraints, experience, boundaries, and affected documents. | Relevant owners can evaluate the proposed change. |
 | Architecture APPROVE | Accept the documented outcome and boundaries. | The appropriate decision owners approve architecture; no mutation is authorized. |
@@ -154,7 +176,8 @@ Idea
 | GitHub | Publish the accepted commit. | Shared repository contains the reviewed change. |
 | Architecture Consistency Audit | Compare approval, implementation, and documentation. | Missing, partial, or obsolete work is reported or the Sprint is closed. |
 
-No later stage silently substitutes for an earlier approval or review.
+No later stage substitutes for an earlier applicable approval. Direct delivery is
+not permission to conceal a canonical decision inside implementation detail.
 
 ## Review model
 
@@ -219,6 +242,11 @@ not a new source of authority. Team Governance owns approval and delivery rules,
 the Documentation Map owns document authority and lifecycle, and current rules
 remain in the canonical document for their domain.
 
+In the lifecycle below, “Relevant owner review” and planning are proportional.
+Established-architecture implementation may move from its documented proposal to
+Proposal APPROVE and APPLY. Separate Architecture / Governance approval,
+Implementation Planning, and Plan APPROVE apply only through the extended lane.
+
 ```text
 Conversation or observation
   → Idea or identified problem
@@ -260,10 +288,10 @@ change according to their purpose:
   approval or durable product truth.
 - Classify the proposal using the methodology's change classification and identify
   every materially affected owner and canonical document.
-- **Architecture APPROVE** accepts documented intent and boundaries.
-  **Implementation Planning** defines the delivery strategy without mutation, and
-  **Plan APPROVE** accepts that strategy. **APPLY** separately authorizes the
-  modification. Discussion, architecture approval, and plan approval do not.
+- **Proposal APPROVE** accepts established-architecture scope and its proportionate
+  implementation strategy. Canonical or ADR-level changes use extended domain
+  approval followed by separate Plan APPROVE. **APPLY** separately authorizes the
+  modification in either lane.
 - Return to proposal and approval when implementation discoveries materially
   change approved product, architecture, design, language, or governance scope.
 - Update only the documents authoritative for affected subjects. Canonical
@@ -302,8 +330,8 @@ does not automatically advance product maturity.
 | Idea | Explore problems, evidence, and alternatives. |
 | Proposal | Structure outcomes, constraints, options, and risks. |
 | Approval | Provide analysis; never self-approve. |
-| Implementation Planning | Inspect read-only context; define dependencies, coherent increment, order, risks, validation, effort, and delivery structure without changing files. |
-| Plan Approval | Provide readiness analysis; never self-approve or treat approval as APPLY. |
+| Implementation Planning | Inspect read-only context and define proportionate delivery strategy inside the direct proposal or a separate extended-lane plan. |
+| Approval | Provide readiness analysis; never self-approve or treat APPROVE as APPLY. |
 | APPLY | Act only after explicit authorization. |
 | Implementation | Make scoped changes and validate them. |
 | Quality validation | Execute available checks, inspect boundaries, and report reproducible evidence and untested areas without self-approval. |
@@ -319,8 +347,10 @@ Process depth scales with consequence:
 
 - small editorial corrections use lightweight document-owner review;
 - presentation changes require Design and Language review where relevant;
-- implementation changes require proportionate testing and architecture review;
-- material architecture, product, or governance changes require formal proposals;
+- implementation changes within approved architecture use direct Proposal APPROVE
+  and APPLY with proportionate testing and applicable Reviews;
+- canonical product, architecture, governance, security, privacy, and ADR-level
+  changes require the extended decision and planning lane;
 - release-gated work requires complete verification evidence.
 
 Proportionality reduces ceremony without weakening ownership or approval.

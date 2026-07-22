@@ -30,8 +30,8 @@ model described here.
 This architecture introduces no Desktop or Mobile application, synchronization,
 identity, authentication, permissions, offline mutation, cross-device handoff,
 notification delivery, global intelligent Search, or AI runtime behavior. Each
-requires separately approved architecture or Implementation Planning as
-applicable.
+requires approved architecture and proportionate Implementation Planning through
+the applicable direct or extended governance lane.
 
 ## Product philosophy
 

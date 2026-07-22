@@ -46,8 +46,9 @@ limited operational risk.
   persisted data, placeholders, and known limitations are documented.
 - **Testing:** Critical workflows receive exploratory and manual smoke checks.
 - **Governance:** Decision owners are known; material implementation work follows
-  proposal, Architecture APPROVE, proportionate Implementation Planning, Plan
-  APPROVE, and **APPLY** under [Team Governance](TEAM.md#implementation-planning-standard).
+  the applicable direct or extended lane, proportionate Implementation Planning,
+  explicit **APPROVE**, and **APPLY** under
+  [Team Governance](TEAM.md#implementation-planning-standard).
 - **AI readiness:** AI remains documented vision or isolated experimentation. It
   cannot present unverified conclusions as facts or change the workspace
   autonomously.

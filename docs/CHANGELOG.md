@@ -142,6 +142,10 @@ separately in [Sprint Tracker](SPRINTS.md).
   preserving internal Account ownership, identity-only scopes, server-managed
   sessions, secure logout, multi-device revocation, runtime Auth Context, and
   future-provider portability without implementation.
+- Optimized delivery governance so routine implementation proposals extending
+  approved architecture can proceed from Proposal APPROVE directly to APPLY, while
+  canonical product, architecture, governance, security, privacy, and ADR-level
+  changes retain the extended review and planning lane.
 - Added the canonical Product Principle that Management OS should quietly remove
   cognitive noise while preserving decisions that require human judgment.
 - Extended the standard Product Review guidance with a mandatory evaluation of

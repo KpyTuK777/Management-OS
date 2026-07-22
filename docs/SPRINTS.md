@@ -133,6 +133,7 @@ incomplete.
 - **Architecture Decision:** ADR-0002 establishes OIDC, internal Accounts, Workspace Membership, and server-managed browser sessions
 - **Authentication Architecture:** Google Sign-In v1 provider specialization
 - **Architecture Decision:** ADR-0003 selects Google Sign-In behind the provider-neutral identity boundary
+- **Governance:** Optimized implementation workflow with direct and extended delivery lanes
 
 ### Implementation status
 
@@ -142,8 +143,9 @@ incomplete.
 - No mobile application, cross-device synchronization, global intelligent Search,
   voice Capture, notification delivery, offline mutation, recommendation, or AI
   runtime behavior was implemented.
-- Each mobile implementation increment requires separate Implementation Planning,
-  approval, and APPLY.
+- Each mobile implementation increment requires proportionate Implementation
+  Planning, explicit APPROVE, and APPLY. A separate plan gate applies only when
+  the increment changes a canonical or ADR-level boundary.
 - The Platform Responsibility Model allocates complementary Desktop and Mobile
   responsibilities without introducing feature parity, synchronization, or
   platform implementation.
@@ -160,5 +162,8 @@ incomplete.
 - The Owner Identity and Authentication specialization selects Google Sign-In for
   v1 while preserving Management OS Account ownership, provider abstraction,
   persistent Device Sessions, runtime Auth Context, and future-provider readiness.
+- Routine implementation proposals within approved architecture may now proceed
+  through Proposal APPROVE directly to APPLY; canonical and ADR-level changes retain
+  extended domain Review, approval, and Implementation Planning.
 
 See [Roadmap](ROADMAP.md) for product phases beyond this sprint.

@@ -315,3 +315,60 @@ architectural trigger.
 - [Documentation Map](DOCUMENTATION_MAP.md)
 - [Team Governance](TEAM.md)
 - [Changelog](CHANGELOG.md)
+
+## DL-007 — Use direct and extended implementation lanes
+
+- Date: 2026-07-22
+- Status: Accepted
+- Decision owner: Product Owner
+- Category: Delivery governance
+- Affected documents: `TEAM.md`, `METHODOLOGY.md`, `DEVELOPMENT.md`
+- Supersedes: Mandatory separate Plan APPROVE for every implementation-bearing feature
+- Superseded by: None
+
+### Context
+
+The architecture-first workflow required a separate Implementation Plan and Plan
+APPROVE for nearly every implementation-bearing feature. As canonical architecture
+matured, routine proposals often repeated decisions already made and added a gate
+without improving ownership, safety, or validation.
+
+### Decision
+
+Implementation proposals that trace directly to approved architecture may contain
+their proportionate planning and proceed through Proposal APPROVE directly to
+APPLY. A separate extended decision and planning lane remains mandatory when work
+changes canonical Product Principles, architecture, data or persistence semantics,
+governance, security, privacy, runtime platform, integration boundaries, or another
+ADR-level commitment.
+
+APPROVE and APPLY remain distinct. Applicable post-implementation validation and
+domain Reviews remain required.
+
+### Rationale
+
+The two-lane model keeps architecture ahead of implementation while moving process
+depth to decisions that create durable risk. Routine delivery remains bounded by
+canonical architecture, explicit authorization, validation, and change control.
+
+### Alternatives considered
+
+- Retain a separate Plan APPROVE for all features — rejected because it duplicates
+  an adequate direct proposal after architecture is established.
+- Remove Implementation Planning — rejected because every implementation still
+  requires proportionate scope, dependency, risk, order, and validation planning.
+- Allow implementation before approval — rejected because APPLY remains the
+  explicit mutation boundary.
+
+### Consequences
+
+Routine proposals must state their canonical basis and contain enough planning to
+support direct approval. Any discovery that changes a canonical or ADR-level
+boundary moves work to the extended lane. Process depth follows decision
+consequence rather than the label “feature.”
+
+### References
+
+- [Team Governance](TEAM.md#standard-delivery-workflow)
+- [Development Methodology](METHODOLOGY.md#delivery-workflow)
+- [Development Guide](DEVELOPMENT.md#implementation-planning)
