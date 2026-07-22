@@ -25,7 +25,8 @@ Use a current version of Chrome, Edge, Firefox, or Safari with JavaScript and `l
 
 ## Project conventions
 
-- Keep application UI text in Ukrainian; see [UI Language](UI_LANGUAGE.md).
+- Keep application UI text in Ukrainian and follow the
+  [Product Language Guide](PRODUCT_LANGUAGE.md).
 - Keep CSS concerns separated by the files described in [Architecture](ARCHITECTURE.md).
 - Keep browser persistence behind `js/storage.js`.
 - Keep one responsibility per JavaScript module and avoid duplicating UI logic.

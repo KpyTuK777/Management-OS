@@ -1,7 +1,7 @@
 # Architecture
 
 Architecture and source identifiers may remain in English, while user-facing copy
-follows [Ukrainian Product Terminology](TERMINOLOGY_UK.md).
+follows the [Product Language Guide](PRODUCT_LANGUAGE.md).
 
 ## Overview
 

@@ -55,6 +55,7 @@ The Design Owner is responsible for:
 - Design System;
 - visual consistency;
 - responsive design;
+- Product Language consistency;
 - Design Reviews;
 - implementation of approved design improvements.
 
@@ -105,7 +106,7 @@ Architecture Consistency Audit
 2. **Architecture Proposal:** The intended outcome, scope, constraints, user experience, and architectural boundaries are documented.
 3. **APPROVE:** The appropriate decision owners authorize the documented proposal.
 4. **APPLY:** Explicit implementation authorization is given. Approval of architecture alone is not treated as an instruction to modify the product.
-5. **Implementation:** The Lead Software Engineer implements and tests the approved scope; the Design Owner governs approved UX/UI decisions.
+5. **Implementation:** The Lead Software Engineer implements and tests the approved scope; the Design Owner governs approved UX/UI and Product Language decisions.
 6. **Architecture Review:** The Product Architect verifies that the implementation preserves the approved boundaries and long-term compatibility.
 7. **Product Review:** The implementation is evaluated against Product Vision, priorities, philosophy, and the approved outcome. This review includes final product acceptance.
 8. **COMMIT:** Reviewed and approved changes are recorded in version control.

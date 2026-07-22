@@ -35,7 +35,7 @@ Open the repository in VS Code and launch `index.html` or `portfolio.html` with 
 - [Roadmap](docs/ROADMAP.md)
 - [Sprint tracker](docs/SPRINTS.md)
 - [Design system](docs/DESIGN_SYSTEM.md)
-- [UI language](docs/UI_LANGUAGE.md)
+- [Product language](docs/PRODUCT_LANGUAGE.md)
 
 ## Development phase
 

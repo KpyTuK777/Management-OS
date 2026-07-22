@@ -1,7 +1,7 @@
 # Systems
 
-Product labels in the Ukrainian interface follow
-[Ukrainian Product Terminology](TERMINOLOGY_UK.md); internal module names remain
+Product labels in the Ukrainian interface follow the
+[Product Language Guide](PRODUCT_LANGUAGE.md); internal module names remain
 unchanged.
 
 Management OS is organized as a collection of business systems. Each system has a distinct purpose and evolves independently while contributing to one operating workspace.

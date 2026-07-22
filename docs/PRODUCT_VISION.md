@@ -1,7 +1,7 @@
 # Product Vision
 
-User-facing Ukrainian terminology follows the official
-[Ukrainian Product Terminology](TERMINOLOGY_UK.md) glossary.
+User-facing communication follows the official
+[Product Language Guide](PRODUCT_LANGUAGE.md).
 
 ## Purpose
 
