@@ -31,6 +31,8 @@ Open the repository in VS Code and launch `index.html` or `portfolio.html` with 
 
 - [Architecture](docs/ARCHITECTURE.md)
 - [AI Assistant architecture](docs/AI_ASSISTANT_ARCHITECTURE.md)
+- [Natural Capture architecture](docs/NATURAL_CAPTURE_ARCHITECTURE.md)
+- [AI-first Workspace architecture](docs/AI_FIRST_WORKSPACE_ARCHITECTURE.md)
 - [Product vision](docs/PRODUCT_VISION.md)
 - [Product maturity](docs/PRODUCT_MATURITY.md)
 - [Systems](docs/SYSTEMS.md)

@@ -314,9 +314,12 @@ Management OS
 
 - **Global Capture:** interpret natural input, determine the likely entity and
   destination, extract fields, find related context, and prepare a bounded action.
+  The approved lifecycle and boundaries are defined in
+  [Natural Capture Architecture](NATURAL_CAPTURE_ARCHITECTURE.md).
 - **Dashboard:** explain current focus and workload, prepare a next action, and
   surface evidence-based simplification opportunities without silently changing
-  priority or layout.
+  priority or layout. Its approved future role is defined in
+  [AI-first Workspace Architecture](AI_FIRST_WORKSPACE_ARCHITECTURE.md).
 - **Entity pages:** use the current entity as primary context and offer assistance
   within its existing ownership and mutation rules.
 - **Recommendations Center:** explain evidence, confidence, limitations, and

@@ -432,6 +432,15 @@ defined separately in [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md).
 It extends these boundaries without introducing current runtime behavior or
 redesigning existing modules.
 
+The Assistant's primary intake model is defined in
+[Natural Capture Architecture](NATURAL_CAPTURE_ARCHITECTURE.md). It preserves the
+same module ownership, approval, learning, and non-implementation boundaries.
+
+Home's approved future interaction role is defined in
+[AI-first Workspace Architecture](AI_FIRST_WORKSPACE_ARCHITECTURE.md). Home remains
+a presentation and coordination surface rather than a domain-data owner, and the
+current Dashboard implementation is unchanged.
+
 ## Module responsibilities
 
 - **Home:** present today-focused, static dashboard information.

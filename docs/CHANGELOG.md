@@ -67,6 +67,12 @@ separately in [Sprint Tracker](SPRINTS.md).
 - Added the approved AI Assistant product architecture for contextual operational
   intelligence, confidence and clarification, bounded approval, explicit learning,
   cognitive-load reduction, layered memory, and distributed Assistant presence.
+- Added the approved Natural Capture architecture for intent recognition,
+  context-aware routing, concise clarification, safe Inbox fallback, bounded
+  approval, failure handling, and explicit learning.
+- Added the approved AI-first Workspace architecture, evolving future Home from a
+  traditional information dashboard into an intent-first operational surface while
+  preserving specialized modules, direct navigation, and degraded non-AI access.
 - Added the canonical Product Principle that Management OS should quietly remove
   cognitive noise while preserving decisions that require human judgment.
 - Extended the standard Product Review guidance with a mandatory evaluation of

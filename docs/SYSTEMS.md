@@ -10,7 +10,13 @@ Management OS is organized as a collection of business systems. Each system has 
 
 - **Purpose:** Show what matters today.
 - **Current status:** Static dashboard content in `index.html`.
-- **Future responsibilities:** Daily focus, prioritized tasks, KPI signals, inbox, timeline, and recent activity.
+- **Future responsibilities:** Act as an AI-first operational workspace for Natural
+  Capture, decisions requiring human judgment, active-work continuity, contextual
+  recommendations, and routing into specialized modules. Supporting metrics,
+  history, search, and navigation remain available on demand.
+- **Boundary:** Home coordinates presentation and interaction but owns no domain
+  records, does not replace specialized modules, and must preserve direct module
+  access and degraded non-AI operation.
 
 ## Portfolio
 

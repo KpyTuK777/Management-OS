@@ -30,7 +30,15 @@ Build a dependable project workspace with lifecycle management, status, progress
 
 ## Phase 2 — Dashboard
 
-Turn Home into a current-day operational view for focus, tasks, KPI signals, and activity.
+Evolve Home into an AI-first operational workspace where the owner begins by
+expressing intent. Natural Capture, decisions requiring human judgment, active-work
+continuity, and a small number of contextual recommendations form the primary
+hierarchy. Metrics, history, search, navigation, and deeper editing remain
+available through on-demand context and specialized workspaces.
+
+Home remains directly usable when AI capability is unavailable. Persistent
+workspace adaptation, automatic prioritization, and autonomous domain mutation are
+outside this phase unless separately proposed and approved.
 
 ## Phase 3 — Knowledge Base
 

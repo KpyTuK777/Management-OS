@@ -90,6 +90,8 @@ incomplete.
 ### Completed
 
 - **Feature 01 — Architecture:** AI Assistant Architecture
+- **Feature 02 — Architecture:** Natural Capture Architecture
+- **UX Evolution — Architecture:** AI-first Workspace
 - **Documentation:** Cognitive-load reduction promoted to a canonical Product Principle
 - **Documentation:** Cognitive-load principle added as a mandatory Product Review criterion
 
