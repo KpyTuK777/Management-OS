@@ -28,6 +28,11 @@ between silence, clarification, assistance, observation, recommendation, approva
 and deferral. The runtime executes and validates that policy; providers do not
 define it.
 
+[AI Capability 01 — Intent Recognition](AI_CAPABILITY_INTENT_RECOGNITION.md)
+defines the first production capability contract executed through this runtime.
+Its responsibility stops at explainable interpretations and grants no routing,
+recommendation, approval, or mutation authority.
+
 The approved [Protected AI Runtime Platform](PROTECTED_AI_RUNTIME_PLATFORM.md)
 defines the container and Cloud Run boundary that will host this architecture. It
 selects no AI provider and does not alter the runtime contracts defined here.

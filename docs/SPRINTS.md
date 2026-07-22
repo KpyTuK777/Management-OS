@@ -128,6 +128,7 @@ incomplete.
 - **Platform Architecture:** Canonical Platform Responsibility Model
 - **AI Operational Layer — Architecture:** Canonical AI Runtime Architecture
 - **AI Operational Layer — Policy:** Canonical AI Decision Policy with distinct observational behavior
+- **AI Capability 01 — Architecture:** Canonical Intent Recognition capability contract
 - **AI Operational Layer — Platform Architecture:** Protected AI Runtime Platform
 - **Architecture Decision:** ADR-0001 selects a containerized Node.js runtime on Google Cloud Run
 - **Identity Architecture:** Canonical Owner Identity Architecture
@@ -156,6 +157,9 @@ incomplete.
 - The AI Decision Policy distinguishes evidence-based, non-actionable observations
   from recommendations and preserves silence, clarification, approval, and
   truthful deferral as separate product-owned outcomes.
+- Intent Recognition defines the first production AI capability boundary: it uses
+  owner wording as primary Evidence and authorized context as supporting Evidence,
+  then stops at explainable interpretations without routing or mutation.
 - The Protected AI Runtime Platform selects Cloud Run as the managed host for a
   portable Node.js container while leaving identity and AI provider selection as
   explicit prerequisites.

@@ -88,6 +88,11 @@ framing, references to existing records, reflective or improvement language,
 current operational context, and explicit approved corrections. These are
 interpretation signals, not implementation rules.
 
+The specialized contract is defined in
+[AI Capability 01 — Intent Recognition](AI_CAPABILITY_INTENT_RECOGNITION.md). The
+owner's current wording is its primary Evidence; authorized context is supporting
+Evidence and cannot override an explicit statement.
+
 One input may contain several distinct outcomes. Natural Capture separates them
 only when their meanings or destinations are materially independent, shows the
 split before approval, and allows the owner to approve only part of the bundle.
