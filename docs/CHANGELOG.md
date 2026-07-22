@@ -94,6 +94,10 @@ separately in [Sprint Tracker](SPRINTS.md).
 - Added the canonical, technology-independent AI Assistant Identity synthesis for
   consistent character, trust, authority, owner relationship, and behavior under
   uncertainty without redefining its source architectures or principles.
+- Added the Implementation Planning Standard between Architecture Approval and
+  APPLY, with proportionate plan requirements, ownership, readiness review,
+  validation expectations, and explicit separation of plan approval from mutation
+  authority.
 - Added the approved AI-first Workspace architecture, evolving future Home from a
   traditional information dashboard into an intent-first operational surface while
   preserving specialized modules, direct navigation, and degraded non-AI access.

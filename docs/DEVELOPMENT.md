@@ -38,6 +38,25 @@ Use a current version of Chrome, Edge, Firefox, or Safari with JavaScript and `l
 - Use 8px-based spacing and existing CSS variables where applicable.
 - Follow the approval and ownership boundaries in [Team Governance](TEAM.md).
 
+## Implementation Planning
+
+Implementation-bearing approved features require an approved, proportionate
+Implementation Plan before APPLY. The canonical requirements, ownership, review,
+and approval semantics are defined in
+[Team Governance](TEAM.md#implementation-planning-standard).
+
+Before implementation, contributors must verify the current repository state and
+record the approved scope, dependencies, smallest coherent increment,
+implementation order, risks and edge cases, validation strategy, effort range, and
+increment recommendation. Planning is read-only and must identify applicable
+documentation updates.
+
+Implementation follows both the approved architecture and approved plan. Material
+discoveries return to planning; changes to product, architecture, data, design,
+language, or governance boundaries return to the applicable proposal and owner.
+Plan approval does not authorize file changes—implementation begins only after
+explicit APPLY.
+
 ## Architecture Consistency Audit
 
 The mandatory delivery workflow and Architecture Consistency Audit are defined in

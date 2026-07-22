@@ -47,10 +47,13 @@ Define the problem, intended outcome, user value, scope, and exclusions before
 selecting an implementation approach. Implementation serves approved product
 direction and does not silently create it.
 
-### Approval is separate from application
+### Approval is separate from planning and application
 
-**APPROVE** accepts a proposal. **APPLY** authorizes the approved change. Discussion,
-review, or conceptual approval is not permission to modify the product.
+**Architecture APPROVE** accepts intended outcomes and boundaries.
+**Implementation Planning** defines the delivery strategy, and **Plan APPROVE**
+accepts its readiness. **APPLY** alone authorizes the approved modification.
+Discussion, review, architecture approval, or plan approval is not permission to
+modify the product.
 
 ### One decision, one owner
 
@@ -122,7 +125,9 @@ does not redefine them.
 ```text
 Idea
   → Architecture Proposal
-  → APPROVE
+  → Architecture APPROVE
+  → Implementation Planning
+  → Plan APPROVE
   → APPLY
   → Implementation
   → Architecture Review
@@ -137,7 +142,9 @@ Idea
 | --- | --- | --- |
 | Idea | Identify an opportunity or problem. | The intended outcome is clear enough to assess. |
 | Architecture Proposal | Define scope, constraints, experience, boundaries, and affected documents. | Relevant owners can evaluate the proposed change. |
-| APPROVE | Accept the documented proposal. | The appropriate decision owners approve it. |
+| Architecture APPROVE | Accept the documented outcome and boundaries. | The appropriate decision owners approve architecture; no mutation is authorized. |
+| Implementation Planning | Define the smallest coherent delivery strategy, dependencies, order, risks, validation, effort, and increment structure. | The plan is complete, read-only, and ready for applicable owner review. |
+| Plan APPROVE | Accept implementation readiness and fidelity. | Applicable owners approve the plan; no mutation is authorized. |
 | APPLY | Authorize modification of the product or documentation. | Explicit implementation authorization is given. |
 | Implementation | Produce and validate the approved outcome. | Approved scope is implemented and relevant tests pass. |
 | Architecture Review | Verify architectural consistency and boundaries. | Product Architect accepts the result or reports findings. |
@@ -210,7 +217,9 @@ Conversation or observation
   → Change classification
   → Documented proposal
   → Relevant owner review
-  → APPROVE
+  → Architecture APPROVE
+  → Implementation Planning
+  → Plan APPROVE
   → APPLY
   → Implementation or documentation change
   → Required domain reviews and validation
@@ -243,8 +252,10 @@ change according to their purpose:
   approval or durable product truth.
 - Classify the proposal using the methodology's change classification and identify
   every materially affected owner and canonical document.
-- **APPROVE** accepts documented intent. **APPLY** separately authorizes the
-  modification. Neither discussion nor approval alone authorizes a change.
+- **Architecture APPROVE** accepts documented intent and boundaries.
+  **Implementation Planning** defines the delivery strategy without mutation, and
+  **Plan APPROVE** accepts that strategy. **APPLY** separately authorizes the
+  modification. Discussion, architecture approval, and plan approval do not.
 - Return to proposal and approval when implementation discoveries materially
   change approved product, architecture, design, language, or governance scope.
 - Update only the documents authoritative for affected subjects. Canonical
@@ -283,6 +294,8 @@ does not automatically advance product maturity.
 | Idea | Explore problems, evidence, and alternatives. |
 | Proposal | Structure outcomes, constraints, options, and risks. |
 | Approval | Provide analysis; never self-approve. |
+| Implementation Planning | Inspect read-only context; define dependencies, coherent increment, order, risks, validation, effort, and delivery structure without changing files. |
+| Plan Approval | Provide readiness analysis; never self-approve or treat approval as APPLY. |
 | APPLY | Act only after explicit authorization. |
 | Implementation | Make scoped changes and validate them. |
 | Reviews | Identify inconsistencies, risks, and missing evidence. |
