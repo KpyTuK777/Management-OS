@@ -32,6 +32,7 @@ Open the repository in VS Code and launch `index.html` or `portfolio.html` with 
 - [Architecture](docs/ARCHITECTURE.md)
 - [AI Assistant architecture](docs/AI_ASSISTANT_ARCHITECTURE.md)
 - [AI Runtime architecture](docs/AI_RUNTIME_ARCHITECTURE.md)
+- [Protected AI Runtime Platform](docs/PROTECTED_AI_RUNTIME_PLATFORM.md)
 - [AI Assistant identity](docs/AI_ASSISTANT_IDENTITY.md)
 - [Natural Capture architecture](docs/NATURAL_CAPTURE_ARCHITECTURE.md)
 - [Natural Capture interaction foundation](docs/NATURAL_CAPTURE_INTERACTION_FOUNDATION.md)
@@ -58,6 +59,7 @@ Open the repository in VS Code and launch `index.html` or `portfolio.html` with 
 - [Development methodology](docs/METHODOLOGY.md)
 - [Project health](docs/PROJECT_HEALTH.md)
 - [Decision log](docs/DECISIONS.md)
+- [Architecture Decision Records](docs/adr/README.md)
 
 ## Product direction
 

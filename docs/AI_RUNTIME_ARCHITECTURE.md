@@ -23,6 +23,10 @@ for Assistant responsibilities, authority, confidence behavior, learning, memory
 and product interaction. This document defines how an approved capability may be
 executed without transferring those decisions to a model provider.
 
+The approved [Protected AI Runtime Platform](PROTECTED_AI_RUNTIME_PLATFORM.md)
+defines the container and Cloud Run boundary that will host this architecture. It
+selects no AI provider and does not alter the runtime contracts defined here.
+
 ## Current implementation boundary
 
 Management OS currently has no AI runtime, Model Gateway, provider adapter, model

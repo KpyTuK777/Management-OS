@@ -128,6 +128,10 @@ separately in [Sprint Tracker](SPRINTS.md).
   workflows, context preparation, prompts, the Model Gateway, provider adapters,
   model execution, validation, confidence, fallback, and future multi-model
   routing without selecting or implementing a provider.
+- Added the canonical Protected AI Runtime Platform and ADR-0001, selecting a
+  containerized Node.js service on Google Cloud Run for v1 with Secret Manager,
+  least-privilege runtime identity, bounded scaling, redacted operations, and no AI
+  provider selection or implementation.
 - Added the canonical Product Principle that Management OS should quietly remove
   cognitive noise while preserving decisions that require human judgment.
 - Extended the standard Product Review guidance with a mandatory evaluation of

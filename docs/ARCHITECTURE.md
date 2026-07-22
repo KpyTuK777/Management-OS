@@ -14,6 +14,11 @@ The approved future [AI Runtime Architecture](AI_RUNTIME_ARCHITECTURE.md) define
 provider-independent AI execution boundaries. No AI runtime, provider integration,
 Model Gateway, or related infrastructure is currently implemented.
 
+The [Protected AI Runtime Platform](PROTECTED_AI_RUNTIME_PLATFORM.md) selects a
+containerized Node.js service on Google Cloud Run as the future v1 host. No
+container, cloud resource, authenticated runtime, or deployment pipeline is
+currently implemented.
+
 ## Project structure
 
 ```text
