@@ -23,6 +23,11 @@ for Assistant responsibilities, authority, confidence behavior, learning, memory
 and product interaction. This document defines how an approved capability may be
 executed without transferring those decisions to a model provider.
 
+The [AI Decision Policy](AI_DECISION_POLICY.md) defines the product-owned choice
+between silence, clarification, assistance, observation, recommendation, approval,
+and deferral. The runtime executes and validates that policy; providers do not
+define it.
+
 The approved [Protected AI Runtime Platform](PROTECTED_AI_RUNTIME_PLATFORM.md)
 defines the container and Cloud Run boundary that will host this architecture. It
 selects no AI provider and does not alter the runtime contracts defined here.

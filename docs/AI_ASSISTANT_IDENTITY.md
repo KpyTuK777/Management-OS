@@ -20,9 +20,11 @@ Source authority remains with [Product Vision](PRODUCT_VISION.md) for principles
 [Owner Journey](OWNER_JOURNEY.md) for experience,
 [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md) for responsibilities and
 boundaries, [AI Communication Style Guide](AI_COMMUNICATION_STYLE_GUIDE.md) for
-message behavior, [AI Quality Framework](AI_QUALITY_FRAMEWORK.md) for implemented
-behavior quality, [AI-first Workspace Architecture](AI_FIRST_WORKSPACE_ARCHITECTURE.md)
-for Home presence, and [Product Language](PRODUCT_LANGUAGE.md) for terminology.
+message behavior, [AI Decision Policy](AI_DECISION_POLICY.md) for the choice among
+silence, clarification, assistance, observation, recommendation, approval, and
+deferral, [AI Quality Framework](AI_QUALITY_FRAMEWORK.md) for implemented behavior
+quality, [AI-first Workspace Architecture](AI_FIRST_WORKSPACE_ARCHITECTURE.md) for
+Home presence, and [Product Language](PRODUCT_LANGUAGE.md) for terminology.
 
 ## Assistant identity
 

@@ -127,6 +127,7 @@ incomplete.
 - **Product Experience — Architecture:** Canonical Mobile Experience Architecture
 - **Platform Architecture:** Canonical Platform Responsibility Model
 - **AI Operational Layer — Architecture:** Canonical AI Runtime Architecture
+- **AI Operational Layer — Policy:** Canonical AI Decision Policy with distinct observational behavior
 - **AI Operational Layer — Platform Architecture:** Protected AI Runtime Platform
 - **Architecture Decision:** ADR-0001 selects a containerized Node.js runtime on Google Cloud Run
 - **Identity Architecture:** Canonical Owner Identity Architecture
@@ -152,6 +153,9 @@ incomplete.
 - The AI Runtime Architecture separates capability contracts, workflows, context,
   prompts, provider adapters, model execution, validation, and product-owned
   confidence without selecting or implementing a provider.
+- The AI Decision Policy distinguishes evidence-based, non-actionable observations
+  from recommendations and preserves silence, clarification, approval, and
+  truthful deferral as separate product-owned outcomes.
 - The Protected AI Runtime Platform selects Cloud Run as the managed host for a
   portable Node.js container while leaving identity and AI provider selection as
   explicit prerequisites.

@@ -128,6 +128,9 @@ separately in [Sprint Tracker](SPRINTS.md).
   workflows, context preparation, prompts, the Model Gateway, provider adapters,
   model execution, validation, confidence, fallback, and future multi-model
   routing without selecting or implementing a provider.
+- Added the canonical AI Decision Policy, distinguishing silence, clarification,
+  assistance, evidence-based observation, recommendation, bounded approval, and
+  deferral while preventing observations from implying action automatically.
 - Added the canonical Protected AI Runtime Platform and ADR-0001, selecting a
   containerized Node.js service on Google Cloud Run for v1 with Secret Manager,
   least-privilege runtime identity, bounded scaling, redacted operations, and no AI
