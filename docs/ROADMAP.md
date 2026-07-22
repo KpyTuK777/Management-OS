@@ -71,3 +71,24 @@ Recommended delivery sequence:
 No phase may introduce autonomous workspace or interface changes. Recommendation
 generation and recommendation application must remain separate capabilities, and
 user approval is the boundary between them.
+
+## Beyond v1.0 — AI Knowledge Model
+
+The AI Knowledge Model is a long-term product horizon after v1.0, not an addition
+to the current implementation roadmap.
+
+Its direction is to develop three complementary forms of understanding:
+
+1. a **Management Knowledge Model** grounded in broad management theory;
+2. an **Organizational Knowledge Model** grounded in the organization's language,
+   workflows, practices, and standards;
+3. a **Personal Operational Model** grounded in the owner's preferences, habits,
+   strengths, and recurring challenges.
+
+Future AI guidance should combine all three layers so that it is theoretically
+informed, organizationally relevant, and personally useful. The system should grow
+with its owner while keeping its learning visible, explainable, correctable, and
+subject to owner approval for meaningful changes.
+
+This horizon introduces no current deliverables, implementation work, storage,
+APIs, machine-learning scope, or change to the v1.0 boundary.

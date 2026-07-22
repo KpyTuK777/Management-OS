@@ -163,6 +163,69 @@ Hypotheses are not stored decisions, contain no proposed action, and cannot modi
 the workspace. Recommendations remain a separate future stage that must preserve
 the supporting Hypothesis and wait for User Approval.
 
+### AI Knowledge Model — long-term vision beyond v1.0
+
+The long-term AI vision is not limited to knowing or retrieving information.
+Management OS should become capable of understanding three complementary forms of
+knowledge and bringing them together before offering guidance.
+
+#### Layer 1 — Management Knowledge Model
+
+The AI possesses a broad theoretical understanding of generally accepted
+management knowledge, including Operations Management, Lean, Kaizen, Theory of
+Constraints, Six Sigma, Agile, Scrum, Kanban, Project Management, Quality
+Management, Risk Management, Systems Thinking, Decision Making, Organizational
+Learning, Leadership, and Process Improvement.
+
+This layer provides concepts, principles, and established management perspectives.
+It helps the AI recognize which bodies of knowledge may illuminate a situation
+without treating any single method as universally correct.
+
+#### Layer 2 — Organizational Knowledge Model
+
+The AI gradually understands how this specific organization operates through its
+Knowledge Base, SOPs, Notes, Executions, Reviews, Insights, Hypotheses, and
+Improvement Proposals.
+
+Over time, this understanding may include organizational vocabulary, recurring
+workflows, operational practices, internal standards, and preferred ways of
+working. Organizational practice supplies context that general theory alone cannot
+provide.
+
+#### Layer 3 — Personal Operational Model
+
+The AI gradually learns how its owner prefers to learn, plan, decide, work, and
+receive explanations. This may include preferred terminology, recurring mistakes,
+strengths, productivity habits, and patterns in how the owner approaches decisions.
+
+The purpose is personalization, not profiling. Personal understanding must remain
+transparent, explainable, correctable, and controlled by the owner. Meaningful
+changes to what the system believes about the owner require the owner's approval.
+
+#### Combined understanding
+
+Recommendations should emerge only after the system considers all three layers:
+
+1. management theory;
+2. organizational practice;
+3. the owner and their preferred way of working.
+
+This combined perspective could eventually support observations such as:
+
+- “This idea resembles Theory of Constraints.”
+- “This Note would fit well in the Knowledge Base.”
+- “This SOP is similar to previous procedures.”
+- “You usually prefer visual explanations for topics like this.”
+
+The intended outcome is a collaborative operational partner rather than a search
+engine. The AI grows together with its owner while continuing to distinguish
+observed facts, interpretation, and approved change.
+
+**Working slogan: “Grow with the owner.”**
+
+This AI Knowledge Model is product direction beyond v1.0. It does not add to or
+change the current implementation scope.
+
 ## User value
 
 Users gain a focused daily workspace, a reliable view of active projects, less fragmented information, and a foundation for better operational decisions.

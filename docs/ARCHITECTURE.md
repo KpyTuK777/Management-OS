@@ -392,6 +392,38 @@ This separation preserves explainability and prevents AI interpretation from
 becoming autonomous product authority. Automatic interface changes are explicitly
 outside the permitted architecture.
 
+### Long-term AI Knowledge Model
+
+Beyond v1.0, the Learning Layer may evolve into a three-layer AI Knowledge Model.
+This is a conceptual architecture for future product reasoning, not a description
+of current components or an implementation commitment.
+
+| Knowledge layer | Conceptual responsibility |
+| --- | --- |
+| Management Knowledge Model | Understand broadly accepted management theory, methods, and principles. |
+| Organizational Knowledge Model | Understand how this organization works, including its vocabulary, workflows, practices, and internal standards. |
+| Personal Operational Model | Understand the owner's working, learning, planning, decision-making, and explanation preferences. |
+
+The layers are complementary rather than interchangeable. Management knowledge
+offers general principles; organizational knowledge grounds them in actual
+practice; personal operational knowledge shapes how guidance is made useful to the
+owner. Future recommendations should combine all three rather than relying on one
+layer in isolation.
+
+The Personal Operational Model exists for personalization, not profiling. Across
+all three layers, the owner must be able to understand why the system reached a
+conclusion, correct its understanding, and approve meaningful changes. Knowledge
+growth does not weaken the existing Learning Decision Pipeline: facts,
+interpretations, proposals, and authorized changes remain distinct.
+
+The architectural direction is therefore **“Grow with the owner”**: improve the
+quality and relevance of understanding over time while preserving transparency,
+explainability, and user control.
+
+No storage, API, model, training approach, service, module, or new runtime behavior
+is defined by this vision. The current architecture and v1.0 implementation scope
+remain unchanged.
+
 ## Module responsibilities
 
 - **Home:** present today-focused, static dashboard information.
