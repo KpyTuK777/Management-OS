@@ -1,3 +1,8 @@
+# Changelog
+
+This file records released product changes. Sprint scope and completion are tracked
+separately in [Sprint Tracker](SPRINTS.md).
+
 ## Unreleased
 
 ### Foundation 2.0
@@ -31,7 +36,17 @@
 
 - Refined the Dashboard into a clearer operational command center.
 - Prioritized attention, current focus, project position, and supporting context.
-- Preserved early prototype experiments inside a secondary Additional Context area.
+- Preserved early prototype experiments inside a secondary **Додатковий контекст** area.
+- Modernized shared navigation, cards, forms, empty states, responsive layouts, and
+  accessibility feedback.
+
+### Product Language and documentation
+
+- Standardized Ukrainian user-facing terminology across active and prototype pages.
+- Added the canonical Product Language Guide for terminology, voice, naming, and
+  future AI communication.
+- Added documentation ownership, authority, and lifecycle governance.
+- Retained `UI_LANGUAGE.md` as a temporary compatibility path.
 
 ### Learning Layer
 

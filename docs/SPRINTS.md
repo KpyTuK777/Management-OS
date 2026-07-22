@@ -1,5 +1,9 @@
 # Sprint Tracker
 
+This tracker records the sprint history currently available in the repository.
+Sprint 2 and Sprint 3 records are unavailable and must not be reconstructed without
+approved source evidence.
+
 ## Sprint 1 — Portfolio foundation
 
 ### Completed
@@ -39,5 +43,9 @@
 - **Feature 02:** Insights Foundation
 - **Feature 03:** Hypotheses Foundation
 - **Feature 04:** Improvement Proposal Workflow
+- **Design:** Design System Review and UI Modernization
+- **Language:** Ukrainian Localization and Terminology Audit
+- **Documentation:** Product Language Guide and documentation migration
+- **Governance:** Documentation Map and lifecycle rules
 
 See [Roadmap](ROADMAP.md) for product phases beyond this sprint.

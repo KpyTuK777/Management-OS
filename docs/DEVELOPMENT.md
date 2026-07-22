@@ -36,42 +36,8 @@ Use a current version of Chrome, Edge, Firefox, or Safari with JavaScript and `l
 
 ## Architecture Consistency Audit
 
-Every Sprint must end with an Architecture Consistency Audit after the approved
-work has been committed and published to GitHub. A Sprint is not considered
-complete until this audit has been performed.
-
-The mandatory delivery sequence is:
-
-```text
-Idea
-  ↓
-Architecture Proposal
-  ↓
-APPROVE
-  ↓
-APPLY
-  ↓
-Implementation
-  ↓
-Architecture Review
-  ↓
-Product Review
-  ↓
-COMMIT
-  ↓
-GitHub
-  ↓
-Architecture Consistency Audit
-```
-
-The audit verifies that:
-
-- every approved proposal has been implemented;
-- documentation and implementation remain synchronized;
-- partially implemented features are identified;
-- obsolete approved proposals are explicitly closed rather than forgotten.
-
-The Architecture Consistency Audit is a verification activity. It introduces no
-new architecture, does not redesign approved features, and does not reinterpret
-product decisions. Any missing, partial, or obsolete work is reported through the
-existing ownership and approval process before further action is taken.
+The mandatory delivery workflow and Architecture Consistency Audit are defined in
+[Team Governance](TEAM.md). During implementation, contributors must keep affected
+canonical documents synchronized according to the
+[Documentation Map](DOCUMENTATION_MAP.md) and report missing, partial, or obsolete
+work through the approved ownership process.

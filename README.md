@@ -11,7 +11,10 @@ Management OS is a personal operating-system prototype for an operations manager
 
 ## Current status
 
-The project is an early static prototype. The Portfolio module supports creating, editing, deleting, rendering, and persisting projects in the browser. The dashboard is currently static. Knowledge Base, Review Center, Analytics, Calendar, Tasks, and Settings are planned or placeholder systems.
+Management OS is an evolving static prototype with implemented Portfolio, Notes,
+Knowledge Base, SOP, Execution, Review, Insights, Hypotheses, and controlled
+Improvement Proposal capabilities. See [Systems](docs/SYSTEMS.md) for the canonical
+module-by-module status and [Sprint tracker](docs/SPRINTS.md) for delivery history.
 
 ## Technology stack
 
@@ -36,7 +39,9 @@ Open the repository in VS Code and launch `index.html` or `portfolio.html` with 
 - [Sprint tracker](docs/SPRINTS.md)
 - [Design system](docs/DESIGN_SYSTEM.md)
 - [Product language](docs/PRODUCT_LANGUAGE.md)
+- [Documentation map](docs/DOCUMENTATION_MAP.md)
 
-## Development phase
+## Product direction
 
-The project is in Phase 1: Portfolio foundation. The next implementation priorities are project status, progress, filtering, and sorting.
+See the [Roadmap](docs/ROADMAP.md) for future sequencing. README does not define
+implementation priorities.

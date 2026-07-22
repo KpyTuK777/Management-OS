@@ -193,6 +193,7 @@ Every new feature and every revision of user-facing copy must follow:
 - this [Product Language Guide](PRODUCT_LANGUAGE.md);
 - [Product Vision](PRODUCT_VISION.md) for product principles and conceptual
   boundaries.
+- [Documentation Map](DOCUMENTATION_MAP.md) for document ownership and authority.
 
 Before introducing a label, check the official terminology table. No feature may
 introduce a new word for an existing product concept. If a genuinely new concept

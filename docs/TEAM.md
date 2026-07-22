@@ -133,6 +133,8 @@ The audit verifies that:
 - documentation and implementation remain synchronized;
 - partially implemented features are identified;
 - obsolete approved proposals are explicitly closed rather than forgotten.
+- affected canonical documents remain synchronized according to the
+  [Documentation Map](DOCUMENTATION_MAP.md).
 
 The audit has no authority to introduce architecture, redesign approved features,
 or reinterpret Product Philosophy. It verifies implementation consistency only.
