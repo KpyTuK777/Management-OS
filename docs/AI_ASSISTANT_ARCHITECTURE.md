@@ -28,6 +28,11 @@ Improvement Proposals. The existing [Architecture](ARCHITECTURE.md),
 [Product Vision](PRODUCT_VISION.md), [Team Governance](TEAM.md), and domain
 documents remain authoritative for their subjects.
 
+The separately approved [AI Runtime Architecture](AI_RUNTIME_ARCHITECTURE.md)
+defines provider-independent execution of these product responsibilities. It does
+not change the Assistant's identity, authority, confidence, learning, or approval
+boundaries defined here.
+
 The Assistant's participation across the complete operational experience is
 described in the [Owner Journey](OWNER_JOURNEY.md).
 

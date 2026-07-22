@@ -10,6 +10,10 @@ server, API, or external database. Browser `localStorage` persists domain
 collections including Projects, Notes, Knowledge, Categories, SOPs, SOP Executions,
 Execution Reviews, and Improvement Proposals.
 
+The approved future [AI Runtime Architecture](AI_RUNTIME_ARCHITECTURE.md) defines
+provider-independent AI execution boundaries. No AI runtime, provider integration,
+Model Gateway, or related infrastructure is currently implemented.
+
 ## Project structure
 
 ```text

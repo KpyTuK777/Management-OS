@@ -126,6 +126,7 @@ incomplete.
 
 - **Product Experience — Architecture:** Canonical Mobile Experience Architecture
 - **Platform Architecture:** Canonical Platform Responsibility Model
+- **AI Operational Layer — Architecture:** Canonical AI Runtime Architecture
 
 ### Implementation status
 
@@ -140,5 +141,8 @@ incomplete.
 - The Platform Responsibility Model allocates complementary Desktop and Mobile
   responsibilities without introducing feature parity, synchronization, or
   platform implementation.
+- The AI Runtime Architecture separates capability contracts, workflows, context,
+  prompts, provider adapters, model execution, validation, and product-owned
+  confidence without selecting or implementing a provider.
 
 See [Roadmap](ROADMAP.md) for product phases beyond this sprint.

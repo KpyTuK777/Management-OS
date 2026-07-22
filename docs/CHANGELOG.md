@@ -124,6 +124,10 @@ separately in [Sprint Tracker](SPRINTS.md).
   operational-system construction and governance surface and Mobile as its
   retrieval, Capture, continuity, and lightweight-interaction companion, with one
   organizational truth and no feature-parity requirement.
+- Added the canonical AI Runtime Architecture, separating product capabilities,
+  workflows, context preparation, prompts, the Model Gateway, provider adapters,
+  model execution, validation, confidence, fallback, and future multi-model
+  routing without selecting or implementing a provider.
 - Added the canonical Product Principle that Management OS should quietly remove
   cognitive noise while preserving decisions that require human judgment.
 - Extended the standard Product Review guidance with a mandatory evaluation of

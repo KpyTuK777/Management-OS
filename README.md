@@ -31,6 +31,7 @@ Open the repository in VS Code and launch `index.html` or `portfolio.html` with 
 
 - [Architecture](docs/ARCHITECTURE.md)
 - [AI Assistant architecture](docs/AI_ASSISTANT_ARCHITECTURE.md)
+- [AI Runtime architecture](docs/AI_RUNTIME_ARCHITECTURE.md)
 - [AI Assistant identity](docs/AI_ASSISTANT_IDENTITY.md)
 - [Natural Capture architecture](docs/NATURAL_CAPTURE_ARCHITECTURE.md)
 - [Natural Capture interaction foundation](docs/NATURAL_CAPTURE_INTERACTION_FOUNDATION.md)
