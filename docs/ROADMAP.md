@@ -184,6 +184,20 @@ This is post-v1 direction under the
 [Adaptive Workspace Architecture](ADAPTIVE_WORKSPACE_ARCHITECTURE.md). It adds no
 current implementation deliverable.
 
+## Pre-v1.0 gate — Cognitive Cleanup
+
+Before significant new capability expansion, complete the
+[Cognitive Cleanup Architecture](COGNITIVE_CLEANUP_ARCHITECTURE.md) exit review.
+The product must reduce explanatory architecture, repeated authority reminders,
+classification effort, and implementation-shaped navigation while preserving
+material uncertainty, provenance, reasoning lineage, owner control, correction,
+and degraded operation.
+
+New capability work during this phase is limited to material v1.0 blockers or work
+that cannot reasonably wait. Readiness is assessed through owner orientation,
+mechanics-clarification demand, missed uncertainty, correction success, and
+decision confidence—not interface word count.
+
 ## Beyond v1.0 — AI Knowledge Model
 
 The AI Knowledge Model is a long-term product horizon after v1.0, not an addition

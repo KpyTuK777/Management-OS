@@ -46,6 +46,7 @@ Open the repository in VS Code and launch `index.html` or `portfolio.html` with 
 - [Adaptive Workspace architecture](docs/ADAPTIVE_WORKSPACE_ARCHITECTURE.md)
 - [Operational Matter architecture](docs/OPERATIONAL_MATTER_ARCHITECTURE.md)
 - [Operational Situation Board architecture](docs/OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md)
+- [Cognitive Cleanup architecture](docs/COGNITIVE_CLEANUP_ARCHITECTURE.md)
 - [Operational Case architecture](docs/OPERATIONAL_CASE_ARCHITECTURE.md)
 - [Operational Reasoning Model](docs/OPERATIONAL_REASONING_MODEL.md)
 - [Case Evidence architecture](docs/CASE_EVIDENCE_ARCHITECTURE.md)

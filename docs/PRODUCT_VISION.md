@@ -82,6 +82,11 @@ stable, inspectable picture of what is happening, understood, uncertain, changed
 and required next. The Board projects governed records and never becomes a new
 artifact or source of truth.
 
+Before v1.0, [Cognitive Cleanup](COGNITIVE_CLEANUP_ARCHITECTURE.md) shifts the
+experience from explaining Management OS to behaving naturally. Situation meaning,
+material uncertainty, and owner judgment remain visible; architectural mechanics
+and repeated normal-operation guidance recede behind contextual inspection.
+
 The owner experiences this direction as a calm operational investigation. The
 product begins from the owner's uncertainty, progressively reveals only useful
 complexity, preserves the path from Evidence to decision and outcome, and teaches

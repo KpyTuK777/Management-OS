@@ -69,6 +69,11 @@ Reasoning-change presentation distinguishes previous understanding, the new
 contribution, resulting change, affected Hypotheses, and remaining uncertainty.
 Routine activity must not receive milestone styling.
 
+The pre-v1.0 [Cognitive Cleanup](COGNITIVE_CLEANUP_ARCHITECTURE.md) review treats
+visible explanatory copy as temporary unless it affects current interpretation,
+risk, authority, consequence, or action. Normal-operation explanation moves to
+contextual disclosure; material warnings never recede.
+
 ## Buttons
 
 `.btn-primary` and `.btn-secondary` provide the shared action hierarchy. Controls

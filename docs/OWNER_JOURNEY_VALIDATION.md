@@ -128,6 +128,11 @@ Ask:
 - What new decisions, configuration, or correction work is added?
 - Does the feature ask for information Management OS already has?
 - Is cognitive load reduced overall or moved elsewhere?
+- Does the primary interaction keep attention on the operational situation rather
+  than product mechanics?
+- Is each permanently visible explanation necessary for current interpretation,
+  risk, authority, consequence, or action?
+- Can normal-operation guidance recede while remaining retrievable?
 
 **Strengthens** when the system prepares before asking for judgment. **Weakens**
 when the owner must understand internal architecture or perform avoidable setup.
@@ -315,3 +320,7 @@ administrative effort, interruption, or loss of control somewhere less visible.
 This standard changes no ownership, approval, Sprint, architecture, or
 implementation authority.
 
+The pre-v1.0 [Cognitive Cleanup Architecture](COGNITIVE_CLEANUP_ARCHITECTURE.md)
+adds an explicit gate: representative owners must orient rapidly, correct the
+system without architectural knowledge, retain access to reasoning transparency,
+and avoid material authority or uncertainty misunderstanding.

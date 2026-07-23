@@ -1,5 +1,16 @@
 # Changelog
 
+## Sprint 12 — Cognitive Cleanup
+
+- Established Cognitive Cleanup as a formal pre-v1.0 product-experience phase.
+- Defined when explanation should be removed, recede after onboarding, remain
+  contextual, or stay permanently visible.
+- Simplified the Situation Board prototype by collapsing the work map, shortening
+  repeated mechanics, and moving normal-operation explanation behind inspection.
+- Preserved material uncertainty, current understanding, source inspection,
+  owner-required judgment, and modeled-content separation.
+- Added no adaptive AI, personalization, persistence, or production analytics.
+
 ## Sprint 11 — Operational Situation Board
 
 - Established the Operational Situation Board as the canonical owner-facing

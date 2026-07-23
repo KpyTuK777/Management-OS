@@ -150,6 +150,8 @@ smallest useful operational picture first, then allows inspection of:
 
 Progressive disclosure must never conceal uncertainty, conflicting Evidence,
 authority, source freshness, or a material consequence.
+Pre-v1.0 explanatory reduction follows the
+[Cognitive Cleanup Architecture](COGNITIVE_CLEANUP_ARCHITECTURE.md).
 
 ## Context and branching
 

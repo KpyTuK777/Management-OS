@@ -108,6 +108,14 @@ Always pair it with proposal status and why it matters now. Do not describe focu
 as system truth, permanent priority, Evidence weight, or an automatic state
 change. Use **Зміна міркування** for a material Reasoning Milestone, not routine
 activity.
+
+### Cognitive Cleanup language
+
+Prefer the situation, consequence, and next judgment over capability names.
+Explain normal mechanics once at the point of consequence or behind a **Чому?**
+or **Як сформовано** disclosure. Keep uncertainty, source freshness, modeled
+status, and owner-required decisions explicit. Do not replace repeated
+architectural language with vague minimalism.
 | Temporary capture | Тимчасове введення |
 | Review capture | Переглянути введене |
 | Student Mode | Навчальний режим |

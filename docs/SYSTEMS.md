@@ -108,6 +108,17 @@ responsibilities.
   by source-capability validation and owner approval. See
   [Operational Situation Board Architecture](OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md).
 
+## Cognitive Cleanup
+
+- **Purpose:** Reduce product-mechanics explanation and keep owner attention on
+  situation understanding, Evidence, and judgment before v1.0.
+- **Current status:** Approved Sprint 12 product-experience phase; deterministic
+  prototype cleanup aligned.
+- **Boundary:** Cleanup may remove repetition or move normal-operation detail
+  behind contextual inspection. It cannot hide material uncertainty, provenance,
+  authority, consequence, correction, Laboratory status, or degraded operation.
+  See [Cognitive Cleanup Architecture](COGNITIVE_CLEANUP_ARCHITECTURE.md).
+
 ## Operational Inquiry
 
 - **Purpose:** Help the AI Investigation Partner select and explain the smallest valuable next question for Investigation progress.

@@ -16,6 +16,10 @@ The [Operational Situation Board](OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md) i
 the canonical Matter-workspace read model. It projects current understanding
 through a stable frame, explainable cognitive center, governed Natural Capture,
 and material Reasoning Milestones without owning source records or authority.
+Its pre-v1.0 presentation follows the
+[Cognitive Cleanup Architecture](COGNITIVE_CLEANUP_ARCHITECTURE.md): architecture
+remains inspectable while ordinary interaction prioritizes situation understanding
+over product mechanics.
 
 The product exposes one Operational Investigation experience. Investigation Context
 is presentation and AI-policy metadata, not a separate aggregate, and Decision

@@ -15,7 +15,7 @@
 			<main class="workspace investigation-prototype">
 				<section class="investigation-home" id="investigationHome" aria-labelledby="homeTitle">
 					<header class="investigation-hero">
-						<span class="prototype-label">Прототип Операційної картини · без AI та збереження</span>
+						<span class="prototype-label">Прототип · дані не зберігаються</span>
 						<h1 id="homeTitle">Що відбувається?</h1>
 						<p>Опишіть ситуацію своїми словами. Management OS створить операційну справу й підготує перше розслідування — без вимоги назвати проблему чи вибрати модуль.</p>
 					</header>
@@ -23,12 +23,12 @@
 					<form class="investigation-intake" id="investigationIntake">
 						<label class="context-field" for="investigationContext">Контекст розслідування
 							<select id="investigationContext" name="investigation-context"><option value="learning">Операційне навчання</option><option value="reality">Операційна реальність</option></select>
-							<small>Режим задає типовий контекст. Він не змінює ідентичність, стан або повноваження операційної справи.</small>
+							<small>Змінює акцент, але не правила доказів.</small>
 						</label>
 						<label for="investigationInput">Повідомте, що ви помітили</label>
 						<textarea id="investigationInput" rows="4" placeholder="Наприклад: Наші продажі почали знижуватися." required></textarea>
 						<div class="investigation-intake__footer">
-							<p>Ваші слова залишаться повідомленим симптомом, а не автоматичним діагнозом.</p>
+							<p>Опишіть спостереження без попередньої класифікації.</p>
 							<button class="btn-primary" type="submit">Створити операційну справу</button>
 						</div>
 					</form>
@@ -75,29 +75,28 @@
 
 					<section class="situation-board-summary" aria-labelledby="situationBoardTitle">
 						<div class="section-heading">
-							<div><span>Стабільна операційна картина</span><h2 id="situationBoardTitle">Поточне розуміння справи</h2></div>
-							<span class="owner-review-chip">Проєкція · не джерело істини</span>
+							<div><span>Операційна картина</span><h2 id="situationBoardTitle">Поточне розуміння справи</h2></div>
+							<details class="inline-disclosure"><summary>Як сформовано</summary><p>Зведено з поточного стану, внесків і джерел. Відкрийте деталі, щоб перевірити підстави.</p></details>
 						</div>
 						<div class="situation-board-grid">
 							<article><span>Що відбувається?</span><strong id="boardSituation">Повідомлено операційну зміну</strong><p>Стан справи: Під розслідуванням.</p></article>
-							<article><span>Що ми розуміємо?</span><strong id="boardUnderstanding">Зміна ще не підтверджена вимірюванням</strong><p>Поточне розуміння не є встановленим фактом.</p></article>
+							<article><span>Що ми розуміємо?</span><strong id="boardUnderstanding">Зміна ще не підтверджена вимірюванням</strong><p>Попереднє розуміння.</p></article>
 							<article><span>Чому?</span><strong id="boardReasoningBasis">Збережено лише повідомлений симптом</strong><p>Потрібні базова лінія та незалежні джерела.</p></article>
 							<article><span>Що невідомо або заблоковано?</span><strong id="boardUncertainty">Масштаб, період і сегмент зміни</strong><p>Блокер: відсутній сегментований CRM-зріз.</p></article>
 							<article><span>Що змінилося?</span><strong id="boardRecentChange">Нових прийнятих внесків ще немає</strong><p>Матеріальні зміни з’являться в історії міркування.</p></article>
-							<article><span>Яке судження або дія потрібні далі?</span><strong id="boardNextJudgment">Визначити базове порівняння</strong><p>Watson пропонує; власник вирішує.</p></article>
+							<article><span>Яке судження або дія потрібні далі?</span><strong id="boardNextJudgment">Визначити базове порівняння</strong><p>Потрібне ваше рішення.</p></article>
 						</div>
 					</section>
 
 					<section class="matter-natural-capture" aria-labelledby="matterCaptureTitle">
 						<div class="section-heading">
-							<div><span>Природне введення</span><h2 id="matterCaptureTitle">Що нового ви дізналися?</h2></div>
-							<span class="owner-review-chip">Спочатку пропозиція · потім перевірка</span>
+							<div><span>Додати до картини</span><h2 id="matterCaptureTitle">Що нового ви дізналися?</h2></div>
 						</div>
 						<form id="matterCaptureForm">
 							<label for="matterCaptureInput">Опишіть факт, спостереження, свідчення, припущення, суперечність, ризик або результат своїми словами.</label>
 							<textarea id="matterCaptureInput" rows="3" placeholder="Наприклад: Керівник enterprise-команди повідомив, що час передачі лідів зріс після 18 квітня." required></textarea>
 							<div class="investigation-intake__footer">
-								<p>Оригінальне формулювання буде збережено. Watson не перетворює введення на доказ або факт автоматично.</p>
+								<p>Перед додаванням ви перевірите запропонований зміст.</p>
 								<button class="btn-primary" type="submit">Підготувати внесок</button>
 							</div>
 						</form>
@@ -122,13 +121,12 @@
 						</div>
 					</section>
 
-					<section class="journey-progress" aria-labelledby="journeyProgressTitle">
-						<div class="journey-progress__header"><div><span>Операційна картина · Під розслідуванням</span><h2 id="journeyProgressTitle">Поточний фокус: <strong id="currentJourneyStep">розслідування</strong></h2></div><p id="currentJourneyLabel">AI готує наступний внесок</p></div>
-						<p class="section-intro">Це карта внесків, а не обов’язковий лінійний процес. Стан справи не виводиться автоматично з виконаних кроків; важливі переходи схвалює власник. Справа може повернутися до попередньої роботи або містити інше розслідування.</p>
+					<details class="journey-progress" aria-labelledby="journeyProgressTitle">
+						<summary class="journey-progress__header"><div><span>Хід роботи</span><h2 id="journeyProgressTitle">Поточний фокус: <strong id="currentJourneyStep">розслідування</strong></h2></div><p id="currentJourneyLabel">Підготовка наступного внеску</p></summary>
 						<ol id="journeySteps">
 							<li class="is-complete">Симптом</li><li class="is-complete">Створення</li><li class="is-current">AI-підготовка</li><li>Докази</li><li>Розуміння</li><li>Гіпотези</li><li>Валідація причин</li><li>Готовність</li><li>Рішення</li><li>План виконання</li><li>Перевірка</li><li>Знання</li>
 						</ol>
-					</section>
+					</details>
 
 					<details class="operational-timeline" open>
 						<summary><div><span>Операційна хронологія</span><h2>Де система почала поводитися інакше?</h2></div><small>Події ≠ причинність</small></summary>
@@ -197,8 +195,7 @@
 									<article><span>Відомо</span><p>Спад триває три місяці та зосереджений у enterprise-поновленнях.</p></article><article><span>Невідомо</span><p>Повний вплив зміни ціни на окремі когорти.</p></article><article><span>Залишкова невизначеність</span><p>Фактичний внесок розриву відповідальності ще обмежено перевірений.</p></article><article><span>Основний доказ</span><p>CRM-зріз за сегментами й когортами.</p></article><article><span>Підтримувальні</span><p>P&amp;L, SLA передачі лідів та інтерв’ю.</p></article><article><span>Відхилена гіпотеза</span><p>Загальний сезонний спад.</p></article><article><span>Відкрите питання</span><p>Який захисний показник найраніше виявить небажаний ефект?</p></article>
 								</div>
 								<div class="decision-readiness">
-									<p><strong>AI може підготувати:</strong> альтернативи, припущення, ризики, критерії успіху та захисні обмеження.</p>
-									<p><strong>Власник вирішує:</strong> чи достатньо доказів, яку дію обрати та який ризик прийняти.</p>
+									<p><strong>Потрібне ваше судження:</strong> чи достатньо підстав, яку дію обрати та який ризик прийняти.</p>
 									<button class="btn-secondary" id="openSimulationButton" type="button">Відкрити Лабораторію рішень</button>
 									<button class="btn-primary hidden" id="approveDecisionButton" type="button">Прийняти рішення власника</button>
 								</div>
@@ -251,7 +248,7 @@
 							<div class="ai-observation similar-investigation"><span>Схоже розслідування · INV-0182</span><p><strong>Поведінкова зміна:</strong> різке зростання часу відповіді перед спадом поновлень.</p><p><strong>Операційний контекст:</strong> той самий enterprise-сегмент, але інший ринок.</p><p><strong>Патерн доказів:</strong> подібне поєднання CRM-когорт і SLA-журналів; збіг не ґрунтується лише на словах.</p><p><strong>Відмінність:</strong> паралельна зміна ціни. Попередня причина не переноситься.</p></div>
 							<div class="discipline-checks"><span>Захист якості розслідування</span><ul><li>Повнота доказів: бракує базового зрізу</li><li>Гіпотези: ще не готові до підтвердження</li><li>Суперечності: залишаються видимими</li><li>Припущення: не представлені як факти</li></ul></div>
 							<div class="ai-next-step"><span>Чому це важливо зараз</span><strong>Без періоду й сегментованого зрізу неможливо відрізнити загальну зміну від локального сигналу.</strong><button class="btn-primary" type="button" id="reviewStepButton">Переглянути запропонований крок</button></div>
-							<p class="authority-note">Динамічний фокус — це пояснювана пропозиція, а не вага доказу чи зміна стану. Ви можете прийняти, змінити або відхилити його.</p>
+							<details class="authority-note"><summary>Чому це у фокусі?</summary><p>Фокус запропоновано через відсутність базового порівняння. Він не змінює вагу доказів або стан справи.</p></details>
 						</aside>
 					</div>
 				</section>

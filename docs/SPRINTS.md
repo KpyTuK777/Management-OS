@@ -360,3 +360,26 @@ boundaries and [Project Health](PROJECT_HEALTH.md) for the aggregate readiness v
 - The page-memory contribution review uses a fixed proposed classification and
   demonstrates owner approval boundaries. It does not create authoritative
   Evidence, change Matter state, mutate source records, or learn from input.
+
+## Sprint 12
+
+### Completed
+
+- **Cognitive Cleanup Architecture:** Established a formal pre-v1.0 phase and gate
+  on significant new capability expansion
+- **Explanation Review:** Defined architectural explanation, receding onboarding
+  guidance, permanent interaction content, and risk-sensitive disclosure criteria
+- **Prototype Cleanup:** Collapsed the work map, shortened repeated authority and
+  capability explanations, moved normal-operation mechanics behind contextual
+  inspection, and retained situation, uncertainty, source, and owner-judgment
+  signals
+- **Validation Framework:** Added orientation, clarification, correction,
+  inspectability, missed-uncertainty, and decision-confidence exit criteria
+
+### Implementation status
+
+- Documentation and deterministic presentation cleanup only. No AI adaptation,
+  inferred expertise, durable onboarding state, production analytics, or hidden
+  personalization was implemented.
+- Reasoning transparency, approval boundaries, source inspection, Laboratory
+  separation, and degraded-operation requirements remain unchanged.

@@ -33,6 +33,21 @@ Superseded, link its successor, and preserve the history.
 
 ## ADR boundary
 
+### DL-025 — Enter Cognitive Cleanup before v1.0
+
+- **Status:** Accepted
+- **Date:** 2026-07-23
+- **Decision:** Make Cognitive Cleanup the next pre-v1.0 product phase and gate
+  significant new capability expansion. Retain permanently visible explanation
+  only when it affects current interpretation, risk, authority, consequence, or
+  action; move normal-operation mechanics to contextual inspection.
+- **Rationale:** The validated architecture now creates more owner effort through
+  self-explanation than through operational reasoning. Product maturity requires
+  architecture to become behavior rather than permanent instructional copy.
+- **Guardrail:** Cleanup cannot hide uncertainty, minority Evidence, provenance,
+  Watson-versus-owner authority, modeled status, reasoning history, correction,
+  or degraded operation.
+
 ### DL-024 — Adopt the Operational Situation Board mental model
 
 - **Status:** Accepted
