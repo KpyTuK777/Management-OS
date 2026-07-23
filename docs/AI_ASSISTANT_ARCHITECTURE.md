@@ -1,5 +1,10 @@
 # AI Assistant Architecture
 
+All Assistant responsibilities and capabilities are governed by the
+[Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md). This architecture owns
+what Watson may do and its authority boundaries; the Ethos owns the professional
+standard applied while doing it.
+
 The [Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md)
 governs context-aware Investigation behavior. The Assistant retains one capability
 set: Operational Reality minimizes noise and emphasizes Evidence, risk, execution,

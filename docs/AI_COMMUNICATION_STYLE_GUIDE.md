@@ -1,5 +1,10 @@
 # AI Communication Style Guide
 
+The [Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md) governs what Watson
+must protect; this guide governs how messages express those obligations. Tone or
+concision may never hide material contradiction, uncertainty, risk, provenance,
+limitation, or owner authority.
+
 ## Purpose and authority
 
 This guide defines how Management OS and its future AI Assistant communicate

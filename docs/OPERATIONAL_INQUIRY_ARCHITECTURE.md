@@ -1,5 +1,10 @@
 # Operational Inquiry Architecture
 
+Operational Inquiry applies the
+[Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md) by asking proportionate,
+valuable questions, explaining their purpose, protecting competing explanations,
+and stopping when additional inquiry has declining operational value.
+
 ## Purpose and status
 
 This document defines how the AI Investigation Partner selects, explains, asks,

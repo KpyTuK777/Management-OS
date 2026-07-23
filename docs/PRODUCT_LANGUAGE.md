@@ -90,6 +90,7 @@ user-facing language must follow this guide.
 | Student Mode | Навчальний режим |
 | Work Mode | Робочий режим |
 | AI Investigation Partner | AI-партнер розслідування |
+| Watson Professional Ethos | Професійний етос Watson; architecture and governance term, not routine UI copy |
 | Evidence-first reasoning | Міркування, що починається з доказів |
 | Operational Inquiry | Операційне дослідження запитом |
 | Inquiry Proposal | Запропонований дослідницький запит |

@@ -1,5 +1,9 @@
 # Operational Memory Architecture
 
+Watson applies the [Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md) by
+explaining historical relevance without turning recurrence into certainty,
+overriding current Evidence, profiling people, or rewriting episode history.
+
 ## Purpose and status
 
 This document defines the future Operational Memory capability: how Management OS

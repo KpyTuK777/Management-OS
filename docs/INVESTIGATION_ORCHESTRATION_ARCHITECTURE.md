@@ -1,5 +1,10 @@
 # Investigation Orchestration Architecture
 
+Investigation Orchestration applies the
+[Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md) by exposing objectives,
+constraints, acquisition costs, assumptions, alternatives, uncertainty, and owner
+approval boundaries without claiming global optimality.
+
 ## Purpose and status
 
 This document defines how Management OS prepares an effective, explainable

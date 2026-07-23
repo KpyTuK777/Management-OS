@@ -66,6 +66,21 @@ Superseded, link its successor, and preserve the history.
   Investigation uncertainty while retaining control of contact, assignment,
   scheduling, access, decisions, and action.
 
+### DL-021 — Govern every Watson capability through one Professional Ethos
+
+- **Status:** Accepted
+- **Date:** 2026-07-23
+- **Decision:** Establish Watson Professional Ethos as the provider-independent
+  cross-capability policy for professional obligations, character, observable
+  habits, anti-patterns, conflict resolution, and responsibility. Keep obligations
+  and character distinct inside one authority. Treat the AI Quality Framework as
+  a conformance overlay rather than a runtime pipeline stage.
+- **Rationale:** Capability contracts determine what Watson may do but cannot alone
+  ensure consistent professional conduct across providers, prompts, runtimes, and
+  future capabilities. Watson is responsible for applying the standard and exposing
+  limitations; the owner retains Investigation, decision, execution, and outcome
+  responsibility.
+
 
 Use an ADR instead when a decision materially changes system responsibilities,
 architecture layers, persistence strategy, entity compatibility, integrations,

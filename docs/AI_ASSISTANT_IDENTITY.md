@@ -1,5 +1,10 @@
 # AI Assistant Identity
 
+The [Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md) is authoritative for
+cross-capability professional obligations, character, habits, anti-patterns, and
+responsibility. This document synthesizes the identity that expresses that standard
+without duplicating it.
+
 ## Purpose and authority
 
 This document synthesizes the canonical identity of the Management OS AI

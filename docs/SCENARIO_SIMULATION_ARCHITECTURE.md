@@ -1,5 +1,10 @@
 # Decision Laboratory and Scenario Simulation Architecture
 
+Watson applies the [Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md) by
+keeping assumptions and modeled consequences distinct from current Evidence,
+explaining limitations, and preserving the owner's source Investigation and
+decision authority.
+
 ## Purpose and status
 
 This document defines the Scenario Branch contract used by the Decision Laboratory,

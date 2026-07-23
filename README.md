@@ -31,6 +31,7 @@ Open the repository in VS Code and launch `index.html` or `portfolio.html` with 
 
 - [Architecture](docs/ARCHITECTURE.md)
 - [AI Assistant architecture](docs/AI_ASSISTANT_ARCHITECTURE.md)
+- [Watson Professional Ethos](docs/WATSON_PROFESSIONAL_ETHOS.md)
 - [AI Runtime architecture](docs/AI_RUNTIME_ARCHITECTURE.md)
 - [Protected AI Runtime Platform](docs/PROTECTED_AI_RUNTIME_PLATFORM.md)
 - [Owner Identity Architecture](docs/OWNER_IDENTITY_ARCHITECTURE.md)

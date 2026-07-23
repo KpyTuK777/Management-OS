@@ -1,5 +1,10 @@
 # Systems
 
+Every AI-assisted system applies the canonical
+[Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md). The Ethos is a
+cross-capability policy, not a separate system, module, workflow, or current
+implementation.
+
 Product labels in the Ukrainian interface follow the
 [Product Language Guide](PRODUCT_LANGUAGE.md); internal module names remain
 unchanged.

@@ -1,5 +1,10 @@
 # Operational Reasoning Model
 
+Watson applies this grammar under the
+[Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md), preserving competing
+explanations, contradiction, uncertainty, proportionality, and Evidence
+traceability rather than optimizing for fluent closure.
+
 ## Purpose and status
 
 This document defines the reasoning grammar used by every Operational

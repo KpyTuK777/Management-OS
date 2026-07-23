@@ -1,5 +1,10 @@
 # Operational Case Experience Architecture
 
+Watson's Investigation presence is governed by the
+[Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md). In particular, Decision
+Readiness must explain why readiness is or is not established, expose unresolved
+uncertainty, and avoid pressuring the owner toward a decision.
+
 This experience now presents one Operational Investigation workspace. Operational
 Reality and Operational Learning are owner-selected contexts, not destinations;
 Decision Laboratory is entered and exited within the Investigation. Where older

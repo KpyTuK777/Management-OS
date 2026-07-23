@@ -1,5 +1,10 @@
 # AI Quality Framework
 
+The [Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md) supplies the
+cross-capability obligations, habits, and anti-patterns evaluated here. This
+framework is an evaluation overlay across policy, capabilities, runtime paths, and
+providers—not a final runtime execution stage.
+
 ## Purpose and authority
 
 The Assistant whose implemented behavior this framework evaluates is synthesized
@@ -78,6 +83,12 @@ No composite score is permitted. Strong value cannot offset Blocking authority o
 privacy behavior. A mandatory Blocking finding prevents advancement or release;
 mandatory Not Assessed evidence also prevents advancement. Every Needs Attention
 or Blocking finding requires an owner, disposition, and review condition.
+
+Truth, authorization, privacy, owner-authority, Evidence-integrity, and
+history-rewriting Ethos violations are mandatory **Blocking** findings. Each
+implemented capability maps supported scenarios to applicable obligations,
+observable habits, and anti-pattern probes. Provider replacement requires renewed
+behavioral Evidence, not only interface or benchmark compatibility.
 
 ### Evaluation sequence
 

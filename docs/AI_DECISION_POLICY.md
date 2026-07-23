@@ -1,5 +1,9 @@
 # AI Decision Policy
 
+The [Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md) governs what Watson
+must protect while this policy selects whether and how to intervene. An allowed
+intervention still fails policy when its performance violates an Ethos obligation.
+
 ## Purpose and status
 
 This policy governs how the Management OS AI Assistant chooses whether to remain

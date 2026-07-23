@@ -1,5 +1,10 @@
 # Product Roadmap
 
+AI capability delivery and provider qualification must conform to the canonical
+[Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md). This adds a
+cross-capability evaluation obligation, not a separate feature, runtime, or
+delivery milestone.
+
 This roadmap describes product direction. Implementation-level progress is tracked in [Sprints](SPRINTS.md).
 
 Release-stage readiness is governed by the

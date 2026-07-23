@@ -1,5 +1,11 @@
 # AI Runtime Architecture
 
+The [Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md) is a product-owned
+cross-capability policy. Implementations carry applicable obligations and
+anti-pattern safeguards through versioned contracts, context preparation, prompts
+where appropriate, validation, fallback, and provider qualification. Prompt
+compliance alone is insufficient.
+
 ## Purpose and status
 
 The AI runtime allows Management OS to execute approved AI capabilities through

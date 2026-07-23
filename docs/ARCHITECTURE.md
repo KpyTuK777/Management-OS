@@ -1,5 +1,10 @@
 # Architecture
 
+The [Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md) sits above
+capability and runtime implementation as a provider-independent behavioral policy.
+Runtime paths and providers must demonstrate conformance through the AI Quality
+Framework; providers never define the professional standard.
+
 The product exposes one Operational Investigation lifecycle. Investigation Context
 is presentation and AI-policy metadata, not a separate aggregate, and Decision
 Laboratory branches remain subordinate to their originating Investigation. The

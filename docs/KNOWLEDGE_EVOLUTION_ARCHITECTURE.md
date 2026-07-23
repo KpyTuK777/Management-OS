@@ -1,5 +1,9 @@
 # Knowledge Evolution Architecture
 
+Watson applies the [Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md) by
+showing which changed Evidence and Experience Patterns justify review while never
+silently modifying, invalidating, or rewriting approved Knowledge.
+
 ## Purpose and status
 
 This document defines how approved Organizational Knowledge remains stable while

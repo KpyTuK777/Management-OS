@@ -5,6 +5,11 @@ separately in [Sprint Tracker](SPRINTS.md).
 
 ## Unreleased
 
+- Established Watson Professional Ethos as the provider-independent cross-capability
+  policy for professional obligations, character, observable habits, anti-patterns,
+  conflict resolution, responsibility, runtime conformance, and AI quality
+  evaluation. No prompt, provider, runtime, interface, or AI behavior was implemented.
+
 - Established the Operational Organization Model and Investigation Orchestration as
   approved future supporting capabilities for Investigation-centered planning.
   Added governed Evidence Acquisition Profiles, explicit Evidence Need-to-action

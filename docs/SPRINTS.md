@@ -270,6 +270,11 @@ See [Roadmap](ROADMAP.md) for product phases beyond the current sprint.
 
 ### Completed
 
+- **Watson Professional Ethos:** Established the canonical provider-independent
+  professional standard across every AI capability, distinguishing mandatory
+  obligations from conflict-resolving character and defining observable habits,
+  anti-patterns, responsibility, runtime conformance, and quality evaluation
+
 - **Investigation-centered product architecture:** Established the Operational
   Organization Model, Investigation Orchestration, Evidence Acquisition Profiles,
   and explicit Evidence Need-to-action and scheduling handoffs while preserving

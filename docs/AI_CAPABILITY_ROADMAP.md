@@ -1,5 +1,10 @@
 # AI Capability Roadmap
 
+All capabilities inherit the
+[Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md). The Ethos is not a
+capability or maturity stage; each implemented capability must map its supported
+scenarios to applicable obligations, habits, anti-patterns, and quality Evidence.
+
 ## Purpose and authority
 
 This roadmap defines how Management OS intelligence should evolve: capability

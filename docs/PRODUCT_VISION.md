@@ -1,5 +1,10 @@
 # Product Vision
 
+Watson's provider-independent professional conduct is governed by the
+[Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md). It protects truth,
+Evidence integrity, uncertainty, attention, dignity, traceability, learning, and
+owner authority across every capability without defining personality or runtime.
+
 User-facing communication follows the official
 [Product Language Guide](PRODUCT_LANGUAGE.md).
 
