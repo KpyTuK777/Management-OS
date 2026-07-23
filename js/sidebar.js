@@ -1,129 +1,100 @@
 const Layout = (() => {
-
-	const sidebarLinks = [
-		{
-			label: "Поточний фокус",
-			href: "index.html",
-			pages: ["index.html", "portfolio.html"]
+	const modes = {
+		student: {
+			label: "Режим навчання",
+			links: [
+				["Головна", "index.html"],
+				["Порядок денний", "index.html#agenda"],
+				["Навчання", "knowledge-base.html"],
+				["Operational Gym", "index.html#gym"],
+				["Reality", "index.html#reality"],
+				["Знання", "knowledge-base.html"]
+			]
 		},
-		{
-			label: "Нотатки",
-			href: "notes.html",
-			pages: ["notes.html"]
-		},
-		{
-			label: "База знань",
-			href: "knowledge-base.html",
-			pages: ["knowledge-base.html"]
-		},
-		{
-			label: "SOP",
-			href: "sop.html",
-			pages: ["sop.html"]
-		},
-		{
-			label: "Виконання",
-			href: "sop-executions.html",
-			pages: ["sop-executions.html"]
-		},
-		{
-			label: "Огляди",
-			href: "review.html",
-			pages: ["review.html"]
-		},
-		{
-			label: "Інсайти",
-			href: "insights.html",
-			pages: ["insights.html"]
-		},
-		{
-			label: "Гіпотези",
-			href: "hypotheses.html",
-			pages: ["hypotheses.html"]
-		},
-		{
-			label: "Пропозиції",
-			href: "improvement-proposals.html",
-			pages: ["improvement-proposals.html"]
-		},
-		{
-			label: "Навички",
-			href: "#",
-			pages: []
-		},
-		{
-			label: "Налаштування",
-			href: "#",
-			pages: []
+		work: {
+			label: "Робочий режим",
+			links: [
+				["Головна", "index.html"],
+				["Порядок денний", "index.html#agenda"],
+				["Reality", "index.html#reality"],
+				["Operational Gym", "index.html#gym"],
+				["Знання", "knowledge-base.html"]
+			]
 		}
-	];
+	};
 
-	function getCurrentPage() {
-
-		return window.location.pathname.split("/").pop() || "index.html";
-
+	function getCurrentMode() {
+		return window.sessionStorage.getItem("managementOsPrototypeMode") || "student";
 	}
 
-	function createSidebarLink(link, currentPage) {
+	function isCurrent(href) {
+		const page = window.location.pathname.split("/").pop() || "index.html";
+		const [targetPage, targetHash] = href.split("#");
+		if (targetPage !== page) return false;
+		if (targetHash) return window.location.hash === `#${targetHash}`;
+		return !window.location.hash;
+	}
 
+	function createLink([label, href]) {
 		const anchor = document.createElement("a");
-		const isActive = link.pages.includes(currentPage);
-
-		anchor.href = link.href;
-		anchor.textContent = link.label;
-
-		if (isActive) {
-
+		anchor.href = href;
+		anchor.textContent = label;
+		if (isCurrent(href)) {
 			anchor.classList.add("active");
 			anchor.setAttribute("aria-current", "page");
-
 		}
-
 		return anchor;
-
 	}
 
 	function renderSidebar() {
-
 		const mountPoint = document.getElementById("sidebar");
-
 		if (!mountPoint) return;
 
+		const currentMode = getCurrentMode();
+		const mode = modes[currentMode];
 		const logo = document.createElement("div");
 		const title = document.createElement("h1");
-		const mode = document.createElement("span");
+		const descriptor = document.createElement("span");
+		const modeLabel = document.createElement("label");
+		const modeSelect = document.createElement("select");
 		const navigation = document.createElement("nav");
-		const currentPage = getCurrentPage();
+		const priorities = document.createElement("p");
 
 		logo.className = "sidebar__logo";
-		navigation.className = "sidebar__nav";
+		modeLabel.className = "sidebar__mode";
+		modeSelect.id = "operatingMode";
+		modeLabel.htmlFor = modeSelect.id;
+		priorities.className = "sidebar__priority-note";
 		title.textContent = "Management OS";
-		mode.textContent = "Навчальний режим";
+		descriptor.textContent = "Операційні розслідування";
+		modeLabel.textContent = "Поточний акцент";
+		priorities.textContent = "Навігація змінює пріоритети, а не доступність можливостей.";
 
-		logo.appendChild(title);
-		logo.appendChild(mode);
-
-		sidebarLinks.forEach(link => {
-
-			navigation.appendChild(createSidebarLink(link, currentPage));
-
+		Object.entries(modes).forEach(([value, definition]) => {
+			const option = document.createElement("option");
+			option.value = value;
+			option.textContent = definition.label;
+			option.selected = value === currentMode;
+			modeSelect.appendChild(option);
 		});
 
-		mountPoint.replaceChildren(logo, navigation);
+		modeSelect.addEventListener("change", () => {
+			window.sessionStorage.setItem("managementOsPrototypeMode", modeSelect.value);
+			renderSidebar();
+		});
 
+		logo.append(title, descriptor);
+		modeLabel.appendChild(modeSelect);
+		mode.links.forEach(link => navigation.appendChild(createLink(link)));
+		mountPoint.replaceChildren(logo, modeLabel, navigation, priorities);
 	}
 
 	function init() {
-
 		renderSidebar();
-
+		window.addEventListener("hashchange", renderSidebar);
 	}
 
-	return {
-		init,
-		renderSidebar
-	};
-
+	return { init, renderSidebar };
 })();
 
 Layout.init();

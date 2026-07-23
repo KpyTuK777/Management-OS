@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Management OS</title>
+		<title>Management OS — Операційні розслідування</title>
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 
@@ -12,112 +12,147 @@
 		<div class="app">
 			<aside class="sidebar" id="sidebar"></aside>
 
-			<main class="workspace ai-home">
-				<header class="page-header ai-home__intro">
-					<div>
-						<span class="ai-home__eyebrow">Головна</span>
-						<h1>З чого почнемо?</h1>
-						<p>Опишіть намір своїми словами та перевірте текст перед наступним кроком.</p>
+			<main class="workspace investigation-prototype">
+				<section class="investigation-home" id="investigationHome" aria-labelledby="homeTitle">
+					<header class="investigation-hero">
+						<span class="prototype-label">Архітектурний прототип · без AI та збереження</span>
+						<h1 id="homeTitle">Що відбувається?</h1>
+						<p>Опишіть симптом своїми словами. Management OS підготує операційне розслідування — без вимоги назвати проблему чи вибрати модуль.</p>
+					</header>
+
+					<form class="investigation-intake" id="investigationIntake">
+						<label for="investigationInput">Повідомте, що ви помітили</label>
+						<textarea id="investigationInput" rows="4" placeholder="Наприклад: Наші продажі почали знижуватися." required></textarea>
+						<div class="investigation-intake__footer">
+							<p>Ваші слова залишаться повідомленим симптомом, а не автоматичним діагнозом.</p>
+							<button class="btn-primary" type="submit">Підготувати розслідування</button>
+						</div>
+					</form>
+
+					<div class="home-priorities" id="agenda">
+						<article>
+							<span>Сьогодні</span>
+							<strong>Один важливий крок</strong>
+							<p>Почніть із того, що потребує розуміння або рішення.</p>
+						</article>
+						<article>
+							<span>Ваша роль</span>
+							<strong>Операційне судження залишається за вами</strong>
+							<p>AI готує контекст і варіанти, але не робить висновок чи дію замість власника.</p>
+						</article>
 					</div>
-				</header>
+				</section>
 
-				<div class="ai-home__flow">
-					<section class="natural-capture" id="naturalCapture" aria-labelledby="naturalCaptureTitle">
-						<div class="natural-capture__header">
-							<div>
-								<span class="ai-home__eyebrow">Тимчасове введення</span>
-								<h2 id="naturalCaptureTitle">Висловіть намір</h2>
-							</div>
-							<span class="natural-capture__availability" id="naturalCaptureState">Не збережено</span>
-						</div>
-
-						<label for="naturalCaptureInput">Що ви хочете зробити, зберегти або зрозуміти?</label>
-						<textarea id="naturalCaptureInput" rows="5" placeholder="Наприклад: Мені потрібно зателефонувати постачальнику завтра" aria-describedby="naturalCaptureGuidance naturalCaptureStatus"></textarea>
-						<div class="natural-capture__footer">
-							<p id="naturalCaptureGuidance">Введіть текст своїми словами. Management OS не аналізує його і не зберігає постійно.</p>
-							<button class="btn-primary" id="naturalCaptureReviewButton" type="button" disabled>Переглянути введене</button>
-						</div>
-						<p class="natural-capture__status" id="naturalCaptureStatus">Текст існує лише на цій сторінці. Якщо залишити або оновити її, введене може бути втрачено.</p>
-					</section>
-
-					<section class="capture-review hidden" id="naturalCaptureReview" aria-labelledby="assistantResponseTitle" tabindex="-1">
+				<section class="investigation-workspace hidden" id="investigationWorkspace" aria-labelledby="caseTitle">
+					<header class="case-header" id="reality">
 						<div>
-							<span class="ai-home__eyebrow">Тимчасове введення</span>
-							<h2 id="assistantResponseTitle">Перевірте свій текст</h2>
-						</div>
-						<p class="capture-review__text" id="naturalCaptureReviewText"></p>
-						<p class="capture-review__status">Текст не інтерпретовано і не збережено постійно. Він буде втрачений, якщо залишити або оновити цю сторінку.</p>
-						<div class="capture-review__actions">
-							<button class="btn-secondary" id="naturalCaptureEditButton" type="button">Продовжити редагування</button>
-							<button class="btn-danger" id="naturalCaptureDiscardButton" type="button">Відкинути введене</button>
-						</div>
-					</section>
-					<p class="sr-only" id="naturalCaptureAnnouncement" aria-live="polite" aria-atomic="true"></p>
-
-					<section class="active-work" aria-labelledby="activeWorkTitle">
-						<div class="active-work__header">
-							<div>
-								<span class="ai-home__eyebrow">Продовжити роботу</span>
-								<h2 id="activeWorkTitle">Активні виконання</h2>
+							<div class="case-header__meta">
+								<span class="environment-badge environment-badge--reality">Reality</span>
+								<span>INV-0247</span>
+								<span>Нове розслідування</span>
 							</div>
-							<a href="sop-executions.html">Усі виконання</a>
+							<h1 id="caseTitle">Дослідження повідомленої операційної зміни</h1>
+							<p>Робоча назва — не підтверджена причина. Її можна уточнити після появи достатніх доказів.</p>
 						</div>
-						<div class="active-work__list" id="activeWorkList"></div>
-						<p class="active-work__empty" id="activeWorkEmpty">Активних виконань немає. Нове виконання можна розпочати в розділі SOP.</p>
+						<button class="btn-secondary" id="newInvestigationButton" type="button">Нове повідомлення</button>
+					</header>
+
+					<section class="reported-symptom" aria-labelledby="reportedSymptomTitle">
+						<div>
+							<span>Вхідний сигнал</span>
+							<h2 id="reportedSymptomTitle">Повідомлений симптом</h2>
+						</div>
+						<blockquote id="reportedSymptomText"></blockquote>
+						<p>Ще не підтверджено як виміряне відхилення або встановлена проблема.</p>
 					</section>
 
-					<details class="dashboard-additional legacy-prototype-reference">
-						<summary>
-							<span>
-								<strong>Архів ранніх прототипів</strong>
-								<small>Неопераційні концепти без окремого реалізованого робочого простору</small>
-							</span>
-						</summary>
+					<nav class="case-stage-nav" aria-label="Етапи операційного мислення">
+						<button class="case-stage is-active" type="button" data-view="understanding">1. Розуміння</button>
+						<button class="case-stage" type="button" data-view="evidence">2. Докази</button>
+						<button class="case-stage" type="button" data-view="decision">3. Рішення</button>
+						<button class="case-stage" type="button" data-view="outcome">4. Результат і навчання</button>
+					</nav>
 
-						<div class="dashboard-additional__content">
-							<section class="dashboard-prototype operations">
-								<header class="dashboard-context-card__header"><h3>Операційний центр</h3><span>Моя панель управління сьогодні</span></header>
-								<div class="operations-grid">
-									<div class="operation-card"><h4>Головна ціль дня</h4><p>Прототип 0.1 + закласти фундамент системи.</p></div>
-									<div class="operation-card"><h4>Три головні завдання</h4><ul><li>Завершити головний екран</li><li>Почати базу знань</li><li>Стабілізувати роботу з GitHub</li></ul></div>
-									<div class="operation-card"><h4>Ризики</h4><ul><li>Не застрягати на дрібницях.</li><li>Менше часу на дизайн.</li></ul></div>
-									<div class="operation-card"><h4>Фокус уваги</h4><p>Бути операційним менеджером. Код — лише інструмент.</p></div>
+					<div class="case-layout">
+						<div class="case-main">
+							<section class="case-view is-active" data-case-view="understanding">
+								<div class="orientation-grid">
+									<article><span>Відомо</span><strong>Зафіксовано повідомлений симптом</strong><p>Початкове формулювання власника збережено без інтерпретації.</p></article>
+									<article><span>Потрібно з’ясувати</span><strong>Масштаб, період і базову лінію</strong><p>Даних ще недостатньо, щоб підтвердити відхилення.</p></article>
+									<article><span>Припущення</span><strong>Причина ще не визначена</strong><p>Жодна гіпотеза не прийнята як факт.</p></article>
+									<article><span>Наступне судження</span><strong>Які дані дадуть базове порівняння?</strong><p>Власник вирішує, які джерела дозволено використати.</p></article>
+								</div>
+
+								<section class="hypothesis-board">
+									<div class="section-heading"><div><span>Операційне розуміння</span><h2>Пояснення ще відкриті</h2></div><span class="uncertainty-chip">Висока невизначеність</span></div>
+									<p>Спочатку підтвердьте, що зміна існує. Потім порівняйте можливі пояснення, не перетворюючи кореляцію на причину.</p>
+								</section>
+							</section>
+
+							<section class="case-view" data-case-view="evidence" id="evidence">
+								<div class="section-heading"><div><span>Дошка доказів</span><h2>Матеріали розслідування</h2></div><button class="btn-secondary" type="button" id="requestEvidenceButton">Запросити доказ</button></div>
+								<p class="section-intro">Категорії допомагають шукати матеріал. Вони не визначають його достовірність чи вагу.</p>
+								<div class="evidence-filters" role="group" aria-label="Категорії доказів">
+									<button class="evidence-filter is-active" type="button" data-evidence-filter="all">Усі</button>
+									<button class="evidence-filter" type="button" data-evidence-filter="financial">Фінансові</button>
+									<button class="evidence-filter" type="button" data-evidence-filter="operational">Операційні</button>
+									<button class="evidence-filter" type="button" data-evidence-filter="human">Людські</button>
+									<button class="evidence-filter" type="button" data-evidence-filter="structural">Структурні</button>
+									<button class="evidence-filter" type="button" data-evidence-filter="historical">Історичні</button>
+									<button class="evidence-filter" type="button" data-evidence-filter="system">Системні</button>
+								</div>
+								<div class="evidence-board" id="evidenceBoard">
+									<article class="evidence-card" data-evidence-category="financial"><span class="evidence-card__state">Запитано</span><h3>P&amp;L за 12 місяців</h3><p>Фінансові · Джерело</p><small>Потрібно для перевірки тренду та сезонності.</small></article>
+									<article class="evidence-card" data-evidence-category="operational system"><span class="evidence-card__state evidence-card__state--missing">Відсутнє</span><h3>CRM-зріз за сегментами</h3><p>Операційні · Системні</p><small>Потрібно визначити, де саме виникла зміна.</small></article>
+									<article class="evidence-card" data-evidence-category="structural"><span class="evidence-card__state evidence-card__state--review">Потребує порівняння</span><h3>Структура команди продажів</h3><p>Структурні · Джерело</p><small>Формальна схема не доводить фактичні повноваження та взаємодію.</small></article>
+									<article class="evidence-card" data-evidence-category="human"><span class="evidence-card__state">Запропоновано</span><h3>Інтерв’ю з керівниками сегментів</h3><p>Людські · Свідчення</p><small>Потрібно зіставити твердження з операційними даними.</small></article>
+									<article class="evidence-card" data-evidence-category="historical"><span class="evidence-card__state evidence-card__state--context">Контекст</span><h3>INV-0182 · Падіння поновлень</h3><p>Історичні · Попередній кейс</p><small>Схожий сегмент, але інший ринок і зміна ціни. Причина не переноситься.</small></article>
 								</div>
 							</section>
 
-							<section class="dashboard-prototype global-search">
-								<header class="dashboard-context-card__header"><h3>Глобальний пошук</h3><span>Швидкий пошук у всій системі</span></header>
-								<div class="search-box"><input type="text" placeholder="Пошук проєктів, SOP, знань, завдань..." disabled><button class="btn" type="button" disabled>Пошук</button></div>
+							<section class="case-view" data-case-view="decision">
+								<div class="section-heading"><div><span>Рішення власника</span><h2>Ще не готове до прийняття</h2></div><span class="uncertainty-chip">Бракує базових доказів</span></div>
+								<div class="decision-readiness">
+									<p><strong>AI може підготувати:</strong> альтернативи, припущення, ризики, критерії успіху та захисні обмеження.</p>
+									<p><strong>Власник вирішує:</strong> чи достатньо доказів, яку дію обрати та який ризик прийняти.</p>
+									<button class="btn-secondary" id="openSimulationButton" type="button">Відкрити альтернативну гілку</button>
+								</div>
+								<section class="scenario-branch hidden" id="scenarioBranch">
+									<div class="section-heading"><div><span class="environment-badge environment-badge--simulation">Simulation</span><h3>Сценарна гілка A</h3></div><button class="text-button" id="closeSimulationButton" type="button">Повернутися до Reality</button></div>
+									<p><strong>Умова:</strong> якщо спад підтвердиться лише в enterprise-сегменті та потужність команди не зміниться.</p>
+									<p><strong>Модельований наслідок:</strong> можливе подальше навантаження на поновлення. Це не прогноз і не спостережений результат.</p>
+									<p><strong>Перевірити:</strong> другорядний вплив на підтримку, час відповіді та утримання інших сегментів.</p>
+								</section>
 							</section>
 
-							<section class="dashboard-prototype memory">
-								<header class="dashboard-context-card__header"><h3>Робоча пам'ять</h3><span>Те, про що потрібно пам'ятати зараз</span></header>
-								<div class="memory-list"><div class="memory-item">Прототип Management OS 0.1</div><div class="memory-item">План розвитку Frontend</div><div class="memory-item">Кар’єра в AI</div><div class="memory-item">Англійська B2</div></div>
+							<section class="case-view" data-case-view="outcome">
+								<div class="empty-outcome"><span>Результат ще не спостерігався</span><h2>Навчання починається після перевірки дії</h2><p>Активність не дорівнює успіху. Порівняйте очікуваний і спостережений ефект, перш ніж пропонувати знання або стандартну практику.</p></div>
 							</section>
-
 						</div>
-					</details>
-				</div>
+
+						<aside class="ai-partner" aria-labelledby="aiPartnerTitle">
+							<div class="ai-partner__header"><span class="ai-avatar">AI</span><div><span>Партнер розслідування</span><h2 id="aiPartnerTitle">Підготовка наступного кроку</h2></div></div>
+							<div class="ai-observation"><span>Чого бракує</span><p>Періоду порівняння, визначення показника продажів і сегментованого CRM-зрізу.</p></div>
+							<div class="ai-observation"><span>Суперечність</span><p>Поки немає даних, що відрізняють загальний спад від зміни в одному сегменті.</p></div>
+							<div class="ai-observation"><span>Схожа справа</span><p>INV-0182 схожа за сегментом, але відрізняється ринком і зміною ціни. Її причина не переноситься.</p></div>
+							<div class="ai-next-step"><span>Запропонований крок</span><strong>Уточнити період і дозволити CRM-зріз за сегментами.</strong><button class="btn-primary" type="button" id="reviewStepButton">Переглянути запит</button></div>
+							<p class="authority-note">AI готує. Ви вирішуєте, що прийняти, змінити або відхилити.</p>
+						</aside>
+					</div>
+				</section>
+
+				<section class="gym-preview" id="gym" aria-labelledby="gymTitle">
+					<span class="environment-badge environment-badge--gym">Operational Gym</span>
+					<h2 id="gymTitle">Те саме мислення. Без реальних наслідків.</h2>
+					<p>Навчальні розслідування використовують ті самі етапи, докази, гіпотези, рішення та огляд. Відрізняються джерело справи, модель наслідків і навчальна мета.</p>
+					<button class="btn-secondary" type="button" id="gymDemoButton">Показати навчальну справу</button>
+				</section>
 			</main>
 		</div>
 
-		<dialog class="capture-discard-dialog" id="naturalCaptureDiscardDialog" aria-labelledby="naturalCaptureDiscardTitle" aria-describedby="naturalCaptureDiscardDescription">
-			<div class="capture-discard-dialog__content">
-				<h2 id="naturalCaptureDiscardTitle">Відкинути тимчасове введення?</h2>
-				<p id="naturalCaptureDiscardDescription">Введений текст буде видалено без можливості відновлення.</p>
-				<div class="capture-discard-dialog__actions">
-					<button class="btn-secondary" id="naturalCaptureKeepButton" type="button">Залишити введене</button>
-					<button class="btn-danger" id="naturalCaptureConfirmDiscardButton" type="button">Відкинути введене</button>
-				</div>
-			</div>
-		</dialog>
-
+		<p class="sr-only" id="prototypeAnnouncement" aria-live="polite" aria-atomic="true"></p>
 		<script src="js/sidebar.js"></script>
-		<script src="js/render-utils.js"></script>
-		<script src="js/storage-utils.js"></script>
-		<script src="js/storage.js"></script>
 		<script src="js/natural-capture.js"></script>
-		<script src="js/app.js"></script>
 	</body>
 
 </html>
