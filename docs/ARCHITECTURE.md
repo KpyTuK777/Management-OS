@@ -440,6 +440,13 @@ silent model training, duplicated source authority, current-Evidence override, o
 present implementation. See the
 [Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md).
 
+Future Organizational Knowledge evolution uses stable Knowledge identities,
+immutable semantic versions, and separate Knowledge Review Candidates. Historical
+Cases retain decision-time version links, and dependent domains are identified but
+never mutated automatically. This is approved future architecture only; the
+implemented Knowledge Base remains unversioned. See the
+[Knowledge Evolution Architecture](KNOWLEDGE_EVOLUTION_ARCHITECTURE.md).
+
 The layers are complementary rather than interchangeable. Management knowledge
 offers general principles; organizational knowledge grounds them in actual
 practice; personal operational knowledge shapes how guidance is made useful to the

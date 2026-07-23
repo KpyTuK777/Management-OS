@@ -104,16 +104,18 @@ Evolve the approved Case direction in governed stages:
 4. validate Operational Timeline and owner-accepted Inflection Point findings;
 5. establish Operational Memory governance and validate owner-reviewed Experience
    Patterns before cross-Case automation;
-6. complete the Reality Case outcome and verification loop;
-7. validate the Case-centered operational investigation experience, progressive
+6. establish versioned Organizational Knowledge and owner-governed Knowledge Review
+   Candidates before automated review signals;
+7. complete the Reality Case outcome and verification loop;
+8. validate the Case-centered operational investigation experience, progressive
    naming, Evidence orientation, and cross-record return paths;
-8. add isolated Operational Gym Cases and Training History;
-9. add qualitative Scenario Branches from immutable Case baselines;
-10. introduce governed quantitative simulation only where intended use,
+9. add isolated Operational Gym Cases and Training History;
+10. add qualitative Scenario Branches from immutable Case baselines;
+11. introduce governed quantitative simulation only where intended use,
    validation, uncertainty, sensitivity, limits, and expiry are supportable;
-11. define a separate Owner Learning Record architecture before durable competence
+12. define a separate Owner Learning Record architecture before durable competence
    development or assessment;
-12. consolidate information architecture only after truth separation and direct
+13. consolidate information architecture only after truth separation and direct
    domain access are validated.
 
 Scenario Simulation remains distinct from later Predictive Operational Insights.
@@ -122,6 +124,8 @@ forecasting. See the [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.m
 [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md), and
 [Scenario Simulation Architecture](SCENARIO_SIMULATION_ARCHITECTURE.md). Cross-Case
 experience follows the [Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md).
+Knowledge review and semantic versioning follow the
+[Knowledge Evolution Architecture](KNOWLEDGE_EVOLUTION_ARCHITECTURE.md).
 The end-to-end presentation and continuity criteria are governed by the
 [Operational Case Experience Architecture](OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md).
 

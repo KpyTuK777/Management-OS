@@ -53,6 +53,10 @@ user-facing language must follow this guide.
 | Experience Pattern | Патерн операційного досвіду |
 | Pattern Candidate | Кандидат патерну |
 | Applicability Envelope | Межі застосовності |
+| Knowledge Review Candidate | Кандидат перегляду знання |
+| Knowledge Version | Версія знання |
+| Challenge Open | Відкритий виклик знанню |
+| Superseded | Замінено новою версією |
 | Ordinary Event | Звичайна подія |
 | Case Intent | Мета операційного кейсу |
 | Current Condition | Поточний стан |

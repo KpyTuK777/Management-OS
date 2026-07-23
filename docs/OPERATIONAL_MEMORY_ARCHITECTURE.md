@@ -176,6 +176,12 @@ history.
 - Knowledge and SOP lifecycles remain authoritative for reusable understanding and
   procedure. Operational Memory cannot silently promote either.
 
+Operational Memory may identify material tension between accepted Experience
+Patterns or Episodes and an approved Knowledge version, consolidate the authorized
+sources, and prepare a Knowledge Review Candidate. It cannot change the Knowledge
+version or its authority. The [Knowledge Evolution Architecture](KNOWLEDGE_EVOLUTION_ARCHITECTURE.md)
+owns review, challenge, semantic versioning, and approval.
+
 Operational Memory should emerge within Investigations through similar episodes,
 relevant patterns, recurring Inflection Points, prior interventions, and contextual
 warnings. A future secondary governance view may support inspection, correction,

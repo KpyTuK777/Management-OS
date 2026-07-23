@@ -18,6 +18,9 @@ separately in [Sprint Tracker](SPRINTS.md).
 - Established Operational Memory as the approved future cross-Case capability and
   Experience Pattern as its owner-reviewed synthesis. Current Evidence retains
   precedence; the change adds no runtime, storage, AI learning, or interface.
+- Established the approved future Organizational Knowledge lifecycle with immutable
+  semantic versions, separate Knowledge Review Candidates, non-invalidating
+  challenge conditions, and explicit owner approval for every material change.
 
 ### Foundation 2.0
 

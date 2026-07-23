@@ -91,6 +91,12 @@ Experience Patterns preserve what repeatedly occurred across comparable episodes
 Neither becomes current-Case Evidence or authority to act. The canonical boundary
 is defined in the [Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md).
 
+Approved Organizational Knowledge is stable but not frozen. Material new Evidence,
+experience, theory, or context may produce an explainable Knowledge Review
+Candidate; only owner review may confirm the current version or approve a new one.
+Historical versions remain available for decision-time explanation. See the
+[Knowledge Evolution Architecture](KNOWLEDGE_EVOLUTION_ARCHITECTURE.md).
+
 The intended outcome hierarchy is:
 
 ```text

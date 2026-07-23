@@ -1001,3 +1001,69 @@ migration, or navigation change is implemented by this decision.
 - [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md)
 - [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md)
 - [Personal Operational Model](PERSONAL_OPERATIONAL_MODEL.md)
+
+## DL-017 — Evolve Organizational Knowledge through owner-governed review
+
+- Date: 2026-07-23
+- Status: Accepted
+- Decision owner: Product Owner
+- Category: Strategic product and knowledge architecture
+- Affected documents: `KNOWLEDGE_EVOLUTION_ARCHITECTURE.md`, `OPERATIONAL_MEMORY_ARCHITECTURE.md`, `PRODUCT_VISION.md`, `AI_ASSISTANT_ARCHITECTURE.md`, `SYSTEMS.md`, `ARCHITECTURE.md`, `PRODUCT_LANGUAGE.md`, `OWNER_JOURNEY.md`, `DOCUMENTATION_MAP.md`, `ROADMAP.md`, `SPRINTS.md`
+- Supersedes: None; extends DL-016
+- Superseded by: None
+
+### Context
+
+Approved Organizational Knowledge must remain stable enough to support consistent
+work but cannot remain frozen as material Evidence, Investigations, Experience
+Patterns, theory, and operating conditions change. Editing approved Knowledge in
+place would destroy decision-time explanation, while autonomous living Knowledge
+would transfer organizational authority to automation.
+
+### Decision
+
+Organizational Knowledge uses stable identities and immutable approved semantic
+versions. Durable lifecycle states are Candidate, Under Review, Approved,
+Superseded, Archived, and Rejected. Review and challenge conditions remain
+orthogonal: an approved version with an open challenge remains authoritative until
+the owner decides otherwise. `Updated` is an event, not a state.
+
+Knowledge Review Candidate is a separate governed proposal identifying the exact
+version, review trigger, contributing and contradicting sources, applicability,
+materiality, uncertainty, and requested judgment. Operational Memory and AI may
+prepare or consolidate candidates but cannot modify, approve, invalidate,
+supersede, archive, or replace Knowledge. Material changes require owner approval
+and a new version; historical decisions retain their decision-time version links.
+
+### Rationale
+
+Versioned owner review preserves organizational stability, continuous learning,
+and historical explainability without conflating Experience Patterns with approved
+reusable understanding.
+
+### Alternatives considered
+
+- Keep approved Knowledge static — rejected because contradictions accumulate
+  without a governed correction path.
+- Edit approved entries in place — rejected because semantic history and prior
+  decision context would be lost.
+- Let Operational Memory update Knowledge automatically — rejected because
+  recurrence is not truth and automation owns no organizational authority.
+- Require repeated Experience Patterns for every review — rejected because one
+  authoritative material Investigation may justify review.
+
+### Consequences
+
+Future proposals must preserve semantic versions, review candidates, orthogonal
+challenge conditions, source provenance, applicability, dependency identification,
+and owner transitions. The implemented Knowledge Base remains unchanged and
+unversioned; no entity, persistence, migration, review signal, AI behavior, or
+interface is introduced.
+
+### References
+
+- [Knowledge Evolution Architecture](KNOWLEDGE_EVOLUTION_ARCHITECTURE.md)
+- [Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md)
+- [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md)
+- [Product Vision](PRODUCT_VISION.md)
+- [Systems](SYSTEMS.md)

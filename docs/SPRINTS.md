@@ -235,6 +235,9 @@ incomplete.
 - **Operational Memory Architecture:** Operational Memory is the canonical future
   capability; owner-reviewed Experience Patterns preserve recurring behavior across
   authoritative episodes without becoming current Evidence or a new top-level module
+- **Knowledge Evolution Architecture:** Approved Organizational Knowledge gains an
+  owner-governed lifecycle with immutable semantic versions, orthogonal challenge
+  conditions, and explainable Knowledge Review Candidates
 
 ### Implementation status
 
@@ -252,5 +255,8 @@ incomplete.
 - Operational Memory is documentation architecture only. No Experience Pattern
   entity, persistence, pattern detection, retrieval, model training, interface, or
   migration is implemented.
+- Knowledge evolution is documentation architecture only. The implemented Knowledge
+  Base remains unversioned; no review entity, signal service, migration, AI behavior,
+  or interface is implemented.
 
 See [Roadmap](ROADMAP.md) for product phases beyond the current sprint.

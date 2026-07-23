@@ -277,6 +277,12 @@ or clearer practice.
 accepted context and distinguishes proposal approval, application, completed
 change, and historical rationale.
 
+Future Knowledge evolution shows the exact approved version, material open
+challenges, the Evidence and Experience Patterns behind a Knowledge Review
+Candidate, and the owner's choices to confirm, revise, reject, supersede, or
+archive. An open challenge never silently invalidates the current version. See the
+[Knowledge Evolution Architecture](KNOWLEDGE_EVOLUTION_ARCHITECTURE.md).
+
 **AI responsibilities:** Preserve provenance, prepare without applying, explain
 affected records, avoid rewriting Evidence, route correctly, and confirm only
 validated change.

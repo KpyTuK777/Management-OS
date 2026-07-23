@@ -205,6 +205,14 @@ Current authorized Evidence and owner judgment retain precedence. The
 [Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md) owns the
 pattern and historical-relevance contract.
 
+When authorized experience materially challenges an approved Knowledge version,
+the Assistant may prepare or consolidate a Knowledge Review Candidate. It explains
+the exact proposition and scope, contributing and contradicting sources,
+measurement and context differences, circularity risk, materiality, uncertainty,
+and requested owner judgment. It cannot modify, approve, invalidate, supersede, or
+archive Knowledge. The [Knowledge Evolution Architecture](KNOWLEDGE_EVOLUTION_ARCHITECTURE.md)
+owns the lifecycle and version contract.
+
 The Assistant facilitates the Case process rather than optimizing artifact or Case
 completion. It preserves the intended outcome, distinguishes predicted from
 observed effect, exposes violated guardrails and unresolved uncertainty, and may
@@ -379,6 +387,7 @@ promotion.
 | Personal Operational Model | Preserve approved understanding of how the owner works and receives assistance | Owner | Durable only after explicit approval | Personalization cannot override organizational truth or governance |
 | Organizational Knowledge | Preserve how the organization operates in authoritative records | Existing domain owners | Durable under domain lifecycle rules | The Assistant may interpret but not silently rewrite it |
 | Operational Memory | Relate authoritative episodes and owner-reviewed Experience Patterns | Source owners and Operational Memory lifecycle | Derived patterns durable only after owner review | Historical experience never overrides current Evidence or silently becomes Knowledge |
+| Knowledge Review Candidate | Preserve an explainable proposal to review one approved Knowledge version | Knowledge workflow; prepared by owner or Assistant | Durable under the Knowledge review lifecycle | A candidate never changes the reviewed version or its authority |
 
 Session Memory ends with the interaction and carries no authority outside its
 bounded action. Working Memory may span exchanges while an active outcome remains

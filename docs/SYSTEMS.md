@@ -83,7 +83,8 @@ responsibilities.
 
 - **Purpose:** Preserve reusable organizational understanding as compounding operational capital for present and future decisions.
 - **Current status:** CRUD, categories, search, Notes provenance, and Knowledge → SOP conversion are implemented.
-- **Future responsibilities:** Keywords, richer relationships, quality review, and SOP recommendations.
+- **Future responsibilities:** Keywords, richer relationships, owner-governed semantic versions, Knowledge Review Candidates, challenge conditions, quality review, and SOP recommendations.
+- **Boundary:** Approved Knowledge may evolve only through its owning lifecycle. Operational Memory and AI may prepare review candidates but cannot modify, approve, invalidate, supersede, archive, or silently replace Knowledge. Current CRUD remains unversioned. See [Knowledge Evolution Architecture](KNOWLEDGE_EVOLUTION_ARCHITECTURE.md).
 
 ## Notes
 
