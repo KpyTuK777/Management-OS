@@ -21,6 +21,10 @@
 					</header>
 
 					<form class="investigation-intake" id="investigationIntake">
+						<label class="context-field" for="investigationContext">Контекст розслідування
+							<select id="investigationContext" name="investigation-context"><option value="learning">Операційне навчання</option><option value="reality">Операційна реальність</option></select>
+							<small>Режим задає типовий контекст. Власник може змінити його; життєвий цикл і можливості не змінюються.</small>
+						</label>
 						<label for="investigationInput">Повідомте, що ви помітили</label>
 						<textarea id="investigationInput" rows="4" placeholder="Наприклад: Наші продажі почали знижуватися." required></textarea>
 						<div class="investigation-intake__footer">
@@ -44,10 +48,10 @@
 				</section>
 
 				<section class="investigation-workspace hidden" id="investigationWorkspace" aria-labelledby="caseTitle">
-					<header class="case-header" id="reality">
+					<header class="case-header" id="investigations">
 						<div>
 							<div class="case-header__meta">
-								<span class="environment-badge environment-badge--reality">Reality</span>
+								<span class="environment-badge environment-badge--learning" id="investigationContextBadge">Операційне навчання</span>
 								<span>INV-0247</span>
 								<span>Нове розслідування</span>
 							</div>
@@ -145,7 +149,7 @@
 								<div class="decision-readiness">
 									<p><strong>AI може підготувати:</strong> альтернативи, припущення, ризики, критерії успіху та захисні обмеження.</p>
 									<p><strong>Власник вирішує:</strong> чи достатньо доказів, яку дію обрати та який ризик прийняти.</p>
-									<button class="btn-secondary" id="openSimulationButton" type="button">Відкрити альтернативну гілку</button>
+									<button class="btn-secondary" id="openSimulationButton" type="button">Відкрити Лабораторію рішень</button>
 									<button class="btn-primary hidden" id="approveDecisionButton" type="button">Прийняти рішення власника</button>
 								</div>
 								<section class="execution-plan hidden" id="executionPlan">
@@ -154,7 +158,7 @@
 									<button class="btn-primary" id="approvePlanButton" type="button">Схвалити план і запланувати перевірку</button>
 								</section>
 								<section class="scenario-branch hidden" id="scenarioBranch">
-									<div class="section-heading"><div><span class="environment-badge environment-badge--simulation">Simulation</span><h3>Сценарна гілка A</h3></div><button class="text-button" id="closeSimulationButton" type="button">Повернутися до Reality</button></div>
+									<div class="section-heading"><div><span class="environment-badge environment-badge--laboratory">Лабораторія рішень</span><h3>Експериментальна гілка A</h3></div><button class="text-button" id="closeSimulationButton" type="button">Повернутися до вихідного розслідування</button></div>
 									<p><strong>Умова:</strong> якщо спад підтвердиться лише в enterprise-сегменті та потужність команди не зміниться.</p>
 									<p><strong>Модельований наслідок:</strong> можливе подальше навантаження на поновлення. Це не прогноз і не спостережений результат.</p>
 									<p><strong>Перевірити:</strong> другорядний вплив на підтримку, час відповіді та утримання інших сегментів.</p>
@@ -202,12 +206,6 @@
 					</div>
 				</section>
 
-				<section class="gym-preview" id="gym" aria-labelledby="gymTitle">
-					<span class="environment-badge environment-badge--gym">Operational Gym</span>
-					<h2 id="gymTitle">Те саме мислення. Без реальних наслідків.</h2>
-					<p>Навчальні розслідування використовують ті самі етапи, докази, гіпотези, рішення та огляд. Відрізняються джерело справи, модель наслідків і навчальна мета.</p>
-					<button class="btn-secondary" type="button" id="gymDemoButton">Показати навчальну справу</button>
-				</section>
 			</main>
 		</div>
 

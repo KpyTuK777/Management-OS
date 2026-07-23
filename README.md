@@ -47,6 +47,7 @@ Open the repository in VS Code and launch `index.html` or `portfolio.html` with 
 - [Operational Reasoning Model](docs/OPERATIONAL_REASONING_MODEL.md)
 - [Case Evidence architecture](docs/CASE_EVIDENCE_ARCHITECTURE.md)
 - [Scenario Simulation architecture](docs/SCENARIO_SIMULATION_ARCHITECTURE.md)
+- [Unified Operational Investigation architecture](docs/UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md)
 - [Operational Case experience architecture](docs/OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md)
 - [Operational Memory architecture](docs/OPERATIONAL_MEMORY_ARCHITECTURE.md)
 - [Operational Inquiry architecture](docs/OPERATIONAL_INQUIRY_ARCHITECTURE.md)

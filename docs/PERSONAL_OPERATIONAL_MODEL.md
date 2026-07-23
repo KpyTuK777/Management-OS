@@ -61,7 +61,7 @@ performance, or problem-solving quality. Repeated Case interaction may support a
 explicit coaching-format or explanation preference recommendation, never a durable
 performance profile.
 
-Operational Gym performance, training scores, Scenario History, and modeled
+Operational Learning performance, training scores, Decision Laboratory history, and modeled
 outcomes also remain outside this model. Gym may create Training History and
 Simulation may create Scenario History, but a future Owner Learning Record or
 Operational Capability Development Model must govern durable capability

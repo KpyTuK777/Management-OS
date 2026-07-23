@@ -33,6 +33,24 @@ Superseded, link its successor, and preserve the history.
 
 ## ADR boundary
 
+### DL-019 — Unify Operational Investigation contexts
+
+- **Status:** Accepted
+- **Date:** 2026-07-23
+- **Decision:** Use one Operational Investigation lifecycle. Operational Reality
+  and Operational Learning are owner-controlled Investigation Context values that
+  adapt AI and workspace emphasis without changing capabilities or authority.
+  Replace Operational Gym as a destination with Operational Learning context and
+  place reversible Scenario Branch exploration inside each Investigation as the
+  Decision Laboratory.
+- **Rationale:** Real work and learning use the same evidence-first reasoning
+  process. Separate top-level environments duplicated structure and exposed product
+  implementation concepts instead of the owner's investigation mental model.
+- **Compatibility:** This refines earlier Reality/Gym/Simulation separation. Their
+  truth, consequence, provenance, and promotion safeguards remain mandatory at the
+  context and Laboratory-branch boundaries.
+
+
 Use an ADR instead when a decision materially changes system responsibilities,
 architecture layers, persistence strategy, entity compatibility, integrations,
 security or privacy architecture, runtime platform, data migration, or another

@@ -61,12 +61,14 @@ from a Case becomes durable only through explicit promotion into its owning
 Knowledge or SOP workflow. The canonical boundary is defined in
 [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
 
-Management OS evolves toward an **Operational Intelligence Platform**: one shared
-reasoning grammar across real operational work, isolated practice, and safe
-scenario exploration. Reality Cases, Operational Gym, and Scenario Simulation
-remain separate truth and consequence environments. Shared reasoning never makes
-training material or modeled output organizational Evidence. See the
-[Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md).
+Management OS evolves toward an **Operational Intelligence Platform** with one
+Operational Investigation lifecycle. Owner-selected Operational Reality and
+Operational Learning contexts adapt emphasis, not structure or capability.
+Reversible modeled exploration occurs inside an Investigation through the Decision
+Laboratory. Context and branch truth boundaries ensure that learning material and
+modeled output never become organizational Evidence. See the
+[Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md)
+and [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md).
 
 The owner experiences this direction as a calm operational investigation. The
 product begins from the owner's uncertainty, progressively reveals only useful

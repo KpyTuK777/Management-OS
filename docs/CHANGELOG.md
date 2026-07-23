@@ -5,6 +5,12 @@ separately in [Sprint Tracker](SPRINTS.md).
 
 ## Unreleased
 
+- Unified Operational Investigations across Operational Reality and Operational
+  Learning contexts, replaced separate Reality/Gym navigation with one Investigation
+  destination, and placed reversible scenario exploration inside each Investigation
+  as the Decision Laboratory. Student and Work Modes now provide overridable
+  creation defaults without changing lifecycle, capabilities, or owner authority.
+
 - Established Operational Inquiry as the approved future capability through which
   the AI Investigation Partner selects and explains one valuable next question
   without forcing Investigation direction or transferring owner authority.

@@ -1,5 +1,11 @@
 # Architecture
 
+The product exposes one Operational Investigation lifecycle. Investigation Context
+is presentation and AI-policy metadata, not a separate aggregate, and Decision
+Laboratory branches remain subordinate to their originating Investigation. The
+canonical product boundary is the
+[Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md).
+
 Architecture and source identifiers may remain in English, while user-facing copy
 follows the [Product Language Guide](PRODUCT_LANGUAGE.md).
 

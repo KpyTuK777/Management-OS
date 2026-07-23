@@ -190,7 +190,7 @@ an answer into verified Evidence without validation, or replace owner judgment.
 The capability follows each reasoning environment:
 
 - Reality seeks authorized operational Evidence with real consequences.
-- Operational Gym asks questions for learning without creating organizational
+- Operational Learning asks questions for learning without creating organizational
   Evidence or owner-performance truth.
 - Scenario Simulation clarifies assumptions, variables, sensitivity, and limits,
   not observed reality.

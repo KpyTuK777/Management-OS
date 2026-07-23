@@ -1,9 +1,9 @@
-# Scenario Simulation Architecture
+# Decision Laboratory and Scenario Simulation Architecture
 
 ## Purpose and status
 
-This document defines safe Scenario Simulation for exploring plausible future
-outcomes from a real Operational Case.
+This document defines the Scenario Branch contract used by the Decision Laboratory,
+an optional capability inside any Operational Investigation.
 
 | Property | Decision |
 | --- | --- |
@@ -11,7 +11,7 @@ outcomes from a real Operational Case.
 | Delivery milestone | Sprint 8 architecture; late post-v1 capability direction |
 | Accountable owner | Product Architect & AI Strategist |
 | Product approval | Product Owner |
-| Canonical concept | Scenario Branch |
+| Canonical concept | Decision Laboratory Scenario Branch |
 | Authority | Scenario baseline, assumptions, modeled outputs, validation, uncertainty, language, and promotion boundaries |
 | Primary audience | Product, architecture, design, engineering, data, AI, risk, and documentation collaborators |
 | Lifecycle | Updated when simulation scope, governance, or scenario semantics change |
@@ -23,11 +23,10 @@ predictive capability.
 ## Definition
 
 A **Scenario Branch** is an owner-invoked, bounded exploration of plausible
-conditional outcomes from an immutable decision-time baseline of a real
-Operational Case.
+conditional outcomes from an immutable Investigation baseline.
 
 ```text
-Real Operational Case
+Operational Investigation
   -> Decision-time baseline snapshot
       -> Scenario A
       -> Scenario B
@@ -37,10 +36,10 @@ Real Operational Case
 A Scenario Branch is not an editable clone of the Case, a prediction, a plan, an
 observed result, or authorization to act.
 
-The owner experiences it as opening an alternative investigation branch from the
-current real Case decision. The transition and return preserve the originating
-Case, baseline time, assumptions changed from Reality, modeled status, and the
-decision being explored; Simulation does not become a disconnected library.
+The owner enters it through the Decision Laboratory inside the current
+Investigation. The transition and return preserve the origin, baseline time,
+changed assumptions, modeled status, and decision being explored. It is not a
+destination or disconnected library and works in either Investigation Context.
 
 ## Required scenario contract
 

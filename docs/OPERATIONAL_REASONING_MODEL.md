@@ -2,8 +2,9 @@
 
 ## Purpose and status
 
-This document defines the shared reasoning grammar used by real Operational Cases,
-Operational Gym exercises, and Scenario Simulation in Management OS.
+This document defines the reasoning grammar used by every Operational
+Investigation. The Unified Operational Investigation Architecture governs its two
+contexts and the in-Investigation Decision Laboratory.
 
 | Property | Decision |
 | --- | --- |
@@ -65,13 +66,13 @@ owner to study it. Reality, Gym, and Simulation use familiar investigation
 perspectives while persistent environment identity prevents familiarity from
 collapsing their distinct truth and consequence contracts.
 
-## Environment contracts
+## Context and branch contracts
 
-| Environment | Primary object | Truth basis | Consequence | Learning destination |
+| Setting | Primary object | Truth basis | Consequence | Learning destination |
 | --- | --- | --- | --- | --- |
-| Reality | Operational Case | Authorized real Evidence and observed outcomes | Real operational action and consequence | Case learning; explicitly approved organizational Knowledge or practice |
-| Operational Gym | Gym Case | Fictional, historical, or curated exercise material | Training feedback only | Training History or a future Owner Learning Record; never organizational Evidence |
-| Simulation | Scenario Branch | Frozen real Case baseline plus explicit assumptions and model logic | Plausible conditional output; no direct operational consequence | Scenario History and decision context; observed Evidence only after real execution |
+| Operational Reality context | Operational Investigation | Authorized real Evidence and observed outcomes | Real operational action and consequence | Case learning; explicitly approved organizational Knowledge or practice |
+| Operational Learning context | Operational Investigation | Fictional, historical, or curated exercise material | Learning feedback only | Learning capture; never organizational Evidence without independent validation |
+| Decision Laboratory branch | Scenario Branch within its Investigation | Frozen origin baseline plus explicit assumptions and model logic | Plausible conditional output; no direct operational consequence | Branch history and decision context; observed Evidence only after real execution |
 
 These contracts share terminology and reasoning structure while preserving distinct
 truth, action, outcome, and promotion semantics. A Gym Case is not a real Case. A
@@ -81,9 +82,9 @@ observed outcome.
 ## Canonical principles
 
 1. Shared reasoning never means shared truth.
-2. Reality, Gym, and Simulation remain visibly and technically distinguishable.
+2. Investigation Context and Decision Laboratory branches remain visibly and technically distinguishable.
 3. Real Case Evidence follows the Case Evidence Architecture.
-4. Gym material never enters organizational Evidence or analytics.
+4. Learning material never enters organizational Evidence or operational analytics without independent validation.
 5. A Scenario Branch begins from an immutable decision-time baseline snapshot.
 6. Assumptions and scenario parameters are not Evidence.
 7. Simulated outputs are conditional modeled results, not observations or predictions.

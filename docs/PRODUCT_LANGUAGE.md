@@ -31,6 +31,10 @@ user-facing language must follow this guide.
 | Operational Stage | Операційний етап |
 | Workspace Emphasis | Акцент робочого простору |
 | Operational Case | Операційний кейс |
+| Investigation Context | Контекст розслідування |
+| Operational Reality | Операційна реальність |
+| Operational Learning | Операційне навчання |
+| Decision Laboratory | Лабораторія рішень |
 | Reality | Реальна операційна робота |
 | Operational Reasoning Model | Модель операційного мислення |
 | Case Evidence Set | Набір доказів кейсу |

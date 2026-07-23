@@ -89,10 +89,10 @@ and standardization decisions before any Case-centered navigation consolidation.
 
 The Case remains optional for routine work, owns no participating domain record,
 and promotes learning only through explicit Knowledge or SOP workflows.
-Operational Gym should reuse the shared reasoning grammar later through a distinct
-training contract. This is future direction under the
-[Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md), not a current
-implementation commitment.
+Operational Learning reuses the same Investigation lifecycle through a distinct
+context and truth contract. This is future direction under the
+[Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md),
+not a current implementation commitment.
 
 ### Future Operational Intelligence Platform
 
@@ -111,8 +111,8 @@ Evolve the approved Case direction in governed stages:
 8. complete the Reality Case outcome and verification loop;
 9. validate the Case-centered operational investigation experience, progressive
    naming, Evidence orientation, and cross-record return paths;
-10. add isolated Operational Gym Cases and Training History;
-11. add qualitative Scenario Branches from immutable Case baselines;
+10. add Operational Learning context and governed learning capture;
+11. add the Decision Laboratory with qualitative Scenario Branches from immutable Investigation baselines;
 12. introduce governed quantitative simulation only where intended use,
    validation, uncertainty, sensitivity, limits, and expiry are supportable;
 13. define a separate Owner Learning Record architecture before durable competence

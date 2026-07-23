@@ -1,5 +1,12 @@
 # AI Assistant Architecture
 
+The [Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md)
+governs context-aware Investigation behavior. The Assistant retains one capability
+set: Operational Reality minimizes noise and emphasizes Evidence, risk, execution,
+and Decision Readiness; Operational Learning increases explanation, coaching,
+reflection, alternatives, and learning capture. Context never changes authority or
+access, and the owner approves context changes and every consequential decision.
+
 ## Purpose and status
 
 The coherent character produced by this architecture is synthesized in

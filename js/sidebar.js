@@ -6,8 +6,7 @@ const Layout = (() => {
 				["Головна", "index.html"],
 				["Порядок денний", "index.html#agenda"],
 				["Навчання", "knowledge-base.html"],
-				["Operational Gym", "index.html#gym"],
-				["Reality", "index.html#reality"],
+				["Операційні розслідування", "index.html#investigations"],
 				["Знання", "knowledge-base.html"]
 			]
 		},
@@ -16,8 +15,7 @@ const Layout = (() => {
 			links: [
 				["Головна", "index.html"],
 				["Порядок денний", "index.html#agenda"],
-				["Reality", "index.html#reality"],
-				["Operational Gym", "index.html#gym"],
+				["Операційні розслідування", "index.html#investigations"],
 				["Знання", "knowledge-base.html"]
 			]
 		}
@@ -80,6 +78,7 @@ const Layout = (() => {
 
 		modeSelect.addEventListener("change", () => {
 			window.sessionStorage.setItem("managementOsPrototypeMode", modeSelect.value);
+			window.dispatchEvent(new CustomEvent("managementos:modechange", { detail: { mode: modeSelect.value } }));
 			renderSidebar();
 		});
 

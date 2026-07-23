@@ -215,7 +215,7 @@ Illustrative emphasis may include:
 
 | Operating Context | Possible emphasis, subject to owner approval and current state |
 | --- | --- |
-| Learning | Practice, Operational Gym, Reviews, and Knowledge |
+| Learning | Operational Learning Investigations, Reviews, and Knowledge |
 | Employment | Current Focus, Projects, Executions, and SOPs |
 | Business | Portfolio, operational cases, decisions, and performance |
 | Business at Scaling stage | Processes, delegation, constraints, Insights, and improvements |

@@ -39,6 +39,11 @@ incomplete.
 
 ### Completed
 
+- **Unified Operational Investigation Model:** Established one lifecycle for real
+  work and learning, owner-overridable Investigation Context defaults, context-aware
+  AI emphasis, unified navigation, and the in-Investigation Decision Laboratory;
+  aligned the exploratory prototype without backend or AI implementation
+
 - **Feature 01:** Create Project
 - **Feature 02:** Edit Project
 - **Feature 03:** Delete Project

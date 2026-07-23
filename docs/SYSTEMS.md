@@ -50,14 +50,15 @@ responsibilities.
 - **Current status:** Approved future architecture; no Case entity, persistence, interface, migration, or AI behavior is implemented.
 - **Future responsibilities:** Own Case intent, current and intended conditions, success and guardrail measures, iterative learning-and-change cycles, typed domain relationships, decision timeline, monitoring, outcome verification, closure disposition, and learning synthesis.
 - **Boundary:** A Case is not mandatory for routine work and does not own linked Facts, Reports, SOPs, Executions, Reviews, Recommendations, Knowledge, projects, or tasks. Home remains the primary workspace, and durable organizational learning requires explicit promotion. See [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
-- **Reasoning environment:** The Operational Case is the Reality contract within the shared [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md). Its governed Evidence Set follows the [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md).
+- **Unified experience:** The owner works through one Operational Investigation lifecycle. Investigation Context changes AI and presentation emphasis, never structure, capability, or authority. See [Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md).
+- **Reasoning contract:** Its governed Evidence Set and reasoning follow the [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md) and [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md).
 - **Experience boundary:** Symptom-first entry, progressive naming, investigation orientation, progressive disclosure, and cross-record continuity follow the [Operational Case Experience Architecture](OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md) without changing domain ownership or current implementation.
 - **Evidence explainability:** Future material decisions preserve qualitative Evidence Influence and an owner-reviewed Decision Evidence Summary under the [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md); no numerical influence score or document ranking is permitted.
 - **Timeline boundary:** Future Operational Timelines distinguish ordinary events from owner-accepted Operational Inflection Points. Points identify supported behavioral-change boundaries, not causal proof, and remain Case findings under the [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
 
-## Operational Gym
+## Operational Learning context (supersedes Operational Gym as a system)
 
-- **Purpose:** Develop operational judgment through fictional, historical, or curated Gym Cases using the shared reasoning grammar.
+- **Purpose:** Develop operational judgment through the same Operational Investigation lifecycle using fictional, historical, or curated material.
 - **Current status:** Approved architecture; not implemented.
 - **Boundary:** Gym material, outcomes, and assessment have no operational consequence and never become organizational Evidence. Durable capability development requires a future Owner Learning Record architecture.
 
@@ -75,11 +76,11 @@ responsibilities.
 - **Future responsibilities:** Classify Inquiry Objectives, compare candidate questions qualitatively, explain purpose, adapt to Investigation state, protect alternatives, and stop when further inquiry lacks material value.
 - **Boundary:** Operational Inquiry is not a module or Case stage. It cannot force Investigation direction, assume Cause, broaden access, contact people or systems, validate its own answer as Evidence, or replace owner judgment. See [Operational Inquiry Architecture](OPERATIONAL_INQUIRY_ARCHITECTURE.md).
 
-## Scenario Simulation
+## Decision Laboratory
 
-- **Purpose:** Explore plausible conditional outcomes from an immutable decision-time baseline of a real Operational Case.
+- **Purpose:** Fork the current Investigation to explore hypotheses, decisions, and plausible conditional outcomes from an immutable baseline.
 - **Current status:** Approved late post-v1 architecture; not implemented.
-- **Boundary:** Scenario assumptions and modeled outputs are not Evidence, predictions, observed outcomes, or authority to act. Simulation is governed by [Scenario Simulation Architecture](SCENARIO_SIMULATION_ARCHITECTURE.md).
+- **Boundary:** The Laboratory is an Investigation capability, not navigation or a system of record. Assumptions and modeled outputs are not Evidence, predictions, observed outcomes, or authority to act. Branch semantics are governed by [Scenario Simulation Architecture](SCENARIO_SIMULATION_ARCHITECTURE.md).
 
 ## Portfolio
 

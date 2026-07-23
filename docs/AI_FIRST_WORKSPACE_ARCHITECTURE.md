@@ -1,5 +1,12 @@
 # AI-first Workspace Architecture
 
+Home creates one kind of Operational Investigation. Student Mode defaults creation
+to Operational Learning and Work Mode to Operational Reality; the owner may
+override either default per Investigation. Navigation prioritizes Operational
+Investigations as one destination, while the Decision Laboratory is available only
+inside an Investigation. These rules are governed by the
+[Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md).
+
 ## Purpose and status
 
 Home is the future AI-first operational workspace of Management OS. The owner

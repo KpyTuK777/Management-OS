@@ -13,8 +13,8 @@ recovery, prevention, design, and improvement in Management OS.
 | Accountable owner | Product Architect & AI Strategist |
 | Product approval | Product Owner |
 | Canonical concept | Operational Case |
-| Authority | Reality Case purpose, intent, learning-and-change cycle, lifecycle, membership, relationships, outcome verification, and closure |
-| Scope | Operational situations, domain-record relationships, AI participation, knowledge promotion, Home, Current Focus, Operating Context, and Operational Gym |
+| Authority | Operational Case purpose, intent, learning-and-change cycle, lifecycle, membership, relationships, outcome verification, and closure |
+| Scope | Operational situations, domain-record relationships, AI participation, knowledge promotion, Home, Current Focus, Operating Context, and Investigation Context |
 | Primary audience | Product, architecture, design, engineering, data, documentation, and AI collaborators |
 | Lifecycle | Updated with approved Operational Case or case-centered information-architecture changes |
 | Related documents | Product Vision, Owner Journey, Architecture, Systems, AI Assistant Architecture, AI-first Workspace, Adaptive Owner Context |
@@ -24,9 +24,10 @@ mutation, and retention. A Case composes those records without taking their sour
 authority. This architecture defines no current entity, persistence contract,
 runtime, interface, migration, or AI behavior.
 
-The [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md) governs the
-reasoning grammar shared with Operational Gym and Scenario Simulation. This
-document governs the Reality Case contract. The
+The [Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md)
+governs the single owner-facing lifecycle, Investigation Context, and Decision
+Laboratory placement. The [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md)
+governs the shared reasoning grammar. This document governs the Case contract. The
 [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md) governs Evidence Sets
 and decision-time snapshots; the
 [Scenario Simulation Architecture](SCENARIO_SIMULATION_ARCHITECTURE.md) governs

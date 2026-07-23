@@ -36,12 +36,13 @@ const InvestigationPrototype = (() => {
 		if (!symptom) return;
 
 		elements.reportedSymptom.textContent = `“${symptom}”`;
+		applyContext(elements.context.value);
 		elements.home.classList.add("hidden");
 		elements.workspace.classList.remove("hidden");
 		showView("understanding");
 		setJourneyStep(3);
 		elements.workspace.focus({ preventScroll: true });
-		window.location.hash = "reality";
+		window.location.hash = "investigations";
 		announce("Створено тимчасове розслідування INV-0247. Повідомлений симптом збережено лише в пам’яті сторінки.");
 	}
 
@@ -156,12 +157,25 @@ const InvestigationPrototype = (() => {
 		window.alert(message);
 	}
 
+	function defaultContext(mode = window.sessionStorage.getItem("managementOsPrototypeMode") || "student") {
+		return mode === "work" ? "reality" : "learning";
+	}
+
+	function applyContext(context) {
+		const learning = context === "learning";
+		elements.context.value = learning ? "learning" : "reality";
+		elements.contextBadge.textContent = learning ? "Операційне навчання" : "Операційна реальність";
+		elements.contextBadge.className = `environment-badge environment-badge--${learning ? "learning" : "reality"}`;
+	}
+
 	function getElements() {
 		return {
 			home: document.getElementById("investigationHome"),
 			workspace: document.getElementById("investigationWorkspace"),
 			form: document.getElementById("investigationIntake"),
 			input: document.getElementById("investigationInput"),
+			context: document.getElementById("investigationContext"),
+			contextBadge: document.getElementById("investigationContextBadge"),
 			workingTitle: document.getElementById("caseWorkingTitle"),
 			workingTitleGuidance: document.getElementById("workingTitleGuidance"),
 			currentJourneyStep: document.getElementById("currentJourneyStep"),
@@ -197,7 +211,6 @@ const InvestigationPrototype = (() => {
 			closeSimulation: document.getElementById("closeSimulationButton"),
 			scenario: document.getElementById("scenarioBranch"),
 			reviewStep: document.getElementById("reviewStepButton"),
-			gymDemo: document.getElementById("gymDemoButton"),
 			announcement: document.getElementById("prototypeAnnouncement")
 		};
 	}
@@ -208,6 +221,11 @@ const InvestigationPrototype = (() => {
 
 		elements.workspace.setAttribute("tabindex", "-1");
 		elements.form.addEventListener("submit", openInvestigation);
+		const requestedContext = new URLSearchParams(window.location.search).get("context");
+		applyContext(["reality", "learning"].includes(requestedContext) ? requestedContext : defaultContext());
+		window.addEventListener("managementos:modechange", event => {
+			if (elements.workspace.classList.contains("hidden")) applyContext(defaultContext(event.detail.mode));
+		});
 		elements.workingTitle.addEventListener("change", reviewWorkingTitle);
 		elements.newButton.addEventListener("click", resetInvestigation);
 		elements.stageButtons.forEach(button => button.addEventListener("click", () => showView(button.dataset.view)));
@@ -229,7 +247,6 @@ const InvestigationPrototype = (() => {
 		elements.approvePlan.addEventListener("click", approvePlan);
 		elements.recordOutcome.addEventListener("click", recordOutcome);
 		elements.captureKnowledge.addEventListener("click", captureKnowledge);
-		elements.gymDemo.addEventListener("click", () => showPrototypeMessage("Прототип Gym використовуватиме ту саму структуру розслідування у чітко позначеному навчальному середовищі."));
 
 		if (new URLSearchParams(window.location.search).get("demo") === "investigation") {
 			elements.input.value = "Наші продажі знижуються протягом останніх трьох місяців.";

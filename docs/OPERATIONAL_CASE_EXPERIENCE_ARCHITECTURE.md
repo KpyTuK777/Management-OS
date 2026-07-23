@@ -1,5 +1,12 @@
 # Operational Case Experience Architecture
 
+This experience now presents one Operational Investigation workspace. Operational
+Reality and Operational Learning are owner-selected contexts, not destinations;
+Decision Laboratory is entered and exited within the Investigation. Where older
+sections say Operational Gym, Reality, or Simulation, their valid experiential
+separation is interpreted through the canonical
+[Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md).
+
 ## Purpose and status
 
 This document defines the end-to-end owner experience of using Management OS to
