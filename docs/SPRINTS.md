@@ -270,6 +270,11 @@ See [Roadmap](ROADMAP.md) for product phases beyond the current sprint.
 
 ### Completed
 
+- **Investigation-centered product architecture:** Established the Operational
+  Organization Model, Investigation Orchestration, Evidence Acquisition Profiles,
+  and explicit Evidence Need-to-action and scheduling handoffs while preserving
+  independent domain authority and routine work outside Investigations
+
 - **Architecture Consistency Review:** Audited every canonical document, README,
   compatibility pointer, decision record, and ADR against the approved product,
   AI, Investigation, reasoning, Evidence, context, memory, and Knowledge boundaries

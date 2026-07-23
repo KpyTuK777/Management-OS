@@ -12,7 +12,7 @@ Evidence without becoming a competing source of truth.
 | Accountable owner | Product Architect & AI Strategist |
 | Product approval | Product Owner |
 | Canonical concept | Case Evidence Set |
-| Authority | Case Evidence classification, provenance, influence, decision summaries, snapshots, interpretation boundaries, and promotion rules |
+| Authority | Case Evidence classification, provenance, acquisition profiles, influence, decision summaries, snapshots, interpretation boundaries, and promotion rules |
 | Primary audience | Product, architecture, engineering, data, AI, governance, and documentation collaborators |
 | Lifecycle | Updated when Case Evidence or decision-traceability rules change |
 | Related documents | Operational Reasoning Model, Operational Case Architecture, Architecture, AI Assistant Architecture |
@@ -87,6 +87,20 @@ Each Case Evidence Item preserves, where applicable:
 - relevance to the Case and inclusion rationale;
 - qualitative contribution to reasoning and the conclusions or decisions influenced;
 - retention, revocation, and access constraints.
+
+## Evidence Acquisition Profile
+
+Evidence planning may attach an **Evidence Acquisition Profile** describing expected
+effort, waiting time, accessibility, owner time, organizational disruption,
+authorization constraints, freshness risk, dependencies, expiry, expected
+investigative value, and expected uncertainty reduction. Values remain qualitative
+or ranged unless measurement is reliable and preserve their basis and uncertainty.
+
+The profile is planning metadata, not Evidence, evidentiary weight, confidence in
+truth, or permission to acquire the item. Low cost is preferred only when value,
+reliability, risk reduction, and delay consequences are comparable. Detailed
+sequencing belongs to the
+[Investigation Orchestration Architecture](INVESTIGATION_ORCHESTRATION_ARCHITECTURE.md).
 
 The minimum necessary Evidence is retrieved. Unauthorized, revoked, stale, or
 unavailable sources remain visibly excluded or degraded.

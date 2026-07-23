@@ -7,6 +7,14 @@ and Decision Readiness; Operational Learning increases explanation, coaching,
 reflection, alternatives, and learning capture. Context never changes authority or
 access, and the owner approves context changes and every consequential decision.
 
+The AI Investigation Partner may also perform governed **Investigation
+Orchestration**: identify Evidence gaps, compare acquisition paths, estimate
+qualitative effort and delay, and recommend an explainable action sequence. It may
+use authorized Operational Organization Model context, but it cannot broaden
+access, infer durable personnel traits, contact people, assign work, reserve time,
+or convert a proposal into action without the applicable owner approval. See the
+[Investigation Orchestration Architecture](INVESTIGATION_ORCHESTRATION_ARCHITECTURE.md).
+
 ## Purpose and status
 
 The coherent character produced by this architecture is synthesized in

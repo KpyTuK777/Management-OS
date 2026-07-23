@@ -75,6 +75,17 @@ product begins from the owner's uncertainty, progressively reveals only useful
 complexity, preserves the path from Evidence to decision and outcome, and teaches
 the reasoning model through repeated use rather than framework administration.
 
+Management OS is Investigation-centered, but it is not an Investigation-only data
+store. Organizational context, calendars, tasks, Evidence, executions, SOPs, and
+Knowledge retain their own authority and support routine use outside a Case. When
+they contribute to an Investigation, the product exposes their purpose and
+continuity rather than forcing the owner to navigate implementation-shaped tools.
+
+Investigation Orchestration may recommend an efficient, constraint-aware path from
+an Evidence Need to an Operational Action and owner-approved scheduling handoff.
+It optimizes Investigation progress, not calendar utilization, and never contacts,
+assigns, schedules, accesses, decides, or acts without applicable authority.
+
 Evidence must explain decisions, not merely accumulate around them. Material
 decisions remain traceable to the Evidence that established, challenged, redirected,
 or supported the reasoning, with qualitative influence and unresolved uncertainty
@@ -86,6 +97,8 @@ valuable next question for a declared investigative purpose, explains why it
 matters, and stops when further inquiry would not materially improve judgment. The
 owner remains responsible for Investigation strategy. See the
 [Operational Inquiry Architecture](OPERATIONAL_INQUIRY_ARCHITECTURE.md).
+The execution-planning boundary is defined by the
+[Investigation Orchestration Architecture](INVESTIGATION_ORCHESTRATION_ARCHITECTURE.md).
 
 Operational history should reveal supported changes in system behavior rather than
 become an undifferentiated event log. Operational Inflection Points preserve where

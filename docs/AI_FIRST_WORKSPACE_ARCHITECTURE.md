@@ -7,6 +7,11 @@ Investigations as one destination, while the Decision Laboratory is available on
 inside an Investigation. These rules are governed by the
 [Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md).
 
+Home may surface one owner-reviewable next Investigation action prepared by
+Investigation Orchestration. It must show the Evidence Need and rationale, not a
+generic task queue, and must not imply that a proposed action has been assigned or
+scheduled. Full calendar and routine task access remain directly available.
+
 ## Purpose and status
 
 Home is the future AI-first operational workspace of Management OS. The owner

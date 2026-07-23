@@ -50,6 +50,22 @@ Superseded, link its successor, and preserve the history.
   truth, consequence, provenance, and promotion safeguards remain mandatory at the
   context and Laboratory-branch boundaries.
 
+### DL-020 — Center operational planning on Investigation progress
+
+- **Status:** Accepted
+- **Date:** 2026-07-23
+- **Decision:** Treat Operational Investigation as the primary experience and
+  orchestration boundary, not a universal data owner. Establish Operational
+  Organization Model as governed supporting context, Investigation Orchestration
+  as the bounded AI capability for explainable Evidence acquisition sequencing,
+  and Evidence Acquisition Profile as qualitative planning metadata. Preserve
+  separate authority for organizational sources, Evidence, tasks, calendars,
+  execution, Knowledge, and routine work.
+- **Rationale:** Calendar utilization and module management are implementation
+  concerns. Owners need the most effective authorized path for reducing material
+  Investigation uncertainty while retaining control of contact, assignment,
+  scheduling, access, decisions, and action.
+
 
 Use an ADR instead when a decision materially changes system responsibilities,
 architecture layers, persistence strategy, entity compatibility, integrations,

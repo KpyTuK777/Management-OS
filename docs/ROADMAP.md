@@ -108,16 +108,19 @@ Evolve the approved Case direction in governed stages:
    Candidates before automated review signals;
 7. establish Operational Inquiry governance and validate explainable next-question
    selection before automated Investigation questioning;
-8. complete the Reality Case outcome and verification loop;
-9. validate the Case-centered operational investigation experience, progressive
+8. establish governed Operational Organization Model context before constraint-aware planning;
+9. validate explainable Investigation Orchestration, Evidence Acquisition Profiles,
+   and owner-approved action and scheduling handoffs;
+10. complete the Operational Reality outcome and verification loop;
+11. validate the Case-centered operational investigation experience, progressive
    naming, Evidence orientation, and cross-record return paths;
-10. add Operational Learning context and governed learning capture;
-11. add the Decision Laboratory with qualitative Scenario Branches from immutable Investigation baselines;
-12. introduce governed quantitative simulation only where intended use,
+12. add Operational Learning context and governed learning capture;
+13. add the Decision Laboratory with qualitative Scenario Branches from immutable Investigation baselines;
+14. introduce governed quantitative simulation only where intended use,
    validation, uncertainty, sensitivity, limits, and expiry are supportable;
-13. define a separate Owner Learning Record architecture before durable competence
+15. define a separate Owner Learning Record architecture before durable competence
    development or assessment;
-14. consolidate information architecture only after truth separation and direct
+16. consolidate information architecture only after truth separation and direct
    domain access are validated.
 
 Scenario Simulation remains distinct from later Predictive Operational Insights.

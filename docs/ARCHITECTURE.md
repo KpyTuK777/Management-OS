@@ -6,6 +6,13 @@ Laboratory branches remain subordinate to their originating Investigation. The
 canonical product boundary is the
 [Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md).
 
+The Investigation composes references and governed snapshots; it does not absorb
+organizational, Evidence, task, calendar, execution, or Knowledge source authority.
+The [Operational Organization Model](OPERATIONAL_ORGANIZATION_MODEL.md) supplies
+authorized planning context, and
+[Investigation Orchestration](INVESTIGATION_ORCHESTRATION_ARCHITECTURE.md) prepares
+owner-reviewed action and scheduling handoffs. Both remain future architecture.
+
 Architecture and source identifiers may remain in English, while user-facing copy
 follows the [Product Language Guide](PRODUCT_LANGUAGE.md).
 

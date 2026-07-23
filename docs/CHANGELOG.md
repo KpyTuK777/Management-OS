@@ -5,6 +5,12 @@ separately in [Sprint Tracker](SPRINTS.md).
 
 ## Unreleased
 
+- Established the Operational Organization Model and Investigation Orchestration as
+  approved future supporting capabilities for Investigation-centered planning.
+  Added governed Evidence Acquisition Profiles, explicit Evidence Need-to-action
+  and scheduling handoffs, explainable sequencing, routine-work independence, and
+  owner approval boundaries without runtime or prototype implementation.
+
 - Unified Operational Investigations across Operational Reality and Operational
   Learning contexts, replaced separate Reality/Gym navigation with one Investigation
   destination, and placed reversible scenario exploration inside each Investigation

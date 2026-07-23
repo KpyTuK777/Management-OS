@@ -436,6 +436,8 @@ value requires quiet presence.
 | Operational Case | Bounded operational learning and change process connecting intent, condition, Evidence, decision, Countermeasure, verified outcome, learning, and standardization judgment |
 | Investigation Context | Owner-selected Operational Reality or Operational Learning emphasis within one lifecycle |
 | Decision Laboratory | Contextual comparison of reversible Scenario Branches from a frozen Investigation baseline |
+| Operational Organization Model | Governed organizational context used to assess feasibility, availability, constraints, and Evidence access |
+| Investigation Orchestration | Explainable preparation of Evidence acquisition and Operational Action sequences for owner approval |
 | Personal Operational Model | Future owner-controlled source of durable approved personal context and preferences |
 | Adaptive Workspace | Future executor of exact approved Workspace Emphasis, not an autonomous journey controller |
 | Adaptive Owner Context | Canonical owner-controlled Operating Context, optional Operational Stage, Current Focus relationship, and prioritization invariants |
@@ -449,6 +451,13 @@ context and Laboratory branch indicators retain distinct Evidence semantics,
 consequences, and learning destinations. The owner may learn without affecting
 operational truth and compare Scenario Branches without treating them as
 predictions or observed outcomes. Home remains the stable return point.
+
+When an Investigation needs new Evidence, the owner sees a continuous but governed
+handoff: Evidence Need, proposed Operational Action, owner review, optional
+scheduling approval, collection, and updated reasoning. The interface preserves
+why the action matters and never turns an AI proposal into contact, assignment, or
+a calendar commitment without approval. Routine tasks and calendar work remain
+available without creating a Case.
 
 Within a bounded investigation, opening Evidence, a Report, Recommendation, SOP,
 Execution, or Scenario Branch preserves the originating Case and a clear return

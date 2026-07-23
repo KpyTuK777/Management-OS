@@ -26,6 +26,12 @@ Investigation Partner selects and explains the next most valuable question for
 advancing an Operational Investigation while preserving owner control,
 uncertainty, competing explanations, and Evidence authority.
 
+Operational Inquiry determines which uncertainty or Evidence Need is valuable to
+address. It does not determine logistics. Once the owner accepts a direction, the
+[Investigation Orchestration Architecture](INVESTIGATION_ORCHESTRATION_ARCHITECTURE.md)
+governs how candidate Operational Actions and sequences are prepared. Neither
+capability silently creates the other's records or authority.
+
 The default is one smallest justified inquiry that can materially improve
 understanding, Evidence quality, uncertainty, hypothesis discrimination, risk
 clarity, or Decision Readiness. More available information is not by itself a

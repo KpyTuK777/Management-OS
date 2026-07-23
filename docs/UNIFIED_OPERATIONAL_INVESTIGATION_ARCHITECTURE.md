@@ -10,7 +10,7 @@ Investigation lifecycle, Investigation Context, and Decision Laboratory.
 | Status | Approved future architecture; prototype aligned |
 | Delivery milestone | Sprint 10 |
 | Canonical concepts | Operational Investigation, Investigation Context, Decision Laboratory |
-| Authority | Lifecycle unity, context behavior, navigation simplification, and Laboratory placement |
+| Authority | Lifecycle unity, investigation-centered orchestration, context behavior, navigation simplification, and Laboratory placement |
 
 It introduces no backend, AI runtime, persistence, or production capability.
 
@@ -25,6 +25,22 @@ Symptom -> Operational Investigation -> Evidence -> Operational Inquiry
 An Investigation is the owner-facing form of the bounded Operational Case. Its
 records remain governed by their canonical domain authorities. Neither learning
 purpose nor modeled exploration creates another Case type or lifecycle.
+
+The Investigation is the primary product experience, not a universal data owner.
+It orchestrates authorized references to organizational context, Evidence, tasks,
+calendar commitments, executions, outcomes, and Knowledge. Those capabilities
+retain independent authority and remain directly usable for routine work that does
+not justify a bounded Investigation.
+
+## Investigation-centered action
+
+When uncertainty requires work, the Investigation may connect Operational Inquiry,
+an Evidence Need, an owner-reviewed Operational Action, an approved scheduling
+handoff, Evidence collection, and updated reasoning. The
+[Investigation Orchestration Architecture](INVESTIGATION_ORCHESTRATION_ARCHITECTURE.md)
+governs sequencing and approval. The
+[Operational Organization Model](OPERATIONAL_ORGANIZATION_MODEL.md) may supply
+authorized constraints and availability without becoming Case-owned data.
 
 ## Investigation Context
 

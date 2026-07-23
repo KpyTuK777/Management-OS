@@ -35,6 +35,11 @@ user-facing language must follow this guide.
 | Operational Reality | Операційна реальність |
 | Operational Learning | Операційне навчання |
 | Decision Laboratory | Лабораторія рішень |
+| Operational Organization Model | Операційна модель організації |
+| Investigation Orchestration | Оркестрація розслідування |
+| Evidence Need | Потреба в доказах |
+| Operational Action | Операційна дія |
+| Evidence Acquisition Profile | Профіль отримання доказу |
 | Reality | Реальна операційна робота |
 | Operational Reasoning Model | Модель операційного мислення |
 | Case Evidence Set | Набір доказів кейсу |

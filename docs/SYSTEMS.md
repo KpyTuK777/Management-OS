@@ -148,15 +148,31 @@ responsibilities.
 
 ## Calendar
 
-- **Purpose:** Provide time-based operational planning.
+- **Purpose:** Record owner-approved time commitments and provide time-based operational planning.
 - **Current status:** Placeholder page.
-- **Future responsibilities:** Schedule, milestones, deadlines, and planning views.
+- **Future responsibilities:** Schedule, milestones, deadlines, availability, and planning views; receive explicit owner-approved handoffs from Investigations.
+- **Boundary:** Calendar is an execution authority, not the source of Investigation direction. Investigation Orchestration may prepare a scheduling proposal but cannot reserve time, invite people, or create commitments without approval. See [Investigation Orchestration Architecture](INVESTIGATION_ORCHESTRATION_ARCHITECTURE.md).
 
 ## Tasks
 
 - **Purpose:** Manage actionable work.
 - **Current status:** Placeholder page.
 - **Future responsibilities:** Task capture, priorities, completion, and project association.
+- **Boundary:** Routine tasks remain available without an Investigation. An Evidence Need does not silently create or assign a task; Investigation Orchestration prepares an Operational Action for owner review.
+
+## Operational Organization Model
+
+- **Purpose:** Provide governed organizational operating context for Investigation planning.
+- **Current status:** Approved future architecture; not implemented.
+- **Future responsibilities:** Represent authorized responsibilities, availability patterns, operating constraints, systems, Evidence accessibility, communication context, and relevant organizational relationships with provenance and freshness.
+- **Boundary:** It is not an organization-chart module, employee scoring system, Personal Operational Model, or source of Investigation truth. Source systems retain authority. See [Operational Organization Model](OPERATIONAL_ORGANIZATION_MODEL.md).
+
+## Investigation Orchestration
+
+- **Purpose:** Prepare explainable, constraint-aware sequences for addressing Evidence Needs and advancing an Investigation.
+- **Current status:** Approved future AI capability architecture; not implemented.
+- **Future responsibilities:** Compare acquisition paths, propose Operational Actions, expose dependencies and assumptions, estimate qualitative effort and delay, and prepare owner-approved scheduling handoffs.
+- **Boundary:** It is not autonomous planning or calendar optimization and cannot contact, assign, schedule, access, decide, or act without the required owner approval. See [Investigation Orchestration Architecture](INVESTIGATION_ORCHESTRATION_ARCHITECTURE.md).
 
 ## Settings
 
