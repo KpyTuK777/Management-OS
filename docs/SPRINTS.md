@@ -141,6 +141,8 @@ incomplete.
 - **Product and Information Architecture:** Canonical Operational Case Architecture with bounded centrality, domain-record independence, explicit knowledge promotion, and shared real-work and Operational Gym reasoning model
 - **Strategic Product Architecture:** Operational Case refined as a bounded operational learning and change process with Case intents, current and target conditions, Countermeasure cycles, outcome verification, and standardization judgment
 - **Strategic Product Architecture:** Canonical Operational Reasoning Model, Case Evidence Architecture, and Scenario Simulation Architecture establishing the Operational Intelligence Platform direction and strict Reality, Gym, and Simulation truth separation
+- **Experience Architecture:** Canonical Operational Case Experience Architecture defining symptom-first entry, progressive Case naming, investigation orientation, Evidence experience, progressive disclosure, and Case-centered navigation continuity
+- **Product Experience Architecture:** Operational investigation refined with `New investigation` presentation, `Reported symptom` entry semantics, active AI readiness support, Evidence-family facets, first-class Structural Evidence, and explainable historical Case retrieval
 
 ### Implementation status
 
@@ -204,5 +206,14 @@ incomplete.
   separate Evidence, consequence, action, and learning contracts. Simulation uses
   immutable Case baselines and conditional modeled outputs; no Gym, simulation,
   owner-learning, data-model, or runtime capability was implemented.
+- The Operational Case experience now begins from preserved uncertain symptom
+  wording without requiring an owner-authored title. A stable Case identifier and
+  neutral working title support recognition while verified understanding remains
+  separate. The documentation adds no Case UI, navigation, Evidence, Simulation,
+  Gym, data-model, or runtime implementation.
+- The investigation partnership now allows proactive AI preparation while reserving
+  consequential advancement for the owner. Financial, Operational, Human,
+  Structural, Historical, and System Evidence families aid discovery without
+  replacing epistemic status or transferring conclusions between similar Cases.
 
 See [Roadmap](ROADMAP.md) for product phases beyond this sprint.

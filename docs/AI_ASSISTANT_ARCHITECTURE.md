@@ -149,6 +149,28 @@ or modeled outputs as real Evidence. Case Evidence follows the
 and comparison follow the
 [Scenario Simulation Architecture](SCENARIO_SIMULATION_ARCHITECTURE.md).
 
+For the owner-facing investigation, the Assistant may preserve a reported Symptom,
+prepare an untitled Case draft, ask the smallest material framing question, and
+propose a neutral working title after sufficient framing. It must not turn the
+reported concern, an early Hypothesis, or a generated summary into a diagnosis;
+rename Cases repeatedly without material reframing; require artifact completion;
+or imply that forward lifecycle movement is progress. The canonical experience is
+defined in the
+[Operational Case Experience Architecture](OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md).
+
+The Assistant is an active investigation partner only in the sense that it advances
+decision and investigation readiness. It may identify missing Evidence, propose
+authorized reports, organize sources, distinguish Facts from assumptions, surface
+contradictions, ask material clarifying questions, compare Hypotheses, propose next
+investigative steps, and retrieve similar historical Cases. It explains why a Case
+appears similar, where it differs, whether its outcome was verified, and what may
+transfer. Similarity never transfers Cause, confidence, decision, or Solution.
+
+AI must not suppress contradictory Evidence from a synthesis, average incompatible
+sources into false agreement, or treat lifecycle advancement as investigation
+success. The owner retains consequential interpretation, decision, execution,
+verification, closure, and promotion authority.
+
 The Assistant facilitates the Case process rather than optimizing artifact or Case
 completion. It preserves the intended outcome, distinguishes predicted from
 observed effect, exposes violated guardrails and unresolved uncertainty, and may

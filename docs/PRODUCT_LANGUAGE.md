@@ -35,6 +35,11 @@ user-facing language must follow this guide.
 | Operational Gym | Операційний тренажер |
 | Scenario Branch | Сценарна гілка |
 | Scenario Simulation | Сценарне моделювання |
+| Operational investigation | Операційне розслідування |
+| Reported concern | Повідомлена проблема |
+| Working title | Робоча назва |
+| New investigation | Нове розслідування |
+| Reported symptom | Повідомлений симптом |
 | Case Intent | Мета операційного кейсу |
 | Current Condition | Поточний стан |
 | Target Condition | Цільовий стан |

@@ -289,3 +289,10 @@ Implementation requires separate approved proposals for Home information
 architecture, attention and interruption policy, contextual recommendation
 selection, degraded non-AI behavior, handoff and return, direct-navigation
 preservation, privacy and AI governance, and measurable cognitive-load review.
+When uncertain wording expresses a possible Symptom, Home preserves the owner's
+words and may prepare an untitled Case draft with a stable identifier and `New
+investigation` presentation. The possible Symptom remains a reported entry signal,
+not a verified observation. Home asks for the smallest missing input that materially improves
+framing, not a comprehensive Case form or premature diagnosis. Case persistence
+and material naming remain owner-controlled under the
+[Operational Case Experience Architecture](OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md).

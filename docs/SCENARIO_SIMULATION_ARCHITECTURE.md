@@ -37,6 +37,11 @@ Real Operational Case
 A Scenario Branch is not an editable clone of the Case, a prediction, a plan, an
 observed result, or authorization to act.
 
+The owner experiences it as opening an alternative investigation branch from the
+current real Case decision. The transition and return preserve the originating
+Case, baseline time, assumptions changed from Reality, modeled status, and the
+decision being explored; Simulation does not become a disconnected library.
+
 ## Required scenario contract
 
 Every Scenario Branch declares:
@@ -50,6 +55,10 @@ Every Scenario Branch declares:
 - uncertainty, sensitivity, material limitations, and unsupported inferences;
 - valid operating envelope and expiry or review condition;
 - plausible conditional outputs and comparison criteria.
+
+Branch comparison should also expose operational risks, unintended consequences,
+second-order effects, resource displacement, delayed effects, reversibility, and
+monitoring needs when material to the intended use.
 
 Where calibration or validation is insufficient, the product must say so. Detail
 or numerical precision must not imply credibility.

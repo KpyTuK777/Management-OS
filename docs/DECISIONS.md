@@ -658,3 +658,142 @@ data model, simulation engine, Gym, or navigation implementation is authorized.
 - [Scenario Simulation Architecture](SCENARIO_SIMULATION_ARCHITECTURE.md)
 - [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md)
 - [Product Vision](PRODUCT_VISION.md)
+
+## DL-012 — Define the Operational Case as a symptom-first investigation experience
+
+- Date: 2026-07-23
+- Status: Accepted
+- Decision owner: Product Owner
+- Category: Experience architecture
+- Affected documents: `OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md`, `OPERATIONAL_CASE_ARCHITECTURE.md`, `CASE_EVIDENCE_ARCHITECTURE.md`, `SCENARIO_SIMULATION_ARCHITECTURE.md`, `OPERATIONAL_REASONING_MODEL.md`, `OWNER_JOURNEY.md`, `AI_FIRST_WORKSPACE_ARCHITECTURE.md`, `AI_ASSISTANT_ARCHITECTURE.md`, `PRODUCT_VISION.md`, `PRODUCT_LANGUAGE.md`, `ROADMAP.md`, `DOCUMENTATION_MAP.md`, `SPRINTS.md`
+- Supersedes: None; applies DL-009 through DL-011 to the owner experience
+- Superseded by: None
+
+### Context
+
+The approved architecture defines a coherent reasoning and domain model, but its
+experience could still expose record types, require premature classification, or
+turn every Case stage into interface administration. An owner normally begins with
+an uncertain Symptom rather than a known problem, title, or Cause.
+
+### Decision
+
+Define the canonical Case experience as a calm operational investigation. A Case
+may begin without an owner-authored title, using a stable identifier, preserved
+reported concern, and `New symptom` presentation. After initial framing, a neutral
+working title may support recognition without claiming verified understanding.
+The original concern remains preserved and material renaming remains visible and
+owner-controlled.
+
+The Case progressively presents what is known, missing or disputed, assumed,
+expected next, and awaiting observation. Evidence feels gathered for an
+investigation; material decisions remain linked to their Evidence basis; supporting
+records preserve Case continuity and return paths. Simulation opens a Scenario
+Branch from the real Case, and Gym uses the familiar investigation experience
+within its isolated training contract.
+
+### Rationale
+
+Symptom-first entry matches the owner's actual knowledge state and prevents early
+wording from becoming diagnosis. Progressive naming reduces recognition cost
+without making title certainty a prerequisite. Persistent orientation and
+progressive disclosure teach the Operational Reasoning Model through use while
+avoiding both module switching and Case-stage overload.
+
+### Alternatives considered
+
+- Require a Case title at creation — rejected because the owner may know only a
+  Symptom and would be forced to encode an assumption.
+- Delay all naming until Cause verification — rejected because numbered Cases alone
+  are difficult to recognize in Home, Search, links, and notifications.
+- Present every domain artifact or Case stage simultaneously — rejected because it
+  reproduces module overload inside the Case.
+- Treat Root Cause as mandatory — rejected because Causes may be plural, bounded,
+  external, or unresolved while a justified decision remains possible.
+
+### Consequences
+
+Future implementation must distinguish identifier, reported concern, working
+title, and verified conclusion; preserve cross-record Case continuity; support
+progressive disclosure and persistent reasoning orientation; and keep Simulation
+and Gym environment identity visible. These are experience requirements over the
+approved architecture, not authorization for a new entity, data model, runtime,
+navigation, or interface implementation.
+
+### References
+
+- [Operational Case Experience Architecture](OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md)
+- [Owner Journey](OWNER_JOURNEY.md)
+- [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md)
+- [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md)
+- [AI-first Workspace Architecture](AI_FIRST_WORKSPACE_ARCHITECTURE.md)
+
+## DL-013 — Refine the operational investigation partnership and Evidence experience
+
+- Date: 2026-07-23
+- Status: Accepted
+- Decision owner: Product Owner
+- Category: Product experience and operational investigation architecture
+- Affected documents: `OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md`, `OPERATIONAL_CASE_ARCHITECTURE.md`, `CASE_EVIDENCE_ARCHITECTURE.md`, `AI_ASSISTANT_ARCHITECTURE.md`, `OWNER_JOURNEY.md`, `AI_FIRST_WORKSPACE_ARCHITECTURE.md`, `PRODUCT_LANGUAGE.md`, `DOCUMENTATION_MAP.md`, `SPRINTS.md`
+- Supersedes: None; refines DL-012
+- Superseded by: None
+
+### Context
+
+DL-012 established symptom-first entry and a calm investigation experience. Further
+review identified ambiguity between the broad Case presentation state and its
+epistemic entry signal, and required clearer rules for active AI participation,
+Evidence discovery, organizational structure, and historical Case retrieval.
+
+### Decision
+
+Use `New investigation` as the broad owner-facing entry state and `Reported
+symptom` as the entry signal. A reported Symptom does not establish a measured
+deviation or verified Fact. Preserve the stable identifier, original owner wording,
+neutral working title, and supported conclusion as distinct concepts.
+
+AI actively advances investigation readiness by preparing authorized Evidence,
+exposing gaps and contradictions, comparing Hypotheses, proposing next steps, and
+surfacing relevant historical Cases. The owner retains consequential interpretation,
+lifecycle, decision, execution, verification, closure, and promotion authority.
+
+Financial, Operational, Human, Structural, Historical, and System Evidence are
+non-exclusive discovery facets over the canonical epistemic classification.
+Structural Evidence is first-class, but formal organization does not prove actual
+authority or behavior. Historical similarity supports retrieval and comparison;
+it never transfers Cause, confidence, decision, or Solution.
+
+### Rationale
+
+Separating Case state from the Symptom's epistemic status avoids presenting a
+tentative concern as observation. Active preparation makes AI a useful investigation
+partner while preserving judgment. Evidence facets match how owners look for
+material without making source type a proxy for quality, and explicit transfer
+limits prevent historical anchoring.
+
+### Alternatives considered
+
+- Use `New symptom` as the complete Case state — rejected because it mixes Case
+  progression with the type and certainty of the entry signal.
+- Allow AI to advance consequential Case state — rejected because preparation and
+  authority must remain separate.
+- Make Evidence families exclusive or hierarchical — rejected because one source
+  may serve several investigative roles and source family does not establish weight.
+- Reuse prior Case Causes from similarity — rejected because context differences
+  may invalidate causal transfer.
+
+### Consequences
+
+Future experience implementation must preserve explicit Symptom status, selective
+AI proactivity, visible contradictions, multi-facet Evidence discovery, comparison
+of formal and actual structure, and explainable historical similarity. No runtime,
+data model, UI, navigation, retrieval, or AI behavior is implemented by this
+documentation decision.
+
+### References
+
+- [Operational Case Experience Architecture](OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md)
+- [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md)
+- [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md)
+- [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md)
+- [Owner Journey](OWNER_JOURNEY.md)

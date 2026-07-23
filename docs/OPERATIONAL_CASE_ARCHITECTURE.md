@@ -31,6 +31,9 @@ document governs the Reality Case contract. The
 and decision-time snapshots; the
 [Scenario Simulation Architecture](SCENARIO_SIMULATION_ARCHITECTURE.md) governs
 Scenario Branches.
+The [Operational Case Experience Architecture](OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md)
+governs owner-facing entry, progressive naming, investigation orientation,
+disclosure, and Case-centered continuity without redefining these domain rules.
 
 ## Definition
 
@@ -129,6 +132,14 @@ The minimum opening condition is a bounded situation or question, recognizable
 reason for investigation, origin and provenance, initial scope, and explicit owner
 decision to track it as a Case. A known Cause, Solution, priority, or complete
 Evidence set is not required.
+
+A Case does not require an owner-authored title at creation. It begins with a
+stable system identifier, a `New investigation` presentation, and the preserved
+reported concern. `Reported symptom` may identify the entry signal without
+asserting a verified measurement. A neutral working title may be proposed after initial
+framing for recognition in Home, Search, links, and notifications. The working
+title remains distinct from verified causal understanding, may change visibly with
+owner control, and never overwrites the original concern.
 
 Natural Capture or the Assistant may prepare a Case draft. Persisting it requires
 explicit owner approval. AI detection alone cannot create a Case.
@@ -292,6 +303,11 @@ The interface must continue distinguishing observation from interpretation,
 Hypothesis from Cause, Recommendation from decision, Countermeasure from verified
 Solution, activity from outcome, closure from success, and learning candidate from
 approved organizational Knowledge.
+
+At every point, the owner-facing orientation should summarize what is known, what
+is missing or disputed, what remains assumed, and what judgment or action is useful
+next. After action, it also identifies the outcome awaiting observation. This is a
+presentation of existing Case state, not a new persisted lifecycle or entity.
 
 ## Relationship with Home
 

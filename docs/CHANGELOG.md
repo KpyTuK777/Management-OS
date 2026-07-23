@@ -177,6 +177,15 @@ separately in [Sprint Tracker](SPRINTS.md).
   Platform direction with shared reasoning but strict Reality, Gym, and Simulation
   truth separation, immutable scenario baselines, decision-time Evidence snapshots,
   and no runtime implementation.
+- Added the canonical Operational Case Experience Architecture, defining the calm
+  investigation experience from symptom-first Home entry through Evidence,
+  decision, execution, observed outcome, learning, and promotion. It establishes
+  progressive Case naming, persistent reasoning orientation, progressive
+  disclosure, and Case-centered continuity without runtime implementation.
+- Refined the Case experience so `New investigation` describes the broad entry
+  state while `Reported symptom` preserves epistemic caution. Added active AI
+  readiness support, non-exclusive Evidence-family facets, first-class Structural
+  Evidence, and explainable historical Case retrieval without implementation.
 - Added the canonical Product Principle that Management OS should quietly remove
   cognitive noise while preserving decisions that require human judgment.
 - Extended the standard Product Review guidance with a mandatory evaluation of

@@ -49,6 +49,11 @@ Situation and intent
 The grammar standardizes how the owner thinks; it does not assert that all stages
 are mandatory, linear, equally detailed, or represented by one stored entity.
 
+The experience teaches this grammar through repeated use rather than requiring the
+owner to study it. Reality, Gym, and Simulation use familiar investigation
+perspectives while persistent environment identity prevents familiarity from
+collapsing their distinct truth and consequence contracts.
+
 ## Environment contracts
 
 | Environment | Primary object | Truth basis | Consequence | Learning destination |

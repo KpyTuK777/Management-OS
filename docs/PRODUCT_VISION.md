@@ -67,6 +67,11 @@ remain separate truth and consequence environments. Shared reasoning never makes
 training material or modeled output organizational Evidence. See the
 [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md).
 
+The owner experiences this direction as a calm operational investigation. The
+product begins from the owner's uncertainty, progressively reveals only useful
+complexity, preserves the path from Evidence to decision and outcome, and teaches
+the reasoning model through repeated use rather than framework administration.
+
 The intended outcome hierarchy is:
 
 ```text

@@ -84,6 +84,13 @@ When bounded non-routine work exists, Home may surface an active Operational Cas
 or a Case decision, Countermeasure, or outcome verification requiring judgment
 without replacing Home with a Case list.
 
+The first Case interaction may begin from uncertain symptom wording. The owner is
+not required to invent a title or diagnosis: Home preserves the reported concern,
+prepares a stable Case identifier and `New investigation` presentation with a
+`Reported symptom` entry signal, and asks only the
+next framing question that adds material value. A neutral working title emerges
+later for recognition and remains separate from verified understanding.
+
 **AI responsibilities:** Restore relevant active context, distinguish attention
 from passive information, explain prominence, identify resumable work, and remain
 quiet when nothing material needs attention.
@@ -424,6 +431,12 @@ reasoning grammar but retain distinct environment indicators, Evidence semantics
 consequences, and learning destinations. The owner may practice without affecting
 operational truth and compare Scenario Branches without treating them as
 predictions or observed outcomes. Home remains the stable return point.
+
+Within a bounded investigation, opening Evidence, a Report, Recommendation, SOP,
+Execution, or Scenario Branch preserves the originating Case and a clear return
+path. The default orientation continually answers what is known, missing,
+disputed, assumed, expected next, and—after action—awaiting observation. Detailed
+provenance and audit information remains available through progressive disclosure.
 
 The journey composes these responsibilities and transfers none of their ownership.
 

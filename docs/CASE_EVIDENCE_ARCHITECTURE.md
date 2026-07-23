@@ -38,6 +38,12 @@ Source Artifact
 Evidence preserves support and source material. Knowledge preserves approved,
 reusable understanding. Neither substitutes for the other.
 
+From the owner's perspective, this is an investigation collection rather than a
+generic upload area. It exposes Evidence that is collected, requested, unavailable,
+conflicting, stale, or used in a material decision. Reports, statements, KPI
+snapshots, exports, notes, emails, files, contracts, photos, and authorized external
+references may participate without losing their source authority.
+
 ## Classification
 
 | Material | Classification | Rule |
@@ -50,6 +56,20 @@ reusable understanding. Neither substitutes for the other.
 | Scenario parameter | Model input | Belongs to a Scenario Branch; never observed Evidence |
 | Simulated result | Modeled output | Conditional result; never observed Evidence |
 | Gym material | Training material | Isolated from organizational Evidence and operational analytics |
+
+The default experience uses the concise labels **Source**, **Derived**, **Summary**,
+**Assumption**, **Modeled**, and **Training**. Detailed provenance, lineage,
+authorization, retention, and transformation information remains progressively
+available rather than hidden or required before initial investigation.
+
+Financial, Operational, Human, Structural, Historical, and System are approved
+non-exclusive discovery facets over this epistemic model. They do not determine
+authority or evidentiary weight. Structural Evidence is first-class investigative
+material because decision rights, reporting lines, responsibility, incentives,
+coordination, and handoffs may contribute to an operational condition. Formal
+structure remains evidence of intended organization, not proof of actual behavior.
+Historical Cases remain scoped context: similarity never establishes the same
+Cause, applicability, or outcome.
 
 Testimonial material may be Evidence when its origin, wording, context, and limits
 are preserved. Agreement among sources does not alone establish independence or

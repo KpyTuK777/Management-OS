@@ -47,6 +47,7 @@ Open the repository in VS Code and launch `index.html` or `portfolio.html` with 
 - [Operational Reasoning Model](docs/OPERATIONAL_REASONING_MODEL.md)
 - [Case Evidence architecture](docs/CASE_EVIDENCE_ARCHITECTURE.md)
 - [Scenario Simulation architecture](docs/SCENARIO_SIMULATION_ARCHITECTURE.md)
+- [Operational Case experience architecture](docs/OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md)
 - [Platform Responsibility Model](docs/PLATFORM_RESPONSIBILITY_MODEL.md)
 - [Mobile Experience architecture](docs/MOBILE_EXPERIENCE_ARCHITECTURE.md)
 - [AI Capability roadmap](docs/AI_CAPABILITY_ROADMAP.md)

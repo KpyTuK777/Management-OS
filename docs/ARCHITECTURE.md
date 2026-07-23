@@ -511,6 +511,10 @@ for Reality Cases; [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md)
 governs Evidence Sets and decision-time snapshots; and
 [Scenario Simulation Architecture](SCENARIO_SIMULATION_ARCHITECTURE.md) governs
 Scenario Branches from immutable real Case baselines.
+The [Operational Case Experience Architecture](OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md)
+governs future symptom-first entry, progressive naming, investigation orientation,
+disclosure, and navigation continuity without defining a current component or
+changing these technical authorities.
 
 These boundaries define no current storage, model execution, route, service, UI,
 or migration. Gym records and modeled outputs cannot become organizational

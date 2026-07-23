@@ -101,13 +101,15 @@ Evolve the approved Case direction in governed stages:
 1. establish the shared Operational Reasoning Model;
 2. establish real Case Evidence Sets and material decision traceability;
 3. complete the Reality Case outcome and verification loop;
-4. add isolated Operational Gym Cases and Training History;
-5. add qualitative Scenario Branches from immutable Case baselines;
-6. introduce governed quantitative simulation only where intended use,
+4. validate the Case-centered operational investigation experience, progressive
+   naming, Evidence orientation, and cross-record return paths;
+5. add isolated Operational Gym Cases and Training History;
+6. add qualitative Scenario Branches from immutable Case baselines;
+7. introduce governed quantitative simulation only where intended use,
    validation, uncertainty, sensitivity, limits, and expiry are supportable;
-7. define a separate Owner Learning Record architecture before durable competence
+8. define a separate Owner Learning Record architecture before durable competence
    development or assessment;
-8. consolidate information architecture only after truth separation and direct
+9. consolidate information architecture only after truth separation and direct
    domain access are validated.
 
 Scenario Simulation remains distinct from later Predictive Operational Insights.
@@ -115,6 +117,8 @@ It is owner-invoked exploration of explicit alternatives, not proactive
 forecasting. See the [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md),
 [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md), and
 [Scenario Simulation Architecture](SCENARIO_SIMULATION_ARCHITECTURE.md).
+The end-to-end presentation and continuity criteria are governed by the
+[Operational Case Experience Architecture](OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md).
 
 ### Future Learning Layer — Recommendations Center
 
