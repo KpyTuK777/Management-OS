@@ -217,10 +217,12 @@ const InvestigationPrototype = (() => {
 
 		elements.captureOriginal.textContent = `“${original}”`;
 		elements.matterCaptureReview.classList.remove("hidden");
+		elements.guidedInvestigation.classList.add("hidden");
+		elements.watsonContributionReview.classList.remove("hidden");
 		elements.reasoningMilestone.classList.add("hidden");
 		elements.approveMatterContribution.disabled = false;
 		elements.approveMatterContribution.textContent = "Схвалити як внесок для перевірки";
-		elements.matterCaptureReview.scrollIntoView({ behavior: "smooth", block: "nearest" });
+		elements.watsonContributionReview.scrollIntoView({ behavior: "smooth", block: "nearest" });
 		announce("Watson підготував класифікацію та зв’язки. Оригінальне формулювання збережено; потрібна перевірка власника.");
 	}
 
@@ -234,14 +236,19 @@ const InvestigationPrototype = (() => {
 		elements.boardUnderstanding.textContent = "18 квітня є кандидатом межі зміни, а не підтвердженим фактом";
 		elements.boardReasoningBasis.textContent = "Власницьке спостереження потребує зіставлення з CRM і SLA";
 		setGuidedPhase(guidedPhase);
+		elements.watsonContributionReview.classList.add("hidden");
+		elements.guidedInvestigation.classList.remove("hidden");
 		elements.approveMatterContribution.disabled = true;
 		elements.approveMatterContribution.textContent = "Внесок схвалено для перевірки";
+		elements.boardInspection.open = true;
 		elements.reasoningMilestone.scrollIntoView({ behavior: "smooth", block: "nearest" });
 		announce("Внесок схвалено в пам’яті сторінки. Watson повторно оцінив рекомендацію; поточний напрям не змінився. Доказ, стан справи та авторитетні записи не змінено.");
 	}
 
 	function discardMatterContribution() {
 		elements.matterCaptureReview.classList.add("hidden");
+		elements.watsonContributionReview.classList.add("hidden");
+		elements.guidedInvestigation.classList.remove("hidden");
 		elements.reasoningMilestone.classList.add("hidden");
 		elements.matterCaptureInput.focus();
 		announce("Пропозицію Watson відхилено. Оригінальний текст залишається в полі введення для редагування.");
@@ -337,6 +344,8 @@ const InvestigationPrototype = (() => {
 			matterCaptureForm: document.getElementById("matterCaptureForm"),
 			matterCaptureInput: document.getElementById("matterCaptureInput"),
 			matterCaptureReview: document.getElementById("matterCaptureReview"),
+			guidedInvestigation: document.getElementById("guidedInvestigation"),
+			watsonContributionReview: document.getElementById("watsonContributionReview"),
 			captureOriginal: document.getElementById("captureOriginal"),
 			approveMatterContribution: document.getElementById("approveMatterContribution"),
 			discardMatterContribution: document.getElementById("discardMatterContribution"),
@@ -389,7 +398,6 @@ const InvestigationPrototype = (() => {
 		elements.requestEvidence.addEventListener("click", beginEvidenceCollection);
 		elements.guidedAction.addEventListener("click", advanceGuidedAction);
 		elements.redirectGuidance.addEventListener("click", () => {
-			elements.boardInspection.open = true;
 			elements.matterCaptureInput.focus();
 			elements.matterCaptureInput.scrollIntoView({ behavior: "smooth", block: "center" });
 			announce("Напрям не змінено. Додайте те, що вже відомо, своїми словами.");

@@ -406,3 +406,28 @@ boundaries and [Project Health](PROJECT_HEALTH.md) for the aggregate readiness v
 - The prototype demonstrates fixed page-memory interaction changes only. It does
   not implement AI question selection, readiness scoring, capability unlocking,
   persistence, a production workflow, or autonomous Investigation authority.
+
+## Sprint 14
+
+### Completed
+
+- **Perceptual Architecture:** Established the Board, Natural Capture, and Watson
+  Interaction Surface as three canonical roles with distinct speakers and
+  perceptual characters
+- **Board Centrality:** Restored the current operational picture as the visible
+  atmospheric center instead of hiding it behind active guidance
+- **Owner Working Zone:** Separated original owner contribution and tool state
+  from Watson classification and explanation
+- **Watson Surface:** Consolidated active guidance and contribution review into a
+  stable, recognizable secondary surface connected to the Board
+- **Responsive Roles:** Preserved Board-first orientation and explicit Capture
+  and Watson identity as the layout narrows
+- **Cognitive Cleanup:** Reduced duplicate guidance, long action labels, repeated
+  authority reminders, and interchangeable card treatment
+
+### Implementation status
+
+- Canonical architecture and deterministic prototype presentation are aligned.
+- The prototype adds no visualization engine, production AI, persistence,
+  attachment processing, voice capture, adaptive runtime, capability authority,
+  or source-record mutation.

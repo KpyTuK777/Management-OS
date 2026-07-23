@@ -88,6 +88,11 @@ interaction dominant attention while supporting context stays concise and every
 capability remains inspectable. Attention changes; capability access and owner
 authority do not.
 
+The [Perceptual Architecture](PERCEPTUAL_ARCHITECTURE.md) makes the relationship
+immediately recognizable: the Board shows the operational picture, the owner
+contributes through Natural Capture, and Watson interacts through one consistent
+surface. These roles remain stable across devices.
+
 Before v1.0, [Cognitive Cleanup](COGNITIVE_CLEANUP_ARCHITECTURE.md) shifts the
 experience from explaining Management OS to behaving naturally. Situation meaning,
 material uncertainty, and owner judgment remain visible; architectural mechanics

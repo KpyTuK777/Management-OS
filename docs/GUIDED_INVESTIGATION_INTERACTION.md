@@ -17,6 +17,11 @@ authority.
 Guided Investigation makes the next meaningful investigative interaction obvious.
 Watson leads attention and the owner retains judgment.
 
+The [Perceptual Architecture](PERCEPTUAL_ARCHITECTURE.md) locates that dominant
+interaction in the recognizable Watson Interaction Surface while keeping the
+Operational Situation Board visibly central and Natural Capture directly
+available.
+
 ## Design philosophy
 
 The Board manages attention rather than restricting information. It preserves the

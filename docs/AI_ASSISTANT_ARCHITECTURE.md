@@ -34,6 +34,12 @@ reject, and alternative inspection remain available. It recalculates guidance
 after a reviewed Natural Capture contribution; it does not progressively unlock
 capabilities or convert a visual sequence into Investigation authority.
 
+The [Perceptual Architecture](PERCEPTUAL_ARCHITECTURE.md) gives those active
+interventions one canonical Watson Interaction Surface. Watson may contextually
+emphasize a referenced Board element but does not speak through arbitrary Board
+cards or place its classification inside the owner's Natural Capture surface.
+Material consequence remains visible on the Board.
+
 The [Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md)
 governs context-aware Investigation behavior. The Assistant retains one capability
 set: Operational Reality minimizes noise and emphasizes Evidence, risk, execution,

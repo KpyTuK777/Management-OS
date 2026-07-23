@@ -16,6 +16,11 @@ Matter.
 The **Operational Situation Board** is a state-sensitive, owner-inspectable
 projection of the current operational understanding.
 
+Its perceptual role and relationship to Natural Capture and the Watson
+Interaction Surface are governed by the
+[Perceptual Architecture](PERCEPTUAL_ARCHITECTURE.md). The Board remains visibly
+central and does not become a container for owner input or active Watson speech.
+
 It is not a dashboard, document viewer, kanban board, module collection,
 conversational transcript, reasoning authority, or new persisted aggregate.
 

@@ -79,6 +79,24 @@ cognitive center. Material current understanding and uncertainty may remain
 visible as supporting context; repeated guidance and authority explanations do
 not.
 
+### Three-surface perceptual language
+
+The [Perceptual Architecture](PERCEPTUAL_ARCHITECTURE.md) differentiates three
+roles without introducing separate products:
+
+- the Board uses an atmospheric, low-elevation operational canvas with selective
+  relationship and change emphasis;
+- Natural Capture uses a neutral, inset, tool-like surface optimized for direct
+  owner input;
+- Watson uses a stable, raised, recognizably AI-owned interaction surface with
+  one dominant action.
+
+All three retain shared type, spacing, control, contrast, focus, and responsive
+tokens. Position, composition, borders, elevation, labels, and affordances carry
+role identity together; color is never the only signal. Motion is reserved for
+material Board change, Capture submission feedback, and restrained Watson
+intervention transitions.
+
 The pre-v1.0 [Cognitive Cleanup](COGNITIVE_CLEANUP_ARCHITECTURE.md) review treats
 visible explanatory copy as temporary unless it affects current interpretation,
 risk, authority, consequence, or action. Normal-operation explanation moves to

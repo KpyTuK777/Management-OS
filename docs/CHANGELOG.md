@@ -1,5 +1,19 @@
 # Changelog
 
+## Sprint 14 — Perceptual Architecture
+
+- Defined the Board, Natural Capture, and Watson Interaction Surface as three
+  recognizable roles within one Operational Matter workspace.
+- Kept the operational picture visible while moving active Watson guidance into a
+  persistent secondary surface.
+- Separated preserved owner wording from Watson classification review.
+- Added restrained Board atmosphere, tool-like Capture treatment, and stable
+  Watson identity without changing source authority.
+- Preserved full Evidence, reasoning, timeline, Hypothesis, Decision Readiness,
+  Laboratory, outcome, and Knowledge inspection.
+- Added no production visualization, AI, persistence, voice, attachments, or
+  autonomous behavior.
+
 ## Sprint 13 — Guided Investigation
 
 - Made Guided Investigation the default Situation Board interaction model.

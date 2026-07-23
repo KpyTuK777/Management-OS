@@ -7,6 +7,12 @@ Management OS. It accepts natural input, determines its likely operational meani
 and destination, gathers relevant context, and prepares an organizational outcome
 without requiring the owner to understand the module structure.
 
+Within an Operational Matter, the
+[Perceptual Architecture](PERCEPTUAL_ARCHITECTURE.md) makes Natural Capture the
+recognizable owner working surface. It contains original contribution and tool
+state; Watson classification, explanation, and consequential review appear in the
+separate Watson Interaction Surface.
+
 | Property | Decision |
 | --- | --- |
 | Status | Approved product architecture; not implemented |

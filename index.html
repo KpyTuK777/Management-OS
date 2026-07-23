@@ -73,34 +73,8 @@
 						<p>Ще не підтверджено як виміряне відхилення або встановлена проблема.</p>
 					</section>
 
-					<section class="guided-investigation" aria-labelledby="guidedInvestigationTitle">
-						<div class="guided-investigation__status">
-							<span id="guidedCondition">Орієнтація</span>
-							<small>Watson рекомендує · вирішує власник</small>
-						</div>
-						<div class="guided-investigation__content">
-							<p class="guided-investigation__eyebrow">Наступне, що потрібно зрозуміти</p>
-							<h2 id="guidedInvestigationTitle">Встановити базове порівняння</h2>
-							<p id="guidedInvestigationReason">Без періоду та сегментованого зрізу неможливо відрізнити загальну зміну від локального сигналу.</p>
-							<div class="guided-investigation__basis">
-								<div><span>Що шукаємо</span><strong id="guidedInvestigationNeed">Період, базову лінію та уражений сегмент</strong></div>
-								<div><span>Що це може змінити</span><strong id="guidedInvestigationEffect">Підтвердити масштаб відхилення та відкрити порівняння пояснень</strong></div>
-							</div>
-						</div>
-						<div class="guided-investigation__actions">
-							<button class="btn-primary" id="guidedActionButton" type="button">Переглянути запит доказів</button>
-							<button class="btn-secondary" id="redirectGuidanceButton" type="button">Додати те, що я знаю</button>
-							<button class="text-button" id="deferGuidanceButton" type="button">Відкласти</button>
-							<button class="text-button" id="rejectGuidanceButton" type="button">Відхилити рекомендацію</button>
-						</div>
-					</section>
-
-					<details class="board-inspection" id="boardInspection">
-						<summary>
-							<span><small>Повна операційна картина</small><strong>Переглянути докази, міркування, історію та інші дії</strong></span>
-							<small>Усе залишається доступним</small>
-						</summary>
-						<div class="board-inspection__content">
+					<div class="perceptual-workspace">
+						<div class="board-column">
 					<section class="situation-board-summary" aria-labelledby="situationBoardTitle">
 						<div class="section-heading">
 							<div><span>Операційна картина</span><h2 id="situationBoardTitle">Поточне розуміння справи</h2></div>
@@ -125,19 +99,20 @@
 							<textarea id="matterCaptureInput" rows="3" placeholder="Наприклад: Керівник enterprise-команди повідомив, що час передачі лідів зріс після 18 квітня." required></textarea>
 							<div class="investigation-intake__footer">
 								<p>Перед додаванням ви перевірите запропонований зміст.</p>
-								<button class="btn-primary" type="submit">Підготувати внесок</button>
+								<button class="btn-secondary" type="submit">Підготувати внесок</button>
 							</div>
 						</form>
 						<div class="capture-review hidden" id="matterCaptureReview" aria-live="polite">
-							<div><span>Оригінальне формулювання</span><blockquote id="captureOriginal"></blockquote></div>
-							<div><span>Пропозиція Watson</span><p><strong>Тип:</strong> спостереження, що потребує перевірки</p><p><strong>Зв’язок:</strong> MAT-0247 · Розслідування 1</p><p><strong>Походження:</strong> власник, поточна сесія</p><p><strong>Можливий вплив:</strong> уточнює часову межу; не змінює вагу доказів або стан справи.</p></div>
-							<div class="capture-review__actions">
-								<button class="btn-primary" id="approveMatterContribution" type="button">Схвалити як внесок для перевірки</button>
-								<button class="btn-secondary" id="discardMatterContribution" type="button">Відхилити пропозицію</button>
-							</div>
+							<div><span>Ваше оригінальне формулювання</span><blockquote id="captureOriginal"></blockquote><small>Збережено без інтерпретації.</small></div>
 						</div>
 					</section>
 
+					<details class="board-inspection" id="boardInspection">
+						<summary>
+							<span><small>Дослідити картину</small><strong>Докази, міркування, хронологія та рішення</strong></span>
+							<small>Повна простежуваність</small>
+						</summary>
+						<div class="board-inspection__content">
 					<section class="reasoning-milestone hidden" id="reasoningMilestone" aria-labelledby="reasoningMilestoneTitle">
 						<div class="section-heading"><div><span>Зміна міркування · RM-001</span><h2 id="reasoningMilestoneTitle">Новий внесок уточнив часову межу</h2></div><span class="owner-review-chip">Схвалено власником · у пам’яті сторінки</span></div>
 						<div class="reasoning-change-grid">
@@ -269,17 +244,56 @@
 							</section>
 						</div>
 
-						<aside class="ai-partner" aria-labelledby="aiPartnerTitle">
-							<div class="ai-partner__header"><span class="ai-avatar">AI</span><div><span>Підстави рекомендації</span><h2 id="aiPartnerTitle">Додатковий контекст Watson</h2></div></div>
-							<div class="ai-observation"><span>Чого бракує</span><p>Періоду порівняння, визначення показника продажів і сегментованого CRM-зрізу.</p></div>
-							<div class="ai-observation"><span>Суперечність</span><p>Поки немає даних, що відрізняють загальний спад від зміни в одному сегменті.</p></div>
-							<div class="ai-observation similar-investigation"><span>Схоже розслідування · INV-0182</span><p><strong>Поведінкова зміна:</strong> різке зростання часу відповіді перед спадом поновлень.</p><p><strong>Операційний контекст:</strong> той самий enterprise-сегмент, але інший ринок.</p><p><strong>Патерн доказів:</strong> подібне поєднання CRM-когорт і SLA-журналів; збіг не ґрунтується лише на словах.</p><p><strong>Відмінність:</strong> паралельна зміна ціни. Попередня причина не переноситься.</p></div>
-							<div class="discipline-checks"><span>Захист якості розслідування</span><ul><li>Повнота доказів: бракує базового зрізу</li><li>Гіпотези: ще не готові до підтвердження</li><li>Суперечності: залишаються видимими</li><li>Припущення: не представлені як факти</li></ul></div>
-							<details class="authority-note"><summary>Чому це у фокусі?</summary><p>Фокус запропоновано через відсутність базового порівняння. Він не змінює вагу доказів або стан справи.</p></details>
-						</aside>
 					</div>
 						</div>
 					</details>
+						</div>
+
+						<aside class="watson-surface" aria-labelledby="guidedInvestigationTitle">
+							<div class="watson-surface__identity"><span class="ai-avatar" aria-hidden="true">W</span><div><span>Watson</span><strong>Активна взаємодія</strong></div></div>
+							<section class="guided-investigation" id="guidedInvestigation">
+								<div class="guided-investigation__status">
+									<span id="guidedCondition">Орієнтація</span>
+									<small>Рішення за власником</small>
+								</div>
+								<div class="guided-investigation__content">
+									<p class="guided-investigation__eyebrow">Наступне, що потрібно зрозуміти</p>
+									<h2 id="guidedInvestigationTitle">Встановити базове порівняння</h2>
+									<p id="guidedInvestigationReason">Без періоду та сегментованого зрізу неможливо відрізнити загальну зміну від локального сигналу.</p>
+									<div class="guided-investigation__basis">
+										<div><span>Шукаємо</span><strong id="guidedInvestigationNeed">Період, базову лінію та уражений сегмент</strong></div>
+										<div><span>Може змінити</span><strong id="guidedInvestigationEffect">Підтвердити масштаб відхилення та відкрити порівняння пояснень</strong></div>
+									</div>
+								</div>
+								<div class="guided-investigation__actions">
+									<button class="btn-primary" id="guidedActionButton" type="button">Переглянути запит доказів</button>
+									<button class="btn-secondary" id="redirectGuidanceButton" type="button">Додати відоме</button>
+									<button class="text-button" id="deferGuidanceButton" type="button">Відкласти</button>
+									<button class="text-button" id="rejectGuidanceButton" type="button">Відхилити</button>
+								</div>
+							</section>
+							<section class="watson-contribution-review hidden" id="watsonContributionReview" aria-live="polite">
+								<span>Watson · пропозиція внеску</span>
+								<h2>Перевірте класифікацію</h2>
+								<p><strong>Тип:</strong> спостереження, що потребує перевірки</p>
+								<p><strong>Зв’язок:</strong> MAT-0247 · Розслідування 1</p>
+								<p><strong>Походження:</strong> власник, поточна сесія</p>
+								<p><strong>Можливий вплив:</strong> уточнює часову межу; не змінює вагу доказів або стан справи.</p>
+								<div class="capture-review__actions">
+									<button class="btn-primary" id="approveMatterContribution" type="button">Схвалити внесок</button>
+									<button class="btn-secondary" id="discardMatterContribution" type="button">Відхилити</button>
+								</div>
+							</section>
+							<details class="watson-context" aria-labelledby="aiPartnerTitle">
+								<summary><span>Підстави рекомендації</span><strong id="aiPartnerTitle">Перевірити контекст Watson</strong></summary>
+								<div class="watson-context__content">
+									<div class="ai-observation"><span>Чого бракує</span><p>Періоду порівняння, визначення показника продажів і сегментованого CRM-зрізу.</p></div>
+									<div class="ai-observation"><span>Суперечність</span><p>Немає даних, що відрізняють загальний спад від зміни в одному сегменті.</p></div>
+									<div class="discipline-checks"><span>Захист якості</span><ul><li>Бракує базового зрізу</li><li>Гіпотези ще не готові до підтвердження</li><li>Суперечності залишаються видимими</li></ul></div>
+								</div>
+							</details>
+						</aside>
+					</div>
 				</section>
 
 			</main>
