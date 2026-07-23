@@ -319,6 +319,11 @@ boundaries remain governed by the
 [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md) and Product
 Roadmap.
 
+Case-aware AI must optimize for decision quality, verified operational effect, and
+reusable learning rather than artifact count, Recommendation acceptance, SOP
+creation, or Case closure. It must preserve inconclusive, failed, no-action, and
+another-cycle outcomes.
+
 Every capability retains separate architecture, governance, implementation,
 validation, and release states. Owning modules and bounded Workflow Layer
 coordinators retain mutations. Predictive output remains a scenario with sources,

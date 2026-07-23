@@ -56,6 +56,11 @@ and relationships remain operational records rather than Personal Operational
 Model beliefs. Case authority remains defined by the
 [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
 
+Case results must not become hidden judgments about the owner's competence,
+performance, or problem-solving quality. Repeated Case interaction may support an
+explicit coaching-format or explanation preference recommendation, never a durable
+performance profile.
+
 ## Prohibited content and inference
 
 The Personal Operational Model must not silently contain or infer psychological,

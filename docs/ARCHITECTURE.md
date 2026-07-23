@@ -479,10 +479,12 @@ capability, domain record, authorization rule, or current runtime behavior chang
 ### Future Operational Case boundary
 
 The approved [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md)
-defines the Case as a future aggregate for bounded, non-routine operational
-reasoning. It may own framing, lifecycle, typed relationships, decision context,
-monitoring, closure, and learning synthesis, but participating records remain
-owned by their existing domains.
+defines the Case as a future bounded operational learning and change process, not
+only a record aggregate. It may own Case intent, current and intended conditions,
+success and guardrail measures, iterative Countermeasure cycles, typed
+relationships, decision context, outcome verification, monitoring, closure, and
+learning synthesis, but participating records remain owned by their existing
+domains.
 
 Case membership is a relationship rather than record migration. Facts retain
 source provenance; SOPs and Executions remain independently auditable; Reviews
@@ -510,7 +512,7 @@ without redefining capability architecture or release authority.
 - **Insights:** expose deterministic patterns across existing operational evidence.
 - **Hypotheses:** formulate explainable possible interpretations while preserving Evidence.
 - **Improvement Proposals:** preserve a user-authored, reviewable suggestion without changing its source SOP.
-- **Operational Case:** preserve bounded situation context, domain relationships, decisions, outcomes, closure, and learning synthesis without taking domain-record ownership.
+- **Operational Case:** guide bounded operational learning and change from current condition through verified outcome and standardization judgment without taking domain-record ownership.
 - **Workflow:** coordinate explicit transitions and relationships between modules.
 - **Storage:** keep domain storage helpers stable while shared utilities isolate
   `localStorage` reads, JSON parsing, and serialization.

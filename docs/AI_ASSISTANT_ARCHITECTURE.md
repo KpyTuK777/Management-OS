@@ -135,11 +135,18 @@ silently apply, a correction.
 | Reviews | Read structured reflection | Reflection support or missing-context request | Review Center |
 | Insights | Read deterministic observations | Explain an observation or supply recommendation context | No mutation by Insights |
 | Hypotheses | Read Evidence, confidence, and limitations | Explain a possible interpretation or supply recommendation context | No mutation by Hypotheses |
-| Operational Case | Read situation, scope, relationships, lifecycle, decisions, Evidence, and limitations | Prepare Case drafts, summaries, Hypotheses, alternatives, closure synthesis, or bounded handoff | Case persistence, scope change, Cause acceptance, consequential Solution, closure, and promotion require owner approval and owning-domain validation |
+| Operational Case | Read intent, current and target conditions, measures, cycles, relationships, decisions, Evidence, results, verification, and limitations | Prepare Case drafts, Evidence gaps, Hypotheses, Countermeasures, comparisons, verification approaches, closure synthesis, or bounded handoff | Case persistence, scope or intent change, Cause acceptance, consequential Countermeasure, outcome acceptance, standardization, closure, and promotion require owner approval and owning-domain validation |
 
 Operational Case lifecycle, record relationships, closure, knowledge promotion,
 and Operational Gym isolation remain governed by the
 [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
+
+The Assistant facilitates the Case process rather than optimizing artifact or Case
+completion. It preserves the intended outcome, distinguishes predicted from
+observed effect, exposes violated guardrails and unresolved uncertainty, and may
+recommend another cycle, no durable change, or justified no action. It must not
+pressure the owner toward a singular Cause, accepted Recommendation, successful
+result, SOP creation, or clean closure.
 | Improvement Proposals | Read snapshots, proposal, status, and rationale | Refinement or next-step explanation | Improvement Proposal workflow and SOP |
 
 ## Confidence and clarification model

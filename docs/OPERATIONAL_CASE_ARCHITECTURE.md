@@ -2,9 +2,9 @@
 
 ## Purpose and status
 
-This document defines the Operational Case as the primary operational aggregate
-for bounded, non-routine problem-solving, investigation, decision, and improvement
-in Management OS.
+This document defines the Operational Case as the primary operational learning and
+change process for bounded, non-routine problem-solving, investigation, decision,
+recovery, prevention, design, and improvement in Management OS.
 
 | Property | Decision |
 | --- | --- |
@@ -13,7 +13,7 @@ in Management OS.
 | Accountable owner | Product Architect & AI Strategist |
 | Product approval | Product Owner |
 | Canonical concept | Operational Case |
-| Authority | Case purpose, lifecycle, membership, relationships, closure, and owner-facing reasoning model |
+| Authority | Case purpose, intent, learning-and-change cycle, lifecycle, membership, relationships, outcome verification, closure, and owner-facing reasoning model |
 | Scope | Operational situations, domain-record relationships, AI participation, knowledge promotion, Home, Current Focus, Operating Context, and Operational Gym |
 | Primary audience | Product, architecture, design, engineering, data, documentation, and AI collaborators |
 | Lifecycle | Updated with approved Operational Case or case-centered information-architecture changes |
@@ -26,24 +26,28 @@ runtime, interface, migration, or AI behavior.
 
 ## Definition
 
-An **Operational Case** is the bounded context in which the owner investigates,
-decides, acts, and learns about a specific operational situation.
+An **Operational Case** is a bounded operational learning and change process
+through which the owner understands a situation, makes and executes justified
+decisions, verifies the outcome, and determines what should become durable
+practice.
 
 It answers:
 
 > What situation are we trying to understand or change, what do we know about it,
 > what have we decided, and what happened?
 
-A Case owns its situation framing, scope, lifecycle, relationships, decision
-context, timeline, monitoring conditions, closure, and learning synthesis. It does
-not own the authoritative Facts, SOPs, Executions, Reviews, Recommendations,
-Knowledge, projects, or tasks that participate in it.
+A Case owns its intent, situation framing, current and intended conditions, scope,
+outcome and guardrail measures, learning-and-change cycles, relationships, decision
+context, timeline, monitoring conditions, outcome verification, closure, and
+learning synthesis. It does not own the authoritative Facts, SOPs, Executions,
+Reviews, Recommendations, Knowledge, projects, or tasks that participate in it.
 
 ## Bounded centrality
 
 Operational Case is the primary operational object for deviations, recurring
 problems, incidents, risks, investigations, material operational questions,
-improvement opportunities, experiments, and evidence-based decisions.
+improvement opportunities, experiments, designs, recoveries, preventive actions,
+and evidence-based decisions.
 
 It is not mandatory for routine SOP execution, ordinary task completion, quick
 capture, direct Knowledge or SOP maintenance, simple retrieval, or work without a
@@ -51,6 +55,56 @@ meaningful investigative or decision lifecycle.
 
 Therefore the Case is the central mental model for resolving operational
 situations, not the universal parent of every Management OS record.
+
+## Case intent
+
+Every Case declares the outcome it is trying to achieve rather than assuming that
+all operational work is process improvement.
+
+| Case intent | Governing outcome question |
+| --- | --- |
+| Improvement | Did the relevant process or operating condition measurably improve? |
+| Recovery | Was the intended condition restored and stabilized? |
+| Prevention | Was material risk reduced or controlled? |
+| Investigation | Was uncertainty reduced enough to support a justified decision? |
+| Decision | Was the consequential choice made and its outcome evaluated? |
+| Design | Was a viable new operating method created and validated? |
+| No-action validation | Did Evidence establish that intervention was unnecessary or harmful? |
+
+Improvement is the dominant product direction, but the umbrella Operational Case
+remains broad enough for restoration, prevention, investigation, creation, and a
+justified decision not to change a process.
+
+## Operational learning and change cycle
+
+The Case is not a record-completion sequence. It is an iterative cycle:
+
+```text
+Current condition
+  -> Intended or target condition
+  -> Evidence and analysis
+  -> Hypotheses and causal understanding
+  -> Countermeasure or decision
+  -> Experiment or application
+  -> Observed result
+  -> Outcome verification
+  -> Learning and standardization decision
+  -> Next cycle when justified
+```
+
+New Evidence or an inconclusive result may return the Case to any earlier stage.
+The owner is not required to produce every artifact when it adds no decision value.
+
+Each applicable cycle preserves:
+
+- current condition and relevant baseline;
+- intended or target condition;
+- success measures and guardrail measures;
+- Evidence gaps and material conflicts;
+- predicted effect of the selected countermeasure;
+- observed effect and unintended consequences;
+- outcome-verification status;
+- decision to adopt, revise, stop, monitor, or run another cycle.
 
 ## What begins a Case
 
@@ -105,6 +159,22 @@ accepted, monitoring no longer justifies investigation, the owner decides not to
 act, Evidence cannot justify continued work, or the Case is abandoned, merged, or
 superseded.
 
+Every closure answers, where applicable:
+
+1. What condition was the Case intended to change, restore, protect, understand,
+   or create?
+2. What Evidence defined the initial condition?
+3. What outcome and guardrails were intended?
+4. What decision, countermeasure, or intervention occurred?
+5. What result was observed?
+6. Did the result satisfy the declared Case intent?
+7. What uncertainty remains?
+8. What should become durable practice, if anything?
+
+When verification is unavailable, closure explicitly records outcome unknown,
+verification deferred, inconclusive, abandoned, or superseded rather than implying
+success from documentation completeness.
+
 Closure preserves:
 
 - disposition and reason;
@@ -130,7 +200,7 @@ Case membership is a typed relationship, not an ownership transfer.
 | Insight | Deterministic pattern relevant to the situation | May span Cases and source domains |
 | Hypothesis | Possible Case explanation with Evidence and limitations | May represent a broader cross-Case pattern |
 | Cause | Owner-accepted Case conclusion after evaluated Evidence | Normally Case-bound and scoped |
-| Solution | Candidate, selected, tested, adopted, rejected, or inconclusive response | Adopted output may become reusable work or practice |
+| Countermeasure or Solution | Proposed response, tested intervention, or verified adopted solution | Adopted output may become reusable work or practice |
 | SOP | Durable reusable procedure | Remains an independent library record |
 | Execution | Immutable operational history | Remains independently auditable |
 | Review | Authentic reflection owned by its Execution relationship | Remains independently discoverable |
@@ -171,16 +241,19 @@ owner-accepted, Case-scoped conclusion that preserves supporting Evidence,
 evaluated alternatives, confidence, limitations, validation method, and scope.
 Accepting a Cause never rewrites a Hypothesis into a universal Fact.
 
-### Solutions
+### Countermeasures and Solutions
 
-Solution state remains explicit:
+A proposed response remains a **Countermeasure** while its effect is unverified.
+It becomes an adopted Solution only after Evidence supports the intended outcome
+within its stated scope. State remains explicit:
 
 ```text
 Candidate
   -> Selected
   -> In progress
   -> Tested
-  -> Adopted / Rejected / Inconclusive
+  -> Verified
+  -> Adopted / Rejected / Inconclusive / Another cycle
 ```
 
 Selected does not mean successful. Successful in one Case does not automatically
@@ -188,22 +261,22 @@ mean standard organizational practice.
 
 ## Owner-facing reasoning model
 
-The Case presents one coherent, non-mandatory flow:
+The Case presents one coherent, non-mandatory and iterative flow:
 
 ```text
-Situation
-  -> Evidence
-  -> Explanations
-  -> Decision
-  -> Action
-  -> Outcome
-  -> Learning
+Intent and current condition
+  -> Target and measures
+  -> Evidence and understanding
+  -> Countermeasure or decision
+  -> Experiment or application
+  -> Result and verification
+  -> Learning and standardization
 ```
 
 The interface must continue distinguishing observation from interpretation,
-Hypothesis from Cause, Recommendation from decision, selected Solution from
-verified outcome, closure from resolution, and learning candidate from approved
-organizational Knowledge.
+Hypothesis from Cause, Recommendation from decision, Countermeasure from verified
+Solution, activity from outcome, closure from success, and learning candidate from
+approved organizational Knowledge.
 
 ## Relationship with Home
 
@@ -217,9 +290,9 @@ established; Home remains the primary entry, continuity, and attention surface.
 
 ## Relationship with Current Focus
 
-Current Focus identifies what deserves attention now. It may reference a Case, a
-specific Case decision, an Execution or Solution action, or work unrelated to any
-Case. A Case may remain active without being Current Focus.
+Current Focus identifies what deserves attention now. It may reference a Case, its
+next meaningful judgment, a Countermeasure or Execution, outcome verification, or
+work unrelated to any Case. A Case may remain active without being Current Focus.
 
 ## Relationship with Operating Context
 
@@ -254,17 +327,20 @@ Owner intent
 The Assistant may suggest an existing Case, prepare a Case draft, identify possible
 duplicates, retrieve relevant Evidence, summarize state, identify evidence gaps or
 conflicts, formulate explainable Hypotheses, compare alternatives, prepare a
-Solution experiment, explain Recommendations, prepare closure synthesis, and
-identify Knowledge or SOP candidates.
+Countermeasure and verification approach, compare predicted and observed results,
+explain Recommendations, prepare closure synthesis, and identify standardization,
+Knowledge, or SOP candidates.
 
 The Assistant must not create or merge Cases silently; rewrite source Facts;
 convert correlation into Cause; raise confidence merely because records agree;
-mark a Solution successful without outcome Evidence; close a Case autonomously;
+mark a Countermeasure successful without outcome Evidence; optimize for record or
+Case completion; close a Case autonomously;
 promote Case content into organizational truth; change SOPs or Workspace Emphasis;
 or use simulated Gym Evidence as organizational Evidence.
 
 Explicit owner approval is required to persist a Case; merge or split Cases;
-materially change scope; accept a Cause; select a consequential Solution; mutate a
+materially change scope; accept a Cause; select a consequential Countermeasure;
+accept outcome verification or standardization; mutate a
 domain record; close or reopen where consequential; promote learning; apply a
 Recommendation; or create or revise an SOP.
 
@@ -289,10 +365,11 @@ Every stage retains its authority, provenance, confidence, and approval boundary
 
 ## Organizational knowledge
 
-Case closure may prepare a learning synthesis containing situation, context,
-Evidence, adopted and rejected explanations, decision rationale, intervention,
-outcome, limitations, recurrence conditions, reusable lesson, and possible SOP
-implications.
+Case closure may prepare a learning synthesis containing intent, current and target
+conditions, context, measures, Evidence, adopted and rejected explanations,
+decision rationale, Countermeasure, predicted and observed effects, outcome
+verification, limitations, recurrence conditions, reusable lesson, and possible
+standardization implications.
 
 ```text
 Closed Case
@@ -312,6 +389,12 @@ Operational Gym reuses the same Case lifecycle, reasoning model, terminology, an
 epistemic distinctions in a visibly isolated simulation boundary. Coaching,
 management theory, compressed time, hints, and revealed consequences may be added
 without changing the Case grammar.
+
+Gym evaluates framing, Evidence use, target and guardrail quality, causal caution,
+countermeasure selection, result interpretation, and standardization judgment. It
+does not reward filling every Case section or converging on a predetermined
+Solution. Failed experiments, inconclusive Evidence, and justified no-action
+decisions may be valid learning outcomes.
 
 Simulated Facts, Evidence, Causes, Solutions, Executions, Reviews, outcomes, and
 Recommendations never enter organizational truth or operational analytics. Any
@@ -342,15 +425,17 @@ substituted with guesses.
 Operational Case is approved with bounded centrality:
 
 1. It is the primary aggregate for non-routine operational reasoning.
-2. It is not required for all work or all records.
-3. It owns context and relationships, not participating domain records.
-4. Home remains the stable primary workspace.
-5. Current Focus may reference but does not belong to a Case.
-6. Operating Context may influence prominence only.
-7. The Learning Decision Pipeline and owner approval remain intact.
-8. Organizational Knowledge changes only through explicit promotion.
-9. Operational Gym reuses the model in an isolated simulation boundary.
-10. Direct domain access and degraded non-AI operation remain supported.
+2. It is an active operational learning and change process, not a record container.
+3. Case intent determines the appropriate outcome question.
+4. It is not required for all work or all records.
+5. It owns process context and relationships, not participating domain records.
+6. Home remains the stable primary workspace.
+7. Current Focus may identify the next Case judgment or verification need.
+8. Operating Context may influence prominence only.
+9. The Learning Decision Pipeline and owner approval remain intact.
+10. Organizational Knowledge changes only through explicit promotion.
+11. Operational Gym reuses the model in an isolated simulation boundary.
+12. Direct domain access and degraded non-AI operation remain supported.
 
 Implementation requires a separate proportionate proposal or plan and explicit
 APPLY authorization.

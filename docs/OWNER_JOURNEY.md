@@ -81,7 +81,8 @@ supporting context on demand. It does not lead with passive totals, activity, or
 broad KPIs.
 
 When bounded non-routine work exists, Home may surface an active Operational Case
-or a Case decision requiring judgment without replacing Home with a Case list.
+or a Case decision, Countermeasure, or outcome verification requiring judgment
+without replacing Home with a Case list.
 
 **AI responsibilities:** Restore relevant active context, distinguish attention
 from passive information, explain prominence, identify resumable work, and remain
@@ -216,8 +217,9 @@ Review initially asks only for outcome, rating, blockers, improvements, and less
 Insights and Hypotheses remain separately inspectable.
 
 When these stages concern one bounded operational situation, the Operational Case
-preserves their relationship, decision history, action, outcome, and closure
-without taking ownership of their domain records.
+guides an iterative learning-and-change cycle across current condition, intended
+condition, Evidence, explanations, Countermeasures, results, outcome verification,
+standardization, and closure without taking ownership of domain records.
 
 **AI responsibilities:** Help structure authentic reflection, ask only material
 questions, distinguish owner observation from interpretation, explain Evidence and
@@ -406,7 +408,7 @@ value requires quiet presence.
 | Hypotheses | Presents possible explanations with Evidence and limitations |
 | Recommendations Center | Owns evidence-based opportunities and decision lifecycle |
 | Improvement Proposals | Owns controlled, evidence-linked SOP improvement suggestions |
-| Operational Case | Primary aggregate for bounded non-routine investigation, decision, action, outcome, and learning |
+| Operational Case | Bounded operational learning and change process connecting intent, condition, Evidence, decision, Countermeasure, verified outcome, learning, and standardization judgment |
 | Personal Operational Model | Future owner-controlled source of durable approved personal context and preferences |
 | Adaptive Workspace | Future executor of exact approved Workspace Emphasis, not an autonomous journey controller |
 | Adaptive Owner Context | Canonical owner-controlled Operating Context, optional Operational Stage, Current Focus relationship, and prioritization invariants |

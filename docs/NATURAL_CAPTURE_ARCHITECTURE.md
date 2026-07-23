@@ -143,6 +143,11 @@ improvement. It must not force routine work into a Case or persist Case membersh
 without approval. The governing boundary is the
 [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
 
+When preparing a Case, Natural Capture may propose a Case intent and initial
+current condition from the owner's wording. It must not invent a target condition,
+measure, Cause, Countermeasure, or expected improvement that the owner did not
+state or authorize.
+
 ## Confidence model
 
 Natural Capture uses the Assistant's existing confidence dimensions: intent,

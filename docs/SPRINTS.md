@@ -139,6 +139,7 @@ incomplete.
 - **Governance:** Optimized implementation workflow with direct and extended delivery lanes
 - **Product and Information Architecture:** Canonical Adaptive Owner Context, Personal Operational Model, and Adaptive Workspace architectures with owner-controlled Operating Context, optional Operational Stage, and capability-preserving Workspace Emphasis
 - **Product and Information Architecture:** Canonical Operational Case Architecture with bounded centrality, domain-record independence, explicit knowledge promotion, and shared real-work and Operational Gym reasoning model
+- **Strategic Product Architecture:** Operational Case refined as a bounded operational learning and change process with Case intents, current and target conditions, Countermeasure cycles, outcome verification, and standardization judgment
 
 ### Implementation status
 
@@ -193,5 +194,9 @@ incomplete.
   Existing domains retain record authority; Home remains primary; routine work
   remains Case-optional; and no Case entity, persistence, UI, migration, runtime,
   Gym, or AI behavior was implemented.
+- Strategic review further defines the Case as an active iterative process rather
+  than a record container. Improvement remains the dominant direction while
+  recovery, prevention, investigation, decision, design, and justified no-action
+  outcomes remain valid. No runtime or data-model implementation was introduced.
 
 See [Roadmap](ROADMAP.md) for product phases beyond this sprint.

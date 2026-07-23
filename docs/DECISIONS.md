@@ -512,3 +512,83 @@ authority, Product Language review, and explicit APPLY remain required.
 - [Architecture](ARCHITECTURE.md)
 - [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md)
 - [Adaptive Owner Context Architecture](ADAPTIVE_OWNER_CONTEXT_ARCHITECTURE.md)
+
+## DL-010 — Define Operational Case as a bounded operational learning and change process
+
+- Date: 2026-07-23
+- Status: Accepted
+- Decision owner: Product Owner
+- Category: Strategic product and information architecture
+- Affected documents: `OPERATIONAL_CASE_ARCHITECTURE.md`, `PRODUCT_VISION.md`, `OWNER_JOURNEY.md`, `AI_FIRST_WORKSPACE_ARCHITECTURE.md`, `AI_ASSISTANT_ARCHITECTURE.md`, `NATURAL_CAPTURE_ARCHITECTURE.md`, `PERSONAL_OPERATIONAL_MODEL.md`, `SYSTEMS.md`, `ARCHITECTURE.md`, `ROADMAP.md`, `AI_CAPABILITY_ROADMAP.md`, `PRODUCT_LANGUAGE.md`, `DOCUMENTATION_MAP.md`, `SPRINTS.md`
+- Supersedes: None; refines DL-009 without changing bounded centrality or domain ownership
+- Superseded by: None
+
+### Context
+
+DL-009 established Operational Case as the bounded aggregate for non-routine
+operational reasoning. Strategic review found that an aggregate or record-container
+interpretation remained too passive and could preserve artifact-oriented product
+behavior. It also found that defining every Case only as business-process
+improvement would exclude recovery, prevention, investigation, consequential
+decisions, design, and justified no-action outcomes.
+
+### Decision
+
+Define Operational Case as a bounded operational learning and change process
+through which the owner understands a situation, makes and executes justified
+decisions, verifies the outcome, and determines what should become durable
+practice.
+
+Every Case declares an intent: Improvement, Recovery, Prevention, Investigation,
+Decision, Design, or No-action validation. Applicable Cases preserve current and
+intended conditions, success and guardrail measures, Evidence and causal
+understanding, Countermeasure cycles, predicted and observed effects, outcome
+verification, and standardization judgment. The cycle is iterative and may end in
+success, restoration, controlled risk, sufficient understanding, inconclusive
+Evidence, failed intervention, another cycle, or justified no action.
+
+Management OS optimizes for better operational capability through better human
+decisions and verified action, not the number of management artifacts. Knowledge
+remains compounding operational capital and an input or approved intermediate
+product, not the sole terminal outcome.
+
+### Rationale
+
+The active process model aligns Case work with operational value and continuous
+learning while preventing completed records from becoming a proxy for improvement.
+Case intents preserve the breadth of operational management, and explicit
+verification prevents selected Countermeasures from being presented as successful
+Solutions before Evidence supports the outcome.
+
+### Alternatives considered
+
+- Retain the aggregate-only definition — rejected because it organizes records
+  without making operational effect the governing outcome.
+- Define every Case as business-process improvement — rejected because valid Cases
+  may restore, prevent, investigate, decide, design, or justify no action.
+- Make Knowledge or SOP creation the terminal Case result — rejected because the
+  verified operational effect and standardization judgment determine whether any
+  durable artifact is justified.
+- Require one Root Cause and linear stages — rejected because operational causality
+  may be plural, uncertain, interacting, or outside the owner's control, and
+  learning cycles are iterative.
+
+### Consequences
+
+Future implementation must distinguish Countermeasure from verified Solution,
+activity from outcome, and closure from success. It must support explicit Case
+intent, measurement guardrails, inconclusive and failed outcomes, and another-cycle
+decisions without forcing every artifact or Case stage. Home remains primary,
+domains retain record ownership, and a separate data model, implementation plan,
+approval, and APPLY remain required.
+
+### References
+
+- [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md)
+- [Product Vision](PRODUCT_VISION.md)
+- [Owner Journey](OWNER_JOURNEY.md)
+- [AI-first Workspace Architecture](AI_FIRST_WORKSPACE_ARCHITECTURE.md)
+- [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md)
+- [Systems](SYSTEMS.md)
+- [Architecture](ARCHITECTURE.md)
+- [Decision Log](DECISIONS.md), DL-009 — Use Operational Case as the bounded aggregate for non-routine operational reasoning

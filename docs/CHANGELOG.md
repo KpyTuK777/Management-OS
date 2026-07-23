@@ -168,6 +168,10 @@ separately in [Sprint Tracker](SPRINTS.md).
   centrality, lifecycle, typed relationships without domain ownership transfer,
   AI and approval boundaries, explicit organizational-learning promotion, and an
   isolated shared model for future Operational Gym without implementation.
+- Refined the Operational Case into a bounded operational learning and change
+  process with explicit Case intents, current and target conditions, success and
+  guardrail measures, Countermeasure cycles, outcome verification, and
+  standardization judgment while preserving valid non-improvement outcomes.
 - Added the canonical Product Principle that Management OS should quietly remove
   cognitive noise while preserving decisions that require human judgment.
 - Extended the standard Product Review guidance with a mandatory evaluation of

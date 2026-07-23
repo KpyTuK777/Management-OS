@@ -81,11 +81,11 @@ this product sequencing or authorize implementation.
 
 ### Future Operational Case
 
-Introduce the Operational Case as the primary aggregate for bounded non-routine
-investigation, decision, action, outcome, and learning only after reliable source
-records and relationship governance are available. Begin with additive Case
-relationships and preserved direct domain access before any Case-centered
-navigation consolidation.
+Introduce the Operational Case as the primary bounded operational learning and
+change process only after reliable source records and relationship governance are
+available. Begin with additive Case relationships, then add Case intent, current
+and intended conditions, measures, Countermeasure cycles, outcome verification,
+and standardization decisions before any Case-centered navigation consolidation.
 
 The Case remains optional for routine work, owns no participating domain record,
 and promotes learning only through explicit Knowledge or SOP workflows.

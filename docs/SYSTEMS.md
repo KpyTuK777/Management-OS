@@ -45,9 +45,9 @@ responsibilities.
 
 ## Operational Case
 
-- **Purpose:** Preserve the bounded operational context that connects a non-routine situation, Evidence, explanations, decisions, actions, outcomes, and learning.
+- **Purpose:** Guide a bounded operational learning and change process from current condition through justified decision, Countermeasure, outcome verification, and standardization judgment.
 - **Current status:** Approved future architecture; no Case entity, persistence, interface, migration, or AI behavior is implemented.
-- **Future responsibilities:** Own Case framing, scope, lifecycle, typed domain relationships, decision timeline, monitoring conditions, closure disposition, and learning synthesis.
+- **Future responsibilities:** Own Case intent, current and intended conditions, success and guardrail measures, iterative learning-and-change cycles, typed domain relationships, decision timeline, monitoring, outcome verification, closure disposition, and learning synthesis.
 - **Boundary:** A Case is not mandatory for routine work and does not own linked Facts, Reports, SOPs, Executions, Reviews, Recommendations, Knowledge, projects, or tasks. Home remains the primary workspace, and durable organizational learning requires explicit promotion. See [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
 
 ## Portfolio
@@ -58,7 +58,7 @@ responsibilities.
 
 ## Knowledge Base
 
-- **Purpose:** Act as the user's reusable second brain.
+- **Purpose:** Preserve reusable organizational understanding as compounding operational capital for present and future decisions.
 - **Current status:** CRUD, categories, search, Notes provenance, and Knowledge → SOP conversion are implemented.
 - **Future responsibilities:** Keywords, richer relationships, quality review, and SOP recommendations.
 

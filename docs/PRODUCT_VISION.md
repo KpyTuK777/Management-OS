@@ -5,7 +5,9 @@ User-facing communication follows the official
 
 ## Purpose
 
-Management OS is a personal operating system for an operations manager. It helps turn daily work, projects, knowledge, reflection, and improvement into a coherent practice.
+Management OS is a personal operating system for an operations manager. It helps
+the owner improve operational capability and business outcomes through better
+understanding, preserved human judgment, verified action, and reusable learning.
 
 ## Philosophy
 
@@ -45,11 +47,12 @@ authority belongs to the
 
 ### Operational reasoning through Cases
 
-The **Operational Case** is the primary operational aggregate for bounded,
-non-routine investigation, problem-solving, decision, and improvement. It lets the
-owner understand one situation across Symptoms, Evidence, Hypotheses, Causes,
-Solutions, SOPs, Executions, Reviews, and Recommendations without transferring the
-authority of those records to the Case.
+The **Operational Case** is the primary operational learning and change process for
+bounded, non-routine investigation, problem-solving, decision, recovery,
+prevention, design, and improvement. It lets the owner understand a current
+condition, define an intended condition, make a justified decision, test or apply
+a Countermeasure, verify the outcome, and decide what should become durable
+practice without transferring authority from participating domain records.
 
 Cases are not mandatory for routine work, quick capture, direct library use, or
 simple execution. Home remains the primary workspace, and organizational learning
@@ -57,15 +60,36 @@ from a Case becomes durable only through explicit promotion into its owning
 Knowledge or SOP workflow. The canonical boundary is defined in
 [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
 
+The intended outcome hierarchy is:
+
+```text
+Better understanding
+  -> Better human judgment
+  -> Better intervention
+  -> Verified operational effect
+  -> Reusable learning
+  -> Better future operational capability
+```
+
+Management OS does not optimize for the number of Notes, Hypotheses, Reports,
+Recommendations, Reviews, SOPs, or Knowledge records. Those artifacts earn their
+place by improving decisions, execution, verification, reuse, or future operating
+capability.
+
 ## Long-term vision
 
 Management OS becomes a unified workspace for managing execution, institutional knowledge, operating processes, performance insight, and continuous improvement.
 
-### Information lifecycle
+### Information maturation lifecycle
 
 The long-term product vision is to help information mature through a deliberate lifecycle:
 
 **Idea → Notes → Knowledge Base → SOP → Execution → Review → Improvement**
+
+This information-maturation path is distinct from the iterative operational
+learning and change cycle governed by Operational Cases. Knowledge may be an input
+to a Case, an approved intermediate product of Case learning, and reusable capital
+for later Cases; it is not the sole terminal product outcome.
 
 Notes provide the friction-free capture point. Later stages progressively add structure, operational reuse, action, reflection, and improvement. This lifecycle describes product direction rather than functionality that is fully implemented today.
 

@@ -30,6 +30,14 @@ user-facing language must follow this guide.
 | Operational Stage | Операційний етап |
 | Workspace Emphasis | Акцент робочого простору |
 | Operational Case | Операційний кейс |
+| Case Intent | Мета операційного кейсу |
+| Current Condition | Поточний стан |
+| Target Condition | Цільовий стан |
+| Intended Outcome | Очікуваний результат |
+| Countermeasure | Контрзахід |
+| Guardrail Measure | Обмежувальний показник |
+| Outcome Verification | Перевірка результату |
+| Standardization Decision | Рішення про стандартизацію |
 | Needs Attention | Потребує уваги |
 | Supporting / Additional Context | Додатковий контекст |
 | Search | Пошук; **Глобальний пошук** for product-wide search |
