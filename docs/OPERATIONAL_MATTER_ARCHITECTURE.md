@@ -222,6 +222,10 @@ snapshots, and unresolved freshness rather than manufacturing continuity.
 
 ## Experience contract
 
+The [Operational Situation Board Architecture](OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md)
+governs the primary Matter workspace. The Board is a state-sensitive projection
+of current operational understanding, never a parallel record or authority.
+
 User-facing language should make clear that the Matter is the enduring situation,
 an Investigation is work performed concerning it, multiple Investigation episodes
 may occur, closure is reversible through governed reopening, and Laboratory

@@ -93,6 +93,19 @@ responsibilities.
   transitions require accountable-owner approval. See
   [Operational Matter Architecture](OPERATIONAL_MATTER_ARCHITECTURE.md).
 
+## Operational Situation Board
+
+- **Purpose:** Project one stable, state-sensitive operational picture answering
+  what is happening, understood, uncertain, changed, blocked, important now, and
+  proposed next.
+- **Current status:** Approved future experience architecture; static prototype
+  presentation aligned. No Board store, adaptive layout engine, AI focus selection,
+  contribution classifier, persistence, or production interface is implemented.
+- **Boundary:** The Board is a read model, not a source of truth. Dynamic cognitive
+  focus is reversible presentation judgment and Natural Capture remains governed
+  by source-capability validation and owner approval. See
+  [Operational Situation Board Architecture](OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md).
+
 ## Operational Inquiry
 
 - **Purpose:** Help the AI Investigation Partner select and explain the smallest valuable next question for Investigation progress.

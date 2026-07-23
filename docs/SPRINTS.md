@@ -330,3 +330,29 @@ See [Roadmap](ROADMAP.md) for product phases beyond the current sprint.
 
 See [Documentation Map](DOCUMENTATION_MAP.md) for authority and consolidation
 boundaries and [Project Health](PROJECT_HEALTH.md) for the aggregate readiness view.
+
+## Sprint 11
+
+### Completed
+
+- **Operational Situation Board Architecture:** Established the canonical
+  Matter-workspace mental model as a stable, state-sensitive projection of current
+  operational understanding rather than a dashboard, document viewer, kanban,
+  module collection, or conversation transcript
+- **Dynamic Cognitive Focus:** Defined one explainable, reversible cognitive center
+  with provenance, uncertainty, conflicting Evidence, focus history, and owner
+  pin, dismiss, and replacement authority
+- **Natural Capture Alignment:** Made natural input the default Matter contribution
+  entry while preserving original wording, source-capability validation,
+  structured entry, and consequential approval boundaries
+- **Prototype Alignment:** Reframed the static Matter workspace as an Operational
+  Picture with stable regions and an explicitly non-authoritative Watson-proposed
+  cognitive center
+
+### Implementation status
+
+- Documentation and static presentation only. No Board store, adaptive layout,
+  focus-selection AI, capture classification, Matter persistence, schema,
+  migration, or production interface was implemented.
+- Existing page-memory interactions remain deterministic demonstrations and do not
+  create authoritative contributions, change Matter state, or learn from input.

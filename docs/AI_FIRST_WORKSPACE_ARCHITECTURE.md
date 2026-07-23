@@ -121,6 +121,10 @@ Matter identity and lifecycle remain governed by the
 [Operational Matter Architecture](OPERATIONAL_MATTER_ARCHITECTURE.md); the
 Investigation experience remains governed by the
 [Operational Case Experience Architecture](OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md).
+Once a Matter is opened, its primary mental model follows the
+[Operational Situation Board Architecture](OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md).
+Home orients and routes attention; it does not duplicate the complete Matter-level
+operational picture.
 
 ### Resting state
 

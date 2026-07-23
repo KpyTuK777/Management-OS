@@ -14,6 +14,10 @@ Decision Laboratory is entered and exited within the Investigation. Where older
 sections say Operational Gym, Reality, or Simulation, their valid experiential
 separation is interpreted through the canonical
 [Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md).
+The [Operational Situation Board Architecture](OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md)
+governs the Matter-level mental model: a stable operational picture with
+state-sensitive, explainable cognitive emphasis rather than a stage, module, or
+artifact inventory.
 
 ## Purpose and status
 
@@ -337,15 +341,19 @@ training mechanics or outcomes.
 
 ## Progressive disclosure
 
-The experience reveals complexity in three levels:
+The Situation Board provides a stable frame answering what is happening, what is
+understood and why, what remains uncertain, what changed, what needs attention,
+and what should happen next. It reveals supporting complexity in three levels:
 
 1. **Orientation** — situation, Case state, next meaningful action, major gap, and pending decision.
 2. **Investigation** — Evidence, explanations, alternatives, decision, execution, measures, and outcome.
 3. **Audit and specialist detail** — provenance, lineage, confidence basis, conflicts, model validation, snapshots, retention, and authorization.
 
 The product must not reproduce module overload as a permanent wall of Case stages.
-It surfaces the next meaningful reasoning need while keeping the complete history
-and all participating domains accessible.
+It surfaces the current cognitive center and next meaningful reasoning need while
+keeping the complete history and all participating domains accessible. Dynamic
+emphasis changes within stable regions, remains explainable and reversible, and
+never changes source authority.
 
 ## Navigation and continuity
 

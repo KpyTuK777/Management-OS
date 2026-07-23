@@ -100,6 +100,12 @@ specialized workspace; retain priority authority and correct presented context.
 
 **Cognitive-load objective:** Prevent manual reconstruction of operational state.
 
+When the owner enters an Operational Matter, the
+[Operational Situation Board](OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md)
+provides a stable operational picture rather than a module or artifact inventory.
+Watson may propose an explainable cognitive center while the owner retains control
+of focus, judgment, and consequential action.
+
 **Expected emotional outcome:** Continuity, orientation, readiness, and confidence.
 
 ### 3. Capturing a thought

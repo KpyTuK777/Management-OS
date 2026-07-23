@@ -1,5 +1,19 @@
 # Changelog
 
+## Sprint 11 — Operational Situation Board
+
+- Established the Operational Situation Board as the canonical owner-facing
+  Matter mental model and non-authoritative projection.
+- Defined a stable operational-picture frame with dynamic, explainable, reversible
+  cognitive focus.
+- Aligned Natural Capture as the default governed contribution entry while
+  preserving original wording, validation, structured alternatives, and owner
+  authority.
+- Reframed the static prototype around the Operational Picture and a visibly
+  Watson-proposed cognitive center.
+- No Board persistence, adaptive reasoning, classification AI, or production
+  interface was added.
+
 ## Sprint 10 — Canonical Operational Matter
 
 - Established Operational Matter as the single enduring identity and thin

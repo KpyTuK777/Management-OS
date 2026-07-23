@@ -15,7 +15,7 @@
 			<main class="workspace investigation-prototype">
 				<section class="investigation-home" id="investigationHome" aria-labelledby="homeTitle">
 					<header class="investigation-hero">
-						<span class="prototype-label">Архітектурний прототип · без AI та збереження</span>
+						<span class="prototype-label">Прототип Операційної картини · без AI та збереження</span>
 						<h1 id="homeTitle">Що відбувається?</h1>
 						<p>Опишіть ситуацію своїми словами. Management OS створить операційну справу й підготує перше розслідування — без вимоги назвати проблему чи вибрати модуль.</p>
 					</header>
@@ -47,7 +47,7 @@
 					</div>
 				</section>
 
-				<section class="investigation-workspace hidden" id="investigationWorkspace" aria-labelledby="caseTitle">
+				<section class="investigation-workspace hidden" id="investigationWorkspace" aria-label="Операційна картина MAT-0247">
 					<header class="case-header" id="investigations">
 						<div>
 							<div class="case-header__meta">
@@ -74,7 +74,7 @@
 					</section>
 
 					<section class="journey-progress" aria-labelledby="journeyProgressTitle">
-						<div class="journey-progress__header"><div><span>Стан справи · Під розслідуванням</span><h2 id="journeyProgressTitle">Поточний фокус: <strong id="currentJourneyStep">розслідування</strong></h2></div><p id="currentJourneyLabel">AI готує наступний внесок</p></div>
+						<div class="journey-progress__header"><div><span>Операційна картина · Під розслідуванням</span><h2 id="journeyProgressTitle">Поточний фокус: <strong id="currentJourneyStep">розслідування</strong></h2></div><p id="currentJourneyLabel">AI готує наступний внесок</p></div>
 						<p class="section-intro">Це карта внесків, а не обов’язковий лінійний процес. Стан справи не виводиться автоматично з виконаних кроків; важливі переходи схвалює власник. Справа може повернутися до попередньої роботи або містити інше розслідування.</p>
 						<ol id="journeySteps">
 							<li class="is-complete">Симптом</li><li class="is-complete">Створення</li><li class="is-current">AI-підготовка</li><li>Докази</li><li>Розуміння</li><li>Гіпотези</li><li>Валідація причин</li><li>Готовність</li><li>Рішення</li><li>План виконання</li><li>Перевірка</li><li>Знання</li>
@@ -91,11 +91,11 @@
 						</div>
 					</details>
 
-					<nav class="case-stage-nav" aria-label="Етапи операційного мислення">
-						<button class="case-stage is-active" type="button" data-view="understanding">1. Розуміння</button>
-						<button class="case-stage" type="button" data-view="evidence">2. Докази</button>
-						<button class="case-stage" type="button" data-view="decision">3. Рішення</button>
-						<button class="case-stage" type="button" data-view="outcome">4. Результат і навчання</button>
+					<nav class="case-stage-nav" aria-label="Розділи операційної картини">
+						<button class="case-stage is-active" type="button" data-view="understanding">Розуміння</button>
+						<button class="case-stage" type="button" data-view="evidence">Підстави</button>
+						<button class="case-stage" type="button" data-view="decision">Наступне судження</button>
+						<button class="case-stage" type="button" data-view="outcome">Результат і навчання</button>
 					</nav>
 
 					<div class="case-layout">
@@ -196,13 +196,13 @@
 						</div>
 
 						<aside class="ai-partner" aria-labelledby="aiPartnerTitle">
-							<div class="ai-partner__header"><span class="ai-avatar">AI</span><div><span>Партнер розслідування</span><h2 id="aiPartnerTitle">Підготовка наступного кроку</h2></div></div>
+							<div class="ai-partner__header"><span class="ai-avatar">AI</span><div><span>Когнітивний центр · запропонував Watson</span><h2 id="aiPartnerTitle">Найважливіше зараз: встановити базове порівняння</h2></div></div>
 							<div class="ai-observation"><span>Чого бракує</span><p>Періоду порівняння, визначення показника продажів і сегментованого CRM-зрізу.</p></div>
 							<div class="ai-observation"><span>Суперечність</span><p>Поки немає даних, що відрізняють загальний спад від зміни в одному сегменті.</p></div>
 							<div class="ai-observation similar-investigation"><span>Схоже розслідування · INV-0182</span><p><strong>Поведінкова зміна:</strong> різке зростання часу відповіді перед спадом поновлень.</p><p><strong>Операційний контекст:</strong> той самий enterprise-сегмент, але інший ринок.</p><p><strong>Патерн доказів:</strong> подібне поєднання CRM-когорт і SLA-журналів; збіг не ґрунтується лише на словах.</p><p><strong>Відмінність:</strong> паралельна зміна ціни. Попередня причина не переноситься.</p></div>
 							<div class="discipline-checks"><span>Захист якості розслідування</span><ul><li>Повнота доказів: бракує базового зрізу</li><li>Гіпотези: ще не готові до підтвердження</li><li>Суперечності: залишаються видимими</li><li>Припущення: не представлені як факти</li></ul></div>
-							<div class="ai-next-step"><span>Запропонований крок</span><strong>Уточнити період і дозволити CRM-зріз за сегментами.</strong><button class="btn-primary" type="button" id="reviewStepButton">Переглянути запит</button></div>
-							<p class="authority-note">AI готує. Ви вирішуєте, що прийняти, змінити або відхилити.</p>
+							<div class="ai-next-step"><span>Чому це важливо зараз</span><strong>Без періоду й сегментованого зрізу неможливо відрізнити загальну зміну від локального сигналу.</strong><button class="btn-primary" type="button" id="reviewStepButton">Переглянути запропонований крок</button></div>
+							<p class="authority-note">Динамічний фокус — це пояснювана пропозиція, а не вага доказу чи зміна стану. Ви можете прийняти, змінити або відхилити його.</p>
 						</aside>
 					</div>
 				</section>

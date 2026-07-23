@@ -137,16 +137,21 @@ Authoritative domain data prevails over Assistant inference, and current explici
 instruction prevails over personal preference. Conflicts lower confidence and are
 shown rather than silently repaired.
 
-Natural Capture may prepare an Operational Case destination when the input
+Within an [Operational Situation Board](OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md),
+Natural Capture is the default contribution entry. The owner describes what was
+learned without selecting an artifact type. Natural Capture may prepare an
+Operational Matter contribution when the input
 expresses a bounded non-routine situation requiring investigation, decision, or
-improvement. It must not force routine work into a Case or persist Case membership
-without approval. The governing boundary is the
-[Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
+improvement. It must not force routine work into a Matter or persist Matter
+membership without approval.
 
-When preparing a Case, Natural Capture may propose a Case intent and initial
-current condition from the owner's wording. It must not invent a target condition,
-measure, Cause, Countermeasure, or expected improvement that the owner did not
-state or authorize.
+When preparing a Matter contribution, Natural Capture preserves original wording
+and may propose contribution type, epistemic status, Investigation relationship,
+provenance, freshness, existing-record relationships, and possible reasoning or
+cognitive-focus effect. It must not invent a target condition, measure, Cause,
+Countermeasure, or expected improvement that the owner did not state or authorize.
+It never turns natural input directly into authoritative Evidence, Matter state,
+Decision, or approved Knowledge.
 
 ## Confidence model
 
@@ -214,7 +219,8 @@ without separate action approval.
 
 It may not autonomously persist an entity, change a record or relationship, write
 into an Execution or Review, create an Improvement Proposal, establish a permanent
-preference, change Dashboard state, or archive, merge, overwrite, or delete data.
+preference, change Matter state or Situation Board focus authority, or archive,
+merge, overwrite, or delete data.
 
 Approval identifies the action, destination, prepared content, fields, targets and
 relationships, any multi-entity split, and expected consequence. A material change

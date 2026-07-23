@@ -20,6 +20,13 @@ intent and observed effect after **Outcome Assessed**, and suppresses unsolicite
 active-work prompting when **Closed**. It may recommend reopening but cannot
 reopen a Matter.
 
+Within the [Operational Situation Board](OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md),
+Watson may propose the current cognitive center and explain why it matters now,
+what changed, its supporting and conflicting Evidence, uncertainty, provenance,
+and next judgment. The owner may pin, dismiss, or replace that focus. Dynamic
+emphasis is presentation judgment only; it cannot alter Evidence weight, Matter
+state, priority authority, or a Decision.
+
 The [Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md)
 governs context-aware Investigation behavior. The Assistant retains one capability
 set: Operational Reality minimizes noise and emphasizes Evidence, risk, execution,

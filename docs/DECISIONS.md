@@ -33,6 +33,23 @@ Superseded, link its successor, and preserve the history.
 
 ## ADR boundary
 
+### DL-024 — Adopt the Operational Situation Board mental model
+
+- **Status:** Accepted
+- **Date:** 2026-07-23
+- **Decision:** Make the Operational Situation Board the primary Matter-workspace
+  mental model: a state-sensitive projection of current operational understanding
+  within a stable frame. Allow Watson to propose an explainable, reversible
+  cognitive center and make Natural Capture the default governed contribution
+  entry.
+- **Rationale:** Owners need immediate orientation around the situation,
+  understanding, uncertainty, change, blockers, current significance, and next
+  judgment—not exposure to capability boundaries or artifact inventory.
+- **Authority:** The Board is never a source of truth. Focus does not change
+  Evidence weight, Matter state, priority authority, or Decisions. Natural input
+  remains original wording until governed classification and applicable owner
+  approval.
+
 ### DL-023 — Define the minimum Operational Matter behavioral state model
 
 - **Status:** Accepted
