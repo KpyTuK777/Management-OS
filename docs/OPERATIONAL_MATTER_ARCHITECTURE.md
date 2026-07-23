@@ -46,23 +46,98 @@ content, or external-system records. Source capabilities retain authority.
 
 ## Canonical macro-states
 
+| State | Authoritative meaning |
+| --- | --- |
+| **Reported** | The situation is recorded; validity, materiality, scope, and response are not yet established. |
+| **Under Assessment** | Ownership, scope, materiality, urgency, and the proportionate response are being established. |
+| **Under Investigation** | One or more Investigation episodes are actively reducing material uncertainty. |
+| **Decision Ready** | An inspectable basis is sufficient for owner judgment; readiness remains revocable. |
+| **Decided** | An authoritative owner Decision exists and its rationale is preserved. |
+| **In Execution** | One or more approved Operational Actions are underway. |
+| **Outcome Assessed** | Observed effects have been evaluated against Decision intent and expected effect. |
+| **Closed** | No current operational work is required; history remains authoritative and reopenable. |
+
+These states describe the Matter's authoritative operational posture. They are not
+Investigation progress, task status, completeness scores, capability states, or a
+mandatory linear wizard. Detailed progress remains in linked contributions.
+
+## Canonical transitions
+
+The ordinary forward path is permitted but not mandatory:
+
 ```text
-Reported
-Under Assessment
-Under Investigation
-Decision Ready
-Decided
-In Execution
-Outcome Assessed
-Closed
+Reported -> Under Assessment -> Under Investigation
+         -> Decision Ready -> Decided -> In Execution
+         -> Outcome Assessed -> Closed
 ```
 
-These are authoritative macro-states, not a mandatory linear wizard. A Matter may
-skip inapplicable states, move backward after new Evidence, contain concurrent
-work, support multiple Investigations, close without Knowledge publication, and
-reopen with its identity and prior history intact. Every transition records actor,
-time, reason, and source state. Consequential transitions require the applicable
-owner authority; AI may propose but cannot perform them.
+Canonical non-forward transitions are:
+
+| Transition | Meaning |
+| --- | --- |
+| Under Assessment -> Closed | Assessment established that no current action is justified. |
+| Under Investigation -> Under Assessment | Scope, ownership, or materiality requires reassessment. |
+| Decision Ready -> Under Investigation | Material uncertainty or contradictory Evidence emerged. |
+| Decided -> Decision Ready | The Decision requires reconsideration before execution. |
+| Decided -> Under Investigation | New Evidence invalidated a material premise. |
+| In Execution -> Decided | Execution paused or requires a materially revised owner Decision. |
+| Outcome Assessed -> In Execution | Further approved action is required after evaluation. |
+| Closed -> Under Assessment | The same situation has materially recurred or new information justifies reopening. |
+
+Creation in **Reported** is mandatory. No later state is universally mandatory:
+proportionate Matters may close after assessment, Decisions may require no
+execution, and execution may not justify a separate outcome study. A Matter may
+repeat Investigation, readiness, Decision, execution, and assessment work without
+changing identity. Multiple Investigations do not require parallel Matter states.
+
+Reopening always preserves identity and prior history and enters **Under
+Assessment**. The product reassesses scope, ownership, materiality, and whether a
+new Investigation episode is required. It never creates a duplicate Matter merely
+to represent recurrence.
+
+Every transition appends source state, destination state, actor, time, reason,
+supporting references, authority basis, and whether the transition was proposed
+or approved. State history is never rewritten.
+
+## Transition ownership
+
+The Operational Matter authority validates and records transitions; capabilities
+may supply governed supporting records but do not own Matter state.
+
+- Matter creation may automatically establish **Reported**.
+- The accountable owner approves consequential transitions to or from
+  **Decision Ready**, **Decided**, **In Execution**, **Outcome Assessed**,
+  **Closed**, and reopening.
+- Assessment and Investigation transitions may be delegated only through explicit
+  workspace policy and must remain attributable and reversible.
+- Watson may recommend a transition, explain its basis, identify unmet conditions,
+  or warn that state appears stale. It cannot perform or imply an authoritative
+  transition.
+- External integrations may report source events. They cannot silently change
+  Matter state; an explicitly governed synchronization policy must validate,
+  attribute, and record any resulting transition.
+
+## State-sensitive behavior
+
+| Matter state | Primary product behavior |
+| --- | --- |
+| Reported | Preserve owner wording; avoid diagnosis; clarify urgency without expanding scope prematurely. |
+| Under Assessment | Establish ownership, materiality, scope, urgency, and proportionate next work. |
+| Under Investigation | Prioritize Inquiry, Evidence, orchestration, competing explanations, and visible uncertainty. |
+| Decision Ready | Present the readiness basis, alternatives, risks, authority, guardrails, and unresolved uncertainty without pressuring a Decision. |
+| Decided | Preserve the authoritative rationale and decision-time snapshot; distinguish reconsideration from silent reinterpretation. |
+| In Execution | Emphasize linked Actions, commitments, guardrails, source-system status, and monitoring. |
+| Outcome Assessed | Compare intended and observed effects and identify bounded follow-up or a learning candidate. |
+| Closed | Suppress active-work prompting by default; support retrieval, Memory use, retention, and explicit reopening. |
+
+State influences capability emphasis; it does not enable or remove capabilities.
+Operational Inquiry may continue after readiness or Decision when material
+uncertainty appears. Investigation Orchestration coordinates active Investigation
+episodes but never infers Matter state from task completion. Decision Laboratory
+may be used in any decision-relevant state and remains non-authoritative.
+Operational Memory may reference active or closed Matters but never determines
+their current state. UX must show the current state and proposed transitions
+without presenting the state model as a fixed sequence.
 
 ## Separate learning lifecycle
 

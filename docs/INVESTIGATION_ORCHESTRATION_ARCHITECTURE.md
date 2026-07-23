@@ -86,3 +86,11 @@ scheduling, access, and operational decisions. Calendar and task systems remain
 execution authorities. If optimization, organizational context, or integrations
 are unavailable, the Investigation retains manual actions, visible dependencies,
 and explicit uncertainty without losing capabilities.
+
+Matter state influences orchestration emphasis but is never derived from checklist
+completion. Under Assessment emphasizes ownership and scope; Under Investigation
+emphasizes Evidence dependencies and uncertainty reduction; Decision Ready
+emphasizes unresolved prerequisites; In Execution emphasizes linked source-system
+work and guardrails. Orchestration may recommend a Matter transition and attach
+its coordination evidence, but it cannot approve or record the authoritative
+transition.

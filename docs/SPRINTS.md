@@ -301,6 +301,10 @@ See [Roadmap](ROADMAP.md) for product phases beyond the current sprint.
   operational identity, non-linear and reopenable macro-state lifecycle, typed
   source-owned relationships, multiple Investigation episodes, separate learning
   governance, traceable Laboratory branches, and capability write boundaries
+- **Operational Matter State Model:** Defined the minimum eight authoritative
+  operational states, canonical forward and exception transitions,
+  Closed-to-Under-Assessment reopening, append-only transition history,
+  state-sensitive capability behavior, and owner-controlled transition authority
 
 ### Implementation status
 
@@ -320,6 +324,9 @@ See [Roadmap](ROADMAP.md) for product phases beyond the current sprint.
   enduring situation, labels its first Investigation episode separately, treats
   the work map as non-linear, marks Laboratory output non-authoritative, and
   prepares a separate Knowledge review candidate without creating production data.
+- The prototype's visible Under Investigation label demonstrates presentation
+  only. It does not implement a state machine, automatic inference, transition
+  persistence, or owner authorization.
 
 See [Documentation Map](DOCUMENTATION_MAP.md) for authority and consolidation
 boundaries and [Project Health](PROJECT_HEALTH.md) for the aggregate readiness view.

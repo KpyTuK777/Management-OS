@@ -33,6 +33,22 @@ Superseded, link its successor, and preserve the history.
 
 ## ADR boundary
 
+### DL-023 — Define the minimum Operational Matter behavioral state model
+
+- **Status:** Accepted
+- **Date:** 2026-07-23
+- **Decision:** Use Reported, Under Assessment, Under Investigation, Decision
+  Ready, Decided, In Execution, Outcome Assessed, and Closed as the only canonical
+  Matter states. Permit governed non-linear transitions, repeatable Investigation
+  and execution work, and Closed-to-Under-Assessment reopening while keeping
+  detailed progress in linked capability records.
+- **Rationale:** Eight stable operational postures are sufficient to guide product
+  behavior across uncertainty, judgment, execution, evaluation, and closure
+  without encoding a brittle workflow or duplicating capability state.
+- **Authority:** Watson and contributing capabilities may recommend transitions.
+  The Matter authority validates and records them; the accountable owner approves
+  consequential transitions. External events cannot silently mutate Matter state.
+
 ### DL-022 — Establish Operational Matter as the canonical lifecycle artifact
 
 - **Status:** Accepted

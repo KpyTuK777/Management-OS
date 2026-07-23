@@ -42,6 +42,12 @@ Operational Matter at named version
 A Scenario Branch is not an editable clone of the Case, a prediction, a plan, an
 observed result, or authorization to act.
 
+Matter state affects presentation, not Laboratory authority. Branching may be
+useful during assessment, investigation, readiness, reconsideration, or outcome
+follow-up. Creating, comparing, promoting, rejecting, or discarding a branch never
+changes Matter state. A branch may support a transition proposal, but only the
+governed Matter transition authority records an approved transition.
+
 The owner enters it through the Decision Laboratory from current decision work.
 The transition and return preserve parent Matter identity, source Matter version,
 baseline time,

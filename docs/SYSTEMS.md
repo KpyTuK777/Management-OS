@@ -88,7 +88,10 @@ responsibilities.
 - **Boundary:** The Matter is a thin control-plane record. Source systems retain
   Evidence, organizational, calendar, execution, Knowledge, and branch authority.
   An Investigation is a repeatable episode concerning a Matter, not its permanent
-  identity. See [Operational Matter Architecture](OPERATIONAL_MATTER_ARCHITECTURE.md).
+  identity. Its eight canonical states describe operational posture, not workflow
+  completion. Watson and capabilities may recommend transitions; consequential
+  transitions require accountable-owner approval. See
+  [Operational Matter Architecture](OPERATIONAL_MATTER_ARCHITECTURE.md).
 
 ## Operational Inquiry
 

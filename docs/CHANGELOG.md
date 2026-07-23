@@ -12,6 +12,9 @@
   Matter version; promotion requires an explicit proposal and owner approval.
 - Aligned Assistant, Inquiry, Orchestration, Memory, Knowledge, data, system,
   language, and documentation-map authority boundaries.
+- Defined the eight-state behavioral model, canonical exception transitions,
+  governed reopening, transition ownership, state-sensitive capability behavior,
+  and the boundary between Matter state and contribution progress.
 - No entity, persistence, runtime, migration, or production interface was added.
 
 This file records released product changes. Sprint scope and completion are tracked

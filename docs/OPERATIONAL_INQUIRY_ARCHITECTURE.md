@@ -144,7 +144,9 @@ unless the comparison supporting that claim is inspectable.
 
 ## State-sensitive strategy and progress
 
-Investigation state influences, but never dictates, inquiry strategy:
+Operational Matter state influences, but never dictates, inquiry strategy.
+Investigation-local conditions remain contribution state rather than competing
+Matter states:
 
 - **Orientation-dominant:** establish condition, scope, baseline, timeline, and
   affected process without premature Cause language.
@@ -157,8 +159,10 @@ Investigation state influences, but never dictates, inquiry strategy:
 - **Outcome-learning:** verify predicted effect, guardrails, new Evidence, and
   whether Knowledge or Experience Patterns deserve review.
 
-These are dominant conditions, not lifecycle states or gates. New Evidence may
-return a late Investigation to broad exploration.
+These are dominant Investigation conditions, not lifecycle states or gates. New
+Evidence may return a late Investigation to broad exploration and may support a
+proposed Matter transition from Decision Ready to Under Investigation. Inquiry
+cannot perform that transition.
 
 Progress means improved condition, scope, timeline, Evidence, contradiction,
 Hypothesis, Inflection Point, causal, risk, Decision Readiness, or next-action

@@ -11,6 +11,15 @@ boundaries. The Assistant may propose transitions or contributions but cannot
 silently change authoritative Matter state, Decisions, Outcomes, or source-owned
 records.
 
+Matter state changes emphasis, not capability access. The Assistant preserves
+reported wording in **Reported**, clarifies scope and authority in **Under
+Assessment**, prioritizes uncertainty reduction in **Under Investigation**,
+explains rather than declares **Decision Ready**, preserves owner rationale after
+**Decided**, monitors linked source-owned work during **In Execution**, compares
+intent and observed effect after **Outcome Assessed**, and suppresses unsolicited
+active-work prompting when **Closed**. It may recommend reopening but cannot
+reopen a Matter.
+
 The [Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md)
 governs context-aware Investigation behavior. The Assistant retains one capability
 set: Operational Reality minimizes noise and emphasizes Evidence, risk, execution,

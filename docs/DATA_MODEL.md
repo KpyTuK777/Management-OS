@@ -11,7 +11,7 @@ source-owned contributions rather than copied domain records.
 | Concern | Canonical future contract |
 | --- | --- |
 | Identity | Stable Matter identifier preserved through closure and reopening |
-| State | One authoritative macro-state plus append-only transition history |
+| State | One authoritative eight-value macro-state plus append-only transition history recording source, destination, actor, time, reason, supporting references, authority basis, and proposal-versus-approval status |
 | Ownership | Accountable owner and traceable authority source |
 | Investigation | Zero or more linked, repeatable Investigation episodes |
 | Relationships | Typed stable references with source authority and provenance |

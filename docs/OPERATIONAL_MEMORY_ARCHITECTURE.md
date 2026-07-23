@@ -31,6 +31,11 @@ episodes, Decisions, and Outcomes, and connects them into explainable
 organizational experience for future work. Reopening preserves the Matter's
 canonical identity and prior history rather than creating a Memory-owned copy.
 
+Matter state scopes retrieval behavior: Closed Matters default to historical
+reference, while active Matters remain current work. Operational Memory may
+identify recurrence or new historical relevance and recommend reassessment, but
+it cannot infer, change, close, or reopen authoritative Matter state.
+
 It relates, without taking authority from:
 
 - completed Operational Cases and their decision-time Evidence snapshots;
