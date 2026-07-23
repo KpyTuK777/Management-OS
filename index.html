@@ -69,6 +69,13 @@
 						<p>Ще не підтверджено як виміряне відхилення або встановлена проблема.</p>
 					</section>
 
+					<section class="journey-progress" aria-labelledby="journeyProgressTitle">
+						<div class="journey-progress__header"><div><span>Безперервне розслідування</span><h2 id="journeyProgressTitle">Крок <strong id="currentJourneyStep">3</strong> із 12</h2></div><p id="currentJourneyLabel">AI готує розслідування</p></div>
+						<ol id="journeySteps">
+							<li class="is-complete">Симптом</li><li class="is-complete">Створення</li><li class="is-current">AI-підготовка</li><li>Докази</li><li>Розуміння</li><li>Гіпотези</li><li>Валідація причин</li><li>Готовність</li><li>Рішення</li><li>План виконання</li><li>Перевірка</li><li>Знання</li>
+						</ol>
+					</section>
+
 					<nav class="case-stage-nav" aria-label="Етапи операційного мислення">
 						<button class="case-stage is-active" type="button" data-view="understanding">1. Розуміння</button>
 						<button class="case-stage" type="button" data-view="evidence">2. Докази</button>
@@ -89,6 +96,12 @@
 								<section class="hypothesis-board">
 									<div class="section-heading"><div><span>Операційне розуміння</span><h2>Пояснення ще відкриті</h2></div><span class="uncertainty-chip">Висока невизначеність</span></div>
 									<p>Спочатку підтвердьте, що зміна існує. Потім порівняйте можливі пояснення, не перетворюючи кореляцію на причину.</p>
+									<div class="hypothesis-list hidden" id="hypothesisList">
+										<article><span>Підтримується</span><strong>Зниження сконцентроване в enterprise-поновленнях</strong><p>CRM-зріз і когортний аналіз узгоджуються. Причина ще не підтверджена.</p></article>
+										<article><span>Відхилено</span><strong>Загальний сезонний спад</strong><p>P&amp;L показує, що зміна перевищує сезонний діапазон.</p></article>
+										<article><span>Потребує перевірки</span><strong>Затримки передачі лідів погіршили поновлення</strong><p>Структурні дані вказують на розрив відповідальності, але фактичну взаємодію ще потрібно підтвердити.</p></article>
+									</div>
+									<button class="btn-primary hidden" id="validateCauseButton" type="button">Перевірити причинне пояснення</button>
 								</section>
 							</section>
 
@@ -111,15 +124,25 @@
 									<article class="evidence-card" data-evidence-category="human"><span class="evidence-card__state">Запропоновано</span><h3>Інтерв’ю з керівниками сегментів</h3><p>Людські · Свідчення</p><small>Потрібно зіставити твердження з операційними даними.</small><span class="influence-role influence-role--pending">Вплив ще не визначено</span></article>
 									<article class="evidence-card" data-evidence-category="historical"><span class="evidence-card__state evidence-card__state--context">Контекст</span><h3>INV-0182 · Падіння поновлень</h3><p>Історичні · Попередній кейс</p><small>Схожий сегмент, але інший ринок і зміна ціни. Причина не переноситься.</small><span class="influence-role">Вплив: відкрив шлях перевірки</span></article>
 								</div>
+								<div class="flow-action"><p id="evidenceFlowStatus">AI підготував мінімальний набір доказів. Власник має схвалити запит.</p><button class="btn-primary" id="collectEvidenceButton" type="button">Схвалити й отримати демонстраційні докази</button></div>
 							</section>
 
 							<section class="case-view" data-case-view="decision">
-								<div class="section-heading"><div><span>Рішення власника</span><h2>Ще не готове до прийняття</h2></div><span class="uncertainty-chip">Бракує базових доказів</span></div>
+								<div class="section-heading"><div><span>Готовність до рішення</span><h2 id="decisionReadinessTitle">Ще не готове до прийняття</h2></div><span class="uncertainty-chip" id="readinessChip">Бракує базових доказів</span></div>
+								<div class="readiness-summary hidden" id="readinessSummary">
+									<article><span>Відомо</span><p>Спад триває три місяці та зосереджений у enterprise-поновленнях.</p></article><article><span>Невідомо</span><p>Повний вплив зміни ціни на окремі когорти.</p></article><article><span>Залишкова невизначеність</span><p>Фактичний внесок розриву відповідальності ще обмежено перевірений.</p></article><article><span>Основний доказ</span><p>CRM-зріз за сегментами й когортами.</p></article><article><span>Підтримувальні</span><p>P&amp;L, SLA передачі лідів та інтерв’ю.</p></article><article><span>Відхилена гіпотеза</span><p>Загальний сезонний спад.</p></article><article><span>Відкрите питання</span><p>Який захисний показник найраніше виявить небажаний ефект?</p></article>
+								</div>
 								<div class="decision-readiness">
 									<p><strong>AI може підготувати:</strong> альтернативи, припущення, ризики, критерії успіху та захисні обмеження.</p>
 									<p><strong>Власник вирішує:</strong> чи достатньо доказів, яку дію обрати та який ризик прийняти.</p>
 									<button class="btn-secondary" id="openSimulationButton" type="button">Відкрити альтернативну гілку</button>
+									<button class="btn-primary hidden" id="approveDecisionButton" type="button">Прийняти рішення власника</button>
 								</div>
+								<section class="execution-plan hidden" id="executionPlan">
+									<div class="section-heading"><div><span>Підготовлено AI · схвалює власник</span><h2>План виконання</h2></div><span class="owner-review-chip">Не схвалено</span></div>
+									<div class="execution-grid"><article><span>Дія</span><strong>Пілот передачі enterprise-лідів</strong><p>Одна команда, 30 днів.</p></article><article><span>Критерій</span><strong>Час відповіді ≤ 4 години</strong><p>Без погіршення інших сегментів.</p></article><article><span>Власник</span><strong>Керівник продажів</strong><p>Щотижневий огляд.</p></article></div>
+									<button class="btn-primary" id="approvePlanButton" type="button">Схвалити план і запланувати перевірку</button>
+								</section>
 								<section class="scenario-branch hidden" id="scenarioBranch">
 									<div class="section-heading"><div><span class="environment-badge environment-badge--simulation">Simulation</span><h3>Сценарна гілка A</h3></div><button class="text-button" id="closeSimulationButton" type="button">Повернутися до Reality</button></div>
 									<p><strong>Умова:</strong> якщо спад підтвердиться лише в enterprise-сегменті та потужність команди не зміниться.</p>
@@ -129,7 +152,7 @@
 							</section>
 
 							<section class="case-view" data-case-view="outcome">
-								<div class="empty-outcome"><span>Результат ще не спостерігався</span><h2>Навчання починається після перевірки дії</h2><p>Активність не дорівнює успіху. Порівняйте очікуваний і спостережений ефект, перш ніж пропонувати знання або стандартну практику.</p></div>
+								<div class="empty-outcome" id="followUpPanel"><span>Перевірка результату</span><h2 id="followUpTitle">Результат ще не спостерігався</h2><p id="followUpDescription">Активність не дорівнює успіху. Порівняйте очікуваний і спостережений ефект.</p><button class="btn-primary hidden" id="recordOutcomeButton" type="button">Зафіксувати демонстраційний результат</button></div>
 								<section class="decision-evidence-summary" aria-labelledby="evidenceSummaryTitle">
 									<div class="section-heading"><div><span>Прототип завершення</span><h2 id="evidenceSummaryTitle">Підсумок доказів рішення</h2></div><span class="owner-review-chip">Потребує перевірки власника</span></div>
 									<p>Якісне пояснення внеску — без балів, відсотків або рейтингу документів.</p>
@@ -140,6 +163,14 @@
 										<article><span>Фоновий контекст</span><strong>Організаційна структура</strong><p>Описує формальні зв’язки; фактичну взаємодію ще потрібно перевірити.</p></article>
 									</div>
 									<div class="summary-warning"><strong>Невирішено:</strong> відсутній CRM-зріз, а формальна структура ще не зіставлена з реальною взаємодією. Підсумок не готовий до схвалення.</div>
+								</section>
+								<section class="knowledge-capture hidden" id="knowledgeCapture" aria-labelledby="knowledgeCaptureTitle">
+									<div class="section-heading"><div><span>Кандидат знання</span><h2 id="knowledgeCaptureTitle">Зберегти операційне навчання</h2></div><span class="owner-review-chip">Не збережено</span></div>
+									<p>Знання посилається на повне розслідування: міркування, докази, рішення, результат і обмеження.</p>
+									<label>Урок<textarea id="knowledgeLesson" rows="3">Чітка відповідальність за передачу enterprise-лідів скоротила час відповіді та покращила поновлення в межах пілоту.</textarea></label>
+									<label>Обмеження<textarea rows="2">Перевірено в одній команді протягом 30 днів; не переносити автоматично на інші сегменти.</textarea></label>
+									<button class="btn-primary" id="captureKnowledgeButton" type="button">Схвалити й зберегти в пам’яті прототипу</button>
+									<p class="knowledge-captured hidden" id="knowledgeCaptured">Знання схвалено в межах цієї сесії. Майбутнє розслідування зможе послатися на нього як на контекст, а не як на готову причину.</p>
 								</section>
 							</section>
 						</div>

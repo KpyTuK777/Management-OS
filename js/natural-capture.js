@@ -1,5 +1,6 @@
 const InvestigationPrototype = (() => {
 	let elements;
+	const journeyLabels = ["Повідомлений симптом", "Розслідування створено", "AI готує розслідування", "Збір доказів", "Операційне розуміння", "Розвиток гіпотез", "Валідація причин", "Готовність до рішення", "Рішення власника", "План виконання", "Перевірка результату", "Захоплення знання"];
 
 	function announce(message) {
 		elements.announcement.textContent = "";
@@ -20,6 +21,15 @@ const InvestigationPrototype = (() => {
 		});
 	}
 
+	function setJourneyStep(step) {
+		elements.currentJourneyStep.textContent = step;
+		elements.currentJourneyLabel.textContent = journeyLabels[step - 1];
+		elements.journeySteps.forEach((item, index) => {
+			item.classList.toggle("is-complete", index < step - 1);
+			item.classList.toggle("is-current", index === step - 1);
+		});
+	}
+
 	function openInvestigation(event) {
 		event.preventDefault();
 		const symptom = elements.input.value.trim();
@@ -29,22 +39,84 @@ const InvestigationPrototype = (() => {
 		elements.home.classList.add("hidden");
 		elements.workspace.classList.remove("hidden");
 		showView("understanding");
+		setJourneyStep(3);
 		elements.workspace.focus({ preventScroll: true });
 		window.location.hash = "reality";
 		announce("Створено тимчасове розслідування INV-0247. Повідомлений симптом збережено лише в пам’яті сторінки.");
 	}
 
+	function beginEvidenceCollection() {
+		setJourneyStep(4);
+		showView("evidence");
+		announce("AI підготував мінімальний запит доказів. Власник перевіряє і схвалює його.");
+	}
+
+	function collectEvidence() {
+		const missingCard = elements.evidenceCards.find(card => card.dataset.evidenceCategory.includes("system"));
+		const state = missingCard.querySelector(".evidence-card__state");
+		const influence = missingCard.querySelector(".influence-role");
+		state.textContent = "Отримано · демонстрація";
+		state.className = "evidence-card__state";
+		influence.textContent = "Вплив: встановив масштаб симптома";
+		influence.classList.remove("influence-role--pending");
+		elements.evidenceFlowStatus.textContent = "Докази організовано. AI виявив сегментований спад і підготував гіпотези; власник перевіряє інтерпретацію.";
+		elements.collectEvidence.disabled = true;
+		elements.collectEvidence.textContent = "Демонстраційні докази отримано";
+		setJourneyStep(5);
+		showView("understanding");
+		elements.hypothesisList.classList.remove("hidden");
+		elements.validateCause.classList.remove("hidden");
+		setJourneyStep(6);
+		announce("Докази зібрано. Показано конкуруючі гіпотези та обмеження.");
+	}
+
+	function validateCause() {
+		setJourneyStep(7);
+		elements.validateCause.disabled = true;
+		elements.validateCause.textContent = "Причинне пояснення прийнято власником у межах пілоту";
+		showView("decision");
+		elements.readinessSummary.classList.remove("hidden");
+		elements.decisionReadinessTitle.textContent = "Готове до рішення з видимою невизначеністю";
+		elements.readinessChip.textContent = "AI підготував · вирішує власник";
+		elements.approveDecision.classList.remove("hidden");
+		setJourneyStep(8);
+		announce("AI підготував огляд готовності. Рішення залишається за власником.");
+	}
+
+	function approveDecision() {
+		setJourneyStep(9);
+		elements.approveDecision.disabled = true;
+		elements.approveDecision.textContent = "Рішення прийнято власником";
+		elements.executionPlan.classList.remove("hidden");
+		setJourneyStep(10);
+		elements.executionPlan.scrollIntoView({ behavior: "smooth", block: "nearest" });
+	}
+
+	function approvePlan() {
+		setJourneyStep(11);
+		showView("outcome");
+		elements.followUpTitle.textContent = "Перевірка запланована на 30-й день";
+		elements.followUpDescription.textContent = "Власник порівняє поновлення, час відповіді та захисні показники інших сегментів.";
+		elements.recordOutcome.classList.remove("hidden");
+	}
+
+	function recordOutcome() {
+		elements.followUpTitle.textContent = "Пілот покращив поновлення без порушення захисних показників";
+		elements.followUpDescription.textContent = "Спостережено в одній команді протягом 30 днів. Результат обмежений цим контекстом.";
+		elements.recordOutcome.classList.add("hidden");
+		elements.knowledgeCapture.classList.remove("hidden");
+		setJourneyStep(12);
+	}
+
+	function captureKnowledge() {
+		elements.knowledgeCaptured.classList.remove("hidden");
+		elements.captureKnowledge.disabled = true;
+		elements.captureKnowledge.textContent = "Знання схвалено в цій сесії";
+		announce("Операційне знання захоплено з посиланням на міркування, докази, рішення, результат і обмеження.");
+	}
+
 	function resetInvestigation() {
-		elements.workspace.classList.add("hidden");
-		elements.home.classList.remove("hidden");
-		elements.scenario.classList.add("hidden");
-		elements.input.value = "";
-		elements.workingTitle.value = "Дослідження повідомленої операційної зміни";
-		elements.workingTitleGuidance.textContent = "Робоча назва — не підтверджена причина. Уникайте причинних висновків, яких ще не підтримують докази.";
-		elements.workingTitleGuidance.classList.remove("working-title-warning");
-		window.location.hash = "";
-		elements.input.focus();
-		announce("Прототип повернувся до нового повідомлення.");
+		window.location.assign(window.location.pathname);
 	}
 
 	function reviewWorkingTitle() {
@@ -88,6 +160,9 @@ const InvestigationPrototype = (() => {
 			input: document.getElementById("investigationInput"),
 			workingTitle: document.getElementById("caseWorkingTitle"),
 			workingTitleGuidance: document.getElementById("workingTitleGuidance"),
+			currentJourneyStep: document.getElementById("currentJourneyStep"),
+			currentJourneyLabel: document.getElementById("currentJourneyLabel"),
+			journeySteps: [...document.querySelectorAll("#journeySteps li")],
 			reportedSymptom: document.getElementById("reportedSymptomText"),
 			newButton: document.getElementById("newInvestigationButton"),
 			stageButtons: [...document.querySelectorAll("[data-view]")],
@@ -95,6 +170,22 @@ const InvestigationPrototype = (() => {
 			evidenceFilters: [...document.querySelectorAll("[data-evidence-filter]")],
 			evidenceCards: [...document.querySelectorAll("[data-evidence-category]")],
 			requestEvidence: document.getElementById("requestEvidenceButton"),
+			collectEvidence: document.getElementById("collectEvidenceButton"),
+			evidenceFlowStatus: document.getElementById("evidenceFlowStatus"),
+			hypothesisList: document.getElementById("hypothesisList"),
+			validateCause: document.getElementById("validateCauseButton"),
+			readinessSummary: document.getElementById("readinessSummary"),
+			decisionReadinessTitle: document.getElementById("decisionReadinessTitle"),
+			readinessChip: document.getElementById("readinessChip"),
+			approveDecision: document.getElementById("approveDecisionButton"),
+			executionPlan: document.getElementById("executionPlan"),
+			approvePlan: document.getElementById("approvePlanButton"),
+			followUpTitle: document.getElementById("followUpTitle"),
+			followUpDescription: document.getElementById("followUpDescription"),
+			recordOutcome: document.getElementById("recordOutcomeButton"),
+			knowledgeCapture: document.getElementById("knowledgeCapture"),
+			captureKnowledge: document.getElementById("captureKnowledgeButton"),
+			knowledgeCaptured: document.getElementById("knowledgeCaptured"),
 			openSimulation: document.getElementById("openSimulationButton"),
 			closeSimulation: document.getElementById("closeSimulationButton"),
 			scenario: document.getElementById("scenarioBranch"),
@@ -123,13 +214,27 @@ const InvestigationPrototype = (() => {
 			elements.scenario.classList.add("hidden");
 			elements.openSimulation.focus();
 		});
-		elements.requestEvidence.addEventListener("click", () => showPrototypeMessage("Прототип: AI підготував би запит на джерело, а власник перевірив би дозвіл і мету."));
-		elements.reviewStep.addEventListener("click", () => showPrototypeMessage("Прототип: запит потребує схвалення власника. Жодні дані не отримано автоматично."));
+		elements.requestEvidence.addEventListener("click", beginEvidenceCollection);
+		elements.reviewStep.addEventListener("click", beginEvidenceCollection);
+		elements.collectEvidence.addEventListener("click", collectEvidence);
+		elements.validateCause.addEventListener("click", validateCause);
+		elements.approveDecision.addEventListener("click", approveDecision);
+		elements.approvePlan.addEventListener("click", approvePlan);
+		elements.recordOutcome.addEventListener("click", recordOutcome);
+		elements.captureKnowledge.addEventListener("click", captureKnowledge);
 		elements.gymDemo.addEventListener("click", () => showPrototypeMessage("Прототип Gym використовуватиме ту саму структуру розслідування у чітко позначеному навчальному середовищі."));
 
 		if (new URLSearchParams(window.location.search).get("demo") === "investigation") {
-			elements.input.value = "Наші продажі почали знижуватися.";
+			elements.input.value = "Наші продажі знижуються протягом останніх трьох місяців.";
 			elements.form.requestSubmit();
+			if (new URLSearchParams(window.location.search).get("journey") === "complete") {
+				collectEvidence();
+				validateCause();
+				approveDecision();
+				approvePlan();
+				recordOutcome();
+				captureKnowledge();
+			}
 			const demoView = new URLSearchParams(window.location.search).get("view");
 			if (["understanding", "evidence", "decision", "outcome"].includes(demoView)) {
 				showView(demoView);
