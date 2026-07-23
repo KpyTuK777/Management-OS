@@ -27,6 +27,22 @@ The product should be calm, intentional, and useful. Information belongs in a cl
 12. **Make patterns visible before making recommendations.** Observed evidence must be separated from interpretation and proposed action.
 13. **Preserve the Learning Decision Pipeline.** Every conclusion and improvement must remain traceable from observed facts through explicit user approval.
 
+### Contextual relevance without capability restriction
+
+Management OS may prioritize its primary workspace according to the owner's
+approved **Operating Context**, optional **Operational Stage**, and immediate
+**Current Focus**. This affects Workspace Emphasis only: Home remains stable, every
+capability remains available, multiple contexts may coexist, and at most one may
+be the durable primary context.
+
+AI may recommend a change but cannot apply one. Durable personal context requires
+owner approval, and Adaptive Workspace applies only the exact approved emphasis.
+The neutral workspace remains a complete first-class experience. Detailed
+authority belongs to the
+[Adaptive Owner Context Architecture](ADAPTIVE_OWNER_CONTEXT_ARCHITECTURE.md),
+[Personal Operational Model](PERSONAL_OPERATIONAL_MODEL.md), and
+[Adaptive Workspace Architecture](ADAPTIVE_WORKSPACE_ARCHITECTURE.md).
+
 ## Long-term vision
 
 Management OS becomes a unified workspace for managing execution, institutional knowledge, operating processes, performance insight, and continuous improvement.
@@ -205,6 +221,9 @@ strengths, productivity habits, and patterns in how the owner approaches decisio
 The purpose is personalization, not profiling. Personal understanding must remain
 transparent, explainable, correctable, and controlled by the owner. Meaningful
 changes to what the system believes about the owner require the owner's approval.
+The model may preserve approved Operating Context and related preferences within
+the boundaries defined by [Personal Operational Model](PERSONAL_OPERATIONAL_MODEL.md).
+It does not infer identity or control capability availability.
 
 #### Combined understanding
 

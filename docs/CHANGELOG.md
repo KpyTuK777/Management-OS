@@ -160,6 +160,10 @@ separately in [Sprint Tracker](SPRINTS.md).
   Personal Operational Model and Adaptive Workspace boundaries, capability-preserving
   navigation and Home emphasis, and deterministic degraded operation without
   implementing adaptation.
+- Added separate canonical Personal Operational Model and Adaptive Workspace
+  architectures so durable approved personal context and application of exact
+  approved Workspace Emphasis have distinct authority without changing runtime
+  behavior or capability availability.
 - Added the canonical Product Principle that Management OS should quietly remove
   cognitive noise while preserving decisions that require human judgment.
 - Extended the standard Product Review guidance with a mandatory evaluation of

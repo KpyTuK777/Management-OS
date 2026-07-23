@@ -25,7 +25,23 @@ responsibilities.
   history, search, and navigation remain available on demand.
 - **Boundary:** Home coordinates presentation and interaction but owns no domain
   records, does not replace specialized modules, and must preserve direct module
-  access and degraded non-AI operation.
+  access and degraded non-AI operation. Approved Operating Context may affect
+  prioritization only; Home remains the stable primary workspace and neutral
+  presentation remains supported.
+
+## Personal Operational Model
+
+- **Purpose:** Preserve explicitly approved, owner-controlled personal operational context and preferences.
+- **Current status:** Approved future architecture; no model, persistence, or interface is implemented.
+- **Future responsibilities:** Preserve multiple approved Operating Contexts, at most one durable primary context, optional Operational Stage, inspectable preferences, effective periods, correction, and revocation.
+- **Boundary:** It does not infer identity, own organizational Knowledge, apply Workspace Emphasis, change capability availability, or learn durably without explicit owner approval. See [Personal Operational Model](PERSONAL_OPERATIONAL_MODEL.md).
+
+## Adaptive Workspace
+
+- **Purpose:** Apply an exact owner-approved Workspace Emphasis to presentation priority.
+- **Current status:** Approved future architecture; no adaptive runtime or interface behavior is implemented.
+- **Future responsibilities:** Reprioritize navigation, Home presentation, widgets, and recommendation selection while preserving inspection, rollback, neutral reset, direct access, and degraded operation.
+- **Boundary:** It does not select Operating Context, generate recommendations, change authorization or domain data, remove capabilities, or adapt without approval. See [Adaptive Workspace Architecture](ADAPTIVE_WORKSPACE_ARCHITECTURE.md).
 
 ## Portfolio
 

@@ -26,6 +26,9 @@ user-facing language must follow this guide.
 | Improvement Proposal | Пропозиція покращення |
 | Workflow | Робочий процес |
 | Current Focus | Поточний фокус |
+| Operating Context | Операційний контекст |
+| Operational Stage | Операційний етап |
+| Workspace Emphasis | Акцент робочого простору |
 | Needs Attention | Потребує уваги |
 | Supporting / Additional Context | Додатковий контекст |
 | Search | Пошук; **Глобальний пошук** for product-wide search |

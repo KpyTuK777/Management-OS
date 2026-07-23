@@ -212,11 +212,11 @@ Reliable longitudinal evidence
 | Learning Recommendations | Recommend reflection, Knowledge, SOP, or improvement actions | Converts experience into reusable learning | Recommendations Center, Reviews, Insights, Hypotheses | P1 | Post-v1 category |
 | Organizational Knowledge Model | Represent how the organization operates | Makes guidance organization-specific | Data quality, privacy, provenance, correction, knowledge governance | P0 | Post-v1 |
 | Management Knowledge Model | Supply general management concepts and methods | Grounds guidance in established thinking | Knowledge-layer and uncertainty governance | P1 | Post-v1 |
-| Personal Operational Model | Preserve approved owner preferences | Makes assistance relevant and less repetitive | Personal-data governance, inspection, correction, revocation, retention | P0 | Post-v1 |
+| Personal Operational Model | Preserve approved owner preferences and Operating Context | Makes assistance relevant and less repetitive | Personal-data governance, inspection, correction, revocation, retention | P0 | Post-v1 |
 | Evidence-led SOP drafts | Prepare a change from operational evidence | Reduces improvement-writing effort | Recommendations Center, Improvement Proposals, SOP workflow | P1 | Post-v1 |
 | Cross-review interpretation | Explain patterns across Reviews | Reduces manual comparison | Insights, Hypotheses, Recommendations Center | P1 | Post-v1 |
 | Workspace optimization recommendations | Propose a lower-noise workspace | Reduces recurring organization friction | Usage evidence, Recommendations Center | P1 | Post-v1 |
-| Adaptive Workspace | Apply approved workspace adaptations | Reduces persistent navigation and visibility friction | Recommendations Center, Personal Model, rollback, direct access | P1 | Post-v1 |
+| Adaptive Workspace | Apply exact approved Workspace Emphasis without removing capabilities | Reduces persistent navigation and visibility friction | Recommendations Center, Personal Operational Model, Adaptive Owner Context, rollback, neutral workspace, direct access | P1 | Post-v1 |
 | Operational Coaching | Provide contextual ongoing decision support | Improves operating judgment over time | Three knowledge models, Recommendations Center, Personal Model | P2 | Mature post-v1 |
 | Predictive Operational Insights | Offer forecasts and scenarios with uncertainty | Helps anticipate workload and operational risk | Longitudinal evidence, calibrated confidence, scenario governance | P2 | Late post-v1 |
 

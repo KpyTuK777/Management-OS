@@ -137,7 +137,7 @@ incomplete.
 - **Authentication Architecture:** Google Sign-In v1 provider specialization
 - **Architecture Decision:** ADR-0003 selects Google Sign-In behind the provider-neutral identity boundary
 - **Governance:** Optimized implementation workflow with direct and extended delivery lanes
-- **Product and Information Architecture:** Canonical Adaptive Owner Context Architecture with owner-controlled Operating Context, optional Operational Stage, and capability-preserving Workspace Emphasis
+- **Product and Information Architecture:** Canonical Adaptive Owner Context, Personal Operational Model, and Adaptive Workspace architectures with owner-controlled Operating Context, optional Operational Stage, and capability-preserving Workspace Emphasis
 
 ### Implementation status
 
@@ -183,5 +183,9 @@ incomplete.
   and allows only approved reprioritization of navigation, Home, widgets,
   recommendations, and workspace emphasis. No capability, implementation, data
   model, persistence, runtime, or AI behavior was introduced.
+- The Personal Operational Model now owns durable approved personal context, and
+  Adaptive Workspace owns only application of exact approved Workspace Emphasis.
+  Multiple contexts, one durable primary context maximum, neutral operation,
+  direct access, rollback, and owner approval remain mandatory future boundaries.
 
 See [Roadmap](ROADMAP.md) for product phases beyond this sprint.

@@ -229,8 +229,10 @@ evidence and bypass that boundary.
 ## Relationship with the Personal Operational Model
 
 The Assistant is an interaction layer; it does not become the Personal Operational
-Model by retaining conversation history. The Personal Operational Model is a
-future, explicitly governed source of inspectable and correctable personalization.
+Model by retaining conversation history. The canonical
+[Personal Operational Model](PERSONAL_OPERATIONAL_MODEL.md) is a future,
+owner-controlled source of explicitly approved, inspectable, correctable, and
+revocable personal operational context.
 
 Personal context may shape explanation depth, review format, planning approach,
 clarification tolerance, or equivalent presentation choices. It cannot override
@@ -262,7 +264,8 @@ The governing principle is:
 
 > Hide organizational mechanics, not decision consequences.
 
-The future Adaptive Workspace owns approved presentation and workspace adaptation.
+The future [Adaptive Workspace](ADAPTIVE_WORKSPACE_ARCHITECTURE.md) owns application
+of approved presentation and workspace emphasis.
 The Assistant identifies a cognitive-load problem, explains it, and presents a
 bounded simplification proposal. The Recommendations Center preserves evidence and
 decision state where the proposal changes how the system or owner operates. Only

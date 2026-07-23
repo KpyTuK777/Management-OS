@@ -277,6 +277,11 @@ profiling.
 preference, the Assistant explains the proposed belief, affected interactions, and
 benefit, with accept, narrow, reject, inspect, correct, and revoke controls.
 
+The owner may also select one of multiple Operating Contexts temporarily or approve
+at most one durable primary context. An approved Workspace Emphasis changes only
+the prominence of navigation, Home context, widgets, and recommendations. Complete
+capability access and a neutral workspace remain available.
+
 **AI responsibilities:** Separate Session and Working Memory from durable personal
 learning, never learn permanently from one event, keep beliefs inspectable, and
 never let preference override organizational truth.
@@ -290,8 +295,11 @@ profiling.
 **Expected emotional outcome:** Recognized rather than surveilled, increasingly
 understood, and fully in control.
 
-This future stage remains dependent on approved Personal Operational Model and
-privacy governance.
+This future stage remains dependent on the approved
+[Personal Operational Model](PERSONAL_OPERATIONAL_MODEL.md),
+[Adaptive Owner Context Architecture](ADAPTIVE_OWNER_CONTEXT_ARCHITECTURE.md),
+[Adaptive Workspace Architecture](ADAPTIVE_WORKSPACE_ARCHITECTURE.md), and privacy
+governance.
 
 ### 12. Ending the work session
 
@@ -391,9 +399,9 @@ value requires quiet presence.
 | Hypotheses | Presents possible explanations with Evidence and limitations |
 | Recommendations Center | Owns evidence-based opportunities and decision lifecycle |
 | Improvement Proposals | Owns controlled, evidence-linked SOP improvement suggestions |
-| Personal Operational Model | Future source of explicitly approved personalization |
-| Adaptive Workspace | Future executor of approved adaptation, not an autonomous journey controller |
-| Adaptive Owner Context | Owner-controlled Operating Context and optional Operational Stage used only for approved workspace emphasis |
+| Personal Operational Model | Future owner-controlled source of durable approved personal context and preferences |
+| Adaptive Workspace | Future executor of exact approved Workspace Emphasis, not an autonomous journey controller |
+| Adaptive Owner Context | Canonical owner-controlled Operating Context, optional Operational Stage, Current Focus relationship, and prioritization invariants |
 
 The journey composes these responsibilities and transfers none of their ownership.
 

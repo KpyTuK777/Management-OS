@@ -203,8 +203,9 @@ activity, and non-urgent Reviews remain non-interruptive.
   data.
 - **Recommendations Center** owns evidence-based improvement opportunities and
   their decision lifecycle; Home presents only a relevant subset.
-- **Adaptive Workspace** may eventually apply an approved workspace configuration;
-  Home must not adapt layout, visibility, priority, or navigation autonomously.
+- **Adaptive Workspace** applies only an exact approved Workspace Emphasis under
+  its [canonical architecture](ADAPTIVE_WORKSPACE_ARCHITECTURE.md); Home must not
+  adapt layout, visibility, priority, or navigation autonomously.
 - **Specialized modules** retain all domain CRUD, validation, evidence, and deeper
   editing responsibilities.
 - **Shared navigation and search** remain available but secondary to intent-first
@@ -214,6 +215,8 @@ The approved [Adaptive Owner Context Architecture](ADAPTIVE_OWNER_CONTEXT_ARCHIT
 may influence Home and navigation emphasis after bounded owner approval. Operating
 Context remains subordinate to current intent, timely human judgment, operational
 risk, and active-work continuity, and it never removes capability access.
+Multiple contexts may remain available, at most one may be the durable primary
+context, and absent or invalid emphasis uses the neutral workspace.
 
 AI-first must not mean AI-dependent. A non-AI degraded state preserves direct
 module navigation, deliberate search, active-work access, and truthful disclosure

@@ -467,6 +467,15 @@ Home's approved future interaction role is defined in
 a presentation and coordination surface rather than a domain-data owner, and the
 current Dashboard implementation is unchanged.
 
+The approved [Adaptive Owner Context Architecture](ADAPTIVE_OWNER_CONTEXT_ARCHITECTURE.md)
+defines Operating Context, optional Operational Stage, Current Focus relationship,
+and capability-preserving Workspace Emphasis. The
+[Personal Operational Model](PERSONAL_OPERATIONAL_MODEL.md) owns only durable
+approved personal context, while
+[Adaptive Workspace Architecture](ADAPTIVE_WORKSPACE_ARCHITECTURE.md) owns only
+application of exact approved presentation emphasis. Home remains stable; no
+capability, domain record, authorization rule, or current runtime behavior changes.
+
 The dependency and maturity order of approved and future intelligence capabilities
 is maintained in the [AI Capability Roadmap](AI_CAPABILITY_ROADMAP.md). Capability
 placement does not define runtime implementation architecture.

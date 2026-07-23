@@ -379,7 +379,7 @@ consequence rather than the label “feature.”
 - Status: Accepted
 - Decision owner: Product Owner
 - Category: Product and information architecture
-- Affected documents: `ADAPTIVE_OWNER_CONTEXT_ARCHITECTURE.md`, `AI_ASSISTANT_ARCHITECTURE.md`, `AI_FIRST_WORKSPACE_ARCHITECTURE.md`, `OWNER_JOURNEY.md`, `DOCUMENTATION_MAP.md`, `SPRINTS.md`
+- Affected documents: `ADAPTIVE_OWNER_CONTEXT_ARCHITECTURE.md`, `PERSONAL_OPERATIONAL_MODEL.md`, `ADAPTIVE_WORKSPACE_ARCHITECTURE.md`, `PRODUCT_VISION.md`, `AI_ASSISTANT_ARCHITECTURE.md`, `AI_FIRST_WORKSPACE_ARCHITECTURE.md`, `OWNER_JOURNEY.md`, `SYSTEMS.md`, `ARCHITECTURE.md`, `ROADMAP.md`, `AI_CAPABILITY_ROADMAP.md`, `PRODUCT_LANGUAGE.md`, `DOCUMENTATION_MAP.md`, `SPRINTS.md`
 - Supersedes: None
 - Superseded by: None
 
@@ -435,6 +435,8 @@ work and must not infer durable context or reorder the workspace autonomously.
 ### References
 
 - [Adaptive Owner Context Architecture](ADAPTIVE_OWNER_CONTEXT_ARCHITECTURE.md)
+- [Personal Operational Model](PERSONAL_OPERATIONAL_MODEL.md)
+- [Adaptive Workspace Architecture](ADAPTIVE_WORKSPACE_ARCHITECTURE.md)
 - [AI-first Workspace Architecture](AI_FIRST_WORKSPACE_ARCHITECTURE.md)
 - [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md)
 - [Owner Journey](OWNER_JOURNEY.md)

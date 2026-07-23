@@ -15,11 +15,21 @@ describe implementation.
 | Product approval | Product Owner |
 | Canonical concept | Operating Context |
 | Scope | Workspace emphasis, navigation, Home, widgets, and recommendation prioritization |
+| Primary audience | Product, architecture, design, engineering, privacy, documentation, and AI collaborators |
+| Lifecycle | Updated with approved Operating Context or prioritization-boundary changes |
+| Related documents | Product Vision, Owner Journey, Personal Operational Model, Adaptive Workspace, AI-first Workspace, AI Assistant Architecture |
 
 This architecture extends the [AI-first Workspace Architecture](AI_FIRST_WORKSPACE_ARCHITECTURE.md),
 [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md), and canonical
 [Owner Journey](OWNER_JOURNEY.md). It preserves their approval, direct-access,
 domain-ownership, and degraded-operation boundaries.
+
+This document is authoritative for the Operating Context concept and its
+prioritization invariants. The [Personal Operational Model](PERSONAL_OPERATIONAL_MODEL.md)
+owns durable approved personal context. The
+[Adaptive Workspace Architecture](ADAPTIVE_WORKSPACE_ARCHITECTURE.md) owns
+application of an approved Workspace Emphasis. Those documents reference this
+concept contract rather than redefining it.
 
 ## Canonical concept
 
@@ -301,6 +311,9 @@ inspection, correction, and revocation governance, it may preserve primary and
 secondary contexts, optional stages, effective periods, explicit Workspace
 Emphasis preferences, and correction or revocation state.
 
+Its complete ownership and learning boundary is defined in
+[Personal Operational Model](PERSONAL_OPERATIONAL_MODEL.md).
+
 Operating Context is personal operational context, not organizational Knowledge or
 a psychological profile. It cannot override canonical terminology, authoritative
 records, governance, or approval requirements.
@@ -310,6 +323,10 @@ records, governance, or approval requirements.
 Adaptive Workspace is the only future capability authorized to apply an approved
 persistent presentation adaptation. It receives an exact Workspace Emphasis rather
 than raw AI inference.
+
+Its complete application, rollback, neutral-workspace, and degraded-operation
+contract is defined in
+[Adaptive Workspace Architecture](ADAPTIVE_WORKSPACE_ARCHITECTURE.md).
 
 Every applied configuration preserves a preview, scope, reason, approval reference,
 inspection path, rollback, neutral reset, direct access, and the complete

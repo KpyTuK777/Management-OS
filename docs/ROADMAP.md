@@ -106,6 +106,21 @@ No phase may introduce autonomous workspace or interface changes. Recommendation
 generation and recommendation application must remain separate capabilities, and
 user approval is the boundary between them.
 
+### Future Adaptive Workspace
+
+After the Recommendations Center and Personal Operational Model governance are
+available, Adaptive Workspace may apply an exact owner-approved Workspace Emphasis
+derived from the canonical Operating Context. It may reprioritize navigation,
+Home, widgets, and recommendation selection but cannot remove capabilities.
+Multiple contexts, at most one durable primary context, neutral operation, direct
+access, rollback, and degraded non-AI use remain mandatory.
+
+This is post-v1 direction under the
+[Adaptive Owner Context Architecture](ADAPTIVE_OWNER_CONTEXT_ARCHITECTURE.md),
+[Personal Operational Model](PERSONAL_OPERATIONAL_MODEL.md), and
+[Adaptive Workspace Architecture](ADAPTIVE_WORKSPACE_ARCHITECTURE.md). It adds no
+current implementation deliverable.
+
 ## Beyond v1.0 — AI Knowledge Model
 
 The AI Knowledge Model is a long-term product horizon after v1.0, not an addition
@@ -116,8 +131,9 @@ Its direction is to develop three complementary forms of understanding:
 1. a **Management Knowledge Model** grounded in broad management theory;
 2. an **Organizational Knowledge Model** grounded in the organization's language,
    workflows, practices, and standards;
-3. a **Personal Operational Model** grounded in the owner's preferences, habits,
-   strengths, and recurring challenges.
+3. a **Personal Operational Model** grounded only in explicitly approved,
+   inspectable, correctable, and revocable personal operational context and
+   preferences.
 
 Future AI guidance should combine all three layers so that it is theoretically
 informed, organizationally relevant, and personally useful. The system should grow
