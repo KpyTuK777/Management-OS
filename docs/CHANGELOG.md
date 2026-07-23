@@ -5,6 +5,11 @@ separately in [Sprint Tracker](SPRINTS.md).
 
 ## Unreleased
 
+- Completed the Sprint 10 architecture consistency review across all canonical
+  documentation, README, and ADRs. Aligned missing terminology, Home investigation
+  entry, Decision Readiness, Student and Work presentation labels, Knowledge
+  versioning status, cross-references, and consolidation guidance without changing
+  runtime or product behavior.
 - Added qualitative Evidence Influence roles and owner-reviewed Decision Evidence
   Summaries so completed Investigations explain which Evidence materially shaped a
   decision without percentages, document ranking, or artificial confidence scores.

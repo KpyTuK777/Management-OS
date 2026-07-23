@@ -11,6 +11,7 @@ user-facing language must follow this guide.
 
 | Product concept | Official Ukrainian UI term |
 | --- | --- |
+| Home | Головна |
 | Dashboard | Панель керування; **Поточний фокус** is the current page name |
 | Portfolio | Портфоліо |
 | Note | Нотатка |
@@ -30,18 +31,21 @@ user-facing language must follow this guide.
 | Operational Stage | Операційний етап |
 | Workspace Emphasis | Акцент робочого простору |
 | Operational Case | Операційний кейс |
+| Reality | Реальна операційна робота |
 | Operational Reasoning Model | Модель операційного мислення |
 | Case Evidence Set | Набір доказів кейсу |
 | Operational Gym | Операційний тренажер |
 | Scenario Branch | Сценарна гілка |
 | Scenario Simulation | Сценарне моделювання |
-| Operational investigation | Операційне розслідування |
+| Simulation | Моделювання; use **Scenario Simulation** when naming the governed environment |
+| Operational Investigation | Операційне розслідування |
 | Reported concern | Повідомлена проблема |
 | Working title | Робоча назва |
 | New investigation | Нове розслідування |
 | Reported symptom | Повідомлений симптом |
 | Evidence Influence | Вплив доказу |
 | Decision Evidence Summary | Підсумок доказів рішення |
+| Decision Readiness | Готовність до рішення |
 | Primary Evidence | Основний доказ |
 | Major Supporting Evidence | Вагомий підтримувальний доказ |
 | Supporting Evidence | Підтримувальний доказ |
@@ -57,6 +61,8 @@ user-facing language must follow this guide.
 | Knowledge Version | Версія знання |
 | Challenge Open | Відкритий виклик знанню |
 | Superseded | Замінено новою версією |
+| Knowledge Lifecycle | Життєвий цикл знання |
+| Versioned Knowledge | Версійне знання |
 | Ordinary Event | Звичайна подія |
 | Case Intent | Мета операційного кейсу |
 | Current Condition | Поточний стан |
@@ -73,6 +79,16 @@ user-facing language must follow this guide.
 | Temporary capture | Тимчасове введення |
 | Review capture | Переглянути введене |
 | Student Mode | Навчальний режим |
+| Work Mode | Робочий режим |
+| AI Investigation Partner | AI-партнер розслідування |
+| Evidence-first reasoning | Міркування, що починається з доказів |
+
+**Student Mode** and **Work Mode** are optional presentation labels for an approved
+Workspace Emphasis. They are not canonical Operating Context values, separate Home
+products, identity, authorization, or capability sets. Student Mode normally
+expresses a Learning context; Work Mode may express Employment or Business. The
+owner's approved Operating Context remains authoritative, and either label changes
+priority only.
 
 ## Writing style
 

@@ -20,11 +20,12 @@ responsibilities.
   classification, routing, recommendation, domain mutation, or persistent capture
   behavior is implemented.
 - **Future responsibilities:** Act as an AI-first operational workspace for Natural
-  Capture, decisions requiring human judgment, active-work continuity, contextual
-  recommendations, and routing into specialized modules. Supporting metrics,
+  Capture, symptom-first Operational Investigation, decisions requiring human
+  judgment, active-work continuity, contextual recommendations, and routing into
+  owning domain workspaces. Supporting metrics,
   history, search, and navigation remain available on demand.
 - **Boundary:** Home coordinates presentation and interaction but owns no domain
-  records, does not replace specialized modules, and must preserve direct module
+  records, does not replace owning domain workspaces, and must preserve direct domain
   access and degraded non-AI operation. Approved Operating Context may affect
   prioritization only; Home remains the stable primary workspace and neutral
   presentation remains supported.

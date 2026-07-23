@@ -46,6 +46,12 @@ Knowledge Entries are stored as objects in the `knowledgeEntries` collection.
 | `sourceNoteId` | number, optional | Source Note when created through the Notes → Knowledge workflow. |
 | `sopId` | number, optional | SOP created from this Knowledge Entry. |
 
+This is the implemented, unversioned browser-storage shape. It does not implement
+approved Knowledge lifecycle states, semantic versions, challenge conditions, or
+Knowledge Review Candidates. Those future contracts remain governed by the
+[Knowledge Evolution Architecture](KNOWLEDGE_EVOLUTION_ARCHITECTURE.md) and require
+separate data architecture, migration, and implementation approval.
+
 ## Note
 
 Notes are stored as objects in the `notes` collection.

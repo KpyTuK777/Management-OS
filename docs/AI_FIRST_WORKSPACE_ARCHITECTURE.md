@@ -101,6 +101,13 @@ Home contains no module-specific creation forms. It may complete lightweight
 interpretation and approval in place, then open a specialized workspace only for
 deeper editing, evidence inspection, or structured review.
 
+When natural input reports an uncertain operational symptom, Home preserves the
+owner's wording and may prepare a new Operational Investigation with a stable
+temporary identifier and neutral working title. It does not require manual
+classification or imply that the problem, Cause, or Solution is already known. The
+Investigation lifecycle remains governed by the
+[Operational Case Experience Architecture](OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md).
+
 ### Resting state
 
 When no input is active, Home presents the primary input, the most important

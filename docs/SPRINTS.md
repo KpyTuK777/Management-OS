@@ -260,3 +260,34 @@ incomplete.
   or interface is implemented.
 
 See [Roadmap](ROADMAP.md) for product phases beyond the current sprint.
+
+## Sprint 10
+
+### Completed
+
+- **Architecture Consistency Review:** Audited every canonical document, README,
+  compatibility pointer, decision record, and ADR against the approved product,
+  AI, Investigation, reasoning, Evidence, context, memory, and Knowledge boundaries
+- **Terminology alignment:** Added missing canonical language for Reality,
+  Operational Investigation, Decision Readiness, AI Investigation Partner,
+  Evidence-first reasoning, Work Mode, and Knowledge lifecycle while preserving
+  Operating Context as the authority behind Student and Work presentation labels
+- **Boundary alignment:** Synchronized Home-to-Investigation entry, Decision
+  Readiness, versioned Knowledge implementation status, and Operational Memory
+  authority across product, experience, system, data, and Assistant documentation
+- **Documentation structure review:** Confirmed source-versus-synthesis boundaries,
+  narrowed obsolete Learning Architecture consolidation wording, and identified
+  `UI_LANGUAGE.md` for retirement after archive and redirect-retention governance
+
+### Implementation status
+
+- Documentation only. No runtime, prototype, storage, schema, migration, AI,
+  platform, authentication, navigation, or domain behavior changed.
+- Existing ADRs remain consistent with their canonical technical authorities and
+  require no supersession.
+- Architecture health is current for this documentation baseline; independent
+  release, testing, accessibility, data-safety, and documentation-readiness blockers
+  remain unchanged.
+
+See [Documentation Map](DOCUMENTATION_MAP.md) for authority and consolidation
+boundaries and [Project Health](PROJECT_HEALTH.md) for the aggregate readiness view.

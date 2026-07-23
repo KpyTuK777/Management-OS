@@ -13,7 +13,7 @@ authoritative.
 | Property | Value |
 | --- | --- |
 | Target release | Beta |
-| Snapshot date | 2026-07-22 |
+| Snapshot date | 2026-07-23 |
 | Current maturity | Late Prototype moving toward Alpha |
 | Overall status | **Blocked** |
 | Primary blockers | Product maturity, documentation, testing, data safety, and release readiness |
@@ -41,7 +41,7 @@ of readiness.
 | --- | --- | --- | --- | --- | --- | --- |
 | Product maturity | **Blocking** | Yes | [Product Maturity](PRODUCT_MATURITY.md), [Roadmap](ROADMAP.md) | Product Owner | Complete Alpha exit evidence and approve frozen Beta scope. | 2026-07-22 |
 | Documentation readiness | **Blocking** | Yes | [Documentation Backlog](DOCUMENTATION_BACKLOG.md), [Documentation Map](DOCUMENTATION_MAP.md) | Product Architect and document owners | Complete all Stage 1 P0 work and its exit criteria. | 2026-07-22 |
-| Architecture health | **Not Assessed** | Potentially | [Architecture](ARCHITECTURE.md), [Systems](SYSTEMS.md), [Data Model](DATA_MODEL.md) | Product Architect | Perform and record a current Architecture Consistency Audit. | 2026-07-22 |
+| Architecture health | **Ready** | No | [Architecture](ARCHITECTURE.md), [Systems](SYSTEMS.md), [Data Model](DATA_MODEL.md), [Documentation Map](DOCUMENTATION_MAP.md), [Sprint 10 consistency review](SPRINTS.md#sprint-10) | Product Architect | Reassess after a material approved architecture change or before the next release gate. | 2026-07-23 |
 | Technical debt | **Not Assessed** | Potentially | [Development](DEVELOPMENT.md), Sprint and review findings | Lead Software Engineer | Establish governed debt evidence and assess release impact. | 2026-07-22 |
 | Testing readiness | **Blocking** | Yes | [Documentation Backlog](DOCUMENTATION_BACKLOG.md), [Development](DEVELOPMENT.md), Quality Lead findings | Lead Software Engineer and assigned Quality Lead | Create `TESTING.md`, regression matrix, supported-browser policy, and repeatable quality evidence. | 2026-07-22 |
 | Design and accessibility | **Not Assessed** | Potentially | [Design System](DESIGN_SYSTEM.md) | Design Owner | Create and execute the accessibility verification process. | 2026-07-22 |
@@ -61,8 +61,10 @@ Management OS is not ready for Beta release because:
 - persistence, backup limitations, and recovery evidence are incomplete;
 - no Beta release checklist or complete release evidence exists.
 
-Architecture, technical debt, and accessibility also require current assessment
-before they can support a release decision.
+Technical debt and accessibility also require current assessment before they can
+support a release decision. Architecture consistency was reviewed in Sprint 10;
+this does not resolve the independent product, testing, data-safety, documentation,
+or release-readiness blockers.
 
 ## Approved exceptions
 

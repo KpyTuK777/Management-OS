@@ -63,10 +63,10 @@ This stage contains documentation required for the first stable release.
 | Create a user guide | P1 | Explain stable workflows without overloading README. | Stable workflows and terminology | L | v1.0 documentation freeze |
 | Create a Getting Started guide | P1 | Provide a short path through capture, knowledge, SOP, execution, and review. | User guide, Product Language | M | Public beta completion |
 | Document data handling and recovery | P1 | Explain local persistence, browser dependence, limitations, and data-loss risks. | Data Model, stable persistence behavior | M | Before stable release |
-| Consolidate repeated Learning Layer explanations | P1 | Keep product principles, architecture, and sequencing in their authoritative documents. | Documentation Map | M | v1.0 documentation freeze |
+| Consolidate remaining legacy Learning Layer explanations | P1 | Keep implemented mechanics in Architecture and future Operational Memory and Knowledge Evolution rules in their canonical documents; do not create an overlapping umbrella authority. | Documentation Map, Operational Memory, Knowledge Evolution | M | v1.0 documentation freeze |
 | Remove current-status detail from Roadmap | P1 | Keep current state in Systems and delivery history in Sprints. | Systems audit | M | Before roadmap publication |
 | Finalize Changelog release sections | P1 | Move accepted milestones out of an indefinite Unreleased section. | Versioning policy | S | First tagged release |
-| Retire `UI_LANGUAGE.md` | P2 | Finish the compatibility migration to one language authority. | Confirm no dependent references | S | v1.0 documentation freeze |
+| Retire `UI_LANGUAGE.md` | P2 | Finish the compatibility migration to one language authority; Sprint 10 confirmed no active dependent reference. | Documentation archive and redirect-retention rules | S | v1.0 documentation freeze |
 | Define documentation approval criteria | P2 | Make canonical-document review part of release acceptance. | Documentation Map, Team Governance | S | Before v1.0 freeze |
 
 ### Stage 2 exit criteria
@@ -86,7 +86,7 @@ have stabilized.
 | --- | --- | --- | --- | --- | --- |
 | Introduce Architecture Decision Records | P1 | Preserve rationale, alternatives, outcomes, and consequences of major decisions. | Stable architecture governance | M | First post-v1 architecture change |
 | Add an ADR template and index | P1 | Make decision records consistent and discoverable. | ADR structure | S | Same milestone |
-| Split Learning Architecture from `ARCHITECTURE.md` | P2 | Keep the architecture overview usable as Learning Layer detail grows. | Stable v1 architecture, ADR structure | L | Post-v1 architecture review |
+| Reassess remaining Learning Layer detail in `ARCHITECTURE.md` | P2 | Extract only a still-unowned cohesive responsibility; Operational Memory and Knowledge Evolution already own their distinct future domains. | Stable v1 architecture, ADR structure, canonical-boundary review | M | Post-v1 architecture review |
 | Establish a documentation archive | P2 | Give superseded documents a recoverable, non-authoritative destination. | First superseded document | M | First post-v1 retirement |
 | Define archive retention rules | P2 | Prevent the archive becoming an unstructured second document set. | Documentation archive | S | Same milestone |
 | Create `CONTRIBUTING.md` | P2 | Define submission, testing, review, and documentation expectations. | Stable Development and Team Governance | M | Before external contribution |

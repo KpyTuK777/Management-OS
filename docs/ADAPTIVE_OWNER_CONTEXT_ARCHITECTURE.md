@@ -229,6 +229,13 @@ Home remains the stable system and primary operational workspace. Operating
 Context is a ranking input; it does not replace Home or create separate Learning,
 Business, Research, or Scaling Home products.
 
+The interface may use **Student Mode** as a concise presentation label for an
+approved Learning emphasis and **Work Mode** for an approved Employment or Business
+emphasis. These labels are not Operating Context values, identities, authorization
+states, or capability bundles. They never remove access and must resolve back to
+the owner-approved Operating Context, optional Operational Stage, Current Focus,
+and exact Workspace Emphasis.
+
 Home applies this precedence:
 
 ```text

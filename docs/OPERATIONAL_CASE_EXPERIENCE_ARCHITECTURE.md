@@ -240,7 +240,7 @@ could validate relevance now. Historical experience supports investigation; it i
 never presented as current Evidence, a transferred Cause, or a ready Solution. See
 the [Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md).
 
-## AI investigation partnership
+## AI Investigation Partner
 
 AI actively advances **investigation readiness**, not autonomous Case authority.
 It may identify Evidence gaps, request appropriate authorized material, organize
@@ -258,6 +258,25 @@ completeness, Hypothesis quality, unresolved uncertainty, contradictions, missin
 information, forgotten Evidence, and whether apparent progress is supported. It
 counters premature conclusions, confirmation bias, and unsupported assumptions
 without turning those checks into mandatory artifact completion.
+
+### Decision Readiness
+
+Before Recommendations or an owner decision, the AI Investigation Partner may
+prepare an owner-inspectable Decision Readiness summary containing:
+
+- Known;
+- Unknown;
+- remaining uncertainty;
+- Primary and Supporting Evidence;
+- rejected Hypotheses and their rationale;
+- outstanding material questions.
+
+Decision Readiness explains why the Investigation may support a judgment; it is
+not a score, approval, Recommendation, or declaration of certainty. Missing or
+contradictory Evidence remains visible, and only the owner decides whether to
+continue investigating or make the operational decision. Evidence contribution
+and the decision-time snapshot remain governed by the
+[Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md).
 
 ## Simulation experience
 

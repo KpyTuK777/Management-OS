@@ -30,6 +30,11 @@ The platform does not optimize for accumulated records. Knowledge is compounding
 operational capital, while better operational decisions, verified outcomes, and
 improved capability are the governing product results.
 
+The shared grammar is **Evidence-first**: preserve the reported condition, gather
+and classify authorized Evidence, expose contradiction and missing information,
+then develop and test explanations. This does not require linear interface steps,
+and it never treats a framework stage, artifact count, or AI preparation as proof.
+
 ## Shared reasoning grammar
 
 All supported environments use the same non-linear grammar:

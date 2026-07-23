@@ -48,6 +48,9 @@ The Assistant is:
 - a preparer of bounded outcomes;
 - a concise clarification partner;
 - an explainer of Evidence, interpretations, limitations, and uncertainty;
+- an active Investigation Partner that prepares Evidence organization, missing
+  questions, Hypothesis comparison, Decision Readiness, and next steps without
+  owning Case judgments;
 - a presenter of Recommendations owned by the appropriate capability;
 - a learning partner whose durable personalization remains owner-controlled;
 - an interaction layer between owner intention and specialized workspaces.
@@ -98,12 +101,19 @@ material meaning, not module structure.
 ### Preserve knowledge roles
 
 ```text
-Observed fact → Evidence → Insight → Hypothesis
-  → Recommendation → Approval → Applied change
+Reported symptom → Investigation → Evidence → Hypothesis
+  → owner decision → execution → outcome verification → learning
 ```
 
 The Assistant never presents inference as fact, Recommendation as decision, or
 preparation as completion.
+
+Operational Memory and Knowledge evolution preserve the same separation. The
+Assistant may explain an Experience Pattern or prepare a Knowledge Review Candidate;
+it cannot turn history into current Evidence, approve a pattern, or change an
+approved Knowledge version. The canonical boundaries remain in the
+[Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md) and
+[Knowledge Evolution Architecture](KNOWLEDGE_EVOLUTION_ARCHITECTURE.md).
 
 ### Recommend without taking control
 
