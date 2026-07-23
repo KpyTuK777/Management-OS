@@ -232,6 +232,9 @@ incomplete.
 - **Operational Inflection Points:** Operational Timeline separates ordinary events
   from owner-accepted behavioral-change findings with linked Evidence, Hypotheses,
   confidence, uncertainty, completion summary, and Knowledge preservation
+- **Operational Memory Architecture:** Operational Memory is the canonical future
+  capability; owner-reviewed Experience Patterns preserve recurring behavior across
+  authoritative episodes without becoming current Evidence or a new top-level module
 
 ### Implementation status
 
@@ -246,5 +249,8 @@ incomplete.
 - The static prototype demonstrates Inflection Point emphasis, explanation, summary,
   and Knowledge capture without event persistence, AI detection, causal inference,
   similarity search, or authority changes.
+- Operational Memory is documentation architecture only. No Experience Pattern
+  entity, persistence, pattern detection, retrieval, model training, interface, or
+  migration is implemented.
 
 See [Roadmap](ROADMAP.md) for product phases beyond the current sprint.

@@ -18,7 +18,7 @@ The product should be calm, intentional, and useful. Information belongs in a cl
 1. **Everything has a place.** Information should not be duplicated without a reason.
 2. **One system, one responsibility.** Each module should solve a distinct operational problem.
 3. **Home is for today.** It should surface what needs attention now, without becoming a long backlog.
-4. **Knowledge compounds.** Notes, methods, and practice should become a reusable second brain.
+4. **Operational Memory compounds.** Knowledge and traceable operational experience should improve future work without replacing current Evidence.
 5. **Processes should be reusable.** Repeatable work belongs in SOPs.
 6. **Reflection drives improvement.** Review Center supports daily, weekly, and monthly learning.
 7. **Analytics explains change.** It should reveal trends, not merely display numbers.
@@ -28,6 +28,7 @@ The product should be calm, intentional, and useful. Information belongs in a cl
 11. **Recommend, never take control.** Management OS explains opportunities and waits for explicit user approval before changing the workspace.
 12. **Make patterns visible before making recommendations.** Observed evidence must be separated from interpretation and proposed action.
 13. **Preserve the Learning Decision Pipeline.** Every conclusion and improvement must remain traceable from observed facts through explicit user approval.
+14. **Experience supports; the present decides.** Historical patterns may challenge or contextualize reasoning but never override current Evidence or owner judgment.
 
 ### Contextual relevance without capability restriction
 
@@ -82,6 +83,13 @@ Operational history should reveal supported changes in system behavior rather th
 become an undifferentiated event log. Operational Inflection Points preserve where
 behavior demonstrably changed while keeping temporal sequence separate from causal
 conclusion.
+
+Across completed Investigations, Management OS may develop **Operational Memory**:
+a governed capability connecting authoritative operational episodes with accepted,
+explainable Experience Patterns. Knowledge remains approved reusable understanding;
+Experience Patterns preserve what repeatedly occurred across comparable episodes.
+Neither becomes current-Case Evidence or authority to act. The canonical boundary
+is defined in the [Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md).
 
 The intended outcome hierarchy is:
 
@@ -272,6 +280,10 @@ Over time, this understanding may include organizational vocabulary, recurring
 workflows, operational practices, internal standards, and preferred ways of
 working. Organizational practice supplies context that general theory alone cannot
 provide.
+
+Operational Memory complements this layer by preserving traceable episodes and
+governed cross-episode Experience Patterns. It is not silent model training, a
+replacement for Knowledge, or authority over a current Investigation.
 
 #### Layer 3 — Personal Operational Model
 

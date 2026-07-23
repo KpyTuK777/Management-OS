@@ -150,3 +150,8 @@ Organizational Knowledge, Session Memory, Working Memory, an AI conversation log
 or an authority source. This architecture defines no current storage schema,
 retention period, API, model, runtime, or user interface. Those require separate
 approved architecture and implementation work.
+
+It is also not [Operational Memory](OPERATIONAL_MEMORY_ARCHITECTURE.md).
+Experience Patterns describe recurring organizational behavior across authorized
+Operational Episodes; Personal Operational Model entries describe only approved
+personal assistance context. Neither may silently populate or override the other.

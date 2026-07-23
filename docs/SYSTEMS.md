@@ -60,6 +60,13 @@ responsibilities.
 - **Current status:** Approved architecture; not implemented.
 - **Boundary:** Gym material, outcomes, and assessment have no operational consequence and never become organizational Evidence. Durable capability development requires a future Owner Learning Record architecture.
 
+## Operational Memory
+
+- **Purpose:** Preserve authoritative operational episodes and connect them into explainable, contextual, and revisable organizational experience for future Investigations.
+- **Current status:** Approved future architecture; no Operational Memory store, Experience Pattern entity, detection, retrieval, model training, interface, or migration is implemented.
+- **Future responsibilities:** Relate completed Cases, accepted Inflection Points, decisions, interventions, outcomes, Knowledge, and governed Experience Patterns without duplicating their source authority.
+- **Boundary:** Experience Patterns are derived historical context. They never override current Evidence, establish Cause through repetition, silently become Knowledge or SOPs, alter the Personal Operational Model, or authorize action. Operational Memory is not a primary navigation module. See [Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md).
+
 ## Scenario Simulation
 
 - **Purpose:** Explore plausible conditional outcomes from an immutable decision-time baseline of a real Operational Case.

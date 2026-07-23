@@ -235,6 +235,12 @@ limitations, and avoid treating one Review as a pattern.
 **Owner responsibilities:** Supply authentic observations, correct interpretation,
 and decide whether a lesson should become Knowledge or improvement work.
 
+Across completed Investigations, future Operational Memory may surface an
+owner-reviewed Experience Pattern with its contributing and contradicting episodes,
+matched context, applicability limits, and uncertainty. The owner can inspect why
+it is relevant and reject its use; current Evidence remains authoritative. See the
+[Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md).
+
 **Cognitive-load objective:** Make reflection lightweight while preserving enough
 structure for future learning.
 

@@ -433,6 +433,13 @@ of current components or an implementation commitment.
 | Organizational Knowledge Model | Understand how this organization works, including its vocabulary, workflows, practices, and internal standards. |
 | Personal Operational Model | Understand the owner's working, learning, planning, decision-making, and explanation preferences. |
 
+Operational Memory complements these models without becoming a fourth AI model.
+It is a future governed product capability that references authoritative
+Operational Episodes and owner-reviewed Experience Patterns. It introduces no
+silent model training, duplicated source authority, current-Evidence override, or
+present implementation. See the
+[Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md).
+
 The layers are complementary rather than interchangeable. Management knowledge
 offers general principles; organizational knowledge grounds them in actual
 practice; personal operational knowledge shapes how guidance is made useful to the

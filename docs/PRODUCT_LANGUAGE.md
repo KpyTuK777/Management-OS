@@ -48,6 +48,11 @@ user-facing language must follow this guide.
 | Background Context | Фоновий контекст |
 | Operational Timeline | Операційна хронологія |
 | Operational Inflection Point | Точка операційного перелому |
+| Operational Memory | Операційна пам’ять |
+| Operational Episode | Операційний епізод |
+| Experience Pattern | Патерн операційного досвіду |
+| Pattern Candidate | Кандидат патерну |
+| Applicability Envelope | Межі застосовності |
 | Ordinary Event | Звичайна подія |
 | Case Intent | Мета операційного кейсу |
 | Current Condition | Поточний стан |

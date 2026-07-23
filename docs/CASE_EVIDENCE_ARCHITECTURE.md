@@ -124,6 +124,12 @@ did not support the finding, and relevant ordinary Timeline events. Rejected
 Evidence remains visible with the rejection rationale; it is not deleted from the
 Case narrative.
 
+Completed Case Evidence may be referenced by Operational Memory through its
+authoritative source and authorization boundary. An Experience Pattern is derived
+historical context, not Evidence about the current Case. It must expose contributing
+and contradicting episodes, and it cannot increase evidentiary authority through
+repetition. See the [Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md).
+
 ## Decision-time Evidence snapshot
 
 Every material decision freezes a reproducible view of the Evidence actually

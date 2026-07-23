@@ -233,6 +233,13 @@ Evidence patterns. Keywords may assist retrieval but can never be the sole
 similarity basis. Every match explains the matched pattern and material contextual
 differences before presenting previous reasoning.
 
+Accepted Experience Patterns may also be surfaced from Operational Memory. The
+experience explains the current trigger, matched behavior and context, supporting
+and contradicting episodes, material differences, uncertainty, and Evidence that
+could validate relevance now. Historical experience supports investigation; it is
+never presented as current Evidence, a transferred Cause, or a ready Solution. See
+the [Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md).
+
 ## AI investigation partnership
 
 AI actively advances **investigation readiness**, not autonomous Case authority.

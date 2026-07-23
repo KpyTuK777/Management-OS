@@ -15,6 +15,9 @@ separately in [Sprint Tracker](SPRINTS.md).
   distinguishing significant supported behavioral changes from ordinary Timeline
   events while preserving Evidence, Hypotheses, confidence, uncertainty, historical
   similarity limits, and owner acceptance.
+- Established Operational Memory as the approved future cross-Case capability and
+  Experience Pattern as its owner-reviewed synthesis. Current Evidence retains
+  precedence; the change adds no runtime, storage, AI learning, or interface.
 
 ### Foundation 2.0
 

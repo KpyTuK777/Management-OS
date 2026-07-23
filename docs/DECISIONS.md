@@ -932,3 +932,72 @@ authority change.
 - [Operational Case Experience Architecture](OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md)
 - [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md)
 - [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md)
+
+## DL-016 — Establish Operational Memory and governed Experience Patterns
+
+- Date: 2026-07-23
+- Status: Accepted
+- Decision owner: Product Owner
+- Category: Strategic product and AI architecture
+- Affected documents: `OPERATIONAL_MEMORY_ARCHITECTURE.md`, `PRODUCT_VISION.md`, `OPERATIONAL_CASE_ARCHITECTURE.md`, `OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md`, `CASE_EVIDENCE_ARCHITECTURE.md`, `AI_ASSISTANT_ARCHITECTURE.md`, `PERSONAL_OPERATIONAL_MODEL.md`, `SYSTEMS.md`, `ARCHITECTURE.md`, `PRODUCT_LANGUAGE.md`, `DOCUMENTATION_MAP.md`, `OWNER_JOURNEY.md`, `ROADMAP.md`, `SPRINTS.md`
+- Supersedes: None; extends DL-010, DL-013, DL-014, and DL-015
+- Superseded by: None
+
+### Context
+
+Completed Cases preserve bounded operational episodes and Knowledge preserves
+approved reusable understanding, but neither owns explainable recurring behavior
+across comparable episodes. Expanding the Knowledge Base would conflate approved
+propositions with accumulated experience, while an independent Experience module
+would recreate artifact-centered navigation and duplicate source authority.
+
+### Decision
+
+Operational Memory is the canonical future capability connecting authoritative
+Operational Episodes into explainable organizational experience. Experience
+Pattern is its owner-reviewed, provenance-preserving cross-episode synthesis.
+Organizational Memory remains only the broader organization-wide phenomenon.
+
+Patterns preserve supporting, contradicting, and excluded episodes, Operating
+Context, Evidence and Inflection Point patterns, interventions, outcomes,
+applicability limits, decomposed qualitative confidence, uncertainty, and lifecycle
+history. They are derived historical context, not current Evidence, causal proof,
+organizational truth, or authority to act.
+
+AI may retrieve authorized episodes and prepare candidates but cannot silently
+train model weights, approve patterns, infer Cause from recurrence, promote
+Knowledge or SOPs, apply interventions, or change current conclusions. Current
+authorized Evidence and owner judgment retain precedence.
+
+### Rationale
+
+The model lets operational experience compound while preserving the distinction
+between what happened, what is approved as reusable understanding, and what the
+current situation supports. It provides durable explainability and governance
+without creating a new primary product module.
+
+### Alternatives considered
+
+- Expand Knowledge Entries with pattern types — rejected because propositions and
+  historical experience require different provenance and confidence semantics.
+- Add Operational Experience as an independent module — rejected because owners
+  should encounter memory inside Investigations rather than curate another library.
+- Generate every pattern dynamically — rejected because unstable synthesis cannot
+  support durable owner review, contestation, or supersession.
+- Treat Operational Memory as an AI model — rejected because product memory,
+  source authority, and owner governance must not depend on silent model training.
+
+### Consequences
+
+Future proposals require a pattern lifecycle, scoped applicability, permission-aware
+source lineage, contradictions, temporal review, and decomposed confidence. No
+Experience Pattern entity, persistence, retrieval, detection, training, interface,
+migration, or navigation change is implemented by this decision.
+
+### References
+
+- [Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md)
+- [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md)
+- [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md)
+- [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md)
+- [Personal Operational Model](PERSONAL_OPERATIONAL_MODEL.md)

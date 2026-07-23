@@ -444,6 +444,12 @@ their Evidence relationships, supporting Hypotheses, confidence, and unresolved
 uncertainty. A Case without a supported Inflection Point records none rather than
 manufacturing one for completeness.
 
+The completed Case becomes an Operational Episode available to the future
+[Operational Memory](OPERATIONAL_MEMORY_ARCHITECTURE.md). It retains its own
+authority and may contribute to an Experience Pattern candidate without being
+copied, generalized, or promoted automatically. A Case may produce Knowledge, an
+Experience Pattern candidate, both, or neither.
+
 ```text
 Closed Case
   -> Learning synthesis
@@ -455,6 +461,11 @@ Closed Case
 
 The Case remains historical context and Evidence. It does not itself become the
 Knowledge Base or silently redefine organizational practice.
+
+Cross-Case recurrence does not belong to an individual Case. Operational Memory
+may synthesize owner-reviewed Experience Patterns from sufficiently comparable
+episodes, but those patterns remain historical supporting context and never
+override current Case Evidence or establish Cause by repetition.
 
 ## Operational Gym
 
