@@ -372,3 +372,70 @@ consequence rather than the label “feature.”
 - [Team Governance](TEAM.md#standard-delivery-workflow)
 - [Development Methodology](METHODOLOGY.md#delivery-workflow)
 - [Development Guide](DEVELOPMENT.md#implementation-planning)
+
+## DL-008 — Use Operating Context for capability-preserving workspace emphasis
+
+- Date: 2026-07-23
+- Status: Accepted
+- Decision owner: Product Owner
+- Category: Product and information architecture
+- Affected documents: `ADAPTIVE_OWNER_CONTEXT_ARCHITECTURE.md`, `AI_ASSISTANT_ARCHITECTURE.md`, `AI_FIRST_WORKSPACE_ARCHITECTURE.md`, `OWNER_JOURNEY.md`, `DOCUMENTATION_MAP.md`, `SPRINTS.md`
+- Supersedes: None
+- Superseded by: None
+
+### Context
+
+Management OS may become more relevant by emphasizing different workspaces for an
+owner who is learning, employed, operating a business, researching, or scaling.
+The candidate concepts mixed operating environments, developmental stages, and
+presentation configurations. Uncontrolled adaptation could also hide capability,
+infer identity from activity, or allow AI to change navigation without approval.
+
+### Decision
+
+Use Operating Context as the canonical owner-controlled concept. Operational Stage
+is an optional attribute within a context, Current Focus remains immediate, and
+Workspace Emphasis is the approved presentation configuration applied by Adaptive
+Workspace. The owner may hold multiple contexts with at most one durable primary
+context and may select a temporary context without changing the durable one.
+
+AI may prepare an evidence-based context or workspace recommendation but cannot
+select, persist, or apply it. Durable personal context belongs to the Personal
+Operational Model only after explicit, bounded approval. Adaptive Workspace applies
+the exact approved emphasis. Home, navigation, widgets, and recommendations may be
+reprioritized, but every capability, direct route, Search path, authority boundary,
+and degraded non-AI path remains available.
+
+### Rationale
+
+Operating Context describes where the owner is working without treating that
+situation as identity or assuming a linear progression. Separating context, stage,
+focus, and presentation keeps the model explainable and allows useful adaptation
+without transferring priority or capability authority to AI.
+
+### Alternatives considered
+
+- Owner Context — rejected as canonical because it is broad enough to mix identity,
+  preferences, circumstances, and temporary work.
+- Operational Stage — rejected as the umbrella because Learning, Employment,
+  Business, and Research are contexts, while Scaling is a stage within a context.
+- Focus Profile — rejected as the owner model because it describes a derived
+  presentation configuration rather than the operational situation.
+- Automatic adaptation from behavior — rejected because repeated behavior may
+  support a recommendation but cannot provide durable learning or mutation
+  authority.
+
+### Consequences
+
+Future implementation must preserve the complete capability set, stable complete
+navigation, Search, direct access, neutral reset, inspection, rollback, and
+deterministic degraded operation. It requires separate authorized implementation
+work and must not infer durable context or reorder the workspace autonomously.
+
+### References
+
+- [Adaptive Owner Context Architecture](ADAPTIVE_OWNER_CONTEXT_ARCHITECTURE.md)
+- [AI-first Workspace Architecture](AI_FIRST_WORKSPACE_ARCHITECTURE.md)
+- [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md)
+- [Owner Journey](OWNER_JOURNEY.md)
+- [AI Capability Roadmap](AI_CAPABILITY_ROADMAP.md)

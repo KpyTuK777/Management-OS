@@ -269,6 +269,11 @@ decision state where the proposal changes how the system or owner operates. Only
 after owner approval may the Adaptive Workspace or another owning feature apply
 the change.
 
+The approved [Adaptive Owner Context Architecture](ADAPTIVE_OWNER_CONTEXT_ARCHITECTURE.md)
+defines Operating Context as an owner-controlled input to workspace emphasis. The
+Assistant may observe and recommend a context change but cannot select a durable
+context or apply its navigation, Home, widget, or recommendation prioritization.
+
 Repeated usage may generate a recommendation, never automatic adaptation. The
 Assistant must not directly change layout, visibility, prioritization, or
 navigation.

@@ -393,6 +393,7 @@ value requires quiet presence.
 | Improvement Proposals | Owns controlled, evidence-linked SOP improvement suggestions |
 | Personal Operational Model | Future source of explicitly approved personalization |
 | Adaptive Workspace | Future executor of approved adaptation, not an autonomous journey controller |
+| Adaptive Owner Context | Owner-controlled Operating Context and optional Operational Stage used only for approved workspace emphasis |
 
 The journey composes these responsibilities and transfers none of their ownership.
 

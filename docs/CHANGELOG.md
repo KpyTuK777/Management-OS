@@ -155,6 +155,11 @@ separately in [Sprint Tracker](SPRINTS.md).
   approved architecture can proceed from Proposal APPROVE directly to APPLY, while
   canonical product, architecture, governance, security, privacy, and ADR-level
   changes retain the extended review and planning lane.
+- Added the canonical Adaptive Owner Context Architecture, establishing
+  owner-controlled Operating Context, optional Operational Stage, explicit approval,
+  Personal Operational Model and Adaptive Workspace boundaries, capability-preserving
+  navigation and Home emphasis, and deterministic degraded operation without
+  implementing adaptation.
 - Added the canonical Product Principle that Management OS should quietly remove
   cognitive noise while preserving decisions that require human judgment.
 - Extended the standard Product Review guidance with a mandatory evaluation of

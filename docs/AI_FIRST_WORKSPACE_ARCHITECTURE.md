@@ -210,6 +210,11 @@ activity, and non-urgent Reviews remain non-interruptive.
 - **Shared navigation and search** remain available but secondary to intent-first
   interaction.
 
+The approved [Adaptive Owner Context Architecture](ADAPTIVE_OWNER_CONTEXT_ARCHITECTURE.md)
+may influence Home and navigation emphasis after bounded owner approval. Operating
+Context remains subordinate to current intent, timely human judgment, operational
+risk, and active-work continuity, and it never removes capability access.
+
 AI-first must not mean AI-dependent. A non-AI degraded state preserves direct
 module navigation, deliberate search, active-work access, and truthful disclosure
 that interpretation or recommendations are unavailable.

@@ -40,6 +40,7 @@ Open the repository in VS Code and launch `index.html` or `portfolio.html` with 
 - [Natural Capture interaction foundation](docs/NATURAL_CAPTURE_INTERACTION_FOUNDATION.md)
 - [AI Communication Style Guide](docs/AI_COMMUNICATION_STYLE_GUIDE.md)
 - [AI-first Workspace architecture](docs/AI_FIRST_WORKSPACE_ARCHITECTURE.md)
+- [Adaptive Owner Context architecture](docs/ADAPTIVE_OWNER_CONTEXT_ARCHITECTURE.md)
 - [Platform Responsibility Model](docs/PLATFORM_RESPONSIBILITY_MODEL.md)
 - [Mobile Experience architecture](docs/MOBILE_EXPERIENCE_ARCHITECTURE.md)
 - [AI Capability roadmap](docs/AI_CAPABILITY_ROADMAP.md)
