@@ -74,6 +74,10 @@ const InvestigationPrototype = (() => {
 		setJourneyStep(7);
 		elements.validateCause.disabled = true;
 		elements.validateCause.textContent = "Причинне пояснення прийнято власником у межах пілоту";
+		elements.primaryInflection.classList.remove("is-candidate");
+		elements.primaryInflection.classList.add("is-accepted");
+		elements.inflectionStatus.textContent = "Прийнята точка перелому · власник";
+		elements.inflectionSummaryStatus.textContent = "Прийнято власником";
 		showView("decision");
 		elements.readinessSummary.classList.remove("hidden");
 		elements.decisionReadinessTitle.textContent = "Готове до рішення з видимою невизначеністю";
@@ -112,7 +116,7 @@ const InvestigationPrototype = (() => {
 		elements.knowledgeCaptured.classList.remove("hidden");
 		elements.captureKnowledge.disabled = true;
 		elements.captureKnowledge.textContent = "Знання схвалено в цій сесії";
-		announce("Операційне знання захоплено з посиланням на міркування, докази, рішення, результат і обмеження.");
+		announce("Операційне знання захоплено з посиланням на точку перелому, міркування, докази, рішення, результат і обмеження.");
 	}
 
 	function resetInvestigation() {
@@ -163,6 +167,9 @@ const InvestigationPrototype = (() => {
 			currentJourneyStep: document.getElementById("currentJourneyStep"),
 			currentJourneyLabel: document.getElementById("currentJourneyLabel"),
 			journeySteps: [...document.querySelectorAll("#journeySteps li")],
+			primaryInflection: document.getElementById("primaryInflectionPoint"),
+			inflectionStatus: document.getElementById("inflectionStatus"),
+			inflectionSummaryStatus: document.getElementById("inflectionSummaryStatus"),
 			reportedSymptom: document.getElementById("reportedSymptomText"),
 			newButton: document.getElementById("newInvestigationButton"),
 			stageButtons: [...document.querySelectorAll("[data-view]")],

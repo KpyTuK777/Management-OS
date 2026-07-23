@@ -11,6 +11,10 @@ separately in [Sprint Tracker](SPRINTS.md).
 - Strengthened the Operational Investigation prototype with editable neutral
   working titles, visible investigation-discipline safeguards, Evidence influence,
   completion-summary exploration, and explicit owner authority.
+- Added Operational Inflection Points to the approved Case model and prototype,
+  distinguishing significant supported behavioral changes from ordinary Timeline
+  events while preserving Evidence, Hypotheses, confidence, uncertainty, historical
+  similarity limits, and owner acceptance.
 
 ### Foundation 2.0
 

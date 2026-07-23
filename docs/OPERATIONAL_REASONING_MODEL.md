@@ -99,6 +99,11 @@ Summary explains which Evidence materially influenced that decision and why. It
 uses qualitative contribution levels and retains contradictions, limitations, and
 missing Evidence; it never converts contribution into a numerical truth score.
 
+Operational Inflection Points may locate where observed system behavior changed
+within this reasoning. They improve temporal and causal investigation without
+asserting why the change occurred. Hypotheses and owner-accepted Causes remain the
+separate explanatory layer.
+
 Routine, low-consequence choices need not incur this administrative cost. Product
 and implementation proposals must define a proportionate materiality threshold.
 

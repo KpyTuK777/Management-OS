@@ -46,6 +46,9 @@ user-facing language must follow this guide.
 | Major Supporting Evidence | Вагомий підтримувальний доказ |
 | Supporting Evidence | Підтримувальний доказ |
 | Background Context | Фоновий контекст |
+| Operational Timeline | Операційна хронологія |
+| Operational Inflection Point | Точка операційного перелому |
+| Ordinary Event | Звичайна подія |
 | Case Intent | Мета операційного кейсу |
 | Current Condition | Поточний стан |
 | Target Condition | Цільовий стан |

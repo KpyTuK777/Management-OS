@@ -520,6 +520,11 @@ Case Evidence also preserves qualitative Influence and completion-time Decision
 Evidence Summaries as explainability views over decision snapshots. These concepts
 define no current schema, scoring model, storage, or runtime component.
 
+Operational Case may also preserve an Operational Timeline with ordinary events
+and owner-accepted Inflection Point findings. This future boundary adds no current
+event store, timeline component, detection service, similarity index, or causal
+inference behavior.
+
 These boundaries define no current storage, model execution, route, service, UI,
 or migration. Gym records and modeled outputs cannot become organizational
 Evidence, and owner learning beyond approved preferences remains deferred to a

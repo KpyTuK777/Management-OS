@@ -134,6 +134,12 @@ The default Case orientation summarizes:
 - the next meaningful owner judgment;
 - active action and the outcome or guardrail being monitored.
 
+The Operational Timeline visually distinguishes ordinary events from accepted or
+candidate Operational Inflection Points. Inflection Points emphasize where
+observable behavior demonstrably changed, while the interface keeps “changed
+after” separate from “changed because of.” Opening a point reveals its before/after
+condition, Evidence, Hypotheses, confidence, uncertainty, and nearby events.
+
 `New investigation` is the broad experience state. `Reported symptom` describes
 the initial entry signal; it does not assert that a measured deviation or verified
 Fact exists. This presentation remains compatible with the canonical Captured and
@@ -179,6 +185,12 @@ Supporting Evidence, and Background Context. It preserves missing Evidence,
 contradictions, limitations, and links to the decision-time snapshot. The
 [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md) remains authoritative.
 
+The completion summary also presents accepted Operational Inflection Points with
+their observed change, Primary and Supporting Evidence, rejected material,
+supporting Hypotheses, confidence basis, and unresolved uncertainty. Knowledge
+capture preserves these points as scoped learning about where the operational
+system changed, not as universal causal rules.
+
 ### Evidence families
 
 The owner may explore Evidence through non-exclusive investigative facets:
@@ -215,6 +227,11 @@ its expected decision value exceeds the interruption cost. Every suggestion stat
 
 Similarity supports retrieval, never an identical Cause or reusable Solution.
 Previous Case conclusions remain scoped to their original conditions.
+
+Inflection Point similarity uses behavioral-change shape, Operating Context, and
+Evidence patterns. Keywords may assist retrieval but can never be the sole
+similarity basis. Every match explains the matched pattern and material contextual
+differences before presenting previous reasoning.
 
 ## AI investigation partnership
 

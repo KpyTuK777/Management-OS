@@ -443,6 +443,12 @@ artificial score. At completion, the owner reviews a qualitative Decision Eviden
 Summary that separates Primary, Major Supporting, Supporting, and Background
 Context contributions while retaining contradictions and missing Evidence.
 
+The owner can inspect an Operational Timeline that de-emphasizes ordinary events
+and highlights supported Inflection Points. Each point explains the observed
+change, Evidence, Hypotheses, confidence, and uncertainty without presenting
+sequence as causality. Accepted points remain linked through completion and
+Knowledge capture.
+
 The journey composes these responsibilities and transfers none of their ownership.
 
 ## Cognitive-load analysis

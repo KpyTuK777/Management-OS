@@ -76,6 +76,16 @@
 						</ol>
 					</section>
 
+					<details class="operational-timeline" open>
+						<summary><div><span>Операційна хронологія</span><h2>Де система почала поводитися інакше?</h2></div><small>Події ≠ причинність</small></summary>
+						<div class="timeline-track">
+							<article class="timeline-event"><time>01 квітня</time><span>Звичайна подія</span><strong>Оновлено квартальний план продажів</strong><p>Контекст, але немає підтвердженої зміни поведінки.</p></article>
+							<article class="timeline-event"><time>12 квітня</time><span>Звичайна подія</span><strong>Змінено розподіл enterprise-лідів</strong><p>Релевантна подія перед зміною; сама послідовність не доводить причину.</p></article>
+							<article class="timeline-event timeline-inflection is-candidate" id="primaryInflectionPoint"><time>18 квітня</time><span id="inflectionStatus">Кандидат · підготував AI</span><strong>Час першої відповіді перейшов із 3,8 до 11,2 години</strong><p>Після цієї межі enterprise-поновлення почали стійко знижуватися.</p><div class="inflection-meta"><b>Основний доказ:</b> CRM-когорти й SLA-журнал · <b>Підтримує:</b> гіпотезу розриву передачі · <b>Відхилено:</b> загальну сезонність · <b>Впевненість:</b> середня · <b>Невизначеність:</b> внесок зміни ціни</div></article>
+							<article class="timeline-event"><time>02 травня</time><span>Звичайна подія</span><strong>Перші повторні скарги клієнтів</strong><p>Підтримувальна подія після встановленої межі.</p></article>
+						</div>
+					</details>
+
 					<nav class="case-stage-nav" aria-label="Етапи операційного мислення">
 						<button class="case-stage is-active" type="button" data-view="understanding">1. Розуміння</button>
 						<button class="case-stage" type="button" data-view="evidence">2. Докази</button>
@@ -164,10 +174,15 @@
 									</div>
 									<div class="summary-warning"><strong>Невирішено:</strong> відсутній CRM-зріз, а формальна структура ще не зіставлена з реальною взаємодією. Підсумок не готовий до схвалення.</div>
 								</section>
+								<section class="inflection-summary" aria-labelledby="inflectionSummaryTitle">
+									<div class="section-heading"><div><span>Підсумок розслідування</span><h2 id="inflectionSummaryTitle">Точки операційного перелому</h2></div><span class="owner-review-chip" id="inflectionSummaryStatus">Потребує прийняття власником</span></div>
+									<article><time>18 квітня</time><h3>Час першої відповіді зріс із 3,8 до 11,2 години</h3><p><strong>Докази:</strong> CRM-когорти, SLA-журнал, інтерв’ю команди. <strong>Гіпотеза:</strong> розрив передачі enterprise-лідів. <strong>Впевненість:</strong> середня. <strong>Невирішено:</strong> внесок зміни ціни.</p><p class="causality-note">Поведінка змінилася після цієї межі; це не доводить, що попередня подія була причиною.</p></article>
+								</section>
 								<section class="knowledge-capture hidden" id="knowledgeCapture" aria-labelledby="knowledgeCaptureTitle">
 									<div class="section-heading"><div><span>Кандидат знання</span><h2 id="knowledgeCaptureTitle">Зберегти операційне навчання</h2></div><span class="owner-review-chip">Не збережено</span></div>
-									<p>Знання посилається на повне розслідування: міркування, докази, рішення, результат і обмеження.</p>
+									<p>Знання посилається на повне розслідування: міркування, докази, точки перелому, рішення, результат і обмеження.</p>
 									<label>Урок<textarea id="knowledgeLesson" rows="3">Чітка відповідальність за передачу enterprise-лідів скоротила час відповіді та покращила поновлення в межах пілоту.</textarea></label>
+									<label>Підтверджена межа зміни<textarea rows="2">18 квітня: час першої відповіді зріс із 3,8 до 11,2 години; причинне пояснення залишається обмеженим цим розслідуванням.</textarea></label>
 									<label>Обмеження<textarea rows="2">Перевірено в одній команді протягом 30 днів; не переносити автоматично на інші сегменти.</textarea></label>
 									<button class="btn-primary" id="captureKnowledgeButton" type="button">Схвалити й зберегти в пам’яті прототипу</button>
 									<p class="knowledge-captured hidden" id="knowledgeCaptured">Знання схвалено в межах цієї сесії. Майбутнє розслідування зможе послатися на нього як на контекст, а не як на готову причину.</p>
@@ -179,7 +194,7 @@
 							<div class="ai-partner__header"><span class="ai-avatar">AI</span><div><span>Партнер розслідування</span><h2 id="aiPartnerTitle">Підготовка наступного кроку</h2></div></div>
 							<div class="ai-observation"><span>Чого бракує</span><p>Періоду порівняння, визначення показника продажів і сегментованого CRM-зрізу.</p></div>
 							<div class="ai-observation"><span>Суперечність</span><p>Поки немає даних, що відрізняють загальний спад від зміни в одному сегменті.</p></div>
-							<div class="ai-observation similar-investigation"><span>Схоже розслідування · INV-0182</span><p><strong>Чому релевантне:</strong> той самий enterprise-сегмент і показник поновлень.</p><p><strong>Схожість:</strong> спад з’явився після погіршення операційного сигналу.</p><p><strong>Відмінність:</strong> інший ринок і паралельна зміна ціни. Попередня причина не переноситься.</p></div>
+							<div class="ai-observation similar-investigation"><span>Схоже розслідування · INV-0182</span><p><strong>Поведінкова зміна:</strong> різке зростання часу відповіді перед спадом поновлень.</p><p><strong>Операційний контекст:</strong> той самий enterprise-сегмент, але інший ринок.</p><p><strong>Патерн доказів:</strong> подібне поєднання CRM-когорт і SLA-журналів; збіг не ґрунтується лише на словах.</p><p><strong>Відмінність:</strong> паралельна зміна ціни. Попередня причина не переноситься.</p></div>
 							<div class="discipline-checks"><span>Захист якості розслідування</span><ul><li>Повнота доказів: бракує базового зрізу</li><li>Гіпотези: ще не готові до підтвердження</li><li>Суперечності: залишаються видимими</li><li>Припущення: не представлені як факти</li></ul></div>
 							<div class="ai-next-step"><span>Запропонований крок</span><strong>Уточнити період і дозволити CRM-зріз за сегментами.</strong><button class="btn-primary" type="button" id="reviewStepButton">Переглянути запит</button></div>
 							<p class="authority-note">AI готує. Ви вирішуєте, що прийняти, змінити або відхилити.</p>

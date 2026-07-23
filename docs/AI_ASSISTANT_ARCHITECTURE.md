@@ -186,6 +186,14 @@ percentages, artificial scores, document rank, or its own preference to determin
 influence. The owner reviews material contribution, decision rationale, and
 closure; the Assistant's summary is never a new Evidence source.
 
+The Assistant may detect and prepare candidate Operational Inflection Points by
+comparing authorized before/after behavior, contextual events, and Evidence
+patterns. It keeps ordinary events distinct, exposes competing boundaries and
+uncertainty, and never converts temporal order into Cause. Historical matching
+must use behavioral change, Operating Context, and Evidence patterns rather than
+keywords alone. Owner acceptance is required before a candidate becomes a Case
+finding or enters a closure or Knowledge synthesis.
+
 The Assistant facilitates the Case process rather than optimizing artifact or Case
 completion. It preserves the intended outcome, distinguishes predicted from
 observed effect, exposes violated guardrails and unresolved uncertainty, and may

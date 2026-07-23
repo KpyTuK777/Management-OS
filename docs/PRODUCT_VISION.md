@@ -78,6 +78,11 @@ or supported the reasoning, with qualitative influence and unresolved uncertaint
 visible to the owner. AI safeguards that discipline while owner judgment remains
 the authority boundary.
 
+Operational history should reveal supported changes in system behavior rather than
+become an undifferentiated event log. Operational Inflection Points preserve where
+behavior demonstrably changed while keeping temporal sequence separate from causal
+conclusion.
+
 The intended outcome hierarchy is:
 
 ```text

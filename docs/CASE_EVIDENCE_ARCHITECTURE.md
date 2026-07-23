@@ -117,6 +117,13 @@ It must not infer material influence from file type, length, recency alone, sour
 prestige, repetition, or agreement with a preferred conclusion. The owner reviews
 material influence as part of the applicable conclusion, decision, or closure.
 
+Evidence may also support or reject an Operational Inflection Point. Each accepted
+point identifies Primary Evidence establishing the behavioral change, Supporting
+Evidence that corroborates or bounds it, Rejected Evidence that was evaluated but
+did not support the finding, and relevant ordinary Timeline events. Rejected
+Evidence remains visible with the rejection rationale; it is not deleted from the
+Case narrative.
+
 ## Decision-time Evidence snapshot
 
 Every material decision freezes a reproducible view of the Evidence actually

@@ -53,6 +53,37 @@ context, timeline, monitoring conditions, outcome verification, closure, and
 learning synthesis. It does not own the authoritative Facts, SOPs, Executions,
 Reviews, Recommendations, Knowledge, projects, or tasks that participate in it.
 
+## Operational Timeline and Inflection Points
+
+The **Operational Timeline** preserves relevant sequence without treating every
+event as equally explanatory. It distinguishes ordinary events from
+**Operational Inflection Points**.
+
+An **Operational Inflection Point** is an owner-accepted investigative finding
+that identifies a significant boundary after which observable operational behavior
+changed meaningfully. Examples include a KPI trend shift, accelerated complaint
+rate, increased approval time, changed customer behavior, or deteriorated
+coordination.
+
+An Inflection Point is not an assumption, Hypothesis, or proof that the preceding
+event caused the change. It establishes the supported behavioral change boundary;
+causal explanation remains governed by Hypotheses and Case-scoped Causes.
+
+Each Inflection Point preserves:
+
+- the observed change and bounded before/after conditions;
+- effective time or interval and relevant Operating Context;
+- Primary, Supporting, and Rejected Evidence;
+- supporting and competing Hypotheses;
+- relevant ordinary Timeline events;
+- qualitative confidence and its basis;
+- unresolved uncertainty and alternative boundaries;
+- owner acceptance, revision, or rejection history.
+
+AI may prepare an Inflection Point candidate from authorized Evidence. It cannot
+accept the finding, infer causality from temporal sequence, or silently promote it
+into Knowledge. Material acceptance remains an owner judgment.
+
 ## Bounded centrality
 
 Operational Case is the primary operational object for deviations, recurring
@@ -407,6 +438,11 @@ conditions, context, measures, Evidence, adopted and rejected explanations,
 decision rationale, Countermeasure, predicted and observed effects, outcome
 verification, limitations, recurrence conditions, reusable lesson, and possible
 standardization implications.
+
+The closure synthesis also summarizes accepted Operational Inflection Points,
+their Evidence relationships, supporting Hypotheses, confidence, and unresolved
+uncertainty. A Case without a supported Inflection Point records none rather than
+manufacturing one for completeness.
 
 ```text
 Closed Case

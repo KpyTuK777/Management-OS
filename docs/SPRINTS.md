@@ -229,6 +229,9 @@ incomplete.
 - **Prototype Alignment:** Evidence items explain their reasoning contribution,
   similar Investigations retain difference and transfer warnings, and completion
   exposes decision explainability without numerical scoring
+- **Operational Inflection Points:** Operational Timeline separates ordinary events
+  from owner-accepted behavioral-change findings with linked Evidence, Hypotheses,
+  confidence, uncertainty, completion summary, and Knowledge preservation
 
 ### Implementation status
 
@@ -240,5 +243,8 @@ incomplete.
   Case entities, or automated decisions.
 - AI advances investigation readiness and safeguards reasoning discipline; only
   the owner advances consequential operational decisions and closure.
+- The static prototype demonstrates Inflection Point emphasis, explanation, summary,
+  and Knowledge capture without event persistence, AI detection, causal inference,
+  similarity search, or authority changes.
 
 See [Roadmap](ROADMAP.md) for product phases beyond the current sprint.

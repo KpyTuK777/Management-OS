@@ -867,3 +867,68 @@ automated authority.
 - [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md)
 - [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md)
 - [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md)
+
+## DL-015 — Preserve supported behavioral change as Operational Inflection Points
+
+- Date: 2026-07-23
+- Status: Accepted
+- Decision owner: Product Owner
+- Category: Operational Case and experience architecture
+- Affected documents: `OPERATIONAL_CASE_ARCHITECTURE.md`, `CASE_EVIDENCE_ARCHITECTURE.md`, `OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md`, `AI_ASSISTANT_ARCHITECTURE.md`, `OPERATIONAL_REASONING_MODEL.md`, `PRODUCT_VISION.md`, `OWNER_JOURNEY.md`, `SYSTEMS.md`, `ARCHITECTURE.md`, `PRODUCT_LANGUAGE.md`, `DOCUMENTATION_MAP.md`, `ROADMAP.md`, `SPRINTS.md`
+- Supersedes: None; extends DL-010, DL-013, and DL-014
+- Superseded by: None
+
+### Context
+
+A chronological event log preserves sequence but does not show where the
+operational system began behaving differently. Treating every event equally hides
+investigative boundaries; treating a preceding event as the Cause would overstate
+what temporal order proves.
+
+### Decision
+
+Operational Timeline distinguishes ordinary events from Operational Inflection
+Points. An Inflection Point is an owner-accepted Case finding identifying a
+significant boundary after which observable operational behavior changed
+meaningfully. It preserves the observed before/after change, Primary, Supporting,
+and Rejected Evidence, supporting and competing Hypotheses, nearby Timeline events,
+qualitative confidence, unresolved uncertainty, and acceptance history.
+
+An Inflection Point is not an assumption, Hypothesis, or causal conclusion. AI may
+prepare a candidate but cannot accept it or infer Cause from sequence. Completion
+and Knowledge synthesis preserve accepted points. Historical similarity uses
+behavioral-change shape, Operating Context, and Evidence patterns; keywords alone
+are insufficient.
+
+### Rationale
+
+The distinction makes the Timeline investigative rather than administrative. It
+improves causal reasoning by locating supported change boundaries while preserving
+the separate burden of explaining why the change occurred.
+
+### Alternatives considered
+
+- Preserve only chronological events — rejected because material behavioral shifts
+  remain hidden in event volume.
+- Treat every detected trend change as an Inflection Point — rejected because the
+  finding requires Evidence, scope, confidence, uncertainty, and owner acceptance.
+- Infer Cause from the nearest preceding event — rejected because temporal sequence
+  does not establish causality.
+- Match historical points by keywords — rejected because terminology similarity
+  does not establish similar behavior or context.
+
+### Consequences
+
+Future implementation must distinguish event and finding states, retain Evidence
+and Hypothesis links, preserve rejection and uncertainty, and require owner
+acceptance. The Sprint 9 prototype demonstrates the experience only; it implements
+no event persistence, detection model, causal inference, similarity service, or
+authority change.
+
+### References
+
+- [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md)
+- [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md)
+- [Operational Case Experience Architecture](OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md)
+- [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md)
+- [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md)
