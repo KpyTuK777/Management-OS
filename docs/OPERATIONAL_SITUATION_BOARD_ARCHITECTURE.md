@@ -8,7 +8,7 @@ Matter.
 | Property | Decision |
 | --- | --- |
 | Status | Approved canonical experience architecture; prototype presentation aligned |
-| Delivery milestone | Sprint 11 |
+| Delivery milestone | Sprint 11; Guided Investigation interaction approved Sprint 13 |
 | Canonical concept | Operational Situation Board |
 | Authority | Matter-level operational picture, stable frame, dynamic cognitive focus, natural capture integration, and progressive disclosure |
 | Related documents | Operational Matter Architecture, Operational Case Experience Architecture, Natural Capture Architecture, AI Assistant Architecture, Operational Reasoning Model |
@@ -152,6 +152,52 @@ Progressive disclosure must never conceal uncertainty, conflicting Evidence,
 authority, source freshness, or a material consequence.
 Pre-v1.0 explanatory reduction follows the
 [Cognitive Cleanup Architecture](COGNITIVE_CLEANUP_ARCHITECTURE.md).
+
+## Guided Investigation interaction
+
+Guided Investigation is the default interaction model of an active Situation
+Board. The Board preserves its stable, inspectable operational picture while one
+Watson-recommended interaction receives dominant visual priority. The owner
+should decide what they know, what authority to grant, or what judgment to make;
+they should not have to choose which product capability to use next.
+
+The detailed hierarchy, UX principles, AI contribution recalculation, and
+validation contract are defined in
+[Guided Investigation Interaction](GUIDED_INVESTIGATION_INTERACTION.md).
+
+The dominant interaction exposes:
+
+- the current Investigation condition;
+- the next thing that is valuable to understand;
+- why it matters now and the Evidence or information sought;
+- what an answer may change and what will remain unresolved;
+- the smallest meaningful owner action;
+- options to answer, redirect, defer, reject, inspect alternatives, or proceed
+  with visible uncertainty.
+
+Guided Investigation progressively prioritizes interaction rather than hiding
+the operational picture. Complete Evidence, reasoning, history, direct
+capability access, and specialist controls remain inspectable without competing
+for primary attention. Availability and visual priority are separate decisions.
+
+Watson changes the dominant interaction only after a material change in
+Investigation condition, Evidence, contradiction, uncertainty, owner direction,
+Decision Readiness, execution, outcome, or the expected value of further
+inquiry. The change is explainable, announced when material, and reversible.
+
+Orientation, Evidence-building, explanation-testing, decision preparation,
+execution, and outcome learning are non-linear dominant conditions, not mandatory
+stages or completion gates. New Evidence may return the Investigation to an
+earlier condition. Waiting, monitoring, branching, inconclusive closure, and
+justified no action remain valid.
+
+Existing Hypotheses are never deleted or made uninspectable, but they do not
+receive primary attention until the operational condition, scope, baseline,
+provenance, and available Evidence are sufficient to compare explanations
+without premature causal framing. No universal score unlocks a capability.
+
+When Watson is unavailable, the last explainable recommendation may be shown as
+stale or frozen, but it cannot block direct access to the stable Board.
 
 ## Context and branching
 

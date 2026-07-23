@@ -1,12 +1,95 @@
 const InvestigationPrototype = (() => {
 	let elements;
+	let guidedPhase = "orientation";
 	const journeyLabels = ["Повідомлений симптом", "Справу створено", "Підготовка", "Збір доказів", "Поточне розуміння", "Перевірка гіпотез", "Перевірка причин", "Готовність до рішення", "Рішення", "План виконання", "Перевірка результату", "Кандидат знання"];
+	const guidedStates = {
+		orientation: {
+			condition: "Орієнтація",
+			title: "Встановити базове порівняння",
+			reason: "Без періоду та сегментованого зрізу неможливо відрізнити загальну зміну від локального сигналу.",
+			need: "Період, базову лінію та уражений сегмент",
+			effect: "Підтвердити масштаб відхилення та відкрити порівняння пояснень",
+			action: "Переглянути запит доказів"
+		},
+		evidence: {
+			condition: "Збір доказів",
+			title: "Отримати сегментований CRM-зріз",
+			reason: "Це найменший доступний доказ, який покаже, чи зміна загальна або локалізована.",
+			need: "CRM-когорти за періодом і сегментом",
+			effect: "Дозволити або відкласти порівняння конкуруючих пояснень",
+			action: "Отримати демонстраційні докази"
+		},
+		hypotheses: {
+			condition: "Перевірка пояснень",
+			title: "Порівняти конкуруючі гіпотези",
+			reason: "Базовий зріз уже встановив сегментовану зміну; тепер важливо шукати розрізнювальні, а не лише підтверджувальні докази.",
+			need: "Підтримувальні та спростовувальні умови",
+			effect: "Відхилити слабкі пояснення та підготувати перевірку причинності",
+			action: "Перевірити причинне пояснення"
+		},
+		decision: {
+			condition: "Підготовка рішення",
+			title: "Переглянути готовність до рішення",
+			reason: "Докази підтримують обмежене судження, але залишкова невизначеність має бути прийнята власником явно.",
+			need: "Відоме, невідоме, ризики та захисні умови",
+			effect: "Прийняти рішення або повернутися до розслідування",
+			action: "Переглянути та прийняти рішення"
+		},
+		execution: {
+			condition: "Виконання",
+			title: "Схвалити обмежений план виконання",
+			reason: "Рішення прийнято; наступний крок має зберегти межі пілоту, відповідальність і перевірку результату.",
+			need: "Власника дії, межі, захисні показники та дату перевірки",
+			effect: "Розпочати контрольоване виконання без розширення рішення",
+			action: "Схвалити план виконання"
+		},
+		outcome: {
+			condition: "Перевірка результату",
+			title: "Зафіксувати спостережуваний результат",
+			reason: "Виконання не завершує розслідування: очікуваний ефект і захисні показники потрібно перевірити.",
+			need: "Ефект, контекст спостереження та небажані наслідки",
+			effect: "Підтвердити, спростувати або обмежити операційне навчання",
+			action: "Зафіксувати результат"
+		},
+		learning: {
+			condition: "Навчання",
+			title: "Підготувати кандидат знання до окремого перегляду",
+			reason: "Результат спостережено лише в обмеженому контексті, тому він не може автоматично стати затвердженим знанням.",
+			need: "Межі застосовності, докази та невизначеність",
+			effect: "Зберегти перевірюване навчання без переписування історії",
+			action: "Підготувати кандидат знання"
+		}
+	};
 
 	function announce(message) {
 		elements.announcement.textContent = "";
 		window.requestAnimationFrame(() => {
 			elements.announcement.textContent = message;
 		});
+	}
+
+	function setGuidedPhase(phase) {
+		guidedPhase = phase;
+		const state = guidedStates[phase];
+		if (elements.boardInspection && phase !== "evidence") {
+			elements.boardInspection.open = false;
+		}
+		elements.guidedCondition.textContent = state.condition;
+		elements.guidedTitle.textContent = state.title;
+		elements.guidedReason.textContent = state.reason;
+		elements.guidedNeed.textContent = state.need;
+		elements.guidedEffect.textContent = state.effect;
+		elements.guidedAction.textContent = state.action;
+	}
+
+	function advanceGuidedAction() {
+		if (guidedPhase === "orientation") return beginEvidenceCollection();
+		if (guidedPhase === "evidence") return collectEvidence();
+		if (guidedPhase === "hypotheses") return validateCause();
+		if (guidedPhase === "decision") return approveDecision();
+		if (guidedPhase === "execution") return approvePlan();
+		if (guidedPhase === "outcome") return recordOutcome();
+		if (guidedPhase === "learning") return captureKnowledge();
 	}
 
 	function showView(viewName) {
@@ -48,7 +131,9 @@ const InvestigationPrototype = (() => {
 
 	function beginEvidenceCollection() {
 		setJourneyStep(4);
+		elements.boardInspection.open = true;
 		showView("evidence");
+		setGuidedPhase("evidence");
 		announce("AI підготував мінімальний запит доказів. Власник перевіряє і схвалює його.");
 	}
 
@@ -68,6 +153,7 @@ const InvestigationPrototype = (() => {
 		elements.hypothesisList.classList.remove("hidden");
 		elements.validateCause.classList.remove("hidden");
 		setJourneyStep(6);
+		setGuidedPhase("hypotheses");
 		announce("Докази зібрано. Показано конкуруючі гіпотези та обмеження.");
 	}
 
@@ -85,6 +171,7 @@ const InvestigationPrototype = (() => {
 		elements.readinessChip.textContent = "AI підготував · вирішує власник";
 		elements.approveDecision.classList.remove("hidden");
 		setJourneyStep(8);
+		setGuidedPhase("decision");
 		announce("AI підготував огляд готовності. Рішення залишається за власником.");
 	}
 
@@ -94,6 +181,7 @@ const InvestigationPrototype = (() => {
 		elements.approveDecision.textContent = "Рішення прийнято власником";
 		elements.executionPlan.classList.remove("hidden");
 		setJourneyStep(10);
+		setGuidedPhase("execution");
 		elements.executionPlan.scrollIntoView({ behavior: "smooth", block: "nearest" });
 	}
 
@@ -103,6 +191,7 @@ const InvestigationPrototype = (() => {
 		elements.followUpTitle.textContent = "Перевірка запланована на 30-й день";
 		elements.followUpDescription.textContent = "Власник порівняє поновлення, час відповіді та захисні показники інших сегментів.";
 		elements.recordOutcome.classList.remove("hidden");
+		setGuidedPhase("outcome");
 	}
 
 	function recordOutcome() {
@@ -111,6 +200,7 @@ const InvestigationPrototype = (() => {
 		elements.recordOutcome.classList.add("hidden");
 		elements.knowledgeCapture.classList.remove("hidden");
 		setJourneyStep(12);
+		setGuidedPhase("learning");
 	}
 
 	function captureKnowledge() {
@@ -143,10 +233,11 @@ const InvestigationPrototype = (() => {
 		elements.boardRecentChange.textContent = "Схвалено внесок, що уточнює можливу часову межу";
 		elements.boardUnderstanding.textContent = "18 квітня є кандидатом межі зміни, а не підтвердженим фактом";
 		elements.boardReasoningBasis.textContent = "Власницьке спостереження потребує зіставлення з CRM і SLA";
+		setGuidedPhase(guidedPhase);
 		elements.approveMatterContribution.disabled = true;
 		elements.approveMatterContribution.textContent = "Внесок схвалено для перевірки";
 		elements.reasoningMilestone.scrollIntoView({ behavior: "smooth", block: "nearest" });
-		announce("Внесок схвалено в пам’яті сторінки. Операційну картину оновлено, але доказ, стан справи та авторитетні записи не змінено.");
+		announce("Внесок схвалено в пам’яті сторінки. Watson повторно оцінив рекомендацію; поточний напрям не змінився. Доказ, стан справи та авторитетні записи не змінено.");
 	}
 
 	function discardMatterContribution() {
@@ -257,7 +348,16 @@ const InvestigationPrototype = (() => {
 			openSimulation: document.getElementById("openSimulationButton"),
 			closeSimulation: document.getElementById("closeSimulationButton"),
 			scenario: document.getElementById("scenarioBranch"),
-			reviewStep: document.getElementById("reviewStepButton"),
+			boardInspection: document.getElementById("boardInspection"),
+			guidedCondition: document.getElementById("guidedCondition"),
+			guidedTitle: document.getElementById("guidedInvestigationTitle"),
+			guidedReason: document.getElementById("guidedInvestigationReason"),
+			guidedNeed: document.getElementById("guidedInvestigationNeed"),
+			guidedEffect: document.getElementById("guidedInvestigationEffect"),
+			guidedAction: document.getElementById("guidedActionButton"),
+			redirectGuidance: document.getElementById("redirectGuidanceButton"),
+			deferGuidance: document.getElementById("deferGuidanceButton"),
+			rejectGuidance: document.getElementById("rejectGuidanceButton"),
 			announcement: document.getElementById("prototypeAnnouncement")
 		};
 	}
@@ -287,7 +387,21 @@ const InvestigationPrototype = (() => {
 			elements.openSimulation.focus();
 		});
 		elements.requestEvidence.addEventListener("click", beginEvidenceCollection);
-		elements.reviewStep.addEventListener("click", beginEvidenceCollection);
+		elements.guidedAction.addEventListener("click", advanceGuidedAction);
+		elements.redirectGuidance.addEventListener("click", () => {
+			elements.boardInspection.open = true;
+			elements.matterCaptureInput.focus();
+			elements.matterCaptureInput.scrollIntoView({ behavior: "smooth", block: "center" });
+			announce("Напрям не змінено. Додайте те, що вже відомо, своїми словами.");
+		});
+		elements.deferGuidance.addEventListener("click", () => {
+			announce("Рекомендацію відкладено. Операційна справа й повна картина залишаються доступними; стан не змінено.");
+		});
+		elements.rejectGuidance.addEventListener("click", () => {
+			elements.rejectGuidance.disabled = true;
+			elements.rejectGuidance.textContent = "Рекомендацію відхилено";
+			announce("Рекомендацію Watson відхилено. Власник може змінити напрям або продовжити без неї; стан справи не змінено.");
+		});
 		elements.collectEvidence.addEventListener("click", collectEvidence);
 		elements.validateCause.addEventListener("click", validateCause);
 		elements.approveDecision.addEventListener("click", approveDecision);

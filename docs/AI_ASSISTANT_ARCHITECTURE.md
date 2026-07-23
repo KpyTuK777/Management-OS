@@ -27,6 +27,13 @@ and next judgment. The owner may pin, dismiss, or replace that focus. Dynamic
 emphasis is presentation judgment only; it cannot alter Evidence weight, Matter
 state, priority authority, or a Decision.
 
+The [Guided Investigation interaction](GUIDED_INVESTIGATION_INTERACTION.md)
+presents that cognitive center as the single dominant interaction. Watson briefly
+states why now, what it seeks, and what may change, while answer, redirect, defer,
+reject, and alternative inspection remain available. It recalculates guidance
+after a reviewed Natural Capture contribution; it does not progressively unlock
+capabilities or convert a visual sequence into Investigation authority.
+
 The [Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md)
 governs context-aware Investigation behavior. The Assistant retains one capability
 set: Operational Reality minimizes noise and emphasizes Evidence, risk, execution,

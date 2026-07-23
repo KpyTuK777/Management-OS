@@ -73,6 +73,34 @@
 						<p>Ще не підтверджено як виміряне відхилення або встановлена проблема.</p>
 					</section>
 
+					<section class="guided-investigation" aria-labelledby="guidedInvestigationTitle">
+						<div class="guided-investigation__status">
+							<span id="guidedCondition">Орієнтація</span>
+							<small>Watson рекомендує · вирішує власник</small>
+						</div>
+						<div class="guided-investigation__content">
+							<p class="guided-investigation__eyebrow">Наступне, що потрібно зрозуміти</p>
+							<h2 id="guidedInvestigationTitle">Встановити базове порівняння</h2>
+							<p id="guidedInvestigationReason">Без періоду та сегментованого зрізу неможливо відрізнити загальну зміну від локального сигналу.</p>
+							<div class="guided-investigation__basis">
+								<div><span>Що шукаємо</span><strong id="guidedInvestigationNeed">Період, базову лінію та уражений сегмент</strong></div>
+								<div><span>Що це може змінити</span><strong id="guidedInvestigationEffect">Підтвердити масштаб відхилення та відкрити порівняння пояснень</strong></div>
+							</div>
+						</div>
+						<div class="guided-investigation__actions">
+							<button class="btn-primary" id="guidedActionButton" type="button">Переглянути запит доказів</button>
+							<button class="btn-secondary" id="redirectGuidanceButton" type="button">Додати те, що я знаю</button>
+							<button class="text-button" id="deferGuidanceButton" type="button">Відкласти</button>
+							<button class="text-button" id="rejectGuidanceButton" type="button">Відхилити рекомендацію</button>
+						</div>
+					</section>
+
+					<details class="board-inspection" id="boardInspection">
+						<summary>
+							<span><small>Повна операційна картина</small><strong>Переглянути докази, міркування, історію та інші дії</strong></span>
+							<small>Усе залишається доступним</small>
+						</summary>
+						<div class="board-inspection__content">
 					<section class="situation-board-summary" aria-labelledby="situationBoardTitle">
 						<div class="section-heading">
 							<div><span>Операційна картина</span><h2 id="situationBoardTitle">Поточне розуміння справи</h2></div>
@@ -242,15 +270,16 @@
 						</div>
 
 						<aside class="ai-partner" aria-labelledby="aiPartnerTitle">
-							<div class="ai-partner__header"><span class="ai-avatar">AI</span><div><span>Когнітивний центр · запропонував Watson</span><h2 id="aiPartnerTitle">Найважливіше зараз: встановити базове порівняння</h2></div></div>
+							<div class="ai-partner__header"><span class="ai-avatar">AI</span><div><span>Підстави рекомендації</span><h2 id="aiPartnerTitle">Додатковий контекст Watson</h2></div></div>
 							<div class="ai-observation"><span>Чого бракує</span><p>Періоду порівняння, визначення показника продажів і сегментованого CRM-зрізу.</p></div>
 							<div class="ai-observation"><span>Суперечність</span><p>Поки немає даних, що відрізняють загальний спад від зміни в одному сегменті.</p></div>
 							<div class="ai-observation similar-investigation"><span>Схоже розслідування · INV-0182</span><p><strong>Поведінкова зміна:</strong> різке зростання часу відповіді перед спадом поновлень.</p><p><strong>Операційний контекст:</strong> той самий enterprise-сегмент, але інший ринок.</p><p><strong>Патерн доказів:</strong> подібне поєднання CRM-когорт і SLA-журналів; збіг не ґрунтується лише на словах.</p><p><strong>Відмінність:</strong> паралельна зміна ціни. Попередня причина не переноситься.</p></div>
 							<div class="discipline-checks"><span>Захист якості розслідування</span><ul><li>Повнота доказів: бракує базового зрізу</li><li>Гіпотези: ще не готові до підтвердження</li><li>Суперечності: залишаються видимими</li><li>Припущення: не представлені як факти</li></ul></div>
-							<div class="ai-next-step"><span>Чому це важливо зараз</span><strong>Без періоду й сегментованого зрізу неможливо відрізнити загальну зміну від локального сигналу.</strong><button class="btn-primary" type="button" id="reviewStepButton">Переглянути запропонований крок</button></div>
 							<details class="authority-note"><summary>Чому це у фокусі?</summary><p>Фокус запропоновано через відсутність базового порівняння. Він не змінює вагу доказів або стан справи.</p></details>
 						</aside>
 					</div>
+						</div>
+					</details>
 				</section>
 
 			</main>

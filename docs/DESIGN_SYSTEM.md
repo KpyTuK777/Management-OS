@@ -54,10 +54,13 @@ available in the visually secondary **Додатковий контекст** di
 
 ### Operational Situation Board
 
-The Situation Board uses a stable information hierarchy rather than a fully
-adaptive canvas. Situation, Current Understanding, Evidence and Reasoning Basis,
-Uncertainty and Blockers, Recent Change, Current Focus, Next Judgment or Action,
-and Natural Capture retain predictable placement and meaning.
+The Situation Board uses a stable interaction hierarchy rather than a fully
+adaptive canvas. [Guided Investigation](GUIDED_INVESTIGATION_INTERACTION.md)
+defines three visual levels: one dominant interaction, concise supporting
+context, and the complete inspectable workspace. Situation, Current
+Understanding, Evidence and Reasoning Basis, Uncertainty and Blockers, Recent
+Change, Current Focus, Next Judgment or Action, and Natural Capture retain
+predictable meaning and remain accessible.
 
 Dynamic cognitive emphasis changes visual weight within those regions; it does
 not move regions, hide conflicting information, or use theatrical investigation
@@ -68,6 +71,13 @@ authority, freshness, or material consequence.
 Reasoning-change presentation distinguishes previous understanding, the new
 contribution, resulting change, affected Hypotheses, and remaining uncertainty.
 Routine activity must not receive milestone styling.
+
+Only the next meaningful interaction uses primary action emphasis. Redirect,
+defer, reject, and inspection controls remain visible but visually subordinate.
+Timeline, navigation, cards, and specialist actions must not compete with the
+cognitive center. Material current understanding and uncertainty may remain
+visible as supporting context; repeated guidance and authority explanations do
+not.
 
 The pre-v1.0 [Cognitive Cleanup](COGNITIVE_CLEANUP_ARCHITECTURE.md) review treats
 visible explanatory copy as temporary unless it affects current interpretation,

@@ -1,5 +1,19 @@
 # Changelog
 
+## Sprint 13 — Guided Investigation
+
+- Made Guided Investigation the default Situation Board interaction model.
+- Introduced one dominant interaction, concise supporting context, and a complete
+  inspectable workspace without changing capability access.
+- Recalculated deterministic guidance across evidence, explanation, decision,
+  execution, outcome, and learning conditions.
+- Preserved owner answer, redirect, defer, reject, direct access, uncertainty,
+  Hypotheses, timeline, and degraded-operation boundaries.
+- Removed duplicated next-step guidance from the secondary Watson inspection
+  panel and reduced simultaneous calls to action.
+- Added no production AI selection, persistence, readiness scoring, automatic
+  unlocking, or autonomous Investigation authority.
+
 ## Sprint 12 — Cognitive Cleanup
 
 - Established Cognitive Cleanup as a formal pre-v1.0 product-experience phase.

@@ -383,3 +383,26 @@ boundaries and [Project Health](PROJECT_HEALTH.md) for the aggregate readiness v
   personalization was implemented.
 - Reasoning transparency, approval boundaries, source inspection, Laboratory
   separation, and degraded-operation requirements remain unchanged.
+
+## Sprint 13
+
+### Completed
+
+- **Guided Investigation Architecture:** Established Guided Investigation as the
+  default Situation Board interaction model without creating a linear workflow
+  or new source of authority
+- **Progressive Interaction:** Separated capability availability from attention
+  priority and defined one explainable, reversible dominant interaction
+- **Owner Control:** Preserved answer, redirect, defer, reject, alternative
+  inspection, direct access, and proceeding with visible uncertainty
+- **Hypothesis Timing:** Kept existing Hypotheses inspectable while withholding
+  primary emphasis until orientation and Evidence support meaningful comparison
+- **Prototype Alignment:** Moved Watson's next recommendation to the visual center
+  and placed the full operational picture behind a stable inspection control
+
+### Implementation status
+
+- Canonical architecture and deterministic prototype presentation are aligned.
+- The prototype demonstrates fixed page-memory interaction changes only. It does
+  not implement AI question selection, readiness scoring, capability unlocking,
+  persistence, a production workflow, or autonomous Investigation authority.

@@ -82,6 +82,12 @@ stable, inspectable picture of what is happening, understood, uncertain, changed
 and required next. The Board projects governed records and never becomes a new
 artifact or source of truth.
 
+Within that picture, [Guided Investigation](GUIDED_INVESTIGATION_INTERACTION.md)
+is the default interaction model. Watson gives one smallest meaningful next
+interaction dominant attention while supporting context stays concise and every
+capability remains inspectable. Attention changes; capability access and owner
+authority do not.
+
 Before v1.0, [Cognitive Cleanup](COGNITIVE_CLEANUP_ARCHITECTURE.md) shifts the
 experience from explaining Management OS to behaving naturally. Situation meaning,
 material uncertainty, and owner judgment remain visible; architectural mechanics

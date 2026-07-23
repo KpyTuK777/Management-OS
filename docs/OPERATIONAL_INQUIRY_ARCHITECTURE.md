@@ -44,6 +44,11 @@ understanding, Evidence quality, uncertainty, hypothesis discrimination, risk
 clarity, or Decision Readiness. More available information is not by itself a
 reason to ask.
 
+On the Situation Board, the selected Inquiry Proposal normally becomes the one
+visually dominant interaction. Other available capabilities remain inspectable;
+their availability does not give them equal attention priority. The selected
+inquiry must never block owner redirection, direct access, or degraded operation.
+
 ## Inquiry Proposal
 
 An **Inquiry Proposal** is the capability's temporary prepared output. It contains:
@@ -163,6 +168,12 @@ These are dominant Investigation conditions, not lifecycle states or gates. New
 Evidence may return a late Investigation to broad exploration and may support a
 proposed Matter transition from Decision Ready to Under Investigation. Inquiry
 cannot perform that transition.
+
+No condition has a universal numerical completion threshold. Watson determines
+whether a different interaction deserves priority from an inspectable qualitative
+change in Evidence, uncertainty, contradiction, risk, owner direction, expected
+information value, or Decision Readiness. Artifact count and completion of a
+nominal stage cannot unlock Hypothesis prominence or establish readiness.
 
 Progress means improved condition, scope, timeline, Evidence, contradiction,
 Hypothesis, Inflection Point, causal, risk, Decision Readiness, or next-action
