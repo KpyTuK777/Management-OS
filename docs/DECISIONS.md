@@ -441,3 +441,74 @@ work and must not infer durable context or reorder the workspace autonomously.
 - [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md)
 - [Owner Journey](OWNER_JOURNEY.md)
 - [AI Capability Roadmap](AI_CAPABILITY_ROADMAP.md)
+
+## DL-009 — Use Operational Case as the bounded aggregate for non-routine operational reasoning
+
+- Date: 2026-07-23
+- Status: Accepted
+- Decision owner: Product Owner
+- Category: Product and information architecture
+- Affected documents: `OPERATIONAL_CASE_ARCHITECTURE.md`, `PRODUCT_VISION.md`, `OWNER_JOURNEY.md`, `AI_FIRST_WORKSPACE_ARCHITECTURE.md`, `AI_ASSISTANT_ARCHITECTURE.md`, `NATURAL_CAPTURE_ARCHITECTURE.md`, `ADAPTIVE_OWNER_CONTEXT_ARCHITECTURE.md`, `ADAPTIVE_WORKSPACE_ARCHITECTURE.md`, `PERSONAL_OPERATIONAL_MODEL.md`, `SYSTEMS.md`, `ARCHITECTURE.md`, `ROADMAP.md`, `AI_CAPABILITY_ROADMAP.md`, `PRODUCT_LANGUAGE.md`, `DOCUMENTATION_MAP.md`, `SPRINTS.md`
+- Supersedes: None
+- Superseded by: None
+
+### Context
+
+The owner currently encounters operational Evidence, interpretations, procedures,
+actions, Reviews, and improvement decisions through separate domain concepts. That
+separation preserves authority but requires reconstruction of the bounded
+situation being solved. Making every record a Case child would create the opposite
+problem by weakening reuse, provenance, audit, and domain ownership.
+
+### Decision
+
+Use Operational Case as the primary operational aggregate for bounded,
+non-routine investigation, problem-solving, decision, action, outcome, and
+learning. The Case owns its framing, scope, lifecycle, typed relationships,
+decision context, monitoring, closure, and learning synthesis. Participating
+Facts, Reports, SOPs, Executions, Reviews, Recommendations, Knowledge, projects,
+and tasks remain owned by their existing domains and may exist independently.
+
+Cases remain optional for routine execution, ordinary work, quick capture, direct
+library maintenance, and simple retrieval. Home remains the stable primary
+workspace; Current Focus may reference a Case; Operating Context may influence
+prominence only. AI may prepare and explain Case work but cannot persist, merge,
+accept a Cause, select a consequential Solution, close, or promote learning without
+the applicable owner approval. Operational Gym reuses the model only in an
+isolated simulation boundary.
+
+### Rationale
+
+The aggregate model gives the owner one coherent operational narrative while
+preserving the Learning Decision Pipeline, source provenance, reusable libraries,
+immutable history, recommendation authority, and explicit organizational-learning
+promotion. Bounded centrality avoids turning every interaction into administrative
+Case management.
+
+### Alternatives considered
+
+- Retain only independent top-level domains — rejected because the owner must
+  repeatedly reconstruct one operational situation across modules.
+- Make the Case the exclusive owner of all participating records — rejected
+  because Facts, SOPs, Executions, Reviews, Recommendations, and Knowledge require
+  independent authority, reuse, and audit.
+- Require a Case for all work — rejected because routine execution, capture,
+  retrieval, and direct library work do not justify investigative administration.
+
+### Consequences
+
+Future implementation must begin with additive typed relationships, preserve
+direct domain access, distinguish Case closure from resolution, and prevent
+automatic conversion of Hypotheses into Causes or Case learning into organizational
+truth. A separate implementation proposal or plan, data architecture, migration
+authority, Product Language review, and explicit APPLY remain required.
+
+### References
+
+- [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md)
+- [Product Vision](PRODUCT_VISION.md)
+- [Owner Journey](OWNER_JOURNEY.md)
+- [Systems](SYSTEMS.md)
+- [Architecture](ARCHITECTURE.md)
+- [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md)
+- [Adaptive Owner Context Architecture](ADAPTIVE_OWNER_CONTEXT_ARCHITECTURE.md)

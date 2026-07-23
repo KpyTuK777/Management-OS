@@ -43,6 +43,7 @@ Open the repository in VS Code and launch `index.html` or `portfolio.html` with 
 - [Adaptive Owner Context architecture](docs/ADAPTIVE_OWNER_CONTEXT_ARCHITECTURE.md)
 - [Personal Operational Model](docs/PERSONAL_OPERATIONAL_MODEL.md)
 - [Adaptive Workspace architecture](docs/ADAPTIVE_WORKSPACE_ARCHITECTURE.md)
+- [Operational Case architecture](docs/OPERATIONAL_CASE_ARCHITECTURE.md)
 - [Platform Responsibility Model](docs/PLATFORM_RESPONSIBILITY_MODEL.md)
 - [Mobile Experience architecture](docs/MOBILE_EXPERIENCE_ARCHITECTURE.md)
 - [AI Capability roadmap](docs/AI_CAPABILITY_ROADMAP.md)

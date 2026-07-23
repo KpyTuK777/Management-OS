@@ -164,6 +164,10 @@ separately in [Sprint Tracker](SPRINTS.md).
   architectures so durable approved personal context and application of exact
   approved Workspace Emphasis have distinct authority without changing runtime
   behavior or capability availability.
+- Added the canonical Operational Case Architecture, defining bounded Case
+  centrality, lifecycle, typed relationships without domain ownership transfer,
+  AI and approval boundaries, explicit organizational-learning promotion, and an
+  isolated shared model for future Operational Gym without implementation.
 - Added the canonical Product Principle that Management OS should quietly remove
   cognitive noise while preserving decisions that require human judgment.
 - Extended the standard Product Review guidance with a mandatory evaluation of

@@ -80,6 +80,11 @@ Learning, Employment, Business, Research, or an Operational Stage. Home retains
 the hierarchy defined by the
 [AI-first Workspace Architecture](AI_FIRST_WORKSPACE_ARCHITECTURE.md).
 
+An approved Workspace Emphasis may promote relevant Operational Cases but cannot
+change Case membership, lifecycle, Evidence, confidence, decisions, or linked
+records. Adaptive Workspace never owns a Case. The governing Case boundary is the
+[Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
+
 ## Recommendation boundary
 
 AI and the Recommendations Center may prepare and explain a proposed Workspace

@@ -312,6 +312,13 @@ ownership, Learning Decision Pipeline, recommendation-versus-adaptation boundary
 knowledge-layer separation, and degraded operation. Capability consolidation
 prevents overlapping recommendation, learning, optimization, and coaching systems.
 
+The future Operational Case may supply bounded working context and preserve
+relationships across these capabilities, but it does not become a new AI
+capability or take mutation authority from domain owners. Its sequencing and
+boundaries remain governed by the
+[Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md) and Product
+Roadmap.
+
 Every capability retains separate architecture, governance, implementation,
 validation, and release states. Owning modules and bounded Workflow Layer
 coordinators retain mutations. Predictive output remains a scenario with sources,

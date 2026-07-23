@@ -245,6 +245,16 @@ Context cannot demote urgent work, hide an active Execution, override an explici
 instruction, or manufacture urgency. Home continues to own presentation and
 coordination only.
 
+## Relationship with Operational Cases
+
+Operating Context identifies the broader environment; an Operational Case
+identifies one bounded situation being resolved within or across that environment.
+A Case may reference one primary context, several relevant contexts, or none.
+Context may affect Case prominence only and cannot change its Evidence, confidence,
+Cause, Solution approval, membership, lifecycle, or capability access. The Case
+boundary is defined in
+[Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
+
 ## Widget prioritization
 
 Operating Context may reorder a widget, promote it from on-demand context, collapse

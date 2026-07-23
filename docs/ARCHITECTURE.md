@@ -476,6 +476,21 @@ approved personal context, while
 application of exact approved presentation emphasis. Home remains stable; no
 capability, domain record, authorization rule, or current runtime behavior changes.
 
+### Future Operational Case boundary
+
+The approved [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md)
+defines the Case as a future aggregate for bounded, non-routine operational
+reasoning. It may own framing, lifecycle, typed relationships, decision context,
+monitoring, closure, and learning synthesis, but participating records remain
+owned by their existing domains.
+
+Case membership is a relationship rather than record migration. Facts retain
+source provenance; SOPs and Executions remain independently auditable; Reviews
+retain their Execution relationship; Recommendations remain owned by the
+Recommendations Center; and Knowledge or SOP changes require explicit promotion
+through the owning workflow. This direction defines no current schema, storage,
+service, route, UI, or migration behavior.
+
 The dependency and maturity order of approved and future intelligence capabilities
 is maintained in the [AI Capability Roadmap](AI_CAPABILITY_ROADMAP.md). Capability
 placement does not define runtime implementation architecture.
@@ -495,6 +510,7 @@ without redefining capability architecture or release authority.
 - **Insights:** expose deterministic patterns across existing operational evidence.
 - **Hypotheses:** formulate explainable possible interpretations while preserving Evidence.
 - **Improvement Proposals:** preserve a user-authored, reviewable suggestion without changing its source SOP.
+- **Operational Case:** preserve bounded situation context, domain relationships, decisions, outcomes, closure, and learning synthesis without taking domain-record ownership.
 - **Workflow:** coordinate explicit transitions and relationships between modules.
 - **Storage:** keep domain storage helpers stable while shared utilities isolate
   `localStorage` reads, JSON parsing, and serialization.

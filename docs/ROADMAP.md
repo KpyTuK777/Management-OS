@@ -79,6 +79,21 @@ AI capability dependencies and maturity sequencing are maintained separately in
 the [AI Capability Roadmap](AI_CAPABILITY_ROADMAP.md). That roadmap does not replace
 this product sequencing or authorize implementation.
 
+### Future Operational Case
+
+Introduce the Operational Case as the primary aggregate for bounded non-routine
+investigation, decision, action, outcome, and learning only after reliable source
+records and relationship governance are available. Begin with additive Case
+relationships and preserved direct domain access before any Case-centered
+navigation consolidation.
+
+The Case remains optional for routine work, owns no participating domain record,
+and promotes learning only through explicit Knowledge or SOP workflows.
+Operational Gym should reuse the same model later within an isolated simulation
+boundary. This is future direction under the
+[Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md), not a current
+implementation commitment.
+
 ### Future Learning Layer — Recommendations Center
 
 After sufficient Review and execution evidence exists, introduce an explainable

@@ -80,6 +80,9 @@ requiring judgment, active work, a small number of relevant recommendations, and
 supporting context on demand. It does not lead with passive totals, activity, or
 broad KPIs.
 
+When bounded non-routine work exists, Home may surface an active Operational Case
+or a Case decision requiring judgment without replacing Home with a Case list.
+
 **AI responsibilities:** Restore relevant active context, distinguish attention
 from passive information, explain prominence, identify resumable work, and remain
 quiet when nothing material needs attention.
@@ -162,7 +165,7 @@ priority judgment.
 
 **Visible interface:** The owning specialized workspace opens with relevant
 approved context preserved: Knowledge Base, SOP, Execution, Review, Improvement
-Proposals, Portfolio, or another domain workspace.
+Proposals, Portfolio, Operational Case, or another domain workspace.
 
 **AI responsibilities:** Carry only relevant context, provide entity-specific
 assistance, preserve module validation, avoid turning the workspace into chat, and
@@ -211,6 +214,10 @@ Execution → Review → Insights → Hypotheses
 
 Review initially asks only for outcome, rating, blockers, improvements, and lessons.
 Insights and Hypotheses remain separately inspectable.
+
+When these stages concern one bounded operational situation, the Operational Case
+preserves their relationship, decision history, action, outcome, and closure
+without taking ownership of their domain records.
 
 **AI responsibilities:** Help structure authentic reflection, ask only material
 questions, distinguish owner observation from interpretation, explain Evidence and
@@ -399,9 +406,14 @@ value requires quiet presence.
 | Hypotheses | Presents possible explanations with Evidence and limitations |
 | Recommendations Center | Owns evidence-based opportunities and decision lifecycle |
 | Improvement Proposals | Owns controlled, evidence-linked SOP improvement suggestions |
+| Operational Case | Primary aggregate for bounded non-routine investigation, decision, action, outcome, and learning |
 | Personal Operational Model | Future owner-controlled source of durable approved personal context and preferences |
 | Adaptive Workspace | Future executor of exact approved Workspace Emphasis, not an autonomous journey controller |
 | Adaptive Owner Context | Canonical owner-controlled Operating Context, optional Operational Stage, Current Focus relationship, and prioritization invariants |
+
+Operational Case participation follows the canonical
+[Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md); the journey does
+not redefine Case lifecycle or domain-record ownership.
 
 The journey composes these responsibilities and transfers none of their ownership.
 

@@ -51,6 +51,11 @@ Current Focus normally belongs to active operational or working context rather
 than durable personal learning. It may reference an Operating Context without
 becoming a permanent preference.
 
+Current Focus may also reference an Operational Case, but Case content, lifecycle,
+and relationships remain operational records rather than Personal Operational
+Model beliefs. Case authority remains defined by the
+[Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
+
 ## Prohibited content and inference
 
 The Personal Operational Model must not silently contain or infer psychological,

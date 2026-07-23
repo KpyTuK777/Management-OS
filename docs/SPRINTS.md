@@ -138,6 +138,7 @@ incomplete.
 - **Architecture Decision:** ADR-0003 selects Google Sign-In behind the provider-neutral identity boundary
 - **Governance:** Optimized implementation workflow with direct and extended delivery lanes
 - **Product and Information Architecture:** Canonical Adaptive Owner Context, Personal Operational Model, and Adaptive Workspace architectures with owner-controlled Operating Context, optional Operational Stage, and capability-preserving Workspace Emphasis
+- **Product and Information Architecture:** Canonical Operational Case Architecture with bounded centrality, domain-record independence, explicit knowledge promotion, and shared real-work and Operational Gym reasoning model
 
 ### Implementation status
 
@@ -187,5 +188,10 @@ incomplete.
   Adaptive Workspace owns only application of exact approved Workspace Emphasis.
   Multiple contexts, one durable primary context maximum, neutral operation,
   direct access, rollback, and owner approval remain mandatory future boundaries.
+- The Operational Case Architecture establishes the Case as the primary aggregate
+  for bounded non-routine investigation, decision, action, outcome, and learning.
+  Existing domains retain record authority; Home remains primary; routine work
+  remains Case-optional; and no Case entity, persistence, UI, migration, runtime,
+  Gym, or AI behavior was implemented.
 
 See [Roadmap](ROADMAP.md) for product phases beyond this sprint.

@@ -23,7 +23,7 @@ approval.
 | Excluded | LLMs, prompts, providers, APIs, cloud architecture, speech recognition, embeddings, and vector databases |
 
 This document extends the existing architecture without redesigning Dashboard,
-Notes, Knowledge Base, SOP, Executions, Reviews, Insights, Hypotheses, or
+Notes, Knowledge Base, SOP, Executions, Reviews, Insights, Hypotheses, Operational Cases, or
 Improvement Proposals. The existing [Architecture](ARCHITECTURE.md),
 [Product Vision](PRODUCT_VISION.md), [Team Governance](TEAM.md), and domain
 documents remain authoritative for their subjects.
@@ -135,6 +135,11 @@ silently apply, a correction.
 | Reviews | Read structured reflection | Reflection support or missing-context request | Review Center |
 | Insights | Read deterministic observations | Explain an observation or supply recommendation context | No mutation by Insights |
 | Hypotheses | Read Evidence, confidence, and limitations | Explain a possible interpretation or supply recommendation context | No mutation by Hypotheses |
+| Operational Case | Read situation, scope, relationships, lifecycle, decisions, Evidence, and limitations | Prepare Case drafts, summaries, Hypotheses, alternatives, closure synthesis, or bounded handoff | Case persistence, scope change, Cause acceptance, consequential Solution, closure, and promotion require owner approval and owning-domain validation |
+
+Operational Case lifecycle, record relationships, closure, knowledge promotion,
+and Operational Gym isolation remain governed by the
+[Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
 | Improvement Proposals | Read snapshots, proposal, status, and rationale | Refinement or next-step explanation | Improvement Proposal workflow and SOP |
 
 ## Confidence and clarification model

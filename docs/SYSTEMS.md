@@ -43,6 +43,13 @@ responsibilities.
 - **Future responsibilities:** Reprioritize navigation, Home presentation, widgets, and recommendation selection while preserving inspection, rollback, neutral reset, direct access, and degraded operation.
 - **Boundary:** It does not select Operating Context, generate recommendations, change authorization or domain data, remove capabilities, or adapt without approval. See [Adaptive Workspace Architecture](ADAPTIVE_WORKSPACE_ARCHITECTURE.md).
 
+## Operational Case
+
+- **Purpose:** Preserve the bounded operational context that connects a non-routine situation, Evidence, explanations, decisions, actions, outcomes, and learning.
+- **Current status:** Approved future architecture; no Case entity, persistence, interface, migration, or AI behavior is implemented.
+- **Future responsibilities:** Own Case framing, scope, lifecycle, typed domain relationships, decision timeline, monitoring conditions, closure disposition, and learning synthesis.
+- **Boundary:** A Case is not mandatory for routine work and does not own linked Facts, Reports, SOPs, Executions, Reviews, Recommendations, Knowledge, projects, or tasks. Home remains the primary workspace, and durable organizational learning requires explicit promotion. See [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
+
 ## Portfolio
 
 - **Purpose:** Maintain the full project portfolio.

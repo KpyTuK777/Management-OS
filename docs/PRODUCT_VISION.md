@@ -43,6 +43,20 @@ authority belongs to the
 [Personal Operational Model](PERSONAL_OPERATIONAL_MODEL.md), and
 [Adaptive Workspace Architecture](ADAPTIVE_WORKSPACE_ARCHITECTURE.md).
 
+### Operational reasoning through Cases
+
+The **Operational Case** is the primary operational aggregate for bounded,
+non-routine investigation, problem-solving, decision, and improvement. It lets the
+owner understand one situation across Symptoms, Evidence, Hypotheses, Causes,
+Solutions, SOPs, Executions, Reviews, and Recommendations without transferring the
+authority of those records to the Case.
+
+Cases are not mandatory for routine work, quick capture, direct library use, or
+simple execution. Home remains the primary workspace, and organizational learning
+from a Case becomes durable only through explicit promotion into its owning
+Knowledge or SOP workflow. The canonical boundary is defined in
+[Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
+
 ## Long-term vision
 
 Management OS becomes a unified workspace for managing execution, institutional knowledge, operating processes, performance insight, and continuous improvement.

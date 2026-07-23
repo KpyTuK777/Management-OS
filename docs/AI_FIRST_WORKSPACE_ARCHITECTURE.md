@@ -142,7 +142,8 @@ requires intervention, consequential record conflict, or active Execution decisi
 
 Home exposes the smallest set needed to resume meaningful work: an active
 Execution, unfinished capture, accepted action awaiting deeper editing, current
-primary focus, time-sensitive commitment, or directly relevant pending Review.
+primary focus, time-sensitive commitment, active Operational Case, or directly
+relevant pending Review.
 
 ### Level 4 — Contextual recommendations
 
@@ -208,6 +209,10 @@ activity, and non-urgent Reviews remain non-interruptive.
   adapt layout, visibility, priority, or navigation autonomously.
 - **Specialized modules** retain all domain CRUD, validation, evidence, and deeper
   editing responsibilities.
+- **Operational Case** provides the bounded aggregate for non-routine operational
+  reasoning; Home may surface relevant Case state but owns neither the Case nor its
+  linked records. Case authority remains defined by the
+  [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
 - **Shared navigation and search** remain available but secondary to intent-first
   interaction.
 

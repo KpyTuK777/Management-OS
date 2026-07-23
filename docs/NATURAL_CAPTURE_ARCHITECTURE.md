@@ -107,6 +107,8 @@ Natural Capture may consult:
 - SOP definitions and provenance;
 - active and completed Executions;
 - Reviews, Insights, Hypotheses, and Improvement Proposals;
+- active, monitoring, and recently closed Operational Cases and their authorized
+  relationships;
 - existing projects;
 - Dashboard workload and attention context;
 - task or planning data when those domains exist;
@@ -134,6 +136,12 @@ The owner must be able to inspect sources that materially affected routing.
 Authoritative domain data prevails over Assistant inference, and current explicit
 instruction prevails over personal preference. Conflicts lower confidence and are
 shown rather than silently repaired.
+
+Natural Capture may prepare an Operational Case destination when the input
+expresses a bounded non-routine situation requiring investigation, decision, or
+improvement. It must not force routine work into a Case or persist Case membership
+without approval. The governing boundary is the
+[Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
 
 ## Confidence model
 
