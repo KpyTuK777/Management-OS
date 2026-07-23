@@ -12,7 +12,7 @@ Evidence without becoming a competing source of truth.
 | Accountable owner | Product Architect & AI Strategist |
 | Product approval | Product Owner |
 | Canonical concept | Case Evidence Set |
-| Authority | Case Evidence classification, provenance, snapshots, interpretation boundaries, and promotion rules |
+| Authority | Case Evidence classification, provenance, influence, decision summaries, snapshots, interpretation boundaries, and promotion rules |
 | Primary audience | Product, architecture, engineering, data, AI, governance, and documentation collaborators |
 | Lifecycle | Updated when Case Evidence or decision-traceability rules change |
 | Related documents | Operational Reasoning Model, Operational Case Architecture, Architecture, AI Assistant Architecture |
@@ -85,10 +85,37 @@ Each Case Evidence Item preserves, where applicable:
 - transformation method and input lineage;
 - material conflicts, gaps, limitations, and uncertainty;
 - relevance to the Case and inclusion rationale;
+- qualitative contribution to reasoning and the conclusions or decisions influenced;
 - retention, revocation, and access constraints.
 
 The minimum necessary Evidence is retrieved. Unauthorized, revoked, stale, or
 unavailable sources remain visibly excluded or degraded.
+
+## Evidence Influence
+
+**Evidence Influence** explains how an Evidence item contributed to operational
+reasoning. It does not rank documents, estimate truth numerically, or replace
+source quality, provenance, confidence, or the decision-time Evidence snapshot.
+
+| Influence role | Meaning |
+| --- | --- |
+| Established the Symptom | Helped verify or bound the reported deviation |
+| Confirmed a Hypothesis | Materially strengthened a named explanation within its scope |
+| Rejected a Hypothesis | Materially weakened or contradicted a named explanation |
+| Revealed a contradiction | Exposed incompatible observations, definitions, periods, or sources |
+| Triggered a new investigation path | Justified reframing, new Evidence collection, or another reasoning cycle |
+| Supported the final decision | Materially affected the selected alternative, guardrail, or no-action judgment |
+| Background context | Improved orientation without materially determining the decision |
+
+Influence is scoped to a named Case conclusion, Hypothesis, investigation path, or
+decision. The same item may support one proposition and contradict another.
+Influence may change as new Evidence arrives, but the role frozen in a
+decision-time snapshot remains historical and is never silently rewritten.
+
+AI may prepare influence explanations and identify missing or contradictory links.
+It must not infer material influence from file type, length, recency alone, source
+prestige, repetition, or agreement with a preferred conclusion. The owner reviews
+material influence as part of the applicable conclusion, decision, or closure.
 
 ## Decision-time Evidence snapshot
 
@@ -101,10 +128,33 @@ historical basis of the decision.
 A snapshot supports audit and comparison; it does not duplicate authority or make
 an outdated value current truth.
 
+## Decision Evidence Summary
+
+At completion of an Investigation containing a material decision, AI may prepare a
+**Decision Evidence Summary** from the decision-time snapshot. The owner reviews it
+before accepting closure or durable learning.
+
+| Contribution level | Meaning |
+| --- | --- |
+| Primary Evidence | Indispensable to the decision; removing it would materially change readiness or rationale |
+| Major Supporting Evidence | Strongly shaped the selected alternative, rejected alternative, guardrail, or uncertainty judgment |
+| Supporting Evidence | Corroborated or refined the reasoning without independently determining it |
+| Background Context | Informed orientation, scope, or interpretation but did not materially determine the decision |
+
+These levels explain contribution; they do not score truth, rank document quality,
+or express percentages. The summary preserves each item's influence role, relevant
+conclusion, supporting or contradictory relationship, limitations, and source link.
+It also preserves material missing Evidence and unresolved contradictions.
+
+A Decision Evidence Summary is an explainability view over the immutable
+decision-time snapshot. It is not a new Evidence source, an AI conclusion, or a
+replacement for the full Case record.
+
 ## AI boundary
 
 AI may retrieve authorized Evidence, identify gaps and conflicts, deduplicate
-apparent support, prepare derived summaries, compare decision-time snapshots, and
+apparent support, prepare derived summaries, compare decision-time snapshots,
+prepare Evidence Influence explanations and Decision Evidence Summaries, and
 explain how Evidence supports or weakens an interpretation.
 
 AI must not invent a source, convert an assumption into Evidence, treat its own

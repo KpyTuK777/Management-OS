@@ -216,4 +216,29 @@ incomplete.
   Structural, Historical, and System Evidence families aid discovery without
   replacing epistemic status or transferring conclusions between similar Cases.
 
-See [Roadmap](ROADMAP.md) for product phases beyond this sprint.
+## Sprint 9
+
+### Completed
+
+- **Operational Investigation Experience:** Editable neutral working title,
+  strengthened AI Investigation Partner, visible investigation-discipline checks,
+  and explicit owner authority in the prototype
+- **Evidence Architecture:** Qualitative Evidence Influence roles and
+  owner-reviewed Decision Evidence Summary with Primary, Major Supporting,
+  Supporting, and Background Context contributions
+- **Prototype Alignment:** Evidence items explain their reasoning contribution,
+  similar Investigations retain difference and transfer warnings, and completion
+  exposes decision explainability without numerical scoring
+
+### Implementation status
+
+- Documentation defines the approved Evidence Influence and Decision Evidence
+  Summary semantics while preserving provider neutrality, source authority,
+  decision-time snapshots, and owner approval.
+- The static prototype demonstrates the experience in page memory only. It does
+  not implement AI, retrieval, persistence, Evidence ingestion, scoring, backend,
+  Case entities, or automated decisions.
+- AI advances investigation readiness and safeguards reasoning discipline; only
+  the owner advances consequential operational decisions and closure.
+
+See [Roadmap](ROADMAP.md) for product phases beyond the current sprint.

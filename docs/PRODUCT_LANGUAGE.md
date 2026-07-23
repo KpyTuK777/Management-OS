@@ -40,6 +40,12 @@ user-facing language must follow this guide.
 | Working title | Робоча назва |
 | New investigation | Нове розслідування |
 | Reported symptom | Повідомлений симптом |
+| Evidence Influence | Вплив доказу |
+| Decision Evidence Summary | Підсумок доказів рішення |
+| Primary Evidence | Основний доказ |
+| Major Supporting Evidence | Вагомий підтримувальний доказ |
+| Supporting Evidence | Підтримувальний доказ |
+| Background Context | Фоновий контекст |
 | Case Intent | Мета операційного кейсу |
 | Current Condition | Поточний стан |
 | Target Condition | Цільовий стан |

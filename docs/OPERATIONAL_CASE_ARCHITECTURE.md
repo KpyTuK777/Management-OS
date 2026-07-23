@@ -203,9 +203,15 @@ Closure preserves:
 - related operational changes;
 - monitoring or recurrence conditions;
 - Knowledge and SOP candidates.
+- an owner-reviewed Decision Evidence Summary for each applicable material decision.
 
 Closing a Case does not silently close or modify linked tasks, projects,
 Recommendations, Executions, Reviews, proposals, or SOPs.
+
+The Decision Evidence Summary is a qualitative explainability view over the
+decision-time Evidence snapshot. It preserves Primary, Major Supporting,
+Supporting, and Background Context contributions without numerical scoring and is
+governed by the [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md).
 
 ## Domain participation and independence
 

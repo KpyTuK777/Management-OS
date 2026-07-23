@@ -171,6 +171,21 @@ sources into false agreement, or treat lifecycle advancement as investigation
 success. The owner retains consequential interpretation, decision, execution,
 verification, closure, and promotion authority.
 
+Throughout a Case, the Assistant safeguards investigation discipline. It checks
+Evidence completeness relative to the current judgment, challenges unsupported or
+one-sided Hypotheses, keeps unresolved uncertainty and contradictions visible,
+recalls authorized Evidence omitted from the current reasoning, and distinguishes
+real readiness from lifecycle motion. These safeguards counter premature
+conclusions and confirmation bias without creating autonomous Case authority or a
+requirement to fill every artifact.
+
+The Assistant may prepare qualitative Evidence Influence explanations and a
+completion-time Decision Evidence Summary under the
+[Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md). It must not use
+percentages, artificial scores, document rank, or its own preference to determine
+influence. The owner reviews material contribution, decision rationale, and
+closure; the Assistant's summary is never a new Evidence source.
+
 The Assistant facilitates the Case process rather than optimizing artifact or Case
 completion. It preserves the intended outcome, distinguishes predicted from
 observed effect, exposes violated guardrails and unresolved uncertainty, and may

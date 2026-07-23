@@ -39,9 +39,27 @@ const InvestigationPrototype = (() => {
 		elements.home.classList.remove("hidden");
 		elements.scenario.classList.add("hidden");
 		elements.input.value = "";
+		elements.workingTitle.value = "Дослідження повідомленої операційної зміни";
+		elements.workingTitleGuidance.textContent = "Робоча назва — не підтверджена причина. Уникайте причинних висновків, яких ще не підтримують докази.";
+		elements.workingTitleGuidance.classList.remove("working-title-warning");
 		window.location.hash = "";
 		elements.input.focus();
 		announce("Прототип повернувся до нового повідомлення.");
+	}
+
+	function reviewWorkingTitle() {
+		const title = elements.workingTitle.value.trim();
+		const causalClaim = /\b(через|спричинен|спричинила|причина|внаслідок)\b/i.test(title);
+
+		if (!title) {
+			elements.workingTitle.value = "Дослідження повідомленої операційної зміни";
+		}
+
+		elements.workingTitleGuidance.textContent = causalClaim
+			? "Перевірте назву: вона може звучати як підтверджена причина, якої докази ще не встановили."
+			: "Робоча назва змінена лише для орієнтації. Вона не змінює симптом, докази або висновок.";
+		elements.workingTitleGuidance.classList.toggle("working-title-warning", causalClaim);
+		announce(causalClaim ? "Робоча назва може містити передчасний причинний висновок." : "Робочу назву оновлено.");
 	}
 
 	function filterEvidence(category) {
@@ -68,6 +86,8 @@ const InvestigationPrototype = (() => {
 			workspace: document.getElementById("investigationWorkspace"),
 			form: document.getElementById("investigationIntake"),
 			input: document.getElementById("investigationInput"),
+			workingTitle: document.getElementById("caseWorkingTitle"),
+			workingTitleGuidance: document.getElementById("workingTitleGuidance"),
 			reportedSymptom: document.getElementById("reportedSymptomText"),
 			newButton: document.getElementById("newInvestigationButton"),
 			stageButtons: [...document.querySelectorAll("[data-view]")],
@@ -90,6 +110,7 @@ const InvestigationPrototype = (() => {
 
 		elements.workspace.setAttribute("tabindex", "-1");
 		elements.form.addEventListener("submit", openInvestigation);
+		elements.workingTitle.addEventListener("change", reviewWorkingTitle);
 		elements.newButton.addEventListener("click", resetInvestigation);
 		elements.stageButtons.forEach(button => button.addEventListener("click", () => showView(button.dataset.view)));
 		elements.evidenceFilters.forEach(button => button.addEventListener("click", () => filterEvidence(button.dataset.evidenceFilter)));
@@ -109,6 +130,10 @@ const InvestigationPrototype = (() => {
 		if (new URLSearchParams(window.location.search).get("demo") === "investigation") {
 			elements.input.value = "Наші продажі почали знижуватися.";
 			elements.form.requestSubmit();
+			const demoView = new URLSearchParams(window.location.search).get("view");
+			if (["understanding", "evidence", "decision", "outcome"].includes(demoView)) {
+				showView(demoView);
+			}
 		}
 	}
 

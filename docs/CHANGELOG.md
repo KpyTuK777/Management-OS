@@ -5,6 +5,13 @@ separately in [Sprint Tracker](SPRINTS.md).
 
 ## Unreleased
 
+- Added qualitative Evidence Influence roles and owner-reviewed Decision Evidence
+  Summaries so completed Investigations explain which Evidence materially shaped a
+  decision without percentages, document ranking, or artificial confidence scores.
+- Strengthened the Operational Investigation prototype with editable neutral
+  working titles, visible investigation-discipline safeguards, Evidence influence,
+  completion-summary exploration, and explicit owner authority.
+
 ### Foundation 2.0
 
 - Introduced the first shared layout component.

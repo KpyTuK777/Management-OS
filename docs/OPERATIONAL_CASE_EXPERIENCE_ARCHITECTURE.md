@@ -83,6 +83,11 @@ causal understanding. It must not turn a Symptom or early Hypothesis into a
 diagnosis. AI may propose a title, but material renaming remains visible and
 owner-controlled.
 
+The owner can edit the working title at any time. Editing never changes the Case
+identifier, reported concern, Evidence, Hypotheses, or verified conclusion. The
+interface continuously identifies it as a working title and warns against causal
+language that the Evidence does not support.
+
 ```text
 Case #0247 — New investigation
 “I think our sales are declining.”
@@ -162,6 +167,18 @@ Every material decision keeps a visible path to the Evidence snapshot, assumptio
 alternatives, uncertainty, rationale, guardrails, approval, and later observed
 outcome that belong to it.
 
+Each Evidence item may explain its qualitative **Influence**: whether it established
+the Symptom, confirmed or rejected a Hypothesis, revealed a contradiction, opened
+a new investigation path, supported the final decision, or provided background
+context. Influence explains contribution rather than ranking documents or assigning
+percentages.
+
+At Investigation completion, the experience presents an owner-reviewed Decision
+Evidence Summary organized as Primary Evidence, Major Supporting Evidence,
+Supporting Evidence, and Background Context. It preserves missing Evidence,
+contradictions, limitations, and links to the decision-time snapshot. The
+[Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md) remains authoritative.
+
 ### Evidence families
 
 The owner may explore Evidence through non-exclusive investigative facets:
@@ -211,6 +228,12 @@ The owner advances consequential interpretation, lifecycle, decision, execution,
 verification, closure, and promotion boundaries. AI must not conclude without
 Evidence, suppress conflicting material, transform similarity into Cause, invent
 certainty, or make forward lifecycle movement appear equivalent to progress.
+
+AI continuously safeguards investigation discipline by checking Evidence
+completeness, Hypothesis quality, unresolved uncertainty, contradictions, missing
+information, forgotten Evidence, and whether apparent progress is supported. It
+counters premature conclusions, confirmation bias, and unsupported assumptions
+without turning those checks into mandatory artifact completion.
 
 ## Simulation experience
 

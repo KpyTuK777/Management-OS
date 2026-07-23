@@ -797,3 +797,73 @@ documentation decision.
 - [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md)
 - [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md)
 - [Owner Journey](OWNER_JOURNEY.md)
+
+## DL-014 — Explain material decisions through qualitative Evidence Influence
+
+- Date: 2026-07-23
+- Status: Accepted
+- Decision owner: Product Owner
+- Category: Product experience and Evidence architecture
+- Affected documents: `CASE_EVIDENCE_ARCHITECTURE.md`, `OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md`, `AI_ASSISTANT_ARCHITECTURE.md`, `OPERATIONAL_CASE_ARCHITECTURE.md`, `OPERATIONAL_REASONING_MODEL.md`, `PRODUCT_VISION.md`, `OWNER_JOURNEY.md`, `SYSTEMS.md`, `ARCHITECTURE.md`, `PRODUCT_LANGUAGE.md`, `DOCUMENTATION_MAP.md`, `ROADMAP.md`, `SPRINTS.md`
+- Supersedes: None; extends DL-012 and DL-013
+- Superseded by: None
+
+### Context
+
+Decision-time Evidence snapshots preserve what was available, but they do not by
+themselves explain how particular Evidence changed the investigation or materially
+shaped the final decision. Numerical scores or percentages would create false
+precision and could be mistaken for source quality or truth.
+
+### Decision
+
+Each Case Evidence item may preserve qualitative Evidence Influence roles:
+Established the Symptom, Confirmed a Hypothesis, Rejected a Hypothesis, Revealed a
+contradiction, Triggered a new investigation path, Supported the final decision,
+or Background context. Influence remains scoped to a named proposition, path, or
+decision and may differ across them.
+
+At completion of an Investigation with a material decision, AI may prepare a
+Decision Evidence Summary from the immutable decision-time snapshot. The
+owner-reviewed summary groups contributions as Primary Evidence, Major Supporting
+Evidence, Supporting Evidence, and Background Context while preserving source
+links, roles, contradictions, limitations, missing Evidence, and uncertainty.
+
+These are explainability semantics, not rankings, truth scores, confidence
+percentages, or new Evidence. AI safeguards completeness, contradiction visibility,
+Hypothesis quality, and investigation discipline; the owner retains conclusion,
+decision, closure, and learning authority.
+
+### Rationale
+
+Qualitative contribution makes decision reasoning inspectable without implying
+mathematical certainty. Preserving both material influence and unresolved gaps
+supports later review, historical comparison, and organizational learning while
+preventing an AI-generated summary from becoming a competing source of truth.
+
+### Alternatives considered
+
+- Rank Evidence documents — rejected because document order does not express how
+  Evidence affected a particular proposition or decision.
+- Use percentages or weighted scores — rejected because they imply unsupported
+  precision and conflate influence, quality, confidence, and truth.
+- Preserve only the full snapshot — rejected because audit completeness does not
+  provide a concise explanation of material contribution.
+- Let AI finalize the summary — rejected because material influence participates
+  in owner-approved decision and closure reasoning.
+
+### Consequences
+
+Future data and runtime proposals must preserve scoped influence, historical
+decision-time roles, qualitative contribution levels, contradictions, missing
+Evidence, and owner review. The current Sprint 9 prototype demonstrates these
+semantics only; it adds no AI, ingestion, scoring, persistence, backend, or
+automated authority.
+
+### References
+
+- [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md)
+- [Operational Case Experience Architecture](OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md)
+- [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md)
+- [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md)
+- [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md)

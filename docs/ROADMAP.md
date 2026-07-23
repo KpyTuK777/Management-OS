@@ -100,16 +100,17 @@ Evolve the approved Case direction in governed stages:
 
 1. establish the shared Operational Reasoning Model;
 2. establish real Case Evidence Sets and material decision traceability;
-3. complete the Reality Case outcome and verification loop;
-4. validate the Case-centered operational investigation experience, progressive
+3. validate qualitative Evidence Influence and owner-reviewed Decision Evidence Summaries;
+4. complete the Reality Case outcome and verification loop;
+5. validate the Case-centered operational investigation experience, progressive
    naming, Evidence orientation, and cross-record return paths;
-5. add isolated Operational Gym Cases and Training History;
-6. add qualitative Scenario Branches from immutable Case baselines;
-7. introduce governed quantitative simulation only where intended use,
+6. add isolated Operational Gym Cases and Training History;
+7. add qualitative Scenario Branches from immutable Case baselines;
+8. introduce governed quantitative simulation only where intended use,
    validation, uncertainty, sensitivity, limits, and expiry are supportable;
-8. define a separate Owner Learning Record architecture before durable competence
+9. define a separate Owner Learning Record architecture before durable competence
    development or assessment;
-9. consolidate information architecture only after truth separation and direct
+10. consolidate information architecture only after truth separation and direct
    domain access are validated.
 
 Scenario Simulation remains distinct from later Predictive Operational Insights.

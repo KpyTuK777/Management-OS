@@ -51,6 +51,7 @@ responsibilities.
 - **Boundary:** A Case is not mandatory for routine work and does not own linked Facts, Reports, SOPs, Executions, Reviews, Recommendations, Knowledge, projects, or tasks. Home remains the primary workspace, and durable organizational learning requires explicit promotion. See [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
 - **Reasoning environment:** The Operational Case is the Reality contract within the shared [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md). Its governed Evidence Set follows the [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md).
 - **Experience boundary:** Symptom-first entry, progressive naming, investigation orientation, progressive disclosure, and cross-record continuity follow the [Operational Case Experience Architecture](OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md) without changing domain ownership or current implementation.
+- **Evidence explainability:** Future material decisions preserve qualitative Evidence Influence and an owner-reviewed Decision Evidence Summary under the [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md); no numerical influence score or document ranking is permitted.
 
 ## Operational Gym
 

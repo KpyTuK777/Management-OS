@@ -516,6 +516,10 @@ governs future symptom-first entry, progressive naming, investigation orientatio
 disclosure, and navigation continuity without defining a current component or
 changing these technical authorities.
 
+Case Evidence also preserves qualitative Influence and completion-time Decision
+Evidence Summaries as explainability views over decision snapshots. These concepts
+define no current schema, scoring model, storage, or runtime component.
+
 These boundaries define no current storage, model execution, route, service, UI,
 or migration. Gym records and modeled outputs cannot become organizational
 Evidence, and owner learning beyond approved preferences remains deferred to a

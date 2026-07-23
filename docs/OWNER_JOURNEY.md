@@ -438,6 +438,11 @@ path. The default orientation continually answers what is known, missing,
 disputed, assumed, expected next, and—after action—awaiting observation. Detailed
 provenance and audit information remains available through progressive disclosure.
 
+Evidence items explain how they influenced reasoning rather than displaying an
+artificial score. At completion, the owner reviews a qualitative Decision Evidence
+Summary that separates Primary, Major Supporting, Supporting, and Background
+Context contributions while retaining contradictions and missing Evidence.
+
 The journey composes these responsibilities and transfers none of their ownership.
 
 ## Cognitive-load analysis

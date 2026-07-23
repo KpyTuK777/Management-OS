@@ -72,6 +72,12 @@ product begins from the owner's uncertainty, progressively reveals only useful
 complexity, preserves the path from Evidence to decision and outcome, and teaches
 the reasoning model through repeated use rather than framework administration.
 
+Evidence must explain decisions, not merely accumulate around them. Material
+decisions remain traceable to the Evidence that established, challenged, redirected,
+or supported the reasoning, with qualitative influence and unresolved uncertainty
+visible to the owner. AI safeguards that discipline while owner judgment remains
+the authority boundary.
+
 The intended outcome hierarchy is:
 
 ```text

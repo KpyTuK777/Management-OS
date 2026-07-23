@@ -94,6 +94,11 @@ decision preserves:
 - review or invalidation conditions;
 - the later observed outcome and learning decision.
 
+At applicable Investigation completion, an owner-reviewed Decision Evidence
+Summary explains which Evidence materially influenced that decision and why. It
+uses qualitative contribution levels and retains contradictions, limitations, and
+missing Evidence; it never converts contribution into a numerical truth score.
+
 Routine, low-consequence choices need not incur this administrative cost. Product
 and implementation proposals must define a proportionate materiality threshold.
 
