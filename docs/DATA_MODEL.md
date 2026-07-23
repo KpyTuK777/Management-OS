@@ -1,5 +1,29 @@
 # Data Model
 
+## Canonical future Operational Matter contract
+
+The implemented prototype does not contain an Operational Matter entity. Future
+implementation must follow the
+[Operational Matter Architecture](OPERATIONAL_MATTER_ARCHITECTURE.md): one thin
+control-plane record per operational situation, with stable references to
+source-owned contributions rather than copied domain records.
+
+| Concern | Canonical future contract |
+| --- | --- |
+| Identity | Stable Matter identifier preserved through closure and reopening |
+| State | One authoritative macro-state plus append-only transition history |
+| Ownership | Accountable owner and traceable authority source |
+| Investigation | Zero or more linked, repeatable Investigation episodes |
+| Relationships | Typed stable references with source authority and provenance |
+| Snapshots | Justified, traceable, immutable historical captures; never disguised as live data |
+| Decisions and Outcomes | Authoritative references with rationale or assessment lineage |
+| Learning | Linked lineage governed by a separate Knowledge lifecycle |
+
+AI interpretations, Laboratory branches, calendar status, execution state,
+organizational records, Evidence content, and approved Knowledge must not become
+Matter-owned truth. This is a documentation contract only; it adds no browser
+storage key, schema, migration, or runtime behavior.
+
 ## Project
 
 Projects are stored as objects in an array.

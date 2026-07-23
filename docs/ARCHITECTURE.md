@@ -5,7 +5,14 @@ capability and runtime implementation as a provider-independent behavioral polic
 Runtime paths and providers must demonstrate conformance through the AI Quality
 Framework; providers never define the professional standard.
 
-The product exposes one Operational Investigation lifecycle. Investigation Context
+The product gives every operational situation one enduring
+[Operational Matter](OPERATIONAL_MATTER_ARCHITECTURE.md): a thin control-plane
+record with canonical identity, authoritative macro-state, lifecycle history, and
+typed links to source-owned contributions. A Matter may contain multiple
+Operational Investigation episodes, close, and reopen without changing identity.
+Learning remains separately governed.
+
+The product exposes one Operational Investigation experience. Investigation Context
 is presentation and AI-policy metadata, not a separate aggregate, and Decision
 Laboratory branches remain subordinate to their originating Investigation. The
 canonical product boundary is the

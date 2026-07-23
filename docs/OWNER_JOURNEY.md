@@ -446,7 +446,8 @@ Operational Case participation follows the canonical
 [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md); the journey does
 not redefine Case lifecycle or domain-record ownership.
 
-Every context uses the same owner-facing Investigation lifecycle. Persistent
+Every context operates on the same Matter identity and may use the same
+owner-facing Investigation experience. Persistent
 context and Laboratory branch indicators retain distinct Evidence semantics,
 consequences, and learning destinations. The owner may learn without affecting
 operational truth and compare Scenario Branches without treating them as

@@ -45,6 +45,12 @@ time. They never silently resolve to the newest version.
 
 ## Knowledge Review Candidate
 
+Knowledge governance is separate from the Operational Matter macro-state machine
+defined by the [Operational Matter Architecture](OPERATIONAL_MATTER_ARCHITECTURE.md).
+Operational closure never depends on Knowledge review or publication. Matter
+learning lineage may create a candidate, but only this Knowledge lifecycle may
+approve, publish, supersede, or retire Organizational Knowledge.
+
 A **Knowledge Review Candidate** is a traceable proposal to review an approved
 Knowledge version because material new Evidence, operational experience, theory,
 external authority, or context may affect its accuracy, scope, currency, or use.

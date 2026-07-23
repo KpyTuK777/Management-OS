@@ -33,6 +33,25 @@ Superseded, link its successor, and preserve the history.
 
 ## ADR boundary
 
+### DL-022 — Establish Operational Matter as the canonical lifecycle artifact
+
+- **Status:** Accepted
+- **Date:** 2026-07-23
+- **Decision:** Give every operational situation one authoritative Operational
+  Matter identity and non-linear, reopenable macro-state history. Treat
+  Investigations as repeatable work episodes and source-owned Evidence, Inquiry,
+  Reasoning, Decisions, Actions, Outcomes, Memory, Knowledge, organizational
+  context, and commitments as typed linked contributions. Keep learning governance
+  separate and Laboratory branches non-authoritative.
+- **Rationale:** Capability separation without a shared enduring identity permits
+  duplicate representations, ambiguous ownership, broken lineage, and competing
+  truth. A thin control-plane record preserves continuity without absorbing native
+  domain authority.
+- **Compatibility:** DL-019 and DL-020 remain valid for unified context,
+  Investigation experience, and orchestration. Their references to a single
+  Investigation lifecycle no longer assign permanent identity or lifecycle
+  authority to an Investigation.
+
 ### DL-019 — Unify Operational Investigation contexts
 
 - **Status:** Accepted

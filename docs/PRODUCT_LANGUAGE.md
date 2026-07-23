@@ -48,6 +48,7 @@ user-facing language must follow this guide.
 | Scenario Simulation | Сценарне моделювання |
 | Simulation | Моделювання; use **Scenario Simulation** when naming the governed environment |
 | Operational Investigation | Операційне розслідування |
+| Operational Matter | Операційна справа |
 | Reported concern | Повідомлена проблема |
 | Working title | Робоча назва |
 | New investigation | Нове розслідування |

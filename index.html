@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Management OS — Операційні розслідування</title>
+		<title>Management OS — Операційні справи</title>
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 
@@ -17,19 +17,19 @@
 					<header class="investigation-hero">
 						<span class="prototype-label">Архітектурний прототип · без AI та збереження</span>
 						<h1 id="homeTitle">Що відбувається?</h1>
-						<p>Опишіть симптом своїми словами. Management OS підготує операційне розслідування — без вимоги назвати проблему чи вибрати модуль.</p>
+						<p>Опишіть ситуацію своїми словами. Management OS створить операційну справу й підготує перше розслідування — без вимоги назвати проблему чи вибрати модуль.</p>
 					</header>
 
 					<form class="investigation-intake" id="investigationIntake">
 						<label class="context-field" for="investigationContext">Контекст розслідування
 							<select id="investigationContext" name="investigation-context"><option value="learning">Операційне навчання</option><option value="reality">Операційна реальність</option></select>
-							<small>Режим задає типовий контекст. Власник може змінити його; життєвий цикл і можливості не змінюються.</small>
+							<small>Режим задає типовий контекст. Він не змінює ідентичність, стан або повноваження операційної справи.</small>
 						</label>
 						<label for="investigationInput">Повідомте, що ви помітили</label>
 						<textarea id="investigationInput" rows="4" placeholder="Наприклад: Наші продажі почали знижуватися." required></textarea>
 						<div class="investigation-intake__footer">
 							<p>Ваші слова залишаться повідомленим симптомом, а не автоматичним діагнозом.</p>
-							<button class="btn-primary" type="submit">Підготувати розслідування</button>
+							<button class="btn-primary" type="submit">Створити операційну справу</button>
 						</div>
 					</form>
 
@@ -52,8 +52,8 @@
 						<div>
 							<div class="case-header__meta">
 								<span class="environment-badge environment-badge--learning" id="investigationContextBadge">Операційне навчання</span>
-								<span>INV-0247</span>
-								<span>Нове розслідування</span>
+								<span>MAT-0247</span>
+								<span>Розслідування 1</span>
 							</div>
 							<label class="working-title" for="caseWorkingTitle">
 								<span>Робоча назва · редагується</span>
@@ -61,7 +61,7 @@
 							</label>
 							<p id="workingTitleGuidance">Робоча назва — не підтверджена причина. Уникайте причинних висновків, яких ще не підтримують докази.</p>
 						</div>
-						<button class="btn-secondary" id="newInvestigationButton" type="button">Нове повідомлення</button>
+						<button class="btn-secondary" id="newInvestigationButton" type="button">Нова операційна справа</button>
 					</header>
 
 					<section class="reported-symptom" aria-labelledby="reportedSymptomTitle">
@@ -74,7 +74,8 @@
 					</section>
 
 					<section class="journey-progress" aria-labelledby="journeyProgressTitle">
-						<div class="journey-progress__header"><div><span>Безперервне розслідування</span><h2 id="journeyProgressTitle">Крок <strong id="currentJourneyStep">3</strong> із 12</h2></div><p id="currentJourneyLabel">AI готує розслідування</p></div>
+						<div class="journey-progress__header"><div><span>Стан справи · Під розслідуванням</span><h2 id="journeyProgressTitle">Поточний фокус: <strong id="currentJourneyStep">розслідування</strong></h2></div><p id="currentJourneyLabel">AI готує наступний внесок</p></div>
+						<p class="section-intro">Це карта внесків, а не обов’язковий лінійний процес. Справа може повернутися до попередньої роботи або містити інше розслідування.</p>
 						<ol id="journeySteps">
 							<li class="is-complete">Симптом</li><li class="is-complete">Створення</li><li class="is-current">AI-підготовка</li><li>Докази</li><li>Розуміння</li><li>Гіпотези</li><li>Валідація причин</li><li>Готовність</li><li>Рішення</li><li>План виконання</li><li>Перевірка</li><li>Знання</li>
 						</ol>
@@ -158,7 +159,7 @@
 									<button class="btn-primary" id="approvePlanButton" type="button">Схвалити план і запланувати перевірку</button>
 								</section>
 								<section class="scenario-branch hidden" id="scenarioBranch">
-									<div class="section-heading"><div><span class="environment-badge environment-badge--laboratory">Лабораторія рішень</span><h3>Експериментальна гілка A</h3></div><button class="text-button" id="closeSimulationButton" type="button">Повернутися до вихідного розслідування</button></div>
+									<div class="section-heading"><div><span class="environment-badge environment-badge--laboratory">Лабораторія рішень · неавторитетна гілка</span><h3>Експериментальна гілка A · MAT-0247 v1</h3></div><button class="text-button" id="closeSimulationButton" type="button">Повернутися до операційної справи</button></div>
 									<p><strong>Умова:</strong> якщо спад підтвердиться лише в enterprise-сегменті та потужність команди не зміниться.</p>
 									<p><strong>Модельований наслідок:</strong> можливе подальше навантаження на поновлення. Це не прогноз і не спостережений результат.</p>
 									<p><strong>Перевірити:</strong> другорядний вплив на підтримку, час відповіді та утримання інших сегментів.</p>
@@ -184,12 +185,12 @@
 								</section>
 								<section class="knowledge-capture hidden" id="knowledgeCapture" aria-labelledby="knowledgeCaptureTitle">
 									<div class="section-heading"><div><span>Кандидат знання</span><h2 id="knowledgeCaptureTitle">Зберегти операційне навчання</h2></div><span class="owner-review-chip">Не збережено</span></div>
-									<p>Знання посилається на повне розслідування: міркування, докази, точки перелому, рішення, результат і обмеження.</p>
+									<p>Кандидат посилається на справу, розслідування, рішення, результат і обмеження. Закриття справи не залежить від окремого перегляду знання.</p>
 									<label>Урок<textarea id="knowledgeLesson" rows="3">Чітка відповідальність за передачу enterprise-лідів скоротила час відповіді та покращила поновлення в межах пілоту.</textarea></label>
 									<label>Підтверджена межа зміни<textarea rows="2">18 квітня: час першої відповіді зріс із 3,8 до 11,2 години; причинне пояснення залишається обмеженим цим розслідуванням.</textarea></label>
 									<label>Обмеження<textarea rows="2">Перевірено в одній команді протягом 30 днів; не переносити автоматично на інші сегменти.</textarea></label>
-									<button class="btn-primary" id="captureKnowledgeButton" type="button">Схвалити й зберегти в пам’яті прототипу</button>
-									<p class="knowledge-captured hidden" id="knowledgeCaptured">Знання схвалено в межах цієї сесії. Майбутнє розслідування зможе послатися на нього як на контекст, а не як на готову причину.</p>
+									<button class="btn-primary" id="captureKnowledgeButton" type="button">Підготувати кандидат на перегляд</button>
+									<p class="knowledge-captured hidden" id="knowledgeCaptured">Кандидат підготовлено в межах цієї сесії. Він не є схваленим знанням і не змінює стан операційної справи.</p>
 								</section>
 							</section>
 						</div>

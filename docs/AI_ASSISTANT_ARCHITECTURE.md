@@ -5,6 +5,12 @@ All Assistant responsibilities and capabilities are governed by the
 what Watson may do and its authority boundaries; the Ethos owns the professional
 standard applied while doing it.
 
+The [Operational Matter Architecture](OPERATIONAL_MATTER_ARCHITECTURE.md) governs
+the enduring situation identity, macro-state, lineage, and capability write
+boundaries. The Assistant may propose transitions or contributions but cannot
+silently change authoritative Matter state, Decisions, Outcomes, or source-owned
+records.
+
 The [Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md)
 governs context-aware Investigation behavior. The Assistant retains one capability
 set: Operational Reality minimizes noise and emphasizes Evidence, risk, execution,

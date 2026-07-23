@@ -2,13 +2,14 @@
 
 Watson applies the [Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md) by
 keeping assumptions and modeled consequences distinct from current Evidence,
-explaining limitations, and preserving the owner's source Investigation and
+explaining limitations, and preserving the owner's source Operational Matter and
 decision authority.
 
 ## Purpose and status
 
 This document defines the Scenario Branch contract used by the Decision Laboratory,
-an optional capability inside any Operational Investigation.
+an optional capability branching from a specific version of an
+[Operational Matter](OPERATIONAL_MATTER_ARCHITECTURE.md).
 
 | Property | Decision |
 | --- | --- |
@@ -28,10 +29,10 @@ predictive capability.
 ## Definition
 
 A **Scenario Branch** is an owner-invoked, bounded exploration of plausible
-conditional outcomes from an immutable Investigation baseline.
+conditional outcomes from an immutable Matter-version baseline.
 
 ```text
-Operational Investigation
+Operational Matter at named version
   -> Decision-time baseline snapshot
       -> Scenario A
       -> Scenario B
@@ -41,8 +42,9 @@ Operational Investigation
 A Scenario Branch is not an editable clone of the Case, a prediction, a plan, an
 observed result, or authorization to act.
 
-The owner enters it through the Decision Laboratory inside the current
-Investigation. The transition and return preserve the origin, baseline time,
+The owner enters it through the Decision Laboratory from current decision work.
+The transition and return preserve parent Matter identity, source Matter version,
+baseline time,
 changed assumptions, modeled status, and decision being explored. It is not a
 destination or disconnected library and works in either Investigation Context.
 
@@ -51,8 +53,9 @@ destination or disconnected library and works in either Investigation Context.
 Every Scenario Branch declares:
 
 - intended use and decision question;
-- originating Case and immutable baseline snapshot;
-- owner, creation time, and applicable Operating Context;
+- parent Matter identity, source Matter version, and immutable baseline snapshot;
+- creator, creation time, branch status, and applicable Operating Context;
+- model identity, version, and provenance where AI or simulation contributes;
 - explicit assumptions, variables, ranges, and constraints;
 - causal or model logic, source, version, and provenance;
 - calibration or validation basis when one exists;
@@ -77,17 +80,21 @@ justifies those claims.
 The product communicates decision readiness and calibrated uncertainty, not a
 single synthetic confidence score.
 
-## Interaction with the real Case
+## Interaction with the real Matter
 
 An owner may create, compare, archive, or discard Scenario Branches from a real
-Case. A material real decision may reference the scenarios considered, but the
+Matter. A material real Decision may reference the scenarios considered, but the
 decision remains governed by its real Evidence snapshot, assumptions, rationale,
 guardrails, and owner approval.
 
-Scenario output may prepare a Recommendation or test plan. It cannot mutate the
-Case baseline, become observed Evidence, verify a Solution, close a Case, modify
+Scenario output may prepare an explicit proposal or test plan against the Matter.
+Only owner approval may create an authoritative Decision. A branch cannot mutate
+the Matter baseline, become observed Evidence, verify a Solution, close a Matter, modify
 an SOP, or trigger real execution without the applicable owner decision and
 owning-domain workflow.
+
+Promotion, rejection, archive, or discard never erases branch history. The
+branch remains traceable to its parent Matter and source version.
 
 ## AI participation
 

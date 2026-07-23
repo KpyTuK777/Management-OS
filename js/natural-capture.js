@@ -22,7 +22,7 @@ const InvestigationPrototype = (() => {
 	}
 
 	function setJourneyStep(step) {
-		elements.currentJourneyStep.textContent = step;
+		elements.currentJourneyStep.textContent = journeyLabels[step - 1].toLowerCase();
 		elements.currentJourneyLabel.textContent = journeyLabels[step - 1];
 		elements.journeySteps.forEach((item, index) => {
 			item.classList.toggle("is-complete", index < step - 1);
@@ -43,7 +43,7 @@ const InvestigationPrototype = (() => {
 		setJourneyStep(3);
 		elements.workspace.focus({ preventScroll: true });
 		window.location.hash = "investigations";
-		announce("Створено тимчасове розслідування INV-0247. Повідомлений симптом збережено лише в пам’яті сторінки.");
+		announce("Створено тимчасову операційну справу MAT-0247 і перше розслідування. Повідомлений симптом збережено лише в пам’яті сторінки.");
 	}
 
 	function beginEvidenceCollection() {
@@ -116,8 +116,8 @@ const InvestigationPrototype = (() => {
 	function captureKnowledge() {
 		elements.knowledgeCaptured.classList.remove("hidden");
 		elements.captureKnowledge.disabled = true;
-		elements.captureKnowledge.textContent = "Знання схвалено в цій сесії";
-		announce("Операційне знання захоплено з посиланням на точку перелому, міркування, докази, рішення, результат і обмеження.");
+		elements.captureKnowledge.textContent = "Кандидат підготовлено";
+		announce("Підготовлено кандидат на окремий перегляд знання. Він не є схваленим знанням і не змінює стан операційної справи.");
 	}
 
 	function resetInvestigation() {
@@ -233,7 +233,7 @@ const InvestigationPrototype = (() => {
 		elements.openSimulation.addEventListener("click", () => {
 			elements.scenario.classList.remove("hidden");
 			elements.scenario.scrollIntoView({ behavior: "smooth", block: "nearest" });
-			announce("Відкрито модельовану сценарну гілку. Це не прогноз.");
+			announce("Відкрито неавторитетну модельовану гілку від MAT-0247 v1. Це не доказ, прогноз або рішення.");
 		});
 		elements.closeSimulation.addEventListener("click", () => {
 			elements.scenario.classList.add("hidden");

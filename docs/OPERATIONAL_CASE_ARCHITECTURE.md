@@ -2,9 +2,12 @@
 
 ## Purpose and status
 
-This document defines the Operational Case as the primary operational learning and
-change process for bounded, non-routine problem-solving, investigation, decision,
-recovery, prevention, design, and improvement in Management OS.
+This document preserves the approved bounded operational learning-and-change
+method. The [Operational Matter Architecture](OPERATIONAL_MATTER_ARCHITECTURE.md)
+now governs canonical identity, macro-state, lifecycle continuity, relationships,
+and reopening. Earlier uses of **Operational Case** as the enduring aggregate map
+to Operational Matter; case-method work is performed through one or more linked
+Operational Investigations.
 
 | Property | Decision |
 | --- | --- |
@@ -12,8 +15,8 @@ recovery, prevention, design, and improvement in Management OS.
 | Delivery milestone | Sprint 8 |
 | Accountable owner | Product Architect & AI Strategist |
 | Product approval | Product Owner |
-| Canonical concept | Operational Case |
-| Authority | Operational Case purpose, intent, learning-and-change cycle, lifecycle, membership, relationships, outcome verification, and closure |
+| Canonical concept | Bounded operational learning-and-change method |
+| Authority | Matter purpose support, Investigation intent, learning-and-change method, Countermeasure cycles, and outcome-verification method |
 | Scope | Operational situations, domain-record relationships, AI participation, knowledge promotion, Home, Current Focus, Operating Context, and Investigation Context |
 | Primary audience | Product, architecture, design, engineering, data, documentation, and AI collaborators |
 | Lifecycle | Updated with approved Operational Case or case-centered information-architecture changes |
@@ -25,7 +28,7 @@ authority. This architecture defines no current entity, persistence contract,
 runtime, interface, migration, or AI behavior.
 
 The [Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md)
-governs the single owner-facing lifecycle, Investigation Context, and Decision
+governs repeatable Investigation episodes, Investigation Context, and Decision
 Laboratory placement. The [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md)
 governs the shared reasoning grammar. This document governs the Case contract. The
 [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md) governs Evidence Sets
@@ -38,10 +41,10 @@ disclosure, and Case-centered continuity without redefining these domain rules.
 
 ## Definition
 
-An **Operational Case** is a bounded operational learning and change process
-through which the owner understands a situation, makes and executes justified
-decisions, verifies the outcome, and determines what should become durable
-practice.
+The **Operational Case method** is a bounded operational learning-and-change
+process through which the owner investigates a Matter, makes and executes
+justified Decisions, verifies Outcomes, and proposes what may become durable
+practice. It is not a parallel identity or lifecycle artifact.
 
 It answers:
 

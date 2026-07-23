@@ -8,7 +8,8 @@ and stopping when additional inquiry has declining operational value.
 ## Purpose and status
 
 This document defines how the AI Investigation Partner selects, explains, asks,
-and evaluates the next most valuable question in an Operational Investigation.
+and evaluates the next most valuable question in an Operational Investigation
+linked to an [Operational Matter](OPERATIONAL_MATTER_ARCHITECTURE.md).
 
 | Attribute | Definition |
 | --- | --- |
@@ -28,7 +29,8 @@ model, provider, or implementation.
 
 **Operational Inquiry** is the governed capability through which the AI
 Investigation Partner selects and explains the next most valuable question for
-advancing an Operational Investigation while preserving owner control,
+advancing understanding of an Operational Matter through an Investigation while
+preserving owner control,
 uncertainty, competing explanations, and Evidence authority.
 
 Operational Inquiry determines which uncertainty or Evidence Need is valuable to

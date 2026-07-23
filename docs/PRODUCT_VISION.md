@@ -67,7 +67,8 @@ Knowledge or SOP workflow. The canonical boundary is defined in
 [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
 
 Management OS evolves toward an **Operational Intelligence Platform** with one
-Operational Investigation lifecycle. Owner-selected Operational Reality and
+Operational Matter identity and lifecycle history per situation and repeatable
+Operational Investigation episodes. Owner-selected Operational Reality and
 Operational Learning contexts adapt emphasis, not structure or capability.
 Reversible modeled exploration occurs inside an Investigation through the Decision
 Laboratory. Context and branch truth boundaries ensure that learning material and

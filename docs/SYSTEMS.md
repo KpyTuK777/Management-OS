@@ -55,7 +55,11 @@ responsibilities.
 - **Current status:** Approved future architecture; no Case entity, persistence, interface, migration, or AI behavior is implemented.
 - **Future responsibilities:** Own Case intent, current and intended conditions, success and guardrail measures, iterative learning-and-change cycles, typed domain relationships, decision timeline, monitoring, outcome verification, closure disposition, and learning synthesis.
 - **Boundary:** A Case is not mandatory for routine work and does not own linked Facts, Reports, SOPs, Executions, Reviews, Recommendations, Knowledge, projects, or tasks. Home remains the primary workspace, and durable organizational learning requires explicit promotion. See [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
-- **Unified experience:** The owner works through one Operational Investigation lifecycle. Investigation Context changes AI and presentation emphasis, never structure, capability, or authority. See [Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md).
+- **Unified experience:** The owner works on one enduring Operational Matter
+  through one or more Operational Investigation episodes. Investigation Context
+  changes AI and presentation emphasis, never Matter identity, capability, or
+  authority. See [Operational Matter Architecture](OPERATIONAL_MATTER_ARCHITECTURE.md)
+  and [Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md).
 - **Reasoning contract:** Its governed Evidence Set and reasoning follow the [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md) and [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md).
 - **Experience boundary:** Symptom-first entry, progressive naming, investigation orientation, progressive disclosure, and cross-record continuity follow the [Operational Case Experience Architecture](OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md) without changing domain ownership or current implementation.
 - **Evidence explainability:** Future material decisions preserve qualitative Evidence Influence and an owner-reviewed Decision Evidence Summary under the [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md); no numerical influence score or document ranking is permitted.
@@ -73,6 +77,18 @@ responsibilities.
 - **Current status:** Approved future architecture; no Operational Memory store, Experience Pattern entity, detection, retrieval, model training, interface, or migration is implemented.
 - **Future responsibilities:** Relate completed Cases, accepted Inflection Points, decisions, interventions, outcomes, Knowledge, and governed Experience Patterns without duplicating their source authority.
 - **Boundary:** Experience Patterns are derived historical context. They never override current Evidence, establish Cause through repetition, silently become Knowledge or SOPs, alter the Personal Operational Model, or authorize action. Operational Memory is not a primary navigation module. See [Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md).
+
+## Operational Matter
+
+- **Purpose:** Preserve one canonical identity, accountable owner, authoritative
+  macro-state, lifecycle history, lineage, and typed relationships for each
+  operational situation.
+- **Current status:** Approved future architecture; no Matter entity, persistence,
+  migration, runtime, interface, or AI behavior is implemented.
+- **Boundary:** The Matter is a thin control-plane record. Source systems retain
+  Evidence, organizational, calendar, execution, Knowledge, and branch authority.
+  An Investigation is a repeatable episode concerning a Matter, not its permanent
+  identity. See [Operational Matter Architecture](OPERATIONAL_MATTER_ARCHITECTURE.md).
 
 ## Operational Inquiry
 

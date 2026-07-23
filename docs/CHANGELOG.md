@@ -1,5 +1,19 @@
 # Changelog
 
+## Sprint 10 — Canonical Operational Matter
+
+- Established Operational Matter as the single enduring identity and thin
+  control-plane record for an operational situation.
+- Defined the non-linear, reopenable macro-state lifecycle and kept governed
+  learning on a separate lifecycle.
+- Recast Operational Investigations as repeatable work episodes linked to a
+  Matter, with source-owned typed relationships and traceable snapshots.
+- Defined Decision Laboratory branches as non-authoritative branches from a named
+  Matter version; promotion requires an explicit proposal and owner approval.
+- Aligned Assistant, Inquiry, Orchestration, Memory, Knowledge, data, system,
+  language, and documentation-map authority boundaries.
+- No entity, persistence, runtime, migration, or production interface was added.
+
 This file records released product changes. Sprint scope and completion are tracked
 separately in [Sprint Tracker](SPRINTS.md).
 

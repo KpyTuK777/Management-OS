@@ -94,8 +94,8 @@ and standardization decisions before any Case-centered navigation consolidation.
 
 The Case remains optional for routine work, owns no participating domain record,
 and promotes learning only through explicit Knowledge or SOP workflows.
-Operational Learning reuses the same Investigation lifecycle through a distinct
-context and truth contract. This is future direction under the
+Operational Learning reuses the same Matter identity conventions and Investigation
+experience through a distinct context and truth contract. This is future direction under the
 [Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md),
 not a current implementation commitment.
 
@@ -120,7 +120,8 @@ Evolve the approved Case direction in governed stages:
 11. validate the Case-centered operational investigation experience, progressive
    naming, Evidence orientation, and cross-record return paths;
 12. add Operational Learning context and governed learning capture;
-13. add the Decision Laboratory with qualitative Scenario Branches from immutable Investigation baselines;
+13. add the Decision Laboratory with qualitative Scenario Branches from named
+    Operational Matter versions and immutable decision-time baselines;
 14. introduce governed quantitative simulation only where intended use,
    validation, uncertainty, sensitivity, limits, and expiry are supportable;
 15. define a separate Owner Learning Record architecture before durable competence

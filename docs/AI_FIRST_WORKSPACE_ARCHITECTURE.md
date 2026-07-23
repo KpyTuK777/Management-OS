@@ -117,7 +117,9 @@ When natural input reports an uncertain operational symptom, Home preserves the
 owner's wording and may prepare a new Operational Investigation with a stable
 temporary identifier and neutral working title. It does not require manual
 classification or imply that the problem, Cause, or Solution is already known. The
-Investigation lifecycle remains governed by the
+Matter identity and lifecycle remain governed by the
+[Operational Matter Architecture](OPERATIONAL_MATTER_ARCHITECTURE.md); the
+Investigation experience remains governed by the
 [Operational Case Experience Architecture](OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md).
 
 ### Resting state

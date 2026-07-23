@@ -21,11 +21,15 @@ experience for future Investigations.
 Operational Memory is a governed capability, not a database, navigation module,
 AI model, or independent source of truth. No persistence contract, detection
 service, retrieval engine, model training, interface, or migration is implemented.
+It references authoritative history; it does not own a parallel Operational
+Matter record and is not approved Organizational Knowledge.
 
 ## Canonical model
 
-**Operational Memory** preserves operational episodes and connects them into
-explainable organizational experience for future work.
+**Operational Memory** indexes historical Operational Matters, their Investigation
+episodes, Decisions, and Outcomes, and connects them into explainable
+organizational experience for future work. Reopening preserves the Matter's
+canonical identity and prior history rather than creating a Memory-owned copy.
 
 It relates, without taking authority from:
 

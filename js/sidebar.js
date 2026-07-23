@@ -6,7 +6,7 @@ const Layout = (() => {
 				["Головна", "index.html"],
 				["Порядок денний", "index.html#agenda"],
 				["Навчання", "knowledge-base.html"],
-				["Операційні розслідування", "index.html#investigations"],
+				["Операційні справи", "index.html#investigations"],
 				["Знання", "knowledge-base.html"]
 			]
 		},
@@ -15,7 +15,7 @@ const Layout = (() => {
 			links: [
 				["Головна", "index.html"],
 				["Порядок денний", "index.html#agenda"],
-				["Операційні розслідування", "index.html#investigations"],
+				["Операційні справи", "index.html#investigations"],
 				["Знання", "knowledge-base.html"]
 			]
 		}
@@ -64,7 +64,7 @@ const Layout = (() => {
 		modeLabel.htmlFor = modeSelect.id;
 		priorities.className = "sidebar__priority-note";
 		title.textContent = "Management OS";
-		descriptor.textContent = "Операційні розслідування";
+		descriptor.textContent = "Операційні справи";
 		modeLabel.textContent = "Поточний акцент";
 		priorities.textContent = "Навігація змінює пріоритети, а не доступність можливостей.";
 

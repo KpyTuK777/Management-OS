@@ -8,7 +8,13 @@ approval boundaries without claiming global optimality.
 ## Purpose and status
 
 This document defines how Management OS prepares an effective, explainable
-sequence for acquiring Evidence and advancing an Operational Investigation.
+sequence for acquiring Evidence and advancing an Operational Investigation
+concerning an [Operational Matter](OPERATIONAL_MATTER_ARCHITECTURE.md).
+
+Orchestration owns coordination state only. It may coordinate multiple
+Investigation episodes for one Matter, but it cannot replace Matter identity,
+silently change its authoritative macro-state, or copy Evidence, scheduling,
+execution, organizational, Decision, Outcome, or Knowledge authority.
 
 | Property | Decision |
 | --- | --- |

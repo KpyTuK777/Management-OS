@@ -297,6 +297,10 @@ See [Roadmap](ROADMAP.md) for product phases beyond the current sprint.
   investigative questioning with explicit Inquiry Objectives, qualitative value,
   explainability, state-sensitive strategy, stopping conditions, memory safeguards,
   and owner direction
+- **Canonical Operational Matter Architecture:** Established one enduring
+  operational identity, non-linear and reopenable macro-state lifecycle, typed
+  source-owned relationships, multiple Investigation episodes, separate learning
+  governance, traceable Laboratory branches, and capability write boundaries
 
 ### Implementation status
 
@@ -310,6 +314,12 @@ See [Roadmap](ROADMAP.md) for product phases beyond the current sprint.
 - Operational Inquiry is documentation architecture only. No inquiry entity,
   persistence, question-selection engine, prompt, model, runtime, interface, or AI
   behavior is implemented.
+- Operational Matter is documentation architecture only. No Matter entity,
+  persistence, schema, migration, runtime, interface, or AI behavior was
+  implemented. The static page-memory prototype now presents MAT-0247 as the
+  enduring situation, labels its first Investigation episode separately, treats
+  the work map as non-linear, marks Laboratory output non-authoritative, and
+  prepares a separate Knowledge review candidate without creating production data.
 
 See [Documentation Map](DOCUMENTATION_MAP.md) for authority and consolidation
 boundaries and [Project Health](PROJECT_HEALTH.md) for the aggregate readiness view.

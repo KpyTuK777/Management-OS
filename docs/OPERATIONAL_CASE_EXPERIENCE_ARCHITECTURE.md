@@ -5,7 +5,10 @@ Watson's Investigation presence is governed by the
 Readiness must explain why readiness is or is not established, expose unresolved
 uncertainty, and avoid pressuring the owner toward a decision.
 
-This experience now presents one Operational Investigation workspace. Operational
+This experience presents an enduring
+[Operational Matter](OPERATIONAL_MATTER_ARCHITECTURE.md) through its current
+Operational Investigation workspace. A Matter may contain multiple Investigation
+episodes, close, and later reopen. Operational
 Reality and Operational Learning are owner-selected contexts, not destinations;
 Decision Laboratory is entered and exited within the Investigation. Where older
 sections say Operational Gym, Reality, or Simulation, their valid experiential
@@ -25,7 +28,7 @@ and reusable learning.
 | Accountable owner | Product Architect & AI Strategist |
 | Product approval | Product Owner |
 | Canonical experience | Operational investigation |
-| Authority | Case entry, progressive naming, investigation orientation, progressive disclosure, Case-centered continuity, and cross-environment experiential consistency |
+| Authority | Matter entry, progressive naming, investigation orientation, progressive disclosure, Matter-centered continuity, and cross-context experiential consistency |
 | Primary audience | Product, design, architecture, engineering, AI, research, and documentation collaborators |
 | Lifecycle | Updated when the approved end-to-end Operational Case experience changes |
 | Related documents | Owner Journey, Operational Case Architecture, Operational Reasoning Model, Case Evidence Architecture, Scenario Simulation Architecture, AI-first Workspace Architecture |
