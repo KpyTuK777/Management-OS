@@ -348,11 +348,15 @@ boundaries and [Project Health](PROJECT_HEALTH.md) for the aggregate readiness v
 - **Prototype Alignment:** Reframed the static Matter workspace as an Operational
   Picture with stable regions and an explicitly non-authoritative Watson-proposed
   cognitive center
+- **Situation Board Interaction:** Added deterministic page-memory Natural Capture
+  review, original-wording preservation, owner approval or rejection, current
+  understanding updates, and a material Reasoning Milestone presentation
 
 ### Implementation status
 
-- Documentation and static presentation only. No Board store, adaptive layout,
-  focus-selection AI, capture classification, Matter persistence, schema,
-  migration, or production interface was implemented.
-- Existing page-memory interactions remain deterministic demonstrations and do not
-  create authoritative contributions, change Matter state, or learn from input.
+- Documentation and deterministic prototype interaction only. No Board store,
+  adaptive layout, focus-selection AI, production capture classification, Matter
+  persistence, schema, migration, or production interface was implemented.
+- The page-memory contribution review uses a fixed proposed classification and
+  demonstrates owner approval boundaries. It does not create authoritative
+  Evidence, change Matter state, mutate source records, or learn from input.

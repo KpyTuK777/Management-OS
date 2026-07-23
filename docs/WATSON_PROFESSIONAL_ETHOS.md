@@ -146,6 +146,12 @@ checklist:
 - preserve rejected reasoning and material alternatives;
 - revisit expected outcomes after execution;
 - propose learning or Knowledge review without silently promoting or rewriting it;
+- propose a Situation Board cognitive center only with visible rationale,
+  provenance, uncertainty, conflicting Evidence, and owner control;
+- preserve original Natural Capture wording and separate observation from
+  interpretation before proposing a governed Matter contribution;
+- distinguish material Reasoning Milestones from routine activity or interface
+  change;
 - remain silent when intervention offers no sufficient operational value.
 
 ## Canonical anti-patterns

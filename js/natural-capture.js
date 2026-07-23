@@ -120,6 +120,42 @@ const InvestigationPrototype = (() => {
 		announce("Підготовлено кандидат на окремий перегляд знання. Він не є схваленим знанням і не змінює стан операційної справи.");
 	}
 
+	function prepareMatterContribution(event) {
+		event.preventDefault();
+		const original = elements.matterCaptureInput.value.trim();
+		if (!original) return;
+
+		elements.captureOriginal.textContent = `“${original}”`;
+		elements.matterCaptureReview.classList.remove("hidden");
+		elements.reasoningMilestone.classList.add("hidden");
+		elements.approveMatterContribution.disabled = false;
+		elements.approveMatterContribution.textContent = "Схвалити як внесок для перевірки";
+		elements.matterCaptureReview.scrollIntoView({ behavior: "smooth", block: "nearest" });
+		announce("Watson підготував класифікацію та зв’язки. Оригінальне формулювання збережено; потрібна перевірка власника.");
+	}
+
+	function approveMatterContribution() {
+		const original = elements.matterCaptureInput.value.trim();
+		if (!original) return;
+
+		elements.milestoneContribution.textContent = original;
+		elements.reasoningMilestone.classList.remove("hidden");
+		elements.boardRecentChange.textContent = "Схвалено внесок, що уточнює можливу часову межу";
+		elements.boardUnderstanding.textContent = "18 квітня є кандидатом межі зміни, а не підтвердженим фактом";
+		elements.boardReasoningBasis.textContent = "Власницьке спостереження потребує зіставлення з CRM і SLA";
+		elements.approveMatterContribution.disabled = true;
+		elements.approveMatterContribution.textContent = "Внесок схвалено для перевірки";
+		elements.reasoningMilestone.scrollIntoView({ behavior: "smooth", block: "nearest" });
+		announce("Внесок схвалено в пам’яті сторінки. Операційну картину оновлено, але доказ, стан справи та авторитетні записи не змінено.");
+	}
+
+	function discardMatterContribution() {
+		elements.matterCaptureReview.classList.add("hidden");
+		elements.reasoningMilestone.classList.add("hidden");
+		elements.matterCaptureInput.focus();
+		announce("Пропозицію Watson відхилено. Оригінальний текст залишається в полі введення для редагування.");
+	}
+
 	function resetInvestigation() {
 		window.location.assign(window.location.pathname);
 	}
@@ -207,6 +243,17 @@ const InvestigationPrototype = (() => {
 			knowledgeCapture: document.getElementById("knowledgeCapture"),
 			captureKnowledge: document.getElementById("captureKnowledgeButton"),
 			knowledgeCaptured: document.getElementById("knowledgeCaptured"),
+			matterCaptureForm: document.getElementById("matterCaptureForm"),
+			matterCaptureInput: document.getElementById("matterCaptureInput"),
+			matterCaptureReview: document.getElementById("matterCaptureReview"),
+			captureOriginal: document.getElementById("captureOriginal"),
+			approveMatterContribution: document.getElementById("approveMatterContribution"),
+			discardMatterContribution: document.getElementById("discardMatterContribution"),
+			reasoningMilestone: document.getElementById("reasoningMilestone"),
+			milestoneContribution: document.getElementById("milestoneContribution"),
+			boardUnderstanding: document.getElementById("boardUnderstanding"),
+			boardReasoningBasis: document.getElementById("boardReasoningBasis"),
+			boardRecentChange: document.getElementById("boardRecentChange"),
 			openSimulation: document.getElementById("openSimulationButton"),
 			closeSimulation: document.getElementById("closeSimulationButton"),
 			scenario: document.getElementById("scenarioBranch"),
@@ -247,10 +294,18 @@ const InvestigationPrototype = (() => {
 		elements.approvePlan.addEventListener("click", approvePlan);
 		elements.recordOutcome.addEventListener("click", recordOutcome);
 		elements.captureKnowledge.addEventListener("click", captureKnowledge);
+		elements.matterCaptureForm.addEventListener("submit", prepareMatterContribution);
+		elements.approveMatterContribution.addEventListener("click", approveMatterContribution);
+		elements.discardMatterContribution.addEventListener("click", discardMatterContribution);
 
 		if (new URLSearchParams(window.location.search).get("demo") === "investigation") {
 			elements.input.value = "Наші продажі знижуються протягом останніх трьох місяців.";
 			elements.form.requestSubmit();
+			if (new URLSearchParams(window.location.search).get("capture") === "approved") {
+				elements.matterCaptureInput.value = "Керівник enterprise-команди повідомив, що час передачі лідів зріс після 18 квітня.";
+				elements.matterCaptureForm.requestSubmit();
+				elements.approveMatterContribution.click();
+			}
 			if (new URLSearchParams(window.location.search).get("journey") === "complete") {
 				collectEvidence();
 				validateCause();

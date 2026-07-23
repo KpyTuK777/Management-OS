@@ -11,8 +11,11 @@
   authority.
 - Reframed the static prototype around the Operational Picture and a visibly
   Watson-proposed cognitive center.
-- No Board persistence, adaptive reasoning, classification AI, or production
-  interface was added.
+- Added a deterministic, page-memory Matter contribution review that preserves
+  original wording, requires owner approval, updates the projected understanding,
+  and presents a material Reasoning Milestone.
+- No Board persistence, adaptive reasoning, classification AI, source-record
+  mutation, or production interface was added.
 
 ## Sprint 10 — Canonical Operational Matter
 

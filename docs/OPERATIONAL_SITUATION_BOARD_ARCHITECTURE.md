@@ -117,6 +117,25 @@ Direct structured entry remains available for expert, regulated, integration,
 accessibility, and degraded-operation needs. Natural Capture is the default
 interaction, not an exclusive write path.
 
+## Reasoning change and milestones
+
+When an approved contribution materially changes the operational picture, the
+Board creates or references a governed **Reasoning Milestone**. A milestone
+preserves:
+
+- previous understanding;
+- the new contribution and its original wording;
+- the resulting interpretation change;
+- affected Hypotheses, uncertainties, and Decisions;
+- supporting and conflicting Evidence;
+- remaining uncertainty;
+- actor, time, provenance, and applicable Investigation episode.
+
+A Reasoning Milestone records a material change in understanding, not routine
+interface activity, focus movement, artifact creation, or Watson narration. It
+belongs to versioned Operational Reasoning and is projected by the Board; the
+Board does not own the milestone.
+
 ## Progressive disclosure
 
 The primary Board should be understandable within seconds. It presents the
@@ -142,6 +161,8 @@ authority, source freshness, or a material consequence.
   with its parent Matter version, assumptions, and modeled status always visible.
 - **Multiple Investigations** contribute to one Matter-level picture. The Board
   identifies the active or relevant episode without fragmenting Matter identity.
+  Conflicting interpretations, episode boundaries, lineage, and material
+  Reasoning Milestones remain inspectable.
 
 Future capabilities integrate through typed, source-owned contributions and
 projection contracts. They do not become new primary workspace modules merely

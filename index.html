@@ -73,6 +73,55 @@
 						<p>Ще не підтверджено як виміряне відхилення або встановлена проблема.</p>
 					</section>
 
+					<section class="situation-board-summary" aria-labelledby="situationBoardTitle">
+						<div class="section-heading">
+							<div><span>Стабільна операційна картина</span><h2 id="situationBoardTitle">Поточне розуміння справи</h2></div>
+							<span class="owner-review-chip">Проєкція · не джерело істини</span>
+						</div>
+						<div class="situation-board-grid">
+							<article><span>Що відбувається?</span><strong id="boardSituation">Повідомлено операційну зміну</strong><p>Стан справи: Під розслідуванням.</p></article>
+							<article><span>Що ми розуміємо?</span><strong id="boardUnderstanding">Зміна ще не підтверджена вимірюванням</strong><p>Поточне розуміння не є встановленим фактом.</p></article>
+							<article><span>Чому?</span><strong id="boardReasoningBasis">Збережено лише повідомлений симптом</strong><p>Потрібні базова лінія та незалежні джерела.</p></article>
+							<article><span>Що невідомо або заблоковано?</span><strong id="boardUncertainty">Масштаб, період і сегмент зміни</strong><p>Блокер: відсутній сегментований CRM-зріз.</p></article>
+							<article><span>Що змінилося?</span><strong id="boardRecentChange">Нових прийнятих внесків ще немає</strong><p>Матеріальні зміни з’являться в історії міркування.</p></article>
+							<article><span>Яке судження або дія потрібні далі?</span><strong id="boardNextJudgment">Визначити базове порівняння</strong><p>Watson пропонує; власник вирішує.</p></article>
+						</div>
+					</section>
+
+					<section class="matter-natural-capture" aria-labelledby="matterCaptureTitle">
+						<div class="section-heading">
+							<div><span>Природне введення</span><h2 id="matterCaptureTitle">Що нового ви дізналися?</h2></div>
+							<span class="owner-review-chip">Спочатку пропозиція · потім перевірка</span>
+						</div>
+						<form id="matterCaptureForm">
+							<label for="matterCaptureInput">Опишіть факт, спостереження, свідчення, припущення, суперечність, ризик або результат своїми словами.</label>
+							<textarea id="matterCaptureInput" rows="3" placeholder="Наприклад: Керівник enterprise-команди повідомив, що час передачі лідів зріс після 18 квітня." required></textarea>
+							<div class="investigation-intake__footer">
+								<p>Оригінальне формулювання буде збережено. Watson не перетворює введення на доказ або факт автоматично.</p>
+								<button class="btn-primary" type="submit">Підготувати внесок</button>
+							</div>
+						</form>
+						<div class="capture-review hidden" id="matterCaptureReview" aria-live="polite">
+							<div><span>Оригінальне формулювання</span><blockquote id="captureOriginal"></blockquote></div>
+							<div><span>Пропозиція Watson</span><p><strong>Тип:</strong> спостереження, що потребує перевірки</p><p><strong>Зв’язок:</strong> MAT-0247 · Розслідування 1</p><p><strong>Походження:</strong> власник, поточна сесія</p><p><strong>Можливий вплив:</strong> уточнює часову межу; не змінює вагу доказів або стан справи.</p></div>
+							<div class="capture-review__actions">
+								<button class="btn-primary" id="approveMatterContribution" type="button">Схвалити як внесок для перевірки</button>
+								<button class="btn-secondary" id="discardMatterContribution" type="button">Відхилити пропозицію</button>
+							</div>
+						</div>
+					</section>
+
+					<section class="reasoning-milestone hidden" id="reasoningMilestone" aria-labelledby="reasoningMilestoneTitle">
+						<div class="section-heading"><div><span>Зміна міркування · RM-001</span><h2 id="reasoningMilestoneTitle">Новий внесок уточнив часову межу</h2></div><span class="owner-review-chip">Схвалено власником · у пам’яті сторінки</span></div>
+						<div class="reasoning-change-grid">
+							<article><span>Попереднє розуміння</span><p>Період можливої зміни не визначено.</p></article>
+							<article><span>Новий внесок</span><p id="milestoneContribution"></p></article>
+							<article><span>Результуюча зміна</span><p>18 квітня стає кандидатом часової межі, а не підтвердженою точкою перелому.</p></article>
+							<article><span>Зачеплені гіпотези</span><p>Гіпотеза розриву передачі посилює пріоритет перевірки; її істинність не встановлено.</p></article>
+							<article><span>Залишкова невизначеність</span><p>Потрібні CRM-когорти, SLA-журнал і незалежна перевірка послідовності.</p></article>
+						</div>
+					</section>
+
 					<section class="journey-progress" aria-labelledby="journeyProgressTitle">
 						<div class="journey-progress__header"><div><span>Операційна картина · Під розслідуванням</span><h2 id="journeyProgressTitle">Поточний фокус: <strong id="currentJourneyStep">розслідування</strong></h2></div><p id="currentJourneyLabel">AI готує наступний внесок</p></div>
 						<p class="section-intro">Це карта внесків, а не обов’язковий лінійний процес. Стан справи не виводиться автоматично з виконаних кроків; важливі переходи схвалює власник. Справа може повернутися до попередньої роботи або містити інше розслідування.</p>

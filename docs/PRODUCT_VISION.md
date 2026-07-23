@@ -76,6 +76,12 @@ modeled output never become organizational Evidence. See the
 [Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md)
 and [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md).
 
+The owner experiences an active Matter through the
+[Operational Situation Board](OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md): one
+stable, inspectable picture of what is happening, understood, uncertain, changed,
+and required next. The Board projects governed records and never becomes a new
+artifact or source of truth.
+
 The owner experiences this direction as a calm operational investigation. The
 product begins from the owner's uncertainty, progressively reveals only useful
 complexity, preserves the path from Evidence to decision and outcome, and teaches

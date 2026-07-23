@@ -12,6 +12,11 @@ typed links to source-owned contributions. A Matter may contain multiple
 Operational Investigation episodes, close, and reopen without changing identity.
 Learning remains separately governed.
 
+The [Operational Situation Board](OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md) is
+the canonical Matter-workspace read model. It projects current understanding
+through a stable frame, explainable cognitive center, governed Natural Capture,
+and material Reasoning Milestones without owning source records or authority.
+
 The product exposes one Operational Investigation experience. Investigation Context
 is presentation and AI-policy metadata, not a separate aggregate, and Decision
 Laboratory branches remain subordinate to their originating Investigation. The

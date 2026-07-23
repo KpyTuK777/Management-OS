@@ -110,6 +110,101 @@
 	background:rgba(255,255,255,.6);
 }
 
+.situation-board-summary,
+.matter-natural-capture,
+.reasoning-milestone {
+	background:var(--surface);
+	border:1px solid var(--border);
+	border-radius:var(--radius-lg);
+	padding:24px;
+}
+
+.situation-board-grid {
+	display:grid;
+	grid-template-columns:repeat(3, minmax(0, 1fr));
+	gap:14px;
+	margin-top:18px;
+}
+
+.situation-board-grid article,
+.reasoning-change-grid article,
+.capture-review > div:not(.capture-review__actions) {
+	background:var(--background);
+	border:1px solid var(--border);
+	border-radius:var(--radius-md);
+	padding:16px;
+}
+
+.situation-board-grid span,
+.reasoning-change-grid span,
+.capture-review span {
+	color:var(--text-secondary);
+	display:block;
+	font-size:.75rem;
+	font-weight:800;
+	letter-spacing:.04em;
+	margin-bottom:7px;
+	text-transform:uppercase;
+}
+
+.situation-board-grid strong {
+	display:block;
+	line-height:1.35;
+	margin-bottom:7px;
+}
+
+.situation-board-grid p,
+.reasoning-change-grid p,
+.capture-review p {
+	color:var(--text-secondary);
+	margin:0;
+}
+
+.matter-natural-capture form {
+	display:grid;
+	gap:12px;
+	margin-top:18px;
+}
+
+.matter-natural-capture textarea {
+	border:1px solid var(--border);
+	border-radius:var(--radius-md);
+	font:inherit;
+	padding:14px;
+	resize:vertical;
+	width:100%;
+}
+
+.matter-natural-capture textarea:focus {
+	border-color:var(--primary);
+	box-shadow:0 0 0 3px color-mix(in srgb, var(--primary) 16%, transparent);
+	outline:none;
+}
+
+.capture-review {
+	display:grid;
+	gap:12px;
+	margin-top:18px;
+}
+
+.capture-review blockquote {
+	margin:0;
+	white-space:pre-wrap;
+}
+
+.capture-review__actions {
+	display:flex;
+	flex-wrap:wrap;
+	gap:10px;
+}
+
+.reasoning-change-grid {
+	display:grid;
+	grid-template-columns:repeat(5, minmax(0, 1fr));
+	gap:12px;
+	margin-top:18px;
+}
+
 .case-header {
 	align-items:flex-start;
 	padding-bottom:var(--space-24);
@@ -684,6 +779,8 @@
 @media (max-width:800px) {
 	.home-priorities,
 	.orientation-grid,
+	.situation-board-grid,
+	.reasoning-change-grid,
 	.evidence-board,
 	.summary-groups,
 	.hypothesis-list,

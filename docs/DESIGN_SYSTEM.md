@@ -52,6 +52,23 @@ Dashboard sections use the same 1440px content limit and a 40px vertical rhythm.
 Operational content is ordered by importance, while prototype experiments remain
 available in the visually secondary **Додатковий контекст** disclosure.
 
+### Operational Situation Board
+
+The Situation Board uses a stable information hierarchy rather than a fully
+adaptive canvas. Situation, Current Understanding, Evidence and Reasoning Basis,
+Uncertainty and Blockers, Recent Change, Current Focus, Next Judgment or Action,
+and Natural Capture retain predictable placement and meaning.
+
+Dynamic cognitive emphasis changes visual weight within those regions; it does
+not move regions, hide conflicting information, or use theatrical investigation
+metaphors. Every Watson-proposed focus identifies its source and proposed status.
+Progressive disclosure may reduce density but must not conceal uncertainty,
+authority, freshness, or material consequence.
+
+Reasoning-change presentation distinguishes previous understanding, the new
+contribution, resulting change, affected Hypotheses, and remaining uncertainty.
+Routine activity must not receive milestone styling.
+
 ## Buttons
 
 `.btn-primary` and `.btn-secondary` provide the shared action hierarchy. Controls

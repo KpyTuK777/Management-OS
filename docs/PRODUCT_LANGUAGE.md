@@ -96,6 +96,18 @@ user-facing language must follow this guide.
 | Supporting / Additional Context | Додатковий контекст |
 | Search | Пошук; **Глобальний пошук** for product-wide search |
 | Natural Capture | Природне введення |
+
+### Operational Situation Board language
+
+Use plain owner questions for the stable frame: **Що відбувається?**, **Що ми
+розуміємо?**, **Чому?**, **Що невідомо або заблоковано?**, **Що змінилося?**, and
+**Яке судження або дія потрібні далі?**
+
+Use **Когнітивний центр** only when explaining a current Watson-proposed focus.
+Always pair it with proposal status and why it matters now. Do not describe focus
+as system truth, permanent priority, Evidence weight, or an automatic state
+change. Use **Зміна міркування** for a material Reasoning Milestone, not routine
+activity.
 | Temporary capture | Тимчасове введення |
 | Review capture | Переглянути введене |
 | Student Mode | Навчальний режим |

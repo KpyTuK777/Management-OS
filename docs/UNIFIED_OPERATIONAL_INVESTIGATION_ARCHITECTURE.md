@@ -35,6 +35,10 @@ The Investigation remains a primary owner-facing work experience, not a universa
 data owner. It operates on the Matter identity and authorized references to
 organizational context, Evidence, actions, calendar commitments, executions,
 outcomes, and Knowledge. Those capabilities retain independent authority.
+At Matter level, these contributions are oriented through the
+[Operational Situation Board](OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md).
+Multiple Investigation episodes may contribute to that picture without losing
+episode boundaries, conflicting interpretations, lineage, or reasoning history.
 
 ## Investigation-centered action
 

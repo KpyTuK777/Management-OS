@@ -98,9 +98,11 @@ responsibilities.
 - **Purpose:** Project one stable, state-sensitive operational picture answering
   what is happening, understood, uncertain, changed, blocked, important now, and
   proposed next.
-- **Current status:** Approved future experience architecture; static prototype
-  presentation aligned. No Board store, adaptive layout engine, AI focus selection,
-  contribution classifier, persistence, or production interface is implemented.
+- **Current status:** Approved future experience architecture; deterministic
+  page-memory prototype aligned with stable Board regions, proposed cognitive
+  focus, reviewed Natural Capture contribution, and Reasoning Milestone
+  presentation. No Board store, adaptive layout engine, AI focus selection,
+  production classifier, persistence, or production interface is implemented.
 - **Boundary:** The Board is a read model, not a source of truth. Dynamic cognitive
   focus is reversible presentation judgment and Natural Capture remains governed
   by source-capability validation and owner approval. See

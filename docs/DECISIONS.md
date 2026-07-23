@@ -48,7 +48,8 @@ Superseded, link its successor, and preserve the history.
 - **Authority:** The Board is never a source of truth. Focus does not change
   Evidence weight, Matter state, priority authority, or Decisions. Natural input
   remains original wording until governed classification and applicable owner
-  approval.
+  approval. Material changes in understanding are preserved through source-owned
+  Reasoning Milestones; routine interface activity is excluded.
 
 ### DL-023 — Define the minimum Operational Matter behavioral state model
 
