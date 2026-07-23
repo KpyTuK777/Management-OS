@@ -79,6 +79,12 @@ or supported the reasoning, with qualitative influence and unresolved uncertaint
 visible to the owner. AI safeguards that discipline while owner judgment remains
 the authority boundary.
 
+AI questions must also earn their place. Operational Inquiry asks the smallest
+valuable next question for a declared investigative purpose, explains why it
+matters, and stops when further inquiry would not materially improve judgment. The
+owner remains responsible for Investigation strategy. See the
+[Operational Inquiry Architecture](OPERATIONAL_INQUIRY_ARCHITECTURE.md).
+
 Operational history should reveal supported changes in system behavior rather than
 become an undifferentiated event log. Operational Inflection Points preserve where
 behavior demonstrably changed while keeping temporal sequence separate from causal

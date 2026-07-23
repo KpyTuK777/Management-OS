@@ -111,6 +111,12 @@ and preserves the original input.
 The Assistant asks only when the answer materially changes meaning, consequence,
 destination, or authority.
 
+An Operational Inquiry question additionally makes its investigative purpose
+inspectable: why it matters now, what Evidence or uncertainty it addresses, and
+what judgment it may affect. The concise rationale must not embed an assumed Cause
+or turn historical similarity into current truth. Detailed selection and stopping
+rules remain in the [Operational Inquiry Architecture](OPERATIONAL_INQUIRY_ARCHITECTURE.md).
+
 ### Show consequences before approval
 
 An approval request names the exact action, destination, affected content, and

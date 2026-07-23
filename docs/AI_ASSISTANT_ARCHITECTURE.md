@@ -171,6 +171,15 @@ sources into false agreement, or treat lifecycle advancement as investigation
 success. The owner retains consequential interpretation, decision, execution,
 verification, closure, and promotion authority.
 
+The Assistant selects investigative questions through the governed
+[Operational Inquiry capability](OPERATIONAL_INQUIRY_ARCHITECTURE.md). It proposes
+one smallest valuable next inquiry by default, declares its operational objective
+and expected reasoning contribution, uses existing authorized context first, and
+stops when further questioning would not materially improve judgment. The owner may
+answer, redirect, defer, reject, inspect alternatives, or change Investigation
+strategy. Question generation grants no Case, Evidence, communication, or decision
+authority.
+
 Throughout a Case, the Assistant safeguards investigation discipline. It checks
 Evidence completeness relative to the current judgment, challenges unsupported or
 one-sided Hypotheses, keeps unresolved uncertainty and contradictions visible,

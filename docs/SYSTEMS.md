@@ -68,6 +68,13 @@ responsibilities.
 - **Future responsibilities:** Relate completed Cases, accepted Inflection Points, decisions, interventions, outcomes, Knowledge, and governed Experience Patterns without duplicating their source authority.
 - **Boundary:** Experience Patterns are derived historical context. They never override current Evidence, establish Cause through repetition, silently become Knowledge or SOPs, alter the Personal Operational Model, or authorize action. Operational Memory is not a primary navigation module. See [Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md).
 
+## Operational Inquiry
+
+- **Purpose:** Help the AI Investigation Partner select and explain the smallest valuable next question for Investigation progress.
+- **Current status:** Approved future capability architecture; no inquiry entity, selection policy, persistence, runtime, interface, prompt, model, or provider behavior is implemented.
+- **Future responsibilities:** Classify Inquiry Objectives, compare candidate questions qualitatively, explain purpose, adapt to Investigation state, protect alternatives, and stop when further inquiry lacks material value.
+- **Boundary:** Operational Inquiry is not a module or Case stage. It cannot force Investigation direction, assume Cause, broaden access, contact people or systems, validate its own answer as Evidence, or replace owner judgment. See [Operational Inquiry Architecture](OPERATIONAL_INQUIRY_ARCHITECTURE.md).
+
 ## Scenario Simulation
 
 - **Purpose:** Explore plausible conditional outcomes from an immutable decision-time baseline of a real Operational Case.

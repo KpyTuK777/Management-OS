@@ -82,6 +82,9 @@ user-facing language must follow this guide.
 | Work Mode | Робочий режим |
 | AI Investigation Partner | AI-партнер розслідування |
 | Evidence-first reasoning | Міркування, що починається з доказів |
+| Operational Inquiry | Операційне дослідження запитом |
+| Inquiry Proposal | Запропонований дослідницький запит |
+| Inquiry Objective | Мета дослідницького запиту |
 
 **Student Mode** and **Work Mode** are optional presentation labels for an approved
 Workspace Emphasis. They are not canonical Operating Context values, separate Home

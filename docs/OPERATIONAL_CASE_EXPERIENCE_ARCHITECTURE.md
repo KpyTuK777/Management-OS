@@ -259,6 +259,12 @@ information, forgotten Evidence, and whether apparent progress is supported. It
 counters premature conclusions, confirmation bias, and unsupported assumptions
 without turning those checks into mandatory artifact completion.
 
+Operational Inquiry governs how the Partner chooses the next question. The default
+is one explainable, outcome-oriented inquiry rather than a generated questionnaire.
+Its objective, expected contribution, memory influence, and remaining uncertainty
+are inspectable; the owner may answer, redirect, defer, reject, or request
+alternatives. See the [Operational Inquiry Architecture](OPERATIONAL_INQUIRY_ARCHITECTURE.md).
+
 ### Decision Readiness
 
 Before Recommendations or an owner decision, the AI Investigation Partner may

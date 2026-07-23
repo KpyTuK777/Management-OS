@@ -1067,3 +1067,70 @@ interface is introduced.
 - [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md)
 - [Product Vision](PRODUCT_VISION.md)
 - [Systems](SYSTEMS.md)
+
+## DL-018 — Govern next-question selection through Operational Inquiry
+
+- Date: 2026-07-23
+- Status: Accepted
+- Decision owner: Product Owner
+- Category: Strategic AI and Operational Investigation architecture
+- Affected documents: `OPERATIONAL_INQUIRY_ARCHITECTURE.md`, `AI_ASSISTANT_ARCHITECTURE.md`, `OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md`, `OPERATIONAL_REASONING_MODEL.md`, `OPERATIONAL_MEMORY_ARCHITECTURE.md`, `AI_DECISION_POLICY.md`, `AI_COMMUNICATION_STYLE_GUIDE.md`, `AI_RUNTIME_ARCHITECTURE.md`, `AI_CAPABILITY_ROADMAP.md`, `PRODUCT_VISION.md`, `OWNER_JOURNEY.md`, `SYSTEMS.md`, `PRODUCT_LANGUAGE.md`, `DOCUMENTATION_MAP.md`, `README.md`, `ROADMAP.md`, `SPRINTS.md`
+- Supersedes: None; extends DL-013 and DL-016
+- Superseded by: None
+
+### Context
+
+The AI Investigation Partner may ask material questions, but generic clarification
+rules do not govern which investigative question is most valuable, why it should be
+asked now, or when questioning should stop. Treating questions as conversation or
+a Case stage would obscure their operational purpose and create questionnaire or
+linear-process pressure.
+
+### Decision
+
+Operational Inquiry is the provider-independent capability within the AI
+Investigation Partner that selects and explains the smallest valuable next
+question. Every substantive inquiry has an outcome-oriented Inquiry Objective and
+an inspectable expected contribution. Candidate questions are compared
+qualitatively for materiality, discrimination, Evidence, uncertainty, decision and
+risk relevance, feasibility, cost, novelty, and bias protection; no universal score
+is introduced.
+
+One question is the default. Investigation state influences but does not dictate
+strategy, and stopping depends on material reasoning value rather than question or
+artifact completion. Operational Memory may influence priority only with source,
+difference, alternative-explanation, and disconfirming-condition visibility. The
+owner may answer, redirect, defer, reject, inspect alternatives, or change strategy.
+
+### Rationale
+
+The capability makes question quality governable and testable while reducing
+cognitive load and preserving nonlinear reasoning, Evidence authority, provider
+neutrality, and owner control.
+
+### Alternatives considered
+
+- Leave questions as generic Assistant behavior — rejected because selection,
+  explainability, stopping, and quality boundaries remain implicit.
+- Make Inquiry a Case stage — rejected because questions recur throughout the
+  nonlinear Investigation lifecycle.
+- Generate a question backlog — rejected as the default because it transfers
+  prioritization burden to the owner.
+- Let AI execute an autonomous inquiry plan — rejected because the owner owns
+  Investigation strategy and consequential judgment.
+
+### Consequences
+
+Future implementation requires a versioned capability contract, Inquiry Objective,
+candidate validation, owner disposition, material-effect persistence rules,
+environment separation, and qualitative evaluation. No entity, persistence,
+question-selection engine, prompt, model, provider, runtime, interface, external
+communication, or AI behavior is implemented.
+
+### References
+
+- [Operational Inquiry Architecture](OPERATIONAL_INQUIRY_ARCHITECTURE.md)
+- [AI Assistant Architecture](AI_ASSISTANT_ARCHITECTURE.md)
+- [Operational Case Experience Architecture](OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md)
+- [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md)
+- [Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md)

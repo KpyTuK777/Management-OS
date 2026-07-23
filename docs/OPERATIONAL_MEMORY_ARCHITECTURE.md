@@ -133,6 +133,13 @@ Historical relevance uses behavioral-change shape, Operating Context, Evidence
 patterns, interventions, and outcomes. Keywords may assist retrieval but are never
 sufficient alone.
 
+Operational Memory may inform [Operational Inquiry](OPERATIONAL_INQUIRY_ARCHITECTURE.md)
+only as historical supporting context. A memory-informed question exposes the
+Cases or Experience Pattern that influenced it, matched and differing conditions,
+alternative explanations, and a condition that could reject transfer. Historical
+experience may prioritize a question but never suppress alternatives or establish
+its answer.
+
 Whenever AI surfaces a pattern, it explains:
 
 - which current observation triggered retrieval;

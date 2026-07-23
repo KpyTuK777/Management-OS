@@ -106,16 +106,18 @@ Evolve the approved Case direction in governed stages:
    Patterns before cross-Case automation;
 6. establish versioned Organizational Knowledge and owner-governed Knowledge Review
    Candidates before automated review signals;
-7. complete the Reality Case outcome and verification loop;
-8. validate the Case-centered operational investigation experience, progressive
+7. establish Operational Inquiry governance and validate explainable next-question
+   selection before automated Investigation questioning;
+8. complete the Reality Case outcome and verification loop;
+9. validate the Case-centered operational investigation experience, progressive
    naming, Evidence orientation, and cross-record return paths;
-9. add isolated Operational Gym Cases and Training History;
-10. add qualitative Scenario Branches from immutable Case baselines;
-11. introduce governed quantitative simulation only where intended use,
+10. add isolated Operational Gym Cases and Training History;
+11. add qualitative Scenario Branches from immutable Case baselines;
+12. introduce governed quantitative simulation only where intended use,
    validation, uncertainty, sensitivity, limits, and expiry are supportable;
-12. define a separate Owner Learning Record architecture before durable competence
+13. define a separate Owner Learning Record architecture before durable competence
    development or assessment;
-13. consolidate information architecture only after truth separation and direct
+14. consolidate information architecture only after truth separation and direct
    domain access are validated.
 
 Scenario Simulation remains distinct from later Predictive Operational Insights.
@@ -126,6 +128,8 @@ forecasting. See the [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.m
 experience follows the [Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md).
 Knowledge review and semantic versioning follow the
 [Knowledge Evolution Architecture](KNOWLEDGE_EVOLUTION_ARCHITECTURE.md).
+Investigation question strategy follows the
+[Operational Inquiry Architecture](OPERATIONAL_INQUIRY_ARCHITECTURE.md).
 The end-to-end presentation and continuity criteria are governed by the
 [Operational Case Experience Architecture](OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md).
 

@@ -228,6 +228,12 @@ guides an iterative learning-and-change cycle across current condition, intended
 condition, Evidence, explanations, Countermeasures, results, outcome verification,
 standardization, and closure without taking ownership of domain records.
 
+Within an Investigation, Operational Inquiry may present one explainable next
+question whose objective and expected contribution are visible. The owner may
+answer, redirect, defer, reject, or request alternatives; the question never forces
+the Investigation path. See the
+[Operational Inquiry Architecture](OPERATIONAL_INQUIRY_ARCHITECTURE.md).
+
 **AI responsibilities:** Help structure authentic reflection, ask only material
 questions, distinguish owner observation from interpretation, explain Evidence and
 limitations, and avoid treating one Review as a pattern.

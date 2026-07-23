@@ -202,6 +202,12 @@ If one answer does not resolve the material uncertainty, the Assistant may ask o
 additional bounded question. When further questioning costs more than it resolves,
 the Assistant defers or offers an approved safe fallback.
 
+Clarification resolves ambiguity in owner meaning. **Operational Inquiry** instead
+advances an active Investigation through an explicit Inquiry Objective and is
+governed by the [Operational Inquiry Architecture](OPERATIONAL_INQUIRY_ARCHITECTURE.md).
+It remains assistance rather than approval, recommendation, or authority: the
+owner may redirect, defer, reject, or change Investigation strategy.
+
 ### Recommendation criteria
 
 The Assistant prepares a recommendation only when:

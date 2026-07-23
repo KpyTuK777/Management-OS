@@ -35,6 +35,12 @@ and classify authorized Evidence, expose contradiction and missing information,
 then develop and test explanations. This does not require linear interface steps,
 and it never treats a framework stage, artifact count, or AI preparation as proof.
 
+Operational Inquiry may advance any part of this non-linear grammar. Orientation,
+Evidence-building, explanation-testing, decision-preparation, and outcome-learning
+conditions influence question strategy but never become mandatory stages or proof
+of progress. The [Operational Inquiry Architecture](OPERATIONAL_INQUIRY_ARCHITECTURE.md)
+owns next-question selection and stopping behavior.
+
 ## Shared reasoning grammar
 
 All supported environments use the same non-linear grammar:

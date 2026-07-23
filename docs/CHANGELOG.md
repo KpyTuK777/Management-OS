@@ -5,6 +5,9 @@ separately in [Sprint Tracker](SPRINTS.md).
 
 ## Unreleased
 
+- Established Operational Inquiry as the approved future capability through which
+  the AI Investigation Partner selects and explains one valuable next question
+  without forcing Investigation direction or transferring owner authority.
 - Completed the Sprint 10 architecture consistency review across all canonical
   documentation, README, and ADRs. Aligned missing terminology, Home investigation
   entry, Decision Readiness, Student and Work presentation labels, Knowledge

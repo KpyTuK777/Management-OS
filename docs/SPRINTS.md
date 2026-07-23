@@ -278,6 +278,10 @@ See [Roadmap](ROADMAP.md) for product phases beyond the current sprint.
 - **Documentation structure review:** Confirmed source-versus-synthesis boundaries,
   narrowed obsolete Learning Architecture consolidation wording, and identified
   `UI_LANGUAGE.md` for retirement after archive and redirect-retention governance
+- **Operational Inquiry Architecture:** Established provider-independent, next-best
+  investigative questioning with explicit Inquiry Objectives, qualitative value,
+  explainability, state-sensitive strategy, stopping conditions, memory safeguards,
+  and owner direction
 
 ### Implementation status
 
@@ -288,6 +292,9 @@ See [Roadmap](ROADMAP.md) for product phases beyond the current sprint.
 - Architecture health is current for this documentation baseline; independent
   release, testing, accessibility, data-safety, and documentation-readiness blockers
   remain unchanged.
+- Operational Inquiry is documentation architecture only. No inquiry entity,
+  persistence, question-selection engine, prompt, model, runtime, interface, or AI
+  behavior is implemented.
 
 See [Documentation Map](DOCUMENTATION_MAP.md) for authority and consolidation
 boundaries and [Project Health](PROJECT_HEALTH.md) for the aggregate readiness view.

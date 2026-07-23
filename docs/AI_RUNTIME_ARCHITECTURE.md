@@ -38,6 +38,13 @@ defines conditional context preparation. The runtime bypasses collection when th
 consuming capability already has sufficient authorized Evidence and invokes it
 only for a declared evidence gap.
 
+[Operational Inquiry Architecture](OPERATIONAL_INQUIRY_ARCHITECTURE.md) defines a
+future provider-independent Investigation capability. If implemented through this
+runtime, its Inquiry Objective, candidate comparison, explainability, stopping,
+memory provenance, and owner-disposition fields belong to the versioned capability
+contract rather than a provider prompt. No Operational Inquiry runtime behavior is
+currently implemented or authorized.
+
 The approved [Protected AI Runtime Platform](PROTECTED_AI_RUNTIME_PLATFORM.md)
 defines the container and Cloud Run boundary that will host this architecture. It
 selects no AI provider and does not alter the runtime contracts defined here.
