@@ -501,6 +501,22 @@ Product-oriented evaluation of implemented AI behavior is governed by the
 [AI Quality Framework](AI_QUALITY_FRAMEWORK.md). The framework evaluates behavior
 without redefining capability architecture or release authority.
 
+### Future Operational Intelligence Platform boundary
+
+The [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md) defines one
+shared reasoning grammar across Reality Cases, isolated Operational Gym practice,
+and Scenario Simulation. The environments retain separate truth, consequence,
+action, and learning contracts. Operational Case Architecture remains authoritative
+for Reality Cases; [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md)
+governs Evidence Sets and decision-time snapshots; and
+[Scenario Simulation Architecture](SCENARIO_SIMULATION_ARCHITECTURE.md) governs
+Scenario Branches from immutable real Case baselines.
+
+These boundaries define no current storage, model execution, route, service, UI,
+or migration. Gym records and modeled outputs cannot become organizational
+Evidence, and owner learning beyond approved preferences remains deferred to a
+future dedicated architecture.
+
 ## Module responsibilities
 
 - **Home:** present today-focused, static dashboard information.
@@ -513,6 +529,8 @@ without redefining capability architecture or release authority.
 - **Hypotheses:** formulate explainable possible interpretations while preserving Evidence.
 - **Improvement Proposals:** preserve a user-authored, reviewable suggestion without changing its source SOP.
 - **Operational Case:** guide bounded operational learning and change from current condition through verified outcome and standardization judgment without taking domain-record ownership.
+- **Operational Gym:** provide isolated practice using the shared reasoning grammar without operational consequences or organizational Evidence.
+- **Scenario Simulation:** compare plausible conditional Scenario Branches from a frozen real Case baseline without presenting modeled output as observation or prediction.
 - **Workflow:** coordinate explicit transitions and relationships between modules.
 - **Storage:** keep domain storage helpers stable while shared utilities isolate
   `localStorage` reads, JSON parsing, and serialization.

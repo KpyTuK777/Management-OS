@@ -592,3 +592,69 @@ approval, and APPLY remain required.
 - [Systems](SYSTEMS.md)
 - [Architecture](ARCHITECTURE.md)
 - [Decision Log](DECISIONS.md), DL-009 — Use Operational Case as the bounded aggregate for non-routine operational reasoning
+
+## DL-011 — Establish the Operational Intelligence Platform reasoning and environment architecture
+
+- Date: 2026-07-23
+- Status: Accepted
+- Decision owner: Product Owner
+- Category: Strategic product architecture
+- Affected documents: `OPERATIONAL_REASONING_MODEL.md`, `CASE_EVIDENCE_ARCHITECTURE.md`, `SCENARIO_SIMULATION_ARCHITECTURE.md`, `OPERATIONAL_CASE_ARCHITECTURE.md`, `PRODUCT_VISION.md`, `OWNER_JOURNEY.md`, `AI_FIRST_WORKSPACE_ARCHITECTURE.md`, `AI_ASSISTANT_ARCHITECTURE.md`, `PERSONAL_OPERATIONAL_MODEL.md`, `SYSTEMS.md`, `ARCHITECTURE.md`, `ROADMAP.md`, `AI_CAPABILITY_ROADMAP.md`, `PRODUCT_LANGUAGE.md`, `DOCUMENTATION_MAP.md`, `SPRINTS.md`
+- Supersedes: None; extends DL-009 and DL-010
+- Superseded by: None
+
+### Context
+
+Operational Case established a coherent process for real non-routine work, but a
+platform for operational intelligence must also support practice and safe future
+exploration. Treating all three as one Case type would mix real Evidence, training
+material, assumptions, modeled outputs, observed outcomes, and durable learning.
+
+### Decision
+
+Use the Operational Reasoning Model as the shared grammar across three distinct
+contracts: Reality Operational Cases, Operational Gym Cases, and Scenario Branches.
+Reality uses authorized Evidence and has real consequences; Gym uses isolated
+training material and feedback; Simulation uses an immutable real Case baseline,
+explicit assumptions, governed model logic, and plausible conditional outputs.
+
+Case Evidence Sets and Scenario Simulation have separate canonical authority.
+Every material real decision preserves a decision-time Evidence basis. Assumptions,
+AI summaries, Gym material, and modeled outputs do not become source or observed
+Evidence. Simulation remains owner-invoked and distinct from future proactive
+Predictive Operational Insights. Home remains stable and owner approval remains
+required at consequential mutation and promotion boundaries.
+
+### Rationale
+
+One reasoning grammar reduces cognitive translation between real work, practice,
+and exploration. Separate truth and consequence contracts prevent simulation
+credibility, training performance, or generated synthesis from contaminating
+organizational knowledge and real decision traces.
+
+### Alternatives considered
+
+- One undifferentiated Case entity — rejected because it obscures different truth,
+  action, outcome, and promotion rules.
+- A cloned real Case for simulation — rejected because editable copies blur the
+  authoritative baseline and modeled branch.
+- Simulation as prediction — rejected because conditional outputs do not justify
+  forecasting claims without separate longitudinal validation.
+- Gym performance in the Personal Operational Model — rejected because that model
+  owns approved context and preferences, not competence profiling.
+
+### Consequences
+
+Future delivery must establish Reality Evidence and decision traceability before
+Gym or Simulation, begin simulation with qualitative branches, and require
+proportionate model validation before quantitative claims. A future Owner Learning
+Record architecture is required before durable training assessment. No runtime,
+data model, simulation engine, Gym, or navigation implementation is authorized.
+
+### References
+
+- [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md)
+- [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md)
+- [Scenario Simulation Architecture](SCENARIO_SIMULATION_ARCHITECTURE.md)
+- [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md)
+- [Product Vision](PRODUCT_VISION.md)

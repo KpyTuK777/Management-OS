@@ -409,6 +409,8 @@ value requires quiet presence.
 | Recommendations Center | Owns evidence-based opportunities and decision lifecycle |
 | Improvement Proposals | Owns controlled, evidence-linked SOP improvement suggestions |
 | Operational Case | Bounded operational learning and change process connecting intent, condition, Evidence, decision, Countermeasure, verified outcome, learning, and standardization judgment |
+| Operational Gym | Isolated practice environment using the shared reasoning grammar without operational consequences |
+| Scenario Simulation | Contextual comparison of plausible Scenario Branches from a frozen real Case baseline |
 | Personal Operational Model | Future owner-controlled source of durable approved personal context and preferences |
 | Adaptive Workspace | Future executor of exact approved Workspace Emphasis, not an autonomous journey controller |
 | Adaptive Owner Context | Canonical owner-controlled Operating Context, optional Operational Stage, Current Focus relationship, and prioritization invariants |
@@ -416,6 +418,12 @@ value requires quiet presence.
 Operational Case participation follows the canonical
 [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md); the journey does
 not redefine Case lifecycle or domain-record ownership.
+
+Reality Cases, Operational Gym, and Scenario Simulation use the same owner-facing
+reasoning grammar but retain distinct environment indicators, Evidence semantics,
+consequences, and learning destinations. The owner may practice without affecting
+operational truth and compare Scenario Branches without treating them as
+predictions or observed outcomes. Home remains the stable return point.
 
 The journey composes these responsibilities and transfers none of their ownership.
 

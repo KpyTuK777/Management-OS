@@ -60,6 +60,13 @@ from a Case becomes durable only through explicit promotion into its owning
 Knowledge or SOP workflow. The canonical boundary is defined in
 [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
 
+Management OS evolves toward an **Operational Intelligence Platform**: one shared
+reasoning grammar across real operational work, isolated practice, and safe
+scenario exploration. Reality Cases, Operational Gym, and Scenario Simulation
+remain separate truth and consequence environments. Shared reasoning never makes
+training material or modeled output organizational Evidence. See the
+[Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md).
+
 The intended outcome hierarchy is:
 
 ```text

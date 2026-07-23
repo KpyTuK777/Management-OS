@@ -140,6 +140,7 @@ incomplete.
 - **Product and Information Architecture:** Canonical Adaptive Owner Context, Personal Operational Model, and Adaptive Workspace architectures with owner-controlled Operating Context, optional Operational Stage, and capability-preserving Workspace Emphasis
 - **Product and Information Architecture:** Canonical Operational Case Architecture with bounded centrality, domain-record independence, explicit knowledge promotion, and shared real-work and Operational Gym reasoning model
 - **Strategic Product Architecture:** Operational Case refined as a bounded operational learning and change process with Case intents, current and target conditions, Countermeasure cycles, outcome verification, and standardization judgment
+- **Strategic Product Architecture:** Canonical Operational Reasoning Model, Case Evidence Architecture, and Scenario Simulation Architecture establishing the Operational Intelligence Platform direction and strict Reality, Gym, and Simulation truth separation
 
 ### Implementation status
 
@@ -198,5 +199,10 @@ incomplete.
   than a record container. Improvement remains the dominant direction while
   recovery, prevention, investigation, decision, design, and justified no-action
   outcomes remain valid. No runtime or data-model implementation was introduced.
+- The Operational Intelligence Platform architecture now shares one reasoning
+  grammar across Reality Cases, Gym Cases, and Scenario Branches while preserving
+  separate Evidence, consequence, action, and learning contracts. Simulation uses
+  immutable Case baselines and conditional modeled outputs; no Gym, simulation,
+  owner-learning, data-model, or runtime capability was implemented.
 
 See [Roadmap](ROADMAP.md) for product phases beyond this sprint.

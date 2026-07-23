@@ -61,6 +61,13 @@ performance, or problem-solving quality. Repeated Case interaction may support a
 explicit coaching-format or explanation preference recommendation, never a durable
 performance profile.
 
+Operational Gym performance, training scores, Scenario History, and modeled
+outcomes also remain outside this model. Gym may create Training History and
+Simulation may create Scenario History, but a future Owner Learning Record or
+Operational Capability Development Model must govern durable capability
+development. Only explicitly approved preferences or context may enter the
+Personal Operational Model.
+
 ## Prohibited content and inference
 
 The Personal Operational Model must not silently contain or infer psychological,

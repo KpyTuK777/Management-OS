@@ -30,6 +30,11 @@ user-facing language must follow this guide.
 | Operational Stage | Операційний етап |
 | Workspace Emphasis | Акцент робочого простору |
 | Operational Case | Операційний кейс |
+| Operational Reasoning Model | Модель операційного мислення |
+| Case Evidence Set | Набір доказів кейсу |
+| Operational Gym | Операційний тренажер |
+| Scenario Branch | Сценарна гілка |
+| Scenario Simulation | Сценарне моделювання |
 | Case Intent | Мета операційного кейсу |
 | Current Condition | Поточний стан |
 | Target Condition | Цільовий стан |

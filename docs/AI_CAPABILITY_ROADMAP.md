@@ -218,7 +218,8 @@ Reliable longitudinal evidence
 | Workspace optimization recommendations | Propose a lower-noise workspace | Reduces recurring organization friction | Usage evidence, Recommendations Center | P1 | Post-v1 |
 | Adaptive Workspace | Apply exact approved Workspace Emphasis without removing capabilities | Reduces persistent navigation and visibility friction | Recommendations Center, Personal Operational Model, Adaptive Owner Context, rollback, neutral workspace, direct access | P1 | Post-v1 |
 | Operational Coaching | Provide contextual ongoing decision support | Improves operating judgment over time | Three knowledge models, Recommendations Center, Personal Model | P2 | Mature post-v1 |
-| Predictive Operational Insights | Offer forecasts and scenarios with uncertainty | Helps anticipate workload and operational risk | Longitudinal evidence, calibrated confidence, scenario governance | P2 | Late post-v1 |
+| Scenario Simulation | Compare owner-invoked plausible alternatives from a frozen real Case baseline | Supports safe decision exploration | Operational Case, Case Evidence snapshots, explicit assumptions, model governance | P2 | Late post-v1 |
+| Predictive Operational Insights | Offer proactive forecasts with uncertainty | Helps anticipate workload and operational risk | Longitudinal evidence, calibrated confidence, shared scenario governance | P2 | Late post-v1 |
 
 ## Evolution timeline
 
@@ -328,6 +329,12 @@ Every capability retains separate architecture, governance, implementation,
 validation, and release states. Owning modules and bounded Workflow Layer
 coordinators retain mutations. Predictive output remains a scenario with sources,
 confidence, and limitations rather than a deterministic Insight or fact.
+
+Scenario Simulation and Predictive Operational Insights remain distinct. The
+former is owner-invoked comparison of explicit alternatives from a frozen Case
+baseline; the latter is future proactive forecasting from longitudinal Evidence.
+Both follow the [Scenario Simulation Architecture](SCENARIO_SIMULATION_ARCHITECTURE.md)
+for provenance, uncertainty, validation, and presentation foundations.
 
 ## AI Review
 

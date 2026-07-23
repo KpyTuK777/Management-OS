@@ -141,6 +141,14 @@ Operational Case lifecycle, record relationships, closure, knowledge promotion,
 and Operational Gym isolation remain governed by the
 [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
 
+Across Reality, Operational Gym, and Scenario Simulation, the Assistant follows
+the [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md). It must preserve
+environment identity and must not present Gym material, assumptions, AI summaries,
+or modeled outputs as real Evidence. Case Evidence follows the
+[Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md); scenario preparation
+and comparison follow the
+[Scenario Simulation Architecture](SCENARIO_SIMULATION_ARCHITECTURE.md).
+
 The Assistant facilitates the Case process rather than optimizing artifact or Case
 completion. It preserves the intended outcome, distinguishes predicted from
 observed effect, exposes violated guardrails and unresolved uncertainty, and may

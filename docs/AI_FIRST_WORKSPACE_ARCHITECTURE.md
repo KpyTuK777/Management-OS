@@ -214,6 +214,11 @@ activity, and non-urgent Reviews remain non-interruptive.
   Countermeasure, or verification need but owns neither the Case nor its linked
   records. Case authority remains defined by the
   [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
+- **Operational environments** share the
+  [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md) while remaining
+  visibly distinct. Home may surface real Case work or an isolated Gym entry;
+  Scenario Simulation begins contextually from a real Case rather than becoming a
+  top-level Home mode. Home never presents modeled output as observed Evidence.
 - **Shared navigation and search** remain available but secondary to intent-first
   interaction.
 

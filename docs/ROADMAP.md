@@ -89,10 +89,32 @@ and standardization decisions before any Case-centered navigation consolidation.
 
 The Case remains optional for routine work, owns no participating domain record,
 and promotes learning only through explicit Knowledge or SOP workflows.
-Operational Gym should reuse the same model later within an isolated simulation
-boundary. This is future direction under the
+Operational Gym should reuse the shared reasoning grammar later through a distinct
+training contract. This is future direction under the
 [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md), not a current
 implementation commitment.
+
+### Future Operational Intelligence Platform
+
+Evolve the approved Case direction in governed stages:
+
+1. establish the shared Operational Reasoning Model;
+2. establish real Case Evidence Sets and material decision traceability;
+3. complete the Reality Case outcome and verification loop;
+4. add isolated Operational Gym Cases and Training History;
+5. add qualitative Scenario Branches from immutable Case baselines;
+6. introduce governed quantitative simulation only where intended use,
+   validation, uncertainty, sensitivity, limits, and expiry are supportable;
+7. define a separate Owner Learning Record architecture before durable competence
+   development or assessment;
+8. consolidate information architecture only after truth separation and direct
+   domain access are validated.
+
+Scenario Simulation remains distinct from later Predictive Operational Insights.
+It is owner-invoked exploration of explicit alternatives, not proactive
+forecasting. See the [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md),
+[Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md), and
+[Scenario Simulation Architecture](SCENARIO_SIMULATION_ARCHITECTURE.md).
 
 ### Future Learning Layer — Recommendations Center
 

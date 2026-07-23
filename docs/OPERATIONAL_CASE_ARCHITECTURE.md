@@ -13,7 +13,7 @@ recovery, prevention, design, and improvement in Management OS.
 | Accountable owner | Product Architect & AI Strategist |
 | Product approval | Product Owner |
 | Canonical concept | Operational Case |
-| Authority | Case purpose, intent, learning-and-change cycle, lifecycle, membership, relationships, outcome verification, closure, and owner-facing reasoning model |
+| Authority | Reality Case purpose, intent, learning-and-change cycle, lifecycle, membership, relationships, outcome verification, and closure |
 | Scope | Operational situations, domain-record relationships, AI participation, knowledge promotion, Home, Current Focus, Operating Context, and Operational Gym |
 | Primary audience | Product, architecture, design, engineering, data, documentation, and AI collaborators |
 | Lifecycle | Updated with approved Operational Case or case-centered information-architecture changes |
@@ -23,6 +23,14 @@ The existing domain documents remain authoritative for their records, validation
 mutation, and retention. A Case composes those records without taking their source
 authority. This architecture defines no current entity, persistence contract,
 runtime, interface, migration, or AI behavior.
+
+The [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md) governs the
+reasoning grammar shared with Operational Gym and Scenario Simulation. This
+document governs the Reality Case contract. The
+[Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md) governs Evidence Sets
+and decision-time snapshots; the
+[Scenario Simulation Architecture](SCENARIO_SIMULATION_ARCHITECTURE.md) governs
+Scenario Branches.
 
 ## Definition
 
@@ -228,6 +236,13 @@ observation time, freshness, scope, conflict state, and whether the decision use
 live reference or point-in-time Evidence snapshot. It never creates an editable
 local copy presented as a separate truth.
 
+The Case owns a governed Evidence Set rather than its source artifacts. Every
+material decision preserves the reproducible Evidence snapshot, assumptions,
+alternatives, uncertainty, rationale, guardrails, approval, and review conditions
+that existed when the decision was made. Later observed outcomes are compared with
+that decision-time basis. Routine low-consequence choices remain proportionate and
+need not create a material decision trace.
+
 ### Reports
 
 A Report is normally a presentation over Evidence, not a required Case child. A
@@ -385,8 +400,9 @@ Knowledge Base or silently redefine organizational practice.
 
 ## Operational Gym
 
-Operational Gym reuses the same Case lifecycle, reasoning model, terminology, and
-epistemic distinctions in a visibly isolated simulation boundary. Coaching,
+Operational Gym reuses the same reasoning grammar, terminology, and epistemic
+distinctions through a distinct Gym Case contract in a visibly isolated training
+boundary. Coaching,
 management theory, compressed time, hints, and revealed consequences may be added
 without changing the Case grammar.
 
@@ -400,6 +416,19 @@ Simulated Facts, Evidence, Causes, Solutions, Executions, Reviews, outcomes, and
 Recommendations never enter organizational truth or operational analytics. Any
 lesson proposed for durable Personal Operational Model, Knowledge, or SOP use
 requires an explicit, reviewed promotion into the owning domain.
+
+## Scenario Simulation
+
+A real Case may create one or more Scenario Branches from an immutable
+decision-time baseline. Each branch preserves explicit assumptions, variables,
+model logic, uncertainty, limits, and conditional modeled outputs. A branch is not
+an editable Case clone, prediction, observed outcome, or authority to act.
+
+Simulation is initially contextual within its originating Case. Its outputs may
+inform a Recommendation or material decision but never become observed Evidence,
+verify a Solution, close the Case, or mutate operational records. The canonical
+contract is defined in the
+[Scenario Simulation Architecture](SCENARIO_SIMULATION_ARCHITECTURE.md).
 
 ## Information architecture
 
@@ -434,7 +463,7 @@ Operational Case is approved with bounded centrality:
 8. Operating Context may influence prominence only.
 9. The Learning Decision Pipeline and owner approval remain intact.
 10. Organizational Knowledge changes only through explicit promotion.
-11. Operational Gym reuses the model in an isolated simulation boundary.
+11. Reality, Operational Gym, and Scenario Simulation share one reasoning grammar while retaining separate truth, consequence, and learning contracts.
 12. Direct domain access and degraded non-AI operation remain supported.
 
 Implementation requires a separate proportionate proposal or plan and explicit

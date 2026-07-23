@@ -49,6 +49,19 @@ responsibilities.
 - **Current status:** Approved future architecture; no Case entity, persistence, interface, migration, or AI behavior is implemented.
 - **Future responsibilities:** Own Case intent, current and intended conditions, success and guardrail measures, iterative learning-and-change cycles, typed domain relationships, decision timeline, monitoring, outcome verification, closure disposition, and learning synthesis.
 - **Boundary:** A Case is not mandatory for routine work and does not own linked Facts, Reports, SOPs, Executions, Reviews, Recommendations, Knowledge, projects, or tasks. Home remains the primary workspace, and durable organizational learning requires explicit promotion. See [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
+- **Reasoning environment:** The Operational Case is the Reality contract within the shared [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md). Its governed Evidence Set follows the [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md).
+
+## Operational Gym
+
+- **Purpose:** Develop operational judgment through fictional, historical, or curated Gym Cases using the shared reasoning grammar.
+- **Current status:** Approved architecture; not implemented.
+- **Boundary:** Gym material, outcomes, and assessment have no operational consequence and never become organizational Evidence. Durable capability development requires a future Owner Learning Record architecture.
+
+## Scenario Simulation
+
+- **Purpose:** Explore plausible conditional outcomes from an immutable decision-time baseline of a real Operational Case.
+- **Current status:** Approved late post-v1 architecture; not implemented.
+- **Boundary:** Scenario assumptions and modeled outputs are not Evidence, predictions, observed outcomes, or authority to act. Simulation is governed by [Scenario Simulation Architecture](SCENARIO_SIMULATION_ARCHITECTURE.md).
 
 ## Portfolio
 

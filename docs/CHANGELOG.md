@@ -172,6 +172,11 @@ separately in [Sprint Tracker](SPRINTS.md).
   process with explicit Case intents, current and target conditions, success and
   guardrail measures, Countermeasure cycles, outcome verification, and
   standardization judgment while preserving valid non-improvement outcomes.
+- Added the canonical Operational Reasoning Model, Case Evidence Architecture, and
+  Scenario Simulation Architecture, establishing the Operational Intelligence
+  Platform direction with shared reasoning but strict Reality, Gym, and Simulation
+  truth separation, immutable scenario baselines, decision-time Evidence snapshots,
+  and no runtime implementation.
 - Added the canonical Product Principle that Management OS should quietly remove
   cognitive noise while preserving decisions that require human judgment.
 - Extended the standard Product Review guidance with a mandatory evaluation of
