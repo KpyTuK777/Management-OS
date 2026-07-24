@@ -1,5 +1,18 @@
 # Changelog
 
+## Sprint 24 — Management OS Design System 1.0
+
+- Established Recognition Before Reading, Visual Gravity, Visual Direction,
+  composition-first layout, white space, cognitive comfort, and operational
+  atmosphere as canonical design principles.
+- Added normative operational-material, gravity, relationship, and motion tokens.
+- Implemented a Progressive Cognitive Map within Current Situation.
+- Added explicit `⇢` Evidence support, `⋯→` tentative influence, and `⚠`
+  contradiction semantics with accessible descriptions and causal safeguards.
+- Added responsive Design System rules for desktop, tablet, and mobile.
+- Updated canonical design, Workbench, UX, perceptual, product-language, sprint,
+  and changelog documentation without changing product authority or workflow.
+
 ## Sprint 23 — Operational Workbench art direction
 
 - Established a complete visual hierarchy led by Current Situation.

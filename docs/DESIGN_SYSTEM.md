@@ -4,6 +4,33 @@ The design system begins with CSS custom properties in `CSS/base.css`. Shared
 Sprint 6 presentation refinements and effective token overrides live in
 `CSS/modernization.css`, which is imported last through `CSS/style.css`.
 
+## Purpose and status
+
+| Property | Decision |
+| --- | --- |
+| Version | Management OS Design System 1.0 |
+| Status | Approved canonical visual language; normative for current and future interfaces |
+| Delivery milestone | Sprint 24 |
+| Authority | Recognition, visual gravity and direction, operational composition, visual vocabulary, relationship language, motion, atmosphere, cognitive comfort, and responsive identity |
+
+Design System 1.0 is not a UI library or component catalogue. It defines how
+Management OS communicates governed operational understanding. Product
+architecture, source authority, lifecycle, and workflow remain governed by their
+canonical documents.
+
+## Canonical design principles
+
+1. The owner perceives the operational situation before the interface.
+2. Recognition precedes reading; text supplies precision.
+3. Visual gravity follows operational relevance, never implementation structure.
+4. Visual direction makes the next useful focus apparent.
+5. Composition precedes components.
+6. White space separates reasoning and supports spatial memory.
+7. Progressive density reflects increased understanding, not component count.
+8. Calm may be interrupted by material risk, contradiction, or required authority.
+9. Motion communicates change and never decoration.
+10. No meaning depends on color, icon, motion, or position alone.
+
 ## Typography
 
 The interface uses the `Inter` font family when available. The base scale is:
@@ -197,6 +224,32 @@ expressed in text and shape.
 Newly meaningful threads and collections may use a short opacity-and-position
 transition to communicate progressive emergence. Motion must not imply authority,
 Evidence weight, or completion. `prefers-reduced-motion` removes it.
+
+### Relationship language
+
+Relationships are visible only when they express explicit operational meaning:
+
+| Mark | Meaning | Required qualification |
+| --- | --- | --- |
+| `→` | Directional influence | Identify observed, asserted, proposed, or accepted status |
+| `↔` | Mutual dependency | Expose the governed basis |
+| `⋯→` | Tentative relationship | Never imply established causality |
+| `⚠` | Contradiction | State what does not agree |
+| `⟳` | Feedback loop | Identify the bounded system and observation basis |
+| `⇢` | Evidence supports | Link to source and provenance |
+
+Decorative connectors are prohibited. Watson-proposed relationships remain
+visibly proposed and owner-reviewable. Temporal order never implies causality.
+
+### Responsive identity
+
+- **Desktop:** composed operational desk with Current Situation as the anchor.
+- **Tablet:** focused workspace retaining Situation and Watson context together
+  where space permits.
+- **Mobile:** Current Situation first, followed by Watson, Operational Inbox,
+  emerged collections, and specialist inspection.
+
+Viewport adaptation changes composition, not meaning, authority, or availability.
 
 ## Accessibility
 

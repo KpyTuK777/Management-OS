@@ -88,6 +88,19 @@ Spacing, scale, grouping, shape, color, and iconography communicate this hierarc
 before explanatory text. Progressive material uses restrained emergence motion
 with a reduced-motion equivalent.
 
+## Progressive Cognitive Map
+
+As understanding grows, Current Situation may present explicit governed
+relationships among source-bearing Evidence, current understanding, proposed
+Hypotheses, contradictions, and other meaningful material. The map is a
+presentation within Current Situation—not a new capability, topology authority,
+persisted aggregate, or source of truth.
+
+Sprint 24 demonstrates `⇢` Evidence support, `⋯→` tentative influence, and `⚠`
+contradiction with accessible text, proposal status, provenance language, a
+legend, and an explicit non-causality safeguard. Relationship appearance follows
+meaningful understanding rather than artifact count.
+
 ## Decision and emphasis
 
 The existing authoritative Decision confirmation represents the owner's chosen

@@ -11,6 +11,12 @@ instructions, the owner should locate Current Situation, recognize Watson, and
 identify where to contribute. Review first click, hesitation, reading effort,
 cognitive orientation, and confidence rather than feature discoverability alone.
 
+Sprint 24 extends validation across desktop, tablet, and mobile. Success requires
+three-second orientation, ten-second contribution recognition, preserved spatial
+memory, and natural Investigation without architectural instruction. Relationship
+comprehension and causal misunderstanding are reviewed alongside hesitation and
+first action.
+
 Watson's Investigation presence is governed by the
 [Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md). In particular, Decision
 Readiness must explain why readiness is or is not established, expose unresolved

@@ -208,6 +208,11 @@ short and concrete: `Поточна ситуація`, `Що я зараз ро�
 and `Додайте будь-що важливе`. Icons may establish material type, but text remains
 available for precision and accessibility.
 
+Design System 1.0 treats text as confirmation and precision after visual
+orientation. Relationship labels must state their semantic force in ordinary
+language—such as `підтримує`, `можливо впливає`, or `не узгоджується`—and must
+never let an arrow imply causality by itself.
+
 ## Writing style
 
 Management OS language should be:

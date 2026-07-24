@@ -82,6 +82,18 @@
 							<section class="situation-thread hidden distinction-evidence" id="evidenceSummaryCard"><span>Що показало джерело</span><strong id="boardRecentChange">Докази ще не отримано</strong><p>Джерело й походження з’являться після дозволеного порівняння.</p></section>
 							<section class="situation-thread hidden distinction-hypothesis" id="hypothesisSummaryCard"><span>Провідне пояснення</span><strong id="boardNextJudgment">Ще не сформовано</strong><p>Це перевірювана гіпотеза, а не встановлений факт.</p></section>
 						</div>
+						<section class="cognitive-map hidden" id="cognitiveMap" aria-labelledby="cognitiveMapTitle">
+							<header><span>Як це може бути пов’язано</span><h3 id="cognitiveMapTitle">Поточні робочі зв’язки</h3></header>
+							<div class="relationship-flow">
+								<article class="relationship-node relationship-node--evidence"><span aria-hidden="true">📊</span><strong>Фінансовий звіт</strong><small>ідентифіковане джерело</small></article>
+								<div class="relationship-link relationship-link--supports"><b aria-hidden="true">⇢</b><span>підтримує</span></div>
+								<article class="relationship-node relationship-node--understanding"><span aria-hidden="true">👀</span><strong>Маржа B2B знизилась</strong><small>поточне розуміння</small></article>
+								<div class="relationship-link relationship-link--tentative"><b aria-hidden="true">⋯→</b><span>можливо впливає</span></div>
+								<article class="relationship-node relationship-node--hypothesis"><span aria-hidden="true">🧠</span><strong>Затримка передачі лідів</strong><small>пропозиція Watson · не підтверджено</small></article>
+							</div>
+							<div class="relationship-contradiction"><b aria-hidden="true">⚠</b><span><strong>Не узгоджується:</strong> загальний дохід майже стабільний, але маржа B2B знизилась.</span></div>
+							<details class="relationship-legend"><summary>Умовні позначення</summary><p><b>⇢</b> Evidence підтримує · <b>⋯→</b> можливий зв’язок · <b>⚠</b> суперечність. Жоден зв’язок не встановлює причинність автоматично.</p></details>
+						</section>
 						<section class="transition-emphasis hidden" id="transitionEmphasis" aria-labelledby="transitionEmphasisTitle">
 							<span>Після рішення · поточний акцент</span>
 							<h3 id="transitionEmphasisTitle">Зробити обмежений пілот робочим</h3>

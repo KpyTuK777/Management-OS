@@ -106,6 +106,11 @@ Collections use content-specific shapes and previews rather than uniform cards.
 This art direction changes perception only; the three surface roles and authority
 boundaries remain unchanged.
 
+Design System 1.0 makes Recognition Before Reading and Visual Direction normative.
+The first scan follows operational relevance; material risk may interrupt the
+normal sequence. Icons, spatial grouping, relationship patterns, color, and motion
+remain supplemented by accessible text.
+
 | Attribute | Board | Natural Capture | Watson Surface |
 | --- | --- | --- | --- |
 | Character | Composed operational picture | Neutral professional tool | Active bounded partner |

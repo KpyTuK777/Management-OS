@@ -168,6 +168,7 @@ const InvestigationPrototype = (() => {
 		elements.dataCollection.classList.remove("hidden");
 		elements.hypothesisCollection.classList.remove("hidden");
 		elements.contradictionCollection.classList.remove("hidden");
+		elements.cognitiveMap.classList.remove("hidden");
 		elements.hypothesisList.classList.remove("hidden");
 		elements.validateCause.classList.remove("hidden");
 		setGuidedPhase("hypotheses");
@@ -362,6 +363,7 @@ const InvestigationPrototype = (() => {
 			dataCollection: document.getElementById("dataCollection"),
 			hypothesisCollection: document.getElementById("hypothesisCollection"),
 			contradictionCollection: document.getElementById("contradictionCollection"),
+			cognitiveMap: document.getElementById("cognitiveMap"),
 			collectionButtons: [...document.querySelectorAll("[data-collection-view]")],
 			validateCause: document.getElementById("validateCauseButton"),
 			readinessSummary: document.getElementById("readinessSummary"),

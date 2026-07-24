@@ -63,6 +63,39 @@
 
     --transition:.25s ease;
 
+    /* ===== DESIGN SYSTEM 1.0 — OPERATIONAL THINKING ===== */
+
+    --gravity-current:1;
+    --gravity-risk:2;
+    --gravity-watson:3;
+    --gravity-inbox:4;
+    --gravity-collections:5;
+    --gravity-admin:6;
+
+    --operational-canvas:#FFFFFF;
+    --operational-atmosphere:#F1F3F6;
+    --operational-ink:#111827;
+    --operational-data:#059669;
+    --operational-document:#475569;
+    --operational-conversation:#0284C7;
+    --operational-idea:#CA8A04;
+    --operational-hypothesis:#7C3AED;
+    --operational-contradiction:#D97706;
+    --operational-decision:#4338CA;
+    --operational-adaptation:#0F766E;
+    --operational-outcome:#15803D;
+
+    --relationship-observed:2px solid #475569;
+    --relationship-tentative:2px dashed #8B5CF6;
+    --relationship-support:3px solid #10B981;
+    --relationship-contradiction:3px solid #F59E0B;
+
+    --motion-emergence:220ms ease-out;
+    --motion-focus:160ms ease;
+
+    --workbench-reading-width:72ch;
+    --workbench-gap:28px;
+
 }
 
 /* ====================================================== */

@@ -59,7 +59,7 @@ When documents overlap, the canonical authority for the relevant domain prevails
 | Implemented AI behavior quality | [AI Quality Framework](AI_QUALITY_FRAMEWORK.md) |
 | Data contracts | [Data Model](DATA_MODEL.md) |
 | Engineering practice | [Development](DEVELOPMENT.md) |
-| Visual conventions | [Design System](DESIGN_SYSTEM.md) |
+| Canonical visual language, Recognition Before Reading, visual gravity and direction, operational composition, relationship semantics, iconography, motion, atmosphere, cognitive comfort, and responsive identity | [Design System](DESIGN_SYSTEM.md) |
 | User-facing language | [Product Language](PRODUCT_LANGUAGE.md) |
 | Future sequencing | [Roadmap](ROADMAP.md) |
 | Sprint completion | [Sprint Tracker](SPRINTS.md) |
@@ -131,7 +131,7 @@ product status or scope.
 | `docs/AI_QUALITY_FRAMEWORK.md` | AI quality governance | Define product-oriented quality dimensions, evidence, qualitative evaluation, and review guidance for implemented AI behavior. | Product Architect & AI Strategist | Product, architecture, engineering, design, AI governance, and capability reviewers | With approved AI quality or evaluation changes | Canonical AI quality standard; does not advance maturity or release | AI Capability Roadmap, future AI Capability Maturity Model, Product Vision, Product Maturity, Team, Product Language |
 | `docs/DATA_MODEL.md` | Data | Define implemented entities, fields, relationships, and persistence semantics while identifying approved future contracts that remain unimplemented. | Product Architect | Engineers and reviewers | With model or persistence changes | Canonical | Architecture, Systems, Knowledge Evolution |
 | `docs/DEVELOPMENT.md` | Development | Define setup, tooling, and engineering conventions. | Lead Software Engineer | Contributors and AI implementers | With tooling or practice changes | Canonical | Team, Architecture, Product Language |
-| `docs/DESIGN_SYSTEM.md` | Design | Define visual tokens, shared components, interaction states, and accessibility conventions. | Design Owner | Designers and frontend engineers | With shared presentation changes | Canonical | Product Language, Architecture |
+| `docs/DESIGN_SYSTEM.md` | Canonical visual design authority | Define Design System 1.0 principles, visual gravity and direction, operational composition and vocabulary, relationship semantics, iconography, motion, atmosphere, cognitive comfort, responsive identity, tokens, shared presentation, and accessibility safeguards. | Design Owner | Product, design, frontend, architecture, accessibility, research, and documentation collaborators | With approved visual-language or shared presentation changes | Canonical and normative | Product Language, Operational Workbench, Perceptual Architecture |
 | `docs/PRODUCT_LANGUAGE.md` | Language | Define terminology, voice, naming, and AI communication. | Design Owner | Product, design, engineering, documentation, AI | With user-facing concepts or language rules | Canonical | Product Vision, Design System, Team |
 | `docs/SPRINTS.md` | Delivery | Record approved sprint scope and completion. | Product Owner; maintained by Lead Software Engineer | Product and delivery team | At sprint opening and closure | Canonical | Roadmap, Changelog |
 | `docs/CHANGELOG.md` | Delivery history | Record delivered changes by release. | Lead Software Engineer | Users, maintainers, reviewers | At release | Canonical history | Sprints, Git history |
