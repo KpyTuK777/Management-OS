@@ -1,5 +1,20 @@
 # Changelog
 
+## Sprint 19 — Progressive Understanding prototype refactor
+
+- Refactored the first Investigation journey around a progressively constructed
+  Living Situation Board.
+- Reduced the initial Board to the reported condition and unverified current
+  position; Evidence and Hypotheses now appear only when justified.
+- Made Watson the single dominant reasoning interaction and reduced Natural
+  Capture to owner contribution behavior.
+- Preserved visible material authority safeguards and direct expert access.
+- Replaced the visible journey checklist and premature architectural regions with
+  plain operational guidance.
+- Added deterministic state transitions for known context, one orientation gap,
+  Evidence collection, and the first meaningful Hypothesis.
+- Synchronized affected canonical documentation and validation expectations.
+
 ## Sprint 18 — Operational Transition
 
 - Defined Operational Transition as the conditional post-Decision interval from

@@ -1,15 +1,23 @@
 const InvestigationPrototype = (() => {
 	let elements;
 	let guidedPhase = "orientation";
-	const journeyLabels = ["Повідомлений симптом", "Справу створено", "Підготовка", "Збір доказів", "Поточне розуміння", "Перевірка гіпотез", "Перевірка причин", "Готовність до рішення", "Рішення", "План виконання", "Перевірка результату", "Кандидат знання"];
 	const guidedStates = {
 		orientation: {
-			condition: "Орієнтація",
-			title: "Встановити базове порівняння",
-			reason: "Без періоду та сегментованого зрізу неможливо відрізнити загальну зміну від локального сигналу.",
-			need: "Період, базову лінію та уражений сегмент",
-			effect: "Підтвердити масштаб відхилення та відкрити порівняння пояснень",
-			action: "Переглянути запит доказів"
+			condition: "Перший контекст",
+			title: "Розкажіть усе, що вже знаєте про цю ситуацію",
+			reason: "Звіти, розмови, спостереження та припущення — усе корисне на цьому етапі.",
+			need: "Зрозуміти, який контекст уже доступний",
+			effect: "Визначити одне найважливіше уточнення",
+			action: "Додати те, що знаю",
+			captureFirst: true
+		},
+		orientationGap: {
+			condition: "Одне уточнення",
+			title: "За який період відбулася зміна?",
+			reason: "Період потрібен, щоб вибрати коректне базове порівняння. Інші питання поки можуть зачекати.",
+			need: "Період до і після повідомленої зміни",
+			effect: "Підготувати один пропорційний запит до джерел",
+			action: "Переглянути потрібне джерело"
 		},
 		evidence: {
 			condition: "Збір доказів",
@@ -80,10 +88,16 @@ const InvestigationPrototype = (() => {
 		elements.guidedNeed.textContent = state.need;
 		elements.guidedEffect.textContent = state.effect;
 		elements.guidedAction.textContent = state.action;
+		elements.redirectGuidance.classList.toggle("hidden", Boolean(state.captureFirst));
+		elements.rejectGuidance.classList.toggle("hidden", Boolean(state.captureFirst));
 	}
 
 	function advanceGuidedAction() {
-		if (guidedPhase === "orientation") return beginEvidenceCollection();
+		if (guidedPhase === "orientation") {
+			elements.matterCaptureInput.focus();
+			return elements.matterCaptureInput.scrollIntoView({ behavior: "smooth", block: "center" });
+		}
+		if (guidedPhase === "orientationGap") return beginEvidenceCollection();
 		if (guidedPhase === "evidence") return collectEvidence();
 		if (guidedPhase === "hypotheses") return validateCause();
 		if (guidedPhase === "decision") return approveDecision();
@@ -104,15 +118,6 @@ const InvestigationPrototype = (() => {
 		});
 	}
 
-	function setJourneyStep(step) {
-		elements.currentJourneyStep.textContent = journeyLabels[step - 1].toLowerCase();
-		elements.currentJourneyLabel.textContent = journeyLabels[step - 1];
-		elements.journeySteps.forEach((item, index) => {
-			item.classList.toggle("is-complete", index < step - 1);
-			item.classList.toggle("is-current", index === step - 1);
-		});
-	}
-
 	function openInvestigation(event) {
 		event.preventDefault();
 		const symptom = elements.input.value.trim();
@@ -123,14 +128,12 @@ const InvestigationPrototype = (() => {
 		elements.home.classList.add("hidden");
 		elements.workspace.classList.remove("hidden");
 		showView("understanding");
-		setJourneyStep(3);
 		elements.workspace.focus({ preventScroll: true });
 		window.location.hash = "investigations";
 		announce("Створено тимчасову операційну справу MAT-0247 і перше розслідування. Повідомлений симптом збережено лише в пам’яті сторінки.");
 	}
 
 	function beginEvidenceCollection() {
-		setJourneyStep(4);
 		elements.boardInspection.open = true;
 		showView("evidence");
 		setGuidedPhase("evidence");
@@ -148,17 +151,19 @@ const InvestigationPrototype = (() => {
 		elements.evidenceFlowStatus.textContent = "Докази організовано. AI виявив сегментований спад і підготував гіпотези; власник перевіряє інтерпретацію.";
 		elements.collectEvidence.disabled = true;
 		elements.collectEvidence.textContent = "Демонстраційні докази отримано";
-		setJourneyStep(5);
 		showView("understanding");
+		elements.evidenceSummaryCard.classList.remove("hidden");
+		elements.hypothesisSection.classList.remove("hidden");
+		elements.hypothesisSummaryCard.classList.remove("hidden");
+		elements.boardRecentChange.textContent = "Сегментований CRM-зріз підтвердив локалізовану зміну";
+		elements.boardNextJudgment.textContent = "Затримка передачі лідів може пояснювати спад";
 		elements.hypothesisList.classList.remove("hidden");
 		elements.validateCause.classList.remove("hidden");
-		setJourneyStep(6);
 		setGuidedPhase("hypotheses");
 		announce("Докази зібрано. Показано конкуруючі гіпотези та обмеження.");
 	}
 
 	function validateCause() {
-		setJourneyStep(7);
 		elements.validateCause.disabled = true;
 		elements.validateCause.textContent = "Причинне пояснення прийнято власником у межах пілоту";
 		elements.primaryInflection.classList.remove("is-candidate");
@@ -170,23 +175,19 @@ const InvestigationPrototype = (() => {
 		elements.decisionReadinessTitle.textContent = "Готове до рішення з видимою невизначеністю";
 		elements.readinessChip.textContent = "AI підготував · вирішує власник";
 		elements.approveDecision.classList.remove("hidden");
-		setJourneyStep(8);
 		setGuidedPhase("decision");
 		announce("AI підготував огляд готовності. Рішення залишається за власником.");
 	}
 
 	function approveDecision() {
-		setJourneyStep(9);
 		elements.approveDecision.disabled = true;
 		elements.approveDecision.textContent = "Рішення прийнято власником";
 		elements.executionPlan.classList.remove("hidden");
-		setJourneyStep(10);
 		setGuidedPhase("execution");
 		elements.executionPlan.scrollIntoView({ behavior: "smooth", block: "nearest" });
 	}
 
 	function approvePlan() {
-		setJourneyStep(11);
 		showView("outcome");
 		elements.followUpTitle.textContent = "Перевірка запланована на 30-й день";
 		elements.followUpDescription.textContent = "Власник порівняє поновлення, час відповіді та захисні показники інших сегментів.";
@@ -199,7 +200,6 @@ const InvestigationPrototype = (() => {
 		elements.followUpDescription.textContent = "Спостережено в одній команді протягом 30 днів. Результат обмежений цим контекстом.";
 		elements.recordOutcome.classList.add("hidden");
 		elements.knowledgeCapture.classList.remove("hidden");
-		setJourneyStep(12);
 		setGuidedPhase("learning");
 	}
 
@@ -232,17 +232,18 @@ const InvestigationPrototype = (() => {
 
 		elements.milestoneContribution.textContent = original;
 		elements.reasoningMilestone.classList.remove("hidden");
-		elements.boardRecentChange.textContent = "Схвалено внесок, що уточнює можливу часову межу";
 		elements.boardUnderstanding.textContent = "18 квітня є кандидатом межі зміни, а не підтвердженим фактом";
 		elements.boardReasoningBasis.textContent = "Власницьке спостереження потребує зіставлення з CRM і SLA";
-		setGuidedPhase(guidedPhase);
+		elements.knownContextCard.classList.remove("hidden");
+		elements.missingOrientationCard.classList.remove("hidden");
+		setGuidedPhase("orientationGap");
 		elements.watsonContributionReview.classList.add("hidden");
 		elements.guidedInvestigation.classList.remove("hidden");
 		elements.approveMatterContribution.disabled = true;
 		elements.approveMatterContribution.textContent = "Внесок схвалено для перевірки";
-		elements.boardInspection.open = true;
-		elements.reasoningMilestone.scrollIntoView({ behavior: "smooth", block: "nearest" });
-		announce("Внесок схвалено в пам’яті сторінки. Watson повторно оцінив рекомендацію; поточний напрям не змінився. Доказ, стан справи та авторитетні записи не змінено.");
+		elements.matterCaptureInput.value = "";
+		elements.guidedInvestigation.scrollIntoView({ behavior: "smooth", block: "nearest" });
+		announce("Внесок схвалено в пам’яті сторінки. Картина доповнена контекстом; Watson пропонує одне наступне уточнення.");
 	}
 
 	function discardMatterContribution() {
@@ -312,9 +313,6 @@ const InvestigationPrototype = (() => {
 			contextBadge: document.getElementById("investigationContextBadge"),
 			workingTitle: document.getElementById("caseWorkingTitle"),
 			workingTitleGuidance: document.getElementById("workingTitleGuidance"),
-			currentJourneyStep: document.getElementById("currentJourneyStep"),
-			currentJourneyLabel: document.getElementById("currentJourneyLabel"),
-			journeySteps: [...document.querySelectorAll("#journeySteps li")],
 			primaryInflection: document.getElementById("primaryInflectionPoint"),
 			inflectionStatus: document.getElementById("inflectionStatus"),
 			inflectionSummaryStatus: document.getElementById("inflectionSummaryStatus"),
@@ -328,6 +326,11 @@ const InvestigationPrototype = (() => {
 			collectEvidence: document.getElementById("collectEvidenceButton"),
 			evidenceFlowStatus: document.getElementById("evidenceFlowStatus"),
 			hypothesisList: document.getElementById("hypothesisList"),
+			hypothesisSection: document.getElementById("hypothesisSection"),
+			knownContextCard: document.getElementById("knownContextCard"),
+			missingOrientationCard: document.getElementById("missingOrientationCard"),
+			evidenceSummaryCard: document.getElementById("evidenceSummaryCard"),
+			hypothesisSummaryCard: document.getElementById("hypothesisSummaryCard"),
 			validateCause: document.getElementById("validateCauseButton"),
 			readinessSummary: document.getElementById("readinessSummary"),
 			decisionReadinessTitle: document.getElementById("decisionReadinessTitle"),
@@ -354,6 +357,7 @@ const InvestigationPrototype = (() => {
 			boardUnderstanding: document.getElementById("boardUnderstanding"),
 			boardReasoningBasis: document.getElementById("boardReasoningBasis"),
 			boardRecentChange: document.getElementById("boardRecentChange"),
+			boardNextJudgment: document.getElementById("boardNextJudgment"),
 			openSimulation: document.getElementById("openSimulationButton"),
 			closeSimulation: document.getElementById("closeSimulationButton"),
 			scenario: document.getElementById("scenarioBranch"),
@@ -367,6 +371,7 @@ const InvestigationPrototype = (() => {
 			redirectGuidance: document.getElementById("redirectGuidanceButton"),
 			deferGuidance: document.getElementById("deferGuidanceButton"),
 			rejectGuidance: document.getElementById("rejectGuidanceButton"),
+			structuredEntry: document.getElementById("structuredEntryButton"),
 			announcement: document.getElementById("prototypeAnnouncement")
 		};
 	}
@@ -409,6 +414,11 @@ const InvestigationPrototype = (() => {
 			elements.rejectGuidance.disabled = true;
 			elements.rejectGuidance.textContent = "Рекомендацію відхилено";
 			announce("Рекомендацію Watson відхилено. Власник може змінити напрям або продовжити без неї; стан справи не змінено.");
+		});
+		elements.structuredEntry.addEventListener("click", () => {
+			elements.matterCaptureInput.value = "Спостереження: \nДжерело: \nПеріод: \nПрипущення: ";
+			elements.matterCaptureInput.focus();
+			announce("Додано коротку структуру запису. Заповнюйте лише те, що вже відомо.");
 		});
 		elements.collectEvidence.addEventListener("click", collectEvidence);
 		elements.validateCause.addEventListener("click", validateCause);

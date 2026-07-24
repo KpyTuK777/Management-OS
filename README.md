@@ -16,6 +16,12 @@ Knowledge Base, SOP, Execution, Review, Insights, Hypotheses, and controlled
 Improvement Proposal capabilities. See [Systems](docs/SYSTEMS.md) for the canonical
 module-by-module status and [Sprint tracker](docs/SPRINTS.md) for delivery history.
 
+The current Operational Matter prototype also demonstrates a deterministic,
+progressively constructed Investigation journey: the Living Situation Board starts
+small, Watson guides the next useful reasoning step, and Natural Capture remains
+focused on the owner's contribution. It does not imply backend intelligence or
+capability gating.
+
 ## Technology stack
 
 - HTML

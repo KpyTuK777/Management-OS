@@ -8,8 +8,14 @@ Matter.
 | Property | Decision |
 | --- | --- |
 | Status | Approved canonical experience architecture; prototype presentation aligned |
-| Delivery milestone | Sprint 11; Guided Investigation interaction approved Sprint 13 |
+| Delivery milestone | Sprint 11; Guided Investigation approved Sprint 13; progressive prototype aligned Sprint 19 |
 | Canonical concept | Operational Situation Board |
+
+The deterministic prototype now treats the Board as a living projection. Its
+initial presentation contains only the reported condition and current position;
+known context, the material orientation gap, Evidence summary, and Hypothesis
+summary appear only when the corresponding understanding exists. Material
+authority concerns remain visible regardless of that sequence.
 | Authority | Matter-level operational picture, stable frame, living cognitive projection, dynamic cognitive focus, natural capture integration, and progressive disclosure |
 | Related documents | Progressive Understanding Architecture, Operational Matter Architecture, Operational Case Experience Architecture, Natural Capture Architecture, AI Assistant Architecture, Operational Reasoning Model |
 

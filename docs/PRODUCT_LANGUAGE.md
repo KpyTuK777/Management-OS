@@ -163,6 +163,24 @@ expresses a Learning context; Work Mode may express Employment or Business. The
 owner's approved Operating Context remains authoritative, and either label changes
 priority only.
 
+## Progressive Investigation language
+
+Primary Investigation surfaces use the operational question or condition, not the
+architecture label:
+
+| Canonical concept | Primary Ukrainian UI wording |
+| --- | --- |
+| Known-context elicitation | `Розкажіть усе, що вже знаєте про цю ситуацію` |
+| Natural Capture contribution | `Додайте те, що знаєте…` |
+| New understanding | `Що стало зрозуміло` |
+| Orientation gap | `Що ще потрібно з’ясувати` |
+| Evidence result | `Що показали джерела` |
+| Hypothesis | `Можливе пояснення` |
+
+`Progressive Understanding`, cognitive readiness, classification, and similar
+architectural terms are not primary owner instructions. Watson may show its
+classification in its own surface when that helps the owner inspect the reasoning.
+
 ## Writing style
 
 Management OS language should be:

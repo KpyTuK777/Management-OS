@@ -66,7 +66,7 @@
 
 					<section class="reported-symptom" aria-labelledby="reportedSymptomTitle">
 						<div>
-							<span>Вхідний сигнал</span>
+							<span>Повідомлено</span>
 							<h2 id="reportedSymptomTitle">Повідомлений симптом</h2>
 						</div>
 						<blockquote id="reportedSymptomText"></blockquote>
@@ -77,29 +77,34 @@
 						<div class="board-column">
 					<section class="situation-board-summary" aria-labelledby="situationBoardTitle">
 						<div class="section-heading">
-							<div><span>Операційна картина</span><h2 id="situationBoardTitle">Поточне розуміння справи</h2></div>
+							<div><span>Операційна картина</span><h2 id="situationBoardTitle">Що вже відомо</h2></div>
 							<details class="inline-disclosure"><summary>Як сформовано</summary><p>Зведено з поточного стану, внесків і джерел. Відкрийте деталі, щоб перевірити підстави.</p></details>
 						</div>
 						<div class="situation-board-grid">
-							<article><span>Що відбувається?</span><strong id="boardSituation">Повідомлено операційну зміну</strong><p>Стан справи: Під розслідуванням.</p></article>
-							<article><span>Що ми розуміємо?</span><strong id="boardUnderstanding">Зміна ще не підтверджена вимірюванням</strong><p>Попереднє розуміння.</p></article>
-							<article><span>Чому?</span><strong id="boardReasoningBasis">Збережено лише повідомлений симптом</strong><p>Потрібні базова лінія та незалежні джерела.</p></article>
-							<article><span>Що невідомо або заблоковано?</span><strong id="boardUncertainty">Масштаб, період і сегмент зміни</strong><p>Блокер: відсутній сегментований CRM-зріз.</p></article>
-							<article><span>Що змінилося?</span><strong id="boardRecentChange">Нових прийнятих внесків ще немає</strong><p>Матеріальні зміни з’являться в історії міркування.</p></article>
-							<article><span>Яке судження або дія потрібні далі?</span><strong id="boardNextJudgment">Визначити базове порівняння</strong><p>Потрібне ваше рішення.</p></article>
+							<article><span>Поточна позиція</span><strong id="boardUnderstanding">Симптом ще не перевірено й не пояснено</strong><p>Це початок дослідження, а не підтверджена проблема.</p></article>
+							<article class="progressive-board-item hidden" id="knownContextCard"><span>Що стало зрозуміло</span><strong id="boardReasoningBasis">Додано перший контекст</strong><p>Він залишається спостереженням, доки його не зіставлено з джерелами.</p></article>
+							<article class="progressive-board-item hidden" id="missingOrientationCard"><span>Що ще потрібно з’ясувати</span><strong id="boardUncertainty">Період і масштаб зміни</strong><p>Потрібне одне базове порівняння.</p></article>
+							<article class="progressive-board-item hidden" id="evidenceSummaryCard"><span>Що показали джерела</span><strong id="boardRecentChange">Докази ще не отримано</strong><p>Порівняння з’явиться після схваленого запиту.</p></article>
+							<article class="progressive-board-item hidden" id="hypothesisSummaryCard"><span>Можливе пояснення</span><strong id="boardNextJudgment">Ще не сформовано</strong><p>Пояснення з’являться лише після достатнього порівняння.</p></article>
 						</div>
+						<div class="material-safeguard" role="note"><strong>Потрібен дозвіл власника</strong><span>Доступ до внутрішніх джерел не запитується автоматично.</span></div>
 					</section>
 
 					<section class="matter-natural-capture" aria-labelledby="matterCaptureTitle">
 						<div class="section-heading">
-							<div><span>Додати до картини</span><h2 id="matterCaptureTitle">Що нового ви дізналися?</h2></div>
+							<div><span>Ваш внесок</span><h2 id="matterCaptureTitle">Додайте те, що знаєте</h2></div>
 						</div>
 						<form id="matterCaptureForm">
-							<label for="matterCaptureInput">Опишіть факт, спостереження, свідчення, припущення, суперечність, ризик або результат своїми словами.</label>
-							<textarea id="matterCaptureInput" rows="3" placeholder="Наприклад: Керівник enterprise-команди повідомив, що час передачі лідів зріс після 18 квітня." required></textarea>
+							<label for="matterCaptureInput">Спостереження, розмови, звіти, події та припущення — своїми словами.</label>
+							<textarea id="matterCaptureInput" rows="4" placeholder="Додайте те, що знаєте…" required></textarea>
+							<div class="capture-tools">
+								<label class="attachment-control" for="matterCaptureFiles">Додати файли</label>
+								<input id="matterCaptureFiles" type="file" multiple>
+								<button class="text-button" id="structuredEntryButton" type="button">Структурований запис</button>
+							</div>
 							<div class="investigation-intake__footer">
-								<p>Перед додаванням ви перевірите запропонований зміст.</p>
-								<button class="btn-secondary" type="submit">Підготувати внесок</button>
+								<span></span>
+								<button class="btn-primary" type="submit">Продовжити</button>
 							</div>
 						</form>
 						<div class="capture-review hidden" id="matterCaptureReview" aria-live="polite">
@@ -109,8 +114,8 @@
 
 					<details class="board-inspection" id="boardInspection">
 						<summary>
-							<span><small>Дослідити картину</small><strong>Докази, міркування, хронологія та рішення</strong></span>
-							<small>Повна простежуваність</small>
+							<span><small>Прямий доступ</small><strong>Переглянути деталі та спеціальні інструменти</strong></span>
+							<small>Для досвідчених користувачів</small>
 						</summary>
 						<div class="board-inspection__content">
 					<section class="reasoning-milestone hidden" id="reasoningMilestone" aria-labelledby="reasoningMilestoneTitle">
@@ -123,13 +128,6 @@
 							<article><span>Залишкова невизначеність</span><p>Потрібні CRM-когорти, SLA-журнал і незалежна перевірка послідовності.</p></article>
 						</div>
 					</section>
-
-					<details class="journey-progress" aria-labelledby="journeyProgressTitle">
-						<summary class="journey-progress__header"><div><span>Хід роботи</span><h2 id="journeyProgressTitle">Поточний фокус: <strong id="currentJourneyStep">розслідування</strong></h2></div><p id="currentJourneyLabel">Підготовка наступного внеску</p></summary>
-						<ol id="journeySteps">
-							<li class="is-complete">Симптом</li><li class="is-complete">Створення</li><li class="is-current">AI-підготовка</li><li>Докази</li><li>Розуміння</li><li>Гіпотези</li><li>Валідація причин</li><li>Готовність</li><li>Рішення</li><li>План виконання</li><li>Перевірка</li><li>Знання</li>
-						</ol>
-					</details>
 
 					<details class="operational-timeline" open>
 						<summary><div><span>Операційна хронологія</span><h2>Де система почала поводитися інакше?</h2></div><small>Події ≠ причинність</small></summary>
@@ -158,7 +156,7 @@
 									<article><span>Наступне судження</span><strong>Які дані дадуть базове порівняння?</strong><p>Власник вирішує, які джерела дозволено використати.</p></article>
 								</div>
 
-								<section class="hypothesis-board">
+								<section class="hypothesis-board hidden" id="hypothesisSection">
 									<div class="section-heading"><div><span>Операційне розуміння</span><h2>Пояснення ще відкриті</h2></div><span class="uncertainty-chip">Висока невизначеність</span></div>
 									<p>Спочатку підтвердьте, що зміна існує. Потім порівняйте можливі пояснення, не перетворюючи кореляцію на причину.</p>
 									<div class="hypothesis-list hidden" id="hypothesisList">
@@ -253,23 +251,23 @@
 							<div class="watson-surface__identity"><span class="ai-avatar" aria-hidden="true">W</span><div><span>Watson</span><strong>Активна взаємодія</strong></div></div>
 							<section class="guided-investigation" id="guidedInvestigation">
 								<div class="guided-investigation__status">
-									<span id="guidedCondition">Орієнтація</span>
-									<small>Рішення за власником</small>
+									<span id="guidedCondition">Перший контекст</span>
+									<small>Одна дія зараз</small>
 								</div>
 								<div class="guided-investigation__content">
-									<p class="guided-investigation__eyebrow">Наступне, що потрібно зрозуміти</p>
-									<h2 id="guidedInvestigationTitle">Встановити базове порівняння</h2>
-									<p id="guidedInvestigationReason">Без періоду та сегментованого зрізу неможливо відрізнити загальну зміну від локального сигналу.</p>
+									<p class="guided-investigation__eyebrow">Що потрібно зараз</p>
+									<h2 id="guidedInvestigationTitle">Розкажіть усе, що вже знаєте про цю ситуацію</h2>
+									<p id="guidedInvestigationReason">Звіти, розмови, спостереження та припущення — усе корисне на цьому етапі.</p>
 									<div class="guided-investigation__basis">
-										<div><span>Шукаємо</span><strong id="guidedInvestigationNeed">Період, базову лінію та уражений сегмент</strong></div>
-										<div><span>Може змінити</span><strong id="guidedInvestigationEffect">Підтвердити масштаб відхилення та відкрити порівняння пояснень</strong></div>
+										<div><span>Навіщо</span><strong id="guidedInvestigationNeed">Зрозуміти, який контекст уже доступний</strong></div>
+										<div><span>Далі</span><strong id="guidedInvestigationEffect">Визначити одне найважливіше уточнення</strong></div>
 									</div>
 								</div>
 								<div class="guided-investigation__actions">
-									<button class="btn-primary" id="guidedActionButton" type="button">Переглянути запит доказів</button>
-									<button class="btn-secondary" id="redirectGuidanceButton" type="button">Додати відоме</button>
+									<button class="btn-primary" id="guidedActionButton" type="button">Додати те, що знаю</button>
+									<button class="btn-secondary hidden" id="redirectGuidanceButton" type="button">Змінити напрям</button>
 									<button class="text-button" id="deferGuidanceButton" type="button">Відкласти</button>
-									<button class="text-button" id="rejectGuidanceButton" type="button">Відхилити</button>
+									<button class="text-button hidden" id="rejectGuidanceButton" type="button">Відхилити</button>
 								</div>
 							</section>
 							<section class="watson-contribution-review hidden" id="watsonContributionReview" aria-live="polite">

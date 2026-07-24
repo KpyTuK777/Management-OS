@@ -537,3 +537,32 @@ boundaries and [Project Health](PROJECT_HEALTH.md) for the aggregate readiness v
 - No Matter state, entity, transition store, project system, workflow engine,
   planning engine, AI runtime, persistence, migration, integration, or production
   interface is implemented.
+
+## Sprint 19
+
+### Completed
+
+- **Living Situation Board:** Refactored the primary Investigation Board so it
+  grows only as meaningful understanding becomes available
+- **Watson Interaction Surface:** Established one dominant, focused interaction
+  for known-context elicitation, orientation, Evidence, and justified Hypotheses
+- **Natural Capture:** Reduced the Matter surface to owner contribution,
+  attachments, and optional structured entry
+- **Guided Investigation:** Implemented a deterministic symptom-to-first-Hypothesis
+  journey without wizard behavior or capability gates
+- **Material Safeguard:** Kept the applicable authority requirement visible across
+  the progressive sequence
+- **Expert Access:** Preserved direct inspection and specialist navigation without
+  equal visual priority
+- **Operational Language:** Removed premature architecture and future-stage
+  language from the primary owner journey
+- **Canonical Integration:** Updated Progressive Understanding, Board, Guided
+  Investigation, Perceptual Architecture, Natural Capture, Product Language,
+  Cognitive Cleanup, Design System, UI Language, sprint history, changelog, and
+  README
+
+### Implementation status
+
+- Deterministic static-prototype behavior only.
+- No backend intelligence, persistence, autonomous authority, lifecycle gate, or
+  capability unlocking is implemented.

@@ -22,9 +22,15 @@ merely because they may eventually apply.
 
 | Property | Decision |
 | --- | --- |
-| Status | Approved product architecture; not implemented |
-| Delivery milestone | Sprint 7 — AI Operational Layer, Feature 02 |
+| Status | Approved product architecture; focused Matter contribution behavior demonstrated deterministically |
+| Delivery milestone | Sprint 7 architecture; Sprint 19 Matter-surface alignment |
 | Accountable owner | Product Architect & AI Strategist |
+
+Sprint 19 implements only the owner-contribution surface inside the deterministic
+Matter prototype: natural text, optional attachments, and an optional structured
+entry aid. Classification, proposed meaning, and next-action guidance remain in
+the Watson Interaction Surface. This does not claim the broader Natural Capture
+runtime, routing, persistence, or intelligence is implemented.
 | Product approval | Product Owner |
 | Scope | Product architecture only |
 | Excluded | LLMs, prompts, providers, APIs, speech recognition, embeddings, vector databases, and implementation |

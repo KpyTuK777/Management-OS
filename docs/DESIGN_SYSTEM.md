@@ -132,6 +132,12 @@ Empty states use a standard surface, dashed border, restrained minimum height, a
 centered content. They state the current condition and, where useful, provide one
 calm next action. Empty collections and empty search results must remain distinct.
 
+Empty architectural regions must not be used to preview future reasoning concepts
+on a Living Situation Board. Progressive Board items are added when meaningful;
+they are not rendered as placeholders. Material-risk and authority notices may
+interrupt the normal visual sequence and must remain identifiable without relying
+on color alone.
+
 ## Accessibility
 
 - All interactive controls require a visible `:focus-visible` state.

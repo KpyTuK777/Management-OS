@@ -9,7 +9,16 @@ authority.
 | Property | Decision |
 | --- | --- |
 | Status | Approved interaction architecture; deterministic prototype aligned |
-| Delivery milestone | Sprint 13 |
+| Delivery milestone | Sprint 13; first progressive journey refactored Sprint 19 |
+
+The implemented first journey is:
+
+> report symptom → provide known context → identify one missing orientation item
+> → add or request Evidence → progressively construct the Board → introduce the
+> first Hypothesis when justified
+
+This is a deterministic demonstration of cognitive readiness, not a wizard,
+stage gate, or capability-unlocking mechanism.
 | Canonical concept | Guided Investigation |
 | Authority | Attention hierarchy, dominant interaction, supporting context, inspectable workspace, and guidance recalculation |
 | Related documents | Progressive Understanding Architecture, Operational Situation Board Architecture, Operational Inquiry Architecture, Natural Capture Architecture, AI Assistant Architecture |
