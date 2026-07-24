@@ -9,7 +9,7 @@ authority.
 | Property | Decision |
 | --- | --- |
 | Status | Approved interaction architecture; deterministic prototype aligned |
-| Delivery milestone | Sprint 13; first progressive journey refactored Sprint 19 |
+| Delivery milestone | Sprint 13; progressive journey Sprint 19; human-first interaction Sprint 20 |
 
 The implemented first journey is:
 
@@ -19,6 +19,12 @@ The implemented first journey is:
 
 This is a deterministic demonstration of cognitive readiness, not a wizard,
 stage gate, or capability-unlocking mechanism.
+
+Sprint 20 makes the opening conversation-led: Watson asks one natural question,
+accepts a free-form multi-observation answer, summarizes its understanding, and
+offers confirm, correct, or add-detail controls before the first small Board
+appears. See the
+[Human-first Investigation Experience](HUMAN_FIRST_INVESTIGATION_EXPERIENCE.md).
 | Canonical concept | Guided Investigation |
 | Authority | Attention hierarchy, dominant interaction, supporting context, inspectable workspace, and guidance recalculation |
 | Related documents | Progressive Understanding Architecture, Operational Situation Board Architecture, Operational Inquiry Architecture, Natural Capture Architecture, AI Assistant Architecture |

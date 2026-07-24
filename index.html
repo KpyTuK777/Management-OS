@@ -57,7 +57,7 @@
 							</div>
 							<label class="working-title" for="caseWorkingTitle">
 								<span>Робоча назва · редагується</span>
-								<textarea id="caseWorkingTitle" rows="2" aria-describedby="workingTitleGuidance">Дослідження повідомленої операційної зміни</textarea>
+								<textarea id="caseWorkingTitle" rows="1" aria-describedby="workingTitleGuidance">Різке падіння прибутку</textarea>
 							</label>
 							<p id="workingTitleGuidance">Робоча назва — не підтверджена причина. Уникайте причинних висновків, яких ще не підтримують докази.</p>
 						</div>
@@ -75,28 +75,28 @@
 
 					<div class="perceptual-workspace">
 						<div class="board-column">
-					<section class="situation-board-summary" aria-labelledby="situationBoardTitle">
+					<section class="situation-board-summary hidden" id="situationBoard" aria-labelledby="situationBoardTitle">
 						<div class="section-heading">
-							<div><span>Операційна картина</span><h2 id="situationBoardTitle">Що вже відомо</h2></div>
+							<div><span>Спільне розуміння</span><h2 id="situationBoardTitle">Що вже стало зрозуміло</h2></div>
 							<details class="inline-disclosure"><summary>Як сформовано</summary><p>Зведено з поточного стану, внесків і джерел. Відкрийте деталі, щоб перевірити підстави.</p></details>
 						</div>
 						<div class="situation-board-grid">
 							<article><span>Поточна позиція</span><strong id="boardUnderstanding">Симптом ще не перевірено й не пояснено</strong><p>Це початок дослідження, а не підтверджена проблема.</p></article>
-							<article class="progressive-board-item hidden" id="knownContextCard"><span>Що стало зрозуміло</span><strong id="boardReasoningBasis">Додано перший контекст</strong><p>Він залишається спостереженням, доки його не зіставлено з джерелами.</p></article>
-							<article class="progressive-board-item hidden" id="missingOrientationCard"><span>Що ще потрібно з’ясувати</span><strong id="boardUncertainty">Період і масштаб зміни</strong><p>Потрібне одне базове порівняння.</p></article>
-							<article class="progressive-board-item hidden" id="evidenceSummaryCard"><span>Що показали джерела</span><strong id="boardRecentChange">Докази ще не отримано</strong><p>Порівняння з’явиться після схваленого запиту.</p></article>
-							<article class="progressive-board-item hidden" id="hypothesisSummaryCard"><span>Можливе пояснення</span><strong id="boardNextJudgment">Ще не сформовано</strong><p>Пояснення з’являться лише після достатнього порівняння.</p></article>
+							<article class="progressive-board-item hidden distinction-observation" id="knownContextCard"><span>Спостереження</span><strong id="boardReasoningBasis">Додано перший контекст</strong><p>Повідомлено власником; ще не перевірено за джерелом.</p></article>
+							<article class="progressive-board-item hidden distinction-assumption" id="missingOrientationCard"><span>Припущення</span><strong id="boardUncertainty">Падіння може стосуватися всього B2B-напряму</strong><p>Поки невідомо, змінився дохід, маржа чи обидва показники.</p></article>
+							<article class="progressive-board-item hidden distinction-evidence" id="evidenceSummaryCard"><span>Доказ із джерелом</span><strong id="boardRecentChange">Докази ще не отримано</strong><p>Джерело й походження з’являться після дозволеного порівняння.</p></article>
+							<article class="progressive-board-item hidden distinction-hypothesis" id="hypothesisSummaryCard"><span>Можливе пояснення</span><strong id="boardNextJudgment">Ще не сформовано</strong><p>Це перевірювана гіпотеза, а не встановлений факт.</p></article>
 						</div>
 						<div class="material-safeguard" role="note"><strong>Потрібен дозвіл власника</strong><span>Доступ до внутрішніх джерел не запитується автоматично.</span></div>
 					</section>
 
 					<section class="matter-natural-capture" aria-labelledby="matterCaptureTitle">
 						<div class="section-heading">
-							<div><span>Ваш внесок</span><h2 id="matterCaptureTitle">Додайте те, що знаєте</h2></div>
+							<div><span>Ваша відповідь</span><h2 id="matterCaptureTitle">Розкажіть своїми словами</h2></div>
 						</div>
 						<form id="matterCaptureForm">
-							<label for="matterCaptureInput">Спостереження, розмови, звіти, події та припущення — своїми словами.</label>
-							<textarea id="matterCaptureInput" rows="4" placeholder="Додайте те, що знаєте…" required></textarea>
+							<label id="matterCapturePrompt" for="matterCaptureInput">Можна відповісти на запитання або одразу додати кілька спостережень.</label>
+							<textarea id="matterCaptureInput" rows="5" placeholder="Напишіть усе, що зараз здається важливим…" required></textarea>
 							<div class="capture-tools">
 								<label class="attachment-control" for="matterCaptureFiles">Додати файли</label>
 								<input id="matterCaptureFiles" type="file" multiple>
@@ -104,7 +104,7 @@
 							</div>
 							<div class="investigation-intake__footer">
 								<span></span>
-								<button class="btn-primary" type="submit">Продовжити</button>
+								<button class="btn-primary" type="submit">Відповісти Watson</button>
 							</div>
 						</form>
 						<div class="capture-review hidden" id="matterCaptureReview" aria-live="polite">
@@ -248,19 +248,18 @@
 						</div>
 
 						<aside class="watson-surface" aria-labelledby="guidedInvestigationTitle">
-							<div class="watson-surface__identity"><span class="ai-avatar" aria-hidden="true">W</span><div><span>Watson</span><strong>Активна взаємодія</strong></div></div>
+							<div class="watson-surface__identity"><span class="ai-avatar" aria-hidden="true">W</span><div><span>Watson</span><strong>Працюємо над ситуацією</strong></div></div>
 							<section class="guided-investigation" id="guidedInvestigation">
 								<div class="guided-investigation__status">
-									<span id="guidedCondition">Перший контекст</span>
+									<span id="guidedCondition">Почнімо з відомого</span>
 									<small>Одна дія зараз</small>
 								</div>
 								<div class="guided-investigation__content">
-									<p class="guided-investigation__eyebrow">Що потрібно зараз</p>
-									<h2 id="guidedInvestigationTitle">Розкажіть усе, що вже знаєте про цю ситуацію</h2>
-									<p id="guidedInvestigationReason">Звіти, розмови, спостереження та припущення — усе корисне на цьому етапі.</p>
+									<p class="guided-investigation__eyebrow">Watson</p>
+									<h2 id="guidedInvestigationTitle">Коли ви вперше помітили падіння і що вже про нього знаєте?</h2>
+									<p id="guidedInvestigationReason">Почнімо з того, що вам уже відомо. Можна додати кілька спостережень одразу.</p>
 									<div class="guided-investigation__basis">
-										<div><span>Навіщо</span><strong id="guidedInvestigationNeed">Зрозуміти, який контекст уже доступний</strong></div>
-										<div><span>Далі</span><strong id="guidedInvestigationEffect">Визначити одне найважливіше уточнення</strong></div>
+										<div><span>Чому це корисно</span><strong id="guidedInvestigationNeed">Це допоможе відокремити те, що вже відомо, від того, що потрібно перевірити.</strong></div>
 									</div>
 								</div>
 								<div class="guided-investigation__actions">
@@ -271,15 +270,14 @@
 								</div>
 							</section>
 							<section class="watson-contribution-review hidden" id="watsonContributionReview" aria-live="polite">
-								<span>Watson · пропозиція внеску</span>
-								<h2>Перевірте класифікацію</h2>
-								<p><strong>Тип:</strong> спостереження, що потребує перевірки</p>
-								<p><strong>Зв’язок:</strong> MAT-0247 · Розслідування 1</p>
-								<p><strong>Походження:</strong> власник, поточна сесія</p>
-								<p><strong>Можливий вплив:</strong> уточнює часову межу; не змінює вагу доказів або стан справи.</p>
+								<span>Watson</span>
+								<h2>Ось що я зрозумів</h2>
+								<p id="watsonUnderstandingSummary">Падіння почалося приблизно два місяці тому і, можливо, стосується B2B-напряму. Поки не зрозуміло, змінився дохід, маржа чи обидва показники.</p>
+								<p><strong>Я правильно зрозумів?</strong></p>
 								<div class="capture-review__actions">
-									<button class="btn-primary" id="approveMatterContribution" type="button">Схвалити внесок</button>
-									<button class="btn-secondary" id="discardMatterContribution" type="button">Відхилити</button>
+									<button class="btn-primary" id="approveMatterContribution" type="button">Так</button>
+									<button class="btn-secondary" id="discardMatterContribution" type="button">Виправити</button>
+									<button class="text-button" id="addMatterDetail" type="button">Додати деталь</button>
 								</div>
 							</section>
 							<details class="watson-context" aria-labelledby="aiPartnerTitle">

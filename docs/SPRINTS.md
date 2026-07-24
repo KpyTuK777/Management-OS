@@ -566,3 +566,30 @@ boundaries and [Project Health](PROJECT_HEALTH.md) for the aggregate readiness v
 - Deterministic static-prototype behavior only.
 - No backend intelligence, persistence, autonomous authority, lifecycle gate, or
   capability unlocking is implemented.
+
+## Sprint 20
+
+### Completed
+
+- **Human-first Investigation:** Replaced the architecture-readable opening with
+  conversation-led orientation
+- **Watson Contract:** Introduced short, single-purpose questions and natural
+  summaries
+- **Owner Correction:** Added confirm, correct, and add-detail controls before
+  accepting Watson's interpretation
+- **Board Timing:** Withheld the substantial Situation Board until the first
+  confirmed shared understanding
+- **Operational Distinctions:** Visually distinguished reported symptom,
+  observation, sourced Evidence, assumption, and Hypothesis
+- **Expert Access:** Preserved direct, non-linear access and degraded operation
+  without making conversation mandatory
+- **First-five-minute Journey:** Added deterministic states from the exact profit
+  decline scenario through the first meaningful Hypothesis
+- **Canonical Integration:** Added the Human-first Investigation Experience and
+  updated its governing cross-references
+
+### Implementation status
+
+- Deterministic static-prototype behavior only.
+- No production AI, persistence, source integration, attachment processing,
+  autonomous authority, or hidden owner profiling is implemented.

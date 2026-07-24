@@ -8,13 +8,18 @@ inspectability.
 
 | Property | Decision |
 | --- | --- |
-| Status | Approved canonical product-experience architecture; first Investigation journey aligned |
+| Status | Approved canonical product-experience architecture; human-first Investigation journey aligned |
 | Delivery milestone | Sprint 12; required before significant new capability expansion |
 
 Sprint 19 applies this architecture by removing the visible journey checklist,
 empty future-stage regions, duplicated Board content, and explanatory architecture
 language from the primary Investigation path. Inspectable detail remains available
 through direct access.
+
+Sprint 20 further removes substantial initial Board presentation, decorative
+status elements, architectural Watson explanations, and equal visual weighting.
+The opening prioritizes owner wording, one Watson question, one response surface,
+and a short correction loop.
 | Canonical concept | Cognitive Cleanup |
 | Authority | Explanation-versus-interaction criteria, risk-sensitive disclosure, cognitive-load review, and v1.0 cleanup gate |
 | Related documents | Operational Situation Board Architecture, Product Vision, Owner Journey Validation, Design System, Product Language |

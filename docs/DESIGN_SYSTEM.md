@@ -138,6 +138,12 @@ they are not rendered as placeholders. Material-risk and authority notices may
 interrupt the normal visual sequence and must remain identifiable without relying
 on color alone.
 
+For the human-first Investigation opening, visual priority is owner wording,
+Watson's current question, the response field, and one primary action. The
+substantial Board remains absent until useful. Reported symptoms, observations,
+sourced Evidence, assumptions, and Hypotheses use distinct labels and treatment;
+they must not appear as interchangeable cards.
+
 ## Accessibility
 
 - All interactive controls require a visible `:focus-visible` state.

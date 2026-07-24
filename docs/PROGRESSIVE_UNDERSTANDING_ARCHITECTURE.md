@@ -8,7 +8,7 @@ Management OS constructs operational understanding with the owner.
 | Property | Decision |
 | --- | --- |
 | Status | Approved canonical product architecture; deterministic first-Investigation journey implemented |
-| Delivery milestone | Sprint 16 architecture; Sprint 19 prototype alignment |
+| Delivery milestone | Sprint 16 architecture; Sprint 19 progressive construction; Sprint 20 conversation-led orientation |
 | Canonical concepts | Progressive Understanding, Progressive Construction, cognitive condition |
 
 The Sprint 19 prototype demonstrates Progressive Construction without implementing
@@ -17,6 +17,10 @@ position, gathers known context, identifies one missing orientation item, adds
 Evidence, and introduces the first Hypothesis only when that comparison justifies
 it. Hidden future regions are absent from the primary presentation rather than
 rendered as empty architecture.
+
+The [Human-first Investigation Experience](HUMAN_FIRST_INVESTIGATION_EXPERIENCE.md)
+governs the opening interaction: natural conversation precedes substantial
+visualization while material safeguards and direct access remain available.
 | Authority | Cognitive readiness, construction and emphasis conditions, cross-capability sequencing safeguards, and operational-language relationship |
 | Related documents | Operational Situation Board Architecture, Guided Investigation Interaction, Operational Inquiry Architecture, Natural Capture Architecture, Operational Impact Review Architecture, Product Language |
 

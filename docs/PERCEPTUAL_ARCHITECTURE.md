@@ -9,13 +9,18 @@ reading.
 | Property | Decision |
 | --- | --- |
 | Status | Approved product-experience and design architecture; deterministic prototype aligned |
-| Delivery milestone | Sprint 14; progressive surface hierarchy aligned Sprint 19 |
+| Delivery milestone | Sprint 14; progressive hierarchy Sprint 19; human-first reset Sprint 20 |
 
 The prototype presents one dominant Watson interaction beside a visually distinct
 Living Situation Board and Natural Capture surface. Classification and reasoning
 belong to Watson; original owner contribution and attachments belong to Natural
 Capture. Direct specialist access remains available through inspection without
 receiving equal visual priority.
+
+Before the Board becomes materially useful, Watson occupies the dominant
+orientation position and the owner response remains a separate contribution
+surface. Once shared understanding requires visualization, the Board may gain
+prominence without merging the three surfaces or making conversation mandatory.
 | Canonical concept | Three-surface perceptual architecture |
 | Authority | Surface roles, perceptual character, cross-surface language, context connection, and responsive role preservation |
 | Related documents | Operational Situation Board Architecture, Guided Investigation Interaction, Natural Capture Architecture, AI Assistant Architecture, Design System |

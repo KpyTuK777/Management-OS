@@ -181,6 +181,13 @@ architecture label:
 architectural terms are not primary owner instructions. Watson may show its
 classification in its own surface when that helps the owner inspect the reasoning.
 
+Sprint 20 primary Watson language follows the
+[Human-first Investigation Experience](HUMAN_FIRST_INVESTIGATION_EXPERIENCE.md).
+Each intervention has one purpose and normally contains one short understanding
+summary, one natural question, and a concise explanation only when useful.
+Prefer questions such as `Коли ви вперше це помітили?`, `Що або хто, схоже,
+постраждали?`, `Що не узгоджується?`, and `Що варто перевірити спочатку?`.
+
 ## Writing style
 
 Management OS language should be:

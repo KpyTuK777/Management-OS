@@ -1,5 +1,18 @@
 # Changelog
 
+## Sprint 20 — Human-first Investigation experience
+
+- Replaced the substantial initial Board with a conversation-led orientation.
+- Rewrote primary Watson interventions as short natural operational questions.
+- Added a confirm, correct, and add-detail loop for Watson summaries.
+- Delayed Board prominence until the first confirmed shared understanding.
+- Added distinct presentation for observations, sourced Evidence, assumptions,
+  and Hypotheses.
+- Preserved direct expert access, safeguards, source authority, and non-linear
+  operation.
+- Added a deterministic exact-scenario path through the first meaningful
+  Hypothesis.
+
 ## Sprint 19 — Progressive Understanding prototype refactor
 
 - Refactored the first Investigation journey around a progressively constructed

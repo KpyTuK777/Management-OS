@@ -23,7 +23,7 @@ merely because they may eventually apply.
 | Property | Decision |
 | --- | --- |
 | Status | Approved product architecture; focused Matter contribution behavior demonstrated deterministically |
-| Delivery milestone | Sprint 7 architecture; Sprint 19 Matter-surface alignment |
+| Delivery milestone | Sprint 7 architecture; Sprint 19 Matter alignment; Sprint 20 free-form response alignment |
 | Accountable owner | Product Architect & AI Strategist |
 
 Sprint 19 implements only the owner-contribution surface inside the deterministic
@@ -31,6 +31,11 @@ Matter prototype: natural text, optional attachments, and an optional structured
 entry aid. Classification, proposed meaning, and next-action guidance remain in
 the Watson Interaction Surface. This does not claim the broader Natural Capture
 runtime, routing, persistence, or intelligence is implemented.
+
+The human-first Investigation response accepts one answer, several answers, or
+multiple observations in a single contribution. Structured entry remains optional;
+Natural Capture never forces field-by-field completion to satisfy internal
+architecture.
 | Product approval | Product Owner |
 | Scope | Product architecture only |
 | Excluded | LLMs, prompts, providers, APIs, speech recognition, embeddings, vector databases, and implementation |

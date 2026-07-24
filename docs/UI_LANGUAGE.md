@@ -16,3 +16,7 @@ operational language such as “Tell me everything you already know,” “Add w
 know,” “What became clear,” and “What still needs to be found out.” Canonical
 architecture names remain available in documentation and specialist inspection,
 not as primary task instructions.
+
+The Sprint 20 opening is governed by the
+[Human-first Investigation Experience](HUMAN_FIRST_INVESTIGATION_EXPERIENCE.md).
+Primary Watson messages use short operational questions and revisable summaries.

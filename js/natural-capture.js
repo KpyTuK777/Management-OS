@@ -1,47 +1,44 @@
 const InvestigationPrototype = (() => {
 	let elements;
 	let guidedPhase = "orientation";
+	let contributionRound = "context";
 	const guidedStates = {
 		orientation: {
-			condition: "Перший контекст",
-			title: "Розкажіть усе, що вже знаєте про цю ситуацію",
-			reason: "Звіти, розмови, спостереження та припущення — усе корисне на цьому етапі.",
-			need: "Зрозуміти, який контекст уже доступний",
-			effect: "Визначити одне найважливіше уточнення",
-			action: "Додати те, що знаю",
+			condition: "Почнімо з вашого досвіду",
+			title: "Коли ви вперше помітили падіння і що вже про нього знаєте?",
+			reason: "Можна відповісти на це запитання або одразу додати кілька спостережень.",
+			need: "Це допоможе відокремити те, що вже відомо, від того, що потрібно перевірити.",
+			action: "Перейти до відповіді",
 			captureFirst: true
 		},
 		orientationGap: {
 			condition: "Одне уточнення",
-			title: "За який період відбулася зміна?",
-			reason: "Період потрібен, щоб вибрати коректне базове порівняння. Інші питання поки можуть зачекати.",
-			need: "Період до і після повідомленої зміни",
-			effect: "Підготувати один пропорційний запит до джерел",
-			action: "Переглянути потрібне джерело"
+			title: "Прибуток знизився через менший дохід, меншу маржу чи обидва показники?",
+			reason: "Я зрозумів, коли почалося падіння і кого воно може стосуватися. Залишилося уточнити, який саме показник змінився.",
+			need: "Відповідь підкаже, яке порівняння перевірити першим.",
+			action: "Перейти до відповіді",
+			captureFirst: true
 		},
 		evidence: {
-			condition: "Збір доказів",
-			title: "Отримати сегментований CRM-зріз",
-			reason: "Це найменший доступний доказ, який покаже, чи зміна загальна або локалізована.",
-			need: "CRM-когорти за періодом і сегментом",
-			effect: "Дозволити або відкласти порівняння конкуруючих пояснень",
-			action: "Отримати демонстраційні докази"
+			condition: "Перевірмо перше джерело",
+			title: "Порівняти дохід і маржу за сегментами за останні два місяці?",
+			reason: "Це покаже, чи падіння загальне, чи зосереджене в окремій частині бізнесу.",
+			need: "Доступ до внутрішнього звіту потребує вашого дозволу.",
+			action: "Дозволити демонстраційне порівняння"
 		},
 		hypotheses: {
-			condition: "Перевірка пояснень",
-			title: "Порівняти конкуруючі гіпотези",
-			reason: "Базовий зріз уже встановив сегментовану зміну; тепер важливо шукати розрізнювальні, а не лише підтверджувальні докази.",
-			need: "Підтримувальні та спростовувальні умови",
-			effect: "Відхилити слабкі пояснення та підготувати перевірку причинності",
-			action: "Перевірити причинне пояснення"
+			condition: "З’явилася розбіжність",
+			title: "Чи могли затримки передачі B2B-лідів вплинути на падіння маржі?",
+			reason: "Звіт показує, що дохід майже не змінився, але маржа B2B знизилася після зростання часу передачі лідів.",
+			need: "Це лише можливе пояснення. Його потрібно перевірити проти інших причин.",
+			action: "Порівняти пояснення"
 		},
 		decision: {
-			condition: "Підготовка рішення",
-			title: "Переглянути готовність до рішення",
-			reason: "Докази підтримують обмежене судження, але залишкова невизначеність має бути прийнята власником явно.",
-			need: "Відоме, невідоме, ризики та захисні умови",
-			effect: "Прийняти рішення або повернутися до розслідування",
-			action: "Переглянути та прийняти рішення"
+			condition: "Потрібне ваше рішення",
+			title: "Чи достатньо підстав для обмеженого пілоту?",
+			reason: "Одне пояснення підтримується сильніше, але вплив ціни ще не відокремлено.",
+			need: "Порівняйте відоме, невідоме та захисні умови.",
+			action: "Переглянути рішення"
 		},
 		execution: {
 			condition: "Виконання",
@@ -86,18 +83,16 @@ const InvestigationPrototype = (() => {
 		elements.guidedTitle.textContent = state.title;
 		elements.guidedReason.textContent = state.reason;
 		elements.guidedNeed.textContent = state.need;
-		elements.guidedEffect.textContent = state.effect;
 		elements.guidedAction.textContent = state.action;
 		elements.redirectGuidance.classList.toggle("hidden", Boolean(state.captureFirst));
 		elements.rejectGuidance.classList.toggle("hidden", Boolean(state.captureFirst));
 	}
 
 	function advanceGuidedAction() {
-		if (guidedPhase === "orientation") {
+		if (guidedStates[guidedPhase].captureFirst) {
 			elements.matterCaptureInput.focus();
 			return elements.matterCaptureInput.scrollIntoView({ behavior: "smooth", block: "center" });
 		}
-		if (guidedPhase === "orientationGap") return beginEvidenceCollection();
 		if (guidedPhase === "evidence") return collectEvidence();
 		if (guidedPhase === "hypotheses") return validateCause();
 		if (guidedPhase === "decision") return approveDecision();
@@ -129,7 +124,14 @@ const InvestigationPrototype = (() => {
 		elements.workspace.classList.remove("hidden");
 		showView("understanding");
 		elements.workspace.focus({ preventScroll: true });
-		window.location.hash = "investigations";
+		window.scrollTo({ top: 0, behavior: "instant" });
+		window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}#investigations`);
+		document.querySelectorAll(".sidebar nav a").forEach(link => {
+			const active = link.getAttribute("href") === "index.html#investigations";
+			link.classList.toggle("active", active);
+			if (active) link.setAttribute("aria-current", "page");
+			else link.removeAttribute("aria-current");
+		});
 		announce("Створено тимчасову операційну справу MAT-0247 і перше розслідування. Повідомлений симптом збережено лише в пам’яті сторінки.");
 	}
 
@@ -155,8 +157,9 @@ const InvestigationPrototype = (() => {
 		elements.evidenceSummaryCard.classList.remove("hidden");
 		elements.hypothesisSection.classList.remove("hidden");
 		elements.hypothesisSummaryCard.classList.remove("hidden");
-		elements.boardRecentChange.textContent = "Сегментований CRM-зріз підтвердив локалізовану зміну";
-		elements.boardNextJudgment.textContent = "Затримка передачі лідів може пояснювати спад";
+		elements.boardUnderstanding.textContent = "Маржа B2B знизилася, тоді як загальний дохід майже не змінився";
+		elements.boardRecentChange.textContent = "Фінансовий звіт · B2B-сегмент · останні два місяці";
+		elements.boardNextJudgment.textContent = "Затримки передачі B2B-лідів могли вплинути на маржу";
 		elements.hypothesisList.classList.remove("hidden");
 		elements.validateCause.classList.remove("hidden");
 		setGuidedPhase("hypotheses");
@@ -216,14 +219,16 @@ const InvestigationPrototype = (() => {
 		if (!original) return;
 
 		elements.captureOriginal.textContent = `“${original}”`;
-		elements.matterCaptureReview.classList.remove("hidden");
 		elements.guidedInvestigation.classList.add("hidden");
 		elements.watsonContributionReview.classList.remove("hidden");
 		elements.reasoningMilestone.classList.add("hidden");
 		elements.approveMatterContribution.disabled = false;
-		elements.approveMatterContribution.textContent = "Схвалити як внесок для перевірки";
+		elements.approveMatterContribution.textContent = "Так";
+		elements.watsonUnderstandingSummary.textContent = contributionRound === "context"
+			? "Я зрозумів, що падіння почалося приблизно два місяці тому і, можливо, стосується B2B-напряму. Поки не зрозуміло, змінився дохід, маржа чи обидва показники."
+			: "Я зрозумів, що основна зміна стосується маржі, а не загального доходу. Це потрібно перевірити за сегментованим звітом.";
 		elements.watsonContributionReview.scrollIntoView({ behavior: "smooth", block: "nearest" });
-		announce("Watson підготував класифікацію та зв’язки. Оригінальне формулювання збережено; потрібна перевірка власника.");
+		announce("Watson коротко підсумував відповідь. Підтвердьте, виправте або додайте деталь.");
 	}
 
 	function approveMatterContribution() {
@@ -231,19 +236,26 @@ const InvestigationPrototype = (() => {
 		if (!original) return;
 
 		elements.milestoneContribution.textContent = original;
-		elements.reasoningMilestone.classList.remove("hidden");
-		elements.boardUnderstanding.textContent = "18 квітня є кандидатом межі зміни, а не підтвердженим фактом";
-		elements.boardReasoningBasis.textContent = "Власницьке спостереження потребує зіставлення з CRM і SLA";
-		elements.knownContextCard.classList.remove("hidden");
-		elements.missingOrientationCard.classList.remove("hidden");
-		setGuidedPhase("orientationGap");
+		if (contributionRound === "context") {
+			elements.situationBoard.classList.remove("hidden");
+			elements.perceptualWorkspace.classList.add("has-board");
+			elements.boardUnderstanding.textContent = "Падіння повідомлено за останні два місяці; причина ще не встановлена";
+			elements.boardReasoningBasis.textContent = "Падіння, ймовірно, помітне в B2B-напрямі";
+			elements.knownContextCard.classList.remove("hidden");
+			elements.missingOrientationCard.classList.remove("hidden");
+			contributionRound = "orientation";
+			elements.matterCapturePrompt.textContent = "Уточніть показник або додайте іншу важливу деталь.";
+			setGuidedPhase("orientationGap");
+		} else {
+			elements.boardUncertainty.textContent = "Маржа могла знизитися без такого самого падіння доходу";
+			beginEvidenceCollection();
+		}
 		elements.watsonContributionReview.classList.add("hidden");
 		elements.guidedInvestigation.classList.remove("hidden");
 		elements.approveMatterContribution.disabled = true;
-		elements.approveMatterContribution.textContent = "Внесок схвалено для перевірки";
 		elements.matterCaptureInput.value = "";
 		elements.guidedInvestigation.scrollIntoView({ behavior: "smooth", block: "nearest" });
-		announce("Внесок схвалено в пам’яті сторінки. Картина доповнена контекстом; Watson пропонує одне наступне уточнення.");
+		announce("Ваше формулювання збережено. Watson оновив спільне розуміння та показав один наступний крок.");
 	}
 
 	function discardMatterContribution() {
@@ -252,7 +264,7 @@ const InvestigationPrototype = (() => {
 		elements.guidedInvestigation.classList.remove("hidden");
 		elements.reasoningMilestone.classList.add("hidden");
 		elements.matterCaptureInput.focus();
-		announce("Пропозицію Watson відхилено. Оригінальний текст залишається в полі введення для редагування.");
+		announce("Повернуто вашу відповідь для виправлення. Watson нічого не прийняв як факт.");
 	}
 
 	function resetInvestigation() {
@@ -346,12 +358,17 @@ const InvestigationPrototype = (() => {
 			knowledgeCaptured: document.getElementById("knowledgeCaptured"),
 			matterCaptureForm: document.getElementById("matterCaptureForm"),
 			matterCaptureInput: document.getElementById("matterCaptureInput"),
+			matterCapturePrompt: document.getElementById("matterCapturePrompt"),
 			matterCaptureReview: document.getElementById("matterCaptureReview"),
+			situationBoard: document.getElementById("situationBoard"),
+			perceptualWorkspace: document.querySelector(".perceptual-workspace"),
 			guidedInvestigation: document.getElementById("guidedInvestigation"),
 			watsonContributionReview: document.getElementById("watsonContributionReview"),
+			watsonUnderstandingSummary: document.getElementById("watsonUnderstandingSummary"),
 			captureOriginal: document.getElementById("captureOriginal"),
 			approveMatterContribution: document.getElementById("approveMatterContribution"),
 			discardMatterContribution: document.getElementById("discardMatterContribution"),
+			addMatterDetail: document.getElementById("addMatterDetail"),
 			reasoningMilestone: document.getElementById("reasoningMilestone"),
 			milestoneContribution: document.getElementById("milestoneContribution"),
 			boardUnderstanding: document.getElementById("boardUnderstanding"),
@@ -366,7 +383,6 @@ const InvestigationPrototype = (() => {
 			guidedTitle: document.getElementById("guidedInvestigationTitle"),
 			guidedReason: document.getElementById("guidedInvestigationReason"),
 			guidedNeed: document.getElementById("guidedInvestigationNeed"),
-			guidedEffect: document.getElementById("guidedInvestigationEffect"),
 			guidedAction: document.getElementById("guidedActionButton"),
 			redirectGuidance: document.getElementById("redirectGuidanceButton"),
 			deferGuidance: document.getElementById("deferGuidanceButton"),
@@ -429,17 +445,32 @@ const InvestigationPrototype = (() => {
 		elements.matterCaptureForm.addEventListener("submit", prepareMatterContribution);
 		elements.approveMatterContribution.addEventListener("click", approveMatterContribution);
 		elements.discardMatterContribution.addEventListener("click", discardMatterContribution);
+		elements.addMatterDetail.addEventListener("click", () => {
+			elements.watsonContributionReview.classList.add("hidden");
+			elements.guidedInvestigation.classList.remove("hidden");
+			elements.matterCaptureInput.focus();
+			announce("Додайте будь-яку важливу деталь. Попередній текст залишається у вашій відповіді.");
+		});
 
 		if (new URLSearchParams(window.location.search).get("demo") === "investigation") {
-			elements.input.value = "Наші продажі знижуються протягом останніх трьох місяців.";
+			elements.input.value = "Прибуток різко впав протягом останніх двох місяців.";
 			elements.form.requestSubmit();
-			if (new URLSearchParams(window.location.search).get("capture") === "approved") {
-				elements.matterCaptureInput.value = "Керівник enterprise-команди повідомив, що час передачі лідів зріс після 18 квітня.";
+			const captureState = new URLSearchParams(window.location.search).get("capture");
+			if (["review", "approved"].includes(captureState)) {
+				elements.matterCaptureInput.value = "Падіння помітили близько двох місяців тому. Команда B2B повідомляє про довшу передачу лідів. Є щомісячний фінансовий звіт, але ми ще не порівнювали дохід і маржу.";
 				elements.matterCaptureForm.requestSubmit();
+			}
+			if (captureState === "approved") {
 				elements.approveMatterContribution.click();
 			}
-			if (new URLSearchParams(window.location.search).get("journey") === "complete") {
+			const journey = new URLSearchParams(window.location.search).get("journey");
+			if (["first-hypothesis", "complete"].includes(journey)) {
+				elements.matterCaptureInput.value = "Схоже, що знизилася насамперед маржа B2B, тоді як загальний дохід змінився незначно.";
+				elements.matterCaptureForm.requestSubmit();
+				elements.approveMatterContribution.click();
 				collectEvidence();
+			}
+			if (journey === "complete") {
 				validateCause();
 				approveDecision();
 				approvePlan();
