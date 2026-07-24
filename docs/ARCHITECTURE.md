@@ -12,10 +12,20 @@ typed links to source-owned contributions. A Matter may contain multiple
 Operational Investigation episodes, close, and reopen without changing identity.
 Learning remains separately governed.
 
+The real-world object under investigation or change is a bounded
+[Operational System](OPERATIONAL_SYSTEM_ARCHITECTURE.md). The Operational
+Operating Model supplies its governed topology; the Matter preserves lifecycle
+and relationships; Investigations and the Board construct Matter-relative
+understanding without creating a parallel enterprise model.
+
 The [Operational Situation Board](OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md) is
 the canonical Matter-workspace read model. It projects current understanding
 through a stable frame, explainable cognitive center, governed Natural Capture,
 and material Reasoning Milestones without owning source records or authority.
+The [Progressive Understanding Architecture](PROGRESSIVE_UNDERSTANDING_ARCHITECTURE.md)
+governs its living, progressively constructed picture and the cognitive readiness
+of concepts introduced into primary interaction without changing capability
+availability or source truth.
 Its pre-v1.0 presentation follows the
 [Cognitive Cleanup Architecture](COGNITIVE_CLEANUP_ARCHITECTURE.md): architecture
 remains inspectable while ordinary interaction prioritizes situation understanding
@@ -37,6 +47,12 @@ authoritative Decision, the
 [Operational Impact Review](OPERATIONAL_IMPACT_REVIEW_ARCHITECTURE.md) prepares
 the separately approved operational-adaptation input to Execution Planning. These
 remain future architecture and do not transfer source authority.
+
+The [Operational Transition Architecture](OPERATIONAL_TRANSITION_ARCHITECTURE.md)
+provides post-Decision continuity from intended operating condition through
+approved adaptations, source-owned execution, Outcome, and stabilization. It is a
+cross-capability relationship, not another application layer, aggregate, project
+system, or mutation authority.
 
 Architecture and source identifiers may remain in English, while user-facing copy
 follows the [Product Language Guide](PRODUCT_LANGUAGE.md).

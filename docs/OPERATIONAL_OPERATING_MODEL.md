@@ -22,11 +22,18 @@ handoffs, controls, constraints, decision rights, Evidence access, and relevant
 operating characteristics so Management OS can reason about current conditions
 and proposed change without reducing the organization to a hierarchy.
 
+The real-world object represented is the bounded
+[Operational System](OPERATIONAL_SYSTEM_ARCHITECTURE.md). The Operating Model is
+its sole governed representational authority; no parallel Operational System
+Model, enterprise graph, or Investigation-owned topology is created.
+
 Eligible context may include:
 
 - organizational units, teams, responsibilities, roles, decision rights, reporting,
   and escalation relationships;
 - operational processes, process steps, dependencies, capacity points, and handoffs;
+- operational capabilities and their organizational owners;
+- information and material flows, measures, and feedback loops;
 - systems, integrations, information flows, and appropriately governed access;
 - SOPs, controls, measures, monitoring expectations, and operating standards;
 - working hours, department availability, interview windows, and reporting cadence;
@@ -35,6 +42,7 @@ Eligible context may include:
   organizational level;
 - operational constraints, recurring bottlenecks, travel requirements, Evidence
   availability, and department-specific operating notes.
+- relevant customers, suppliers, regulators, and other external actors.
 
 Its purpose is shared operational topology for backward Investigation reasoning
 and forward change-impact reasoning, not organization-chart administration,
@@ -94,6 +102,9 @@ change durable operating facts, process projections, or relationships.
   not predict or approve them.
 - **Execution Planning** receives only owner-approved adaptations and uses current
   topology to plan scope, sequence, ownership, coordination, and validation.
+- **Operational Transition** may project current topology, approved intended
+  adaptations, source-owned change progress, and observed post-change behavior
+  while keeping those states visibly and authoritatively distinct.
 - **Operational Memory** may use governed topology references to compare completed
   episodes, but recurrence never becomes current truth or authority to act.
 

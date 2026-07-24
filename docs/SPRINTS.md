@@ -456,3 +456,84 @@ boundaries and [Project Health](PROJECT_HEALTH.md) for the aggregate readiness v
 - No entity, persistence, migration, runtime, AI behavior, interface, task,
   Execution Plan, SOP mutation, Operating Model source mutation, or Knowledge
   publication is implemented.
+
+## Sprint 16
+
+### Completed
+
+- **Progressive Understanding:** Established the cross-capability cognitive
+  principle for constructing operational understanding with the owner
+- **Progressive Construction:** Distinguished emerging reasoning from disclosure
+  of already existing detail
+- **Living Situation Board:** Preserved stable orientation while allowing the
+  projected operational picture to grow with meaningful understanding
+- **Cognitive Readiness:** Governed when questions and reasoning concepts receive
+  primary presentation without introducing stages or capability gates
+- **Operational Language:** Distinguished cognitively natural owner interaction
+  from precise canonical terminology within the existing language authority
+- **Cross-capability Integration:** Updated Board, Guided Investigation, Inquiry,
+  Natural Capture, Watson, Impact Review, Cognitive Cleanup, Perceptual
+  Architecture, Product Vision, Owner Journey, Systems, Roadmap, and governance
+  records
+
+### Implementation status
+
+- Architecture and documentation integration only.
+- No lifecycle state, readiness score, capability gate, AI runtime, persistence,
+  migration, production interface, or autonomous authority is implemented.
+
+## Sprint 17
+
+### Completed
+
+- **Operational System:** Defined the bounded real-world object whose behavior an
+  Operational Matter seeks to understand or change
+- **Model Boundary:** Retained Operational Operating Model as the sole governed
+  topology representation
+- **Process Participation:** Made processes first-class references without
+  excluding people, authority, incentives, systems, suppliers, controls, or
+  external conditions
+- **Condition Semantics:** Separated Process Condition Assessment from
+  understanding confidence and Evidence
+- **System Map:** Defined a Matter-relative Living Situation Board projection
+  governed by Progressive Understanding
+- **Stabilization:** Located proportionate Stabilization Assessment inside Outcome
+  Assessment without adding a Matter state
+- **Canonical Integration:** Updated Matter, Case, Board, Impact Review, Memory,
+  Watson, Product Vision, Systems, language, roadmap, indexes, and governance
+  records
+
+### Implementation status
+
+- Architecture and documentation integration only.
+- No entity, topology store, process engine, BPM capability, visualization,
+  health score, AI runtime, persistence, migration, integration, or production
+  interface is implemented.
+
+## Sprint 18
+
+### Completed
+
+- **Operational Transition:** Defined the conditional post-Decision change
+  interval connecting Decision intent to observed Outcome
+- **Decision Boundary:** Distinguished complementary understanding and change
+  arcs without introducing lifecycle phases or capability gates
+- **Intended Operating Condition:** Strengthened the existing target condition as
+  the Decision-owned basis for execution, Outcome, and stabilization
+- **Authority Preservation:** Kept Impact Review, planning, projects, tasks, SOPs,
+  calendars, training, HR, ERP, CRM, workflow, and external systems within their
+  existing responsibilities
+- **Transition Projection:** Related current, intended, planned, and observed
+  conditions through the Operating Model and Living Situation Board
+- **Completion Boundary:** Preserved proportionate stabilization within Outcome
+  Assessment and explicit closure with residual uncertainty
+- **Canonical Integration:** Updated Matter, Case, System, Operating Model, Board,
+  Impact Review, Memory, Watson, Product Vision, Systems, language, roadmap,
+  indexes, and governance records
+
+### Implementation status
+
+- Architecture and documentation integration only.
+- No Matter state, entity, transition store, project system, workflow engine,
+  planning engine, AI runtime, persistence, migration, integration, or production
+  interface is implemented.

@@ -13,6 +13,13 @@ recognizable owner working surface. It contains original contribution and tool
 state; Watson classification, explanation, and consequential review appear in the
 separate Watson Interaction Surface.
 
+Natural Capture follows the
+[Progressive Understanding Architecture](PROGRESSIVE_UNDERSTANDING_ARCHITECTURE.md).
+It preserves the owner's wording first and introduces only the interpretation,
+clarification, and structure that are cognitively meaningful for the current
+contribution and governed handoff. It does not expose later Investigation concepts
+merely because they may eventually apply.
+
 | Property | Decision |
 | --- | --- |
 | Status | Approved product architecture; not implemented |

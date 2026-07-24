@@ -1,5 +1,62 @@
 # Changelog
 
+## Sprint 18 — Operational Transition
+
+- Defined Operational Transition as the conditional post-Decision interval from
+  an executable Decision toward an intended operating condition.
+- Treated Organizational Transformation as a possible high-consequence Transition
+  class rather than a universal capability or lifecycle phase.
+- Strengthened the existing target condition as the Decision-owned Intended
+  Operating Condition with measures, guardrails, adoption, stabilization, risk,
+  and review conditions.
+- Preserved Impact Review as the reasoning bridge and Execution Planning as the
+  coordinated delivery design authority.
+- Kept projects, tasks, SOPs, calendars, training, HR, ERP, CRM, workflow, and
+  external systems authoritative for their execution records.
+- Added current-intended-observed Transition projections to the Operating Model
+  and Living Situation Board relationships.
+- Preserved Stabilization Assessment within Outcome Assessment and allowed
+  explicit closure with residual uncertainty or incomplete verification.
+- Added no Matter state, entity, project system, workflow engine, planning engine,
+  runtime behavior, persistence, integration, or interface.
+
+## Sprint 17 — Operational System
+
+- Defined Operational System as the bounded real-world network whose behavior a
+  Matter seeks to understand or change.
+- Retained Operational Operating Model as the sole governed representation and
+  rejected a parallel Operational System Model authority.
+- Made processes first-class typed Investigation references without reducing
+  system behavior to processes or departmental fault.
+- Separated Process Condition Assessment from understanding confidence and kept
+  “Process Health” as optional explainable owner-facing language.
+- Defined Operational System Map as a Matter-relative Living Situation Board
+  projection governed by Progressive Understanding.
+- Clarified Operational Impact Review as expected system-change analysis and
+  Stabilization Assessment as a proportionate Outcome contribution.
+- Connected completed system interventions and stabilization dispositions to
+  Operational Memory and separately governed Knowledge evolution.
+- Added no entity, graph store, process engine, BPM capability, visualization,
+  health score, runtime behavior, persistence, integration, or interface.
+
+## Sprint 16 — Progressive Understanding
+
+- Established Progressive Understanding as the cross-capability cognitive
+  architecture for constructing operational understanding with the owner.
+- Distinguished Progressive Construction of reasoning from Progressive Disclosure
+  of existing detail.
+- Defined the Living Situation Board as a stable frame with a progressively
+  constructed operational picture and complete inspectability.
+- Added cognitive-readiness rules to Guided Investigation, Operational Inquiry,
+  Natural Capture, Watson behavior, and Operational Impact Review.
+- Refined question answerability to require sufficient orientation for an answer,
+  Evidence source, or acquisition action—not prior possession of the answer.
+- Established Operational Language inside the existing Product Language authority
+  while preserving precise Architectural Language for contracts, audit, and
+  specialist inspection.
+- Added no lifecycle state, score, capability gate, runtime behavior, persistence,
+  interface, or autonomous authority.
+
 ## Sprint 15 — Operational Impact Review
 
 - Established Operational Impact Review as the proportionate, governed bridge

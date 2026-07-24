@@ -32,6 +32,12 @@ from the approved experience.
 Cognitive Cleanup is not documentation restructuring, feature removal, or a
 license to conceal uncertainty. It is a product-experience maturity phase.
 
+Cognitive Cleanup removes avoidable explanation and competition. The
+[Progressive Understanding Architecture](PROGRESSIVE_UNDERSTANDING_ARCHITECTURE.md)
+additionally governs when operational understanding is ready to be constructed in
+the primary experience. Cleanup and construction are complementary: one removes
+product-mechanics burden; the other prevents premature reasoning structure.
+
 ## Explanation versus interaction
 
 Every visible explanation is presumed temporary implementation debt unless it

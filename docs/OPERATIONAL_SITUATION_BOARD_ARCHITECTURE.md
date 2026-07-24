@@ -10,11 +10,30 @@ Matter.
 | Status | Approved canonical experience architecture; prototype presentation aligned |
 | Delivery milestone | Sprint 11; Guided Investigation interaction approved Sprint 13 |
 | Canonical concept | Operational Situation Board |
-| Authority | Matter-level operational picture, stable frame, dynamic cognitive focus, natural capture integration, and progressive disclosure |
-| Related documents | Operational Matter Architecture, Operational Case Experience Architecture, Natural Capture Architecture, AI Assistant Architecture, Operational Reasoning Model |
+| Authority | Matter-level operational picture, stable frame, living cognitive projection, dynamic cognitive focus, natural capture integration, and progressive disclosure |
+| Related documents | Progressive Understanding Architecture, Operational Matter Architecture, Operational Case Experience Architecture, Natural Capture Architecture, AI Assistant Architecture, Operational Reasoning Model |
 
 The **Operational Situation Board** is a state-sensitive, owner-inspectable
 projection of the current operational understanding.
+
+Under the
+[Progressive Understanding Architecture](PROGRESSIVE_UNDERSTANDING_ARCHITECTURE.md),
+it is a **Living Situation Board**: a stable frame whose operational picture is
+progressively constructed as governed understanding becomes meaningful. It is not
+a populated template exposing every reasoning concept from the beginning.
+
+When process and dependency relationships are material, the Board may project a
+Matter-relative
+[Operational System Map](OPERATIONAL_SYSTEM_ARCHITECTURE.md#operational-system-map).
+The map composes governed Operating Model references with current Investigation
+understanding; it never becomes a second topology authority or complete enterprise
+atlas.
+
+During an [Operational Transition](OPERATIONAL_TRANSITION_ARCHITECTURE.md), the
+Living Board may compare the authoritative Decision and Intended Operating
+Condition with approved adaptations, source-owned work, monitoring, and observed
+behavior. It coordinates understanding and attention; visual progress never
+changes execution, Matter, or Outcome state.
 
 Its perceptual role and relationship to Natural Capture and the Watson
 Interaction Surface are governed by the
@@ -66,8 +85,10 @@ The primary frame continuously answers:
 7. **What should happen next?** Watson's proposed next contribution, judgment, or
    action and the authority required.
 
-These questions form a stable spatial and conceptual frame. Matter state changes
-content emphasis, not the existence or meaning of the frame.
+These questions define the Board's stable conceptual responsibility. They do not
+require every region, label, or empty structure to compete in the primary view.
+Matter state and cognitive condition change constructed content and emphasis, not
+the frame's meaning or direct inspectability.
 
 The Board visualizes current understanding rather than artifact inventory.
 Documents, Evidence items, conversations, tasks, and capability records appear as
@@ -80,6 +101,8 @@ The **cognitive center** is the element that currently contributes most to owner
 understanding or judgment. It may be a dominant uncertainty, contradiction,
 material Evidence source, Inflection Point, leading Hypothesis, missing
 dependency, Decision Readiness issue, execution risk, or outcome signal.
+It may also be a process condition, handoff, feedback loop, system dependency, or
+bounded Operational System relationship when that element is material now.
 
 Watson may propose and update the cognitive center only when it can expose:
 
@@ -157,6 +180,20 @@ Progressive disclosure must never conceal uncertainty, conflicting Evidence,
 authority, source freshness, or a material consequence.
 Pre-v1.0 explanatory reduction follows the
 [Cognitive Cleanup Architecture](COGNITIVE_CLEANUP_ARCHITECTURE.md).
+
+## Progressive construction
+
+Progressive disclosure reveals existing detail. Progressive construction changes
+the projected operational picture as Evidence, relationships, contradictions,
+explanations, Decisions, impacts, execution, Outcomes, and learning become
+cognitively meaningful.
+
+An early Board may contain only the reported condition, preserved owner wording,
+material urgency, and one unresolved orientation need. Later reasoning elements
+enter primary presentation because they contribute to current understanding, not
+because a template reserves equal visible space for them. Source-owned records and
+direct capability access remain inspectable before emphasis, and previously
+constructed understanding remains traceable afterward.
 
 ## Guided Investigation interaction
 

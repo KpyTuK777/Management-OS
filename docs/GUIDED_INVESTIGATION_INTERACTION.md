@@ -12,10 +12,16 @@ authority.
 | Delivery milestone | Sprint 13 |
 | Canonical concept | Guided Investigation |
 | Authority | Attention hierarchy, dominant interaction, supporting context, inspectable workspace, and guidance recalculation |
-| Related documents | Operational Situation Board Architecture, Operational Inquiry Architecture, Natural Capture Architecture, AI Assistant Architecture |
+| Related documents | Progressive Understanding Architecture, Operational Situation Board Architecture, Operational Inquiry Architecture, Natural Capture Architecture, AI Assistant Architecture |
 
 Guided Investigation makes the next meaningful investigative interaction obvious.
 Watson leads attention and the owner retains judgment.
+
+The [Progressive Understanding Architecture](PROGRESSIVE_UNDERSTANDING_ARCHITECTURE.md)
+governs cognitive readiness. Watson introduces a question or reasoning concept
+only when the owner has enough orientation to understand its purpose and answer,
+identify an Evidence source, choose an acquisition action, or make the applicable
+judgment.
 
 The [Perceptual Architecture](PERCEPTUAL_ARCHITECTURE.md) locates that dominant
 interaction in the recognizable Watson Interaction Surface while keeping the
@@ -83,6 +89,10 @@ History supports Investigation; it does not lead it.
 6. Guidance changes are explainable, announced when material, and reversible.
 7. Direct and degraded operation remain complete.
 8. Artifact count, activity, and stage completion are not progress.
+9. Cognitive readiness governs primary presentation without gating capability
+   access.
+10. Material risk, contradiction, uncertainty, source failure, and authority may
+    override ordinary sequencing.
 
 ## AI interaction
 

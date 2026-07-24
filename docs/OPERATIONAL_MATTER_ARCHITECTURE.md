@@ -29,6 +29,11 @@ No capability creates a parallel representation of the Matter. An Operational
 Investigation is a repeatable work episode concerning a Matter, not the Matter's
 permanent identity.
 
+The Matter concerns behavior within a bounded
+[Operational System](OPERATIONAL_SYSTEM_ARCHITECTURE.md). The system is the
+real-world object under investigation or change; it does not replace Matter
+identity, lifecycle, or source-owned contributions.
+
 ## Owned authority
 
 The Operational Matter owns:
@@ -166,11 +171,14 @@ does not change Evidence standards, authority, or lifecycle ownership.
 | Operational Reasoning | Versioned interpretation with input lineage |
 | Decision | Authoritative linked record with rationale and decision-time snapshot |
 | Operational Impact Review | Linked, versioned decision-impact contribution and owner-approved adaptation package |
+| Operational Transition | Cross-capability relationship from an executable Decision through adaptation, source-owned execution, Outcome, and stabilization |
 | Decision Laboratory | Non-authoritative branch from a named Matter version |
 | Organizational Context | Live source reference; traceable decision-time snapshot only when material |
 | Calendar Commitment | External authoritative reference; scheduling status is never copied as Matter truth |
 | Operational Action | Linked execution record owned by its execution capability |
 | Outcome | Linked assessment against decision intent and expected effect |
+| Operational System | Referenced real-world system boundary and governed Operating Model topology; never Matter-owned truth |
+| Process Condition Assessment | Linked Investigation- or Outcome-owned projection with separate understanding confidence |
 | Operational Memory | Indexed historical reference to Matters, Decisions, and Outcomes |
 | Knowledge | Separately governed publication derived from learning lineage |
 
@@ -198,6 +206,16 @@ authority to the Matter.
 - **Operational Impact Review** evaluates how an authoritative Decision propagates
   through that topology and hands only owner-approved adaptations to Execution
   Planning. It does not add a Matter macro-state.
+- **Operational Transition** coordinates Decision intent, approved adaptations,
+  source-owned execution, and observed Outcome without owning their records or
+  adding a Matter macro-state.
+- **Stabilization Assessment** is a proportionate Outcome contribution. It may
+  support closure or return to execution but never adds a Matter macro-state.
+
+An authoritative Decision is a conditional boundary between an
+understanding-dominant arc and a change-dominant arc. No-action or execution-free
+Decisions require no Transition. Investigation may continue after Decision, and
+the existing backward and repeat transitions remain authoritative.
 - **Watson Professional Ethos** governs behavior, transparency, epistemic
   discipline, and authority boundaries across all capabilities.
 

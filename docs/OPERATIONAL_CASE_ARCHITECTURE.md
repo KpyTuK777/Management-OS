@@ -46,6 +46,13 @@ process through which the owner investigates a Matter, makes and executes
 justified Decisions, verifies Outcomes, and proposes what may become durable
 practice. It is not a parallel identity or lifecycle artifact.
 
+The Case may frame the relevant
+[Operational System](OPERATIONAL_SYSTEM_ARCHITECTURE.md) whose behavior produces
+the current condition or intended Outcome. Processes are first-class references,
+but Investigation follows material system behavior and may center people,
+authority, incentives, technology, suppliers, controls, or external conditions
+when Evidence requires it.
+
 It answers:
 
 > What situation are we trying to understand or change, what do we know about it,
@@ -151,6 +158,13 @@ Each applicable cycle preserves:
 - observed effect and unintended consequences;
 - outcome-verification status;
 - decision to adopt, revise, stop, monitor, or run another cycle.
+
+For a consequential executable Decision, the intended or target condition becomes
+the Decision-owned **Intended Operating Condition** governed by the
+[Operational Transition Architecture](OPERATIONAL_TRANSITION_ARCHITECTURE.md).
+It defines the bounded behavior, measures, guardrails, adoption expectations,
+stabilization criteria, residual risk, and review conditions against which
+execution and observed Outcome are evaluated.
 
 ## What begins a Case
 

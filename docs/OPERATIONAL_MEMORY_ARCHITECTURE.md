@@ -197,6 +197,15 @@ history.
   owns decision-impact findings, adaptation dispositions, and the planning handoff.
   Completed reviews may contribute approved adaptations, secondary effects,
   stabilization strategies, and observed Outcomes as episode context.
+- [Operational System Architecture](OPERATIONAL_SYSTEM_ARCHITECTURE.md) defines
+  bounded system topology, Process Condition Assessment, Operational System Map,
+  and Stabilization Assessment semantics. Completed episodes may contribute those
+  governed references and dispositions; Memory never treats a historical system
+  shape or condition as current truth.
+- [Operational Transition Architecture](OPERATIONAL_TRANSITION_ARCHITECTURE.md)
+  governs post-Decision continuity. Completed Transitions may contribute intended
+  conditions, approved adaptations, execution references, observed Outcomes,
+  stabilization dispositions, residual uncertainty, and recurrence conditions.
 - Knowledge and SOP lifecycles remain authoritative for reusable understanding and
   procedure. Operational Memory cannot silently promote either.
 

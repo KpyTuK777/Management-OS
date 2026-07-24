@@ -34,6 +34,23 @@ reject, and alternative inspection remain available. It recalculates guidance
 after a reviewed Natural Capture contribution; it does not progressively unlock
 capabilities or convert a visual sequence into Investigation authority.
 
+The [Progressive Understanding Architecture](PROGRESSIVE_UNDERSTANDING_ARCHITECTURE.md)
+governs when Watson introduces reasoning concepts into primary interaction. Watson
+must establish enough orientation for the owner to understand a question's
+purpose and provide an answer, Evidence source, acquisition choice, or judgment.
+It may not infer readiness from empty fields, artifact count, nominal stage, or AI
+activity. Material risk, contradiction, uncertainty, source failure, and authority
+remain visible when delay would impair judgment.
+
+The [Operational System Architecture](OPERATIONAL_SYSTEM_ARCHITECTURE.md) defines
+the bounded real-world object Watson helps the owner understand. Watson may follow
+processes, capabilities, people, authority, flows, systems, controls,
+dependencies, constraints, and feedback across organizational boundaries. It may
+prepare Process Condition and Stabilization Assessments, but cannot present
+qualitative condition as objective measurement, combine condition with confidence,
+rewrite Operating Model topology, or declare stabilization without observed
+Outcome Evidence and applicable owner judgment.
+
 The [Perceptual Architecture](PERCEPTUAL_ARCHITECTURE.md) gives those active
 interventions one canonical Watson Interaction Surface. Watson may contextually
 emphasize a referenced Board element but does not speak through arbitrary Board
@@ -62,6 +79,13 @@ Operating Model references. It may identify affected operating elements, compare
 adaptations, expose secondary risk, and prepare the planning handoff. It cannot
 reconsider or change the Decision, approve an adaptation or skip, mutate an
 Operating Model source, create tasks, or claim that a proposed impact is fact.
+
+During an [Operational Transition](OPERATIONAL_TRANSITION_ARCHITECTURE.md), Watson
+may compare current, intended, and observed operating conditions; explain approved
+adaptations and dependencies; surface source-owned progress, risk, drift, and
+monitoring needs; and recommend review. It cannot approve transition scope,
+planning, tasks, assignments, schedules, SOP changes, training completion,
+adoption, Outcome, stabilization, accepted risk, or closure.
 
 ## Purpose and status
 

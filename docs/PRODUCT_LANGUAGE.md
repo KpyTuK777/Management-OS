@@ -36,6 +36,12 @@ user-facing language must follow this guide.
 | Operational Learning | Операційне навчання |
 | Decision Laboratory | Лабораторія рішень |
 | Operational Operating Model | Операційна модель діяльності |
+| Operational System | Операційна система |
+| Operational System Map | Карта операційної системи |
+| Process Condition Assessment | Оцінка стану процесу |
+| Stabilization Assessment | Оцінка стабілізації |
+| Operational Transition | Операційний перехід |
+| Intended Operating Condition | Цільовий операційний стан |
 | Operational Impact Review | Огляд операційного впливу |
 | Investigation Orchestration | Оркестрація розслідування |
 | Evidence Need | Потреба в доказах |
@@ -117,6 +123,28 @@ Explain normal mechanics once at the point of consequence or behind a **Чому
 or **Як сформовано** disclosure. Keep uncertainty, source freshness, modeled
 status, and owner-required decisions explicit. Do not replace repeated
 architectural language with vague minimalism.
+
+### Architectural and Operational Language
+
+Canonical documentation, contracts, audit, and specialist inspection use precise
+**Architectural Language**. Ordinary owner interaction uses cognitively natural
+**Operational Language** that follows how an operations manager understands the
+current condition, what has become clear, what still needs to be found out, and
+what decision or action is actually required.
+
+Operational wording may simplify expression but never semantic consequence:
+
+- preserve the distinction between observation, interpretation, proposal,
+  approval, Decision, action, and Outcome;
+- name uncertainty, contradiction, source state, and authority when they affect
+  judgment;
+- do not turn an approval request into a vague next-step prompt;
+- do not expose internal capability or lifecycle terminology when plain wording
+  remains equally precise;
+- keep the canonical term retrievable for specialist inspection and audit.
+
+The timing and cognitive readiness of owner-facing concepts follow the
+[Progressive Understanding Architecture](PROGRESSIVE_UNDERSTANDING_ARCHITECTURE.md).
 | Temporary capture | Тимчасове введення |
 | Review capture | Переглянути введене |
 | Student Mode | Навчальний режим |

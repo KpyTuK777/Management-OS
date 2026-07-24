@@ -1252,7 +1252,7 @@ communication, or AI behavior is implemented.
 - [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md)
 - [Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md)
 
-## DL-019 — Bridge owner Decision and Execution Planning through Operational Impact Review
+## DL-026 — Bridge owner Decision and Execution Planning through Operational Impact Review
 
 - Date: 2026-07-24
 - Status: Accepted
@@ -1330,3 +1330,286 @@ AI behavior, plan, task, source mutation, or Knowledge publication is introduced
 - [Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md)
 - [Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md)
 - [Knowledge Evolution Architecture](KNOWLEDGE_EVOLUTION_ARCHITECTURE.md)
+
+## DL-027 — Construct operational understanding progressively
+
+- Date: 2026-07-24
+- Status: Accepted
+- Decision owner: Product Owner
+- Category: Cross-capability cognitive and interaction architecture
+- Affected documents: `PROGRESSIVE_UNDERSTANDING_ARCHITECTURE.md`, `OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md`, `GUIDED_INVESTIGATION_INTERACTION.md`, `OPERATIONAL_INQUIRY_ARCHITECTURE.md`, `NATURAL_CAPTURE_ARCHITECTURE.md`, `AI_ASSISTANT_ARCHITECTURE.md`, `OPERATIONAL_IMPACT_REVIEW_ARCHITECTURE.md`, `COGNITIVE_CLEANUP_ARCHITECTURE.md`, `PERCEPTUAL_ARCHITECTURE.md`, `PRODUCT_LANGUAGE.md`, `PRODUCT_VISION.md`, `OWNER_JOURNEY.md`, `SYSTEMS.md`, `ARCHITECTURE.md`, `DOCUMENTATION_MAP.md`, `README.md`, `ROADMAP.md`, `SPRINTS.md`, `CHANGELOG.md`
+- Supersedes: No prior authority; extends progressive disclosure, Guided Investigation, Cognitive Cleanup, and Perceptual Architecture
+- Superseded by: None
+
+### Context
+
+The approved Situation Board, Guided Investigation, Operational Inquiry, Natural
+Capture, and Watson architectures correctly preserve current understanding,
+uncertainty, Evidence, one dominant interaction, and complete inspectability.
+Prototype validation showed that these individually valid elements could still
+appear together before they were cognitively meaningful, causing the owner to
+reason about the interface rather than the operational situation.
+
+Progressive disclosure governed when existing detail became visible but did not
+govern how operational understanding itself emerged.
+
+### Decision
+
+Establish **Progressive Understanding** as the cross-capability principle through
+which Management OS constructs operational understanding with the owner.
+Establish **Progressive Construction** as the governed emergence of the current
+operational picture from source-owned contributions and versioned reasoning,
+distinct from Progressive Disclosure of existing detail.
+
+The Operational Situation Board becomes a **Living Situation Board**: a stable,
+inspectable frame whose primary picture grows as Evidence, relationships,
+contradictions, explanations, Decisions, operational impact, execution, Outcomes,
+and learning become meaningful.
+
+Questions and reasoning concepts require cognitive readiness for primary
+presentation. The owner needs enough orientation to understand purpose and either
+answer, identify an Evidence source, choose an acquisition action, or make the
+applicable judgment; the owner does not need to possess the answer already.
+
+Cognitive conditions remain non-linear, overlapping, revisitable reasoning
+conditions. They are not Matter states, stages, scores, gates, or authority.
+Capability access, direct inspection, material risk, uncertainty, contradiction,
+source state, and degraded operation remain preserved.
+
+Owner-facing **Operational Language** is governed inside the existing Product
+Language authority. Precise **Architectural Language** remains canonical for
+documentation, contracts, audit, and specialist inspection. Plain wording never
+changes semantic consequence.
+
+### Rationale
+
+The principle aligns presentation with the actual construction of operational
+understanding while preserving stable orientation, transparency, source
+authority, non-linearity, expert access, and owner control. It prevents
+architectural completeness from becoming cognitive overload.
+
+### Alternatives considered
+
+- Show all concepts immediately — rejected because valid elements collectively
+  compete before they contribute to understanding.
+- Use Progressive Disclosure alone — rejected as insufficient because it assumes
+  the underlying understanding already exists.
+- Make conversation the primary Investigation experience — rejected because
+  dialogue alone weakens stable orientation, comparison, history, and source
+  inspection.
+- Gate capabilities through a linear sequence — rejected because Investigation
+  is non-linear and direct access must remain complete.
+- Create a separate Operational Language authority — rejected because Product
+  Language already owns user-facing communication.
+
+### Consequences
+
+Future implementation must define source-driven construction rules, cognitive
+readiness evaluation, stable Board behavior, explainable and reversible guidance
+changes, material-risk overrides, direct expert access, degraded operation, and
+representative owner validation. No entity, lifecycle state, score, capability
+gate, AI runtime, persistence, migration, interface, or autonomous authority is
+introduced.
+
+### References
+
+- [Progressive Understanding Architecture](PROGRESSIVE_UNDERSTANDING_ARCHITECTURE.md)
+- [Operational Situation Board Architecture](OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md)
+- [Guided Investigation Interaction](GUIDED_INVESTIGATION_INTERACTION.md)
+- [Operational Inquiry Architecture](OPERATIONAL_INQUIRY_ARCHITECTURE.md)
+- [Product Language](PRODUCT_LANGUAGE.md)
+
+## DL-028 — Define the organization as a bounded Operational System
+
+- Date: 2026-07-24
+- Status: Accepted
+- Decision owner: Product Owner
+- Category: Strategic operational architecture
+- Affected documents: `OPERATIONAL_SYSTEM_ARCHITECTURE.md`, `OPERATIONAL_OPERATING_MODEL.md`, `OPERATIONAL_MATTER_ARCHITECTURE.md`, `OPERATIONAL_CASE_ARCHITECTURE.md`, `OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md`, `OPERATIONAL_IMPACT_REVIEW_ARCHITECTURE.md`, `PROGRESSIVE_UNDERSTANDING_ARCHITECTURE.md`, `OPERATIONAL_MEMORY_ARCHITECTURE.md`, `AI_ASSISTANT_ARCHITECTURE.md`, `PRODUCT_VISION.md`, `ARCHITECTURE.md`, `SYSTEMS.md`, `OWNER_JOURNEY.md`, `PRODUCT_LANGUAGE.md`, `DOCUMENTATION_MAP.md`, `README.md`, `ROADMAP.md`, `SPRINTS.md`, `CHANGELOG.md`
+- Supersedes: No prior authority; clarifies the object represented by the Operational Operating Model
+- Superseded by: None
+
+### Context
+
+Management OS defined Operational Matter, Investigation, Operating Model,
+Situation Board, Impact Review, Progressive Understanding, execution, Outcome,
+Memory, and Knowledge without explicitly naming the real-world operational object
+connecting them. Department-centered reasoning was too narrow, while introducing
+a separate Operational System Model would duplicate the approved Operating Model's
+topology authority.
+
+The proposed Process Health concept also mixed observed operational condition with
+confidence in current understanding, and stabilization lacked an explicit
+proportionate relationship to Outcome Assessment.
+
+### Decision
+
+Define **Operational System** as a bounded network of processes, operational
+capabilities, people, decision rights, information and material flows, systems,
+controls, dependencies, constraints, and feedback loops that collectively
+produces operational outcomes.
+
+The Operational System is the real-world object being investigated or changed.
+The **Operational Operating Model** remains its sole governed representation. No
+parallel Operational System Model, enterprise graph, or Investigation-owned
+topology authority is introduced.
+
+Processes become first-class typed operating elements and Investigation
+references, but Investigation follows material system behavior rather than
+presuming departmental fault or process-only causality.
+
+Define **Process Condition Assessment** as an Investigation- or Outcome-owned
+projection with qualitative operational condition kept separate from
+understanding confidence. “Process Health” may be used as owner-facing synthesis
+only when both components and their Evidence remain inspectable.
+
+Define **Operational System Map** as a Matter-relative Living Situation Board
+projection of relevant Operating Model topology and current understanding. It
+grows through Progressive Construction and never becomes source truth or a
+complete enterprise atlas by default.
+
+Define **Stabilization Assessment** as a proportionate contribution within Outcome
+Assessment. It adds no Matter state and is not mandatory for Investigation-only,
+no-action, or low-consequence Matters. “Operational System stabilized” is an
+Evidence-supported Outcome disposition, not a universal completion condition.
+
+### Rationale
+
+The design makes system behavior the coherent object connecting Investigation,
+Decision, impact, execution, Outcome, Memory, and learning while preserving
+organizational accountability, human factors, source authority, incomplete
+topology, Matter lifecycle, and proportionality.
+
+### Alternatives considered
+
+- Use departments as the primary model — rejected because operational behavior
+  and failure frequently cross organizational boundaries.
+- Add processes to an organization chart — rejected as insufficient because
+  hierarchy would still dominate flows, dependencies, and feedback.
+- Make the architecture exclusively process-centered — rejected because people,
+  authority, incentives, systems, controls, suppliers, and external conditions may
+  dominate.
+- Create a separate Operational System Model — rejected because it would duplicate
+  the Operational Operating Model's representational authority.
+- Treat Process Health as Watson's single qualitative judgment — rejected because
+  it would mix operational condition with Evidence confidence.
+- Add stabilization as a mandatory lifecycle stage — rejected because Outcome
+  Assessment already owns observed-effect evaluation and proportionality remains
+  necessary.
+
+### Consequences
+
+Future implementation requires bounded topology references, source and freshness
+governance, separate condition and confidence semantics, progressive map
+construction, outcome-based stabilization criteria, human-factor coverage,
+materiality rules, degraded operation, and representative validation. No entity,
+graph store, process engine, BPM capability, visualization, health score,
+persistence, migration, runtime, integration, or interface is introduced.
+
+### References
+
+- [Operational System Architecture](OPERATIONAL_SYSTEM_ARCHITECTURE.md)
+- [Operational Operating Model](OPERATIONAL_OPERATING_MODEL.md)
+- [Operational Matter Architecture](OPERATIONAL_MATTER_ARCHITECTURE.md)
+- [Operational Situation Board Architecture](OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md)
+- [Operational Impact Review Architecture](OPERATIONAL_IMPACT_REVIEW_ARCHITECTURE.md)
+- [Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md)
+
+## DL-029 — Govern post-Decision change through Operational Transition
+
+- Date: 2026-07-24
+- Status: Accepted
+- Decision owner: Product Owner
+- Category: Strategic operational architecture
+- Affected documents: `OPERATIONAL_TRANSITION_ARCHITECTURE.md`, `OPERATIONAL_MATTER_ARCHITECTURE.md`, `OPERATIONAL_CASE_ARCHITECTURE.md`, `OPERATIONAL_SYSTEM_ARCHITECTURE.md`, `OPERATIONAL_OPERATING_MODEL.md`, `OPERATIONAL_IMPACT_REVIEW_ARCHITECTURE.md`, `OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md`, `PROGRESSIVE_UNDERSTANDING_ARCHITECTURE.md`, `OPERATIONAL_MEMORY_ARCHITECTURE.md`, `AI_ASSISTANT_ARCHITECTURE.md`, `PRODUCT_VISION.md`, `ARCHITECTURE.md`, `SYSTEMS.md`, `OWNER_JOURNEY.md`, `PRODUCT_LANGUAGE.md`, `DOCUMENTATION_MAP.md`, `README.md`, `ROADMAP.md`, `SPRINTS.md`, `CHANGELOG.md`
+- Supersedes: Lifecycle shorthand that left the post-Decision coordination interval implicit
+- Superseded by: None
+
+### Context
+
+Management OS had developed rich Investigation architecture and established
+Operational Impact Review, Execution Planning, Operational System, Outcome, and
+Stabilization Assessment. The period after an authoritative Decision still lacked
+a unifying concept describing how Decision intent remained coherent across
+adaptation, source-owned implementation, monitoring, Outcome, and closure.
+
+Making Organizational Transformation a new owning phase would duplicate Matter,
+project, task, SOP, execution, HR, workflow, and Outcome authorities. Expanding
+Impact Review to own the entire interval would similarly collapse reasoning,
+planning, delivery, and verification.
+
+### Decision
+
+Define **Operational Transition** as the Matter-relative interval in which an
+authoritative executable Decision is translated into approved adaptations,
+planned and performed through source-owned work, monitored, and evaluated against
+its **Intended Operating Condition**.
+
+Operational Transition is a cross-capability coordination concept, not a Matter
+state, module, aggregate, project, workflow, execution system, mutation authority,
+or mandatory phase. **Organizational Transformation** is a possible
+high-consequence class of Transition rather than the universal canonical name.
+
+Decision is a conditional boundary between complementary understanding-dominant
+and change-dominant reasoning arcs. Investigation may continue after Decision,
+and no-action, execution-free, routine, or proportionately trivial Decisions need
+no distinct Transition.
+
+Strengthen the existing Case target condition as the Decision-owned **Intended
+Operating Condition**. For consequential execution it proportionately preserves
+intended behavior, responsibilities, decision rights, flows, systems, controls,
+measures, guardrails, adoption, monitoring, stabilization, residual risk, and
+review conditions. It never rewrites current Operating Model truth.
+
+Impact Review determines what else must adapt. Execution Planning determines how
+approved change will be delivered. Projects, tasks, calendars, SOPs, training,
+communications, HR, ERP, CRM, workflow, and external systems retain source
+authority. Outcome Assessment compares observed behavior with Decision intent,
+and Stabilization Assessment remains a proportionate Outcome contribution.
+
+Transition may close with achieved stability, accepted residual risk, bounded
+monitoring, further action, reconsideration, deferred verification, unknown or
+inconclusive Outcome, stop, supersession, or abandonment. Closed continues to mean
+that no current operational work is required, not that every intended effect is
+proven.
+
+### Rationale
+
+The concept makes the real post-Decision work of operational managers coherent
+without creating another lifecycle or delivery system. It preserves one Matter,
+source authority, proportionality, nonlinear Investigation, explicit residual
+uncertainty, and Decision-to-Outcome-to-Memory traceability.
+
+### Alternatives considered
+
+- Retain direct Decision-to-Execution shorthand — rejected for consequential
+  change because impact, adaptation, target behavior, and stabilization continuity
+  remain implicit.
+- Expand Operational Impact Review to own the full interval — rejected because it
+  would collapse impact reasoning, planning, execution, adoption, and Outcome.
+- Add mandatory Organizational Transformation phase — rejected because it is too
+  broad for ordinary operational change and would duplicate existing authorities.
+- Delegate all post-Decision continuity to external project management — rejected
+  because Decision intent, observed Outcome, and organizational learning would
+  fragment.
+- Use a hybrid Operational Transition — accepted because Management OS can govern
+  intent and traceability while delivery systems retain implementation authority.
+
+### Consequences
+
+Future implementation requires Intended Operating Condition semantics,
+cross-capability typed relationships, current-intended-observed separation,
+source-status integration, materiality rules, monitoring, explicit residual-risk
+and incomplete-verification dispositions, degraded operation, and representative
+validation. No Matter state, entity, transition store, project system, workflow
+engine, planning engine, runtime, persistence, migration, integration, or
+interface is introduced.
+
+### References
+
+- [Operational Transition Architecture](OPERATIONAL_TRANSITION_ARCHITECTURE.md)
+- [Operational Matter Architecture](OPERATIONAL_MATTER_ARCHITECTURE.md)
+- [Operational System Architecture](OPERATIONAL_SYSTEM_ARCHITECTURE.md)
+- [Operational Impact Review Architecture](OPERATIONAL_IMPACT_REVIEW_ARCHITECTURE.md)
+- [Operational Situation Board Architecture](OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md)
+- [Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md)

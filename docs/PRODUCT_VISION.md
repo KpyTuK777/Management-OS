@@ -34,6 +34,10 @@ The product should be calm, intentional, and useful. Information belongs in a cl
 12. **Make patterns visible before making recommendations.** Observed evidence must be separated from interpretation and proposed action.
 13. **Preserve the Learning Decision Pipeline.** Every conclusion and improvement must remain traceable from observed facts through explicit user approval.
 14. **Experience supports; the present decides.** Historical patterns may challenge or contextualize reasoning but never override current Evidence or owner judgment.
+15. **Construct understanding progressively.** Introduce reasoning concepts into
+    primary interaction only when current Evidence, context, or owner intent makes
+    them meaningful, while preserving direct access, uncertainty, and non-linear
+    Investigation.
 
 ### Contextual relevance without capability restriction
 
@@ -75,6 +79,14 @@ Laboratory. Context and branch truth boundaries ensure that learning material an
 modeled output never become organizational Evidence. See the
 [Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md)
 and [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md).
+
+An active Matter concerns a bounded
+[Operational System](OPERATIONAL_SYSTEM_ARCHITECTURE.md): the real-world network
+of processes, capabilities, people, authority, flows, systems, controls,
+dependencies, constraints, and feedback producing relevant Outcomes. The
+Operational Operating Model is its governed representation. Management OS reasons
+about system behavior without reducing operations to departments or processes
+alone.
 
 The owner experiences an active Matter through the
 [Operational Situation Board](OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md): one
@@ -130,6 +142,13 @@ After an authoritative Decision, a proportionate
 how the change propagates through the organization's operating system and hands
 only owner-approved adaptations to Execution Planning. Investigation Orchestration
 continues to govern the Investigation-side action and scheduling boundary.
+
+When that Decision requires consequential change, an
+[Operational Transition](OPERATIONAL_TRANSITION_ARCHITECTURE.md) preserves
+continuity from the Decision-owned Intended Operating Condition through approved
+adaptations, source-owned execution, observed Outcome, and proportionate
+stabilization. Transition coordinates intent and traceability; it never replaces
+project, task, SOP, calendar, HR, ERP, CRM, workflow, or other execution authority.
 
 Operational history should reveal supported changes in system behavior rather than
 become an undifferentiated event log. Operational Inflection Points preserve where

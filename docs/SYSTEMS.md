@@ -62,8 +62,26 @@ responsibilities.
   and [Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md).
 - **Reasoning contract:** Its governed Evidence Set and reasoning follow the [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md) and [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md).
 - **Experience boundary:** Symptom-first entry, progressive naming, investigation orientation, progressive disclosure, and cross-record continuity follow the [Operational Case Experience Architecture](OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md) without changing domain ownership or current implementation.
+- **Cognitive boundary:** Progressive Understanding governs cognitive readiness,
+  Progressive Construction, and the Living Situation Board without creating
+  stages, capability gates, or source authority. See
+  [Progressive Understanding Architecture](PROGRESSIVE_UNDERSTANDING_ARCHITECTURE.md).
 - **Evidence explainability:** Future material decisions preserve qualitative Evidence Influence and an owner-reviewed Decision Evidence Summary under the [Case Evidence Architecture](CASE_EVIDENCE_ARCHITECTURE.md); no numerical influence score or document ranking is permitted.
 - **Timeline boundary:** Future Operational Timelines distinguish ordinary events from owner-accepted Operational Inflection Points. Points identify supported behavioral-change boundaries, not causal proof, and remain Case findings under the [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
+
+## Operational System
+
+- **Purpose:** Define the bounded real-world system whose behavior a Matter seeks
+  to understand or change.
+- **Current status:** Approved canonical future architecture; not implemented.
+- **Future responsibilities:** Relate operational outcomes, processes,
+  capabilities, people, authority, flows, systems, controls, dependencies,
+  constraints, feedback, Process Condition Assessments, contextual system maps,
+  and proportionate stabilization assessment.
+- **Boundary:** It is not a module, persisted enterprise master model, BPM or
+  workflow engine, organization chart, health score, or source authority. The
+  Operational Operating Model remains the sole governed topology representation.
+  See [Operational System Architecture](OPERATIONAL_SYSTEM_ARCHITECTURE.md).
 
 ## Operational Learning context (supersedes Operational Gym as a system)
 
@@ -223,6 +241,20 @@ responsibilities.
 - **Current status:** Approved canonical future architecture; not implemented.
 - **Future responsibilities:** Identify affected operating elements, preserve assumptions and secondary risks, record owner disposition, and hand approved adaptations, guardrails, monitoring, and unresolved conditions to planning.
 - **Boundary:** It does not reconsider the Decision, change Operating Model sources, create tasks, own Execution Planning, publish Knowledge, or approve adaptations autonomously. See [Operational Impact Review Architecture](OPERATIONAL_IMPACT_REVIEW_ARCHITECTURE.md).
+
+## Operational Transition
+
+- **Purpose:** Preserve Matter-relative continuity from an authoritative
+  executable Decision and Intended Operating Condition through approved
+  adaptations, source-owned execution, observed Outcome, and stabilization.
+- **Current status:** Approved canonical future architecture; not implemented.
+- **Future responsibilities:** Relate Impact Review, planning, projects, tasks,
+  SOP changes, training, communications, monitoring, execution Evidence, Outcome,
+  residual uncertainty, and closure disposition without copying their records.
+- **Boundary:** It is not a Matter state, module, project system, task system,
+  workflow engine, execution authority, or mandatory phase. Owning capabilities
+  validate every mutation. See
+  [Operational Transition Architecture](OPERATIONAL_TRANSITION_ARCHITECTURE.md).
 
 ## Investigation Orchestration
 

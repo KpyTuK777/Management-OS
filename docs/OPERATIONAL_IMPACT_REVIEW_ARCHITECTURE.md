@@ -17,6 +17,20 @@ An **Operational Impact Review** evaluates how an approved Decision should be
 absorbed by the operating system of the organization before execution begins. It
 does not reconsider the Decision or create an execution plan.
 
+The [Operational System Architecture](OPERATIONAL_SYSTEM_ARCHITECTURE.md) defines
+the bounded real-world system whose expected behavior may change. Impact Review
+compares the Decision with relevant current topology and evaluates affected
+processes, dependencies, supporting workflows, operating assumptions, controls,
+feedback, and secondary risks. Expected impact remains distinct from observed
+Outcome and stabilization.
+
+Under the
+[Progressive Understanding Architecture](PROGRESSIVE_UNDERSTANDING_ARCHITECTURE.md),
+Impact Review enters the primary operational picture only after an authoritative
+Decision makes forward adaptation reasoning meaningful. Earlier exploration of
+possible consequences remains non-authoritative Decision work and cannot be
+presented as an approved impact or required adaptation.
+
 ```text
 Authoritative owner Decision
   -> proportionate Operational Impact Review
@@ -123,6 +137,11 @@ delivered**, including scope, sequence, dependencies, ownership, tasks, timing,
 risk control, and validation. Planning may return a newly discovered material
 impact for review without silently expanding approved scope.
 
+The [Operational Transition Architecture](OPERATIONAL_TRANSITION_ARCHITECTURE.md)
+governs the wider post-Decision continuity. Impact Review is its reasoning bridge,
+not its plan, transformation authority, execution record, adoption assessment, or
+Outcome owner.
+
 ## Operational Memory and Knowledge
 
 Completed Matters may expose impact findings, approved adaptations, observed
@@ -135,6 +154,10 @@ Operational Impact Review never publishes Knowledge. It or Operational Memory ma
 prepare a Knowledge Review Candidate when completed Evidence materially challenges
 or extends approved Knowledge. The Knowledge lifecycle alone may approve, version,
 publish, supersede, or retire Knowledge.
+
+Post-execution stabilization is evaluated within Outcome Assessment under the
+Operational System Architecture. Impact Review may define stabilization
+expectations and monitoring needs, but it cannot declare the system stable.
 
 ## Degraded operation
 

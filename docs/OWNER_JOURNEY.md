@@ -444,6 +444,9 @@ value requires quiet presence.
 | Decision Laboratory | Contextual comparison of reversible Scenario Branches from a frozen Investigation baseline |
 | Operational Operating Model | Governed operational topology used to assess processes, systems, roles, controls, feasibility, constraints, and Evidence access |
 | Operational Impact Review | Proportionate post-Decision review that prepares owner-approved operational adaptations for Execution Planning |
+| Progressive Understanding | Cross-capability cognitive principle that constructs the Living Situation Board and next meaningful interaction without creating stages or hiding capabilities |
+| Operational System | Bounded real-world network whose behavior the Matter seeks to understand or change; represented through governed Operating Model references |
+| Operational Transition | Conditional post-Decision interval connecting the Intended Operating Condition, approved adaptations, source-owned execution, Outcome, and stabilization |
 | Investigation Orchestration | Explainable preparation of Evidence acquisition and Operational Action sequences for owner approval |
 | Personal Operational Model | Future owner-controlled source of durable approved personal context and preferences |
 | Adaptive Workspace | Future executor of exact approved Workspace Emphasis, not an autonomous journey controller |

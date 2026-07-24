@@ -44,6 +44,13 @@ understanding, Evidence quality, uncertainty, hypothesis discrimination, risk
 clarity, or Decision Readiness. More available information is not by itself a
 reason to ask.
 
+Under the
+[Progressive Understanding Architecture](PROGRESSIVE_UNDERSTANDING_ARCHITECTURE.md),
+the inquiry must also be cognitively ready. The owner needs enough orientation to
+understand why the question matters and either answer it, identify an Evidence
+source, or choose an appropriate acquisition action. The owner does not need to
+possess the answer already.
+
 On the Situation Board, the selected Inquiry Proposal normally becomes the one
 visually dominant interaction. Other available capabilities remain inspectable;
 their availability does not give them equal attention priority. The selected

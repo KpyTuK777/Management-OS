@@ -113,23 +113,29 @@ Evolve the approved Case direction in governed stages:
    Candidates before automated review signals;
 7. establish Operational Inquiry governance and validate explainable next-question
    selection before automated Investigation questioning;
-8. establish the governed Operational Operating Model before constraint-aware
+8. establish the bounded Operational System concept, Process Condition semantics,
+   Matter-relative system mapping, and proportionate stabilization boundaries;
+9. establish the governed Operational Operating Model before constraint-aware
    Investigation, Operational Impact Review, and Execution Planning;
-9. establish proportionate Operational Impact Review between authoritative owner
+10. establish proportionate Operational Impact Review between authoritative owner
    Decision and detailed Execution Planning;
-10. validate explainable Investigation Orchestration, Evidence Acquisition Profiles,
+11. establish Operational Transition continuity, Intended Operating Condition,
+   source-owned execution relationships, and proportional completion boundaries;
+12. validate Progressive Understanding, cognitive readiness, the Living Situation
+   Board, and Operational Language across the Investigation journey;
+13. validate explainable Investigation Orchestration, Evidence Acquisition Profiles,
    and owner-approved action and scheduling handoffs;
-11. complete the Operational Reality outcome and verification loop;
-12. validate the Case-centered operational investigation experience, progressive
+14. complete the Operational Reality outcome and verification loop;
+15. validate the Case-centered operational investigation experience, progressive
    naming, Evidence orientation, and cross-record return paths;
-13. add Operational Learning context and governed learning capture;
-14. add the Decision Laboratory with qualitative Scenario Branches from named
+16. add Operational Learning context and governed learning capture;
+17. add the Decision Laboratory with qualitative Scenario Branches from named
     Operational Matter versions and immutable decision-time baselines;
-15. introduce governed quantitative simulation only where intended use,
+18. introduce governed quantitative simulation only where intended use,
    validation, uncertainty, sensitivity, limits, and expiry are supportable;
-16. define a separate Owner Learning Record architecture before durable competence
+19. define a separate Owner Learning Record architecture before durable competence
    development or assessment;
-17. consolidate information architecture only after truth separation and direct
+20. consolidate information architecture only after truth separation and direct
    domain access are validated.
 
 Scenario Simulation remains distinct from later Predictive Operational Insights.

@@ -43,6 +43,12 @@ contradiction markers, Inflection Point emphasis, warnings, and qualitative
 Evidence contribution. Every element must answer what changed, compared with
 what, why it matters, how understanding changed, or what remains uncertain.
 
+The Board is perceptually living rather than template-populated. Under
+[Progressive Understanding](PROGRESSIVE_UNDERSTANDING_ARCHITECTURE.md), reasoning
+elements enter primary composition only when they become meaningful, while stable
+placement, source inspection, direct capability access, and material warnings
+remain predictable.
+
 Beauty supports investigation by creating focus, curiosity, memorability, and
 return value. It comes from composition, relationships, restraint, and meaningful
 change—not decorative dashboards, theatrical detective props, or dense card
