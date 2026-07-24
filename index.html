@@ -71,18 +71,22 @@
 							<div><span><b aria-hidden="true">🔍</b> Поточна ситуація</span><h2 id="situationBoardTitle">Різке падіння прибутку потребує перевірки</h2></div>
 							<details class="inline-disclosure"><summary>Перевірити підстави</summary><p>Картина зведена з вашого формулювання, підтверджених джерел і відкритих припущень.</p></details>
 						</header>
-						<div class="current-situation__reported">
-							<span>Ви повідомили</span>
-							<blockquote id="reportedSymptomText"></blockquote>
-						</div>
-						<p class="current-situation__narrative" id="boardUnderstanding">Падіння ще не перевірено за джерелами, а його причина не встановлена.</p>
-						<div class="current-situation__threads">
+						<div class="situation-map-stage">
+							<div class="situation-map-core">
+								<div class="current-situation__reported">
+									<span>Ви повідомили</span>
+									<blockquote id="reportedSymptomText"></blockquote>
+								</div>
+								<p class="current-situation__narrative" id="boardUnderstanding">Падіння ще не перевірено за джерелами, а його причина не встановлена.</p>
+								<span class="map-core-status">Поточне робоче розуміння</span>
+							</div>
+							<div class="current-situation__threads">
 							<section class="situation-thread hidden distinction-observation" id="knownContextCard"><span>Що ще відомо</span><strong id="boardReasoningBasis">Додано перший контекст</strong><p>Повідомлено власником; ще не перевірено за джерелом.</p></section>
 							<section class="situation-thread hidden distinction-assumption" id="missingOrientationCard"><span>Що поки припускаємо</span><strong id="boardUncertainty">Падіння може стосуватися всього B2B-напряму</strong><p>Поки невідомо, змінився дохід, маржа чи обидва показники.</p></section>
 							<section class="situation-thread hidden distinction-evidence" id="evidenceSummaryCard"><span>Що показало джерело</span><strong id="boardRecentChange">Докази ще не отримано</strong><p>Джерело й походження з’являться після дозволеного порівняння.</p></section>
 							<section class="situation-thread hidden distinction-hypothesis" id="hypothesisSummaryCard"><span>Провідне пояснення</span><strong id="boardNextJudgment">Ще не сформовано</strong><p>Це перевірювана гіпотеза, а не встановлений факт.</p></section>
-						</div>
-						<section class="cognitive-map hidden" id="cognitiveMap" aria-labelledby="cognitiveMapTitle">
+							</div>
+							<section class="cognitive-map hidden" id="cognitiveMap" aria-labelledby="cognitiveMapTitle">
 							<header><span>Як це може бути пов’язано</span><h3 id="cognitiveMapTitle">Поточні робочі зв’язки</h3></header>
 							<div class="relationship-flow">
 								<article class="relationship-node relationship-node--evidence"><span aria-hidden="true">📊</span><strong>Фінансовий звіт</strong><small>ідентифіковане джерело</small></article>
@@ -93,7 +97,8 @@
 							</div>
 							<div class="relationship-contradiction"><b aria-hidden="true">⚠</b><span><strong>Не узгоджується:</strong> загальний дохід майже стабільний, але маржа B2B знизилась.</span></div>
 							<details class="relationship-legend"><summary>Умовні позначення</summary><p><b>⇢</b> Evidence підтримує · <b>⋯→</b> можливий зв’язок · <b>⚠</b> суперечність. Жоден зв’язок не встановлює причинність автоматично.</p></details>
-						</section>
+							</section>
+						</div>
 						<section class="transition-emphasis hidden" id="transitionEmphasis" aria-labelledby="transitionEmphasisTitle">
 							<span>Після рішення · поточний акцент</span>
 							<h3 id="transitionEmphasisTitle">Зробити обмежений пілот робочим</h3>

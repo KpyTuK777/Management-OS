@@ -101,6 +101,24 @@ contradiction with accessible text, proposal status, provenance language, a
 legend, and an explicit non-causality safeguard. Relationship appearance follows
 meaningful understanding rather than artifact count.
 
+## Operational Situation Map
+
+Sprint 25 presents Current Situation as an **Operational Situation Map**: a
+composed, Matter-relative visual story with one central working understanding and
+supporting artifacts positioned according to current relevance. It replaces the
+vertical summary composition, not the Operational Situation Board architecture.
+
+The Map is not a free-form canvas, dashboard, graph authority, topology model,
+record, or new capability. It is the Workbench presentation of the Board's
+governed projection. Early Matters show only the central working understanding.
+Observations, assumptions, Evidence, Hypotheses, contradictions, relationships,
+and collections appear spatially only when meaningful.
+
+Watson is a contextual intervention adjacent to the Map rather than a permanent
+third of the operational picture. Its visual presence is justified only when its
+question, recommendation, warning, or requested judgment can change owner
+understanding or action.
+
 ## Decision and emphasis
 
 The existing authoritative Decision confirmation represents the owner's chosen

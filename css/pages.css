@@ -2602,3 +2602,196 @@ details.journey-progress > summary::-webkit-details-marker { display:none; }
 @media (prefers-reduced-motion:reduce) {
 	.cognitive-map:not(.hidden) { animation:none; }
 }
+
+/* Sprint 25 — Operational Situation Map composition */
+@media (min-width:1101px) {
+	.operational-workbench {
+		grid-template-columns:minmax(0,1fr) 330px;
+		grid-template-rows:auto auto;
+	}
+	.operational-workbench .current-situation-canvas {
+		grid-column:1 / -1;
+		grid-row:1 / span 2;
+		min-height:760px;
+		padding:48px 420px 54px 52px;
+	}
+	.operational-workbench .watson-surface {
+		z-index:3;
+		grid-column:2;
+		grid-row:1;
+		width:330px;
+		margin:42px -18px 0 0;
+		align-self:start;
+		box-shadow:0 22px 60px rgba(67,56,202,.2);
+	}
+	.operational-workbench .matter-natural-capture {
+		z-index:2;
+		grid-column:2;
+		grid-row:2;
+		width:330px;
+		margin:10px -18px 36px 0;
+		align-self:end;
+	}
+	.operational-workbench .board-inspection { grid-row:3; }
+}
+
+.situation-map-stage {
+	position:relative;
+	display:grid;
+	grid-template-columns:minmax(120px,.72fr) minmax(210px,1.15fr) minmax(120px,.72fr);
+	grid-template-rows:auto auto auto;
+	align-items:center;
+	gap:24px 12px;
+	min-height:510px;
+	padding:34px 0 12px;
+}
+
+.situation-map-stage::before {
+	position:absolute;
+	inset:16% 13% 20%;
+	z-index:0;
+	border:1px solid rgba(99,102,241,.12);
+	border-radius:48%;
+	background:radial-gradient(circle,rgba(238,242,255,.8),rgba(255,255,255,0) 68%);
+	content:"";
+	pointer-events:none;
+}
+
+.situation-map-core {
+	position:relative;
+	z-index:2;
+	grid-column:2;
+	grid-row:1 / span 2;
+	padding:30px 28px;
+	border:1px solid #c7d2fe;
+	border-radius:44% 56% 48% 52% / 32% 38% 62% 68%;
+	background:#fff;
+	box-shadow:0 18px 44px rgba(79,70,229,.13);
+}
+
+.situation-map-core .current-situation__reported { margin:0 0 20px; }
+.situation-map-core .current-situation__reported blockquote { font-size:clamp(1.05rem,1.6vw,1.3rem); }
+.situation-map-core .current-situation__narrative { font-size:.94rem; line-height:1.6; }
+
+.map-core-status {
+	display:inline-flex;
+	margin-top:18px;
+	padding:5px 9px;
+	border-radius:999px;
+	background:#eef2ff;
+	color:#4338ca;
+	font-size:.66rem;
+	font-weight:800;
+}
+
+.situation-map-stage .current-situation__threads { display:contents; }
+.situation-map-stage .situation-thread {
+	z-index:1;
+	display:grid;
+	grid-template-columns:1fr;
+	gap:5px;
+	min-width:0;
+	padding:16px;
+	border-bottom:0;
+	background:#fff;
+	box-shadow:0 8px 22px rgba(51,65,85,.08);
+}
+.situation-map-stage .situation-thread.hidden { display:none; }
+.situation-map-stage .situation-thread > p { grid-column:1; font-size:.72rem; }
+.situation-map-stage .situation-thread > span { padding-left:22px; }
+
+.situation-map-stage #knownContextCard {
+	grid-column:1;
+	grid-row:1;
+	border:1px solid #cbd5e1;
+	border-radius:6px 18px 18px 18px;
+	transform:rotate(-1deg);
+}
+.situation-map-stage #missingOrientationCard {
+	grid-column:3;
+	grid-row:1;
+	border:1px dashed #f59e0b;
+	border-radius:18px 6px 18px 18px;
+	background:#fffdf7;
+	transform:rotate(1deg);
+}
+.situation-map-stage #evidenceSummaryCard {
+	grid-column:1;
+	grid-row:2;
+	border:1px solid #86efac;
+	border-radius:8px;
+	background:linear-gradient(180deg,#f0fdf4,#fff);
+}
+.situation-map-stage #hypothesisSummaryCard {
+	grid-column:3;
+	grid-row:2;
+	border:2px dashed #a78bfa;
+	border-radius:20px 8px 20px 8px;
+	background:#faf5ff;
+}
+
+.situation-map-stage .cognitive-map {
+	z-index:1;
+	grid-column:1 / -1;
+	grid-row:3;
+	margin-top:6px;
+}
+
+.current-situation-canvas .working-collections {
+	position:relative;
+	z-index:2;
+	max-width:720px;
+	margin-top:28px;
+}
+
+.watson-surface::before {
+	position:absolute;
+	top:32px;
+	left:-14px;
+	width:0;
+	height:0;
+	border-top:12px solid transparent;
+	border-right:14px solid rgba(238,242,255,.96);
+	border-bottom:12px solid transparent;
+	content:"";
+}
+
+.watson-surface__identity strong { font-size:.9rem; }
+.watson-surface .watson-context { opacity:.68; }
+
+@media (min-width:801px) and (max-width:1100px) {
+	.situation-map-stage {
+		grid-template-columns:1fr 1.25fr;
+		grid-template-rows:auto;
+	}
+	.situation-map-core { grid-column:1 / -1; grid-row:1; max-width:560px; border-radius:26px; }
+	.situation-map-stage #knownContextCard { grid-column:1; grid-row:2; }
+	.situation-map-stage #missingOrientationCard { grid-column:2; grid-row:2; }
+	.situation-map-stage #evidenceSummaryCard { grid-column:1; grid-row:3; }
+	.situation-map-stage #hypothesisSummaryCard { grid-column:2; grid-row:3; }
+	.situation-map-stage .cognitive-map { grid-column:1 / -1; grid-row:4; }
+}
+
+@media (max-width:800px) {
+	.situation-map-stage {
+		display:flex;
+		flex-direction:column;
+		align-items:stretch;
+		min-height:0;
+		padding-top:24px;
+	}
+	.situation-map-stage::before { display:none; }
+	.situation-map-core {
+		order:1;
+		padding:24px 20px;
+		border-radius:24px;
+	}
+	.situation-map-stage .current-situation__threads { display:contents; }
+	.situation-map-stage .situation-thread { transform:none !important; }
+	.situation-map-stage #knownContextCard { order:2; }
+	.situation-map-stage #missingOrientationCard { order:3; }
+	.situation-map-stage #evidenceSummaryCard { order:4; }
+	.situation-map-stage #hypothesisSummaryCard { order:5; }
+	.situation-map-stage .cognitive-map { order:6; }
+	.watson-surface::before { display:none; }
+}

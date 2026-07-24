@@ -111,6 +111,11 @@ The first scan follows operational relevance; material risk may interrupt the
 normal sequence. Icons, spatial grouping, relationship patterns, color, and motion
 remain supplemented by accessible text.
 
+Sprint 25 reduces Watson's permanent visual dominance. Watson remains immediately
+recognizable, but its surface behaves as a contextual colleague intervention
+beside the Operational Situation Map. Silence or reduced presence is valid when
+Watson has no intervention capable of changing understanding or action.
+
 | Attribute | Board | Natural Capture | Watson Surface |
 | --- | --- | --- | --- |
 | Character | Composed operational picture | Neutral professional tool | Active bounded partner |

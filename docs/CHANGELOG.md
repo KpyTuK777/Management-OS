@@ -1,5 +1,20 @@
 # Changelog
 
+## Sprint 25 — Operational Situation Map
+
+- Replaced the vertically stacked Current Situation with a spatial operational
+  composition.
+- Centered the current working understanding and arranged supporting operational
+  material around it according to relevance.
+- Preserved progressive visibility so empty future artifacts remain absent.
+- Reduced Watson from a permanent workspace column to a restrained contextual
+  intervention on wide screens.
+- Preserved explicit governed relationship semantics and causal safeguards.
+- Added tablet and mobile priority-order adaptations.
+- Updated canonical Workbench, Situation Board, Perceptual Architecture, Design
+  System, sprint, and changelog documentation without authority or workflow
+  changes.
+
 ## Sprint 24 — Management OS Design System 1.0
 
 - Established Recognition Before Reading, Visual Gravity, Visual Direction,

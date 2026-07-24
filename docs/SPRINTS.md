@@ -682,3 +682,30 @@ boundaries and [Project Health](PROJECT_HEALTH.md) for the aggregate readiness v
 - No new capability, graph authority, topology model, record, lifecycle,
   workflow, source authority, production intelligence, or persistence is
   implemented.
+
+## Sprint 25
+
+### Completed
+
+- **Operational Situation Map:** Replaced the vertical Current Situation summary
+  with a spatial operational composition
+- **Central Working Understanding:** Established one calm visual center around
+  which meaningful operational material gathers
+- **Composed Material:** Positioned observations, assumptions, Evidence, and
+  Hypotheses with unequal distance, shape, scale, and quietness
+- **Progressive Map:** Kept future material absent and introduced spatial
+  artifacts only when understanding supports them
+- **Watson Presence:** Reduced permanent visual dominance and presented Watson as
+  a contextual colleague intervention beside the Map
+- **Relationship Layer:** Preserved explicit support, tentative influence,
+  contradiction, provenance, and non-causality semantics
+- **Responsive Composition:** Converted the spatial desk into priority-ordered
+  tablet and mobile presentations without changing meaning
+- **Canonical Integration:** Updated Workbench, Situation Board, Perceptual
+  Architecture, Design System, sprint history, and changelog
+
+### Implementation status
+
+- Visual recomposition of the existing deterministic Workbench only.
+- No new capability, canvas authority, graph or topology model, record, lifecycle,
+  workflow, source authority, or production runtime is implemented.

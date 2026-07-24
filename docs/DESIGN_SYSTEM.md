@@ -30,6 +30,10 @@ canonical documents.
 8. Calm may be interrupted by material risk, contradiction, or required authority.
 9. Motion communicates change and never decoration.
 10. No meaning depends on color, icon, motion, or position alone.
+11. Operational composition is spatial rather than a vertical stack when
+    relationships among material are more useful than reading order.
+12. Watson consumes visual attention only when its intervention can materially
+    change understanding, judgment, safety, or action.
 
 ## Typography
 
@@ -250,6 +254,18 @@ visibly proposed and owner-reviewable. Temporal order never implies causality.
   emerged collections, and specialist inspection.
 
 Viewport adaptation changes composition, not meaning, authority, or availability.
+
+### Operational Situation Map composition
+
+On wide Workbench surfaces, one central working understanding anchors the
+composition. Supporting observations, assumptions, Evidence, and Hypotheses
+surround it with unequal distance, scale, shape, and quietness. Explicit
+relationships occupy a separate governed layer. Empty future material is absent.
+
+Watson may appear as a restrained contextual intervention beside the Map. It must
+not cover meaningful artifacts, cause horizontal overflow, or become the
+workspace itself. Mobile linearizes the composition in operational priority order
+without changing meaning.
 
 ## Accessibility
 

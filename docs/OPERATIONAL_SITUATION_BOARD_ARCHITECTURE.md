@@ -25,6 +25,12 @@ owner mental model does not mean first, largest, or permanently dominant.
 Within the [Operational Workbench](OPERATIONAL_WORKBENCH.md), the Board is
 presented as the composed **Current Situation** visual center. This presentation
 does not change its projection-only authority or create a dashboard aggregate.
+
+The Sprint 25 **Operational Situation Map** is the spatial composition of that
+Current Situation. It may arrange governed material nearer, farther, larger,
+quieter, or relationally according to explicit operational relevance. Spatial
+composition never changes Evidence weight, source authority, causal status,
+priority authority, or Matter state.
 | Authority | Matter-level operational picture, stable frame, living cognitive projection, dynamic cognitive focus, natural capture integration, and progressive disclosure |
 | Related documents | Progressive Understanding Architecture, Operational Matter Architecture, Operational Case Experience Architecture, Natural Capture Architecture, AI Assistant Architecture, Operational Reasoning Model |
 
