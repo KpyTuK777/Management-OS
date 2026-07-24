@@ -125,8 +125,11 @@ valuable next question for a declared investigative purpose, explains why it
 matters, and stops when further inquiry would not materially improve judgment. The
 owner remains responsible for Investigation strategy. See the
 [Operational Inquiry Architecture](OPERATIONAL_INQUIRY_ARCHITECTURE.md).
-The execution-planning boundary is defined by the
-[Investigation Orchestration Architecture](INVESTIGATION_ORCHESTRATION_ARCHITECTURE.md).
+After an authoritative Decision, a proportionate
+[Operational Impact Review](OPERATIONAL_IMPACT_REVIEW_ARCHITECTURE.md) evaluates
+how the change propagates through the organization's operating system and hands
+only owner-approved adaptations to Execution Planning. Investigation Orchestration
+continues to govern the Investigation-side action and scheduling boundary.
 
 Operational history should reveal supported changes in system behavior rather than
 become an undifferentiated event log. Operational Inflection Points preserve where

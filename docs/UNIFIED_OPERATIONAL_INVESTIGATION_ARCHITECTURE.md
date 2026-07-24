@@ -22,7 +22,9 @@ It introduces no backend, AI runtime, persistence, or production capability.
 Reported Operational Matter
   -> one or more Operational Investigations
       -> Inquiry, Evidence, and Reasoning contributions
-  -> Decision Readiness -> Owner Decision -> Execution -> Outcome
+  -> Decision Readiness -> Owner Decision
+  -> proportionate Operational Impact Review -> Execution Planning
+  -> Execution -> Outcome
 ```
 
 An Investigation is a bounded, repeatable work episode concerning an Operational
@@ -47,8 +49,14 @@ an Evidence Need, an owner-reviewed Operational Action, an approved scheduling
 handoff, Evidence collection, and updated reasoning. The
 [Investigation Orchestration Architecture](INVESTIGATION_ORCHESTRATION_ARCHITECTURE.md)
 governs sequencing and approval. The
-[Operational Organization Model](OPERATIONAL_ORGANIZATION_MODEL.md) may supply
+[Operational Operating Model](OPERATIONAL_OPERATING_MODEL.md) may supply
 authorized constraints and availability without becoming Case-owned data.
+
+Operational Impact Review is not another Investigation phase. After an
+authoritative owner Decision, it may consume the Investigation's decision-time
+Evidence and process understanding to reason forward about organizational
+adaptation. Its findings and planning handoff are governed by the
+[Operational Impact Review Architecture](OPERATIONAL_IMPACT_REVIEW_ARCHITECTURE.md).
 
 ## Investigation Context
 

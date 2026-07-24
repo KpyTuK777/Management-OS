@@ -193,6 +193,10 @@ history.
   retrieval, communication, and approval boundaries.
 - [Personal Operational Model](PERSONAL_OPERATIONAL_MODEL.md) owns approved personal
   assistance context and never organizational experience.
+- [Operational Impact Review Architecture](OPERATIONAL_IMPACT_REVIEW_ARCHITECTURE.md)
+  owns decision-impact findings, adaptation dispositions, and the planning handoff.
+  Completed reviews may contribute approved adaptations, secondary effects,
+  stabilization strategies, and observed Outcomes as episode context.
 - Knowledge and SOP lifecycles remain authoritative for reusable understanding and
   procedure. Operational Memory cannot silently promote either.
 

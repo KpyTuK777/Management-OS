@@ -1,5 +1,23 @@
 # Changelog
 
+## Sprint 15 — Operational Impact Review
+
+- Established Operational Impact Review as the proportionate, governed bridge
+  between an authoritative owner Decision and detailed Execution Planning.
+- Preserved the eight-state Operational Matter lifecycle; Impact Review is a
+  linked contribution, not a new Matter macro-state or Investigation phase.
+- Renamed and broadened the Operational Organization Model as the Operational
+  Operating Model for shared process, system, role, handoff, control, constraint,
+  Evidence-access, and operating-characteristic topology.
+- Defined Investigation-owned process-understanding projections separately from
+  operational performance ratings.
+- Connected approved adaptations to Execution Planning while preserving owner and
+  source-domain authority.
+- Connected completed impact evidence to Operational Memory and separately
+  governed Knowledge Review Candidates.
+- Added no entity, persistence, runtime, interface, task, plan, source-record
+  mutation, or autonomous AI behavior.
+
 ## Sprint 14 — Perceptual Architecture
 
 - Defined the Board, Natural Capture, and Watson Interaction Surface as three

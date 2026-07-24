@@ -22,7 +22,7 @@ execution, organizational, Decision, Outcome, or Knowledge authority.
 | Delivery milestone | Sprint 10 architecture; post-v1 capability direction |
 | Canonical concepts | Investigation Orchestration, Evidence Need, Operational Action, Evidence Acquisition Profile |
 | Authority | Investigation action proposals, sequencing, optimization objective, explainability, scheduling handoff, and owner approval |
-| Related documents | Operational Inquiry Architecture, Case Evidence Architecture, Operational Organization Model, AI Assistant Architecture |
+| Related documents | Operational Inquiry Architecture, Case Evidence Architecture, Operational Operating Model, AI Assistant Architecture |
 
 ## Capability boundary
 

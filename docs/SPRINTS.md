@@ -431,3 +431,28 @@ boundaries and [Project Health](PROJECT_HEALTH.md) for the aggregate readiness v
 - The prototype adds no visualization engine, production AI, persistence,
   attachment processing, voice capture, adaptive runtime, capability authority,
   or source-record mutation.
+
+## Sprint 15
+
+### Completed
+
+- **Operational Impact Review:** Established the proportionate post-Decision,
+  pre-Execution-Planning capability and its owner-governed adaptation package
+- **Lifecycle Integration:** Preserved the eight Matter macro-states and added the
+  Impact Review contribution inside the Decided posture
+- **Operational Operating Model:** Evolved the former Operational Organization
+  Model into shared topology for Investigation, impact reasoning, planning, and
+  future AI assistance
+- **Process Understanding:** Defined Investigation-owned epistemic projections
+  over process references without creating performance ratings
+- **Learning Boundaries:** Connected completed impact evidence to Operational
+  Memory and Knowledge Review without automatic promotion
+- **Canonical Records:** Updated Systems, capability relationships, lifecycle,
+  documentation map, Product Language, Roadmap, Changelog, and Decision Log
+
+### Implementation status
+
+- Architecture and documentation integration only.
+- No entity, persistence, migration, runtime, AI behavior, interface, task,
+  Execution Plan, SOP mutation, Operating Model source mutation, or Knowledge
+  publication is implemented.

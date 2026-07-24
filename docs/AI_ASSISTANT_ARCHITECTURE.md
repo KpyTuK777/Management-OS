@@ -50,10 +50,18 @@ access, and the owner approves context changes and every consequential decision.
 The AI Investigation Partner may also perform governed **Investigation
 Orchestration**: identify Evidence gaps, compare acquisition paths, estimate
 qualitative effort and delay, and recommend an explainable action sequence. It may
-use authorized Operational Organization Model context, but it cannot broaden
+use authorized Operational Operating Model context, but it cannot broaden
 access, infer durable personnel traits, contact people, assign work, reserve time,
 or convert a proposal into action without the applicable owner approval. See the
 [Investigation Orchestration Architecture](INVESTIGATION_ORCHESTRATION_ARCHITECTURE.md).
+
+After an authoritative owner Decision, Watson may prepare and explain an
+[Operational Impact Review](OPERATIONAL_IMPACT_REVIEW_ARCHITECTURE.md) using
+authorized Decision context, Investigation understanding, and Operational
+Operating Model references. It may identify affected operating elements, compare
+adaptations, expose secondary risk, and prepare the planning handoff. It cannot
+reconsider or change the Decision, approve an adaptation or skip, mutate an
+Operating Model source, create tasks, or claim that a proposed impact is fact.
 
 ## Purpose and status
 

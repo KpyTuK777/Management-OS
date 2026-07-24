@@ -1251,3 +1251,82 @@ communication, or AI behavior is implemented.
 - [Operational Case Experience Architecture](OPERATIONAL_CASE_EXPERIENCE_ARCHITECTURE.md)
 - [Operational Reasoning Model](OPERATIONAL_REASONING_MODEL.md)
 - [Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md)
+
+## DL-019 — Bridge owner Decision and Execution Planning through Operational Impact Review
+
+- Date: 2026-07-24
+- Status: Accepted
+- Decision owner: Product Owner
+- Category: Strategic operational architecture
+- Affected documents: `OPERATIONAL_IMPACT_REVIEW_ARCHITECTURE.md`, `OPERATIONAL_OPERATING_MODEL.md`, `OPERATIONAL_MATTER_ARCHITECTURE.md`, `UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md`, `OPERATIONAL_MEMORY_ARCHITECTURE.md`, `KNOWLEDGE_EVOLUTION_ARCHITECTURE.md`, `PRODUCT_VISION.md`, `OWNER_JOURNEY.md`, `SYSTEMS.md`, `ARCHITECTURE.md`, `AI_ASSISTANT_ARCHITECTURE.md`, `AI_CAPABILITY_ROADMAP.md`, `INVESTIGATION_ORCHESTRATION_ARCHITECTURE.md`, `PRODUCT_LANGUAGE.md`, `DOCUMENTATION_MAP.md`, `README.md`, `ROADMAP.md`, `SPRINTS.md`, `CHANGELOG.md`
+- Supersedes: The Operational Organization Model name and Investigation-only scope; lifecycle shorthand that connected Decision directly to Execution
+- Superseded by: None
+
+### Context
+
+The canonical Investigation architecture explains how Management OS reasons
+backward from a reported condition toward a justified owner Decision. It did not
+explicitly preserve the forward reasoning required to determine how that Decision
+propagates through processes, systems, roles, SOPs, controls, communication,
+training, dependencies, and operational risk before detailed planning.
+
+The supporting organizational model already represented more than hierarchy. Its
+Investigation-only name and scope understated the shared operating topology needed
+for impact reasoning and planning.
+
+### Decision
+
+Establish **Operational Impact Review** as the proportionate, linked, versioned
+contribution between an authoritative owner Decision and detailed Execution
+Planning. It evaluates organizational absorption, preserves impact findings and
+uncertainty, and hands only owner-approved adaptations, guardrails, monitoring,
+and unresolved conditions to planning.
+
+Impact Review is not an Investigation phase, execution plan, Knowledge workflow,
+or Operational Matter macro-state. Before a Matter enters **In Execution**, the
+Decision records a completed review with dispositions, a proportionate skip with
+reason, or that no execution is required.
+
+Rename and evolve **Operational Organization Model** as **Operational Operating
+Model**. It supplies governed topology across structure, processes, systems, roles,
+handoffs, controls, constraints, decision rights, Evidence access, and operating
+characteristics. Investigations may preserve epistemic process-understanding
+projections over those references; projections remain distinct from performance
+ratings and never rewrite source records.
+
+### Rationale
+
+The capability makes forward operational reasoning explicit before schedule and
+task pressure obscure it, while preserving proportionality, owner approval, source
+authority, the Matter's coarse lifecycle, and the separate responsibilities of
+Investigation, planning, execution, Operational Memory, and Knowledge.
+
+### Alternatives considered
+
+- Retain the direct Decision-to-Planning path — rejected for consequential
+  Decisions because cross-system adaptations remain implicit.
+- Add an Operational Matter macro-state — rejected because impact reasoning is a
+  contribution within **Decided**, not the Matter's operational posture.
+- Put all impact reasoning inside Execution Planning — retained only as the
+  proportional form for local, reversible, low-risk Decisions.
+- Rely on post-execution stabilization — rejected as the primary design because
+  preventable secondary effects would be discovered too late.
+- Keep the Operational Organization Model name — rejected because its canonical
+  scope now represents how the organization operates, not only its structure.
+
+### Consequences
+
+Future implementation requires explicit materiality and skip rules, versioned
+findings and dispositions, Operating Model references and snapshots, approval
+boundaries, planning handoff validation, reopening, degraded operation, and
+qualitative evaluation. No entity, persistence, migration, runtime, interface,
+AI behavior, plan, task, source mutation, or Knowledge publication is introduced.
+
+### References
+
+- [Operational Impact Review Architecture](OPERATIONAL_IMPACT_REVIEW_ARCHITECTURE.md)
+- [Operational Operating Model](OPERATIONAL_OPERATING_MODEL.md)
+- [Operational Matter Architecture](OPERATIONAL_MATTER_ARCHITECTURE.md)
+- [Unified Operational Investigation Architecture](UNIFIED_OPERATIONAL_INVESTIGATION_ARCHITECTURE.md)
+- [Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md)
+- [Knowledge Evolution Architecture](KNOWLEDGE_EVOLUTION_ARCHITECTURE.md)

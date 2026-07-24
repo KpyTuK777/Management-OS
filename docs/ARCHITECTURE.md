@@ -29,10 +29,14 @@ canonical product boundary is the
 
 The Investigation composes references and governed snapshots; it does not absorb
 organizational, Evidence, task, calendar, execution, or Knowledge source authority.
-The [Operational Organization Model](OPERATIONAL_ORGANIZATION_MODEL.md) supplies
+The [Operational Operating Model](OPERATIONAL_OPERATING_MODEL.md) supplies
 authorized planning context, and
 [Investigation Orchestration](INVESTIGATION_ORCHESTRATION_ARCHITECTURE.md) prepares
-owner-reviewed action and scheduling handoffs. Both remain future architecture.
+owner-reviewed Investigation action and scheduling handoffs. After an
+authoritative Decision, the
+[Operational Impact Review](OPERATIONAL_IMPACT_REVIEW_ARCHITECTURE.md) prepares
+the separately approved operational-adaptation input to Execution Planning. These
+remain future architecture and do not transfer source authority.
 
 Architecture and source identifiers may remain in English, while user-facing copy
 follows the [Product Language Guide](PRODUCT_LANGUAGE.md).

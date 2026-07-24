@@ -113,20 +113,23 @@ Evolve the approved Case direction in governed stages:
    Candidates before automated review signals;
 7. establish Operational Inquiry governance and validate explainable next-question
    selection before automated Investigation questioning;
-8. establish governed Operational Organization Model context before constraint-aware planning;
-9. validate explainable Investigation Orchestration, Evidence Acquisition Profiles,
+8. establish the governed Operational Operating Model before constraint-aware
+   Investigation, Operational Impact Review, and Execution Planning;
+9. establish proportionate Operational Impact Review between authoritative owner
+   Decision and detailed Execution Planning;
+10. validate explainable Investigation Orchestration, Evidence Acquisition Profiles,
    and owner-approved action and scheduling handoffs;
-10. complete the Operational Reality outcome and verification loop;
-11. validate the Case-centered operational investigation experience, progressive
+11. complete the Operational Reality outcome and verification loop;
+12. validate the Case-centered operational investigation experience, progressive
    naming, Evidence orientation, and cross-record return paths;
-12. add Operational Learning context and governed learning capture;
-13. add the Decision Laboratory with qualitative Scenario Branches from named
+13. add Operational Learning context and governed learning capture;
+14. add the Decision Laboratory with qualitative Scenario Branches from named
     Operational Matter versions and immutable decision-time baselines;
-14. introduce governed quantitative simulation only where intended use,
+15. introduce governed quantitative simulation only where intended use,
    validation, uncertainty, sensitivity, limits, and expiry are supportable;
-15. define a separate Owner Learning Record architecture before durable competence
+16. define a separate Owner Learning Record architecture before durable competence
    development or assessment;
-16. consolidate information architecture only after truth separation and direct
+17. consolidate information architecture only after truth separation and direct
    domain access are validated.
 
 Scenario Simulation remains distinct from later Predictive Operational Insights.

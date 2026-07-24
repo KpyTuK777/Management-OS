@@ -442,7 +442,8 @@ value requires quiet presence.
 | Operational Case | Bounded operational learning and change process connecting intent, condition, Evidence, decision, Countermeasure, verified outcome, learning, and standardization judgment |
 | Investigation Context | Owner-selected Operational Reality or Operational Learning emphasis within one lifecycle |
 | Decision Laboratory | Contextual comparison of reversible Scenario Branches from a frozen Investigation baseline |
-| Operational Organization Model | Governed organizational context used to assess feasibility, availability, constraints, and Evidence access |
+| Operational Operating Model | Governed operational topology used to assess processes, systems, roles, controls, feasibility, constraints, and Evidence access |
+| Operational Impact Review | Proportionate post-Decision review that prepares owner-approved operational adaptations for Execution Planning |
 | Investigation Orchestration | Explainable preparation of Evidence acquisition and Operational Action sequences for owner approval |
 | Personal Operational Model | Future owner-controlled source of durable approved personal context and preferences |
 | Adaptive Workspace | Future executor of exact approved Workspace Emphasis, not an autonomous journey controller |

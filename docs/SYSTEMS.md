@@ -210,12 +210,19 @@ responsibilities.
 - **Future responsibilities:** Task capture, priorities, completion, and project association.
 - **Boundary:** Routine tasks remain available without an Investigation. An Evidence Need does not silently create or assign a task; Investigation Orchestration prepares an Operational Action for owner review.
 
-## Operational Organization Model
+## Operational Operating Model
 
-- **Purpose:** Provide governed organizational operating context for Investigation planning.
+- **Purpose:** Provide governed operational topology and current context for Investigation, Operational Impact Review, Execution Planning, and future AI reasoning.
 - **Current status:** Approved future architecture; not implemented.
-- **Future responsibilities:** Represent authorized responsibilities, availability patterns, operating constraints, systems, Evidence accessibility, communication context, and relevant organizational relationships with provenance and freshness.
-- **Boundary:** It is not an organization-chart module, employee scoring system, Personal Operational Model, or source of Investigation truth. Source systems retain authority. See [Operational Organization Model](OPERATIONAL_ORGANIZATION_MODEL.md).
+- **Future responsibilities:** Represent authorized processes, structure, systems, roles, handoffs, controls, constraints, decision rights, Evidence accessibility, operating characteristics, and Investigation-owned process-understanding projections with provenance and freshness.
+- **Boundary:** It is not an organization-chart module, employee scoring system, prediction engine, Personal Operational Model, or source of Investigation truth. Source systems retain authority. See [Operational Operating Model](OPERATIONAL_OPERATING_MODEL.md).
+
+## Operational Impact Review
+
+- **Purpose:** Evaluate how an authoritative owner Decision should be absorbed by the organization's operating system before detailed Execution Planning.
+- **Current status:** Approved canonical future architecture; not implemented.
+- **Future responsibilities:** Identify affected operating elements, preserve assumptions and secondary risks, record owner disposition, and hand approved adaptations, guardrails, monitoring, and unresolved conditions to planning.
+- **Boundary:** It does not reconsider the Decision, change Operating Model sources, create tasks, own Execution Planning, publish Knowledge, or approve adaptations autonomously. See [Operational Impact Review Architecture](OPERATIONAL_IMPACT_REVIEW_ARCHITECTURE.md).
 
 ## Investigation Orchestration
 

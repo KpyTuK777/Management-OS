@@ -158,6 +158,11 @@ Operational Memory must never modify, approve, replace, invalidate, supersede, o
 archive Knowledge. The Knowledge lifecycle remains the only authority for those
 changes.
 
+Operational Impact Review also never publishes or revises Knowledge. A completed
+review may preserve a separately governed Knowledge Review Candidate when observed
+Evidence materially challenges or extends an approved Knowledge version. Proposed
+adaptations, planning approval, and execution activity alone are not Knowledge.
+
 ## AI participation and explainability
 
 AI may prioritize, consolidate, and prepare review candidates. It may remain silent

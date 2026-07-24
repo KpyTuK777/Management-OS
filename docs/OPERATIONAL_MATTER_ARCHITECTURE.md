@@ -11,7 +11,7 @@ situation in Management OS.
 | Delivery milestone | Sprint 10 |
 | Canonical concept | Operational Matter |
 | Authority | Matter identity, macro-state, lifecycle continuity, lineage, relationships, reopening, and capability write boundaries |
-| Related documents | Unified Operational Investigation Architecture, Data Model, Operational Reasoning Model, Decision Laboratory, Operational Memory, Knowledge Evolution |
+| Related documents | Unified Operational Investigation Architecture, Operational Impact Review Architecture, Data Model, Operational Reasoning Model, Decision Laboratory, Operational Memory, Knowledge Evolution |
 
 An **Operational Matter** is the thin, persistent control-plane record that
 preserves one operational situation across reporting, assessment, investigation,
@@ -67,7 +67,8 @@ The ordinary forward path is permitted but not mandatory:
 
 ```text
 Reported -> Under Assessment -> Under Investigation
-         -> Decision Ready -> Decided -> In Execution
+         -> Decision Ready -> Decided
+         -> proportionate Impact Review and Execution Planning -> In Execution
          -> Outcome Assessed -> Closed
 ```
 
@@ -164,6 +165,7 @@ does not change Evidence standards, authority, or lifecycle ownership.
 | Operational Investigation | Linked, repeatable work episode; a Matter may have many |
 | Operational Reasoning | Versioned interpretation with input lineage |
 | Decision | Authoritative linked record with rationale and decision-time snapshot |
+| Operational Impact Review | Linked, versioned decision-impact contribution and owner-approved adaptation package |
 | Decision Laboratory | Non-authoritative branch from a named Matter version |
 | Organizational Context | Live source reference; traceable decision-time snapshot only when material |
 | Calendar Commitment | External authoritative reference; scheduling status is never copied as Matter truth |
@@ -191,8 +193,11 @@ authority to the Matter.
 - **Decision Laboratory** explores non-authoritative alternatives.
 - **Operational Memory** retrieves relevant historical Matters, Decisions, and
   Outcomes; it is not approved Knowledge.
-- **Operational Organization Model** supplies roles, ownership, escalation,
-  authority, and operating context.
+- **Operational Operating Model** supplies processes, systems, roles, controls,
+  ownership, escalation, authority, and operating context.
+- **Operational Impact Review** evaluates how an authoritative Decision propagates
+  through that topology and hands only owner-approved adaptations to Execution
+  Planning. It does not add a Matter macro-state.
 - **Watson Professional Ethos** governs behavior, transparency, epistemic
   discipline, and authority boundaries across all capabilities.
 
