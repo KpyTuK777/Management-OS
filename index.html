@@ -68,7 +68,7 @@
 						<div class="board-column">
 					<section class="situation-board-summary current-situation-canvas" id="situationBoard" aria-labelledby="situationBoardTitle">
 						<header class="current-situation__header">
-							<div><span>Поточна ситуація</span><h2 id="situationBoardTitle">Різке падіння прибутку потребує перевірки</h2></div>
+							<div><span><b aria-hidden="true">🔍</b> Поточна ситуація</span><h2 id="situationBoardTitle">Різке падіння прибутку потребує перевірки</h2></div>
 							<details class="inline-disclosure"><summary>Перевірити підстави</summary><p>Картина зведена з вашого формулювання, підтверджених джерел і відкритих припущень.</p></details>
 						</header>
 						<div class="current-situation__reported">
@@ -96,16 +96,16 @@
 						</section>
 						<div class="material-safeguard hidden" id="sourcePermissionSafeguard" role="note"><strong>Потрібен ваш дозвіл</strong><span>Внутрішній фінансовий звіт не відкривається автоматично.</span></div>
 						<nav class="working-collections hidden" id="workingCollections" aria-label="Матеріали поточної ситуації">
-							<button class="collection-chip collection-chip--data hidden" id="dataCollection" type="button" data-collection-view="evidence">Дані <strong>1</strong></button>
-							<button class="collection-chip collection-chip--conversation" type="button" data-collection-view="understanding">Розмови <strong>1</strong></button>
-							<button class="collection-chip collection-chip--hypothesis hidden" id="hypothesisCollection" type="button" data-collection-view="understanding">Гіпотези <strong>1</strong></button>
-							<button class="collection-chip collection-chip--warning hidden" id="contradictionCollection" type="button" data-collection-view="understanding">Суперечності <strong>1</strong></button>
+							<button class="collection-chip collection-chip--data hidden" id="dataCollection" type="button" data-collection-view="evidence"><span class="collection-icon" aria-hidden="true">📊</span><span>Дані<small>Фінансовий зріз</small></span><strong>1</strong><i class="data-spark" aria-hidden="true"><b></b><b></b><b></b><b></b></i></button>
+							<button class="collection-chip collection-chip--conversation" type="button" data-collection-view="understanding"><span class="collection-icon" aria-hidden="true">🎙</span><span>Розмови<small>Повідомлення команди</small></span><strong>1</strong><i class="conversation-mark" aria-hidden="true">“…”</i></button>
+							<button class="collection-chip collection-chip--hypothesis hidden" id="hypothesisCollection" type="button" data-collection-view="understanding"><span class="collection-icon" aria-hidden="true">🧠</span><span>Гіпотези<small>Перевірюване пояснення</small></span><strong>1</strong><i class="hypothesis-nodes" aria-hidden="true"><b></b><b></b><b></b></i></button>
+							<button class="collection-chip collection-chip--warning hidden" id="contradictionCollection" type="button" data-collection-view="understanding"><span class="collection-icon" aria-hidden="true">⚠</span><span>Суперечності<small>Щось не узгоджується</small></span><strong>1</strong><i class="warning-mark" aria-hidden="true">!</i></button>
 						</nav>
 					</section>
 
 					<section class="matter-natural-capture" aria-labelledby="matterCaptureTitle">
 						<div class="section-heading">
-							<div><span>Операційний inbox</span><h2 id="matterCaptureTitle">Додайте будь-що важливе</h2></div>
+							<div><span><b aria-hidden="true">📎</b> Операційний inbox</span><h2 id="matterCaptureTitle">Додайте будь-що важливе</h2></div>
 						</div>
 						<form id="matterCaptureForm">
 							<label id="matterCapturePrompt" for="matterCaptureInput">Запишіть думку, розмову або спостереження — чи додайте файл без попередньої класифікації.</label>

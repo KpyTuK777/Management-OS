@@ -1,5 +1,18 @@
 # Changelog
 
+## Sprint 23 — Operational Workbench art direction
+
+- Established a complete visual hierarchy led by Current Situation.
+- Redesigned Current Situation as a spacious continuous operational canvas.
+- Made Watson recognizable as a focused professional colleague before reading.
+- Turned Operational Inbox into an inviting notebook-style contribution surface.
+- Differentiated Data, Conversations, Hypotheses, and Contradictions through
+  distinct semantic previews and iconography.
+- Added progressive emergence motion with reduced-motion support.
+- Preserved the art direction across desktop and responsive layouts.
+- Updated visual-system, Workbench, UX, and product-language documentation without
+  changing architecture or authority.
+
 ## Sprint 22 — Operational Workbench
 
 - Replaced the Matter dashboard composition with a stable three-surface

@@ -157,6 +157,47 @@ At responsive widths the reading order is Current Situation, Watson, Operational
 Inbox, then specialist inspection. Visual adaptation never changes source
 authority or hides material safeguards.
 
+### Visual gravity
+
+Workbench visual gravity is deliberately unequal:
+
+| Priority | Surface | Treatment |
+| --- | --- | --- |
+| 1 | Current Situation | Largest continuous light canvas, strongest whitespace and editorial headline |
+| 2 | Watson | Distinct indigo colleague surface with one conversational focus |
+| 3 | Operational Inbox | Warm notebook surface with generous writing area |
+| 4 | Working Collections | Smaller content-specific artifacts that appear only when populated |
+| 5 | Specialist inspection | Quiet direct access outside the first scan |
+
+### Operational iconography
+
+Icons communicate material type and professional purpose before labels:
+
+| Meaning | Icon |
+| --- | --- |
+| Investigation / Current Situation | `🔍` |
+| Operational data | `📊` |
+| Document | `📄` |
+| Image or media | `📷` |
+| Conversation | `🎙` |
+| Attachment / Inbox | `📎` |
+| Idea | `💡` |
+| Hypothesis | `🧠` |
+| Contradiction or material warning | `⚠` |
+| Decision | `🎯` |
+| Operational adaptation | `🛠` |
+| Outcome | `📈` |
+
+Icons supplement accessible text and never carry state alone. Decorative instances
+are hidden from assistive technology. Material warning meaning must also be
+expressed in text and shape.
+
+### Motion
+
+Newly meaningful threads and collections may use a short opacity-and-position
+transition to communicate progressive emergence. Motion must not imply authority,
+Evidence weight, or completion. `prefers-reduced-motion` removes it.
+
 ## Accessibility
 
 - All interactive controls require a visible `:focus-visible` state.

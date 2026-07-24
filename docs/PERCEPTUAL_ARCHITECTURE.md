@@ -99,6 +99,13 @@ judgment remain visible outside a closed Watson Surface.
 
 ## Cross-surface visual language
 
+Sprint 23 applies the cross-surface language through deliberately unequal visual
+gravity. Current Situation reads as a continuous operational canvas, Watson as a
+recognizable colleague, and Operational Inbox as the owner's notebook. Working
+Collections use content-specific shapes and previews rather than uniform cards.
+This art direction changes perception only; the three surface roles and authority
+boundaries remain unchanged.
+
 | Attribute | Board | Natural Capture | Watson Surface |
 | --- | --- | --- | --- |
 | Character | Composed operational picture | Neutral professional tool | Active bounded partner |

@@ -6,6 +6,11 @@ continues to govern broader Operational Case experience where it does not confli
 with the Workbench's Current Situation, Inbox, Watson, collection, or
 Decision-relative emphasis rules.
 
+Sprint 23 UX guidance adds a three-second orientation test: before reading
+instructions, the owner should locate Current Situation, recognize Watson, and
+identify where to contribute. Review first click, hesitation, reading effort,
+cognitive orientation, and confidence rather than feature discoverability alone.
+
 Watson's Investigation presence is governed by the
 [Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md). In particular, Decision
 Readiness must explain why readiness is or is not established, expose unresolved

@@ -41,6 +41,11 @@ exist.
 Supporting material strengthens the picture and remains traceable to source
 records. Current Situation never becomes a second source of truth.
 
+Sprint 23 makes Current Situation the perceptual anchor through scale, whitespace,
+a continuous canvas, and connected semantic threads. It must be identifiable
+before its labels are read. Visual richness comes from operational meaning rather
+than decorative panels.
+
 ## Operational Inbox
 
 The Inbox accepts natural text, multiple observations, files, images, links,
@@ -52,6 +57,10 @@ The Inbox preserves original contribution, provenance, capture context,
 authorization, sensitivity, and any proposed interpretation. It is not a parallel
 document store.
 
+Its visual character is an inviting professional notebook: generous writing
+space, quiet attachment actions, and minimal instruction. It receives third-level
+visual gravity after Current Situation and Watson.
+
 ## Progressive Working Collections
 
 Working Collections emerge only when referenced material exists. They show counts,
@@ -60,6 +69,24 @@ are overlapping Matter-relative projections, not records or authorities.
 
 Removing a collection never deletes its governed records. A collection never
 assigns Evidence weight, establishes a Hypothesis, or changes source status.
+
+Collections use differentiated visual semantics: data resembles a compact
+quantitative preview, conversations resemble speech, Hypotheses show relationships,
+and contradictions use warning treatment. Empty collections remain absent.
+
+## Art direction hierarchy
+
+The first scan follows:
+
+1. Current Situation;
+2. Watson's current focus;
+3. Operational Inbox;
+4. emerged Working Collections;
+5. specialist inspection.
+
+Spacing, scale, grouping, shape, color, and iconography communicate this hierarchy
+before explanatory text. Progressive material uses restrained emergence motion
+with a reduced-motion equivalent.
 
 ## Decision and emphasis
 

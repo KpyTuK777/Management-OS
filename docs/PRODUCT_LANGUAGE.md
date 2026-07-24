@@ -203,6 +203,11 @@ Primary Ukrainian labels are:
 Do not expose `projection`, `authority boundary`, `artifact type`, `Matter state`,
 or `Operational Transition` as ordinary contribution instructions.
 
+Sprint 23 favors visual hierarchy over repeated explanatory copy. Labels remain
+short and concrete: `Поточна ситуація`, `Що я зараз розумію`, `Що пропоную далі`,
+and `Додайте будь-що важливе`. Icons may establish material type, but text remains
+available for precision and accessibility.
+
 ## Writing style
 
 Management OS language should be:
