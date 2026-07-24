@@ -55,6 +55,28 @@ The arcs share one Operational Matter, may overlap, and may repeat. Investigatio
 can continue after Decision. New Evidence may invalidate a premise, execution may
 require a revised Decision, and Outcome may require further approved action.
 
+```text
+Understanding Arc
+Current condition
+  -> Investigation
+  -> Decision Readiness
+  -> authoritative Decision
+
+Change Arc
+Authoritative Decision
+  -> Intended Operating Condition
+  -> Operational Impact Review
+  -> approved transition basis
+  -> Execution Planning
+  -> Execution
+  -> Outcome Assessment
+  -> proportionate Stabilization Assessment
+```
+
+These are reasoning arcs, not mandatory lifecycle phases. They may overlap,
+repeat, move backward, be skipped proportionately, generate new Evidence, or
+return the Matter to Investigation or Decision review.
+
 Operational Transition begins only when an authoritative Decision requires
 execution or coordinated operational adaptation. No-action, execution-free,
 routine, or proportionately trivial Decisions do not require a distinct
@@ -106,7 +128,19 @@ Planning, delivery, adoption, Outcome, or stabilization.
 
 Execution Planning determines how the Decision and approved adaptations will be
 delivered, including scope, sequencing, dependencies, ownership, coordination,
-risk control, validation, and handoffs.
+risk control, resources, checkpoints, validation, and handoffs.
+
+The canonical planning input is:
+
+```text
+Authoritative Decision
++ Intended Operating Condition
++ approved adaptations
++ unresolved assumptions
++ guardrails
++ monitoring requirements
+-> Execution Planning
+```
 
 Projects, tasks, calendars, SOPs, training, communications, HR, ERP, CRM,
 workflow, and external execution systems retain authority for their records and

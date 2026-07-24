@@ -125,6 +125,7 @@ The canonical planning input is:
 
 ```text
 Authoritative Decision
++ Intended Operating Condition
 + approved operational adaptations
 + unresolved impact assumptions
 + required guardrails and monitoring
@@ -134,8 +135,8 @@ Authoritative Decision
 Operational Impact Review determines **what else must change** so the organization
 can absorb the Decision. Execution Planning determines **how approved changes are
 delivered**, including scope, sequence, dependencies, ownership, tasks, timing,
-risk control, and validation. Planning may return a newly discovered material
-impact for review without silently expanding approved scope.
+resources, risk control, checkpoints, and validation. Planning may return a newly
+discovered material impact for review without silently expanding approved scope.
 
 The [Operational Transition Architecture](OPERATIONAL_TRANSITION_ARCHITECTURE.md)
 governs the wider post-Decision continuity. Impact Review is its reasoning bridge,

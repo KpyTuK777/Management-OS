@@ -101,6 +101,33 @@ observed outcome.
 
 ## Decision traceability
 
+For an authoritative executable Decision, reasoning may be understood through two
+complementary arcs:
+
+```text
+Understanding Arc
+Current condition
+  -> Investigation
+  -> Decision Readiness
+  -> authoritative Decision
+
+Change Arc
+Authoritative Decision
+  -> Intended Operating Condition
+  -> Operational Impact Review
+  -> approved transition basis
+  -> Execution Planning and source-owned Execution
+  -> Outcome Assessment
+  -> proportionate Stabilization Assessment
+```
+
+The [Operational Transition Architecture](OPERATIONAL_TRANSITION_ARCHITECTURE.md)
+governs the Change Arc. These arcs are not stages, gates, or a mandatory linear
+workflow. They may overlap, repeat, move backward, be skipped proportionately,
+generate new Evidence, and return the Matter to Investigation or Decision review.
+No-action, monitoring-only, waiting, execution-free, and close-without-intervention
+Decisions do not begin an Operational Transition.
+
 A material decision is one whose cost, reversibility, operational consequence,
 risk, or governance significance justifies a durable trace. Each material real
 decision preserves:
