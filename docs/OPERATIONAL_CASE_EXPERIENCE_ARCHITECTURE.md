@@ -1,5 +1,11 @@
 # Operational Case Experience Architecture
 
+The [Operational Workbench](OPERATIONAL_WORKBENCH.md) now governs the stable
+Matter-workspace metaphor and primary three-surface composition. This document
+continues to govern broader Operational Case experience where it does not conflict
+with the Workbench's Current Situation, Inbox, Watson, collection, or
+Decision-relative emphasis rules.
+
 Watson's Investigation presence is governed by the
 [Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md). In particular, Decision
 Readiness must explain why readiness is or is not established, expose unresolved

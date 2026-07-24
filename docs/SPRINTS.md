@@ -593,3 +593,33 @@ boundaries and [Project Health](PROJECT_HEALTH.md) for the aggregate readiness v
 - Deterministic static-prototype behavior only.
 - No production AI, persistence, source integration, attachment processing,
   autonomous authority, or hidden owner profiling is implemented.
+
+## Sprint 22
+
+### Completed
+
+- **Operational Workbench:** Replaced the dashboard-like Matter workspace with
+  one stable professional desk
+- **Current Situation:** Composed one dominant evolving operational picture
+  instead of equal cards
+- **Operational Inbox:** Added a persistent natural notebook for text, files,
+  links, voice-note intent, and ideas without prior classification
+- **Working Collections:** Added non-empty counted projections for conversations,
+  data, Hypotheses, and contradictions
+- **Watson:** Reframed the persistent surface around current understanding and one
+  suggested next step
+- **Decision Experience:** Made the existing authoritative Decision confirmation
+  explicitly carry chosen direction and accepted uncertainty
+- **Transition Emphasis:** Added a conditional post-Decision view of intended
+  condition, affected system, adaptations, execution, and verification
+- **Responsive Composition:** Preserved Current Situation, Watson, Inbox, and
+  specialist-access roles across desktop and mobile
+- **Canonical Integration:** Added Operational Workbench authority and updated
+  affected experience, language, design, sprint, changelog, and index records
+
+### Implementation status
+
+- Deterministic static prototype with session-local presentation context.
+- No new Matter state, entity, collection authority, document store, production
+  AI, persistence, recording, attachment processing, source integration, or
+  execution authority is implemented.

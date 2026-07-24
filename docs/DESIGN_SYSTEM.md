@@ -144,6 +144,19 @@ substantial Board remains absent until useful. Reported symptoms, observations,
 sourced Evidence, assumptions, and Hypotheses use distinct labels and treatment;
 they must not appear as interchangeable cards.
 
+## Operational Workbench composition
+
+The Workbench uses one large composed Current Situation canvas and a restrained
+supporting rail for Watson and Operational Inbox. Uniform card grids are not used
+for the primary operational picture. Contextual material uses semantic forms:
+continuous threads for observations, source-oriented treatment for Evidence,
+warning treatment for contradictions, relationship treatment for Hypotheses, and
+compact counted chips for non-empty Working Collections.
+
+At responsive widths the reading order is Current Situation, Watson, Operational
+Inbox, then specialist inspection. Visual adaptation never changes source
+authority or hides material safeguards.
+
 ## Accessibility
 
 - All interactive controls require a visible `:focus-visible` state.

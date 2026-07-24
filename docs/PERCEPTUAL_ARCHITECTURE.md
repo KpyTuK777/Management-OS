@@ -21,6 +21,11 @@ Before the Board becomes materially useful, Watson occupies the dominant
 orientation position and the owner response remains a separate contribution
 surface. Once shared understanding requires visualization, the Board may gain
 prominence without merging the three surfaces or making conversation mandatory.
+
+Sprint 22 composes these roles inside the Operational Workbench: Current Situation
+is visually dominant, Watson retains one conversational focus, and Operational
+Inbox remains the recognizable owner notebook. Working Collections stay
+supporting projections and never receive equal visual weight.
 | Canonical concept | Three-surface perceptual architecture |
 | Authority | Surface roles, perceptual character, cross-surface language, context connection, and responsive role preservation |
 | Related documents | Operational Situation Board Architecture, Guided Investigation Interaction, Natural Capture Architecture, AI Assistant Architecture, Design System |

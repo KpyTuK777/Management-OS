@@ -1,5 +1,19 @@
 # Changelog
 
+## Sprint 22 — Operational Workbench
+
+- Replaced the Matter dashboard composition with a stable three-surface
+  Operational Workbench.
+- Made Current Situation one dominant composed operational canvas.
+- Presented Natural Capture as a persistent Operational Inbox notebook.
+- Added progressive, counted Working Collections that reference governed
+  material.
+- Reworked Watson around current understanding and one suggested next step.
+- Added natural Decision confirmation with accepted uncertainty.
+- Added conditional post-Decision Operational Transition emphasis without
+  replacing Investigation.
+- Added responsive Workbench composition and canonical documentation.
+
 ## Sprint 20 — Human-first Investigation experience
 
 - Replaced the substantial initial Board with a conversation-led orientation.

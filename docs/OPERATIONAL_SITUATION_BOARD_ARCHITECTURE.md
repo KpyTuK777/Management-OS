@@ -21,6 +21,10 @@ In the human-first opening, the substantial Board is initially absent. It become
 visible after the owner confirms Watson's first useful summary, then grows with
 observations, sourced Evidence, discrepancies, and testable explanations. Primary
 owner mental model does not mean first, largest, or permanently dominant.
+
+Within the [Operational Workbench](OPERATIONAL_WORKBENCH.md), the Board is
+presented as the composed **Current Situation** visual center. This presentation
+does not change its projection-only authority or create a dashboard aggregate.
 | Authority | Matter-level operational picture, stable frame, living cognitive projection, dynamic cognitive focus, natural capture integration, and progressive disclosure |
 | Related documents | Progressive Understanding Architecture, Operational Matter Architecture, Operational Case Experience Architecture, Natural Capture Architecture, AI Assistant Architecture, Operational Reasoning Model |
 

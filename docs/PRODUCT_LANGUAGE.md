@@ -188,6 +188,21 @@ summary, one natural question, and a concise explanation only when useful.
 Prefer questions such as `Коли ви вперше це помітили?`, `Що або хто, схоже,
 постраждали?`, `Що не узгоджується?`, and `Що варто перевірити спочатку?`.
 
+## Operational Workbench language
+
+Primary Ukrainian labels are:
+
+| Workbench concept | Owner-facing term |
+| --- | --- |
+| Current Situation | `Поточна ситуація` |
+| Operational Inbox | `Операційний inbox` |
+| Working Collections | Content names such as `Дані`, `Розмови`, `Гіпотези`, `Суперечності` |
+| Decision confirmation | Describe the chosen direction and accepted uncertainty |
+| Transition emphasis | Describe the intended condition and work required now |
+
+Do not expose `projection`, `authority boundary`, `artifact type`, `Matter state`,
+or `Operational Transition` as ordinary contribution instructions.
+
 ## Writing style
 
 Management OS language should be:

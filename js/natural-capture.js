@@ -6,7 +6,7 @@ const InvestigationPrototype = (() => {
 		orientation: {
 			condition: "Почнімо з вашого досвіду",
 			title: "Коли ви вперше помітили падіння і що вже про нього знаєте?",
-			reason: "Можна відповісти на це запитання або одразу додати кілька спостережень.",
+			reason: "Ви повідомили про різке падіння прибутку за останні два місяці. Поки це не перевірено за джерелами.",
 			need: "Це допоможе відокремити те, що вже відомо, від того, що потрібно перевірити.",
 			action: "Перейти до відповіді",
 			captureFirst: true
@@ -86,6 +86,7 @@ const InvestigationPrototype = (() => {
 		elements.guidedAction.textContent = state.action;
 		elements.redirectGuidance.classList.toggle("hidden", Boolean(state.captureFirst));
 		elements.rejectGuidance.classList.toggle("hidden", Boolean(state.captureFirst));
+		window.sessionStorage.setItem("managementOsWorkbenchWatson", phase);
 	}
 
 	function advanceGuidedAction() {
@@ -102,6 +103,7 @@ const InvestigationPrototype = (() => {
 	}
 
 	function showView(viewName) {
+		window.sessionStorage.setItem("managementOsWorkbenchView", viewName);
 		elements.stageButtons.forEach(button => {
 			const isActive = button.dataset.view === viewName;
 			button.classList.toggle("is-active", isActive);
@@ -136,6 +138,7 @@ const InvestigationPrototype = (() => {
 	}
 
 	function beginEvidenceCollection() {
+		elements.sourcePermissionSafeguard.classList.remove("hidden");
 		elements.boardInspection.open = true;
 		showView("evidence");
 		setGuidedPhase("evidence");
@@ -160,6 +163,11 @@ const InvestigationPrototype = (() => {
 		elements.boardUnderstanding.textContent = "Маржа B2B знизилася, тоді як загальний дохід майже не змінився";
 		elements.boardRecentChange.textContent = "Фінансовий звіт · B2B-сегмент · останні два місяці";
 		elements.boardNextJudgment.textContent = "Затримки передачі B2B-лідів могли вплинути на маржу";
+		elements.sourcePermissionSafeguard.classList.add("hidden");
+		elements.workingCollections.classList.remove("hidden");
+		elements.dataCollection.classList.remove("hidden");
+		elements.hypothesisCollection.classList.remove("hidden");
+		elements.contradictionCollection.classList.remove("hidden");
 		elements.hypothesisList.classList.remove("hidden");
 		elements.validateCause.classList.remove("hidden");
 		setGuidedPhase("hypotheses");
@@ -184,10 +192,14 @@ const InvestigationPrototype = (() => {
 
 	function approveDecision() {
 		elements.approveDecision.disabled = true;
-		elements.approveDecision.textContent = "Рішення прийнято власником";
+		elements.approveDecision.textContent = "Рішення підтверджено · невизначеність прийнято";
 		elements.executionPlan.classList.remove("hidden");
+		elements.transitionEmphasis.classList.remove("hidden");
+		elements.workbench.classList.add("is-transition-focused");
+		elements.situationBoardTitle.textContent = "Обмежений пілот передачі B2B-лідів";
+		elements.boardUnderstanding.textContent = "Рішення прийнято з видимою невизначеністю. Поточна робота — узгодити адаптації, виконання та перевірку результату.";
 		setGuidedPhase("execution");
-		elements.executionPlan.scrollIntoView({ behavior: "smooth", block: "nearest" });
+		elements.transitionEmphasis.scrollIntoView({ behavior: "smooth", block: "nearest" });
 	}
 
 	function approvePlan() {
@@ -237,12 +249,12 @@ const InvestigationPrototype = (() => {
 
 		elements.milestoneContribution.textContent = original;
 		if (contributionRound === "context") {
-			elements.situationBoard.classList.remove("hidden");
 			elements.perceptualWorkspace.classList.add("has-board");
 			elements.boardUnderstanding.textContent = "Падіння повідомлено за останні два місяці; причина ще не встановлена";
 			elements.boardReasoningBasis.textContent = "Падіння, ймовірно, помітне в B2B-напрямі";
 			elements.knownContextCard.classList.remove("hidden");
 			elements.missingOrientationCard.classList.remove("hidden");
+			elements.workingCollections.classList.remove("hidden");
 			contributionRound = "orientation";
 			elements.matterCapturePrompt.textContent = "Уточніть показник або додайте іншу важливу деталь.";
 			setGuidedPhase("orientationGap");
@@ -325,6 +337,8 @@ const InvestigationPrototype = (() => {
 			contextBadge: document.getElementById("investigationContextBadge"),
 			workingTitle: document.getElementById("caseWorkingTitle"),
 			workingTitleGuidance: document.getElementById("workingTitleGuidance"),
+			workbench: document.getElementById("operationalWorkbench"),
+			situationBoardTitle: document.getElementById("situationBoardTitle"),
 			primaryInflection: document.getElementById("primaryInflectionPoint"),
 			inflectionStatus: document.getElementById("inflectionStatus"),
 			inflectionSummaryStatus: document.getElementById("inflectionSummaryStatus"),
@@ -343,6 +357,12 @@ const InvestigationPrototype = (() => {
 			missingOrientationCard: document.getElementById("missingOrientationCard"),
 			evidenceSummaryCard: document.getElementById("evidenceSummaryCard"),
 			hypothesisSummaryCard: document.getElementById("hypothesisSummaryCard"),
+			sourcePermissionSafeguard: document.getElementById("sourcePermissionSafeguard"),
+			workingCollections: document.getElementById("workingCollections"),
+			dataCollection: document.getElementById("dataCollection"),
+			hypothesisCollection: document.getElementById("hypothesisCollection"),
+			contradictionCollection: document.getElementById("contradictionCollection"),
+			collectionButtons: [...document.querySelectorAll("[data-collection-view]")],
 			validateCause: document.getElementById("validateCauseButton"),
 			readinessSummary: document.getElementById("readinessSummary"),
 			decisionReadinessTitle: document.getElementById("decisionReadinessTitle"),
@@ -350,6 +370,8 @@ const InvestigationPrototype = (() => {
 			approveDecision: document.getElementById("approveDecisionButton"),
 			executionPlan: document.getElementById("executionPlan"),
 			approvePlan: document.getElementById("approvePlanButton"),
+			transitionEmphasis: document.getElementById("transitionEmphasis"),
+			returnToInvestigation: document.getElementById("returnToInvestigation"),
 			followUpTitle: document.getElementById("followUpTitle"),
 			followUpDescription: document.getElementById("followUpDescription"),
 			recordOutcome: document.getElementById("recordOutcomeButton"),
@@ -388,6 +410,7 @@ const InvestigationPrototype = (() => {
 			deferGuidance: document.getElementById("deferGuidanceButton"),
 			rejectGuidance: document.getElementById("rejectGuidanceButton"),
 			structuredEntry: document.getElementById("structuredEntryButton"),
+			voiceNote: document.getElementById("voiceNoteButton"),
 			announcement: document.getElementById("prototypeAnnouncement")
 		};
 	}
@@ -406,6 +429,12 @@ const InvestigationPrototype = (() => {
 		elements.workingTitle.addEventListener("change", reviewWorkingTitle);
 		elements.newButton.addEventListener("click", resetInvestigation);
 		elements.stageButtons.forEach(button => button.addEventListener("click", () => showView(button.dataset.view)));
+		elements.collectionButtons.forEach(button => button.addEventListener("click", () => {
+			elements.boardInspection.open = true;
+			showView(button.dataset.collectionView);
+			elements.boardInspection.scrollIntoView({ behavior: "smooth", block: "nearest" });
+			window.sessionStorage.setItem("managementOsWorkbenchCollection", button.textContent.trim());
+		}));
 		elements.evidenceFilters.forEach(button => button.addEventListener("click", () => filterEvidence(button.dataset.evidenceFilter)));
 		elements.openSimulation.addEventListener("click", () => {
 			elements.scenario.classList.remove("hidden");
@@ -432,14 +461,25 @@ const InvestigationPrototype = (() => {
 			announce("Рекомендацію Watson відхилено. Власник може змінити напрям або продовжити без неї; стан справи не змінено.");
 		});
 		elements.structuredEntry.addEventListener("click", () => {
-			elements.matterCaptureInput.value = "Спостереження: \nДжерело: \nПеріод: \nПрипущення: ";
+			elements.matterCaptureInput.value = "Посилання: https://\nЩо в ньому важливого: ";
 			elements.matterCaptureInput.focus();
-			announce("Додано коротку структуру запису. Заповнюйте лише те, що вже відомо.");
+			announce("Додайте посилання й коротко напишіть, чому воно важливе.");
+		});
+		elements.voiceNote.addEventListener("click", () => {
+			elements.matterCaptureInput.value = "Голосова нотатка: ";
+			elements.matterCaptureInput.focus();
+			announce("Демонстраційний прототип не записує звук. Диктування можна подати тут як звичайну нотатку.");
 		});
 		elements.collectEvidence.addEventListener("click", collectEvidence);
 		elements.validateCause.addEventListener("click", validateCause);
 		elements.approveDecision.addEventListener("click", approveDecision);
 		elements.approvePlan.addEventListener("click", approvePlan);
+		elements.returnToInvestigation.addEventListener("click", () => {
+			elements.boardInspection.open = true;
+			showView("decision");
+			elements.boardInspection.scrollIntoView({ behavior: "smooth", block: "start" });
+			announce("Підстави рішення залишаються доступними; акцент переходу не скасовано.");
+		});
 		elements.recordOutcome.addEventListener("click", recordOutcome);
 		elements.captureKnowledge.addEventListener("click", captureKnowledge);
 		elements.matterCaptureForm.addEventListener("submit", prepareMatterContribution);
@@ -464,15 +504,21 @@ const InvestigationPrototype = (() => {
 				elements.approveMatterContribution.click();
 			}
 			const journey = new URLSearchParams(window.location.search).get("journey");
-			if (["first-hypothesis", "complete"].includes(journey)) {
+			if (journey === "evidence") {
+				elements.boardUncertainty.textContent = "Маржа могла знизитися без такого самого падіння доходу";
+				beginEvidenceCollection();
+			}
+			if (["first-hypothesis", "transition", "complete"].includes(journey)) {
 				elements.matterCaptureInput.value = "Схоже, що знизилася насамперед маржа B2B, тоді як загальний дохід змінився незначно.";
 				elements.matterCaptureForm.requestSubmit();
 				elements.approveMatterContribution.click();
 				collectEvidence();
 			}
-			if (journey === "complete") {
+			if (["transition", "complete"].includes(journey)) {
 				validateCause();
 				approveDecision();
+			}
+			if (journey === "complete") {
 				approvePlan();
 				recordOutcome();
 				captureKnowledge();

@@ -12,6 +12,10 @@ beginning of an Operational Investigation.
 | Authority | Conversation-led orientation, Watson intervention contract, owner correction, and Board timing |
 | Related documents | [Progressive Understanding](PROGRESSIVE_UNDERSTANDING_ARCHITECTURE.md), [Guided Investigation](GUIDED_INVESTIGATION_INTERACTION.md), [Operational Situation Board](OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md), [Perceptual Architecture](PERCEPTUAL_ARCHITECTURE.md) |
 
+The [Operational Workbench](OPERATIONAL_WORKBENCH.md) is the stable workspace in
+which this human-first opening continues. Conversation leads orientation without
+making Watson mandatory; Current Situation and Operational Inbox remain distinct.
+
 ## Canonical principle
 
 > Management OS supports human operational reasoning before exposing system

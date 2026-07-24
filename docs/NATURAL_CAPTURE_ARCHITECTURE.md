@@ -36,6 +36,11 @@ The human-first Investigation response accepts one answer, several answers, or
 multiple observations in a single contribution. Structured entry remains optional;
 Natural Capture never forces field-by-field completion to satisfy internal
 architecture.
+
+The [Operational Workbench](OPERATIONAL_WORKBENCH.md) presents Natural Capture as
+the persistent **Operational Inbox** notebook. The Inbox may display recent and
+pending contributions, but remains a surface over governed capture and source
+records rather than a new store or authority.
 | Product approval | Product Owner |
 | Scope | Product architecture only |
 | Excluded | LLMs, prompts, providers, APIs, speech recognition, embeddings, vector databases, and implementation |
