@@ -683,6 +683,23 @@ boundaries and [Project Health](PROJECT_HEALTH.md) for the aggregate readiness v
   workflow, source authority, production intelligence, or persistence is
   implemented.
 
+## Sprint 27
+
+### Completed
+
+- Audited active Workbench typography and interaction states for the dark theme.
+- Replaced the legacy Sidebar with accessible icon-first desktop and mobile
+  Docks.
+- Returned navigation width and overlay space to the Operational Situation Map.
+- Integrated Operational Inbox into Workbench flow as a permanently available
+  notebook that never covers investigation material.
+- Made Watson quiet on contribution submission and preserved uninterrupted owner
+  capture.
+- Introduced restrained professional stationery references without semantic or
+  authority implications.
+- Verified `main` as the Pages source path, successful Pages build behavior,
+  cache response, and published commit alignment.
+
 ## Sprint 26
 
 ### Completed

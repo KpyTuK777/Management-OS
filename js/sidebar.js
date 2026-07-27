@@ -20,6 +20,13 @@ const Layout = (() => {
 			]
 		}
 	};
+	const navigationIcons = {
+		"Головна": "⌂",
+		"Порядок денний": "◷",
+		"Навчання": "◇",
+		"Операційні справи": "◎",
+		"Знання": "▤"
+	};
 
 	function getCurrentMode() {
 		return window.sessionStorage.getItem("managementOsPrototypeMode") || "student";
@@ -35,8 +42,17 @@ const Layout = (() => {
 
 	function createLink([label, href]) {
 		const anchor = document.createElement("a");
+		const icon = document.createElement("span");
+		const text = document.createElement("span");
 		anchor.href = href;
-		anchor.textContent = label;
+		anchor.setAttribute("aria-label", label);
+		anchor.dataset.label = label;
+		icon.className = "dock-icon";
+		icon.setAttribute("aria-hidden", "true");
+		icon.textContent = navigationIcons[label] || "•";
+		text.className = "dock-label";
+		text.textContent = label;
+		anchor.append(icon, text);
 		if (isCurrent(href)) {
 			anchor.classList.add("active");
 			anchor.setAttribute("aria-current", "page");
@@ -66,7 +82,7 @@ const Layout = (() => {
 		title.textContent = "Management OS";
 		descriptor.textContent = "Операційні справи";
 		modeLabel.textContent = "Поточний акцент";
-		priorities.textContent = "Навігація змінює пріоритети, а не доступність можливостей.";
+		priorities.textContent = "Профіль";
 
 		Object.entries(modes).forEach(([value, definition]) => {
 			const option = document.createElement("option");
@@ -82,10 +98,15 @@ const Layout = (() => {
 			renderSidebar();
 		});
 
+		title.textContent = "M";
+		title.setAttribute("aria-label", "Management OS");
 		logo.append(title, descriptor);
 		modeLabel.appendChild(modeSelect);
 		mode.links.forEach(link => navigation.appendChild(createLink(link)));
-		mountPoint.replaceChildren(logo, modeLabel, navigation, priorities);
+		const dockFooter = document.createElement("div");
+		dockFooter.className = "sidebar__footer";
+		dockFooter.append(priorities, modeLabel);
+		mountPoint.replaceChildren(logo, navigation, dockFooter);
 	}
 
 	function init() {

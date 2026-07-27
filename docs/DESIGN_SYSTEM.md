@@ -196,6 +196,22 @@ The shared thinking dock is the only persistent contribution surface. It combine
 Natural Capture with owner-invoked Watson actions without making Watson the
 center. Expanded Watson appears adjacent to the dock and disappears when quiet.
 
+Sprint 27 makes the thinking dock an in-flow operational notebook. It cannot
+obscure the Situation Map. The legacy sidebar becomes a 72-pixel icon Dock on
+desktop and a compact bottom Dock on mobile. Every navigation icon has an
+accessible name; its visible label appears on pointer hover or keyboard focus.
+
+Dark Workbench text uses these roles:
+
+- primary content `#F2EDE4` or equivalent warm white;
+- supporting content at least `#B6BDC0`;
+- interactive brass text at least `#D9BD8D`;
+- focus indication `#F0C984` with a two-pixel outline;
+- paper content remains dark ink on warm paper.
+
+Texture, tape, pencil, paper clip, and magnifier-like forms may establish
+professional atmosphere, but must not carry state, meaning, or instructions.
+
 The Workbench uses one large composed Current Situation canvas and a restrained
 supporting rail for Watson and Operational Inbox. Uniform card grids are not used
 for the primary operational picture. Contextual material uses semantic forms:

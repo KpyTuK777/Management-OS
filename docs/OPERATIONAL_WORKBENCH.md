@@ -189,6 +189,24 @@ presentation and interaction emphasis only: the owner remains authoritative and
 all governed records, provenance, lifecycle, and capability boundaries remain
 unchanged.
 
+### Sprint 27 atmosphere and spatial refinement
+
+The Workbench owns the viewport. Primary navigation contracts to an icon-first
+Dock with accessible names and labels on hover or keyboard focus. Profile and
+operating mode move to the Dock edge rather than competing with investigation
+navigation.
+
+Operational Inbox is an in-flow notebook beneath the Situation Map. It is not
+fixed, modal, or overlaid and therefore never covers investigation material.
+Submitting material preserves the contribution without opening Watson, moving
+focus, or requiring confirmation. Watson may retain an optional thought quietly;
+the owner invokes it when useful and can always continue contributing.
+
+Dark-theme typography uses one accessible hierarchy: warm high-contrast primary
+text, readable neutral supporting text, restrained brass interaction text, and
+explicit focus outlines. Atmospheric stationery and instrument references remain
+subtle, non-interactive, and semantically neutral.
+
 Sprint 22 implements deterministic, session-local presentation for the first
 human-centered Workbench journey. It demonstrates progressive collections,
 Decision confirmation, and conditional transition emphasis without production

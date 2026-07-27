@@ -331,7 +331,6 @@ const InvestigationPrototype = (() => {
 			updateCollection("observations");
 		}
 
-		expandWatson();
 		elements.captureOriginal.textContent = `“${original}”`;
 		elements.guidedInvestigation.classList.add("hidden");
 		elements.watsonContributionReview.classList.remove("hidden");
@@ -341,8 +340,8 @@ const InvestigationPrototype = (() => {
 		elements.watsonUnderstandingSummary.textContent = contributionRound === "context"
 			? "Я зрозумів, що падіння почалося приблизно два місяці тому і, можливо, стосується B2B-напряму. Поки не зрозуміло, змінився дохід, маржа чи обидва показники."
 			: "Я зрозумів, що основна зміна стосується маржі, а не загального доходу. Це потрібно перевірити за сегментованим звітом.";
-		elements.watsonContributionReview.scrollIntoView({ behavior: "smooth", block: "nearest" });
-		announce("Watson коротко підсумував відповідь. Підтвердьте, виправте або додайте деталь.");
+		elements.watsonStatus.textContent = "Є думка";
+		announce("Матеріал збережено. Watson має необов’язкову думку; можна продовжувати роботу.");
 	}
 
 	function approveMatterContribution() {

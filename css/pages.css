@@ -2459,6 +2459,327 @@ details.journey-progress > summary::-webkit-details-marker { display:none; }
 	}
 }
 
+/* Sprint 27 — inhabited Workbench, accessible type, compact navigation dock */
+.app:has(.investigation-prototype) {
+	--sidebar-width:72px;
+	grid-template-columns:72px minmax(0,1fr);
+}
+
+.app:has(.investigation-prototype) .sidebar {
+	z-index:30;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	width:72px;
+	height:100vh;
+	padding:14px 10px;
+	border-right:1px solid rgba(232,226,215,.12);
+}
+
+.app:has(.investigation-prototype) .sidebar__logo {
+	display:grid;
+	place-items:center;
+	width:42px;
+	height:42px;
+	margin:0;
+	border:1px solid rgba(200,165,109,.42);
+	border-radius:50%;
+}
+
+.app:has(.investigation-prototype) .sidebar__logo h1 {
+	margin:0;
+	color:#f2ece2;
+	font-family:Georgia,serif;
+	font-size:1.2rem;
+}
+
+.app:has(.investigation-prototype) .sidebar__logo > span { display:none; }
+
+.app:has(.investigation-prototype) .sidebar nav {
+	display:flex;
+	flex:1;
+	flex-direction:column;
+	align-items:center;
+	gap:8px;
+	width:100%;
+	margin:28px 0 0;
+}
+
+.app:has(.investigation-prototype) .sidebar nav a {
+	position:relative;
+	display:grid;
+	place-items:center;
+	width:46px;
+	height:46px;
+	padding:0;
+	border-radius:50%;
+}
+
+.app:has(.investigation-prototype) .sidebar nav a::after {
+	position:absolute;
+	top:50%;
+	left:56px;
+	z-index:50;
+	padding:6px 9px;
+	border:1px solid rgba(200,165,109,.24);
+	border-radius:2px;
+	background:#242a2d;
+	color:#f0e9df;
+	content:attr(data-label);
+	font-size:.72rem;
+	font-weight:650;
+	opacity:0;
+	pointer-events:none;
+	transform:translate(4px,-50%);
+	transition:opacity .15s ease,transform .15s ease;
+	white-space:nowrap;
+}
+
+.app:has(.investigation-prototype) .sidebar nav a:hover::after,
+.app:has(.investigation-prototype) .sidebar nav a:focus-visible::after {
+	opacity:1;
+	transform:translate(0,-50%);
+}
+
+.app:has(.investigation-prototype) .sidebar nav a.active::before { display:none; }
+.app:has(.investigation-prototype) .sidebar nav a.active {
+	border:1px solid rgba(200,165,109,.48);
+	background:rgba(200,165,109,.12);
+}
+.dock-icon { color:#c7c1b8; font-size:1.25rem; line-height:1; }
+.sidebar nav a.active .dock-icon { color:#e5c38c; }
+.dock-label { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+
+.sidebar__footer {
+	position:relative;
+	display:grid;
+	place-items:center;
+	width:100%;
+}
+.sidebar__footer > p {
+	display:grid;
+	place-items:center;
+	width:34px;
+	height:34px;
+	margin:0;
+	border:1px solid rgba(255,255,255,.14);
+	border-radius:50%;
+	color:#d8d2c8;
+	font-size:0;
+}
+.sidebar__footer > p::before { content:"S"; font-size:.72rem; font-weight:800; }
+
+.app:has(.investigation-prototype) .sidebar__mode {
+	position:absolute;
+	right:auto;
+	bottom:42px;
+	left:54px;
+	z-index:40;
+	display:none;
+	width:190px;
+	padding:10px;
+	border:1px solid rgba(200,165,109,.25);
+	background:#202629;
+	color:#dcd6cd;
+	font-size:.68rem;
+}
+.sidebar__footer:hover .sidebar__mode,
+.sidebar__footer:focus-within .sidebar__mode { display:grid; }
+
+.investigation-prototype {
+	padding-right:clamp(22px,3vw,48px);
+	padding-left:clamp(22px,3vw,48px);
+}
+
+.investigation-prototype,
+.investigation-prototype button,
+.investigation-prototype input,
+.investigation-prototype select,
+.investigation-prototype textarea {
+	color:#e9e4dc;
+}
+
+.investigation-prototype p,
+.investigation-prototype small,
+.investigation-prototype label {
+	color:#b6bdc0;
+}
+
+.investigation-prototype .current-situation__narrative,
+.investigation-prototype .collection-chip,
+.investigation-prototype .collection-chip > span:not(.collection-icon) {
+	color:#d3d6d5;
+}
+
+.investigation-prototype .text-button,
+.investigation-prototype a {
+	color:#d9bd8d;
+}
+
+.investigation-prototype button:focus-visible,
+.investigation-prototype a:focus-visible,
+.investigation-prototype textarea:focus-visible,
+.investigation-prototype select:focus-visible,
+.investigation-prototype summary:focus-visible {
+	outline:2px solid #f0c984;
+	outline-offset:3px;
+}
+
+.perceptual-workspace.operational-workbench,
+.perceptual-workspace.operational-workbench:not(.has-board) {
+	display:grid;
+	grid-template-columns:minmax(0,1fr);
+	grid-template-rows:auto auto auto;
+	gap:18px;
+	min-height:0;
+}
+
+.operational-workbench .current-situation-canvas {
+	grid-column:1;
+	grid-row:1;
+	min-height:700px;
+	padding-right:clamp(24px,6vw,92px);
+	padding-left:clamp(24px,6vw,92px);
+}
+
+.operational-workbench::before { display:none; }
+
+.operational-workbench .matter-natural-capture {
+	position:relative;
+	right:auto;
+	bottom:auto;
+	left:auto;
+	grid-column:1;
+	grid-row:2;
+	width:min(920px,calc(100% - 48px));
+	margin:0 auto 12px;
+	padding:13px 16px;
+	border-color:rgba(200,165,109,.24);
+	background:
+		linear-gradient(rgba(255,255,255,.018),rgba(255,255,255,.018)),
+		repeating-linear-gradient(0deg,transparent 0 28px,rgba(200,165,109,.035) 28px 29px),
+		#1d2325;
+	box-shadow:0 14px 34px rgba(0,0,0,.26);
+	transform:none;
+	backdrop-filter:none;
+}
+
+.matter-natural-capture::before {
+	position:absolute;
+	top:-8px;
+	right:42px;
+	width:38px;
+	height:15px;
+	border:1px solid rgba(200,165,109,.42);
+	border-bottom:0;
+	border-radius:14px 14px 0 0;
+	content:"";
+	transform:rotate(2deg);
+}
+
+.matter-natural-capture .section-heading h2,
+.matter-natural-capture textarea,
+.matter-natural-capture .btn-primary { color:#f0ebe3; }
+.matter-natural-capture .capture-tools > * { color:#c2c8c9; }
+.matter-natural-capture .capture-tools .watson-request,
+.inbox-watson-trigger { color:#e0bd82; }
+.matter-natural-capture textarea::placeholder { color:#929b9e; opacity:1; }
+.matter-natural-capture .investigation-intake__footer > span { color:#939b9d; }
+.current-situation__header .inline-disclosure,
+.current-situation__header .inline-disclosure summary { color:#d6bd90; }
+.operational-workbench .board-inspection,
+.operational-workbench .board-inspection summary,
+.operational-workbench .board-inspection small { color:#b8bfc1; }
+
+.perceptual-workspace.operational-workbench:not(.has-board) .watson-surface,
+.operational-workbench .watson-surface {
+	position:absolute;
+	right:clamp(30px,6vw,100px);
+	bottom:190px;
+	width:330px;
+}
+
+.operational-workbench .board-inspection {
+	grid-column:1;
+	grid-row:3;
+	margin:0;
+}
+
+.situation-map-core::after {
+	position:absolute;
+	right:-52px;
+	bottom:-34px;
+	width:86px;
+	height:86px;
+	border:5px solid rgba(191,204,201,.16);
+	border-radius:50%;
+	box-shadow:18px 18px 0 -15px rgba(191,204,201,.12);
+	content:"";
+	pointer-events:none;
+}
+
+.situation-map-stage::after {
+	position:absolute;
+	bottom:18px;
+	left:8%;
+	width:120px;
+	height:2px;
+	background:linear-gradient(90deg,#806a4e 0 78%,transparent 78%);
+	box-shadow:0 5px 0 -1px rgba(128,106,78,.5);
+	content:"";
+	opacity:.55;
+	transform:rotate(-5deg);
+}
+
+@media (max-width:800px) {
+	.app:has(.investigation-prototype) {
+		display:block;
+		--sidebar-width:0px;
+	}
+	.app:has(.investigation-prototype) .sidebar {
+		position:fixed;
+		top:auto;
+		right:12px;
+		bottom:10px;
+		left:12px;
+		flex-direction:row;
+		width:auto;
+		height:56px;
+		padding:6px 10px;
+		border:1px solid rgba(200,165,109,.25);
+		border-radius:30px;
+		background:rgba(18,21,23,.96);
+		box-shadow:0 12px 36px rgba(0,0,0,.42);
+	}
+	.app:has(.investigation-prototype) .sidebar__logo,
+	.app:has(.investigation-prototype) .sidebar__footer { display:none; }
+	.app:has(.investigation-prototype) .sidebar nav {
+		flex-direction:row;
+		justify-content:center;
+		gap:4px;
+		margin:0;
+	}
+	.app:has(.investigation-prototype) .sidebar nav a { width:42px; height:42px; }
+	.app:has(.investigation-prototype) .sidebar nav a::after { display:none; }
+	.investigation-prototype { padding-bottom:88px; }
+	.operational-workbench .current-situation-canvas { min-height:650px; }
+	.operational-workbench .matter-natural-capture {
+		position:relative;
+		right:auto;
+		bottom:auto;
+		left:auto;
+		width:calc(100% - 16px);
+		margin:0 auto 8px;
+	}
+	.perceptual-workspace.operational-workbench:not(.has-board) .watson-surface,
+	.operational-workbench .watson-surface {
+		position:absolute;
+		right:8px;
+		bottom:175px;
+		left:8px;
+	}
+}
+
 /* Art-direction cascade: keep these presentation decisions after legacy rules. */
 .investigation-prototype {
 	background:radial-gradient(circle at 18% 8%,rgba(99,102,241,.06),transparent 26rem),linear-gradient(180deg,#f7f8fa 0,#f1f3f6 100%);

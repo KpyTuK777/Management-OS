@@ -1,5 +1,20 @@
 # Changelog
 
+## Sprint 27 — Workbench Atmosphere & Spatial Refinement
+
+- Completed the dark-theme typography audit with consistent readable text roles
+  and explicit keyboard focus.
+- Replaced the legacy sidebar with an icon-first desktop Dock and compact mobile
+  Dock, returning substantially more width to the Workbench.
+- Moved Operational Inbox into normal Workbench flow so it never covers the
+  Situation Map.
+- Stopped contribution submission from opening Watson or stealing focus; Watson
+  now keeps optional thoughts quiet until invited.
+- Added restrained stationery and investigation-instrument references without
+  attaching operational meaning to decoration.
+- Verified GitHub Pages source branch, deployment runs, cache headers, and
+  published artifact; documented the static Pages delivery path.
+
 ## Sprint 26 — Reimagining the Operational Workbench
 
 - Recast the active Matter as an atmospheric professional thinking environment

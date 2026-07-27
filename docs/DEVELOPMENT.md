@@ -16,6 +16,24 @@ and consistency auditing.
 
 The project can also be opened directly in a modern browser, although Live Server is recommended during development.
 
+## GitHub Pages delivery
+
+The public static prototype is published from the repository's `main` branch by
+GitHub's `pages build and deployment` workflow. There is no local build artifact:
+the repository HTML, CSS, JavaScript, fonts, and images are the published source.
+
+After an approved commit is pushed:
+
+1. confirm `origin/main` points to the intended commit;
+2. confirm the Pages run for that commit completes successfully;
+3. request the public URL with cache bypass and verify a unique source marker;
+4. compare the published response ETag or content with the intended commit;
+5. treat a successful older deployment as stale, not current.
+
+The public URL is `https://kpytuk777.github.io/Management-OS/`. GitHub's edge may
+briefly serve a cached prior artifact after a successful deployment, so validation
+must check content rather than relying only on HTTP 200.
+
 ## Tooling
 
 - No package manager is required.
