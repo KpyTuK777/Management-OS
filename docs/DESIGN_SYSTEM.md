@@ -1,5 +1,11 @@
 # Design System
 
+## Product identity and operational atmosphere
+
+Management OS uses a custom geometric Workbench mark and a consistent 24-pixel outline icon family. Dock icons use restrained warm accents only for state and orientation; labels appear on demand. Motion is short and spatial, never attention-seeking.
+
+The dark environment uses localized warm light, material depth, editorial scale, and generous negative space. Paper references belong only to working surfaces such as the Inbox. These treatments must improve orientation and cognitive calm, not simulate a themed room.
+
 The design system begins with CSS custom properties in `CSS/base.css`. Shared
 Sprint 6 presentation refinements and effective token overrides live in
 `CSS/modernization.css`, which is imported last through `CSS/style.css`.

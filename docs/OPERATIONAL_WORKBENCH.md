@@ -1,5 +1,11 @@
 # Operational Workbench
 
+## Sprint 29 — the operational office
+
+The Workbench is composed as a professional place for thought rather than a page of software. The Situation Map owns the viewport; the Operational Inbox rests beside it like a notebook and never covers investigation material. Lighting, editorial spacing, restrained paper qualities, and negative space create atmosphere without becoming theatrical.
+
+Watson performs semantic decomposition automatically. Its default state is a short, non-blocking notice that organization is available. On request, the owner can edit wording, change category or significance, split, merge, delete, and attach supporting evidence. The owner never has to complete this review before continuing work.
+
 ## Purpose and status
 
 This document defines the stable owner-facing workspace metaphor for an

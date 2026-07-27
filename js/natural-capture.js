@@ -338,10 +338,8 @@ const InvestigationPrototype = (() => {
 			semanticItem("Джерело", "Власник")
 		);
 		elements.matterCaptureReview.classList.remove("hidden");
-		elements.workbench.classList.add("has-semantic-review");
-		if (window.matchMedia("(min-width: 1001px)").matches) {
-			elements.workbench.style.gridTemplateColumns = "minmax(0, 1fr) 420px";
-		}
+		elements.semanticReviewBody.classList.add("hidden");
+		elements.semanticReviewToggle.setAttribute("aria-expanded", "false");
 	}
 
 	function selectedSemanticItems() {
@@ -561,10 +559,13 @@ const InvestigationPrototype = (() => {
 			matterCaptureFiles: document.getElementById("matterCaptureFiles"),
 			matterCapturePrompt: document.getElementById("matterCapturePrompt"),
 			matterCaptureReview: document.getElementById("matterCaptureReview"),
+			semanticReviewToggle: document.getElementById("semanticReviewToggle"),
+			semanticReviewBody: document.getElementById("semanticReviewBody"),
 			semanticItems: document.getElementById("semanticItems"),
 			closeSemanticReview: document.getElementById("closeSemanticReview"),
 			splitSemanticItem: document.getElementById("splitSemanticItem"),
 			mergeSemanticItems: document.getElementById("mergeSemanticItems"),
+			deleteSemanticItems: document.getElementById("deleteSemanticItems"),
 			attachSemanticEvidence: document.getElementById("attachSemanticEvidence"),
 			situationBoard: document.getElementById("situationBoard"),
 			perceptualWorkspace: document.querySelector(".perceptual-workspace"),
@@ -705,8 +706,20 @@ const InvestigationPrototype = (() => {
 		elements.recordOutcome.addEventListener("click", recordOutcome);
 		elements.captureKnowledge.addEventListener("click", captureKnowledge);
 		elements.matterCaptureForm.addEventListener("submit", prepareMatterContribution);
+		elements.semanticReviewToggle.addEventListener("click", () => {
+			const willOpen = elements.semanticReviewBody.classList.contains("hidden");
+			elements.semanticReviewBody.classList.toggle("hidden", !willOpen);
+			elements.semanticReviewToggle.setAttribute("aria-expanded", String(willOpen));
+			elements.workbench.classList.toggle("has-semantic-review", willOpen);
+			if (willOpen && window.matchMedia("(min-width: 1001px)").matches) {
+				elements.workbench.style.gridTemplateColumns = "minmax(0, 1fr) 420px";
+			} else {
+				elements.workbench.style.removeProperty("grid-template-columns");
+			}
+		});
 		elements.closeSemanticReview.addEventListener("click", () => {
-			elements.matterCaptureReview.classList.add("hidden");
+			elements.semanticReviewBody.classList.add("hidden");
+			elements.semanticReviewToggle.setAttribute("aria-expanded", "false");
 			elements.workbench.classList.remove("has-semantic-review");
 			elements.workbench.style.removeProperty("grid-template-columns");
 			elements.matterCaptureInput.focus();
@@ -726,6 +739,12 @@ const InvestigationPrototype = (() => {
 			selected[0].querySelector('[role="textbox"]').textContent = selected.map(item => item.querySelector('[role="textbox"]').textContent).join(" · ");
 			selected.slice(1).forEach(item => item.remove());
 			announce("Вибрані значення об’єднано.");
+		});
+		elements.deleteSemanticItems.addEventListener("click", () => {
+			const selected = selectedSemanticItems();
+			if (!selected.length) return announce("Виберіть значення, яке слід видалити.");
+			selected.forEach(item => item.remove());
+			announce("Вибрані значення видалено.");
 		});
 		elements.attachSemanticEvidence.addEventListener("click", () => {
 			elements.matterCaptureFiles.click();

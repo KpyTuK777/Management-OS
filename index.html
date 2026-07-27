@@ -16,8 +16,8 @@
 				<section class="investigation-home" id="investigationHome" aria-labelledby="homeTitle">
 					<header class="investigation-hero">
 						<span class="prototype-label">Прототип · дані не зберігаються</span>
-						<h1 id="homeTitle">Що відбувається?</h1>
-						<p>Опишіть ситуацію своїми словами. Management OS створить операційну справу й підготує перше розслідування — без вимоги назвати проблему чи вибрати модуль.</p>
+						<h1 id="homeTitle">Що потребує вашої уваги?</h1>
+						<p>Почніть із ситуації, яка сьогодні потребує розуміння або рішення. Пишіть природно — робочий стіл організує матеріал після вас.</p>
 					</header>
 
 					<form class="investigation-intake" id="investigationIntake">
@@ -25,23 +25,23 @@
 							<select id="investigationContext" name="investigation-context"><option value="learning">Операційне навчання</option><option value="reality">Операційна реальність</option></select>
 							<small>Змінює акцент, але не правила доказів.</small>
 						</label>
-						<label for="investigationInput">Повідомте, що ви помітили</label>
+						<label for="investigationInput">Що сьогодні важливо зрозуміти?</label>
 						<textarea id="investigationInput" rows="4" placeholder="Наприклад: Наші продажі почали знижуватися." required></textarea>
 						<div class="investigation-intake__footer">
-							<p>Опишіть спостереження без попередньої класифікації.</p>
-							<button class="btn-primary" type="submit">Створити операційну справу</button>
+							<p>Без категорій і форм.</p>
+							<button class="btn-primary" type="submit">Покласти на робочий стіл</button>
 						</div>
 					</form>
 
 					<div class="home-priorities" id="agenda">
 						<article>
 							<span>Сьогодні</span>
-							<strong>Один важливий крок</strong>
+							<strong>Продовжити: падіння прибутку</strong>
 							<p>Почніть із того, що потребує розуміння або рішення.</p>
 						</article>
 						<article>
 							<span>Ваша роль</span>
-							<strong>Операційне судження залишається за вами</strong>
+							<strong>Ваше судження залишається за вами</strong>
 							<p>AI готує контекст і варіанти, але не робить висновок чи дію замість власника.</p>
 						</article>
 					</div>
@@ -151,14 +151,18 @@
 						<div class="capture-review hidden" id="matterCaptureReview" aria-live="polite">
 							<div><span>Ваше оригінальне формулювання</span><blockquote id="captureOriginal"></blockquote><small>Збережено без інтерпретації.</small></div>
 							<section class="semantic-review" aria-labelledby="semanticReviewTitle">
-								<header><div><small>Watson тихо організував</small><h3 id="semanticReviewTitle">Знайдені значення</h3></div><button class="text-button" id="closeSemanticReview" type="button">Готово</button></header>
-								<div class="semantic-items" id="semanticItems"></div>
-								<div class="semantic-actions">
-									<button class="text-button" id="splitSemanticItem" type="button">Розділити</button>
-									<button class="text-button" id="mergeSemanticItems" type="button">Об’єднати</button>
-									<button class="text-button" id="attachSemanticEvidence" type="button">Додати доказ</button>
+								<button class="semantic-review-toggle" id="semanticReviewToggle" type="button" aria-expanded="false"><span><small>Watson організував внесок</small><strong id="semanticReviewTitle">Знайдено 4 значення</strong></span><span>Переглянути</span></button>
+								<div class="semantic-review-body hidden" id="semanticReviewBody">
+									<header><small>Я визначив такі елементи. Змініть лише те, що потрібно.</small><button class="text-button" id="closeSemanticReview" type="button">Готово</button></header>
+									<div class="semantic-items" id="semanticItems"></div>
+									<div class="semantic-actions">
+										<button class="text-button" id="splitSemanticItem" type="button">Розділити</button>
+										<button class="text-button" id="mergeSemanticItems" type="button">Об’єднати</button>
+										<button class="text-button" id="deleteSemanticItems" type="button">Видалити</button>
+										<button class="text-button" id="attachSemanticEvidence" type="button">Додати файл</button>
+									</div>
+									<p>Змініть формулювання, категорію або значущість. Watson не приймає це замість вас.</p>
 								</div>
-								<p>Це пропозиції. Ви змінюєте формулювання, категорію та значущість.</p>
 							</section>
 						</div>
 					</section>

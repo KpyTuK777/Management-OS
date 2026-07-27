@@ -1,5 +1,12 @@
 # Changelog
 
+## Sprint 29 — Product Identity & Artistic Direction
+
+- Replaced the letter logo and mixed Dock glyphs with a custom mark and unified SVG iconography.
+- Reframed Home around today’s operational attention rather than product modules.
+- Refined the Workbench as a warm, quiet operational office with the Inbox beside the Situation Map.
+- Made Watson’s semantic review compact by default and added editing, category, significance, split, merge, delete, and evidence attachment controls.
+
 ## Sprint 28 — Art Direction Reset
 
 - Rebalanced the Workbench as an editorial desk with Current Situation at the

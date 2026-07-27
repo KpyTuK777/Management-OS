@@ -20,12 +20,22 @@ const Layout = (() => {
 		}
 	};
 	const navigationIcons = {
-		"Головна": "⌂",
-		"Порядок денний": "◷",
-		"Навчання": "◇",
-		"Операційні справи": "◎",
-		"Знання": "▤"
+		"Головна": '<path d="M4 11.5 12 4l8 7.5"/><path d="M6.5 10.5V20h11v-9.5"/><path d="M10 20v-5h4v5"/>',
+		"Порядок денний": '<circle cx="12" cy="12" r="8"/><path d="M12 7v5l3.5 2"/>',
+		"Операційні справи": '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 1.5v3M22.5 12h-3M12 22.5v-3M1.5 12h3"/>',
+		"Знання": '<path d="M5 4.5h10a4 4 0 0 1 4 4V20H8a3 3 0 0 1-3-3Z"/><path d="M8 4.5V20M11 8h5M11 12h5"/>'
 	};
+	const svgNamespace = "http://www.w3.org/2000/svg";
+
+	function createSvg(paths, className = "dock-icon") {
+		const svg = document.createElementNS(svgNamespace, "svg");
+		svg.setAttribute("viewBox", "0 0 24 24");
+		svg.setAttribute("aria-hidden", "true");
+		svg.setAttribute("focusable", "false");
+		svg.classList.add(className);
+		svg.innerHTML = paths;
+		return svg;
+	}
 
 	function getCurrentMode() {
 		return window.sessionStorage.getItem("managementOsPrototypeMode") || "student";
@@ -41,17 +51,13 @@ const Layout = (() => {
 
 	function createLink([label, href]) {
 		const anchor = document.createElement("a");
-		const icon = document.createElement("span");
 		const text = document.createElement("span");
 		anchor.href = href;
 		anchor.setAttribute("aria-label", label);
 		anchor.dataset.label = label;
-		icon.className = "dock-icon";
-		icon.setAttribute("aria-hidden", "true");
-		icon.textContent = navigationIcons[label] || "•";
 		text.className = "dock-label";
 		text.textContent = label;
-		anchor.append(icon, text);
+		anchor.append(createSvg(navigationIcons[label] || '<circle cx="12" cy="12" r="2"/>'), text);
 		if (isCurrent(href)) {
 			anchor.classList.add("active");
 			anchor.setAttribute("aria-current", "page");
@@ -97,8 +103,9 @@ const Layout = (() => {
 			renderSidebar();
 		});
 
-		title.textContent = "M";
+		title.textContent = "";
 		title.setAttribute("aria-label", "Management OS");
+		title.appendChild(createSvg('<path d="M5 6.5 12 2l7 4.5v11L12 22l-7-4.5Z"/><path d="m8 9 4-2.5L16 9v6l-4 2.5L8 15Z"/><path d="M12 6.5v11M8 9l8 6M16 9l-8 6"/>', "product-mark"));
 		logo.append(title, descriptor);
 		modeLabel.appendChild(modeSelect);
 		mode.links.forEach(link => navigation.appendChild(createLink(link)));

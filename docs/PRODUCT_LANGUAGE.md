@@ -1,5 +1,9 @@
 # Ukrainian Product Language Guide
 
+## Sprint 29 language
+
+Home opens with the work that needs attention, not a feature catalogue. Prefer direct prompts equivalent to “What needs your attention?” and “What is important to understand today?” Watson says it has found meanings and offers review; it does not ask the owner to classify prose before submission.
+
 This guide defines the language standard for all user-facing Ukrainian
 communication in Management OS. It preserves the official terminology glossary
 and extends it with writing, naming, AI communication, and maintenance rules.
