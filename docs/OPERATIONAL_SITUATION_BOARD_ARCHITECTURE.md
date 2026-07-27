@@ -1,5 +1,9 @@
 # Operational Situation Board Architecture
 
+## Spatial map presentation
+
+Investigation material is positioned by operational role rather than rendered as a vertical sequence. Connectors appear only for accepted or meaningfully proposed interpretations: solid support, dashed tentative influence, and explicit contradiction. Spatial context is retained while an item or collection is inspected. A connector never establishes causality by appearance alone.
+
 ## Purpose and status
 
 This document defines the primary owner-facing mental model for an Operational

@@ -1,5 +1,11 @@
 # Operational Workbench
 
+## Sprint 30 canonical geometry
+
+Desktop geometry is Dock → Matter bar → full Investigation Workbench. The map is the central visual asset. Current Situation and material indicators frame it; Collections and Contradictions remain compact at its edge; Inbox occupies a stable lower notebook plane and never overlays map material. Watson exists inside Inbox and has no permanent Workbench column.
+
+Tablet preserves the spatial map with focused collection inspection. Mobile preserves roles—situation, map overview, compact collections, dedicated composer—without becoming a feed of equal cards.
+
 ## Sprint 29 — the operational office
 
 The Workbench is composed as a professional place for thought rather than a page of software. The Situation Map owns the viewport; the Operational Inbox rests beside it like a notebook and never covers investigation material. Lighting, editorial spacing, restrained paper qualities, and negative space create atmosphere without becoming theatrical.

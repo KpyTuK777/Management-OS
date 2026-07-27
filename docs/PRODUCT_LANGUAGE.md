@@ -1,5 +1,9 @@
 # Ukrainian Product Language Guide
 
+## Composition before explanation
+
+Remove notices, helper paragraphs, instructional labels, verbose placeholders, and duplicated explanations when the interface already communicates intent. Keep copy that carries operational meaning, provenance, uncertainty, authority, risk, or an accessibility text equivalent. If a paragraph is required to explain a control, redesign the control before adding prose.
+
 ## Sprint 29 language
 
 Home opens with the work that needs attention, not a feature catalogue. Prefer direct prompts equivalent to “What needs your attention?” and “What is important to understand today?” Watson says it has found meanings and offers review; it does not ask the owner to classify prose before submission.

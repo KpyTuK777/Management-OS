@@ -1,5 +1,9 @@
 # Natural Capture Architecture
 
+## Integrated Operational Inbox
+
+Inbox is a stable notebook region below the investigation map. It accepts natural language, files, reports, spreadsheets, screenshots, links, voice notes, and ideas without requiring classification. Later evidence enriches an existing operational item rather than creating a duplicate. Inbox remains available whether Watson is silent, expanded, dismissed, or awaiting owner review.
+
 ## Purpose and status
 
 Natural Capture is the primary future intake architecture between the owner and

@@ -35,6 +35,23 @@ validation and satisfaction of the
 Release-gated sprint work cannot close while its required documentation remains
 incomplete.
 
+## Sprint 30 — Approved Investigation Workbench Reference
+
+### Completed
+
+- Implemented the approved cabinet composition and full-viewport Workbench geometry.
+- Integrated spatial material, meaningful relationships, compact Collections, Contradictions, and notebook Inbox.
+- Moved Watson into Inbox and retained editable semantic decomposition and owner authority.
+- Reduced instructional interface copy and aligned Home with the operational-office identity.
+
+### Documentation impact
+
+- Backlog item: None
+- Required updates: Design System, Operational Workbench, Situation Board, Natural Capture, AI Assistant, Product Language, Sprint Tracker, Changelog
+- Readiness contribution: v1.0
+- Validation: deterministic journey, responsive visual review, accessibility and authority review, `git diff --check`, and GitHub Pages
+- Status: Completed
+
 ## Sprint 29 — Product Identity & Artistic Direction
 
 ### Completed

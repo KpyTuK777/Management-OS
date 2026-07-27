@@ -1,5 +1,9 @@
 # Design System
 
+## Sprint 30 — investigation cabinet
+
+The approved Investigation Workbench uses a full-viewport cabinet composition: compact Dock, quiet Matter bar, working-document Current Situation, material indicators, spatial map, compact collection rail, and a lower notebook Inbox. Paper, wood, warm light, and restrained brass accents establish depth while text contrast and focus states remain functional. Explanatory copy is removed when hierarchy, placement, or a familiar control communicates the same meaning.
+
 ## Product identity and operational atmosphere
 
 Management OS uses a custom geometric Workbench mark and a consistent 24-pixel outline icon family. Dock icons use restrained warm accents only for state and orientation; labels appear on demand. Motion is short and spatial, never attention-seeking.

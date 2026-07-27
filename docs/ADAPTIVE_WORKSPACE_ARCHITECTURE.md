@@ -1,5 +1,9 @@
 # Adaptive Workspace Architecture
 
+## Navigation Dock and Home
+
+The Dock is a 56–72 pixel orientation surface with a designed product mark, consistent SVG icons, visible active state, keyboard focus, and labels on demand. It remains subordinate to the Workbench. Home is the entrance to the operational office and shows only active Matters, urgent risks, meaningful changes, pending judgments, transitions, and return to the last spatial context.
+
 ## Purpose and status
 
 Adaptive Workspace is the future presentation capability that applies an exact,

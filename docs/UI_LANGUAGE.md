@@ -1,5 +1,9 @@
 # UI Language
 
+## Sprint 30 visual language
+
+Investigation communicates through scale, material, spatial grouping, iconography, whitespace, and stable placement before adding prose. Dark surfaces frame work; paper surfaces hold owner material; restrained amber marks orientation; red is reserved for material risk or contradiction. No meaning depends on colour or an icon alone.
+
 This legacy documentation path is retained for compatibility.
 
 The canonical standard for Ukrainian interface terminology, writing style,

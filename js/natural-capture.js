@@ -309,7 +309,7 @@ const InvestigationPrototype = (() => {
 		selected.setAttribute("aria-label", `Вибрати: ${wording}`);
 		icon.setAttribute("aria-hidden", "true");
 		icon.textContent = { "Розмова": "🎙", "Симптом": "📌", "Час": "◷", "Джерело": "↗", "Спостереження": "👀" }[category] || "•";
-		["Розмова", "Симптом", "Спостереження", "Час", "Джерело", "Інше"].forEach(optionLabel => {
+		["Розмова", "Симптом", "Спостереження", "Факт", "Гіпотеза", "Час", "Джерело", "Інше"].forEach(optionLabel => {
 			const option = document.createElement("option");
 			option.textContent = optionLabel;
 			option.selected = optionLabel === category;
@@ -567,6 +567,9 @@ const InvestigationPrototype = (() => {
 			mergeSemanticItems: document.getElementById("mergeSemanticItems"),
 			deleteSemanticItems: document.getElementById("deleteSemanticItems"),
 			attachSemanticEvidence: document.getElementById("attachSemanticEvidence"),
+			acceptRelationship: document.getElementById("acceptRelationship"),
+			rejectRelationship: document.getElementById("rejectRelationship"),
+			relationshipProposal: document.getElementById("relationshipProposal"),
 			situationBoard: document.getElementById("situationBoard"),
 			perceptualWorkspace: document.querySelector(".perceptual-workspace"),
 			guidedInvestigation: document.getElementById("guidedInvestigation"),
@@ -611,6 +614,8 @@ const InvestigationPrototype = (() => {
 	function init() {
 		elements = getElements();
 		if (!elements.form) return;
+		const inbox = document.querySelector(".matter-natural-capture");
+		if (inbox && elements.watsonSurface) inbox.appendChild(elements.watsonSurface);
 
 		elements.workspace.setAttribute("tabindex", "-1");
 		elements.form.addEventListener("submit", openInvestigation);
@@ -750,6 +755,17 @@ const InvestigationPrototype = (() => {
 			elements.matterCaptureFiles.click();
 			announce("Виберіть файл, який підтримує вибране значення.");
 		});
+		elements.acceptRelationship.addEventListener("click", () => {
+			elements.relationshipProposal.classList.add("is-accepted");
+			elements.acceptRelationship.textContent = "Прийнято";
+			window.sessionStorage.setItem("managementOsRelationshipProposal", "accepted");
+			announce("Запропонований зв’язок прийнято.");
+		});
+		elements.rejectRelationship.addEventListener("click", () => {
+			elements.relationshipProposal.classList.add("hidden");
+			window.sessionStorage.setItem("managementOsRelationshipProposal", "rejected");
+			announce("Запропонований зв’язок відхилено.");
+		});
 		elements.approveMatterContribution.addEventListener("click", approveMatterContribution);
 		elements.rejectMatterContribution.addEventListener("click", rejectMatterContribution);
 		elements.discardMatterContribution.addEventListener("click", discardMatterContribution);
@@ -760,6 +776,13 @@ const InvestigationPrototype = (() => {
 			elements.matterCaptureInput.focus();
 			announce("Додайте будь-яку важливу деталь. Попередній текст залишається у вашій відповіді.");
 		});
+		const relationshipState = window.sessionStorage.getItem("managementOsRelationshipProposal");
+		if (relationshipState === "accepted") {
+			elements.relationshipProposal.classList.add("is-accepted");
+			elements.acceptRelationship.textContent = "Прийнято";
+		} else if (relationshipState === "rejected") {
+			elements.relationshipProposal.classList.add("hidden");
+		}
 
 		if (new URLSearchParams(window.location.search).get("demo") === "investigation") {
 			elements.input.value = "Прибуток різко впав протягом останніх двох місяців.";

@@ -1,5 +1,11 @@
 # AI Assistant Architecture
 
+## Watson inside Inbox
+
+Watson has no permanent Investigation column. Silent organization decomposes contributions without interrupting continued work. Explicit assistance opens from Inbox for contradiction, logic, Evidence, risk, relationship, and summary requests. Uninvited interruption is limited to material risk, serious contradiction, authority conflict, likely source failure, or a consequential decision conflicting with strong Evidence.
+
+Every interpretation remains editable: category, wording, split, merge, deletion, significance, source attachment, existing-item enrichment, and acceptance or rejection of proposed relationships. Owner authority is unchanged.
+
 All Assistant responsibilities and capabilities are governed by the
 [Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md). This architecture owns
 what Watson may do and its authority boundaries; the Ethos owns the professional

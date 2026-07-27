@@ -15,21 +15,17 @@
 			<main class="workspace investigation-prototype">
 				<section class="investigation-home" id="investigationHome" aria-labelledby="homeTitle">
 					<header class="investigation-hero">
-						<span class="prototype-label">Прототип · дані не зберігаються</span>
 						<h1 id="homeTitle">Що потребує вашої уваги?</h1>
-						<p>Почніть із ситуації, яка сьогодні потребує розуміння або рішення. Пишіть природно — робочий стіл організує матеріал після вас.</p>
 					</header>
 
 					<form class="investigation-intake" id="investigationIntake">
 						<label class="context-field" for="investigationContext">Контекст розслідування
 							<select id="investigationContext" name="investigation-context"><option value="learning">Операційне навчання</option><option value="reality">Операційна реальність</option></select>
-							<small>Змінює акцент, але не правила доказів.</small>
 						</label>
 						<label for="investigationInput">Що сьогодні важливо зрозуміти?</label>
-						<textarea id="investigationInput" rows="4" placeholder="Наприклад: Наші продажі почали знижуватися." required></textarea>
+						<textarea id="investigationInput" rows="4" placeholder="Опишіть ситуацію…" required></textarea>
 						<div class="investigation-intake__footer">
-							<p>Без категорій і форм.</p>
-							<button class="btn-primary" type="submit">Покласти на робочий стіл</button>
+							<button class="btn-primary" type="submit">Відкрити справу</button>
 						</div>
 					</form>
 
@@ -37,17 +33,21 @@
 						<article>
 							<span>Сьогодні</span>
 							<strong>Продовжити: падіння прибутку</strong>
-							<p>Почніть із того, що потребує розуміння або рішення.</p>
 						</article>
 						<article>
-							<span>Ваша роль</span>
-							<strong>Ваше судження залишається за вами</strong>
-							<p>AI готує контекст і варіанти, але не робить висновок чи дію замість власника.</p>
+							<span>Потребує судження</span>
+							<strong>Причину ще не встановлено</strong>
 						</article>
 					</div>
 				</section>
 
 				<section class="investigation-workspace hidden" id="investigationWorkspace" aria-label="Операційна картина MAT-0247">
+					<header class="matter-bar" aria-label="Поточна операційна справа">
+						<label><span>Справа</span><select aria-label="Поточна справа"><option>MAT-0247 · Падіння чистого прибутку</option></select></label>
+						<span class="matter-status"><i aria-hidden="true"></i> У роботі</span>
+						<span>Оновлено сьогодні</span>
+						<div><button type="button" aria-label="Пошук">⌕</button><button type="button" aria-label="Сповіщення">○</button></div>
+					</header>
 					<header class="case-header" id="investigations">
 						<div>
 							<div class="case-header__meta">
@@ -69,8 +69,13 @@
 					<section class="situation-board-summary current-situation-canvas" id="situationBoard" aria-labelledby="situationBoardTitle">
 						<header class="current-situation__header">
 							<div><span><b aria-hidden="true">🔍</b> Поточна ситуація</span><h2 id="situationBoardTitle">Різке падіння прибутку потребує перевірки</h2></div>
-							<details class="inline-disclosure"><summary>Перевірити підстави</summary><p>Картина зведена з вашого формулювання, підтверджених джерел і відкритих припущень.</p></details>
 						</header>
+						<div class="key-indicators" aria-label="Ключові показники">
+							<article><span>Чистий прибуток</span><strong class="metric-down">−18%</strong><small>за 2 місяці</small></article>
+							<article><span>Виручка</span><strong>+3%</strong><small>за 2 місяці</small></article>
+							<article><span>Витрати</span><strong class="metric-risk">+22%</strong><small>за 2 місяці</small></article>
+							<article><span>Грошовий потік</span><strong class="metric-down">−11%</strong><small>за 2 місяці</small></article>
+						</div>
 						<div class="situation-map-stage">
 							<div class="situation-map-core">
 								<div class="current-situation__reported">
@@ -80,6 +85,16 @@
 								<p class="current-situation__narrative" id="boardUnderstanding">Падіння ще не перевірено за джерелами, а його причина не встановлена.</p>
 								<span class="map-core-status">Поточне робоче розуміння</span>
 							</div>
+							<svg class="map-connections" viewBox="0 0 900 420" preserveAspectRatio="none" aria-label="Зв’язки матеріалів">
+								<path class="relationship-support" d="M140 115 C270 120 315 195 438 208"/>
+								<path class="relationship-tentative" d="M450 208 C570 140 650 120 770 110"/>
+								<path class="relationship-tentative" d="M450 215 C555 300 650 315 770 300"/>
+							</svg>
+							<div class="map-material map-material--symptom" tabindex="0"><span>Симптом</span><strong>Падіння чистого прибутку</strong><small>Останні 2 місяці · 1 джерело</small></div>
+							<div class="map-material map-material--conversation" tabindex="0"><span>Розмова</span><strong>Фінансовий директор підтвердив зниження</strong><small>Сьогодні · точне формулювання</small></div>
+							<div class="map-material map-material--observation" tabindex="0"><span>Спостереження</span><strong>Ціни ключових постачальників зросли</strong><small>Потребує звіту закупівель</small></div>
+							<div class="map-material map-material--hypothesis" tabindex="0"><span>Гіпотеза</span><strong>Витрати знижують маржу</strong><small>Запропоновано · не підтверджено</small></div>
+							<div class="map-material map-material--evidence" tabindex="0"><span>Доказ</span><strong>Фінансовий звіт Q1–Q2</strong><small>2 вкладення · джерело відоме</small></div>
 							<div class="current-situation__threads">
 							<section class="situation-thread hidden distinction-observation" id="knownContextCard"><span>Що ще відомо</span><strong id="boardReasoningBasis">Додано перший контекст</strong><p>Повідомлено власником; ще не перевірено за джерелом.</p></section>
 							<section class="situation-thread hidden distinction-assumption" id="missingOrientationCard"><span>Що поки припускаємо</span><strong id="boardUncertainty">Падіння може стосуватися всього B2B-напряму</strong><p>Поки невідомо, змінився дохід, маржа чи обидва показники.</p></section>
@@ -121,6 +136,11 @@
 							<button class="collection-chip collection-chip--hypothesis hidden" id="hypothesisCollection" type="button" data-collection="hypotheses" aria-haspopup="dialog"><span class="collection-icon" aria-hidden="true">🧠</span><span>Гіпотези</span><strong data-collection-count>0</strong></button>
 							<button class="collection-chip collection-chip--warning hidden" id="contradictionCollection" type="button" data-collection="contradictions" aria-haspopup="dialog"><span class="collection-icon" aria-hidden="true">⚠</span><span>Суперечності</span><strong data-collection-count>0</strong></button>
 						</nav>
+						<aside class="contradiction-rail" aria-label="Суперечності">
+							<header><span>Суперечності</span><strong>2</strong></header>
+							<p><b aria-hidden="true">!</b> Виручка зросла, а чистий прибуток упав.</p>
+							<p><b aria-hidden="true">?</b> Логістика зросла непропорційно витратам.</p>
+						</aside>
 						<section class="collection-inspection hidden" id="collectionInspection" role="dialog" aria-modal="false" aria-labelledby="collectionInspectionTitle" tabindex="-1">
 							<header><div><span id="collectionInspectionIcon" aria-hidden="true">📌</span><div><small>Матеріали розслідування</small><h3 id="collectionInspectionTitle">Симптоми</h3></div></div><button class="collection-inspection__close" id="closeCollectionInspection" type="button" aria-label="Закрити колекцію">×</button></header>
 							<div id="collectionInspectionItems"></div>
@@ -129,12 +149,12 @@
 
 					<section class="matter-natural-capture" aria-labelledby="matterCaptureTitle">
 						<div class="section-heading">
-							<div><span><b aria-hidden="true">✦</b> Робочий стіл</span><h2 id="matterCaptureTitle">Додайте думку або матеріал</h2></div>
+							<div><span>Операційний Inbox</span><h2 id="matterCaptureTitle">Запис</h2></div>
 							<button class="inbox-watson-trigger" id="inboxWatsonTrigger" type="button" aria-controls="watsonExpanded"><span aria-hidden="true">W</span> Запитати Watson</button>
 						</div>
 						<form id="matterCaptureForm">
 							<label class="sr-only" id="matterCapturePrompt" for="matterCaptureInput">Додайте думку, спостереження або матеріал</label>
-							<textarea id="matterCaptureInput" rows="2" placeholder="Додайте щось важливе…"></textarea>
+							<textarea id="matterCaptureInput" rows="4" placeholder="Напишіть усе, що знаєте…"></textarea>
 							<div class="capture-tools">
 								<label class="attachment-control" for="matterCaptureFiles">＋ Матеріал</label>
 								<input id="matterCaptureFiles" type="file" multiple>
@@ -144,7 +164,6 @@
 								<button class="text-button watson-request" type="button" data-watson-request="contradiction">Знайти суперечність</button>
 							</div>
 							<div class="investigation-intake__footer">
-								<span>Не потрібно класифікувати</span>
 								<button class="btn-primary" type="submit">Зберегти</button>
 							</div>
 						</form>
@@ -153,15 +172,20 @@
 							<section class="semantic-review" aria-labelledby="semanticReviewTitle">
 								<button class="semantic-review-toggle" id="semanticReviewToggle" type="button" aria-expanded="false"><span><small>Watson організував внесок</small><strong id="semanticReviewTitle">Знайдено 4 значення</strong></span><span>Переглянути</span></button>
 								<div class="semantic-review-body hidden" id="semanticReviewBody">
-									<header><small>Я визначив такі елементи. Змініть лише те, що потрібно.</small><button class="text-button" id="closeSemanticReview" type="button">Готово</button></header>
+									<header><small>Знайдені елементи</small><button class="text-button" id="closeSemanticReview" type="button">Готово</button></header>
 									<div class="semantic-items" id="semanticItems"></div>
 									<div class="semantic-actions">
 										<button class="text-button" id="splitSemanticItem" type="button">Розділити</button>
 										<button class="text-button" id="mergeSemanticItems" type="button">Об’єднати</button>
 										<button class="text-button" id="deleteSemanticItems" type="button">Видалити</button>
-										<button class="text-button" id="attachSemanticEvidence" type="button">Додати файл</button>
+										<button class="text-button" id="attachSemanticEvidence" type="button">Додати до симптому</button>
 									</div>
-									<p>Змініть формулювання, категорію або значущість. Watson не приймає це замість вас.</p>
+									<div class="relationship-proposal" id="relationshipProposal">
+										<span>Запропонований зв’язок</span>
+										<strong>Зростання витрат ⇢ падіння прибутку</strong>
+										<button class="text-button" id="acceptRelationship" type="button">Прийняти</button>
+										<button class="text-button" id="rejectRelationship" type="button">Відхилити</button>
+									</div>
 								</div>
 							</section>
 						</div>

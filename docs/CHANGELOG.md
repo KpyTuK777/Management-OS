@@ -1,5 +1,14 @@
 # Changelog
 
+## Sprint 30 — Approved Investigation Workbench Reference
+
+- Rebuilt Investigation as a full-viewport operational cabinet based on the approved visual reference.
+- Added a quiet Matter bar, concise Current Situation, material indicators, spatial map, compact Collections, and Contradictions.
+- Integrated the notebook Inbox below the map and moved Watson into its workflow.
+- Added editable relationship acceptance/rejection and existing-symptom evidence enrichment.
+- Reduced explanatory copy across Home and Investigation.
+- Added responsive cabinet adaptations without reverting to a vertical card feed.
+
 ## Sprint 29 — Product Identity & Artistic Direction
 
 - Replaced the letter logo and mixed Dock glyphs with a custom mark and unified SVG iconography.
