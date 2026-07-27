@@ -567,6 +567,40 @@
 			return clone(artifact);
 		}
 
+		function attachRelationshipRef(artifactId, relationshipId, actor, reason) {
+			const normalizedRelationshipId = nonEmpty(relationshipId, "relationshipId");
+			const store = readStore();
+			const artifact = requireArtifact(store, artifactId);
+			const authorizedActor = requireHumanAuthority(artifact, actor);
+			if (artifact.relationshipRefs.includes(normalizedRelationshipId)) return clone(artifact);
+
+			artifact.relationshipRefs.push(normalizedRelationshipId);
+			artifact.updatedAt = clock();
+			artifact.history.push(event("artifact.relationship.attached", authorizedActor, reason, {
+				relationshipId: normalizedRelationshipId
+			}, artifact.updatedAt));
+			writeStore(store);
+			return clone(artifact);
+		}
+
+		function detachRelationshipRef(artifactId, relationshipId, actor, reason, options = {}) {
+			invariant(options && options.rollback === true, "Relationship references may only be detached during rollback or recovery.");
+			const normalizedRelationshipId = nonEmpty(relationshipId, "relationshipId");
+			const store = readStore();
+			const artifact = requireArtifact(store, artifactId);
+			const authorizedActor = requireHumanAuthority(artifact, actor);
+			if (!artifact.relationshipRefs.includes(normalizedRelationshipId)) return clone(artifact);
+
+			artifact.relationshipRefs = artifact.relationshipRefs.filter(referenceId => referenceId !== normalizedRelationshipId);
+			artifact.updatedAt = clock();
+			artifact.history.push(event("artifact.relationship.detached", authorizedActor, reason, {
+				relationshipId: normalizedRelationshipId,
+				rollback: true
+			}, artifact.updatedAt));
+			writeStore(store);
+			return clone(artifact);
+		}
+
 		function inspect(artifactId, context, actor) {
 			const contextEnvelope = ContextEnvelope.assertCompatible(context, { matterId });
 			const artifact = get(artifactId);
@@ -604,6 +638,8 @@
 			list,
 			edit,
 			setState,
+			attachRelationshipRef,
+			detachRelationshipRef,
 			transitionLifecycle,
 			advanceLifecycleTo,
 			inspect,

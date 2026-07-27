@@ -9,7 +9,9 @@ const InvestigationPrototype = (() => {
 	let activeInspection = null;
 	let pendingContributionArtifactId = null;
 	let artifactRepository;
+	let relationshipRepository;
 	const matterId = "MAT-0247";
+	const evidenceHypothesisRelationshipId = "mat-0247-relationship-evidence-hypothesis";
 	const ownerActor = Object.freeze({ id: "owner-local", name: "Власник", role: "owner" });
 	const watsonActor = Object.freeze({ id: "watson", name: "Watson", role: "watson" });
 	const reportSourceActor = Object.freeze({ id: "financial-report", name: "Фінансовий звіт", role: "source" });
@@ -226,6 +228,74 @@ const InvestigationPrototype = (() => {
 				collectionItems[collection].push(artifact.id);
 			}
 		});
+	}
+
+	function initializeRelationships() {
+		const storageAdapter = window.ManagementOsRelationships.createLocalStorageAdapter(
+			window.localStorage,
+			`managementOs.relationships.v${window.ManagementOsRelationships.SCHEMA_VERSION}.${matterId}`
+		);
+		relationshipRepository = window.ManagementOsRelationships.createRelationshipRepository({
+			storageAdapter,
+			matterId,
+			artifactRepository
+		});
+		renderAcceptedRelationships();
+	}
+
+	function ensureEvidenceHypothesisProposal(dataArtifact, hypothesisArtifact) {
+		const relationship = relationshipRepository.ensure({
+			id: evidenceHypothesisRelationshipId,
+			sourceArtifactId: dataArtifact.id,
+			targetArtifactId: hypothesisArtifact.id,
+			semanticType: "evidence-for",
+			direction: "directed",
+			governingAuthority: ownerActor,
+			provenance: {
+				method: "watson-proposal",
+				origin: { kind: "authorized-analysis", label: "Watson evidence review" },
+				proposer: watsonActor,
+				circumstance: "Watson proposed an interpretation after reviewing an owner-authorized financial source.",
+				evidenceBasis: [dataArtifact.id],
+				rawProposal: "The segment financial evidence may support the lead-transfer hypothesis."
+			},
+			uncertainty: {
+				confidence: "plausible",
+				evidenceArtifactIds: [dataArtifact.id],
+				unresolvedQuestions: ["Could another operational cause explain the same margin change?"],
+				scope: "B2B margin investigation",
+				assumptions: ["The compared reporting periods use consistent definitions."]
+			}
+		});
+		elements.relationshipProposal.classList.toggle("hidden", relationship.lifecycle.stage !== "proposed");
+		return relationship;
+	}
+
+	function renderAcceptedRelationships() {
+		if (!elements?.acceptedRelationshipView || !relationshipRepository) return;
+		const accepted = relationshipRepository.list(relationship => relationship.lifecycle.stage === "accepted");
+		elements.acceptedRelationshipView.replaceChildren();
+		accepted.forEach(relationship => {
+			const source = artifactRepository.get(relationship.endpoints.sourceArtifactId);
+			const target = artifactRepository.get(relationship.endpoints.targetArtifactId);
+			const sourceNode = document.createElement("article");
+			sourceNode.className = "relationship-node relationship-node--evidence";
+			sourceNode.innerHTML = `<strong></strong><small></small>`;
+			sourceNode.querySelector("strong").textContent = source.content.wording;
+			sourceNode.querySelector("small").textContent = source.provenance.origin.label;
+			const link = document.createElement("div");
+			link.className = "relationship-link relationship-link--supports";
+			link.innerHTML = `<b aria-hidden="true"></b><span></span>`;
+			link.querySelector("b").textContent = relationship.semantic.direction === "bidirectional" ? "↔" : "→";
+			link.querySelector("span").textContent = `${relationship.semantic.type} · ${relationship.states.governance}`;
+			const targetNode = document.createElement("article");
+			targetNode.className = "relationship-node relationship-node--hypothesis";
+			targetNode.innerHTML = `<strong></strong><small></small>`;
+			targetNode.querySelector("strong").textContent = target.content.wording;
+			targetNode.querySelector("small").textContent = target.provenance.origin.label;
+			elements.acceptedRelationshipView.append(sourceNode, link, targetNode);
+		});
+		elements.cognitiveMap.classList.toggle("hidden", accepted.length === 0);
 	}
 
 	function setGuidedPhase(phase) {
@@ -490,7 +560,8 @@ const InvestigationPrototype = (() => {
 		updateCollection("data");
 		updateCollection("hypotheses");
 		updateCollection("contradictions");
-		elements.cognitiveMap.classList.remove("hidden");
+		ensureEvidenceHypothesisProposal(dataArtifact, hypothesisArtifact);
+		renderAcceptedRelationships();
 		elements.hypothesisList.classList.remove("hidden");
 		elements.validateCause.classList.remove("hidden");
 		setGuidedPhase("hypotheses");
@@ -831,6 +902,7 @@ const InvestigationPrototype = (() => {
 			hypothesisCollection: document.getElementById("hypothesisCollection"),
 			contradictionCollection: document.getElementById("contradictionCollection"),
 			cognitiveMap: document.getElementById("cognitiveMap"),
+			acceptedRelationshipView: document.getElementById("acceptedRelationshipView"),
 			collectionButtons: [...document.querySelectorAll("[data-collection]")],
 			mapItems: [...document.querySelectorAll("[data-item-type]")],
 			itemInspector: document.getElementById("itemInspector"),
@@ -914,6 +986,7 @@ const InvestigationPrototype = (() => {
 		elements = getElements();
 		if (!elements.form) return;
 		initializeArtifacts();
+		initializeRelationships();
 		const inbox = document.querySelector(".matter-natural-capture");
 		if (inbox && elements.watsonSurface) inbox.appendChild(elements.watsonSurface);
 
@@ -1080,14 +1153,27 @@ const InvestigationPrototype = (() => {
 			announce("Виберіть файл, який підтримує вибране значення.");
 		});
 		elements.acceptRelationship.addEventListener("click", () => {
-			elements.relationshipProposal.classList.add("is-accepted");
-			elements.acceptRelationship.textContent = "Прийнято";
-			window.sessionStorage.setItem("managementOsRelationshipProposal", "accepted");
+			const relationship = relationshipRepository.get(evidenceHypothesisRelationshipId);
+			if (!relationship || relationship.lifecycle.stage !== "proposed") return;
+			relationshipRepository.accept(
+				relationship.id,
+				ownerActor,
+				"Власник прийняв запропоновану інтерпретацію для поточного розслідування."
+			);
+			elements.relationshipProposal.classList.add("hidden");
+			renderAcceptedRelationships();
 			announce("Запропонований зв’язок прийнято.");
 		});
 		elements.rejectRelationship.addEventListener("click", () => {
+			const relationship = relationshipRepository.get(evidenceHypothesisRelationshipId);
+			if (!relationship || relationship.lifecycle.stage !== "proposed") return;
+			relationshipRepository.reject(
+				relationship.id,
+				ownerActor,
+				"Власник відхилив запропоновану інтерпретацію."
+			);
 			elements.relationshipProposal.classList.add("hidden");
-			window.sessionStorage.setItem("managementOsRelationshipProposal", "rejected");
+			renderAcceptedRelationships();
 			announce("Запропонований зв’язок відхилено.");
 		});
 		elements.approveMatterContribution.addEventListener("click", approveMatterContribution);
@@ -1100,13 +1186,9 @@ const InvestigationPrototype = (() => {
 			elements.matterCaptureInput.focus();
 			announce("Додайте будь-яку важливу деталь. Попередній текст залишається у вашій відповіді.");
 		});
-		const relationshipState = window.sessionStorage.getItem("managementOsRelationshipProposal");
-		if (relationshipState === "accepted") {
-			elements.relationshipProposal.classList.add("is-accepted");
-			elements.acceptRelationship.textContent = "Прийнято";
-		} else if (relationshipState === "rejected") {
-			elements.relationshipProposal.classList.add("hidden");
-		}
+		const relationshipState = relationshipRepository.get(evidenceHypothesisRelationshipId);
+		elements.relationshipProposal.classList.toggle("hidden", relationshipState?.lifecycle.stage !== "proposed");
+		renderAcceptedRelationships();
 
 		if (new URLSearchParams(window.location.search).get("demo") === "investigation") {
 			elements.input.value = "Прибуток різко впав протягом останніх двох місяців.";

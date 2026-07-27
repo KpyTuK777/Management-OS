@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Relationship model browser tests</title>
+	</head>
+	<body data-test-result="running">
+		<pre id="result">Running</pre>
+		<script src="../js/artifact-model.js"></script>
+		<script src="../js/relationship-model.js"></script>
+		<script>
+			(() => {
+				const result = document.getElementById("result");
+				const assert = (condition, message) => { if (!condition) throw new Error(message); };
+				const memory = () => {
+					let value = null;
+					return {
+						loadStore: () => value === null ? null : JSON.parse(JSON.stringify(value)),
+						saveStore: store => { value = JSON.parse(JSON.stringify(store)); }
+					};
+				};
+				const owner = { id: "owner", name: "Owner", role: "owner" };
+				const watson = { id: "watson", name: "Watson", role: "watson" };
+				const artifactRepository = ManagementOsArtifacts.createArtifactRepository({
+					storageAdapter: memory(),
+					matterId: "MAT-BROWSER-REL"
+				});
+				const makeArtifact = id => artifactRepository.create({
+					id,
+					type: "Evidence",
+					content: { wording: id },
+					owner,
+					provenance: {
+						method: "owner-authored",
+						origin: { kind: "test", label: "Browser test" },
+						author: owner,
+						circumstance: "Browser contract test.",
+						rawInput: id
+					}
+				});
+
+				try {
+					makeArtifact("source");
+					makeArtifact("target");
+					const storageAdapter = memory();
+					const repository = ManagementOsRelationships.createRelationshipRepository({
+						storageAdapter,
+						matterId: "MAT-BROWSER-REL",
+						artifactRepository
+					});
+					const proposed = repository.propose({
+						id: "relationship-browser",
+						sourceArtifactId: "source",
+						targetArtifactId: "target",
+						semanticType: "supports",
+						direction: "directed",
+						governingAuthority: owner,
+						provenance: {
+							method: "watson-proposal",
+							origin: { kind: "analysis", label: "Watson review" },
+							proposer: watson,
+							circumstance: "Browser contract test.",
+							evidenceBasis: ["source"]
+						},
+						uncertainty: {
+							confidence: "plausible",
+							evidenceArtifactIds: ["source"],
+							unresolvedQuestions: [],
+							assumptions: []
+						}
+					});
+					let watsonDenied = false;
+					try {
+						repository.accept(proposed.id, watson, "Unauthorized acceptance.");
+					} catch (error) {
+						watsonDenied = /cannot make/.test(error.message);
+					}
+					const accepted = repository.accept(proposed.id, owner, "Owner accepted.");
+					const reloaded = ManagementOsRelationships.createRelationshipRepository({
+						storageAdapter,
+						matterId: "MAT-BROWSER-REL",
+						artifactRepository
+					}).get(proposed.id);
+
+					assert(watsonDenied, "Watson governed a Relationship.");
+					assert(accepted.lifecycle.stage === "accepted", "Owner acceptance failed.");
+					assert(reloaded.id === proposed.id, "Stable identity failed on reload.");
+					assert(reloaded.history.length === 3, "Append-only history was not retained.");
+					assert(artifactRepository.get("source").relationshipRefs.includes(proposed.id), "Source reference missing.");
+					assert(artifactRepository.get("target").relationshipRefs.includes(proposed.id), "Target reference missing.");
+					assert(document.querySelectorAll("svg path").length === 0, "Decorative connector was rendered by model tests.");
+					document.body.dataset.testResult = "passed";
+					result.textContent = "Relationship browser contracts passed";
+				} catch (error) {
+					document.body.dataset.testResult = "failed";
+					result.textContent = error.stack || error.message;
+					throw error;
+				}
+			})();
+		</script>
+	</body>
+</html>
