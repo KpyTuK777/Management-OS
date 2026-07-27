@@ -39,9 +39,30 @@
 		settled: Object.freeze(["archived"]),
 		archived: Object.freeze([])
 	});
+	const CONTEXT_ENVELOPE_CONTRACT = "management-os.context-envelope";
+	const CONTEXT_ENVELOPE_VERSION = 1;
+	const LIFECYCLE_POLICY_CONTRACT = "management-os.artifact-lifecycle-policy";
+	const LIFECYCLE_POLICY_VERSION = 1;
+	const CONTEXT_ENVELOPE_FIELDS = Object.freeze({
+		matterId: "The Matter whose operational context must remain authoritative.",
+		currentSituationVersion: "The exact Current Situation version visible at entry.",
+		primaryFocus: "The primary operational subject before temporary movement.",
+		supportingNeighborhood: "The stable identifiers needed to reconstruct surrounding meaning.",
+		spatialLocation: "The semantic location of the subject inside the shared surface.",
+		activeScope: "The Working Set, Collection, or line of inquiry constraining the view.",
+		entryOrigin: "The identifiable subject or action from which movement began.",
+		unresolvedWork: "The open questions or judgments that must survive return.",
+		lastConsequentialChange: "The latest known consequential event, or null when none exists."
+	});
 
 	function clone(value) {
 		return value === undefined ? undefined : JSON.parse(JSON.stringify(value));
+	}
+
+	function deepFreeze(value) {
+		if (!value || typeof value !== "object" || Object.isFrozen(value)) return value;
+		Object.values(value).forEach(deepFreeze);
+		return Object.freeze(value);
 	}
 
 	function invariant(condition, message) {
@@ -51,6 +72,13 @@
 	function nonEmpty(value, name) {
 		invariant(typeof value === "string" && value.trim(), `${name} is required.`);
 		return value.trim();
+	}
+
+	function stringArray(value, name) {
+		invariant(Array.isArray(value), `${name} must be an array.`);
+		const normalized = value.map((item, index) => nonEmpty(item, `${name}[${index}]`));
+		invariant(new Set(normalized).size === normalized.length, `${name} cannot contain duplicate identifiers.`);
+		return normalized;
 	}
 
 	function normalizeActor(actor, name = "actor") {
@@ -83,6 +111,167 @@
 		};
 	}
 
+	function validateProvenance(provenance) {
+		const normalized = normalizeProvenance(provenance, null);
+		nonEmpty(normalized.introducedAt, "provenance.introducedAt");
+		return normalized;
+	}
+
+	function createStorageAdapter(adapter) {
+		invariant(adapter && typeof adapter === "object", "Storage Adapter is required.");
+		invariant(typeof adapter.loadStore === "function", "Storage Adapter requires loadStore().");
+		invariant(typeof adapter.saveStore === "function", "Storage Adapter requires saveStore().");
+
+		return Object.freeze({
+			loadStore() {
+				const store = adapter.loadStore();
+				invariant(store === null || (store && typeof store === "object"), "Storage Adapter loadStore() must return an object or null.");
+				return clone(store);
+			},
+			saveStore(store) {
+				invariant(store && typeof store === "object", "Storage Adapter saveStore() requires a store object.");
+				adapter.saveStore(clone(store));
+			}
+		});
+	}
+
+	function createLocalStorageAdapter(options = {}) {
+		const storage = options.storage;
+		invariant(storage && typeof storage.getItem === "function" && typeof storage.setItem === "function", "localStorage-compatible storage is required.");
+		const storageKey = nonEmpty(options.storageKey, "storageKey");
+
+		return createStorageAdapter({
+			loadStore() {
+				const serialized = storage.getItem(storageKey);
+				return serialized === null ? null : JSON.parse(serialized);
+			},
+			saveStore(store) {
+				storage.setItem(storageKey, JSON.stringify(store));
+			}
+		});
+	}
+
+	function createLifecyclePolicy(options = {}) {
+		const stages = stringArray(options.stages, "lifecyclePolicy.stages");
+		const transitions = {};
+		stages.forEach(stage => {
+			transitions[stage] = stringArray(options.transitions?.[stage] || [], `lifecyclePolicy.transitions.${stage}`);
+			transitions[stage].forEach(target => invariant(stages.includes(target), `Lifecycle transition ${stage} -> ${target} references an unknown stage.`));
+		});
+
+		function findPath(from, to) {
+			invariant(stages.includes(from), `Unknown lifecycle stage: ${from}.`);
+			invariant(stages.includes(to), `Unknown lifecycle stage: ${to}.`);
+			if (from === to) return [];
+
+			const queue = [{ stage: from, path: [] }];
+			const visited = new Set([from]);
+			while (queue.length) {
+				const current = queue.shift();
+				for (const next of transitions[current.stage]) {
+					const path = [...current.path, next];
+					if (next === to) return path;
+					if (!visited.has(next)) {
+						visited.add(next);
+						queue.push({ stage: next, path });
+					}
+				}
+			}
+			return null;
+		}
+
+		return Object.freeze({
+			contract: LIFECYCLE_POLICY_CONTRACT,
+			contractVersion: LIFECYCLE_POLICY_VERSION,
+			stages: Object.freeze([...stages]),
+			transitions: deepFreeze(clone(transitions)),
+			hasStage(stage) {
+				return stages.includes(stage);
+			},
+			canTransition(from, to) {
+				return stages.includes(from) && stages.includes(to) && transitions[from].includes(to);
+			},
+			findPath
+		});
+	}
+
+	const DEFAULT_LIFECYCLE_POLICY = createLifecyclePolicy({
+		stages: LIFECYCLE,
+		transitions: LIFECYCLE_TRANSITIONS
+	});
+
+	function normalizeContextEnvelope(input) {
+		invariant(input && typeof input === "object", "Context Envelope input is required.");
+		invariant(input.contract === undefined || input.contract === CONTEXT_ENVELOPE_CONTRACT, "Context Envelope contract identity is not compatible.");
+		const version = input.contractVersion === undefined ? CONTEXT_ENVELOPE_VERSION : input.contractVersion;
+		invariant(Number.isInteger(version) && version > 0, "Context Envelope contractVersion must be a positive integer.");
+		invariant(version === CONTEXT_ENVELOPE_VERSION, `Unsupported Context Envelope version: ${version}.`);
+		invariant(input.lastConsequentialChange === null || typeof input.lastConsequentialChange === "string", "Context Envelope lastConsequentialChange must be an identifier or null.");
+		invariant(input.extensions === undefined || (input.extensions && typeof input.extensions === "object" && !Array.isArray(input.extensions)), "Context Envelope extensions must be an object.");
+
+		return deepFreeze({
+			contract: CONTEXT_ENVELOPE_CONTRACT,
+			contractVersion: version,
+			matterId: nonEmpty(input.matterId, "Context Envelope matterId"),
+			currentSituationVersion: nonEmpty(input.currentSituationVersion, "Context Envelope currentSituationVersion"),
+			primaryFocus: nonEmpty(input.primaryFocus, "Context Envelope primaryFocus"),
+			supportingNeighborhood: stringArray(input.supportingNeighborhood, "Context Envelope supportingNeighborhood"),
+			spatialLocation: nonEmpty(input.spatialLocation, "Context Envelope spatialLocation"),
+			activeScope: nonEmpty(input.activeScope, "Context Envelope activeScope"),
+			entryOrigin: nonEmpty(input.entryOrigin, "Context Envelope entryOrigin"),
+			unresolvedWork: stringArray(input.unresolvedWork, "Context Envelope unresolvedWork"),
+			lastConsequentialChange: input.lastConsequentialChange,
+			extensions: input.extensions === undefined ? {} : clone(input.extensions)
+		});
+	}
+
+	const ContextEnvelope = Object.freeze({
+		contract: CONTEXT_ENVELOPE_CONTRACT,
+		version: CONTEXT_ENVELOPE_VERSION,
+		fields: CONTEXT_ENVELOPE_FIELDS,
+		guarantees: Object.freeze([
+			"Envelope values are validated, copied, and deeply immutable.",
+			"Inspection receives a snapshot rather than a caller-owned object.",
+			"Closing Inspection returns the same semantic envelope.",
+			"Extensions cannot replace or weaken canonical fields."
+		]),
+		compatibilityRules: Object.freeze([
+			"Contract identity must match Management OS Context Envelope.",
+			"Contract version must be explicitly supported.",
+			"Matter identity must match the consuming operational context.",
+			"Unknown optional data belongs only inside extensions."
+		]),
+		create(input) {
+			return normalizeContextEnvelope(input);
+		},
+		isCompatible(envelope, requirements = {}) {
+			try {
+				invariant(requirements && typeof requirements === "object", "Context Envelope compatibility requirements must be an object.");
+				const normalized = normalizeContextEnvelope(envelope);
+				const supportedVersions = requirements.supportedVersions || [CONTEXT_ENVELOPE_VERSION];
+				invariant(Array.isArray(supportedVersions), "Context Envelope supportedVersions must be an array.");
+				return supportedVersions.includes(normalized.contractVersion)
+					&& (!requirements.matterId || normalized.matterId === requirements.matterId);
+			} catch (error) {
+				return false;
+			}
+		},
+		assertCompatible(envelope, requirements = {}) {
+			invariant(requirements && typeof requirements === "object", "Context Envelope compatibility requirements must be an object.");
+			const normalized = normalizeContextEnvelope(envelope);
+			const supportedVersions = requirements.supportedVersions || [CONTEXT_ENVELOPE_VERSION];
+			invariant(Array.isArray(supportedVersions), "Context Envelope supportedVersions must be an array.");
+			invariant(supportedVersions.includes(normalized.contractVersion), "Context Envelope version is not compatible.");
+			if (requirements.matterId) {
+				invariant(normalized.matterId === requirements.matterId, "Context Envelope belongs to another Matter.");
+			}
+			return normalized;
+		},
+		copy(envelope) {
+			return normalizeContextEnvelope(envelope);
+		}
+	});
+
 	function defaultId() {
 		if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
 			return crypto.randomUUID();
@@ -92,13 +281,22 @@
 	}
 
 	function createArtifactRepository(options = {}) {
-		const storage = options.storage;
-		invariant(storage && typeof storage.getItem === "function" && typeof storage.setItem === "function", "A storage adapter is required.");
-
 		const matterId = nonEmpty(options.matterId, "matterId");
+		const storageAdapter = createStorageAdapter(options.storageAdapter);
+		const lifecyclePolicy = options.lifecyclePolicy || DEFAULT_LIFECYCLE_POLICY;
+		invariant(
+			lifecyclePolicy
+				&& lifecyclePolicy.contract === LIFECYCLE_POLICY_CONTRACT
+				&& lifecyclePolicy.contractVersion === LIFECYCLE_POLICY_VERSION
+				&& typeof lifecyclePolicy.hasStage === "function"
+				&& typeof lifecyclePolicy.canTransition === "function"
+				&& typeof lifecyclePolicy.findPath === "function",
+			"A Lifecycle Policy is required."
+		);
 		const clock = options.clock || (() => new Date().toISOString());
 		const idGenerator = options.idGenerator || defaultId;
-		const storageKey = options.storageKey || `managementOs.artifacts.v${SCHEMA_VERSION}.${matterId}`;
+		invariant(typeof clock === "function", "clock must be a function.");
+		invariant(typeof idGenerator === "function", "idGenerator must be a function.");
 
 		function emptyStore() {
 			return {
@@ -109,18 +307,20 @@
 		}
 
 		function readStore() {
-			const serialized = storage.getItem(storageKey);
-			if (!serialized) return emptyStore();
-
-			const parsed = JSON.parse(serialized);
+			const parsed = storageAdapter.loadStore();
+			if (parsed === null) return emptyStore();
 			invariant(parsed.schemaVersion === SCHEMA_VERSION, "Unsupported Artifact store schema.");
 			invariant(parsed.matterId === matterId, "Artifact store belongs to another Matter.");
 			invariant(parsed.artifacts && typeof parsed.artifacts === "object", "Artifact store is invalid.");
+			Object.entries(parsed.artifacts).forEach(([artifactId, artifact]) => validateStoredArtifact(artifactId, artifact));
 			return parsed;
 		}
 
 		function writeStore(store) {
-			storage.setItem(storageKey, JSON.stringify(store));
+			invariant(store.schemaVersion === SCHEMA_VERSION, "Cannot save an unsupported Artifact store schema.");
+			invariant(store.matterId === matterId, "Cannot save an Artifact store for another Matter.");
+			Object.entries(store.artifacts).forEach(([artifactId, artifact]) => validateStoredArtifact(artifactId, artifact));
+			storageAdapter.saveStore(store);
 		}
 
 		function event(type, actor, reason, details, occurredAt = clock()) {
@@ -135,8 +335,49 @@
 		}
 
 		function requireArtifact(store, artifactId) {
-			const artifact = store.artifacts[artifactId];
+			const normalizedId = nonEmpty(artifactId, "artifactId");
+			const artifact = store.artifacts[normalizedId];
 			invariant(artifact, `Artifact ${artifactId} does not exist in Matter ${matterId}.`);
+			return artifact;
+		}
+
+		function validateStoredArtifact(artifactId, artifact) {
+			invariant(artifact && typeof artifact === "object", `Artifact ${artifactId} is invalid.`);
+			invariant(nonEmpty(artifact.id, "artifact.id") === artifactId, `Artifact store key does not match Artifact ${artifact.id}.`);
+			invariant(artifact.matterId === matterId, `Artifact ${artifactId} belongs to another Matter.`);
+			nonEmpty(artifact.type, "artifact.type");
+			invariant(artifact.content && typeof artifact.content === "object", `Artifact ${artifactId} content is invalid.`);
+			nonEmpty(artifact.content.wording, "artifact.content.wording");
+			invariant(Number.isInteger(artifact.content.revision) && artifact.content.revision >= 1, `Artifact ${artifactId} revision is invalid.`);
+			validateProvenance(artifact.provenance);
+			invariant(artifact.ownership && typeof artifact.ownership === "object", `Artifact ${artifactId} ownership is invalid.`);
+			nonEmpty(artifact.ownership.ownerId, "artifact.ownership.ownerId");
+			nonEmpty(artifact.ownership.ownerName, "artifact.ownership.ownerName");
+			invariant(["owner", "delegate"].includes(artifact.ownership.ownerRole), `Artifact ${artifactId} ownerRole is invalid.`);
+			stringArray(artifact.ownership.editorIds, "artifact.ownership.editorIds");
+			invariant(artifact.lifecycle && lifecyclePolicy.hasStage(artifact.lifecycle.stage), `Artifact ${artifactId} lifecycle is invalid.`);
+			invariant(artifact.states && typeof artifact.states === "object", `Artifact ${artifactId} states are invalid.`);
+			Object.entries(STATE_VALUES).forEach(([dimension, values]) => {
+				invariant(values.includes(artifact.states[dimension]), `Artifact ${artifactId} ${dimension} state is invalid.`);
+			});
+			invariant(Array.isArray(artifact.relationshipRefs), `Artifact ${artifactId} relationshipRefs must be an array.`);
+			stringArray(artifact.relationshipRefs, "artifact.relationshipRefs");
+			invariant(artifact.lineage && typeof artifact.lineage === "object", `Artifact ${artifactId} lineage is invalid.`);
+			stringArray(artifact.lineage.parentIds, "artifact.lineage.parentIds");
+			stringArray(artifact.lineage.derivedFromIds, "artifact.lineage.derivedFromIds");
+			invariant(artifact.lineage.supersedesId === null || typeof artifact.lineage.supersedesId === "string", `Artifact ${artifactId} supersedesId is invalid.`);
+			invariant(Array.isArray(artifact.history), `Artifact ${artifactId} history must be an array.`);
+			const historyIds = new Set();
+			artifact.history.forEach((historyEvent, index) => {
+				invariant(historyEvent && typeof historyEvent === "object", `Artifact ${artifactId} history[${index}] is invalid.`);
+				nonEmpty(historyEvent.id, `artifact.history[${index}].id`);
+				nonEmpty(historyEvent.type, `artifact.history[${index}].type`);
+				nonEmpty(historyEvent.occurredAt, `artifact.history[${index}].occurredAt`);
+				normalizeActor(historyEvent.actor, `artifact.history[${index}].actor`);
+				nonEmpty(historyEvent.reason, `artifact.history[${index}].reason`);
+				invariant(!historyIds.has(historyEvent.id), `Artifact ${artifactId} contains duplicate history event identity.`);
+				historyIds.add(historyEvent.id);
+			});
 			return artifact;
 		}
 
@@ -160,6 +401,8 @@
 			const store = readStore();
 			invariant(!store.artifacts[artifactId], `Artifact ${artifactId} already exists.`);
 
+			const editorIds = stringArray(input.editorIds || [], "artifact.editorIds");
+			invariant(!editorIds.includes(owner.id), "Artifact owner must not be duplicated as an editor.");
 			const artifact = {
 				id: artifactId,
 				matterId,
@@ -178,7 +421,8 @@
 				ownership: {
 					ownerId: owner.id,
 					ownerName: owner.name,
-					editorIds: clone(input.editorIds || [])
+					ownerRole: owner.role,
+					editorIds
 				},
 				lifecycle: {
 					stage: "captured",
@@ -212,26 +456,31 @@
 		}
 
 		function ensure(input) {
+			invariant(input && typeof input === "object", "Artifact input is required.");
+			nonEmpty(input.id, "artifact.id");
 			const existing = get(input.id);
 			return existing || create(input);
 		}
 
 		function get(artifactId) {
-			const artifact = readStore().artifacts[artifactId];
+			const normalizedId = nonEmpty(artifactId, "artifactId");
+			const artifact = readStore().artifacts[normalizedId];
 			return artifact ? clone(artifact) : null;
 		}
 
 		function list(predicate) {
+			invariant(predicate === undefined || typeof predicate === "function", "Artifact list predicate must be a function.");
 			const artifacts = Object.values(readStore().artifacts).map(clone);
-			return typeof predicate === "function" ? artifacts.filter(predicate) : artifacts;
+			return predicate ? artifacts.filter(predicate) : artifacts;
 		}
 
 		function transitionLifecycle(artifactId, nextStage, actor, reason, options = {}) {
-			invariant(LIFECYCLE.includes(nextStage), "Lifecycle stage is not canonical.");
+			invariant(options && typeof options === "object", "Lifecycle options must be an object.");
+			invariant(lifecyclePolicy.hasStage(nextStage), "Lifecycle stage is not canonical.");
 			const store = readStore();
 			const artifact = requireArtifact(store, artifactId);
 			const authorizedActor = requireHumanAuthority(artifact, actor);
-			invariant(LIFECYCLE_TRANSITIONS[artifact.lifecycle.stage].includes(nextStage), `Lifecycle cannot move from ${artifact.lifecycle.stage} to ${nextStage}.`);
+			invariant(lifecyclePolicy.canTransition(artifact.lifecycle.stage, nextStage), `Lifecycle cannot move from ${artifact.lifecycle.stage} to ${nextStage}.`);
 			invariant(nextStage !== "settled" || options.settledAs, "Settled Artifacts require a settlement reason.");
 
 			const previous = clone(artifact.lifecycle);
@@ -247,17 +496,17 @@
 		}
 
 		function advanceLifecycleTo(artifactId, targetStage, actor, reason, options = {}) {
-			invariant(LIFECYCLE.includes(targetStage), "Lifecycle stage is not canonical.");
+			invariant(options && typeof options === "object", "Lifecycle options must be an object.");
+			invariant(lifecyclePolicy.hasStage(targetStage), "Lifecycle stage is not canonical.");
 			let artifact = get(artifactId);
 			invariant(artifact, `Artifact ${artifactId} does not exist in Matter ${matterId}.`);
-			invariant(LIFECYCLE.indexOf(targetStage) >= LIFECYCLE.indexOf(artifact.lifecycle.stage), "Lifecycle cannot move backward.");
-
-			while (artifact.lifecycle.stage !== targetStage) {
-				const nextStage = artifact.lifecycle.stage === "captured" && targetStage !== "proposed"
-					? "admitted"
-					: LIFECYCLE_TRANSITIONS[artifact.lifecycle.stage][0];
+			requireHumanAuthority(artifact, actor);
+			nonEmpty(reason, "reason");
+			const path = lifecyclePolicy.findPath(artifact.lifecycle.stage, targetStage);
+			invariant(path !== null, `Lifecycle cannot reach ${targetStage} from ${artifact.lifecycle.stage}.`);
+			path.forEach(nextStage => {
 				artifact = transitionLifecycle(artifactId, nextStage, actor, reason, nextStage === "settled" ? options : {});
-			}
+			});
 			return artifact;
 		}
 
@@ -267,15 +516,24 @@
 			const artifact = requireArtifact(store, artifactId);
 			const authorizedActor = requireHumanAuthority(artifact, actor);
 			const allowedKeys = ["wording", "type", "material"];
+			invariant(Object.keys(changes).length > 0, "Artifact edit requires at least one editable change.");
 			invariant(Object.keys(changes).every(key => allowedKeys.includes(key)), "Editing cannot change identity, provenance, ownership, lifecycle, or state.");
 
 			const before = {
 				type: artifact.type,
 				content: clone(artifact.content)
 			};
-			if (changes.wording !== undefined) artifact.content.wording = nonEmpty(changes.wording, "artifact.content.wording");
-			if (changes.type !== undefined) artifact.type = nonEmpty(changes.type, "artifact.type");
-			if (changes.material !== undefined) artifact.content.material = clone(changes.material);
+			const nextWording = changes.wording === undefined ? artifact.content.wording : nonEmpty(changes.wording, "artifact.content.wording");
+			const nextType = changes.type === undefined ? artifact.type : nonEmpty(changes.type, "artifact.type");
+			const nextMaterial = changes.material === undefined ? artifact.content.material : clone(changes.material);
+			const changed = nextWording !== artifact.content.wording
+				|| nextType !== artifact.type
+				|| JSON.stringify(nextMaterial) !== JSON.stringify(artifact.content.material);
+			if (!changed) return clone(artifact);
+
+			artifact.content.wording = nextWording;
+			artifact.type = nextType;
+			artifact.content.material = nextMaterial;
 			artifact.content.revision += 1;
 			artifact.updatedAt = clock();
 			artifact.history.push(event("artifact.revised", authorizedActor, reason, {
@@ -310,22 +568,8 @@
 		}
 
 		function inspect(artifactId, context, actor) {
-			invariant(context && typeof context === "object", "A Context Envelope is required for Inspection.");
-			[
-				"matterId",
-				"currentSituationVersion",
-				"primaryFocus",
-				"supportingNeighborhood",
-				"spatialLocation",
-				"activeScope",
-				"entryOrigin",
-				"unresolvedWork",
-				"lastConsequentialChange"
-			].forEach(field => invariant(context[field] !== undefined && context[field] !== null, `Context Envelope requires ${field}.`));
-			invariant(context.matterId === matterId, "Context Envelope belongs to another Matter.");
-
+			const contextEnvelope = ContextEnvelope.assertCompatible(context, { matterId });
 			const artifact = get(artifactId);
-			invariant(artifact, `Artifact ${artifactId} does not exist in Matter ${matterId}.`);
 			const previousAttention = artifact.states.attention;
 			setState(artifactId, "review", "reviewed", actor, "Artifact was deliberately inspected.");
 			const inspected = setState(artifactId, "attention", "inspected", actor, "Artifact became the temporary object of close examination.");
@@ -335,23 +579,25 @@
 				artifactId,
 				openedAt: clock(),
 				previousAttention,
-				contextEnvelope: clone(context),
+				contextEnvelope,
 				artifact: inspected
 			};
 		}
 
 		function closeInspection(inspection, actor, reason = "Inspection ended and prior operational context was restored.") {
-			invariant(inspection && inspection.artifactId && inspection.contextEnvelope, "A valid Inspection is required.");
-			const restored = setState(inspection.artifactId, "attention", inspection.previousAttention, actor, reason);
+			invariant(inspection && typeof inspection === "object", "A valid Inspection is required.");
+			const artifactId = nonEmpty(inspection.artifactId, "inspection.artifactId");
+			invariant(STATE_VALUES.attention.includes(inspection.previousAttention), "Inspection previousAttention is invalid.");
+			const contextEnvelope = ContextEnvelope.assertCompatible(inspection.contextEnvelope, { matterId });
+			const restored = setState(artifactId, "attention", inspection.previousAttention, actor, reason);
 			return {
 				artifact: restored,
-				contextEnvelope: clone(inspection.contextEnvelope),
+				contextEnvelope,
 				closedAt: clock()
 			};
 		}
 
 		return Object.freeze({
-			storageKey,
 			create,
 			ensure,
 			get,
@@ -370,6 +616,13 @@
 		LIFECYCLE,
 		STATE_VALUES,
 		BIRTH_PATHS,
+		CONTEXT_ENVELOPE_CONTRACT,
+		CONTEXT_ENVELOPE_VERSION,
+		ContextEnvelope,
+		createStorageAdapter,
+		createLocalStorageAdapter,
+		createLifecyclePolicy,
+		DEFAULT_LIFECYCLE_POLICY,
 		createArtifactRepository
 	});
 });

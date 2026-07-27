@@ -13,16 +13,18 @@
 				const assert = (condition, message) => {
 					if (!condition) throw new Error(message);
 				};
-				const values = new Map();
-				const storage = {
-					getItem: key => values.has(key) ? values.get(key) : null,
-					setItem: (key, value) => values.set(key, String(value))
+				let stored = null;
+				const storageAdapter = {
+					loadStore: () => stored === null ? null : JSON.parse(JSON.stringify(stored)),
+					saveStore: value => {
+						stored = JSON.parse(JSON.stringify(value));
+					}
 				};
 				const owner = { id: "owner", name: "Owner", role: "owner" };
 				const watson = { id: "watson", name: "Watson", role: "watson" };
 				let id = 0;
 				const repository = ManagementOsArtifacts.createArtifactRepository({
-					storage,
+					storageAdapter,
 					matterId: "MAT-BROWSER-TEST",
 					clock: () => `2026-07-27T10:00:${String(id++).padStart(2, "0")}.000Z`,
 					idGenerator: () => `event-${id++}`
@@ -45,7 +47,7 @@
 					});
 					const active = repository.advanceLifecycleTo(created.id, "active", owner, "Owner admitted the Artifact.");
 					const edited = repository.edit(created.id, { wording: "Revised wording" }, owner, "Owner clarified it.");
-					const inspection = repository.inspect(created.id, {
+					const contextEnvelope = ManagementOsArtifacts.ContextEnvelope.create({
 						matterId: "MAT-BROWSER-TEST",
 						currentSituationVersion: "situation-v1",
 						primaryFocus: "current-situation",
@@ -55,8 +57,10 @@
 						entryOrigin: created.id,
 						unresolvedWork: [],
 						lastConsequentialChange: edited.history.at(-1).id
-					}, owner);
+					});
+					const inspection = repository.inspect(created.id, contextEnvelope, owner);
 					const closed = repository.closeInspection(inspection, owner);
+					const unchanged = repository.edit(created.id, { wording: "Revised wording" }, owner, "No change.");
 
 					assert(active.lifecycle.stage === "active", "Lifecycle did not reach active.");
 					assert(edited.id === created.id && edited.content.revision === 2, "Identity or revision failed.");
@@ -65,6 +69,8 @@
 					assert(closed.artifact.states.review === "reviewed", "Review state was not independent.");
 					assert(closed.artifact.history.length > created.history.length, "History did not accumulate.");
 					assert(closed.artifact.relationshipRefs.length === 0, "Relationship foundation is not empty.");
+					assert(JSON.stringify(closed.contextEnvelope) === JSON.stringify(inspection.contextEnvelope), "Context Envelope changed during Inspection.");
+					assert(unchanged.content.revision === 2, "No-op edit increased revision.");
 					let watsonDenied = false;
 					try {
 						repository.edit(created.id, { wording: "Unauthorized" }, watson, "Unauthorized edit.");
@@ -72,6 +78,13 @@
 						watsonDenied = /authorized human/.test(error.message);
 					}
 					assert(watsonDenied, "Watson was allowed to mutate the Artifact.");
+					let provenanceDenied = false;
+					try {
+						repository.edit(created.id, { provenance: {} }, owner, "Invalid provenance rewrite.");
+					} catch (error) {
+						provenanceDenied = /cannot change identity, provenance/.test(error.message);
+					}
+					assert(provenanceDenied, "edit() allowed provenance mutation.");
 
 					document.body.dataset.testResult = "passed";
 					output.textContent = "Artifact model browser tests passed";

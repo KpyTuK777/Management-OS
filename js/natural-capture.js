@@ -163,8 +163,12 @@ const InvestigationPrototype = (() => {
 	}
 
 	function initializeArtifacts() {
-		artifactRepository = window.ManagementOsArtifacts.createArtifactRepository({
+		const storageAdapter = window.ManagementOsArtifacts.createLocalStorageAdapter({
 			storage: window.localStorage,
+			storageKey: `managementOs.artifacts.v${window.ManagementOsArtifacts.SCHEMA_VERSION}.${matterId}`
+		});
+		artifactRepository = window.ManagementOsArtifacts.createArtifactRepository({
+			storageAdapter,
 			matterId
 		});
 
@@ -328,7 +332,7 @@ const InvestigationPrototype = (() => {
 
 	function currentContextEnvelope(artifactId, trigger) {
 		const lastChange = artifactRepository.get(artifactId)?.history.at(-1) || null;
-		return {
+		return window.ManagementOsArtifacts.ContextEnvelope.create({
 			matterId,
 			currentSituationVersion: "MAT-0247-current-situation-v1",
 			primaryFocus: document.querySelector('[data-artifact-id][data-primary-focus="true"]')?.dataset.artifactId || "current-situation",
@@ -338,8 +342,10 @@ const InvestigationPrototype = (() => {
 			entryOrigin: trigger?.dataset.artifactId || trigger?.id || "operational-workbench",
 			unresolvedWork: awaitingClarification ? ["watson-clarification"] : [],
 			lastConsequentialChange: lastChange ? lastChange.id : null,
-			scrollPosition: { x: window.scrollX, y: window.scrollY }
-		};
+			extensions: {
+				scrollPosition: { x: window.scrollX, y: window.scrollY }
+			}
+		});
 	}
 
 	function openArtifactInspection(artifactId, trigger) {

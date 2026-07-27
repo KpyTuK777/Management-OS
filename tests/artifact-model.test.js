@@ -1,26 +1,32 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { createArtifactRepository, LIFECYCLE } = require("../js/artifact-model.js");
+const {
+	createArtifactRepository,
+	createLocalStorageAdapter,
+	createLifecyclePolicy,
+	ContextEnvelope,
+	LIFECYCLE
+} = require("../js/artifact-model.js");
 
-function memoryStorage() {
-	const values = new Map();
+function memoryStorageAdapter() {
+	let value = null;
 	return {
-		getItem(key) {
-			return values.has(key) ? values.get(key) : null;
+		loadStore() {
+			return value === null ? null : JSON.parse(JSON.stringify(value));
 		},
-		setItem(key, value) {
-			values.set(key, String(value));
+		saveStore(store) {
+			value = JSON.parse(JSON.stringify(store));
 		}
 	};
 }
 
 function harness() {
 	let tick = 0;
-	const storage = memoryStorage();
+	const storageAdapter = memoryStorageAdapter();
 	const owner = { id: "owner-1", name: "Owner", role: "owner" };
 	const watson = { id: "watson", name: "Watson", role: "watson" };
 	const repository = createArtifactRepository({
-		storage,
+		storageAdapter,
 		matterId: "MAT-TEST",
 		clock: () => `2026-07-27T10:00:${String(tick++).padStart(2, "0")}.000Z`,
 		idGenerator: () => `id-${tick++}`
@@ -45,14 +51,14 @@ function harness() {
 		}
 	};
 
-	return { repository, storage, owner, watson, input };
+	return { repository, storageAdapter, owner, watson, input };
 }
 
 test("Artifact identity and provenance survive edits and repository reload", () => {
-	const { repository, storage, owner, input } = harness();
+	const { repository, storageAdapter, owner, input } = harness();
 	const created = repository.create(input);
 	const edited = repository.edit(created.id, { wording: "B2B margin declined.", type: "Symptom" }, owner, "Owner clarified the observation.");
-	const reloaded = createArtifactRepository({ storage, matterId: "MAT-TEST" }).get(created.id);
+	const reloaded = createArtifactRepository({ storageAdapter, matterId: "MAT-TEST" }).get(created.id);
 
 	assert.equal(edited.id, created.id);
 	assert.equal(reloaded.id, created.id);
@@ -61,6 +67,39 @@ test("Artifact identity and provenance survive edits and repository reload", () 
 	assert.deepEqual(reloaded.provenance, created.provenance);
 	assert.equal(reloaded.provenance.rawInput, "Margin declined.");
 	assert.equal(reloaded.history.at(-1).type, "artifact.revised");
+});
+
+test("Repository depends only on replaceable loadStore/saveStore contract", () => {
+	const adapter = memoryStorageAdapter();
+	const owner = { id: "owner", name: "Owner", role: "owner" };
+	const repository = createArtifactRepository({ storageAdapter: adapter, matterId: "MAT-ADAPTER" });
+	const artifact = repository.create({
+		id: "adapter-artifact",
+		type: "Observation",
+		content: { wording: "Stored without localStorage." },
+		owner,
+		provenance: {
+			method: "owner-authored",
+			origin: { kind: "in-memory-test", label: "Replaceable adapter" },
+			author: owner,
+			circumstance: "Storage inversion contract test.",
+			rawInput: "Stored without localStorage."
+		}
+	});
+
+	assert.equal(repository.get(artifact.id).content.wording, "Stored without localStorage.");
+	assert.equal(Object.hasOwn(adapter, "getItem"), false);
+	assert.equal(Object.hasOwn(adapter, "setItem"), false);
+
+	const serialized = new Map();
+	const localStorageCompatible = {
+		getItem: key => serialized.has(key) ? serialized.get(key) : null,
+		setItem: (key, value) => serialized.set(key, value)
+	};
+	const localAdapter = createLocalStorageAdapter({ storage: localStorageCompatible, storageKey: "artifacts" });
+	const localRepository = createArtifactRepository({ storageAdapter: localAdapter, matterId: "MAT-LOCAL" });
+	localRepository.create({ ...artifact, id: "local-artifact", matterId: undefined, owner, history: undefined });
+	assert.equal(localRepository.get("local-artifact").id, "local-artifact");
 });
 
 test("Lifecycle follows canonical transitions and never deletes settled meaning", () => {
@@ -80,6 +119,33 @@ test("Lifecycle follows canonical transitions and never deletes settled meaning"
 	);
 	assert.deepEqual(LIFECYCLE, ["captured", "proposed", "admitted", "active", "evaluated", "settled", "archived"]);
 	assert.throws(() => repository.transitionLifecycle(input.id, "active", owner, "Invalid reversal."), /cannot move/);
+});
+
+test("Lifecycle traversal is delegated to an injectable graph policy without changing Repository API", () => {
+	const { storageAdapter, owner, input } = harness();
+	const canonicalPolicy = createLifecyclePolicy({
+		stages: LIFECYCLE,
+		transitions: {
+			captured: ["proposed", "admitted"],
+			proposed: ["admitted"],
+			admitted: ["active"],
+			active: ["evaluated"],
+			evaluated: ["settled"],
+			settled: ["archived"],
+			archived: []
+		}
+	});
+	const repository = createArtifactRepository({
+		storageAdapter,
+		matterId: "MAT-TEST",
+		lifecyclePolicy: canonicalPolicy
+	});
+	repository.create(input);
+	const active = repository.advanceLifecycleTo(input.id, "active", owner, "Owner admitted the material.");
+
+	assert.equal(active.lifecycle.stage, "active");
+	assert.deepEqual(canonicalPolicy.findPath("captured", "active"), ["admitted", "active"]);
+	assert.equal(typeof repository.advanceLifecycleTo, "function");
 });
 
 test("Orthogonal state dimensions change independently", () => {
@@ -117,11 +183,17 @@ test("Inspection requires and restores a complete Context Envelope", () => {
 
 	assert.equal(inspection.artifact.states.attention, "inspected");
 	assert.equal(inspection.artifact.states.review, "reviewed");
-	assert.deepEqual(inspection.contextEnvelope, contextEnvelope);
+	assert.equal(inspection.contextEnvelope.contract, "management-os.context-envelope");
+	assert.equal(inspection.contextEnvelope.contractVersion, 1);
+	assert(Object.isFrozen(inspection.contextEnvelope));
+	assert(Object.isFrozen(inspection.contextEnvelope.supportingNeighborhood));
+	const preservedEnvelope = JSON.stringify(inspection.contextEnvelope);
 
 	const closed = repository.closeInspection(inspection, owner);
 	assert.equal(closed.artifact.states.attention, "supporting");
-	assert.deepEqual(closed.contextEnvelope, contextEnvelope);
+	assert.equal(JSON.stringify(closed.contextEnvelope), preservedEnvelope);
+	assert(ContextEnvelope.isCompatible(closed.contextEnvelope, { matterId: "MAT-TEST" }));
+	assert.equal(ContextEnvelope.isCompatible(closed.contextEnvelope, { matterId: "OTHER" }), false);
 	assert.throws(
 		() => repository.inspect(input.id, { matterId: "MAT-TEST" }, owner),
 		/Context Envelope requires/
@@ -137,10 +209,85 @@ test("Watson cannot own or mutate an Artifact", () => {
 		/cannot own/
 	);
 	assert.throws(
+		() => repository.ensure({ ...input, id: "watson-ensured", owner: watson }),
+		/cannot own/
+	);
+	assert.throws(
 		() => repository.edit(input.id, { wording: "Watson changed it." }, watson, "Watson edit."),
 		/authorized human/
 	);
+	assert.throws(
+		() => repository.setState(input.id, "review", "reviewed", watson, "Watson state change."),
+		/authorized human/
+	);
+	assert.throws(
+		() => repository.transitionLifecycle(input.id, "admitted", watson, "Watson lifecycle change."),
+		/authorized human/
+	);
+	assert.throws(
+		() => repository.inspect(input.id, {
+			matterId: "MAT-TEST",
+			currentSituationVersion: "situation-v1",
+			primaryFocus: "current-situation",
+			supportingNeighborhood: [input.id],
+			spatialLocation: "workbench",
+			activeScope: "working-set",
+			entryOrigin: input.id,
+			unresolvedWork: [],
+			lastConsequentialChange: null
+		}, watson),
+		/authorized human/
+	);
 	assert.equal(repository.get(input.id).ownership.ownerId, owner.id);
+});
+
+test("Repository rejects malformed adapters, stored identity, provenance, and state", () => {
+	assert.throws(
+		() => createArtifactRepository({ storageAdapter: {}, matterId: "MAT-TEST" }),
+		/loadStore/
+	);
+	const malformedAdapter = {
+		loadStore() {
+			return {
+				schemaVersion: 1,
+				matterId: "MAT-TEST",
+				artifacts: {
+					"artifact-1": {
+						id: "different-id"
+					}
+				}
+			};
+		},
+		saveStore() {}
+	};
+	const repository = createArtifactRepository({ storageAdapter: malformedAdapter, matterId: "MAT-TEST" });
+	assert.throws(() => repository.get("artifact-1"), /store key does not match/);
+});
+
+test("Provenance is immutable through edit and revision advances only after a real successful change", () => {
+	const { repository, owner, input } = harness();
+	const created = repository.create(input);
+	const initialHistoryLength = created.history.length;
+
+	const unchanged = repository.edit(input.id, { wording: input.content.wording }, owner, "No semantic change.");
+	assert.equal(unchanged.content.revision, 1);
+	assert.equal(unchanged.history.length, initialHistoryLength);
+
+	assert.throws(
+		() => repository.edit(input.id, { provenance: { circumstance: "Rewritten" } }, owner, "Invalid provenance rewrite."),
+		/cannot change identity, provenance/
+	);
+	assert.throws(
+		() => repository.edit(input.id, { wording: "   " }, owner, "Invalid empty revision."),
+		/wording is required/
+	);
+	const afterFailures = repository.get(input.id);
+	assert.equal(afterFailures.content.revision, 1);
+	assert.deepEqual(afterFailures.provenance, created.provenance);
+
+	const revised = repository.edit(input.id, { wording: "Materially revised." }, owner, "Owner changed the wording.");
+	assert.equal(revised.content.revision, 2);
+	assert.deepEqual(revised.provenance, created.provenance);
 });
 
 test("Relationship readiness is identity-based and contains no simulated links", () => {
