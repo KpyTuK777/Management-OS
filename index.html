@@ -150,6 +150,16 @@
 						</form>
 						<div class="capture-review hidden" id="matterCaptureReview" aria-live="polite">
 							<div><span>Ваше оригінальне формулювання</span><blockquote id="captureOriginal"></blockquote><small>Збережено без інтерпретації.</small></div>
+							<section class="semantic-review" aria-labelledby="semanticReviewTitle">
+								<header><div><small>Watson тихо організував</small><h3 id="semanticReviewTitle">Знайдені значення</h3></div><button class="text-button" id="closeSemanticReview" type="button">Готово</button></header>
+								<div class="semantic-items" id="semanticItems"></div>
+								<div class="semantic-actions">
+									<button class="text-button" id="splitSemanticItem" type="button">Розділити</button>
+									<button class="text-button" id="mergeSemanticItems" type="button">Об’єднати</button>
+									<button class="text-button" id="attachSemanticEvidence" type="button">Додати доказ</button>
+								</div>
+								<p>Це пропозиції. Ви змінюєте формулювання, категорію та значущість.</p>
+							</section>
 						</div>
 					</section>
 

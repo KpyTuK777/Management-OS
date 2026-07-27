@@ -5,7 +5,6 @@ const Layout = (() => {
 			links: [
 				["Головна", "index.html"],
 				["Порядок денний", "index.html#agenda"],
-				["Навчання", "knowledge-base.html"],
 				["Операційні справи", "index.html#investigations"],
 				["Знання", "knowledge-base.html"]
 			]

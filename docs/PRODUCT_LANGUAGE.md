@@ -229,6 +229,11 @@ Watson`, `Переглянути`, and `Знайти суперечність`. 
 co-pilot, required step, panel, or workflow owner. Watson waits, responds to the
 owner's request, and interrupts only for material operational significance.
 
+Sprint 28 semantic review uses `Watson тихо організував`, `Знайдені значення`,
+`Розділити`, `Об’єднати`, `Додати доказ`, `Звичайна`, and `Важлива`. The
+supporting statement must make proposal status explicit: the owner changes
+wording, category, and significance; Watson does not finalize them.
+
 Management OS language should be:
 
 - **Concise:** communicate the necessary meaning with as few words as clarity

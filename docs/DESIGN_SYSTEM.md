@@ -212,6 +212,17 @@ Dark Workbench text uses these roles:
 Texture, tape, pencil, paper clip, and magnifier-like forms may establish
 professional atmosphere, but must not carry state, meaning, or instructions.
 
+Sprint 28 establishes the recognizable Management OS composition: deep
+blue-charcoal field, large warm editorial Situation title, taped working paper,
+compact folder-like collections, brass rules, and a ruled notebook. The identity
+comes from hierarchy and material behavior rather than branding or theatrical
+props.
+
+The notebook owns a stable desk position beside the Map on wide screens and below
+it at narrower widths. Semantic review extends the notebook within layout flow.
+Folder colors distinguish material families only when paired with icon, label,
+count, and accessible name.
+
 The Workbench uses one large composed Current Situation canvas and a restrained
 supporting rail for Watson and Operational Inbox. Uniform card grids are not used
 for the primary operational picture. Contextual material uses semantic forms:

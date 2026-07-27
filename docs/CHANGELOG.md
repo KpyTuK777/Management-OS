@@ -1,5 +1,20 @@
 # Changelog
 
+## Sprint 28 — Art Direction Reset
+
+- Rebalanced the Workbench as an editorial desk with Current Situation at the
+  compositional center and compact folder-like collections at its edge.
+- Rebuilt Operational Inbox as a warm ruled notebook in a dedicated in-flow desk
+  position.
+- Added owner-editable semantic decomposition with category, wording,
+  split/merge, Evidence attachment, and significance controls.
+- Reconsidered Home as one calm operational starting question rather than a
+  feature or module catalogue.
+- Simplified the Dock by removing overlapping Learning navigation while retaining
+  Knowledge.
+- Preserved owner authority, proposal status, provenance, and all canonical
+  capability boundaries.
+
 ## Sprint 27 — Workbench Atmosphere & Spatial Refinement
 
 - Completed the dark-theme typography audit with consistent readable text roles

@@ -298,6 +298,56 @@ const InvestigationPrototype = (() => {
 		announce("Підготовлено кандидат на окремий перегляд знання. Він не є схваленим знанням і не змінює стан операційної справи.");
 	}
 
+	function semanticItem(category, wording, importance = "Звичайна") {
+		const row = document.createElement("article");
+		const selected = document.createElement("input");
+		const icon = document.createElement("span");
+		const select = document.createElement("select");
+		const text = document.createElement("span");
+		const significance = document.createElement("button");
+		selected.type = "checkbox";
+		selected.setAttribute("aria-label", `Вибрати: ${wording}`);
+		icon.setAttribute("aria-hidden", "true");
+		icon.textContent = { "Розмова": "🎙", "Симптом": "📌", "Час": "◷", "Джерело": "↗", "Спостереження": "👀" }[category] || "•";
+		["Розмова", "Симптом", "Спостереження", "Час", "Джерело", "Інше"].forEach(optionLabel => {
+			const option = document.createElement("option");
+			option.textContent = optionLabel;
+			option.selected = optionLabel === category;
+			select.appendChild(option);
+		});
+		select.setAttribute("aria-label", "Категорія");
+		text.contentEditable = "true";
+		text.setAttribute("role", "textbox");
+		text.setAttribute("aria-label", "Формулювання");
+		text.textContent = wording;
+		significance.type = "button";
+		significance.className = "semantic-significance";
+		significance.textContent = importance;
+		significance.addEventListener("click", () => {
+			significance.textContent = significance.textContent === "Важлива" ? "Звичайна" : "Важлива";
+		});
+		row.append(selected, icon, select, text, significance);
+		return row;
+	}
+
+	function showSemanticReview(original) {
+		elements.semanticItems.replaceChildren(
+			semanticItem("Розмова", "Повідомлення власника"),
+			semanticItem("Симптом", original, "Важлива"),
+			semanticItem("Час", /два|двох|2/i.test(original) ? "Останні два місяці" : "Час ще не уточнено"),
+			semanticItem("Джерело", "Власник")
+		);
+		elements.matterCaptureReview.classList.remove("hidden");
+		elements.workbench.classList.add("has-semantic-review");
+		if (window.matchMedia("(min-width: 1001px)").matches) {
+			elements.workbench.style.gridTemplateColumns = "minmax(0, 1fr) 420px";
+		}
+	}
+
+	function selectedSemanticItems() {
+		return [...elements.semanticItems.querySelectorAll("article")].filter(item => item.querySelector("input").checked);
+	}
+
 	function prepareMatterContribution(event) {
 		event.preventDefault();
 		const original = elements.matterCaptureInput.value.trim();
@@ -332,6 +382,7 @@ const InvestigationPrototype = (() => {
 		}
 
 		elements.captureOriginal.textContent = `“${original}”`;
+		showSemanticReview(original);
 		elements.guidedInvestigation.classList.add("hidden");
 		elements.watsonContributionReview.classList.remove("hidden");
 		elements.reasoningMilestone.classList.add("hidden");
@@ -510,6 +561,11 @@ const InvestigationPrototype = (() => {
 			matterCaptureFiles: document.getElementById("matterCaptureFiles"),
 			matterCapturePrompt: document.getElementById("matterCapturePrompt"),
 			matterCaptureReview: document.getElementById("matterCaptureReview"),
+			semanticItems: document.getElementById("semanticItems"),
+			closeSemanticReview: document.getElementById("closeSemanticReview"),
+			splitSemanticItem: document.getElementById("splitSemanticItem"),
+			mergeSemanticItems: document.getElementById("mergeSemanticItems"),
+			attachSemanticEvidence: document.getElementById("attachSemanticEvidence"),
 			situationBoard: document.getElementById("situationBoard"),
 			perceptualWorkspace: document.querySelector(".perceptual-workspace"),
 			guidedInvestigation: document.getElementById("guidedInvestigation"),
@@ -649,6 +705,32 @@ const InvestigationPrototype = (() => {
 		elements.recordOutcome.addEventListener("click", recordOutcome);
 		elements.captureKnowledge.addEventListener("click", captureKnowledge);
 		elements.matterCaptureForm.addEventListener("submit", prepareMatterContribution);
+		elements.closeSemanticReview.addEventListener("click", () => {
+			elements.matterCaptureReview.classList.add("hidden");
+			elements.workbench.classList.remove("has-semantic-review");
+			elements.workbench.style.removeProperty("grid-template-columns");
+			elements.matterCaptureInput.focus();
+		});
+		elements.splitSemanticItem.addEventListener("click", () => {
+			const item = selectedSemanticItems()[0] || elements.semanticItems.querySelector("article");
+			if (!item) return;
+			const wording = item.querySelector('[role="textbox"]').textContent;
+			const midpoint = Math.max(1, Math.floor(wording.length / 2));
+			item.after(semanticItem("Спостереження", wording.slice(midpoint).trim() || "Нове значення"));
+			item.querySelector('[role="textbox"]').textContent = wording.slice(0, midpoint).trim();
+			announce("Значення розділено. Обидва формулювання можна змінити.");
+		});
+		elements.mergeSemanticItems.addEventListener("click", () => {
+			const selected = selectedSemanticItems();
+			if (selected.length < 2) return announce("Виберіть щонайменше два значення для об’єднання.");
+			selected[0].querySelector('[role="textbox"]').textContent = selected.map(item => item.querySelector('[role="textbox"]').textContent).join(" · ");
+			selected.slice(1).forEach(item => item.remove());
+			announce("Вибрані значення об’єднано.");
+		});
+		elements.attachSemanticEvidence.addEventListener("click", () => {
+			elements.matterCaptureFiles.click();
+			announce("Виберіть файл, який підтримує вибране значення.");
+		});
 		elements.approveMatterContribution.addEventListener("click", approveMatterContribution);
 		elements.rejectMatterContribution.addEventListener("click", rejectMatterContribution);
 		elements.discardMatterContribution.addEventListener("click", discardMatterContribution);

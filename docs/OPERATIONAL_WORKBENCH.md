@@ -207,6 +207,24 @@ text, readable neutral supporting text, restrained brass interaction text, and
 explicit focus outlines. Atmospheric stationery and instrument references remain
 subtle, non-interactive, and semantically neutral.
 
+### Sprint 28 editorial desk
+
+Current Situation and its source paper occupy the central field. Compact
+collection folders sit along the desk edge; Operational Inbox is a warm notebook
+in a dedicated adjacent place, never an overlay. The notebook may widen when the
+owner reviews Watson's semantic decomposition, causing the Map to yield space
+rather than being covered.
+
+Natural contribution remains primary. Watson may propose Conversation, Symptom,
+Observation, Time, Source, and other meanings after capture. The owner can edit
+wording, change category, split or merge meanings, attach Evidence, and change
+significance. These controls edit the session-local proposal only and do not
+promote, accept, or reweight governed records automatically.
+
+Home uses the same editorial desk identity and answers one starting question:
+what is happening now? It presents natural intake and the smallest useful
+orientation rather than modules or dashboard widgets.
+
 Sprint 22 implements deterministic, session-local presentation for the first
 human-centered Workbench journey. It demonstrates progressive collections,
 Decision confirmation, and conditional transition emphasis without production

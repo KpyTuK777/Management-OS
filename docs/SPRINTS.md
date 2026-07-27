@@ -683,6 +683,23 @@ boundaries and [Project Health](PROJECT_HEALTH.md) for the aggregate readiness v
   workflow, source authority, production intelligence, or persistence is
   implemented.
 
+## Sprint 28
+
+### Completed
+
+- Established the editorial desk as the recognizable Management OS visual
+  identity.
+- Centered the Situation composition and differentiated compact investigation
+  folders without permanent detail.
+- Integrated the ruled Operational Inbox notebook beside the Map on wide screens
+  and beneath it on narrow screens.
+- Added session-local, owner-editable semantic decomposition for category,
+  wording, split, merge, Evidence attachment, and significance.
+- Reframed Home around the operational question that deserves attention first.
+- Removed overlapping Learning navigation from the compact Dock.
+- Preserved canonical architecture, governed records, lifecycle, provenance, and
+  authority boundaries.
+
 ## Sprint 27
 
 ### Completed
