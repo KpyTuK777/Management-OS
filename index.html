@@ -147,12 +147,7 @@
 							<form class="item-inspector hidden" id="itemInspector">
 								<label>Формулювання<textarea id="itemInspectorWording" rows="3"></textarea></label>
 								<label>Тип<select id="itemInspectorType"><option>Звіт</option><option>KPI</option><option>Метрика</option><option>Розмова</option><option>Фото</option><option>Голосова нотатка</option><option>Гіпотеза</option><option>Спостереження</option><option>Суперечність</option><option>Посилання</option><option>Файл</option><option>Симптом</option></select></label>
-								<div class="item-inspector__actions">
-									<button type="button" data-item-action="attach">Додати матеріал</button>
-									<button type="button" data-item-action="link">З’єднати</button>
-									<button type="button" data-item-action="unlink">Прибрати зв’язок</button>
-								</div>
-								<details><summary>Походження та історія</summary><p id="itemInspectorProvenance">Власник · сьогодні · оригінальне формулювання збережено</p></details>
+								<details><summary>Походження та історія</summary><p id="itemInspectorProvenance"></p></details>
 								<button class="btn-primary" id="saveItemInspection" type="submit">Зберегти</button>
 							</form>
 						</section>
@@ -390,6 +385,7 @@
 
 		<p class="sr-only" id="prototypeAnnouncement" aria-live="polite" aria-atomic="true"></p>
 		<script src="js/sidebar.js"></script>
+		<script src="js/artifact-model.js"></script>
 		<script src="js/natural-capture.js"></script>
 	</body>
 

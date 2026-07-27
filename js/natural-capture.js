@@ -5,9 +5,17 @@ const InvestigationPrototype = (() => {
 	let awaitingClarification = false;
 	let lastCollectionTrigger = null;
 	let inspectedMapItem = null;
+	let inspectedArtifactId = null;
+	let activeInspection = null;
+	let pendingContributionArtifactId = null;
+	let artifactRepository;
+	const matterId = "MAT-0247";
+	const ownerActor = Object.freeze({ id: "owner-local", name: "Власник", role: "owner" });
+	const watsonActor = Object.freeze({ id: "watson", name: "Watson", role: "watson" });
+	const reportSourceActor = Object.freeze({ id: "financial-report", name: "Фінансовий звіт", role: "source" });
 	const collectionItems = {
-		symptoms: [{ title: "Прибуток впав протягом двох місяців", meta: "Повідомив власник · без інтерпретації" }],
-		conversations: [{ title: "Перше повідомлення власника", meta: "Розмова · збережено у справі" }],
+		symptoms: [],
+		conversations: [],
 		observations: [],
 		documents: [],
 		data: [],
@@ -94,6 +102,128 @@ const InvestigationPrototype = (() => {
 		});
 	}
 
+	function artifactProvenance({ kind, label, circumstance, rawInput, reference = null, method = "owner-authored", author = ownerActor }) {
+		return {
+			method,
+			origin: { kind, label, reference },
+			author,
+			circumstance,
+			rawInput
+		};
+	}
+
+	function createActiveArtifact(input) {
+		const artifact = artifactRepository.create({
+			...input,
+			owner: ownerActor
+		});
+		return artifactRepository.advanceLifecycleTo(
+			artifact.id,
+			"active",
+			ownerActor,
+			"Власник додав матеріал до поточного розслідування."
+		);
+	}
+
+	function ensureActiveArtifact(input) {
+		let artifact = artifactRepository.ensure({
+			...input,
+			owner: ownerActor
+		});
+		if (["captured", "proposed", "admitted"].includes(artifact.lifecycle.stage)) {
+			artifact = artifactRepository.advanceLifecycleTo(
+				artifact.id,
+				"active",
+				ownerActor,
+				"Матеріал прийнято до активного розслідування."
+			);
+		}
+		return artifact;
+	}
+
+	function artifactMeta(artifact) {
+		const source = artifact.provenance.origin.label;
+		const verification = {
+			declared: "походження заявлено",
+			traceable: "походження простежується",
+			verified: "походження перевірено",
+			disputed: "походження оскаржено"
+		}[artifact.states.provenance];
+		return `${source} · ${verification}`;
+	}
+
+	function renderArtifactRepresentations(artifact) {
+		elements.mapItems
+			.filter(item => item.dataset.artifactId === artifact.id)
+			.forEach(item => {
+				item.querySelector("strong").textContent = artifact.content.wording;
+				item.dataset.itemType = artifact.type;
+				item.querySelector("span").lastChild.textContent = ` ${artifact.type}`;
+			});
+	}
+
+	function initializeArtifacts() {
+		artifactRepository = window.ManagementOsArtifacts.createArtifactRepository({
+			storage: window.localStorage,
+			matterId
+		});
+
+		const symptom = ensureActiveArtifact({
+			id: "mat-0247-symptom-owner-report",
+			type: "Симптом",
+			content: { wording: "Прибуток впав протягом двох місяців" },
+			provenance: artifactProvenance({
+				kind: "owner-report",
+				label: "Повідомлення власника",
+				circumstance: "Початкове формулювання операційної проблеми.",
+				rawInput: "Прибуток впав протягом двох місяців"
+			}),
+			states: { participation: "working-set", attention: "primary" }
+		});
+		const conversation = ensureActiveArtifact({
+			id: "mat-0247-conversation-initial",
+			type: "Розмова",
+			content: { wording: "Перше повідомлення власника" },
+			provenance: artifactProvenance({
+				kind: "operational-inbox",
+				label: "Operational Inbox",
+				circumstance: "Власник відкрив Matter первинним повідомленням.",
+				rawInput: "Перше повідомлення власника"
+			}),
+			states: { participation: "working-set", attention: "supporting" }
+		});
+		collectionItems.symptoms.push(symptom.id);
+		collectionItems.conversations.push(conversation.id);
+
+		elements.mapItems.forEach((item, index) => {
+			const artifact = ensureActiveArtifact({
+				id: `mat-0247-map-${index + 1}`,
+				type: item.dataset.itemType,
+				content: { wording: item.querySelector("strong").textContent },
+				provenance: artifactProvenance({
+					kind: "matter-seed",
+					label: "Початковий матеріал Matter",
+					circumstance: "Матеріал був на робочій поверхні під час першої канонічної ініціалізації Artifact.",
+					rawInput: item.querySelector("strong").textContent
+				}),
+				states: {
+					provenance: "declared",
+					participation: "working-set",
+					attention: index === 0 ? "primary" : "supporting"
+				}
+			});
+			item.dataset.artifactId = artifact.id;
+			renderArtifactRepresentations(artifact);
+		});
+
+		artifactRepository.list(artifact => artifact.lifecycle.stage !== "archived").forEach(artifact => {
+			const collection = artifact.content.material?.collection;
+			if (collectionItems[collection] && !collectionItems[collection].includes(artifact.id)) {
+				collectionItems[collection].push(artifact.id);
+			}
+		});
+	}
+
 	function setGuidedPhase(phase) {
 		guidedPhase = phase;
 		const state = guidedStates[phase];
@@ -152,13 +282,26 @@ const InvestigationPrototype = (() => {
 		elements.itemInspector.classList.add("hidden");
 		elements.collectionInspectionIcon.textContent = icon;
 		elements.collectionInspectionTitle.textContent = `${label} (${collectionItems[name].length})`;
-		elements.collectionInspectionItems.replaceChildren(...collectionItems[name].map(item => {
+		elements.collectionInspectionItems.replaceChildren(...collectionItems[name].map(artifactId => {
+			const artifact = artifactRepository.get(artifactId);
+			if (!artifact) return document.createDocumentFragment();
 			const article = document.createElement("article");
 			const title = document.createElement("strong");
 			const meta = document.createElement("small");
-			title.textContent = item.title;
-			meta.textContent = item.meta;
+			article.tabIndex = 0;
+			article.dataset.artifactId = artifact.id;
+			article.setAttribute("role", "button");
+			article.setAttribute("aria-label", `Переглянути: ${artifact.content.wording}`);
+			title.textContent = artifact.content.wording;
+			meta.textContent = artifactMeta(artifact);
 			article.append(title, meta);
+			article.addEventListener("click", () => openArtifactInspection(artifact.id, article));
+			article.addEventListener("keydown", event => {
+				if (event.key === "Enter" || event.key === " ") {
+					event.preventDefault();
+					openArtifactInspection(artifact.id, article);
+				}
+			});
 			return article;
 		}));
 		elements.collectionInspection.classList.remove("hidden");
@@ -169,6 +312,13 @@ const InvestigationPrototype = (() => {
 	}
 
 	function closeCollection() {
+		if (activeInspection) {
+			const closed = artifactRepository.closeInspection(activeInspection, ownerActor);
+			renderArtifactRepresentations(closed.artifact);
+			activeInspection = null;
+			inspectedArtifactId = null;
+			window.sessionStorage.removeItem("managementOsWorkbenchInspection");
+		}
 		elements.collectionInspection.classList.add("hidden");
 		elements.workbench.classList.remove("is-inspecting");
 		window.sessionStorage.removeItem("managementOsWorkbenchCollection");
@@ -176,19 +326,50 @@ const InvestigationPrototype = (() => {
 		announce("Колекцію закрито. Просторовий контекст відновлено.");
 	}
 
-	function openItemInspection(item) {
-		inspectedMapItem = item;
-		lastCollectionTrigger = item;
-		elements.collectionInspectionIcon.textContent = item.querySelector("b")?.textContent || "•";
-		elements.collectionInspectionTitle.textContent = item.querySelector("strong").textContent;
+	function currentContextEnvelope(artifactId, trigger) {
+		const lastChange = artifactRepository.get(artifactId)?.history.at(-1) || null;
+		return {
+			matterId,
+			currentSituationVersion: "MAT-0247-current-situation-v1",
+			primaryFocus: document.querySelector('[data-artifact-id][data-primary-focus="true"]')?.dataset.artifactId || "current-situation",
+			supportingNeighborhood: elements.mapItems.map(item => item.dataset.artifactId),
+			spatialLocation: "operational-workbench",
+			activeScope: window.sessionStorage.getItem("managementOsWorkbenchCollection") || "working-set",
+			entryOrigin: trigger?.dataset.artifactId || trigger?.id || "operational-workbench",
+			unresolvedWork: awaitingClarification ? ["watson-clarification"] : [],
+			lastConsequentialChange: lastChange ? lastChange.id : null,
+			scrollPosition: { x: window.scrollX, y: window.scrollY }
+		};
+	}
+
+	function openArtifactInspection(artifactId, trigger) {
+		if (activeInspection) {
+			artifactRepository.closeInspection(activeInspection, ownerActor);
+		}
+		const artifact = artifactRepository.get(artifactId);
+		if (!artifact) return;
+		inspectedArtifactId = artifact.id;
+		inspectedMapItem = elements.mapItems.find(item => item.dataset.artifactId === artifact.id) || null;
+		lastCollectionTrigger = trigger;
+		activeInspection = artifactRepository.inspect(artifact.id, currentContextEnvelope(artifact.id, trigger), ownerActor);
+		elements.collectionInspectionIcon.textContent = inspectedMapItem?.querySelector("b")?.textContent || "•";
+		elements.collectionInspectionTitle.textContent = artifact.content.wording;
 		elements.collectionInspectionItems.replaceChildren();
 		elements.itemInspector.classList.remove("hidden");
-		elements.itemInspectorWording.value = item.querySelector("strong").textContent;
-		elements.itemInspectorType.value = item.dataset.itemType;
+		elements.itemInspectorWording.value = artifact.content.wording;
+		elements.itemInspectorType.value = artifact.type;
+		elements.itemInspectorProvenance.textContent = `${artifact.provenance.author.name} · ${artifact.provenance.introducedAt} · ${artifact.provenance.origin.label} · ${artifact.provenance.circumstance} · ревізія ${artifact.content.revision}`;
 		elements.collectionInspection.classList.remove("hidden");
 		elements.workbench.classList.add("is-inspecting");
 		elements.collectionInspection.focus({ preventScroll: true });
-		window.sessionStorage.setItem("managementOsWorkbenchItem", elements.itemInspectorWording.value);
+		window.sessionStorage.setItem("managementOsWorkbenchInspection", JSON.stringify({
+			artifactId: artifact.id,
+			contextEnvelope: activeInspection.contextEnvelope
+		}));
+	}
+
+	function openItemInspection(item) {
+		openArtifactInspection(item.dataset.artifactId, item);
 	}
 
 	function expandWatson() {
@@ -206,8 +387,7 @@ const InvestigationPrototype = (() => {
 		applyContext(elements.context.value);
 		elements.home.classList.add("hidden");
 		elements.workspace.classList.remove("hidden");
-		updateCollection("symptoms");
-		updateCollection("conversations");
+		Object.keys(collectionItems).forEach(updateCollection);
 		showView("understanding");
 		elements.workspace.focus({ preventScroll: true });
 		window.scrollTo({ top: 0, behavior: "instant" });
@@ -252,9 +432,55 @@ const InvestigationPrototype = (() => {
 		elements.dataCollection.classList.remove("hidden");
 		elements.hypothesisCollection.classList.remove("hidden");
 		elements.contradictionCollection.classList.remove("hidden");
-		collectionItems.data.push({ title: "Фінансовий зріз за сегментами", meta: "Джерело · отримано з дозволу власника" });
-		collectionItems.hypotheses.push({ title: "Затримка передачі лідів могла вплинути на маржу", meta: "Пропозиція Watson · не підтверджено" });
-		collectionItems.contradictions.push({ title: "Дохід стабільний, але маржа B2B знизилась", meta: "Можлива суперечність · потребує перевірки" });
+		const dataArtifact = ensureActiveArtifact({
+			id: "mat-0247-data-segment-financial-slice",
+			type: "Дані",
+			content: { wording: "Фінансовий зріз за сегментами", material: { collection: "data" } },
+			provenance: artifactProvenance({
+				kind: "authorized-source",
+				label: "Фінансовий звіт",
+				circumstance: "Джерело отримано після дозволу власника на демонстраційне порівняння.",
+				rawInput: "Фінансовий зріз за сегментами",
+				method: "source-derived",
+				author: reportSourceActor
+			}),
+			states: { provenance: "traceable", participation: "working-set", attention: "supporting" }
+		});
+		const hypothesisArtifact = ensureActiveArtifact({
+			id: "mat-0247-hypothesis-lead-transfer",
+			type: "Гіпотеза",
+			content: { wording: "Затримка передачі лідів могла вплинути на маржу", material: { collection: "hypotheses" } },
+			provenance: artifactProvenance({
+				kind: "watson-extraction",
+				label: "Пропозиція Watson",
+				circumstance: "Watson запропонував можливе пояснення після перегляду дозволеного джерела.",
+				rawInput: "Затримка передачі лідів могла вплинути на маржу",
+				method: "proposed",
+				author: watsonActor
+			}),
+			states: { provenance: "traceable", epistemic: "unverified", participation: "working-set", attention: "supporting" }
+		});
+		const contradictionArtifact = ensureActiveArtifact({
+			id: "mat-0247-contradiction-revenue-margin",
+			type: "Суперечність",
+			content: { wording: "Дохід стабільний, але маржа B2B знизилась", material: { collection: "contradictions" } },
+			provenance: artifactProvenance({
+				kind: "watson-extraction",
+				label: "Спостереження Watson",
+				circumstance: "Watson виявив несумісність у матеріалах після дозволеного порівняння.",
+				rawInput: "Дохід стабільний, але маржа B2B знизилась",
+				method: "proposed",
+				author: watsonActor
+			}),
+			states: { provenance: "traceable", epistemic: "contradicted", participation: "working-set", attention: "supporting" }
+		});
+		[
+			["data", dataArtifact.id],
+			["hypotheses", hypothesisArtifact.id],
+			["contradictions", contradictionArtifact.id]
+		].forEach(([collection, artifactId]) => {
+			if (!collectionItems[collection].includes(artifactId)) collectionItems[collection].push(artifactId);
+		});
 		updateCollection("data");
 		updateCollection("hypotheses");
 		updateCollection("contradictions");
@@ -370,11 +596,34 @@ const InvestigationPrototype = (() => {
 		const files = [...elements.matterCaptureFiles.files];
 		if (!original && files.length === 0) return;
 
-		if (awaitingClarification && (files.length > 0 || /(документ|звіт|файл|report|document)/i.test(original))) {
-			collectionItems.documents.push({
-				title: files[0]?.name || original || "Доданий документ",
-				meta: "Додав власник · класифікація запропонована"
+		if (files.length > 0 || (awaitingClarification && /(документ|звіт|файл|report|document)/i.test(original))) {
+			const file = files[0];
+			const artifact = createActiveArtifact({
+				type: "Файл",
+				content: {
+					wording: file?.name || original || "Доданий документ",
+					material: {
+						collection: "documents",
+						file: file ? {
+							name: file.name,
+							type: file.type,
+							size: file.size,
+							lastModified: file.lastModified
+						} : null
+					}
+				},
+				provenance: artifactProvenance({
+					kind: file ? "file-upload" : "operational-inbox",
+					label: file ? file.name : "Operational Inbox",
+					circumstance: awaitingClarification
+						? "Власник додав окремий матеріал, не відповідаючи на запитання Watson."
+						: "Власник додав матеріал через Operational Inbox.",
+					rawInput: original || file?.name,
+					reference: file?.name || null
+				}),
+				states: { provenance: file ? "traceable" : "declared", participation: "working-set", attention: "supporting" }
 			});
+			collectionItems.documents.push(artifact.id);
 			updateCollection("documents");
 			elements.captureOriginal.textContent = `“${original || files[0].name}”`;
 			elements.matterCaptureInput.value = "";
@@ -389,13 +638,32 @@ const InvestigationPrototype = (() => {
 			return;
 		}
 
-		if (contributionRound === "context" && collectionItems.observations.length === 0) {
-			collectionItems.observations.push(
-				{ title: "Падіння триває близько двох місяців", meta: "Спостереження власника · не перевірено" },
-				{ title: original, meta: "Нове спостереження · класифікація запропонована" }
-			);
-			updateCollection("observations");
+		let contributionArtifact = pendingContributionArtifactId
+			? artifactRepository.edit(
+				pendingContributionArtifactId,
+				{ wording: original },
+				ownerActor,
+				"Власник уточнив власний внесок до завершення інтерпретації Watson."
+			)
+			: createActiveArtifact({
+				type: "Спостереження",
+				content: {
+					wording: original,
+					material: { collection: "observations" }
+				},
+				provenance: artifactProvenance({
+					kind: "operational-inbox",
+					label: "Operational Inbox",
+					circumstance: "Власник самостійно додав матеріал до активного Matter.",
+					rawInput: original
+				}),
+				states: { provenance: "declared", participation: "working-set", attention: "supporting" }
+			});
+		pendingContributionArtifactId = contributionArtifact.id;
+		if (!collectionItems.observations.includes(contributionArtifact.id)) {
+			collectionItems.observations.push(contributionArtifact.id);
 		}
+		updateCollection("observations");
 
 		elements.captureOriginal.textContent = `“${original}”`;
 		showSemanticReview(original);
@@ -434,6 +702,7 @@ const InvestigationPrototype = (() => {
 		elements.guidedInvestigation.classList.remove("hidden");
 		elements.approveMatterContribution.disabled = true;
 		elements.matterCaptureInput.value = "";
+		pendingContributionArtifactId = null;
 		elements.guidedInvestigation.scrollIntoView({ behavior: "smooth", block: "nearest" });
 		announce("Ваше формулювання збережено. Watson оновив спільне розуміння та показав один наступний крок.");
 	}
@@ -561,8 +830,8 @@ const InvestigationPrototype = (() => {
 			itemInspector: document.getElementById("itemInspector"),
 			itemInspectorWording: document.getElementById("itemInspectorWording"),
 			itemInspectorType: document.getElementById("itemInspectorType"),
+			itemInspectorProvenance: document.getElementById("itemInspectorProvenance"),
 			saveItemInspection: document.getElementById("saveItemInspection"),
-			itemActions: [...document.querySelectorAll("[data-item-action]")],
 			validateCause: document.getElementById("validateCauseButton"),
 			readinessSummary: document.getElementById("readinessSummary"),
 			decisionReadinessTitle: document.getElementById("decisionReadinessTitle"),
@@ -638,6 +907,7 @@ const InvestigationPrototype = (() => {
 	function init() {
 		elements = getElements();
 		if (!elements.form) return;
+		initializeArtifacts();
 		const inbox = document.querySelector(".matter-natural-capture");
 		if (inbox && elements.watsonSurface) inbox.appendChild(elements.watsonSurface);
 
@@ -661,16 +931,21 @@ const InvestigationPrototype = (() => {
 		elements.mapItems.forEach(item => item.addEventListener("click", () => openItemInspection(item)));
 		elements.itemInspector.addEventListener("submit", event => {
 			event.preventDefault();
-			if (!inspectedMapItem) return;
-			inspectedMapItem.querySelector("strong").textContent = elements.itemInspectorWording.value.trim();
-			inspectedMapItem.dataset.itemType = elements.itemInspectorType.value;
-			inspectedMapItem.querySelector("span").lastChild.textContent = ` ${elements.itemInspectorType.value}`;
-			announce("Операційний елемент оновлено.");
+			if (!inspectedArtifactId) return;
+			const artifact = artifactRepository.edit(
+				inspectedArtifactId,
+				{
+					wording: elements.itemInspectorWording.value,
+					type: elements.itemInspectorType.value
+				},
+				ownerActor,
+				"Власник уточнив формулювання Artifact під час Inspection."
+			);
+			renderArtifactRepresentations(artifact);
+			elements.collectionInspectionTitle.textContent = artifact.content.wording;
+			elements.itemInspectorProvenance.textContent = `${artifact.provenance.author.name} · ${artifact.provenance.introducedAt} · ${artifact.provenance.origin.label} · ${artifact.provenance.circumstance} · ревізія ${artifact.content.revision}`;
+			announce("Artifact оновлено; ідентичність і походження збережено.");
 		});
-		elements.itemActions.forEach(button => button.addEventListener("click", () => {
-			if (button.dataset.itemAction === "attach") elements.matterCaptureFiles.click();
-			announce(button.dataset.itemAction === "link" ? "Виберіть другий елемент для зв’язку." : button.dataset.itemAction === "unlink" ? "Зв’язок прибрано." : "Додайте звіт, знімок, таблицю, посилання або розмову.");
-		}));
 		elements.closeCollectionInspection.addEventListener("click", closeCollection);
 		elements.collectionInspection.addEventListener("keydown", event => {
 			if (event.key === "Escape") closeCollection();
