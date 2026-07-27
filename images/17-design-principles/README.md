@@ -4,6 +4,7 @@ This folder contains the canonical visual philosophy of Management OS. It contai
 
 Principles are durable tests for design judgment. A proposed interface should be explainable through these documents before it is evaluated as attractive.
 
+- [Canonical Workbench Audit](Canonical%20Workbench%20Audit.md)
 - [Artifact First](Artifact%20First.md)
 - [Visual Gravity](Visual%20Gravity.md)
 - [Visual Hierarchy](Visual%20Hierarchy.md)
