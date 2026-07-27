@@ -8,6 +8,7 @@ Principles are durable tests for design judgment. A proposed interface should be
 - [Visual Gravity](Visual%20Gravity.md)
 - [Visual Hierarchy](Visual%20Hierarchy.md)
 - [Operational Atmosphere](Operational%20Atmosphere.md)
+- [Operational Dynamics](Operational%20Dynamics.md)
 - [Workbench Philosophy](Workbench%20Philosophy.md)
 - [Thinking Before Clicking](Thinking%20Before%20Clicking.md)
 - [Thinking Table](Thinking%20Table.md)
