@@ -35,6 +35,23 @@ validation and satisfaction of the
 Release-gated sprint work cannot close while its required documentation remains
 incomplete.
 
+## Sprint 31.1 — Visual Language Repository
+
+### Completed
+
+- Created the complete visual knowledge-base hierarchy under `/images`.
+- Defined every category through a local README rather than relying on unannotated imagery.
+- Added canonical principles for gravity, atmosphere, Workbench, thought, space, spatial logic, Watson, colour, and material.
+- Established a small, approval-governed canonical library without prematurely promoting references.
+
+### Documentation impact
+
+- Backlog item: None
+- Required updates: repository orientation, Sprint Tracker, Changelog
+- Readiness contribution: v1.0
+- Validation: complete folder/README audit, Markdown-only principle audit, link and naming review, `git diff --check`
+- Status: Completed
+
 ## Sprint 31 — Design Polish & Consistency Review
 
 ### Completed

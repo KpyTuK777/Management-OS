@@ -33,6 +33,13 @@ capability gating.
 
 Open the repository in VS Code and launch `index.html` or `portfolio.html` with the Live Server extension. No installation, build step, or backend is required.
 
+## Visual language
+
+Read the [Visual Language Repository](images/README.md) before opening Figma,
+collecting references, selecting visual assets, or writing interface CSS. It is a
+governed part of the product architecture, not an assets folder or documentation
+substitute.
+
 ## Documentation
 
 - [Architecture](docs/ARCHITECTURE.md)

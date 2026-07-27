@@ -1,5 +1,13 @@
 # Changelog
 
+## Sprint 31.1 — Visual Language Repository
+
+- Established `/images` as the governed visual knowledge base for Management OS.
+- Added purpose, questions, emotional qualities, decision scope, and failure modes to every category.
+- Added nine canonical visual-philosophy principles as Markdown-only resources.
+- Created a deliberately empty canonical library with explicit admission and provenance rules.
+- Added repository-wide naming, rights, traceability, promotion, and deprecation guidance.
+
 ## Sprint 31 — Design Polish & Consistency Review
 
 - Removed the Dock gutter, introduced the temporary premium OS mark, and normalized SVG navigation behavior.
