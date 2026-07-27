@@ -184,6 +184,18 @@ meaning. Focused inspection overlays or draws over the Workbench and returns
 focus on close. Watson defaults to a compact corner presence and expands for one
 useful intervention.
 
+Sprint 26 replaces enterprise-panel styling in the active Matter with an
+atmospheric thinking field. A deep neutral desk, warm source material, editorial
+type, restrained brass accents, irregular placement, and deliberate empty space
+differentiate the Situation Map from navigation chrome. This visual metaphor is
+not evidence status or authority. Material types retain text equivalents and
+focused inspection; contrast, keyboard focus, and reduced-motion behavior remain
+required.
+
+The shared thinking dock is the only persistent contribution surface. It combines
+Natural Capture with owner-invoked Watson actions without making Watson the
+center. Expanded Watson appears adjacent to the dock and disappears when quiet.
+
 The Workbench uses one large composed Current Situation canvas and a restrained
 supporting rail for Watson and Operational Inbox. Uniform card grids are not used
 for the primary operational picture. Contextual material uses semantic forms:

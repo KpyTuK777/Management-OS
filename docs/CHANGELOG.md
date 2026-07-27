@@ -1,5 +1,18 @@
 # Changelog
 
+## Sprint 26 — Reimagining the Operational Workbench
+
+- Recast the active Matter as an atmospheric professional thinking environment
+  rather than an enterprise page.
+- Made the Operational Situation Map the visual field and gave source material,
+  collections, and contradictions differentiated spatial character.
+- Combined Natural Capture and owner-invoked Watson assistance in one persistent
+  thinking dock.
+- Removed Watson's permanent presence; it now appears only when invited or when a
+  material intervention warrants attention.
+- Preserved all canonical concepts, governed records, provenance, lifecycle, and
+  authority boundaries.
+
 ## Sprint 25.1 — Operational Workbench Reset
 
 - Replaced the remaining reading-heavy early Matter composition with a sparse

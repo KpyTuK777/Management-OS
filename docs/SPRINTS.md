@@ -683,6 +683,24 @@ boundaries and [Project Health](PROJECT_HEALTH.md) for the aggregate readiness v
   workflow, source authority, production intelligence, or persistence is
   implemented.
 
+## Sprint 26
+
+### Completed
+
+- Reimagined the Operational Workbench as a coherent professional thinking
+  environment with an atmospheric desk, editorial hierarchy, and deliberate
+  spatial quiet.
+- Established the Operational Situation Map as the field that all supporting
+  material serves.
+- Gave compact collections and material types distinct visual personalities
+  without creating new stores, records, or authorities.
+- Integrated Natural Capture and owner-invoked Watson assistance into one shared
+  thinking dock.
+- Kept Watson quiet by default and available for review, contradiction search,
+  and challenge on owner request.
+- Preserved approved architecture, canonical concepts, provenance, lifecycle,
+  accessibility meaning, and authority boundaries.
+
 ## Sprint 25.1
 
 ### Completed

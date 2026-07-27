@@ -129,20 +129,23 @@
 
 					<section class="matter-natural-capture" aria-labelledby="matterCaptureTitle">
 						<div class="section-heading">
-							<div><span><b aria-hidden="true">📎</b> Операційний inbox</span><h2 id="matterCaptureTitle">Додайте будь-що важливе</h2></div>
+							<div><span><b aria-hidden="true">✦</b> Робочий стіл</span><h2 id="matterCaptureTitle">Додайте думку або матеріал</h2></div>
+							<button class="inbox-watson-trigger" id="inboxWatsonTrigger" type="button" aria-controls="watsonExpanded"><span aria-hidden="true">W</span> Запитати Watson</button>
 						</div>
 						<form id="matterCaptureForm">
-							<label id="matterCapturePrompt" for="matterCaptureInput">Запишіть думку, розмову або спостереження — чи додайте файл без попередньої класифікації.</label>
-							<textarea id="matterCaptureInput" rows="5" placeholder="Додайте щось важливе…"></textarea>
+							<label class="sr-only" id="matterCapturePrompt" for="matterCaptureInput">Додайте думку, спостереження або матеріал</label>
+							<textarea id="matterCaptureInput" rows="2" placeholder="Додайте щось важливе…"></textarea>
 							<div class="capture-tools">
-								<label class="attachment-control" for="matterCaptureFiles">Додати файли</label>
+								<label class="attachment-control" for="matterCaptureFiles">＋ Матеріал</label>
 								<input id="matterCaptureFiles" type="file" multiple>
-								<button class="text-button" id="voiceNoteButton" type="button">Голосова нотатка</button>
-								<button class="text-button" id="structuredEntryButton" type="button">Додати посилання</button>
+								<button class="text-button" id="voiceNoteButton" type="button">🎙 Голос</button>
+								<button class="text-button" id="structuredEntryButton" type="button">↗ Посилання</button>
+								<button class="text-button watson-request" type="button" data-watson-request="review">Переглянути</button>
+								<button class="text-button watson-request" type="button" data-watson-request="contradiction">Знайти суперечність</button>
 							</div>
 							<div class="investigation-intake__footer">
-								<span></span>
-								<button class="btn-primary" type="submit">Додати до робочого столу</button>
+								<span>Не потрібно класифікувати</span>
+								<button class="btn-primary" type="submit">Зберегти</button>
 							</div>
 						</form>
 						<div class="capture-review hidden" id="matterCaptureReview" aria-live="polite">
@@ -285,7 +288,7 @@
 					</details>
 						</div>
 
-						<aside class="watson-surface is-compact" id="watsonSurface" aria-labelledby="guidedInvestigationTitle">
+						<aside class="watson-surface is-compact" id="watsonSurface" aria-labelledby="guidedInvestigationTitle" aria-label="Watson у робочому столі">
 							<button class="watson-surface__identity" id="watsonToggle" type="button" aria-expanded="false"><span class="ai-avatar" aria-hidden="true">W</span><span><span>Watson</span><strong id="watsonStatus">Одна думка</strong></span><b aria-hidden="true">●</b></button>
 							<div class="watson-expanded hidden" id="watsonExpanded">
 							<section class="guided-investigation" id="guidedInvestigation">

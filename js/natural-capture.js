@@ -544,6 +544,8 @@ const InvestigationPrototype = (() => {
 			watsonToggle: document.getElementById("watsonToggle"),
 			watsonExpanded: document.getElementById("watsonExpanded"),
 			watsonStatus: document.getElementById("watsonStatus"),
+			inboxWatsonTrigger: document.getElementById("inboxWatsonTrigger"),
+			watsonRequests: [...document.querySelectorAll("[data-watson-request]")],
 			structuredEntry: document.getElementById("structuredEntryButton"),
 			voiceNote: document.getElementById("voiceNoteButton"),
 			announcement: document.getElementById("prototypeAnnouncement")
@@ -575,6 +577,31 @@ const InvestigationPrototype = (() => {
 			elements.watsonExpanded.classList.toggle("hidden", expanded);
 			elements.watsonSurface.classList.toggle("is-compact", expanded);
 		});
+		elements.inboxWatsonTrigger.addEventListener("click", () => {
+			expandWatson();
+			elements.guidedInvestigation.classList.remove("hidden");
+			elements.watsonContributionReview.classList.add("hidden");
+			elements.watsonStatus.textContent = "Слухаю";
+			elements.guidedCondition.textContent = "Watson";
+			elements.guidedReason.textContent = "Я поруч, коли потрібен другий погляд.";
+			elements.guidedTitle.textContent = "Що ви хочете перевірити?";
+			elements.guidedNeed.textContent = "Можна попросити переглянути матеріал, знайти суперечність або кинути виклик поясненню.";
+		});
+		elements.watsonRequests.forEach(button => button.addEventListener("click", () => {
+			expandWatson();
+			elements.guidedInvestigation.classList.remove("hidden");
+			elements.watsonContributionReview.classList.add("hidden");
+			const contradiction = button.dataset.watsonRequest === "contradiction";
+			elements.watsonStatus.textContent = contradiction ? "Перевіряю зв’язки" : "Переглядаю";
+			elements.guidedCondition.textContent = contradiction ? "Можлива суперечність" : "Другий погляд";
+			elements.guidedReason.textContent = contradiction
+				? "Загальний дохід майже стабільний, але повідомлене падіння прибутку триває."
+				: "Я перегляну лише те, що вже є на робочому столі.";
+			elements.guidedTitle.textContent = contradiction
+				? "Це може вплинути на поточне пояснення."
+				: "Що саме варто поставити під сумнів?";
+			elements.guidedNeed.textContent = "Ви вирішуєте, чи ця думка має значення.";
+		}));
 		elements.evidenceFilters.forEach(button => button.addEventListener("click", () => filterEvidence(button.dataset.evidenceFilter)));
 		elements.openSimulation.addEventListener("click", () => {
 			elements.scenario.classList.remove("hidden");

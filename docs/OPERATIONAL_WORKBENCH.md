@@ -173,6 +173,22 @@ surfaces. Tablet preserves hierarchy with focused overlays. Mobile presents the
 Situation first, horizontal icon-based collection navigation, an independent
 Inbox, and temporary Watson expansion—not a feed of equal cards.
 
+### Sprint 26 thinking environment
+
+The Workbench is composed as a professional thinking place rather than a page or
+administration interface. The Operational Situation Map occupies the field;
+material has recognizable visual character and spatial weight; and compact
+collections remain the retrieval layer. Scale, distance, grouping, interruption,
+and quiet space communicate priority before labels are read.
+
+Operational Inbox and Watson now share one thinking dock. The owner can record
+material or explicitly ask Watson to review, find contradictions, or challenge
+an explanation. Watson remains absent from the composition until invited or
+until a materially important intervention justifies interruption. This changes
+presentation and interaction emphasis only: the owner remains authoritative and
+all governed records, provenance, lifecycle, and capability boundaries remain
+unchanged.
+
 Sprint 22 implements deterministic, session-local presentation for the first
 human-centered Workbench journey. It demonstrates progressive collections,
 Decision confirmation, and conditional transition emphasis without production

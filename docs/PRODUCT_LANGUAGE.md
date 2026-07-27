@@ -223,6 +223,12 @@ interaction mechanics or system state in primary UI copy. Watson confirmation
 actions are `Так`, `Ні`, `Виправити`, `Додати деталь`, and `Пізніше`; rejecting
 and editing are distinct.
 
+Sprint 26 removes administrative framing from the primary Matter surface.
+Prefer `Робочий стіл`, `Додайте думку або матеріал`, `Зберегти`, `Запитати
+Watson`, `Переглянути`, and `Знайти суперечність`. Do not describe Watson as a
+co-pilot, required step, panel, or workflow owner. Watson waits, responds to the
+owner's request, and interrupts only for material operational significance.
+
 Management OS language should be:
 
 - **Concise:** communicate the necessary meaning with as few words as clarity
