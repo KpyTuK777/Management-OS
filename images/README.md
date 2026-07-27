@@ -12,6 +12,12 @@ Images illustrate principles. The Markdown files define them. A reference is not
 4. Use [`99-canonical`](99-canonical/README.md) only for approved, durable direction.
 5. Record why a new reference belongs before adding it.
 
+## Evidence-based principle extraction
+
+Every reviewed reference first updates the README of its own category. When the same durable idea appears across multiple independent accepted references, extract it into a Markdown document in [`17-design-principles`](17-design-principles/README.md).
+
+Principles are therefore discovered through repeated visual evidence. They are not invented in isolation or written retrospectively to justify an implementation.
+
 ## Governance
 
 - This is neither a production-assets folder nor a screenshot archive.
