@@ -1,5 +1,14 @@
 # Changelog
 
+## Sprint 31 — Design Polish & Consistency Review
+
+- Removed the Dock gutter, introduced the temporary premium OS mark, and normalized SVG navigation behavior.
+- Unified Workbench alignment, radii, shadows, typography, metadata, focus, and semantic accents.
+- Added required Enter-to-open and Shift+Enter-newline behavior on Home.
+- Made spatial operational objects identifiable and directly inspectable.
+- Added wording/type editing, attachments, relationship actions, provenance, and history inspection.
+- Increased contradiction readability and removed remaining legacy visual artifacts.
+
 ## Sprint 30 — Approved Investigation Workbench Reference
 
 - Rebuilt Investigation as a full-viewport operational cabinet based on the approved visual reference.

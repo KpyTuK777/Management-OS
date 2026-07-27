@@ -1,5 +1,9 @@
 # Ukrainian Product Language Guide
 
+## Sprint 31 metadata rule
+
+Metadata remains only when it communicates provenance, time, scope, state, uncertainty, attachment count, or an actionable distinction. Remove duplicated, unreadable, non-actionable, or merely instructional metadata. Prefer short noun phrases over explanatory sentences.
+
 ## Composition before explanation
 
 Remove notices, helper paragraphs, instructional labels, verbose placeholders, and duplicated explanations when the interface already communicates intent. Keep copy that carries operational meaning, provenance, uncertainty, authority, risk, or an accessibility text equivalent. If a paragraph is required to explain a control, redesign the control before adding prose.

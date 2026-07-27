@@ -105,7 +105,10 @@ const Layout = (() => {
 
 		title.textContent = "";
 		title.setAttribute("aria-label", "Management OS");
-		title.appendChild(createSvg('<path d="M5 6.5 12 2l7 4.5v11L12 22l-7-4.5Z"/><path d="m8 9 4-2.5L16 9v6l-4 2.5L8 15Z"/><path d="M12 6.5v11M8 9l8 6M16 9l-8 6"/>', "product-mark"));
+		const productMark = document.createElement("span");
+		productMark.className = "product-mark product-mark--os";
+		productMark.textContent = "OS";
+		title.appendChild(productMark);
 		logo.append(title, descriptor);
 		modeLabel.appendChild(modeSelect);
 		mode.links.forEach(link => navigation.appendChild(createLink(link)));

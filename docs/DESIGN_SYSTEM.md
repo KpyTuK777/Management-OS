@@ -1,5 +1,13 @@
 # Design System
 
+## Sprint 31 consistency baseline
+
+The product uses one compact scale: 4, 8, 12, 16, 24, 32, and 48 pixels. Controls use 5–8 pixel radii; paper objects may use 2 pixels; large workspace boundaries use 8–12 pixels. Dock icons use a single 20-pixel outline family at 1.55 stroke weight. Motion uses 160–220 ms and is removed under reduced-motion preference.
+
+Elevation has three roles only: working material, focused inspection, and workspace atmosphere. Warm amber indicates orientation, red material conflict, green supporting relationships, and dashed red a tentative relationship; every state also has text or shape. Secondary operational text must remain readable on its surface.
+
+Operational objects expose the same interaction contract: visible type, focus state, inspection, editable wording and category, attachment, relationships, provenance, and history.
+
 ## Sprint 30 — investigation cabinet
 
 The approved Investigation Workbench uses a full-viewport cabinet composition: compact Dock, quiet Matter bar, working-document Current Situation, material indicators, spatial map, compact collection rail, and a lower notebook Inbox. Paper, wood, warm light, and restrained brass accents establish depth while text contrast and focus states remain functional. Explanatory copy is removed when hierarchy, placement, or a familiar control communicates the same meaning.

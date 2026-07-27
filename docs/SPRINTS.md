@@ -35,6 +35,23 @@ validation and satisfaction of the
 Release-gated sprint work cannot close while its required documentation remains
 incomplete.
 
+## Sprint 31 — Design Polish & Consistency Review
+
+### Completed
+
+- Completed the product-wide consistency audit and removed remaining legacy Workbench artifacts.
+- Refined Dock, Home keyboard behavior, Workbench alignment, typography, metadata, and contradictions.
+- Added a semantic item mark system and focused operational-object inspection.
+- Consolidated Design System rules for spacing, type, elevation, colour, motion, and interaction.
+
+### Documentation impact
+
+- Backlog item: None
+- Required updates: Design System, Operational Workbench, UI Language, Product Language, Sprint Tracker, Changelog
+- Readiness contribution: v1.0
+- Validation: desktop/tablet/mobile render, keyboard and inspection checks, contrast and metadata audit, `git diff --check`, Pages verification
+- Status: Completed
+
 ## Sprint 30 — Approved Investigation Workbench Reference
 
 ### Completed

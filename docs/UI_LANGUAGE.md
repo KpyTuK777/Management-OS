@@ -1,5 +1,9 @@
 # UI Language
 
+## Semantic object marks
+
+Reports, KPIs, metrics, conversations, photos, voice notes, hypotheses, observations, contradictions, links, files, and symptoms use a consistent compact mark paired with a visible text type. Recognition never depends on colour alone. Icon geometry, size, stroke, spacing, hover, active, and focus behavior are shared rather than locally improvised.
+
 ## Sprint 30 visual language
 
 Investigation communicates through scale, material, spatial grouping, iconography, whitespace, and stable placement before adding prose. Dark surfaces frame work; paper surfaces hold owner material; restrained amber marks orientation; red is reserved for material risk or contradiction. No meaning depends on colour or an icon alone.

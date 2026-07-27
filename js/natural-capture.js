@@ -4,6 +4,7 @@ const InvestigationPrototype = (() => {
 	let contributionRound = "context";
 	let awaitingClarification = false;
 	let lastCollectionTrigger = null;
+	let inspectedMapItem = null;
 	const collectionItems = {
 		symptoms: [{ title: "Прибуток впав протягом двох місяців", meta: "Повідомив власник · без інтерпретації" }],
 		conversations: [{ title: "Перше повідомлення власника", meta: "Розмова · збережено у справі" }],
@@ -147,6 +148,8 @@ const InvestigationPrototype = (() => {
 	function openCollection(name, trigger) {
 		const [icon, label] = collectionLabels[name];
 		lastCollectionTrigger = trigger;
+		inspectedMapItem = null;
+		elements.itemInspector.classList.add("hidden");
 		elements.collectionInspectionIcon.textContent = icon;
 		elements.collectionInspectionTitle.textContent = `${label} (${collectionItems[name].length})`;
 		elements.collectionInspectionItems.replaceChildren(...collectionItems[name].map(item => {
@@ -171,6 +174,21 @@ const InvestigationPrototype = (() => {
 		window.sessionStorage.removeItem("managementOsWorkbenchCollection");
 		if (lastCollectionTrigger) lastCollectionTrigger.focus({ preventScroll: true });
 		announce("Колекцію закрито. Просторовий контекст відновлено.");
+	}
+
+	function openItemInspection(item) {
+		inspectedMapItem = item;
+		lastCollectionTrigger = item;
+		elements.collectionInspectionIcon.textContent = item.querySelector("b")?.textContent || "•";
+		elements.collectionInspectionTitle.textContent = item.querySelector("strong").textContent;
+		elements.collectionInspectionItems.replaceChildren();
+		elements.itemInspector.classList.remove("hidden");
+		elements.itemInspectorWording.value = item.querySelector("strong").textContent;
+		elements.itemInspectorType.value = item.dataset.itemType;
+		elements.collectionInspection.classList.remove("hidden");
+		elements.workbench.classList.add("is-inspecting");
+		elements.collectionInspection.focus({ preventScroll: true });
+		window.sessionStorage.setItem("managementOsWorkbenchItem", elements.itemInspectorWording.value);
 	}
 
 	function expandWatson() {
@@ -539,6 +557,12 @@ const InvestigationPrototype = (() => {
 			contradictionCollection: document.getElementById("contradictionCollection"),
 			cognitiveMap: document.getElementById("cognitiveMap"),
 			collectionButtons: [...document.querySelectorAll("[data-collection]")],
+			mapItems: [...document.querySelectorAll("[data-item-type]")],
+			itemInspector: document.getElementById("itemInspector"),
+			itemInspectorWording: document.getElementById("itemInspectorWording"),
+			itemInspectorType: document.getElementById("itemInspectorType"),
+			saveItemInspection: document.getElementById("saveItemInspection"),
+			itemActions: [...document.querySelectorAll("[data-item-action]")],
 			validateCause: document.getElementById("validateCauseButton"),
 			readinessSummary: document.getElementById("readinessSummary"),
 			decisionReadinessTitle: document.getElementById("decisionReadinessTitle"),
@@ -619,6 +643,12 @@ const InvestigationPrototype = (() => {
 
 		elements.workspace.setAttribute("tabindex", "-1");
 		elements.form.addEventListener("submit", openInvestigation);
+		elements.input.addEventListener("keydown", event => {
+			if (event.key === "Enter" && !event.shiftKey) {
+				event.preventDefault();
+				elements.form.requestSubmit();
+			}
+		});
 		const requestedContext = new URLSearchParams(window.location.search).get("context");
 		applyContext(["reality", "learning"].includes(requestedContext) ? requestedContext : defaultContext());
 		window.addEventListener("managementos:modechange", event => {
@@ -628,6 +658,19 @@ const InvestigationPrototype = (() => {
 		elements.newButton.addEventListener("click", resetInvestigation);
 		elements.stageButtons.forEach(button => button.addEventListener("click", () => showView(button.dataset.view)));
 		elements.collectionButtons.forEach(button => button.addEventListener("click", () => openCollection(button.dataset.collection, button)));
+		elements.mapItems.forEach(item => item.addEventListener("click", () => openItemInspection(item)));
+		elements.itemInspector.addEventListener("submit", event => {
+			event.preventDefault();
+			if (!inspectedMapItem) return;
+			inspectedMapItem.querySelector("strong").textContent = elements.itemInspectorWording.value.trim();
+			inspectedMapItem.dataset.itemType = elements.itemInspectorType.value;
+			inspectedMapItem.querySelector("span").lastChild.textContent = ` ${elements.itemInspectorType.value}`;
+			announce("Операційний елемент оновлено.");
+		});
+		elements.itemActions.forEach(button => button.addEventListener("click", () => {
+			if (button.dataset.itemAction === "attach") elements.matterCaptureFiles.click();
+			announce(button.dataset.itemAction === "link" ? "Виберіть другий елемент для зв’язку." : button.dataset.itemAction === "unlink" ? "Зв’язок прибрано." : "Додайте звіт, знімок, таблицю, посилання або розмову.");
+		}));
 		elements.closeCollectionInspection.addEventListener("click", closeCollection);
 		elements.collectionInspection.addEventListener("keydown", event => {
 			if (event.key === "Escape") closeCollection();
@@ -825,6 +868,9 @@ const InvestigationPrototype = (() => {
 			const demoView = new URLSearchParams(window.location.search).get("view");
 			if (["understanding", "evidence", "decision", "outcome"].includes(demoView)) {
 				showView(demoView);
+			}
+			if (new URLSearchParams(window.location.search).get("inspect") === "item") {
+				elements.mapItems[0].click();
 			}
 		}
 	}

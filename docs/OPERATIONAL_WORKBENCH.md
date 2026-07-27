@@ -1,5 +1,9 @@
 # Operational Workbench
 
+## Sprint 31 object inspection
+
+Every spatial material is a keyboard-focusable operational object with a recognizable type mark. Selection opens focused inspection without replacing the map. The owner can edit wording and type, attach material, connect or disconnect objects, and inspect provenance and history. Closing inspection restores the prior spatial context and trigger focus.
+
 ## Sprint 30 canonical geometry
 
 Desktop geometry is Dock → Matter bar → full Investigation Workbench. The map is the central visual asset. Current Situation and material indicators frame it; Collections and Contradictions remain compact at its edge; Inbox occupies a stable lower notebook plane and never overlays map material. Watson exists inside Inbox and has no permanent Workbench column.

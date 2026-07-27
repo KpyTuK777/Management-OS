@@ -90,11 +90,11 @@
 								<path class="relationship-tentative" d="M450 208 C570 140 650 120 770 110"/>
 								<path class="relationship-tentative" d="M450 215 C555 300 650 315 770 300"/>
 							</svg>
-							<div class="map-material map-material--symptom" tabindex="0"><span>Симптом</span><strong>Падіння чистого прибутку</strong><small>Останні 2 місяці · 1 джерело</small></div>
-							<div class="map-material map-material--conversation" tabindex="0"><span>Розмова</span><strong>Фінансовий директор підтвердив зниження</strong><small>Сьогодні · точне формулювання</small></div>
-							<div class="map-material map-material--observation" tabindex="0"><span>Спостереження</span><strong>Ціни ключових постачальників зросли</strong><small>Потребує звіту закупівель</small></div>
-							<div class="map-material map-material--hypothesis" tabindex="0"><span>Гіпотеза</span><strong>Витрати знижують маржу</strong><small>Запропоновано · не підтверджено</small></div>
-							<div class="map-material map-material--evidence" tabindex="0"><span>Доказ</span><strong>Фінансовий звіт Q1–Q2</strong><small>2 вкладення · джерело відоме</small></div>
+							<button class="map-material map-material--symptom" type="button" data-item-type="Симптом"><span><b aria-hidden="true">△</b> Симптом</span><strong>Падіння чистого прибутку</strong><small>Останні 2 місяці · 1 джерело</small></button>
+							<button class="map-material map-material--conversation" type="button" data-item-type="Розмова"><span><b aria-hidden="true">□</b> Розмова</span><strong>Фінансовий директор підтвердив зниження</strong><small>Сьогодні · точне формулювання</small></button>
+							<button class="map-material map-material--observation" type="button" data-item-type="Спостереження"><span><b aria-hidden="true">◉</b> Спостереження</span><strong>Ціни ключових постачальників зросли</strong><small>Потребує звіту закупівель</small></button>
+							<button class="map-material map-material--hypothesis" type="button" data-item-type="Гіпотеза"><span><b aria-hidden="true">◇</b> Гіпотеза</span><strong>Витрати знижують маржу</strong><small>Запропоновано · не підтверджено</small></button>
+							<button class="map-material map-material--evidence" type="button" data-item-type="Звіт"><span><b aria-hidden="true">▤</b> Звіт</span><strong>Фінансовий звіт Q1–Q2</strong><small>2 вкладення · джерело відоме</small></button>
 							<div class="current-situation__threads">
 							<section class="situation-thread hidden distinction-observation" id="knownContextCard"><span>Що ще відомо</span><strong id="boardReasoningBasis">Додано перший контекст</strong><p>Повідомлено власником; ще не перевірено за джерелом.</p></section>
 							<section class="situation-thread hidden distinction-assumption" id="missingOrientationCard"><span>Що поки припускаємо</span><strong id="boardUncertainty">Падіння може стосуватися всього B2B-напряму</strong><p>Поки невідомо, змінився дохід, маржа чи обидва показники.</p></section>
@@ -144,6 +144,17 @@
 						<section class="collection-inspection hidden" id="collectionInspection" role="dialog" aria-modal="false" aria-labelledby="collectionInspectionTitle" tabindex="-1">
 							<header><div><span id="collectionInspectionIcon" aria-hidden="true">📌</span><div><small>Матеріали розслідування</small><h3 id="collectionInspectionTitle">Симптоми</h3></div></div><button class="collection-inspection__close" id="closeCollectionInspection" type="button" aria-label="Закрити колекцію">×</button></header>
 							<div id="collectionInspectionItems"></div>
+							<form class="item-inspector hidden" id="itemInspector">
+								<label>Формулювання<textarea id="itemInspectorWording" rows="3"></textarea></label>
+								<label>Тип<select id="itemInspectorType"><option>Звіт</option><option>KPI</option><option>Метрика</option><option>Розмова</option><option>Фото</option><option>Голосова нотатка</option><option>Гіпотеза</option><option>Спостереження</option><option>Суперечність</option><option>Посилання</option><option>Файл</option><option>Симптом</option></select></label>
+								<div class="item-inspector__actions">
+									<button type="button" data-item-action="attach">Додати матеріал</button>
+									<button type="button" data-item-action="link">З’єднати</button>
+									<button type="button" data-item-action="unlink">Прибрати зв’язок</button>
+								</div>
+								<details><summary>Походження та історія</summary><p id="itemInspectorProvenance">Власник · сьогодні · оригінальне формулювання збережено</p></details>
+								<button class="btn-primary" id="saveItemInspection" type="submit">Зберегти</button>
+							</form>
 						</section>
 					</section>
 
