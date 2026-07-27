@@ -2,6 +2,26 @@ const InvestigationPrototype = (() => {
 	let elements;
 	let guidedPhase = "orientation";
 	let contributionRound = "context";
+	let awaitingClarification = false;
+	let lastCollectionTrigger = null;
+	const collectionItems = {
+		symptoms: [{ title: "Прибуток впав протягом двох місяців", meta: "Повідомив власник · без інтерпретації" }],
+		conversations: [{ title: "Перше повідомлення власника", meta: "Розмова · збережено у справі" }],
+		observations: [],
+		documents: [],
+		data: [],
+		hypotheses: [],
+		contradictions: []
+	};
+	const collectionLabels = {
+		symptoms: ["📌", "Симптоми"],
+		conversations: ["🎙", "Розмови"],
+		observations: ["👀", "Спостереження"],
+		documents: ["📄", "Документи"],
+		data: ["📊", "Дані"],
+		hypotheses: ["🧠", "Гіпотези"],
+		contradictions: ["⚠", "Суперечності"]
+	};
 	const guidedStates = {
 		orientation: {
 			condition: "Почнімо з вашого досвіду",
@@ -115,6 +135,50 @@ const InvestigationPrototype = (() => {
 		});
 	}
 
+	function updateCollection(name) {
+		const button = elements.collectionButtons.find(item => item.dataset.collection === name);
+		if (!button) return;
+		const count = collectionItems[name].length;
+		button.querySelector("[data-collection-count]").textContent = String(count);
+		button.classList.toggle("hidden", count === 0);
+		elements.workingCollections.classList.toggle("hidden", !elements.collectionButtons.some(item => !item.classList.contains("hidden")));
+	}
+
+	function openCollection(name, trigger) {
+		const [icon, label] = collectionLabels[name];
+		lastCollectionTrigger = trigger;
+		elements.collectionInspectionIcon.textContent = icon;
+		elements.collectionInspectionTitle.textContent = `${label} (${collectionItems[name].length})`;
+		elements.collectionInspectionItems.replaceChildren(...collectionItems[name].map(item => {
+			const article = document.createElement("article");
+			const title = document.createElement("strong");
+			const meta = document.createElement("small");
+			title.textContent = item.title;
+			meta.textContent = item.meta;
+			article.append(title, meta);
+			return article;
+		}));
+		elements.collectionInspection.classList.remove("hidden");
+		elements.workbench.classList.add("is-inspecting");
+		elements.collectionInspection.focus({ preventScroll: true });
+		window.sessionStorage.setItem("managementOsWorkbenchCollection", name);
+		announce(`Відкрито колекцію «${label}». Поточна ситуація залишається на місці.`);
+	}
+
+	function closeCollection() {
+		elements.collectionInspection.classList.add("hidden");
+		elements.workbench.classList.remove("is-inspecting");
+		window.sessionStorage.removeItem("managementOsWorkbenchCollection");
+		if (lastCollectionTrigger) lastCollectionTrigger.focus({ preventScroll: true });
+		announce("Колекцію закрито. Просторовий контекст відновлено.");
+	}
+
+	function expandWatson() {
+		elements.watsonToggle.setAttribute("aria-expanded", "true");
+		elements.watsonExpanded.classList.remove("hidden");
+		elements.watsonSurface.classList.remove("is-compact");
+	}
+
 	function openInvestigation(event) {
 		event.preventDefault();
 		const symptom = elements.input.value.trim();
@@ -124,6 +188,8 @@ const InvestigationPrototype = (() => {
 		applyContext(elements.context.value);
 		elements.home.classList.add("hidden");
 		elements.workspace.classList.remove("hidden");
+		updateCollection("symptoms");
+		updateCollection("conversations");
 		showView("understanding");
 		elements.workspace.focus({ preventScroll: true });
 		window.scrollTo({ top: 0, behavior: "instant" });
@@ -168,6 +234,12 @@ const InvestigationPrototype = (() => {
 		elements.dataCollection.classList.remove("hidden");
 		elements.hypothesisCollection.classList.remove("hidden");
 		elements.contradictionCollection.classList.remove("hidden");
+		collectionItems.data.push({ title: "Фінансовий зріз за сегментами", meta: "Джерело · отримано з дозволу власника" });
+		collectionItems.hypotheses.push({ title: "Затримка передачі лідів могла вплинути на маржу", meta: "Пропозиція Watson · не підтверджено" });
+		collectionItems.contradictions.push({ title: "Дохід стабільний, але маржа B2B знизилась", meta: "Можлива суперечність · потребує перевірки" });
+		updateCollection("data");
+		updateCollection("hypotheses");
+		updateCollection("contradictions");
 		elements.cognitiveMap.classList.remove("hidden");
 		elements.hypothesisList.classList.remove("hidden");
 		elements.validateCause.classList.remove("hidden");
@@ -229,8 +301,37 @@ const InvestigationPrototype = (() => {
 	function prepareMatterContribution(event) {
 		event.preventDefault();
 		const original = elements.matterCaptureInput.value.trim();
-		if (!original) return;
+		const files = [...elements.matterCaptureFiles.files];
+		if (!original && files.length === 0) return;
 
+		if (awaitingClarification && (files.length > 0 || /(документ|звіт|файл|report|document)/i.test(original))) {
+			collectionItems.documents.push({
+				title: files[0]?.name || original || "Доданий документ",
+				meta: "Додав власник · класифікація запропонована"
+			});
+			updateCollection("documents");
+			elements.captureOriginal.textContent = `“${original || files[0].name}”`;
+			elements.matterCaptureInput.value = "";
+			elements.matterCaptureFiles.value = "";
+			elements.guidedInvestigation.classList.remove("hidden");
+			elements.watsonContributionReview.classList.add("hidden");
+			elements.guidedCondition.textContent = "Документ додано";
+			elements.guidedReason.textContent = "Я зберіг його з розслідуванням. Моє питання залишається відкритим.";
+			elements.guidedTitle.textContent = "Що насправді змінилося?";
+			elements.watsonStatus.textContent = "Документ збережено";
+			announce("Документ додано незалежно від запитання Watson. Inbox залишається доступним.");
+			return;
+		}
+
+		if (contributionRound === "context" && collectionItems.observations.length === 0) {
+			collectionItems.observations.push(
+				{ title: "Падіння триває близько двох місяців", meta: "Спостереження власника · не перевірено" },
+				{ title: original, meta: "Нове спостереження · класифікація запропонована" }
+			);
+			updateCollection("observations");
+		}
+
+		expandWatson();
 		elements.captureOriginal.textContent = `“${original}”`;
 		elements.guidedInvestigation.classList.add("hidden");
 		elements.watsonContributionReview.classList.remove("hidden");
@@ -278,6 +379,26 @@ const InvestigationPrototype = (() => {
 		elements.reasoningMilestone.classList.add("hidden");
 		elements.matterCaptureInput.focus();
 		announce("Повернуто вашу відповідь для виправлення. Watson нічого не прийняв як факт.");
+	}
+
+	function rejectMatterContribution() {
+		awaitingClarification = true;
+		elements.watsonContributionReview.classList.add("hidden");
+		elements.guidedInvestigation.classList.remove("hidden");
+		elements.guidedCondition.textContent = "Я неправильно зрозумів";
+		elements.guidedReason.textContent = "Ні, це не те, що ви мали на увазі.";
+		elements.guidedTitle.textContent = "Що насправді змінилося?";
+		elements.guidedNeed.textContent = "Відповідайте, коли зручно, або додайте щось інше.";
+		elements.guidedAction.textContent = "Перейти до Inbox";
+		elements.watsonStatus.textContent = "Потрібне уточнення";
+		announce("Watson не прийняв свою інтерпретацію. Можна відповісти або додати будь-що інше.");
+	}
+
+	function deferMatterContribution() {
+		elements.watsonContributionReview.classList.add("hidden");
+		elements.guidedInvestigation.classList.remove("hidden");
+		elements.watsonStatus.textContent = "Відкладено";
+		announce("Підтвердження відкладено. Inbox залишається доступним.");
 	}
 
 	function resetInvestigation() {
@@ -360,11 +481,16 @@ const InvestigationPrototype = (() => {
 			hypothesisSummaryCard: document.getElementById("hypothesisSummaryCard"),
 			sourcePermissionSafeguard: document.getElementById("sourcePermissionSafeguard"),
 			workingCollections: document.getElementById("workingCollections"),
+			collectionInspection: document.getElementById("collectionInspection"),
+			collectionInspectionIcon: document.getElementById("collectionInspectionIcon"),
+			collectionInspectionTitle: document.getElementById("collectionInspectionTitle"),
+			collectionInspectionItems: document.getElementById("collectionInspectionItems"),
+			closeCollectionInspection: document.getElementById("closeCollectionInspection"),
 			dataCollection: document.getElementById("dataCollection"),
 			hypothesisCollection: document.getElementById("hypothesisCollection"),
 			contradictionCollection: document.getElementById("contradictionCollection"),
 			cognitiveMap: document.getElementById("cognitiveMap"),
-			collectionButtons: [...document.querySelectorAll("[data-collection-view]")],
+			collectionButtons: [...document.querySelectorAll("[data-collection]")],
 			validateCause: document.getElementById("validateCauseButton"),
 			readinessSummary: document.getElementById("readinessSummary"),
 			decisionReadinessTitle: document.getElementById("decisionReadinessTitle"),
@@ -382,6 +508,7 @@ const InvestigationPrototype = (() => {
 			knowledgeCaptured: document.getElementById("knowledgeCaptured"),
 			matterCaptureForm: document.getElementById("matterCaptureForm"),
 			matterCaptureInput: document.getElementById("matterCaptureInput"),
+			matterCaptureFiles: document.getElementById("matterCaptureFiles"),
 			matterCapturePrompt: document.getElementById("matterCapturePrompt"),
 			matterCaptureReview: document.getElementById("matterCaptureReview"),
 			situationBoard: document.getElementById("situationBoard"),
@@ -393,6 +520,8 @@ const InvestigationPrototype = (() => {
 			approveMatterContribution: document.getElementById("approveMatterContribution"),
 			discardMatterContribution: document.getElementById("discardMatterContribution"),
 			addMatterDetail: document.getElementById("addMatterDetail"),
+			rejectMatterContribution: document.getElementById("rejectMatterContribution"),
+			laterMatterContribution: document.getElementById("laterMatterContribution"),
 			reasoningMilestone: document.getElementById("reasoningMilestone"),
 			milestoneContribution: document.getElementById("milestoneContribution"),
 			boardUnderstanding: document.getElementById("boardUnderstanding"),
@@ -411,6 +540,10 @@ const InvestigationPrototype = (() => {
 			redirectGuidance: document.getElementById("redirectGuidanceButton"),
 			deferGuidance: document.getElementById("deferGuidanceButton"),
 			rejectGuidance: document.getElementById("rejectGuidanceButton"),
+			watsonSurface: document.getElementById("watsonSurface"),
+			watsonToggle: document.getElementById("watsonToggle"),
+			watsonExpanded: document.getElementById("watsonExpanded"),
+			watsonStatus: document.getElementById("watsonStatus"),
 			structuredEntry: document.getElementById("structuredEntryButton"),
 			voiceNote: document.getElementById("voiceNoteButton"),
 			announcement: document.getElementById("prototypeAnnouncement")
@@ -431,12 +564,17 @@ const InvestigationPrototype = (() => {
 		elements.workingTitle.addEventListener("change", reviewWorkingTitle);
 		elements.newButton.addEventListener("click", resetInvestigation);
 		elements.stageButtons.forEach(button => button.addEventListener("click", () => showView(button.dataset.view)));
-		elements.collectionButtons.forEach(button => button.addEventListener("click", () => {
-			elements.boardInspection.open = true;
-			showView(button.dataset.collectionView);
-			elements.boardInspection.scrollIntoView({ behavior: "smooth", block: "nearest" });
-			window.sessionStorage.setItem("managementOsWorkbenchCollection", button.textContent.trim());
-		}));
+		elements.collectionButtons.forEach(button => button.addEventListener("click", () => openCollection(button.dataset.collection, button)));
+		elements.closeCollectionInspection.addEventListener("click", closeCollection);
+		elements.collectionInspection.addEventListener("keydown", event => {
+			if (event.key === "Escape") closeCollection();
+		});
+		elements.watsonToggle.addEventListener("click", () => {
+			const expanded = elements.watsonToggle.getAttribute("aria-expanded") === "true";
+			elements.watsonToggle.setAttribute("aria-expanded", String(!expanded));
+			elements.watsonExpanded.classList.toggle("hidden", expanded);
+			elements.watsonSurface.classList.toggle("is-compact", expanded);
+		});
 		elements.evidenceFilters.forEach(button => button.addEventListener("click", () => filterEvidence(button.dataset.evidenceFilter)));
 		elements.openSimulation.addEventListener("click", () => {
 			elements.scenario.classList.remove("hidden");
@@ -486,7 +624,9 @@ const InvestigationPrototype = (() => {
 		elements.captureKnowledge.addEventListener("click", captureKnowledge);
 		elements.matterCaptureForm.addEventListener("submit", prepareMatterContribution);
 		elements.approveMatterContribution.addEventListener("click", approveMatterContribution);
+		elements.rejectMatterContribution.addEventListener("click", rejectMatterContribution);
 		elements.discardMatterContribution.addEventListener("click", discardMatterContribution);
+		elements.laterMatterContribution.addEventListener("click", deferMatterContribution);
 		elements.addMatterDetail.addEventListener("click", () => {
 			elements.watsonContributionReview.classList.add("hidden");
 			elements.guidedInvestigation.classList.remove("hidden");
@@ -506,6 +646,13 @@ const InvestigationPrototype = (() => {
 				elements.approveMatterContribution.click();
 			}
 			const journey = new URLSearchParams(window.location.search).get("journey");
+			if (journey === "workbench-reset") {
+				elements.matterCaptureInput.value = "Команда B2B помітила довшу передачу лідів.";
+				elements.matterCaptureForm.requestSubmit();
+				elements.rejectMatterContribution.click();
+				elements.matterCaptureInput.value = "Додаю окремий місячний звіт.";
+				elements.matterCaptureForm.requestSubmit();
+			}
 			if (journey === "evidence") {
 				elements.boardUncertainty.textContent = "Маржа могла знизитися без такого самого падіння доходу";
 				beginEvidenceCollection();

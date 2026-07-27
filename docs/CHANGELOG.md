@@ -1,5 +1,16 @@
 # Changelog
 
+## Sprint 25.1 — Operational Workbench Reset
+
+- Replaced the remaining reading-heavy early Matter composition with a sparse
+  spatial Workbench centered on Current Situation.
+- Made non-empty investigation collections compact, counted landmarks with
+  focused inspection and preserved return context.
+- Kept Operational Inbox independent from Watson and added the deterministic
+  unrelated-document path.
+- Added direct Watson Yes, No, Correct, Add detail, and Later controls.
+- Preserved canonical records, lifecycle, provenance, and authority boundaries.
+
 ## Sprint 25 — Operational Situation Map
 
 - Replaced the vertically stacked Current Situation with a spatial operational

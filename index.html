@@ -113,11 +113,18 @@
 						</section>
 						<div class="material-safeguard hidden" id="sourcePermissionSafeguard" role="note"><strong>Потрібен ваш дозвіл</strong><span>Внутрішній фінансовий звіт не відкривається автоматично.</span></div>
 						<nav class="working-collections hidden" id="workingCollections" aria-label="Матеріали поточної ситуації">
-							<button class="collection-chip collection-chip--data hidden" id="dataCollection" type="button" data-collection-view="evidence"><span class="collection-icon" aria-hidden="true">📊</span><span>Дані<small>Фінансовий зріз</small></span><strong>1</strong><i class="data-spark" aria-hidden="true"><b></b><b></b><b></b><b></b></i></button>
-							<button class="collection-chip collection-chip--conversation" type="button" data-collection-view="understanding"><span class="collection-icon" aria-hidden="true">🎙</span><span>Розмови<small>Повідомлення команди</small></span><strong>1</strong><i class="conversation-mark" aria-hidden="true">“…”</i></button>
-							<button class="collection-chip collection-chip--hypothesis hidden" id="hypothesisCollection" type="button" data-collection-view="understanding"><span class="collection-icon" aria-hidden="true">🧠</span><span>Гіпотези<small>Перевірюване пояснення</small></span><strong>1</strong><i class="hypothesis-nodes" aria-hidden="true"><b></b><b></b><b></b></i></button>
-							<button class="collection-chip collection-chip--warning hidden" id="contradictionCollection" type="button" data-collection-view="understanding"><span class="collection-icon" aria-hidden="true">⚠</span><span>Суперечності<small>Щось не узгоджується</small></span><strong>1</strong><i class="warning-mark" aria-hidden="true">!</i></button>
+							<button class="collection-chip collection-chip--symptoms" id="symptomCollection" type="button" data-collection="symptoms" aria-haspopup="dialog"><span class="collection-icon" aria-hidden="true">📌</span><span>Симптоми</span><strong data-collection-count>1</strong></button>
+							<button class="collection-chip collection-chip--conversation" id="conversationCollection" type="button" data-collection="conversations" aria-haspopup="dialog"><span class="collection-icon" aria-hidden="true">🎙</span><span>Розмови</span><strong data-collection-count>1</strong></button>
+							<button class="collection-chip collection-chip--observations hidden" id="observationCollection" type="button" data-collection="observations" aria-haspopup="dialog"><span class="collection-icon" aria-hidden="true">👀</span><span>Спостереження</span><strong data-collection-count>0</strong></button>
+							<button class="collection-chip collection-chip--documents hidden" id="documentCollection" type="button" data-collection="documents" aria-haspopup="dialog"><span class="collection-icon" aria-hidden="true">📄</span><span>Документи</span><strong data-collection-count>0</strong></button>
+							<button class="collection-chip collection-chip--data hidden" id="dataCollection" type="button" data-collection="data" aria-haspopup="dialog"><span class="collection-icon" aria-hidden="true">📊</span><span>Дані</span><strong data-collection-count>0</strong></button>
+							<button class="collection-chip collection-chip--hypothesis hidden" id="hypothesisCollection" type="button" data-collection="hypotheses" aria-haspopup="dialog"><span class="collection-icon" aria-hidden="true">🧠</span><span>Гіпотези</span><strong data-collection-count>0</strong></button>
+							<button class="collection-chip collection-chip--warning hidden" id="contradictionCollection" type="button" data-collection="contradictions" aria-haspopup="dialog"><span class="collection-icon" aria-hidden="true">⚠</span><span>Суперечності</span><strong data-collection-count>0</strong></button>
 						</nav>
+						<section class="collection-inspection hidden" id="collectionInspection" role="dialog" aria-modal="false" aria-labelledby="collectionInspectionTitle" tabindex="-1">
+							<header><div><span id="collectionInspectionIcon" aria-hidden="true">📌</span><div><small>Матеріали розслідування</small><h3 id="collectionInspectionTitle">Симптоми</h3></div></div><button class="collection-inspection__close" id="closeCollectionInspection" type="button" aria-label="Закрити колекцію">×</button></header>
+							<div id="collectionInspectionItems"></div>
+						</section>
 					</section>
 
 					<section class="matter-natural-capture" aria-labelledby="matterCaptureTitle">
@@ -126,7 +133,7 @@
 						</div>
 						<form id="matterCaptureForm">
 							<label id="matterCapturePrompt" for="matterCaptureInput">Запишіть думку, розмову або спостереження — чи додайте файл без попередньої класифікації.</label>
-							<textarea id="matterCaptureInput" rows="5" placeholder="Я згадав… Отримав звіт… Ось ще одна думка…" required></textarea>
+							<textarea id="matterCaptureInput" rows="5" placeholder="Додайте щось важливе…"></textarea>
 							<div class="capture-tools">
 								<label class="attachment-control" for="matterCaptureFiles">Додати файли</label>
 								<input id="matterCaptureFiles" type="file" multiple>
@@ -278,8 +285,9 @@
 					</details>
 						</div>
 
-						<aside class="watson-surface" aria-labelledby="guidedInvestigationTitle">
-							<div class="watson-surface__identity"><span class="ai-avatar" aria-hidden="true">W</span><div><span>Watson</span><strong>Працюємо над ситуацією</strong></div></div>
+						<aside class="watson-surface is-compact" id="watsonSurface" aria-labelledby="guidedInvestigationTitle">
+							<button class="watson-surface__identity" id="watsonToggle" type="button" aria-expanded="false"><span class="ai-avatar" aria-hidden="true">W</span><span><span>Watson</span><strong id="watsonStatus">Одна думка</strong></span><b aria-hidden="true">●</b></button>
+							<div class="watson-expanded hidden" id="watsonExpanded">
 							<section class="guided-investigation" id="guidedInvestigation">
 								<div class="guided-investigation__status">
 									<span id="guidedCondition">Почнімо з відомого</span>
@@ -303,11 +311,13 @@
 								<span>Watson</span>
 								<h2>Ось що я зрозумів</h2>
 								<p id="watsonUnderstandingSummary">Падіння почалося приблизно два місяці тому і, можливо, стосується B2B-напряму. Поки не зрозуміло, змінився дохід, маржа чи обидва показники.</p>
-								<p><strong>Я правильно зрозумів?</strong></p>
+								<p><strong>Я правильно вас зрозумів?</strong></p>
 								<div class="capture-review__actions">
 									<button class="btn-primary" id="approveMatterContribution" type="button">Так</button>
-									<button class="btn-secondary" id="discardMatterContribution" type="button">Виправити</button>
+									<button class="btn-secondary" id="rejectMatterContribution" type="button">Ні</button>
+									<button class="text-button" id="discardMatterContribution" type="button">Виправити</button>
 									<button class="text-button" id="addMatterDetail" type="button">Додати деталь</button>
+									<button class="text-button" id="laterMatterContribution" type="button">Пізніше</button>
 								</div>
 							</section>
 							<details class="watson-context" aria-labelledby="aiPartnerTitle">
@@ -318,6 +328,7 @@
 									<div class="discipline-checks"><span>Захист якості</span><ul><li>Бракує базового зрізу</li><li>Гіпотези ще не готові до підтвердження</li><li>Суперечності залишаються видимими</li></ul></div>
 								</div>
 							</details>
+							</div>
 						</aside>
 					</div>
 				</section>

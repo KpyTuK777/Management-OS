@@ -177,6 +177,13 @@ they must not appear as interchangeable cards.
 
 ## Operational Workbench composition
 
+Sprint 25.1 collection controls default to icon, short label, and count. They are
+compact spatial landmarks, not equal cards. Icon and color are supplementary:
+visible text, count text, focus treatment, and accessible names carry the same
+meaning. Focused inspection overlays or draws over the Workbench and returns
+focus on close. Watson defaults to a compact corner presence and expands for one
+useful intervention.
+
 The Workbench uses one large composed Current Situation canvas and a restrained
 supporting rail for Watson and Operational Inbox. Uniform card grids are not used
 for the primary operational picture. Contextual material uses semantic forms:

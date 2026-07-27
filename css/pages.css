@@ -55,6 +55,13 @@
 	letter-spacing:.06em;
 }
 
+.current-situation__header h2 {
+	max-width:620px;
+	margin:8px auto 0;
+	font-size:clamp(1.35rem,2.4vw,2.1rem);
+	line-height:1.12;
+}
+
 .current-situation__header > div > span b { font-size:1rem; }
 .current-situation__header h2 { margin-top:10px; letter-spacing:-.035em; }
 
@@ -2794,4 +2801,316 @@ details.journey-progress > summary::-webkit-details-marker { display:none; }
 	.situation-map-stage #hypothesisSummaryCard { order:5; }
 	.situation-map-stage .cognitive-map { order:6; }
 	.watson-surface::before { display:none; }
+}
+
+/* Sprint 25.1 — sparse spatial Workbench reset */
+.operational-workbench .current-situation-canvas {
+	position:relative;
+	overflow:hidden;
+}
+
+.current-situation__header {
+	border:0;
+	text-align:center;
+}
+
+.current-situation__header > div > span {
+	letter-spacing:.13em;
+	text-transform:uppercase;
+}
+
+.situation-map-stage {
+	min-height:360px;
+}
+
+.situation-map-core {
+	display:grid;
+	place-items:center;
+	min-height:250px;
+	text-align:center;
+}
+
+.situation-map-core .current-situation__reported {
+	padding:0;
+}
+
+.situation-map-core .current-situation__reported > span,
+.map-core-status,
+.current-situation__threads {
+	display:none !important;
+}
+
+.situation-map-core .current-situation__reported blockquote {
+	max-width:460px;
+	font-family:inherit;
+	font-size:clamp(1.35rem,2.35vw,2rem);
+	font-weight:750;
+	line-height:1.18;
+}
+
+.situation-map-core .current-situation__narrative {
+	max-width:440px;
+	color:#64748b;
+	font-size:.95rem;
+	line-height:1.5;
+}
+
+.current-situation-canvas .working-collections {
+	display:grid;
+	grid-template-columns:repeat(3,minmax(100px,1fr));
+	gap:18px 28px;
+	max-width:620px;
+	margin:8px auto 0;
+	padding:0;
+	border:0;
+}
+
+.current-situation-canvas .working-collections.hidden {
+	display:none;
+}
+
+.collection-chip {
+	position:relative;
+	display:grid;
+	grid-template-columns:auto 1fr auto;
+	align-items:center;
+	gap:9px;
+	min-height:58px;
+	padding:8px 10px;
+	border:0;
+	border-radius:18px;
+	background:transparent;
+	color:#334155;
+	box-shadow:none;
+	text-align:left;
+}
+
+.collection-chip:hover,
+.collection-chip:focus-visible {
+	background:rgba(255,255,255,.86);
+	box-shadow:0 10px 28px rgba(51,65,85,.12);
+	transform:translateY(-2px);
+}
+
+.collection-chip .collection-icon {
+	display:grid;
+	place-items:center;
+	width:44px;
+	height:44px;
+	border-radius:50%;
+	background:#fff;
+	box-shadow:0 5px 16px rgba(51,65,85,.12);
+	font-size:1.35rem;
+}
+
+.collection-chip > span:not(.collection-icon) {
+	display:block;
+	font-size:.8rem;
+	font-weight:750;
+}
+
+.collection-chip > strong {
+	position:static;
+	display:grid;
+	place-items:center;
+	min-width:23px;
+	height:23px;
+	border-radius:999px;
+	background:#e2e8f0;
+	font-size:.72rem;
+}
+
+.collection-chip--conversation { transform:translateY(10px); }
+.collection-chip--observations { transform:translateY(-8px); }
+.collection-chip--documents { transform:translateY(7px); }
+.collection-chip--hypothesis { transform:translateY(-5px); }
+.collection-chip--warning .collection-icon { border:2px solid #f59e0b; }
+
+.collection-inspection {
+	position:absolute;
+	z-index:8;
+	inset:70px clamp(18px,5vw,70px) 40px;
+	overflow:auto;
+	padding:24px;
+	border:1px solid #dbe2ea;
+	border-radius:24px;
+	background:rgba(255,255,255,.97);
+	box-shadow:0 30px 80px rgba(30,41,59,.22);
+}
+
+.collection-inspection > header,
+.collection-inspection > header > div {
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	gap:12px;
+}
+
+.collection-inspection > header > div { justify-content:flex-start; }
+.collection-inspection > header > div > span { font-size:2rem; }
+.collection-inspection h3 { margin-top:2px; font-size:1.5rem; }
+.collection-inspection small { color:#64748b; }
+.collection-inspection__close {
+	width:42px;
+	height:42px;
+	border:0;
+	border-radius:50%;
+	background:#f1f5f9;
+	font-size:1.7rem;
+}
+.collection-inspection > div {
+	display:grid;
+	gap:10px;
+	margin-top:24px;
+}
+.collection-inspection article {
+	display:grid;
+	gap:5px;
+	padding:16px;
+	border-left:3px solid #818cf8;
+	background:#f8fafc;
+}
+
+.watson-surface__identity {
+	display:grid;
+	grid-template-columns:auto 1fr auto;
+	align-items:center;
+	gap:10px;
+	width:100%;
+	padding:0;
+	border:0;
+	background:transparent;
+	color:inherit;
+	text-align:left;
+}
+.watson-surface__identity > span:nth-child(2) { display:grid; }
+.watson-surface__identity > b { color:#4f46e5; font-size:.72rem; }
+.watson-surface.is-compact { width:auto; min-width:190px; padding:12px 14px; }
+.watson-surface.is-compact::before { display:none; }
+
+.perceptual-workspace.operational-workbench:not(.has-board) {
+	position:relative;
+	grid-template-columns:minmax(0,1fr);
+}
+
+.perceptual-workspace.operational-workbench:not(.has-board) .board-column {
+	grid-column:1;
+	grid-row:1;
+}
+
+@media (min-width:1101px) {
+	.operational-workbench {
+		grid-template-columns:minmax(0,1fr);
+	}
+	.operational-workbench .current-situation-canvas {
+		grid-column:1;
+		grid-row:1;
+		min-height:700px;
+		padding:42px 340px 52px 42px;
+	}
+	.perceptual-workspace.operational-workbench:not(.has-board) .watson-surface,
+	.operational-workbench .watson-surface {
+		position:fixed;
+		z-index:10;
+		right:340px;
+		bottom:24px;
+		width:300px;
+		margin:0;
+	}
+	.operational-workbench .matter-natural-capture {
+		position:fixed;
+		z-index:9;
+		right:24px;
+		bottom:24px;
+		width:300px;
+		margin:0;
+		padding:16px;
+	}
+	.operational-workbench .matter-natural-capture .section-heading span,
+	.operational-workbench .matter-natural-capture label,
+	.operational-workbench .matter-natural-capture .capture-tools {
+		font-size:.72rem;
+	}
+	.operational-workbench .matter-natural-capture textarea { min-height:70px; }
+	.operational-workbench .board-inspection { grid-row:2; }
+}
+
+@media (min-width:801px) and (max-width:1100px) {
+	.operational-workbench { grid-template-columns:1fr; }
+	.operational-workbench .current-situation-canvas,
+	.operational-workbench .watson-surface,
+	.operational-workbench .matter-natural-capture,
+	.operational-workbench .board-inspection { grid-column:1; }
+	.perceptual-workspace.operational-workbench:not(.has-board) .watson-surface,
+	.operational-workbench .watson-surface {
+		position:sticky;
+		z-index:5;
+		bottom:16px;
+		justify-self:end;
+		width:min(360px,90%);
+	}
+	.current-situation-canvas .working-collections { grid-template-columns:repeat(3,1fr); }
+}
+
+@media (max-width:800px) {
+	html,
+	body,
+	.app,
+	.workspace,
+	.investigation-workspace,
+	.perceptual-workspace,
+	.board-column,
+	.current-situation-canvas {
+		min-width:0;
+		max-width:100%;
+	}
+	body { overflow-x:hidden; }
+	.perceptual-workspace.operational-workbench,
+	.perceptual-workspace.operational-workbench:not(.has-board),
+	.perceptual-workspace.operational-workbench:not(.has-board) .board-column {
+		width:100%;
+		grid-template-columns:minmax(0,100%) !important;
+	}
+	.operational-workbench .current-situation-canvas {
+		width:100%;
+		box-sizing:border-box;
+	}
+	.operational-workbench .current-situation-canvas { order:1; }
+	.operational-workbench .matter-natural-capture { order:2; }
+	.perceptual-workspace.operational-workbench:not(.has-board) .watson-surface,
+	.operational-workbench .watson-surface {
+		top:auto;
+		position:sticky;
+		z-index:7;
+		right:12px;
+		bottom:12px;
+		order:3;
+		align-self:flex-end;
+		width:min(100%,360px);
+	}
+	.current-situation-canvas .working-collections {
+		display:flex;
+		overflow-x:auto;
+		gap:6px;
+		margin-top:18px;
+		padding-bottom:6px;
+	}
+	.collection-chip,
+	.collection-chip--conversation,
+	.collection-chip--observations,
+	.collection-chip--documents,
+	.collection-chip--hypothesis {
+		flex:0 0 auto;
+		min-height:52px;
+		transform:none;
+	}
+	.collection-chip .collection-icon { width:38px; height:38px; }
+	.collection-inspection { position:fixed; inset:12px; }
+	.situation-map-core { min-height:220px; }
+	.current-situation__header h2,
+	.situation-map-core .current-situation__reported blockquote,
+	.situation-map-core .current-situation__narrative {
+		overflow-wrap:anywhere;
+	}
+	.current-situation__header h2 { max-width:100%; font-size:1.25rem; }
 }

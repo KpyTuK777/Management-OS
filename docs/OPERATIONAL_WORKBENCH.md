@@ -8,7 +8,7 @@ Operational Matter.
 | Property | Decision |
 | --- | --- |
 | Status | Approved canonical product-experience architecture; deterministic prototype aligned |
-| Delivery milestone | Sprint 22 |
+| Delivery milestone | Sprint 25.1 |
 | Authority | Workspace composition, visual emphasis, Operational Inbox presentation, progressive Working Collections, and Decision-relative emphasis |
 | Related documents | [Human-first Investigation Experience](HUMAN_FIRST_INVESTIGATION_EXPERIENCE.md), [Operational Situation Board](OPERATIONAL_SITUATION_BOARD_ARCHITECTURE.md), [Natural Capture](NATURAL_CAPTURE_ARCHITECTURE.md), [Operational Transition](OPERATIONAL_TRANSITION_ARCHITECTURE.md) |
 
@@ -153,6 +153,25 @@ Evidence invalidation, and consequential approval may interrupt normal emphasis.
 Direct specialist access and degraded operation without Watson remain available.
 
 ## Prototype alignment
+
+### Sprint 25.1 interaction contract
+
+The early Workbench begins sparse. Current Situation is dominant; the
+Operational Inbox remains independently reachable; Watson may collapse to a
+corner presence; and compact Working Collections appear only when governed
+material exists. Collection controls show an icon, short label, and count.
+Focused inspection opens over the Workbench, closes to the same spatial context,
+and returns keyboard focus to its collection control.
+
+Consequential Watson interpretations offer **Yes**, **No**, **Correct**, **Add
+detail**, and **Later**. No rejects rather than edits the interpretation. Watson
+acknowledges the misunderstanding and asks one short question. The owner may
+instead submit unrelated material through the Inbox; capture is never blocked.
+
+Desktop surrounds the central Situation with compact landmarks and corner
+surfaces. Tablet preserves hierarchy with focused overlays. Mobile presents the
+Situation first, horizontal icon-based collection navigation, an independent
+Inbox, and temporary Watson expansion—not a feed of equal cards.
 
 Sprint 22 implements deterministic, session-local presentation for the first
 human-centered Workbench journey. It demonstrates progressive collections,

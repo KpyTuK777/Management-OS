@@ -215,6 +215,14 @@ never let an arrow imply causality by itself.
 
 ## Writing style
 
+Sprint 25.1 uses direct conversational language. Prefer `Я правильно вас
+зрозумів?`, `Ні, це не те, що ви мали на увазі`, `Що насправді змінилося?`,
+`Додайте щось інше`, `Зберегти з розслідуванням`, `Я знайшов можливу
+суперечність`, and `Це може вплинути на поточне пояснення`. Avoid explaining
+interaction mechanics or system state in primary UI copy. Watson confirmation
+actions are `Так`, `Ні`, `Виправити`, `Додати деталь`, and `Пізніше`; rejecting
+and editing are distinct.
+
 Management OS language should be:
 
 - **Concise:** communicate the necessary meaning with as few words as clarity

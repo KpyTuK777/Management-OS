@@ -20,3 +20,7 @@ not as primary task instructions.
 The Sprint 20 opening is governed by the
 [Human-first Investigation Experience](HUMAN_FIRST_INVESTIGATION_EXPERIENCE.md).
 Primary Watson messages use short operational questions and revisable summaries.
+Consequential interpretations expose direct `Так`, `Ні`, `Виправити`, `Додати
+деталь`, and `Пізніше` actions. After `Ні`, Watson says it misunderstood and asks
+one short question. It does not require an answer before the owner adds something
+else.

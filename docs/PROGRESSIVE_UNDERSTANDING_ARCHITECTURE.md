@@ -51,6 +51,12 @@ impacts, Outcomes, and learning become meaningful.
 
 **Progressive Disclosure** controls when already existing detail is shown.
 
+Sprint 25.1 applies both principles to the Workbench projection: the initial
+composition contains only Current Situation and non-empty collections.
+Collections, accepted relationships, and material proposals appear as
+understanding grows. Opening detail does not replace or reset spatial context.
+Empty categories and decorative relationships remain absent.
+
 For example, identifying a contradiction after Evidence sources conflict is
 construction; opening the complete provenance of those sources is disclosure.
 Construction changes the Board projection through source-owned contributions and

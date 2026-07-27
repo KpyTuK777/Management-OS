@@ -683,6 +683,23 @@ boundaries and [Project Health](PROJECT_HEALTH.md) for the aggregate readiness v
   workflow, source authority, production intelligence, or persistence is
   implemented.
 
+## Sprint 25.1
+
+### Completed
+
+- Reset the early Workbench to a sparse spatial composition with dominant Current
+  Situation and compact non-empty collection landmarks.
+- Added focused collection inspection that closes to the same Workbench position
+  and restores keyboard focus.
+- Kept Operational Inbox independently available and added progressive document,
+  observation, data, hypothesis, and contradiction counts.
+- Reduced Watson to a contextual corner surface and implemented Yes, No, Correct,
+  Add detail, and Later as distinct actions.
+- Added the deterministic misunderstanding journey in which an unrelated
+  document is accepted while Watson's clarification remains open.
+- Preserved canonical records, lifecycle, authority boundaries, and source
+  provenance.
+
 ## Sprint 25
 
 ### Completed
