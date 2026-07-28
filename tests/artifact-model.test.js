@@ -75,7 +75,15 @@ test("Artifact ensure is idempotent and rejects identity conflicts without mutat
 	const created = repository.ensure(input);
 	const before = storageAdapter.loadStore();
 	assert.deepEqual(repository.ensure(input), created);
-	assert.throws(() => repository.ensure({ ...input, matterId: "MAT-OTHER" }), /another Matter/);
+	let matterConflict;
+	try {
+		repository.ensure({ ...input, matterId: "MAT-OTHER" });
+	} catch (error) {
+		matterConflict = error;
+	}
+	assert.match(matterConflict.message, /another Matter/);
+	assert.equal(matterConflict.name, "IdentityConflictError");
+	assert.equal(matterConflict.code, "IDENTITY_CONFLICT");
 	assert.throws(() => repository.ensure({
 		...input,
 		owner: { id: "other-owner", name: "Other Owner", role: "owner" }
@@ -98,14 +106,17 @@ test("Artifact legacy ownership migration is versioned, narrow, and idempotent",
 	assert.equal(migrated.artifacts[input.id].ownership.ownerRole, "owner");
 	assert.equal(migration.getDiagnostics()[0].step, "artifact-v1-add-owner-role");
 	const afterFirstLoad = storageAdapter.loadStore();
+	const serializedCurrentStore = JSON.stringify(afterFirstLoad);
 	assert.deepEqual(migration.loadStore(), afterFirstLoad);
-	assert.deepEqual(migration.getDiagnostics(), []);
+	assert.equal(JSON.stringify(storageAdapter.loadStore()), serializedCurrentStore);
+	assert.equal(migration.getDiagnostics()[0].result, "skipped");
 
 	const malformed = storageAdapter.loadStore();
 	delete malformed.artifacts[input.id].ownership.ownerRole;
 	malformed.artifacts[input.id].ownership.ownerName = "";
 	storageAdapter.saveStore(malformed);
 	assert.equal(migration.loadStore().artifacts[input.id].ownership.ownerRole, undefined);
+	assert.equal(migration.getDiagnostics()[0].result, "rejected");
 	assert.throws(
 		() => createArtifactRepository({ storageAdapter: migration, matterId: "MAT-TEST" }).get(input.id),
 		/ownerName/

@@ -79,6 +79,13 @@
 		if (!condition) throw new Error(message);
 	}
 
+	function identityConflict(message) {
+		const error = new Error(message);
+		error.name = "IdentityConflictError";
+		error.code = "IDENTITY_CONFLICT";
+		throw error;
+	}
+
 	function nonEmpty(value, name) {
 		invariant(typeof value === "string" && value.trim(), `${name} is required.`);
 		return value.trim();
@@ -483,23 +490,28 @@
 			nonEmpty(input.id, "artifact.id");
 			const existing = get(input.id);
 			if (!existing) return create(input);
-			if (input.matterId !== undefined) invariant(input.matterId === matterId, `Artifact ${input.id} identity conflicts with another Matter.`);
+			if (input.matterId !== undefined && input.matterId !== matterId) {
+				identityConflict(`Artifact ${input.id} identity conflicts with another Matter.`);
+			}
 			const owner = normalizeActor(input.owner || input.provenance?.author, "owner");
-			invariant(
-				existing.ownership.ownerId === owner.id
-					&& existing.ownership.ownerName === owner.name
-					&& existing.ownership.ownerRole === owner.role,
-				`Artifact ${input.id} identity conflicts with its canonical owner.`
-			);
+			if (
+				existing.ownership.ownerId !== owner.id
+				|| existing.ownership.ownerName !== owner.name
+				|| existing.ownership.ownerRole !== owner.role
+			) identityConflict(`Artifact ${input.id} identity conflicts with its canonical owner.`);
 			const provenance = normalizeProvenance(input.provenance, existing.provenance.introducedAt);
-			invariant(sameValue(existing.provenance, provenance), `Artifact ${input.id} identity conflicts with its birth provenance.`);
+			if (!sameValue(existing.provenance, provenance)) {
+				identityConflict(`Artifact ${input.id} identity conflicts with its birth provenance.`);
+			}
 			if (input.lineage !== undefined) {
 				const lineage = {
 					parentIds: clone(input.lineage?.parentIds || []),
 					derivedFromIds: clone(input.lineage?.derivedFromIds || []),
 					supersedesId: input.lineage?.supersedesId || null
 				};
-				invariant(sameValue(existing.lineage, lineage), `Artifact ${input.id} identity conflicts with its lineage.`);
+				if (!sameValue(existing.lineage, lineage)) {
+					identityConflict(`Artifact ${input.id} identity conflicts with its lineage.`);
+				}
 			}
 			return existing;
 		}

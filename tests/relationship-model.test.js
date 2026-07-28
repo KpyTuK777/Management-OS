@@ -102,7 +102,15 @@ test("Relationship ensure is idempotent and rejects identity conflicts without m
 	const created = relationships.ensure(proposal());
 	const before = relationshipStorage.loadStore();
 	assert.deepEqual(relationships.ensure(proposal()), created);
-	assert.throws(() => relationships.ensure(proposal({ matterId: "MAT-OTHER" })), /another Matter/);
+	let matterConflict;
+	try {
+		relationships.ensure(proposal({ matterId: "MAT-OTHER" }));
+	} catch (error) {
+		matterConflict = error;
+	}
+	assert.match(matterConflict.message, /another Matter/);
+	assert.equal(matterConflict.name, "IdentityConflictError");
+	assert.equal(matterConflict.code, "IDENTITY_CONFLICT");
 	assert.throws(() => relationships.ensure(proposal({ targetArtifactId: "artifact-c" })), /endpoints/);
 	assert.throws(() => relationships.ensure(proposal({
 		provenance: { ...proposal().provenance, circumstance: "Conflicting origin." }
@@ -289,7 +297,7 @@ test("Repository applies the positive authority contract to proposals and govern
 	assert.equal(created.provenance.proposer.id, watson.id);
 });
 
-test("Supersession requires an accepted eligible target and rejects missing, self, archived, and cycles", () => {
+test("Supersession requires an accepted eligible target and rejects missing, rejected, archived, superseded, quarantined, self, cross-Matter, and cycles", () => {
 	const { owner, relationships, relationshipStorage, proposal } = setup();
 	const current = relationships.propose(proposal());
 	relationships.accept(current.id, owner, "Current accepted.");
@@ -300,6 +308,31 @@ test("Supersession requires an accepted eligible target and rejects missing, sel
 	relationships.accept(replacement.id, owner, "Replacement accepted.");
 	relationships.archive(replacement.id, owner, "Replacement archived.");
 	assert.throws(() => relationships.supersede(current.id, replacement.id, owner, "Archived."), /accepted and operationally active/);
+
+	const rejected = relationships.propose(proposal({ id: "relationship-rejected" }));
+	relationships.reject(rejected.id, owner, "Rejected candidate.");
+	assert.throws(() => relationships.supersede(current.id, rejected.id, owner, "Rejected."), /accepted and operationally active/);
+
+	const alreadySuperseded = relationships.propose(proposal({ id: "relationship-already-superseded" }));
+	relationships.accept(alreadySuperseded.id, owner, "Candidate accepted.");
+	const supersededStore = relationshipStorage.loadStore();
+	supersededStore.relationships[alreadySuperseded.id].supersededByRelationshipId = "historical-successor";
+	relationshipStorage.saveStore(supersededStore);
+	assert.throws(() => relationships.supersede(current.id, alreadySuperseded.id, owner, "Already superseded."), /already be superseded/);
+
+	const quarantinedStore = relationshipStorage.loadStore();
+	quarantinedStore.quarantinedRelationships["relationship-quarantined"] = {
+		relationship: { id: "relationship-quarantined" },
+		error: "Malformed fixture.",
+		quarantinedAt: "2026-07-28T00:00:00.000Z"
+	};
+	relationshipStorage.saveStore(quarantinedStore);
+	assert.throws(() => relationships.supersede(current.id, "relationship-quarantined", owner, "Quarantined."), /already exist/);
+
+	const foreignSetup = setup();
+	const foreignTarget = foreignSetup.relationships.propose(foreignSetup.proposal({ id: "foreign-replacement" }));
+	foreignSetup.relationships.accept(foreignTarget.id, foreignSetup.owner, "Foreign accepted.");
+	assert.throws(() => relationships.supersede(current.id, foreignTarget.id, owner, "Cross-Matter."), /already exist/);
 
 	const cyclic = relationships.propose(proposal({ id: "relationship-3" }));
 	relationships.accept(cyclic.id, owner, "Cyclic candidate accepted.");

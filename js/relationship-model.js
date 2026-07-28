@@ -59,6 +59,13 @@
 		if (!condition) throw new Error(message);
 	}
 
+	function identityConflict(message) {
+		const error = new Error(message);
+		error.name = "IdentityConflictError";
+		error.code = "IDENTITY_CONFLICT";
+		throw error;
+	}
+
 	function clone(value) {
 		return value === undefined ? undefined : JSON.parse(JSON.stringify(value));
 	}
@@ -536,19 +543,27 @@
 			nonEmpty(input?.id, "relationship.id");
 			const existing = get(input.id);
 			if (!existing) return propose(input);
-			if (input.matterId !== undefined) invariant(input.matterId === matterId, `Relationship ${input.id} identity conflicts with another Matter.`);
+			if (input.matterId !== undefined && input.matterId !== matterId) {
+				identityConflict(`Relationship ${input.id} identity conflicts with another Matter.`);
+			}
 			const endpoints = {
 				sourceArtifactId: nonEmpty(input.sourceArtifactId, "sourceArtifactId"),
 				targetArtifactId: nonEmpty(input.targetArtifactId, "targetArtifactId")
 			};
-			invariant(JSON.stringify(existing.endpoints) === JSON.stringify(endpoints), `Relationship ${input.id} identity conflicts with its endpoints.`);
+			if (JSON.stringify(existing.endpoints) !== JSON.stringify(endpoints)) {
+				identityConflict(`Relationship ${input.id} identity conflicts with its endpoints.`);
+			}
 			const provenance = validateProvenance({
 				...input.provenance,
 				proposedAt: input.provenance?.proposedAt || existing.provenance.proposedAt
 			});
-			invariant(JSON.stringify(existing.provenance) === JSON.stringify(provenance), `Relationship ${input.id} identity conflicts with its initial provenance.`);
+			if (JSON.stringify(existing.provenance) !== JSON.stringify(provenance)) {
+				identityConflict(`Relationship ${input.id} identity conflicts with its initial provenance.`);
+			}
 			const authority = validateAuthority(input.governingAuthority);
-			invariant(JSON.stringify(existing.governingAuthority) === JSON.stringify(authority), `Relationship ${input.id} identity conflicts with its governing authority.`);
+			if (JSON.stringify(existing.governingAuthority) !== JSON.stringify(authority)) {
+				identityConflict(`Relationship ${input.id} identity conflicts with its governing authority.`);
+			}
 			return existing;
 		}
 

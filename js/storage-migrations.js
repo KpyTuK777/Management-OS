@@ -100,7 +100,28 @@
 			let changed = false;
 
 			Object.entries(store.artifacts).forEach(([artifactId, artifact]) => {
-				if (!isExactLegacyArtifact(store.matterId, artifactId, artifact)) return;
+				if (artifact?.ownership?.ownerRole !== undefined) {
+					diagnostics.push({
+						contract: MIGRATION_CONTRACT,
+						contractVersion: MIGRATION_CONTRACT_VERSION,
+						step: "artifact-v1-add-owner-role",
+						artifactId,
+						result: "skipped",
+						reason: "Record already satisfies the current ownership contract."
+					});
+					return;
+				}
+				if (!isExactLegacyArtifact(store.matterId, artifactId, artifact)) {
+					diagnostics.push({
+						contract: MIGRATION_CONTRACT,
+						contractVersion: MIGRATION_CONTRACT_VERSION,
+						step: "artifact-v1-add-owner-role",
+						artifactId,
+						result: "rejected",
+						reason: "Record does not match the narrow legacy Artifact shape."
+					});
+					return;
+				}
 				artifact.ownership.ownerRole = "owner";
 				const diagnostic = {
 					contract: MIGRATION_CONTRACT,
