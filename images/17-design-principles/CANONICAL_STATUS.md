@@ -18,6 +18,7 @@
 | Artifact | ✅ Canonical | `b7c5b28` | `artifact-v1.0-canonical` | 2026-07-27 | Frozen v1.0 |
 | Relationship | ✅ Canonical | `748fd29` | `relationship-v1.0-canonical` | 2026-07-28 | Implementation `a1e4edb`; stabilization `2520c66`; Frozen v1.0 |
 | Operational Memory | 🟡 Under Canonical Review | `2d3b82c` | — | 2026-07-28 | Operational Design Brief 01 approved; Sprint 03 implementation applied |
+| Product Operating Model | ✅ Canonical | `cc934f3` | `product-operating-model-v1.0-canonical` | 2026-07-28 | Milestone M2 — Product Operating Model complete; Frozen v1.0 |
 | Current Situation | ⏳ Planned | — | — | — | — |
 | Inspection | ⏳ Planned | — | — | — | — |
 | Working Set | ⏳ Planned | — | — | — | — |
@@ -79,9 +80,9 @@ This is the construction order of the system core, not a roadmap.
 
 | Field | Status |
 |---|---|
-| Current Milestone | Building the Operational Core |
-| Current Sprint | Sprint 03 — Operational Memory Canonical Review Pending |
-| Next Sprint | Sprint 04 — blocked pending Operational Memory Canonical Approval |
+| Current Milestone | Milestone M2 — Product Operating Model: Complete |
+| Current Sprint | — |
+| Next Sprint | M3 — Matter Experience |
 
 ## Maintenance
 
