@@ -14,6 +14,14 @@ Management OS is a personal operating system for an operations manager. It helps
 the owner improve operational capability and business outcomes through better
 understanding, preserved human judgment, verified action, and reusable learning.
 
+### Canonical mission
+
+Management OS створюється не для зберігання інформації про операційний
+менеджмент. Вона допомагає операційному менеджеру пройти повний цикл управління —
+від першого слабкого сигналу до підтвердженої зміни в реальній системі — і
+ставати сильнішим спеціалістом через накопичення навчального та практичного
+досвіду.
+
 ## Philosophy
 
 The product should be calm, intentional, and useful. Information belongs in a clear place, and each system should reduce effort rather than create administrative work.
