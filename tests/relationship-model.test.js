@@ -6,6 +6,7 @@ const {
 	createLifecyclePolicy,
 	createSemanticPolicy
 } = require("../js/relationship-model.js");
+const { ACTIONS, createAuthorityPolicy } = require("../js/authority-policy.js");
 
 function memoryAdapter() {
 	let value = null;
@@ -96,6 +97,47 @@ test("Relationship has stable identity, immutable provenance, history, and consi
 	assert.equal(relationships.validateIntegrity(), true);
 });
 
+test("Relationship ensure is idempotent and rejects identity conflicts without mutation", () => {
+	const { relationships, relationshipStorage, proposal } = setup();
+	const created = relationships.ensure(proposal());
+	const before = relationshipStorage.loadStore();
+	assert.deepEqual(relationships.ensure(proposal()), created);
+	assert.throws(() => relationships.ensure(proposal({ matterId: "MAT-OTHER" })), /another Matter/);
+	assert.throws(() => relationships.ensure(proposal({ targetArtifactId: "artifact-c" })), /endpoints/);
+	assert.throws(() => relationships.ensure(proposal({
+		provenance: { ...proposal().provenance, circumstance: "Conflicting origin." }
+	})), /initial provenance/);
+	assert.deepEqual(relationshipStorage.loadStore(), before);
+});
+
+test("Positive authority contract denies unknown and source roles and requires explicit delegate grants", () => {
+	const policy = createAuthorityPolicy({
+		delegateGrant: (actor, action, context) => actor.id === "delegate-1"
+			&& action === ACTIONS.RELATIONSHIP_GOVERN
+			&& context.relationshipId === "relationship-1"
+	});
+	assert.equal(policy.allows({ id: "unknown", name: "Unknown", role: "other" }, ACTIONS.RELATIONSHIP_PROPOSE), false);
+	assert.equal(policy.allows({ id: "source", name: "Source", role: "source" }, ACTIONS.RELATIONSHIP_GOVERN), false);
+	assert.equal(policy.allows({ id: "watson", name: "Watson", role: "watson" }, ACTIONS.RELATIONSHIP_PROPOSE), true);
+	assert.equal(policy.allows({ id: "watson", name: "Watson", role: "watson" }, ACTIONS.RELATIONSHIP_GOVERN), false);
+	assert.equal(policy.allows({ id: "system", name: "System", role: "system" }, ACTIONS.ARTIFACT_RELATIONSHIP_RECOVER), false);
+	assert.equal(policy.allows(
+		{ id: "system", name: "System", role: "system" },
+		ACTIONS.ARTIFACT_RELATIONSHIP_RECOVER,
+		{ systemOperation: true }
+	), true);
+	assert.equal(policy.allows(
+		{ id: "delegate-1", name: "Delegate", role: "delegate" },
+		ACTIONS.RELATIONSHIP_GOVERN,
+		{ relationshipId: "relationship-1" }
+	), true);
+	assert.equal(policy.allows(
+		{ id: "delegate-2", name: "Delegate", role: "delegate" },
+		ACTIONS.RELATIONSHIP_GOVERN,
+		{ relationshipId: "relationship-1" }
+	), false);
+});
+
 test("endpoints must exist in one Matter and cannot form a self-link", () => {
 	const { relationships, proposal } = setup();
 	assert.throws(() => relationships.propose(proposal({ id: "missing", targetArtifactId: "missing" })), /existing Artifact/);
@@ -126,6 +168,9 @@ test("Repository recovers dangling Artifact relationship references without bloc
 	assert.equal(recovered.validateIntegrity(), true);
 	assert.equal(artifacts.get("artifact-a").relationshipRefs.includes("missing-relationship"), false);
 	assert.equal(artifacts.get("artifact-a").history.at(-1).type, "artifact.relationship.detached");
+	assert.equal(artifacts.get("artifact-a").history.at(-1).actor.role, "system");
+	recovered.recoverPendingOperations();
+	assert.equal(artifacts.get("artifact-a").history.filter(event => event.type === "artifact.relationship.detached").length, 1);
 });
 
 test("Repository quarantines a malformed Relationship and removes its endpoint references", () => {
@@ -224,10 +269,44 @@ test("semantic and lifecycle policies are replaceable contracts, not hard-coded 
 test("Watson may propose and edit its unresolved proposal but never govern it", () => {
 	const { owner, watson, relationships, proposal } = setup();
 	const created = relationships.propose(proposal());
-	assert.throws(() => relationships.accept(created.id, watson, "Watson attempted acceptance."), /cannot make/);
+	assert.throws(() => relationships.accept(created.id, watson, "Watson attempted acceptance."), /not authorized/);
 	const edited = relationships.edit(created.id, { uncertainty: { ...created.uncertainty, confidence: "supported" } }, watson, "Watson added evidence context.");
 	assert.equal(edited.revision, 2);
 	assert.equal(relationships.accept(created.id, owner, "Owner accepted.").states.governance, "accepted");
+});
+
+test("Repository applies the positive authority contract to proposals and governance", () => {
+	const { owner, watson, relationships, proposal } = setup();
+	const source = { id: "source", name: "Imported Source", role: "source" };
+	const system = { id: "system", name: "System", role: "system" };
+	assert.throws(() => relationships.propose(proposal({
+		id: "source-proposal",
+		provenance: { ...proposal().provenance, proposer: source }
+	})), /not authorized/);
+	const created = relationships.propose(proposal());
+	assert.throws(() => relationships.accept(created.id, system, "System attempted governance."), /not authorized/);
+	assert.equal(relationships.accept(created.id, owner, "Owner accepted.").lifecycle.stage, "accepted");
+	assert.equal(created.provenance.proposer.id, watson.id);
+});
+
+test("Supersession requires an accepted eligible target and rejects missing, self, archived, and cycles", () => {
+	const { owner, relationships, relationshipStorage, proposal } = setup();
+	const current = relationships.propose(proposal());
+	relationships.accept(current.id, owner, "Current accepted.");
+	const replacement = relationships.propose(proposal({ id: "relationship-2" }));
+	assert.throws(() => relationships.supersede(current.id, "missing", owner, "Missing."), /already exist/);
+	assert.throws(() => relationships.supersede(current.id, current.id, owner, "Self."), /itself/);
+	assert.throws(() => relationships.supersede(current.id, replacement.id, owner, "Not accepted."), /accepted and operationally active/);
+	relationships.accept(replacement.id, owner, "Replacement accepted.");
+	relationships.archive(replacement.id, owner, "Replacement archived.");
+	assert.throws(() => relationships.supersede(current.id, replacement.id, owner, "Archived."), /accepted and operationally active/);
+
+	const cyclic = relationships.propose(proposal({ id: "relationship-3" }));
+	relationships.accept(cyclic.id, owner, "Cyclic candidate accepted.");
+	const stored = relationshipStorage.loadStore();
+	stored.relationships[cyclic.id].supersededByRelationshipId = current.id;
+	relationshipStorage.saveStore(stored);
+	assert.throws(() => relationships.supersede(current.id, cyclic.id, owner, "Cycle."), /cycle/);
 });
 
 test("no-op edits create neither revisions nor history and provenance cannot be edited", () => {
@@ -261,8 +340,23 @@ test("challenge, revision, rejection, and supersession preserve operational hist
 		semanticType: "explains"
 	}));
 	relationships.accept(replacement.id, owner, "Replacement accepted.");
-	const superseded = relationships.supersede(first.id, replacement.id, owner, "A stronger interpretation replaced it.");
+	assert.throws(
+		() => relationships.supersede(first.id, replacement.id, owner, "Endpoints differ."),
+		/endpoints are not compatible/
+	);
+	const superseded = relationships.supersede(
+		first.id,
+		replacement.id,
+		owner,
+		"A stronger interpretation replaced it.",
+		{
+			allowEndpointChange: true,
+			endpointChangeJustification: "The stronger evidence changes the source while retaining the governed target."
+		}
+	);
 	assert.equal(superseded.supersededByRelationshipId, replacement.id);
+	assert.equal(relationships.get(replacement.id).lifecycle.stage, "accepted");
+	assert.ok(superseded.history.some(event => event.type === "relationship.supersession.linked"));
 	assert.ok(superseded.history.some(event => event.type === "relationship.challenged"));
 	assert.ok(superseded.history.some(event => event.type === "relationship.revised"));
 

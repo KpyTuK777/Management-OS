@@ -1,5 +1,9 @@
 (function (root, factory) {
-	const api = factory();
+	const api = factory(
+		typeof module === "object" && module.exports
+			? require("./authority-policy.js")
+			: root.ManagementOsAuthorityPolicy
+	);
 
 	if (typeof module === "object" && module.exports) {
 		module.exports = api;
@@ -8,8 +12,10 @@
 	if (root) {
 		root.ManagementOsArtifacts = api;
 	}
-})(typeof globalThis !== "undefined" ? globalThis : this, function () {
+})(typeof globalThis !== "undefined" ? globalThis : this, function (authorityApi) {
 	"use strict";
+
+	if (!authorityApi) throw new Error("Canonical Authority Policy is required.");
 
 	const SCHEMA_VERSION = 1;
 	const LIFECYCLE = Object.freeze([
@@ -57,6 +63,10 @@
 
 	function clone(value) {
 		return value === undefined ? undefined : JSON.parse(JSON.stringify(value));
+	}
+
+	function sameValue(left, right) {
+		return JSON.stringify(left) === JSON.stringify(right);
 	}
 
 	function deepFreeze(value) {
@@ -295,6 +305,17 @@
 		);
 		const clock = options.clock || (() => new Date().toISOString());
 		const idGenerator = options.idGenerator || defaultId;
+		const authorityPolicy = options.authorityPolicy || authorityApi.createAuthorityPolicy({
+			delegateGrant(actor, action, context) {
+				return action === authorityApi.ACTIONS.ARTIFACT_MUTATE
+					|| action === authorityApi.ACTIONS.ARTIFACT_RELATIONSHIP_ATTACH
+					? Boolean(
+						context.artifact?.ownership?.ownerId === actor.id
+						|| context.artifact?.ownership?.editorIds?.includes(actor.id)
+					)
+					: false;
+			}
+		});
 		invariant(typeof clock === "function", "clock must be a function.");
 		invariant(typeof idGenerator === "function", "idGenerator must be a function.");
 
@@ -381,11 +402,13 @@
 			return artifact;
 		}
 
-		function requireHumanAuthority(artifact, actor) {
+		function requireArtifactAuthority(artifact, actor, action = authorityApi.ACTIONS.ARTIFACT_MUTATE, context = {}) {
 			const normalized = normalizeActor(actor);
-			invariant(normalized.role !== "watson" && normalized.role !== "system" && normalized.role !== "source", "Only an authorized human may change an Artifact.");
+			authorityPolicy.assertAllowed(normalized, action, { ...context, artifact, matterId });
 			invariant(
-				normalized.id === artifact.ownership.ownerId || artifact.ownership.editorIds.includes(normalized.id),
+				normalized.role === "system"
+					|| normalized.id === artifact.ownership.ownerId
+					|| artifact.ownership.editorIds.includes(normalized.id),
 				`${normalized.name} is not authorized to change this Artifact.`
 			);
 			return normalized;
@@ -396,7 +419,7 @@
 			const now = clock();
 			const artifactId = nonEmpty(input.id || idGenerator(), "artifact.id");
 			const owner = normalizeActor(input.owner || input.provenance?.author, "owner");
-			invariant(owner.role !== "watson" && owner.role !== "system" && owner.role !== "source", "Watson, sources, and the system cannot own Artifacts.");
+			invariant(["owner", "delegate"].includes(owner.role), "Only an owner or explicitly delegated actor may own an Artifact.");
 			const provenance = normalizeProvenance(input.provenance, now);
 			const store = readStore();
 			invariant(!store.artifacts[artifactId], `Artifact ${artifactId} already exists.`);
@@ -459,7 +482,26 @@
 			invariant(input && typeof input === "object", "Artifact input is required.");
 			nonEmpty(input.id, "artifact.id");
 			const existing = get(input.id);
-			return existing || create(input);
+			if (!existing) return create(input);
+			if (input.matterId !== undefined) invariant(input.matterId === matterId, `Artifact ${input.id} identity conflicts with another Matter.`);
+			const owner = normalizeActor(input.owner || input.provenance?.author, "owner");
+			invariant(
+				existing.ownership.ownerId === owner.id
+					&& existing.ownership.ownerName === owner.name
+					&& existing.ownership.ownerRole === owner.role,
+				`Artifact ${input.id} identity conflicts with its canonical owner.`
+			);
+			const provenance = normalizeProvenance(input.provenance, existing.provenance.introducedAt);
+			invariant(sameValue(existing.provenance, provenance), `Artifact ${input.id} identity conflicts with its birth provenance.`);
+			if (input.lineage !== undefined) {
+				const lineage = {
+					parentIds: clone(input.lineage?.parentIds || []),
+					derivedFromIds: clone(input.lineage?.derivedFromIds || []),
+					supersedesId: input.lineage?.supersedesId || null
+				};
+				invariant(sameValue(existing.lineage, lineage), `Artifact ${input.id} identity conflicts with its lineage.`);
+			}
+			return existing;
 		}
 
 		function get(artifactId) {
@@ -479,7 +521,7 @@
 			invariant(lifecyclePolicy.hasStage(nextStage), "Lifecycle stage is not canonical.");
 			const store = readStore();
 			const artifact = requireArtifact(store, artifactId);
-			const authorizedActor = requireHumanAuthority(artifact, actor);
+			const authorizedActor = requireArtifactAuthority(artifact, actor);
 			invariant(lifecyclePolicy.canTransition(artifact.lifecycle.stage, nextStage), `Lifecycle cannot move from ${artifact.lifecycle.stage} to ${nextStage}.`);
 			invariant(nextStage !== "settled" || options.settledAs, "Settled Artifacts require a settlement reason.");
 
@@ -500,7 +542,7 @@
 			invariant(lifecyclePolicy.hasStage(targetStage), "Lifecycle stage is not canonical.");
 			let artifact = get(artifactId);
 			invariant(artifact, `Artifact ${artifactId} does not exist in Matter ${matterId}.`);
-			requireHumanAuthority(artifact, actor);
+			requireArtifactAuthority(artifact, actor);
 			nonEmpty(reason, "reason");
 			const path = lifecyclePolicy.findPath(artifact.lifecycle.stage, targetStage);
 			invariant(path !== null, `Lifecycle cannot reach ${targetStage} from ${artifact.lifecycle.stage}.`);
@@ -514,7 +556,7 @@
 			invariant(changes && typeof changes === "object", "Artifact changes are required.");
 			const store = readStore();
 			const artifact = requireArtifact(store, artifactId);
-			const authorizedActor = requireHumanAuthority(artifact, actor);
+			const authorizedActor = requireArtifactAuthority(artifact, actor);
 			const allowedKeys = ["wording", "type", "material"];
 			invariant(Object.keys(changes).length > 0, "Artifact edit requires at least one editable change.");
 			invariant(Object.keys(changes).every(key => allowedKeys.includes(key)), "Editing cannot change identity, provenance, ownership, lifecycle, or state.");
@@ -552,7 +594,7 @@
 			invariant(STATE_VALUES[dimension].includes(value), `${value} is not valid for ${dimension}.`);
 			const store = readStore();
 			const artifact = requireArtifact(store, artifactId);
-			const authorizedActor = requireHumanAuthority(artifact, actor);
+			const authorizedActor = requireArtifactAuthority(artifact, actor);
 			const previous = artifact.states[dimension];
 			if (previous === value) return clone(artifact);
 
@@ -571,7 +613,7 @@
 			const normalizedRelationshipId = nonEmpty(relationshipId, "relationshipId");
 			const store = readStore();
 			const artifact = requireArtifact(store, artifactId);
-			const authorizedActor = requireHumanAuthority(artifact, actor);
+			const authorizedActor = requireArtifactAuthority(artifact, actor, authorityApi.ACTIONS.ARTIFACT_RELATIONSHIP_ATTACH);
 			if (artifact.relationshipRefs.includes(normalizedRelationshipId)) return clone(artifact);
 
 			artifact.relationshipRefs.push(normalizedRelationshipId);
@@ -588,7 +630,13 @@
 			const normalizedRelationshipId = nonEmpty(relationshipId, "relationshipId");
 			const store = readStore();
 			const artifact = requireArtifact(store, artifactId);
-			const authorizedActor = requireHumanAuthority(artifact, actor);
+			const recovery = options.recovery === true;
+			const authorizedActor = requireArtifactAuthority(
+				artifact,
+				actor,
+				recovery ? authorityApi.ACTIONS.ARTIFACT_RELATIONSHIP_RECOVER : authorityApi.ACTIONS.ARTIFACT_MUTATE,
+				{ systemOperation: recovery }
+			);
 			if (!artifact.relationshipRefs.includes(normalizedRelationshipId)) return clone(artifact);
 
 			artifact.relationshipRefs = artifact.relationshipRefs.filter(referenceId => referenceId !== normalizedRelationshipId);

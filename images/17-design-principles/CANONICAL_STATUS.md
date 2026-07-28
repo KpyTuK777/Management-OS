@@ -14,7 +14,7 @@
 | Model | Status | Commit | Tag | Review Date | Notes |
 |---|---|---|---|---|---|
 | Artifact | ✅ Canonical | `b7c5b28` | `artifact-v1.0-canonical` | 2026-07-27 | Frozen v1.0 |
-| Relationship | ✅ Canonical | `2520c66` | `relationship-v1.0-canonical` | 2026-07-28 | Frozen v1.0 |
+| Relationship | ✅ Canonical | `748fd29` | `relationship-v1.0-canonical` | 2026-07-28 | Implementation `a1e4edb`; stabilization `2520c66`; Frozen v1.0 |
 | Operational Memory | ⏳ Planned | — | — | — | — |
 | Current Situation | ⏳ Planned | — | — | — | — |
 | Inspection | ⏳ Planned | — | — | — | — |
@@ -77,9 +77,9 @@ This is the construction order of the system core, not a roadmap.
 
 | Field | Status |
 |---|---|
-| Current Milestone | Canonical Relationship complete |
-| Current Sprint | Relationship — complete |
-| Next Sprint | Sprint 03 — Operational Memory |
+| Current Milestone | Milestone M1.1 — Foundation Hardening implemented; review pending |
+| Current Sprint | No active Canonical Sprint — Architecture Gate |
+| Next Sprint | Sprint 03 — blocked pending M1.1 review |
 
 ## Maintenance
 

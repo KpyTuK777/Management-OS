@@ -7,6 +7,7 @@
 	</head>
 	<body data-test-result="running">
 		<pre id="result">Running</pre>
+		<script src="../js/authority-policy.js"></script>
 		<script src="../js/artifact-model.js"></script>
 		<script src="../js/relationship-model.js"></script>
 		<script>
@@ -74,7 +75,7 @@
 					try {
 						repository.accept(proposed.id, watson, "Unauthorized acceptance.");
 					} catch (error) {
-						watsonDenied = /cannot make/.test(error.message);
+						watsonDenied = /not authorized/.test(error.message);
 					}
 					const accepted = repository.accept(proposed.id, owner, "Owner accepted.");
 					const reloaded = ManagementOsRelationships.createRelationshipRepository({

@@ -5,6 +5,7 @@ This folder contains the canonical visual philosophy of Management OS. It contai
 Principles are durable tests for design judgment. A proposed interface should be explainable through these documents before it is evaluated as attractive.
 
 - [Canonical Status Registry](CANONICAL_STATUS.md)
+- [Milestone M1 — Canonical Foundation Review](Milestone%20M1%20-%20Canonical%20Foundation%20Review.md)
 - [Canonical Workbench Audit](Canonical%20Workbench%20Audit.md)
 - [Workbench Canonical Domain Model](Workbench%20Canonical%20Domain%20Model.md)
 - [Artifact First](Artifact%20First.md)

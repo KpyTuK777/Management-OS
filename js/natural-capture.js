@@ -169,29 +169,9 @@ const InvestigationPrototype = (() => {
 			storage: window.localStorage,
 			storageKey: `managementOs.artifacts.v${window.ManagementOsArtifacts.SCHEMA_VERSION}.${matterId}`
 		});
-		return {
-			loadStore() {
-				const store = storageAdapter.loadStore();
-				if (!store?.artifacts || typeof store.artifacts !== "object") return store;
-				let migrated = false;
-				Object.values(store.artifacts).forEach(artifact => {
-					if (
-						artifact?.ownership
-						&& artifact.ownership.ownerRole === undefined
-						&& typeof artifact.ownership.ownerId === "string"
-						&& artifact.ownership.ownerId.trim()
-					) {
-						artifact.ownership.ownerRole = "owner";
-						migrated = true;
-					}
-				});
-				if (migrated) storageAdapter.saveStore(store);
-				return store;
-			},
-			saveStore(store) {
-				storageAdapter.saveStore(store);
-			}
-		};
+		return window.ManagementOsStorageMigrations.createArtifactMigrationAdapter({
+			storageAdapter
+		});
 	}
 
 	function initializeArtifacts() {

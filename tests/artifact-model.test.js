@@ -7,6 +7,7 @@ const {
 	ContextEnvelope,
 	LIFECYCLE
 } = require("../js/artifact-model.js");
+const { createArtifactMigrationAdapter } = require("../js/storage-migrations.js");
 
 function memoryStorageAdapter() {
 	let value = null;
@@ -67,6 +68,48 @@ test("Artifact identity and provenance survive edits and repository reload", () 
 	assert.deepEqual(reloaded.provenance, created.provenance);
 	assert.equal(reloaded.provenance.rawInput, "Margin declined.");
 	assert.equal(reloaded.history.at(-1).type, "artifact.revised");
+});
+
+test("Artifact ensure is idempotent and rejects identity conflicts without mutation", () => {
+	const { repository, storageAdapter, input } = harness();
+	const created = repository.ensure(input);
+	const before = storageAdapter.loadStore();
+	assert.deepEqual(repository.ensure(input), created);
+	assert.throws(() => repository.ensure({ ...input, matterId: "MAT-OTHER" }), /another Matter/);
+	assert.throws(() => repository.ensure({
+		...input,
+		owner: { id: "other-owner", name: "Other Owner", role: "owner" }
+	}), /canonical owner/);
+	assert.throws(() => repository.ensure({
+		...input,
+		provenance: { ...input.provenance, circumstance: "Conflicting birth." }
+	}), /birth provenance/);
+	assert.deepEqual(storageAdapter.loadStore(), before);
+});
+
+test("Artifact legacy ownership migration is versioned, narrow, and idempotent", () => {
+	const { repository, storageAdapter, input } = harness();
+	repository.create(input);
+	const legacy = storageAdapter.loadStore();
+	delete legacy.artifacts[input.id].ownership.ownerRole;
+	storageAdapter.saveStore(legacy);
+	const migration = createArtifactMigrationAdapter({ storageAdapter });
+	const migrated = migration.loadStore();
+	assert.equal(migrated.artifacts[input.id].ownership.ownerRole, "owner");
+	assert.equal(migration.getDiagnostics()[0].step, "artifact-v1-add-owner-role");
+	const afterFirstLoad = storageAdapter.loadStore();
+	assert.deepEqual(migration.loadStore(), afterFirstLoad);
+	assert.deepEqual(migration.getDiagnostics(), []);
+
+	const malformed = storageAdapter.loadStore();
+	delete malformed.artifacts[input.id].ownership.ownerRole;
+	malformed.artifacts[input.id].ownership.ownerName = "";
+	storageAdapter.saveStore(malformed);
+	assert.equal(migration.loadStore().artifacts[input.id].ownership.ownerRole, undefined);
+	assert.throws(
+		() => createArtifactRepository({ storageAdapter: migration, matterId: "MAT-TEST" }).get(input.id),
+		/ownerName/
+	);
 });
 
 test("Repository depends only on replaceable loadStore/saveStore contract", () => {
@@ -206,23 +249,23 @@ test("Watson cannot own or mutate an Artifact", () => {
 
 	assert.throws(
 		() => repository.create({ ...input, id: "watson-owned", owner: watson }),
-		/cannot own/
+		/owner or explicitly delegated/
 	);
 	assert.throws(
 		() => repository.ensure({ ...input, id: "watson-ensured", owner: watson }),
-		/cannot own/
+		/owner or explicitly delegated/
 	);
 	assert.throws(
 		() => repository.edit(input.id, { wording: "Watson changed it." }, watson, "Watson edit."),
-		/authorized human/
+		/not authorized/
 	);
 	assert.throws(
 		() => repository.setState(input.id, "review", "reviewed", watson, "Watson state change."),
-		/authorized human/
+		/not authorized/
 	);
 	assert.throws(
 		() => repository.transitionLifecycle(input.id, "admitted", watson, "Watson lifecycle change."),
-		/authorized human/
+		/not authorized/
 	);
 	assert.throws(
 		() => repository.inspect(input.id, {
@@ -236,7 +279,7 @@ test("Watson cannot own or mutate an Artifact", () => {
 			unresolvedWork: [],
 			lastConsequentialChange: null
 		}, watson),
-		/authorized human/
+		/not authorized/
 	);
 	assert.equal(repository.get(input.id).ownership.ownerId, owner.id);
 });
@@ -316,7 +359,7 @@ test("Relationship reference integration is protected, idempotent, historical, a
 	assert.equal(unchanged.history.length, attached.history.length);
 	assert.throws(
 		() => repository.attachRelationshipRef(artifact.id, "relationship-2", watson, "Unauthorized attachment."),
-		/authorized human/
+		/not authorized/
 	);
 	assert.throws(
 		() => repository.detachRelationshipRef(artifact.id, "relationship-1", owner, "Ordinary cleanup."),

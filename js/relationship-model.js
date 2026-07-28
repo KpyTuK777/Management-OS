@@ -1,6 +1,11 @@
 (function (globalScope) {
 	"use strict";
 
+	const authorityApi = typeof module === "object" && module.exports
+		? require("./authority-policy.js")
+		: globalScope.ManagementOsAuthorityPolicy;
+	if (!authorityApi) throw new Error("Canonical Authority Policy is required.");
+
 	const SCHEMA_VERSION = 1;
 	const LIFECYCLE_POLICY_CONTRACT = "management-os.relationship-lifecycle-policy";
 	const LIFECYCLE_POLICY_VERSION = 1;
@@ -72,15 +77,13 @@
 
 	function normalizeActor(actor, label = "actor") {
 		invariant(actor && typeof actor === "object", `${label} is required.`);
-		return {
+		const normalized = {
 			id: nonEmpty(actor.id, `${label}.id`),
 			name: nonEmpty(actor.name, `${label}.name`),
 			role: nonEmpty(actor.role, `${label}.role`)
 		};
-	}
-
-	function isHuman(actor) {
-		return !["watson", "system", "source"].includes(actor.role);
+		invariant(authorityApi.ROLES.includes(normalized.role), `${label}.role is not canonical.`);
+		return normalized;
 	}
 
 	function defaultId(prefix = "relationship") {
@@ -183,6 +186,17 @@
 		const clock = options.clock || (() => new Date().toISOString());
 		const idGenerator = options.idGenerator || (() => defaultId());
 		const contextEnvelopeContract = options.contextEnvelopeContract || globalScope.ManagementOsArtifacts?.ContextEnvelope || null;
+		const authorityPolicy = options.authorityPolicy || authorityApi.createAuthorityPolicy({
+			delegateGrant: options.delegateGrant || ((actor, action, context) => (
+				action === authorityApi.ACTIONS.RELATIONSHIP_GOVERN
+				&& context.relationship?.governingAuthority?.id === actor.id
+			))
+		});
+		const recoveryActor = Object.freeze({
+			id: "management-os-relationship-recovery",
+			name: "Management OS Relationship Recovery",
+			role: "system"
+		});
 
 		function emptyStore() {
 			return {
@@ -196,7 +210,7 @@
 
 		function validateAuthority(authority) {
 			const normalized = normalizeActor(authority, "governingAuthority");
-			invariant(isHuman(normalized), "Watson, the system, and sources cannot govern a Relationship.");
+			invariant(["owner", "delegate"].includes(normalized.role), "Only an owner or explicitly delegated actor may govern a Relationship.");
 			return normalized;
 		}
 
@@ -311,7 +325,7 @@
 
 		function requireHumanGovernance(relationship, actor) {
 			const normalized = normalizeActor(actor);
-			invariant(isHuman(normalized), "Watson cannot make a governing judgment about a Relationship.");
+			authorityPolicy.assertAllowed(normalized, authorityApi.ACTIONS.RELATIONSHIP_GOVERN, { relationship, matterId });
 			invariant(normalized.id === relationship.governingAuthority.id, `${normalized.name} is not the governing authority for this Relationship.`);
 			return normalized;
 		}
@@ -345,11 +359,16 @@
 					changed = true;
 					return;
 				}
-				const authority = operation.governingAuthority;
 				[operation.sourceArtifactId, operation.targetArtifactId].forEach(artifactId => {
 					const artifact = artifactRepository.get(artifactId);
 					if (artifact?.relationshipRefs.includes(operation.relationshipId)) {
-						artifactRepository.detachRelationshipRef(artifactId, operation.relationshipId, authority, "Recovered an interrupted Relationship transaction.", { rollback: true });
+						artifactRepository.detachRelationshipRef(
+							artifactId,
+							operation.relationshipId,
+							recoveryActor,
+							"Recovered an interrupted Relationship transaction.",
+							{ rollback: true, recovery: true }
+						);
 					}
 				});
 				delete store.pendingOperations[operation.id];
@@ -358,21 +377,13 @@
 			if (changed) writeStore(store);
 		}
 
-		function recoveryActorFor(artifact) {
-			return {
-				id: artifact.ownership.ownerId,
-				name: artifact.ownership.ownerName,
-				role: artifact.ownership.ownerRole
-			};
-		}
-
 		function detachDanglingReference(artifact, relationshipId, reason) {
 			artifactRepository.detachRelationshipRef(
 				artifact.id,
 				relationshipId,
-				recoveryActorFor(artifact),
+				recoveryActor,
 				reason,
-				{ rollback: true }
+				{ rollback: true, recovery: true }
 			);
 		}
 
@@ -449,6 +460,7 @@
 			invariant(semanticPolicy.supportsDirection(semanticType, direction), `${direction} is invalid for ${semanticType}.`);
 			const governingAuthority = validateAuthority(input.governingAuthority);
 			const provenance = validateProvenance({ ...input.provenance, proposedAt: input.provenance?.proposedAt || now });
+			authorityPolicy.assertAllowed(provenance.proposer, authorityApi.ACTIONS.RELATIONSHIP_PROPOSE, { matterId });
 			const uncertainty = validateUncertainty(input.uncertainty);
 			validateEvidenceReferences([...new Set([...provenance.evidenceBasis, ...uncertainty.evidenceArtifactIds])]);
 			const store = readStore();
@@ -522,7 +534,22 @@
 
 		function ensure(input) {
 			nonEmpty(input?.id, "relationship.id");
-			return get(input.id) || propose(input);
+			const existing = get(input.id);
+			if (!existing) return propose(input);
+			if (input.matterId !== undefined) invariant(input.matterId === matterId, `Relationship ${input.id} identity conflicts with another Matter.`);
+			const endpoints = {
+				sourceArtifactId: nonEmpty(input.sourceArtifactId, "sourceArtifactId"),
+				targetArtifactId: nonEmpty(input.targetArtifactId, "targetArtifactId")
+			};
+			invariant(JSON.stringify(existing.endpoints) === JSON.stringify(endpoints), `Relationship ${input.id} identity conflicts with its endpoints.`);
+			const provenance = validateProvenance({
+				...input.provenance,
+				proposedAt: input.provenance?.proposedAt || existing.provenance.proposedAt
+			});
+			invariant(JSON.stringify(existing.provenance) === JSON.stringify(provenance), `Relationship ${input.id} identity conflicts with its initial provenance.`);
+			const authority = validateAuthority(input.governingAuthority);
+			invariant(JSON.stringify(existing.governingAuthority) === JSON.stringify(authority), `Relationship ${input.id} identity conflicts with its governing authority.`);
+			return existing;
 		}
 
 		function get(relationshipId) {
@@ -562,14 +589,42 @@
 			});
 		}
 
-		function supersede(relationshipId, replacementRelationshipId, actor, reason) {
-			const replacement = get(replacementRelationshipId);
+		function supersede(relationshipId, replacementRelationshipId, actor, reason, options = {}) {
+			invariant(options && typeof options === "object", "Supersession options must be an object.");
+			const store = readStore();
+			const current = requireRelationship(store, relationshipId);
+			const replacement = store.relationships[nonEmpty(replacementRelationshipId, "replacementRelationshipId")];
 			invariant(replacement, "A superseding Relationship must already exist.");
 			invariant(replacement.id !== relationshipId, "A Relationship cannot supersede itself.");
+			invariant(replacement.matterId === matterId, "A superseding Relationship must belong to the same Matter.");
+			invariant(
+				replacement.lifecycle.stage === "accepted"
+					&& replacement.states.governance === "accepted"
+					&& replacement.states.participation === "active",
+				"A superseding Relationship must be accepted and operationally active."
+			);
+			const compatibleEndpoints = JSON.stringify(current.endpoints) === JSON.stringify(replacement.endpoints);
+			if (!compatibleEndpoints) {
+				invariant(options.allowEndpointChange === true, "Superseding Relationship endpoints are not compatible.");
+				nonEmpty(options.endpointChangeJustification, "endpointChangeJustification");
+			}
+			let cursor = replacement;
+			const visited = new Set();
+			while (cursor?.supersededByRelationshipId) {
+				invariant(!visited.has(cursor.id), "Relationship supersession lineage contains a cycle.");
+				visited.add(cursor.id);
+				invariant(cursor.supersededByRelationshipId !== current.id, "Relationship supersession would create a cycle.");
+				cursor = store.relationships[cursor.supersededByRelationshipId];
+			}
+			invariant(!replacement.supersededByRelationshipId, "A superseding Relationship must not already be superseded.");
 			return transition(relationshipId, "superseded", actor, reason, relationship => {
 				relationship.states.governance = "superseded";
 				relationship.states.participation = "peripheral";
 				relationship.supersededByRelationshipId = replacement.id;
+				relationship.history.push(makeEvent("relationship.supersession.linked", actor, reason, {
+					replacementRelationshipId: replacement.id,
+					endpointChangeJustification: compatibleEndpoints ? null : options.endpointChangeJustification
+				}));
 			});
 		}
 
@@ -637,7 +692,11 @@
 			const mayEditProposal = relationship.lifecycle.stage === "proposed"
 				&& normalizedActor.id === relationship.provenance.proposer.id
 				&& normalizedActor.role === relationship.provenance.proposer.role;
-			if (!mayEditProposal) requireHumanGovernance(relationship, normalizedActor);
+			if (mayEditProposal) {
+				authorityPolicy.assertAllowed(normalizedActor, authorityApi.ACTIONS.RELATIONSHIP_PROPOSAL_EDIT, { relationship, matterId });
+			} else {
+				requireHumanGovernance(relationship, normalizedActor);
+			}
 			const changeSet = applyEditableChanges(relationship, changes);
 			if (!changeSet.changed) return clone(relationship);
 			relationship.revision += 1;
@@ -669,6 +728,7 @@
 			const proposer = normalizeActor(actor);
 			invariant(relationship.lifecycle.stage === "proposed", "Only an unresolved proposal may be withdrawn.");
 			invariant(proposer.id === relationship.provenance.proposer.id && proposer.role === relationship.provenance.proposer.role, "Only the original proposer may withdraw this proposal.");
+			authorityPolicy.assertAllowed(proposer, authorityApi.ACTIONS.RELATIONSHIP_PROPOSAL_WITHDRAW, { relationship, matterId });
 			relationship.lifecycle.stage = "rejected";
 			relationship.states.governance = "rejected";
 			relationship.states.participation = "peripheral";
