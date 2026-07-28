@@ -151,10 +151,44 @@
 		});
 	}
 
+	function createOperationalMemoryMigrationAdapter(options = {}) {
+		const adapter = options.storageAdapter;
+		if (!adapter || typeof adapter.loadStore !== "function" || typeof adapter.saveStore !== "function") {
+			throw new Error("Operational Memory migration requires a Storage Adapter.");
+		}
+		const authorityPolicy = options.authorityPolicy || authorityApi.DEFAULT_AUTHORITY_POLICY;
+		authorityPolicy.assertAllowed(SYSTEM_ACTOR, authorityApi.ACTIONS.STORAGE_MIGRATE, { systemOperation: true });
+		let diagnostics = [];
+		return Object.freeze({
+			loadStore() {
+				const store = adapter.loadStore();
+				diagnostics = [];
+				if (store === null) return null;
+				diagnostics.push({
+					contract: MIGRATION_CONTRACT,
+					contractVersion: MIGRATION_CONTRACT_VERSION,
+					step: "operational-memory-schema-v1",
+					result: store.schemaVersion === 1 ? "skipped" : "rejected",
+					reason: store.schemaVersion === 1
+						? "Store already satisfies the current Operational Memory schema."
+						: "No migration path exists for this Operational Memory schema."
+				});
+				return clone(store);
+			},
+			saveStore(store) {
+				adapter.saveStore(clone(store));
+			},
+			getDiagnostics() {
+				return clone(diagnostics);
+			}
+		});
+	}
+
 	return Object.freeze({
 		MIGRATION_CONTRACT,
 		MIGRATION_CONTRACT_VERSION,
 		SYSTEM_ACTOR,
-		createArtifactMigrationAdapter
+		createArtifactMigrationAdapter,
+		createOperationalMemoryMigrationAdapter
 	});
 });

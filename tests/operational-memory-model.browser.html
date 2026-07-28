@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Operational Memory browser contracts</title>
+		<link rel="icon" href="data:,">
+	</head>
+	<body data-test-result="running">
+		<pre id="result">Running</pre>
+		<script src="../js/authority-policy.js"></script>
+		<script src="../js/operational-memory-model.js"></script>
+		<script>
+			(() => {
+				const result = document.getElementById("result");
+				const assert = (condition, message) => { if (!condition) throw new Error(message); };
+				let stored = null;
+				const adapter = {
+					loadStore: () => stored === null ? null : JSON.parse(JSON.stringify(stored)),
+					saveStore: store => { stored = JSON.parse(JSON.stringify(store)); }
+				};
+				const owner = { id: "owner", name: "Owner", role: "owner" };
+				try {
+					const repository = ManagementOsOperationalMemory.createOperationalMemoryRepository({
+						storageAdapter: adapter,
+						matterId: "MAT-BROWSER-MEMORY"
+					});
+					const created = repository.record({
+						id: "memory-browser-1",
+						type: "governance.judgment.recorded",
+						occurredAt: "2026-07-28T12:00:00.000Z",
+						actor: owner,
+						governingAuthority: owner,
+						reason: "Owner accepted the judgment.",
+						meaning: "A governed interpretation changed the Matter.",
+						affectedEntityRefs: [{ kind: "relationship", id: "relationship-1" }],
+						sourceEventRefs: [{
+							aggregateKind: "relationship",
+							aggregateId: "relationship-1",
+							eventId: "relationship-event-1"
+						}],
+						evidenceBasis: [{ kind: "artifact", id: "artifact-1" }],
+						unresolvedConsequences: [{ id: "question-1", meaning: "One assumption remains open." }],
+						provenance: { method: "browser-contract", origin: "test" },
+						correlationId: "operation-1",
+						reasoningEpisodeId: "episode-1"
+					});
+					const reloaded = ManagementOsOperationalMemory.createOperationalMemoryRepository({
+						storageAdapter: adapter,
+						matterId: "MAT-BROWSER-MEMORY"
+					});
+					assert(reloaded.get(created.id).id === created.id, "Memory Event did not survive reload.");
+					assert(reloaded.findByEntity("relationship", "relationship-1").length === 1, "Entity query failed.");
+					assert(reloaded.listUnresolvedConsequences().length === 1, "Unresolved consequence query failed.");
+					assert(reloaded.validateIntegrity(), "Integrity validation failed.");
+					document.body.dataset.testResult = "passed";
+					result.textContent = "Operational Memory browser contracts passed";
+				} catch (error) {
+					document.body.dataset.testResult = "failed";
+					result.textContent = error.stack || error.message;
+				}
+			})();
+		</script>
+	</body>
+</html>

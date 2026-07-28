@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Workbench Operational Memory journey</title>
+		<link rel="icon" href="data:,">
+	</head>
+	<body data-test-result="running">
+		<pre id="result">Running</pre>
+		<iframe id="app" title="Management OS"></iframe>
+		<script>
+			(async () => {
+				const result = document.getElementById("result");
+				const frame = document.getElementById("app");
+				const artifactKey = "managementOs.artifacts.v1.MAT-0247";
+				const relationshipKey = "managementOs.relationships.v1.MAT-0247";
+				const memoryKey = "managementOs.operationalMemory.v1.MAT-0247";
+				const errors = [];
+				let sequence = 0;
+				const assert = (condition, message) => { if (!condition) throw new Error(message); };
+				const load = source => new Promise((resolve, reject) => {
+					const url = new URL(source, location.href);
+					url.searchParams.set("memoryJourney", String(++sequence));
+					const timeout = setTimeout(() => reject(new Error("Application load timed out.")), 5000);
+					frame.onload = () => {
+						clearTimeout(timeout);
+						const app = frame.contentWindow;
+						app.addEventListener("error", event => errors.push(event.message));
+						app.addEventListener("unhandledrejection", event => errors.push(String(event.reason)));
+						const originalError = app.console.error.bind(app.console);
+						app.console.error = (...args) => {
+							errors.push(args.map(String).join(" "));
+							originalError(...args);
+						};
+						setTimeout(() => resolve(app), 50);
+					};
+					frame.src = url.href;
+				});
+
+				try {
+					localStorage.removeItem(artifactKey);
+					localStorage.removeItem(relationshipKey);
+					localStorage.removeItem(memoryKey);
+					let app = await load("../index.html?demo=investigation&capture=approved&journey=first-hypothesis#investigations");
+					app.document.getElementById("acceptRelationship").click();
+					const firstStore = JSON.parse(localStorage.getItem(memoryKey));
+					const events = Object.values(firstStore.events);
+					assert(events.length === 1, "Governance produced an incorrect number of Memory Events.");
+					assert(events[0].type === "governance.judgment.recorded", "Accepted Relationship was not remembered as governed judgment.");
+					assert(events[0].sourceEventRefs[0].aggregateKind === "relationship", "Source event identity was not retained.");
+					assert(!Object.hasOwn(events[0].affectedEntityRefs[0], "relationship"), "Relationship payload was copied into memory.");
+
+					app = await load("../index.html?demo=investigation#investigations");
+					const reloadedStore = JSON.parse(localStorage.getItem(memoryKey));
+					assert(Object.keys(reloadedStore.events).length === 1, "Reload duplicated the Memory Event.");
+					assert(Object.keys(reloadedStore.pendingOperations).length === 0, "Completed operation remained pending.");
+					assert(errors.length === 0, `Workbench emitted runtime errors: ${errors.join(" | ")}`);
+					document.body.dataset.testResult = "passed";
+					result.textContent = "Workbench Operational Memory journey passed";
+				} catch (error) {
+					document.body.dataset.testResult = "failed";
+					result.textContent = error.stack || error.message;
+				}
+			})();
+		</script>
+	</body>
+</html>

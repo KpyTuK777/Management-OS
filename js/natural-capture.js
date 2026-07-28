@@ -10,6 +10,8 @@ const InvestigationPrototype = (() => {
 	let pendingContributionArtifactId = null;
 	let artifactRepository;
 	let relationshipRepository;
+	let operationalMemoryRepository;
+	let operationalMemoryCoordinator;
 	const matterId = "MAT-0247";
 	const evidenceHypothesisRelationshipId = "mat-0247-relationship-evidence-hypothesis";
 	const ownerActor = Object.freeze({ id: "owner-local", name: "Власник", role: "owner" });
@@ -247,6 +249,70 @@ const InvestigationPrototype = (() => {
 			artifactRepository
 		});
 		renderAcceptedRelationships();
+	}
+
+	function initializeOperationalMemory() {
+		const storageAdapter = window.ManagementOsOperationalMemory.createLocalStorageAdapter(
+			window.localStorage,
+			`managementOs.operationalMemory.v${window.ManagementOsOperationalMemory.SCHEMA_VERSION}.${matterId}`
+		);
+		const migrationAdapter = window.ManagementOsStorageMigrations.createOperationalMemoryMigrationAdapter({
+			storageAdapter
+		});
+		operationalMemoryRepository = window.ManagementOsOperationalMemory.createOperationalMemoryRepository({
+			storageAdapter: migrationAdapter,
+			matterId,
+			relationshipRepository
+		});
+		operationalMemoryCoordinator = window.ManagementOsOperationalMemory.createOperationalMemoryCoordinator({
+			repository: operationalMemoryRepository
+		});
+	}
+
+	function relationshipMemoryEvent(relationship, type, reason, operationId) {
+		const sourceEvent = relationship.history.at(-1);
+		return {
+			id: `memory-${operationId}`,
+			type,
+			occurredAt: sourceEvent.occurredAt,
+			actor: ownerActor,
+			governingAuthority: ownerActor,
+			reason,
+			meaning: type === "governance.judgment.recorded"
+				? "The owner accepted a proposed interpretation into the Matter's governed reasoning."
+				: "The owner rejected a proposed interpretation while preserving its historical trace.",
+			affectedEntityRefs: [{ kind: "relationship", id: relationship.id }],
+			sourceEventRefs: [{
+				aggregateKind: "relationship",
+				aggregateId: relationship.id,
+				eventId: sourceEvent.id
+			}],
+			evidenceBasis: relationship.uncertainty.evidenceArtifactIds.map(id => ({ kind: "artifact", id })),
+			unresolvedConsequences: relationship.uncertainty.unresolvedQuestions.map((meaning, index) => ({
+				id: `${relationship.id}-question-${index + 1}`,
+				meaning
+			})),
+			provenance: {
+				method: "coordinated-domain-operation",
+				origin: "Relationship governance"
+			},
+			correlationId: operationId,
+			reasoningEpisodeId: "mat-0247-first-hypothesis"
+		};
+	}
+
+	function coordinateRelationshipGovernance(action, relationshipId, actor, reason) {
+		const operationId = `${relationshipId}-${action}`;
+		return operationalMemoryCoordinator.execute({
+			operationId,
+			domainCommand: () => relationshipRepository[action](relationshipId, actor, reason),
+			memoryEvent: relationship => relationshipMemoryEvent(
+				relationship,
+				action === "accept" ? "governance.judgment.recorded" : "governance.proposal.rejected",
+				reason,
+				operationId
+			)
+		}).domainResult;
 	}
 
 	function ensureEvidenceHypothesisProposal(dataArtifact, hypothesisArtifact) {
@@ -998,6 +1064,7 @@ const InvestigationPrototype = (() => {
 		if (!elements.form) return;
 		initializeArtifacts();
 		initializeRelationships();
+		initializeOperationalMemory();
 		const inbox = document.querySelector(".matter-natural-capture");
 		if (inbox && elements.watsonSurface) inbox.appendChild(elements.watsonSurface);
 
@@ -1166,7 +1233,7 @@ const InvestigationPrototype = (() => {
 		elements.acceptRelationship.addEventListener("click", () => {
 			const relationship = relationshipRepository.get(evidenceHypothesisRelationshipId);
 			if (!relationship || relationship.lifecycle.stage !== "proposed") return;
-			relationshipRepository.accept(
+			coordinateRelationshipGovernance("accept",
 				relationship.id,
 				ownerActor,
 				"Власник прийняв запропоновану інтерпретацію для поточного розслідування."
@@ -1178,7 +1245,7 @@ const InvestigationPrototype = (() => {
 		elements.rejectRelationship.addEventListener("click", () => {
 			const relationship = relationshipRepository.get(evidenceHypothesisRelationshipId);
 			if (!relationship || relationship.lifecycle.stage !== "proposed") return;
-			relationshipRepository.reject(
+			coordinateRelationshipGovernance("reject",
 				relationship.id,
 				ownerActor,
 				"Власник відхилив запропоновану інтерпретацію."
