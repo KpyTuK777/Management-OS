@@ -115,14 +115,93 @@ test("endpoints must exist in one Matter and cannot form a self-link", () => {
 	assert.throws(() => foreignRepository.propose(proposal({ id: "cross", targetArtifactId: "foreign" })), /another Matter/);
 });
 
-test("Repository rejects dangling Artifact relationship references", () => {
+test("Repository recovers dangling Artifact relationship references without blocking startup", () => {
 	const { owner, artifacts } = setup();
 	artifacts.attachRelationshipRef("artifact-a", "missing-relationship", owner, "Injected corruption for contract validation.");
-	assert.throws(() => createRelationshipRepository({
+	const recovered = createRelationshipRepository({
 		storageAdapter: memoryAdapter(),
 		matterId: "MAT-REL",
 		artifactRepository: artifacts
-	}), /dangling Relationship reference/);
+	});
+	assert.equal(recovered.validateIntegrity(), true);
+	assert.equal(artifacts.get("artifact-a").relationshipRefs.includes("missing-relationship"), false);
+	assert.equal(artifacts.get("artifact-a").history.at(-1).type, "artifact.relationship.detached");
+});
+
+test("Repository quarantines a malformed Relationship and removes its endpoint references", () => {
+	const { owner, artifacts, relationshipStorage, proposal } = setup();
+	const repository = createRelationshipRepository({
+		storageAdapter: relationshipStorage,
+		matterId: "MAT-REL",
+		artifactRepository: artifacts
+	});
+	const created = repository.propose(proposal());
+	const stored = relationshipStorage.loadStore();
+	stored.relationships[created.id].semantic.type = "not-canonical";
+	relationshipStorage.saveStore(stored);
+
+	const recovered = createRelationshipRepository({
+		storageAdapter: relationshipStorage,
+		matterId: "MAT-REL",
+		artifactRepository: artifacts
+	});
+	assert.equal(recovered.get(created.id), null);
+	assert.equal(artifacts.get("artifact-a").relationshipRefs.includes(created.id), false);
+	assert.equal(artifacts.get("artifact-b").relationshipRefs.includes(created.id), false);
+	assert.match(relationshipStorage.loadStore().quarantinedRelationships[created.id].error, /semantic type is invalid/);
+	assert.equal(recovered.validateIntegrity(), true);
+});
+
+test("Repository rolls back an interrupted pending Relationship transaction", () => {
+	const { owner, artifacts, relationshipStorage } = setup();
+	artifacts.attachRelationshipRef("artifact-a", "interrupted", owner, "Simulated source attachment.");
+	relationshipStorage.saveStore({
+		schemaVersion: 1,
+		matterId: "MAT-REL",
+		relationships: {},
+		pendingOperations: {
+			interrupted: {
+				id: "interrupted",
+				relationshipId: "interrupted",
+				sourceArtifactId: "artifact-a",
+				targetArtifactId: "artifact-b",
+				governingAuthority: owner,
+				phase: "source-attached"
+			}
+		}
+	});
+
+	const recovered = createRelationshipRepository({
+		storageAdapter: relationshipStorage,
+		matterId: "MAT-REL",
+		artifactRepository: artifacts
+	});
+	assert.equal(artifacts.get("artifact-a").relationshipRefs.includes("interrupted"), false);
+	assert.deepEqual(relationshipStorage.loadStore().pendingOperations, {});
+	assert.equal(recovered.validateIntegrity(), true);
+});
+
+test("Repository quarantines a persisted Relationship when its endpoint Artifacts are absent", () => {
+	const { artifacts, relationshipStorage, proposal } = setup();
+	const repository = createRelationshipRepository({
+		storageAdapter: relationshipStorage,
+		matterId: "MAT-REL",
+		artifactRepository: artifacts
+	});
+	const created = repository.propose(proposal());
+	const emptyArtifacts = createArtifactRepository({
+		storageAdapter: memoryAdapter(),
+		matterId: "MAT-REL"
+	});
+
+	const recovered = createRelationshipRepository({
+		storageAdapter: relationshipStorage,
+		matterId: "MAT-REL",
+		artifactRepository: emptyArtifacts
+	});
+	assert.equal(recovered.get(created.id), null);
+	assert.match(relationshipStorage.loadStore().quarantinedRelationships[created.id].error, /existing Artifact/);
+	assert.equal(recovered.validateIntegrity(), true);
 });
 
 test("semantic and lifecycle policies are replaceable contracts, not hard-coded roads", () => {

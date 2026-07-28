@@ -185,7 +185,13 @@
 		const contextEnvelopeContract = options.contextEnvelopeContract || globalScope.ManagementOsArtifacts?.ContextEnvelope || null;
 
 		function emptyStore() {
-			return { schemaVersion: SCHEMA_VERSION, matterId, relationships: {}, pendingOperations: {} };
+			return {
+				schemaVersion: SCHEMA_VERSION,
+				matterId,
+				relationships: {},
+				pendingOperations: {},
+				quarantinedRelationships: {}
+			};
 		}
 
 		function validateAuthority(authority) {
@@ -273,6 +279,9 @@
 			invariant(loaded.matterId === matterId, "Relationship store belongs to another Matter.");
 			invariant(loaded.relationships && typeof loaded.relationships === "object", "Relationship store is invalid.");
 			invariant(loaded.pendingOperations && typeof loaded.pendingOperations === "object", "Relationship operation journal is invalid.");
+			if (!loaded.quarantinedRelationships || typeof loaded.quarantinedRelationships !== "object") {
+				loaded.quarantinedRelationships = {};
+			}
 			Object.entries(loaded.relationships).forEach(([id, relationship]) => validateStoredRelationship(id, relationship));
 			return loaded;
 		}
@@ -347,6 +356,84 @@
 				changed = true;
 			});
 			if (changed) writeStore(store);
+		}
+
+		function recoveryActorFor(artifact) {
+			return {
+				id: artifact.ownership.ownerId,
+				name: artifact.ownership.ownerName,
+				role: artifact.ownership.ownerRole
+			};
+		}
+
+		function detachDanglingReference(artifact, relationshipId, reason) {
+			artifactRepository.detachRelationshipRef(
+				artifact.id,
+				relationshipId,
+				recoveryActorFor(artifact),
+				reason,
+				{ rollback: true }
+			);
+		}
+
+		function recoverMalformedRelationships() {
+			const loaded = storageAdapter.loadStore();
+			if (loaded === null) return;
+			invariant(loaded.schemaVersion === SCHEMA_VERSION, "Unsupported Relationship store schema.");
+			invariant(loaded.matterId === matterId, "Relationship store belongs to another Matter.");
+			invariant(loaded.relationships && typeof loaded.relationships === "object", "Relationship store is invalid.");
+			invariant(loaded.pendingOperations && typeof loaded.pendingOperations === "object", "Relationship operation journal is invalid.");
+			const quarantineAdded = !loaded.quarantinedRelationships || typeof loaded.quarantinedRelationships !== "object";
+			if (!loaded.quarantinedRelationships || typeof loaded.quarantinedRelationships !== "object") {
+				loaded.quarantinedRelationships = {};
+			}
+			let changed = false;
+			Object.entries(loaded.relationships).forEach(([relationshipId, relationship]) => {
+				try {
+					validateStoredRelationship(relationshipId, relationship);
+					requireArtifact(relationship.endpoints.sourceArtifactId, "sourceArtifactId");
+					requireArtifact(relationship.endpoints.targetArtifactId, "targetArtifactId");
+					validateEvidenceReferences([
+						...new Set([
+							...relationship.provenance.evidenceBasis,
+							...relationship.uncertainty.evidenceArtifactIds
+						])
+					]);
+				} catch (error) {
+					loaded.quarantinedRelationships[relationshipId] = {
+						relationship: clone(relationship),
+						error: error.message,
+						quarantinedAt: clock()
+					};
+					delete loaded.relationships[relationshipId];
+					artifactRepository.list().forEach(artifact => {
+						if (artifact.relationshipRefs.includes(relationshipId)) {
+							detachDanglingReference(
+								artifact,
+								relationshipId,
+								"Malformed Relationship was quarantined during startup recovery."
+							);
+						}
+					});
+					changed = true;
+				}
+			});
+			if (changed || quarantineAdded) storageAdapter.saveStore(loaded);
+		}
+
+		function recoverDanglingArtifactReferences() {
+			const store = readStore();
+			artifactRepository.list().forEach(artifact => {
+				artifact.relationshipRefs.forEach(relationshipId => {
+					if (!store.relationships[relationshipId]) {
+						detachDanglingReference(
+							artifact,
+							relationshipId,
+							"Dangling Relationship reference was rolled back during startup recovery."
+						);
+					}
+				});
+			});
 		}
 
 		function propose(input) {
@@ -633,7 +720,9 @@
 			return true;
 		}
 
+		recoverMalformedRelationships();
 		recoverPendingOperations();
+		recoverDanglingArtifactReferences();
 		validateIntegrity();
 
 		return Object.freeze({

@@ -164,13 +164,39 @@ const InvestigationPrototype = (() => {
 			});
 	}
 
-	function initializeArtifacts() {
+	function createArtifactStorageAdapter() {
 		const storageAdapter = window.ManagementOsArtifacts.createLocalStorageAdapter({
 			storage: window.localStorage,
 			storageKey: `managementOs.artifacts.v${window.ManagementOsArtifacts.SCHEMA_VERSION}.${matterId}`
 		});
+		return {
+			loadStore() {
+				const store = storageAdapter.loadStore();
+				if (!store?.artifacts || typeof store.artifacts !== "object") return store;
+				let migrated = false;
+				Object.values(store.artifacts).forEach(artifact => {
+					if (
+						artifact?.ownership
+						&& artifact.ownership.ownerRole === undefined
+						&& typeof artifact.ownership.ownerId === "string"
+						&& artifact.ownership.ownerId.trim()
+					) {
+						artifact.ownership.ownerRole = "owner";
+						migrated = true;
+					}
+				});
+				if (migrated) storageAdapter.saveStore(store);
+				return store;
+			},
+			saveStore(store) {
+				storageAdapter.saveStore(store);
+			}
+		};
+	}
+
+	function initializeArtifacts() {
 		artifactRepository = window.ManagementOsArtifacts.createArtifactRepository({
-			storageAdapter,
+			storageAdapter: createArtifactStorageAdapter(),
 			matterId
 		});
 
@@ -454,6 +480,19 @@ const InvestigationPrototype = (() => {
 		elements.watsonSurface.classList.remove("is-compact");
 	}
 
+	function showInvestigationWorkspace() {
+		elements.home.classList.add("hidden");
+		elements.workspace.classList.remove("hidden");
+		Object.keys(collectionItems).forEach(updateCollection);
+		showView("understanding");
+		document.querySelectorAll(".sidebar nav a").forEach(link => {
+			const active = link.getAttribute("href") === "index.html#investigations";
+			link.classList.toggle("active", active);
+			if (active) link.setAttribute("aria-current", "page");
+			else link.removeAttribute("aria-current");
+		});
+	}
+
 	function openInvestigation(event) {
 		event.preventDefault();
 		const symptom = elements.input.value.trim();
@@ -461,19 +500,10 @@ const InvestigationPrototype = (() => {
 
 		elements.reportedSymptom.textContent = `“${symptom}”`;
 		applyContext(elements.context.value);
-		elements.home.classList.add("hidden");
-		elements.workspace.classList.remove("hidden");
-		Object.keys(collectionItems).forEach(updateCollection);
-		showView("understanding");
+		showInvestigationWorkspace();
 		elements.workspace.focus({ preventScroll: true });
 		window.scrollTo({ top: 0, behavior: "instant" });
 		window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}#investigations`);
-		document.querySelectorAll(".sidebar nav a").forEach(link => {
-			const active = link.getAttribute("href") === "index.html#investigations";
-			link.classList.toggle("active", active);
-			if (active) link.setAttribute("aria-current", "page");
-			else link.removeAttribute("aria-current");
-		});
 		announce("Створено тимчасову операційну справу MAT-0247 і перше розслідування. Повідомлений симптом збережено лише в пам’яті сторінки.");
 	}
 
@@ -956,6 +986,7 @@ const InvestigationPrototype = (() => {
 			milestoneContribution: document.getElementById("milestoneContribution"),
 			boardUnderstanding: document.getElementById("boardUnderstanding"),
 			boardReasoningBasis: document.getElementById("boardReasoningBasis"),
+			boardUncertainty: document.getElementById("boardUncertainty"),
 			boardRecentChange: document.getElementById("boardRecentChange"),
 			boardNextJudgment: document.getElementById("boardNextJudgment"),
 			openSimulation: document.getElementById("openSimulationButton"),
@@ -1189,6 +1220,10 @@ const InvestigationPrototype = (() => {
 		const relationshipState = relationshipRepository.get(evidenceHypothesisRelationshipId);
 		elements.relationshipProposal.classList.toggle("hidden", relationshipState?.lifecycle.stage !== "proposed");
 		renderAcceptedRelationships();
+		window.addEventListener("hashchange", () => {
+			if (window.location.hash === "#investigations") showInvestigationWorkspace();
+		});
+		if (window.location.hash === "#investigations") showInvestigationWorkspace();
 
 		if (new URLSearchParams(window.location.search).get("demo") === "investigation") {
 			elements.input.value = "Прибуток різко впав протягом останніх двох місяців.";

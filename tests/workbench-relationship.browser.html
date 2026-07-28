@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Workbench and Relationship browser journey</title>
+		<link rel="icon" href="data:,">
+	</head>
+	<body data-test-result="running">
+		<pre id="result">Running</pre>
+		<iframe id="app" title="Management OS test application"></iframe>
+		<script>
+			(async () => {
+				const result = document.getElementById("result");
+				const frame = document.getElementById("app");
+				const artifactKey = "managementOs.artifacts.v1.MAT-0247";
+				const relationshipKey = "managementOs.relationships.v1.MAT-0247";
+				let loadSequence = 0;
+				const runtimeErrors = [];
+				const assert = (condition, message) => { if (!condition) throw new Error(message); };
+				const isRendered = element => {
+					const style = element.ownerDocument.defaultView.getComputedStyle(element);
+					return style.display !== "none"
+						&& style.visibility !== "hidden"
+						&& style.opacity !== "0"
+						&& Boolean(element.offsetWidth || element.offsetHeight || element.getClientRects().length);
+				};
+				const load = source => new Promise((resolve, reject) => {
+					const target = new URL(source, window.location.href);
+					target.searchParams.set("browserTestLoad", String(++loadSequence));
+					const timeout = window.setTimeout(() => reject(new Error(`Timed out loading ${target.href}`)), 5000);
+					frame.onload = () => {
+						window.clearTimeout(timeout);
+						const app = frame.contentWindow;
+						app.addEventListener("error", event => runtimeErrors.push(event.error?.stack || event.message));
+						app.addEventListener("unhandledrejection", event => runtimeErrors.push(event.reason?.stack || String(event.reason)));
+						const consoleError = app.console.error.bind(app.console);
+						app.console.error = (...args) => {
+							runtimeErrors.push(args.map(String).join(" "));
+							consoleError(...args);
+						};
+						window.setTimeout(() => resolve(app), 50);
+					};
+					frame.src = target.href;
+				});
+
+				try {
+					localStorage.removeItem(artifactKey);
+					localStorage.removeItem(relationshipKey);
+					sessionStorage.clear();
+
+					let app = await load("../index.html");
+					assert(isRendered(app.document.getElementById("investigationHome")), "Home did not render from clean storage.");
+					assert(!isRendered(app.document.getElementById("investigationWorkspace")), "Workbench rendered before an investigation was requested.");
+					const productionSource = await fetch("../js/natural-capture.js").then(response => response.text());
+					const requiredIds = [...new Set(
+						[...productionSource.matchAll(/document\.getElementById\("([^"]+)"\)/g)]
+							.map(match => match[1])
+					)];
+					const missingRequiredIds = requiredIds.filter(id => !app.document.getElementById(id));
+					assert(
+						missingRequiredIds.length === 0,
+						`Production DOM is missing required selectors: ${missingRequiredIds.map(id => `#${id}`).join(", ")}`
+					);
+					assert(!productionSource.includes("map-connections"), "Production logic still references a removed legacy connector.");
+
+					const investigationLink = app.document.querySelector('a[href="index.html#investigations"]');
+					investigationLink.href = `${app.location.pathname}${app.location.search}#investigations`;
+					investigationLink.click();
+					await new Promise(resolve => window.setTimeout(resolve, 50));
+					assert(!isRendered(app.document.getElementById("investigationHome")), "Same-document hash navigation left Home visible.");
+					assert(isRendered(app.document.getElementById("investigationWorkspace")), "Same-document hash navigation did not render Workbench.");
+
+					app = await load("../index.html#investigations");
+					assert(!isRendered(app.document.getElementById("investigationHome")), "Direct hash left Home visible.");
+					assert(isRendered(app.document.getElementById("investigationWorkspace")), "Direct hash did not render Workbench.");
+
+					app = await load("../index.html");
+					app.document.getElementById("investigationInput").value = "A deterministic browser test situation";
+					app.document.getElementById("investigationIntake").requestSubmit();
+					assert(app.location.hash === "#investigations", "Enter journey did not establish the Workbench route.");
+					assert(isRendered(app.document.getElementById("investigationWorkspace")), "Enter did not render Workbench.");
+
+					app = await load("../index.html#investigations");
+					assert(isRendered(app.document.getElementById("investigationWorkspace")), "Refresh did not render Workbench.");
+
+					const legacyArtifactStore = JSON.parse(localStorage.getItem(artifactKey));
+					Object.values(legacyArtifactStore.artifacts).forEach(artifact => {
+						delete artifact.ownership.ownerRole;
+					});
+					localStorage.setItem(artifactKey, JSON.stringify(legacyArtifactStore));
+					app = await load("../index.html");
+					assert(isRendered(app.document.getElementById("investigationHome")), "Legacy Artifact store blocked Home startup.");
+					app.document.getElementById("investigationInput").value = "A legacy Artifact store situation";
+					app.document.getElementById("investigationIntake").requestSubmit();
+					assert(isRendered(app.document.getElementById("investigationWorkspace")), "Legacy Artifact store blocked Workbench.");
+					assert(
+						Object.values(JSON.parse(localStorage.getItem(artifactKey)).artifacts)
+							.every(artifact => artifact.ownership.ownerRole === "owner"),
+						"Legacy Artifact ownership shape was not migrated."
+					);
+
+					localStorage.removeItem(artifactKey);
+					localStorage.removeItem(relationshipKey);
+					app = await load("../index.html?demo=investigation&capture=approved&journey=first-hypothesis#investigations");
+					const proposal = app.document.getElementById("relationshipProposal");
+					assert(!proposal.classList.contains("hidden"), "Watson Relationship proposal was not available for review.");
+					assert(app.document.getElementById("acceptedRelationshipView").children.length === 0, "Proposal rendered as accepted.");
+					app.document.getElementById("acceptRelationship").click();
+					assert(app.document.getElementById("acceptedRelationshipView").children.length === 3, "Accepted Relationship did not render from Repository state.");
+
+					app = await load("../index.html?demo=investigation#investigations");
+					assert(isRendered(app.document.getElementById("investigationWorkspace")), "Reload did not render Workbench.");
+					assert(app.document.getElementById("acceptedRelationshipView").children.length === 3, "Reload did not restore the accepted Relationship.");
+					assert(runtimeErrors.length === 0, `Production index emitted runtime errors: ${runtimeErrors.join(" | ")}`);
+
+					document.body.dataset.testResult = "passed";
+					result.textContent = "Workbench and Relationship browser journey passed";
+				} catch (error) {
+					document.body.dataset.testResult = "failed";
+					result.textContent = error.stack || error.message;
+				}
+			})();
+		</script>
+	</body>
+</html>

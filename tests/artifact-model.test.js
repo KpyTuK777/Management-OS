@@ -196,7 +196,7 @@ test("Inspection requires and restores a complete Context Envelope", () => {
 	assert.equal(ContextEnvelope.isCompatible(closed.contextEnvelope, { matterId: "OTHER" }), false);
 	assert.throws(
 		() => repository.inspect(input.id, { matterId: "MAT-TEST" }, owner),
-		/Context Envelope requires/
+		/Context Envelope/
 	);
 });
 
@@ -297,4 +297,43 @@ test("Relationship readiness is identity-based and contains no simulated links",
 	assert.deepEqual(artifact.relationshipRefs, []);
 	assert.equal(Object.hasOwn(artifact, "relationships"), false);
 	assert.equal(artifact.matterId, "MAT-TEST");
+});
+
+test("Relationship reference integration is protected, idempotent, historical, and rollback-only", () => {
+	const { repository, owner, watson, input } = harness();
+	const artifact = repository.create(input);
+	const baseline = {
+		content: structuredClone(artifact.content),
+		provenance: structuredClone(artifact.provenance),
+		lifecycle: structuredClone(artifact.lifecycle),
+		states: structuredClone(artifact.states)
+	};
+
+	const attached = repository.attachRelationshipRef(artifact.id, "relationship-1", owner, "Relationship transaction attached a reference.");
+	assert.deepEqual(attached.relationshipRefs, ["relationship-1"]);
+	assert.equal(attached.history.at(-1).type, "artifact.relationship.attached");
+	const unchanged = repository.attachRelationshipRef(artifact.id, "relationship-1", owner, "Idempotent retry.");
+	assert.equal(unchanged.history.length, attached.history.length);
+	assert.throws(
+		() => repository.attachRelationshipRef(artifact.id, "relationship-2", watson, "Unauthorized attachment."),
+		/authorized human/
+	);
+	assert.throws(
+		() => repository.detachRelationshipRef(artifact.id, "relationship-1", owner, "Ordinary cleanup."),
+		/rollback or recovery/
+	);
+
+	const detached = repository.detachRelationshipRef(
+		artifact.id,
+		"relationship-1",
+		owner,
+		"Relationship transaction rolled back.",
+		{ rollback: true }
+	);
+	assert.deepEqual(detached.relationshipRefs, []);
+	assert.equal(detached.history.at(-1).type, "artifact.relationship.detached");
+	assert.deepEqual(detached.content, baseline.content);
+	assert.deepEqual(detached.provenance, baseline.provenance);
+	assert.deepEqual(detached.lifecycle, baseline.lifecycle);
+	assert.deepEqual(detached.states, baseline.states);
 });

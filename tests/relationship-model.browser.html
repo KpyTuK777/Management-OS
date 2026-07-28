@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Relationship model browser tests</title>
+		<link rel="icon" href="data:,">
 	</head>
 	<body data-test-result="running">
 		<pre id="result">Running</pre>
@@ -89,6 +90,19 @@
 					assert(artifactRepository.get("source").relationshipRefs.includes(proposed.id), "Source reference missing.");
 					assert(artifactRepository.get("target").relationshipRefs.includes(proposed.id), "Target reference missing.");
 					assert(document.querySelectorAll("svg path").length === 0, "Decorative connector was rendered by model tests.");
+
+					const corrupted = storageAdapter.loadStore();
+					corrupted.relationships[proposed.id].semantic.type = "malformed-type";
+					storageAdapter.saveStore(corrupted);
+					const recoveredRepository = ManagementOsRelationships.createRelationshipRepository({
+						storageAdapter,
+						matterId: "MAT-BROWSER-REL",
+						artifactRepository
+					});
+					assert(recoveredRepository.get(proposed.id) === null, "Malformed Relationship was not isolated.");
+					assert(!artifactRepository.get("source").relationshipRefs.includes(proposed.id), "Malformed source reference survived recovery.");
+					assert(!artifactRepository.get("target").relationshipRefs.includes(proposed.id), "Malformed target reference survived recovery.");
+					assert(storageAdapter.loadStore().quarantinedRelationships[proposed.id], "Malformed Relationship diagnostic was not retained.");
 					document.body.dataset.testResult = "passed";
 					result.textContent = "Relationship browser contracts passed";
 				} catch (error) {
