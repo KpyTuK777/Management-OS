@@ -6,6 +6,7 @@ Principles are durable tests for design judgment. A proposed interface should be
 
 - [Canonical Status Registry](CANONICAL_STATUS.md)
 - [Milestone M1 — Canonical Foundation Review](Milestone%20M1%20-%20Canonical%20Foundation%20Review.md)
+- [Operational Design Brief 01 — Operational Memory](Operational%20Design%20Brief%2001%20-%20Operational%20Memory.md)
 - [Canonical Workbench Audit](Canonical%20Workbench%20Audit.md)
 - [Workbench Canonical Domain Model](Workbench%20Canonical%20Domain%20Model.md)
 - [Artifact First](Artifact%20First.md)

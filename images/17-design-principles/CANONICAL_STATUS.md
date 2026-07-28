@@ -4,7 +4,9 @@
 
 | Field | Status |
 |---|---|
-| Project Phase | Phase III — Canonical Implementation |
+| Project Phase | Phase III-B — Operational Core |
+| Phase III-A — Canonical Foundation | ✅ Complete |
+| Phase III-B — Operational Core | 🟡 Starting |
 | Architecture | Frozen |
 | Design Bible | Frozen v1.0 |
 | Canonical Foundation | Established |
@@ -15,7 +17,7 @@
 |---|---|---|---|---|---|
 | Artifact | ✅ Canonical | `b7c5b28` | `artifact-v1.0-canonical` | 2026-07-27 | Frozen v1.0 |
 | Relationship | ✅ Canonical | `748fd29` | `relationship-v1.0-canonical` | 2026-07-28 | Implementation `a1e4edb`; stabilization `2520c66`; Frozen v1.0 |
-| Operational Memory | ⏳ Planned | — | — | — | — |
+| Operational Memory | 🟡 Design Approved / Proposal Pending | — | — | 2026-07-28 | Operational Design Brief 01 approved |
 | Current Situation | ⏳ Planned | — | — | — | — |
 | Inspection | ⏳ Planned | — | — | — | — |
 | Working Set | ⏳ Planned | — | — | — | — |
@@ -77,9 +79,9 @@ This is the construction order of the system core, not a roadmap.
 
 | Field | Status |
 |---|---|
-| Current Milestone | Milestone M1.1 — Foundation Hardening implemented; review pending |
-| Current Sprint | No active Canonical Sprint — Architecture Gate |
-| Next Sprint | Sprint 03 — blocked pending M1.1 review |
+| Current Milestone | Phase III-A complete; Phase III-B starting |
+| Current Sprint | Sprint 03 — Operational Memory Proposal Pending |
+| Next Sprint | Sprint 03 implementation blocked pending Architecture Approval |
 
 ## Maintenance
 
