@@ -163,26 +163,44 @@ test("correction is append-only and retains historical action separately from cu
 test("coordinator never finalizes memory before domain success and recovers after a partial write", () => {
 	const { repository, storageAdapter, owner, event } = harness();
 	const coordinator = createOperationalMemoryCoordinator({ repository });
+	const failedIntent = event();
+	delete failedIntent.occurredAt;
+	delete failedIntent.sourceEventRefs;
 	assert.throws(() => coordinator.execute({
 		operationId: "failed-domain",
 		domainCommand: () => { throw new Error("Domain failed."); },
-		memoryEvent: () => event()
+		memoryIntent: failedIntent,
+		sourceDescriptor: {
+			aggregateKind: "relationship",
+			aggregateId: "relationship-failed",
+			eventTypes: ["relationship.accepted"]
+		}
 	}), /Domain failed/);
 	assert.equal(repository.list().length, 0);
 
+	const partialIntent = event({
+		id: "memory-partial",
+		type: "governance.judgment.recorded",
+		actor: owner
+	});
+	delete partialIntent.occurredAt;
+	delete partialIntent.sourceEventRefs;
 	assert.throws(() => coordinator.execute({
 		operationId: "partial-operation",
-		domainCommand: () => ({ id: "relationship-1", history: [{ id: "relationship-event-1" }] }),
-		memoryEvent: result => event({
-			id: "memory-partial",
-			type: "governance.judgment.recorded",
-			actor: owner,
-			sourceEventRefs: [{
-				aggregateKind: "relationship",
-				aggregateId: result.id,
-				eventId: result.history.at(-1).id
+		domainCommand: () => ({
+			id: "relationship-1",
+			history: [{
+				id: "relationship-event-1",
+				type: "relationship.accepted",
+				occurredAt: "2026-07-28T11:10:00.000Z"
 			}]
 		}),
+		memoryIntent: partialIntent,
+		sourceDescriptor: {
+			aggregateKind: "relationship",
+			aggregateId: "relationship-1",
+			eventTypes: ["relationship.accepted"]
+		},
 		afterDomainCommit: () => { throw new Error("Simulated crash."); }
 	}), /Simulated crash/);
 	assert.equal(repository.get("memory-partial"), null);
@@ -196,8 +214,23 @@ test("coordinator never finalizes memory before domain success and recovers afte
 });
 
 test("startup reconciliation closes the crash window after domain commit but before journal advancement", () => {
-	const { repository, storageAdapter, owner } = harness();
-	repository.prepareOperation({ id: "prepared-only" });
+	const { repository, storageAdapter, owner, event } = harness();
+	const eventIntent = event({
+		id: "memory-prepared-recovery",
+		type: "governance.judgment.recorded",
+		sourceEventRefs: []
+	});
+	delete eventIntent.occurredAt;
+	delete eventIntent.sourceEventRefs;
+	repository.prepareOperation({
+		id: "prepared-only",
+		eventIntent,
+		sourceDescriptor: {
+			aggregateKind: "relationship",
+			aggregateId: "relationship-reconciled",
+			eventTypes: ["relationship.accepted"]
+		}
+	});
 	const relationship = {
 		id: "relationship-reconciled",
 		governingAuthority: owner,
@@ -219,14 +252,18 @@ test("startup reconciliation closes the crash window after domain commit but bef
 	};
 	const recovered = createOperationalMemoryRepository({
 		storageAdapter,
-		matterId: "MAT-MEMORY",
+		matterId: "MAT-MEMORY"
+	});
+	const coordinator = createOperationalMemoryCoordinator({
+		repository: recovered,
 		relationshipRepository
 	});
+	assert.equal(coordinator.recover(), 1);
 	const events = recovered.list();
 	assert.equal(events.length, 1);
 	assert.equal(events[0].sourceEventRefs[0].eventId, "relationship-accepted-event");
 	assert.equal(recovered.recoverPendingOperations(), 0);
-	assert.equal(recovered.reconcileSourceEvents(), 0);
+	assert.equal(coordinator.recover(), 0);
 });
 
 test("deterministic sequence resolves identical timestamps", () => {

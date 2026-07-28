@@ -134,12 +134,6 @@
 		const authorityPolicy = options.authorityPolicy || authorityApi.createAuthorityPolicy({
 			delegateGrant: options.delegateGrant || (() => false)
 		});
-		const relationshipRepository = options.relationshipRepository || null;
-		invariant(
-			relationshipRepository === null
-				|| (typeof relationshipRepository.list === "function" && typeof relationshipRepository.get === "function"),
-			"relationshipRepository must expose get() and list()."
-		);
 		invariant(typeof clock === "function", "clock must be a function.");
 		invariant(typeof idGenerator === "function", "idGenerator must be a function.");
 
@@ -389,6 +383,8 @@
 			store.pendingOperations[id] = {
 				id,
 				phase: "prepared",
+				eventIntent: clone(operation.eventIntent || null),
+				sourceDescriptor: clone(operation.sourceDescriptor || null),
 				eventInput: null,
 				domainResult: null,
 				preparedAt: clock()
@@ -416,61 +412,19 @@
 
 		function recoverPendingOperations() {
 			const pending = Object.values(readStore().pendingOperations);
+			let recovered = 0;
 			pending.forEach(operation => {
 				if (operation.phase === "domain-committed" && operation.eventInput) {
 					record(operation.eventInput);
 					completeOperation(operation.id);
-				} else if (operation.phase === "prepared") {
-					completeOperation(operation.id);
+					recovered += 1;
 				}
 			});
-			return pending.length;
+			return recovered;
 		}
 
-		function reconcileSourceEvents() {
-			if (!relationshipRepository) return 0;
-			let recovered = 0;
-			relationshipRepository.list().forEach(relationship => {
-				relationship.history
-					.filter(sourceEvent => ["relationship.accepted", "relationship.rejected"].includes(sourceEvent.type))
-					.forEach(sourceEvent => {
-						const store = readStore();
-						const reference = {
-							aggregateKind: "relationship",
-							aggregateId: relationship.id,
-							eventId: sourceEvent.id
-						};
-						if (store.sourceEventIndex[sourceKey(reference)]) return;
-						record({
-							id: `memory-source-${sourceEvent.id}`,
-							type: sourceEvent.type === "relationship.accepted"
-								? "governance.judgment.recorded"
-								: "governance.proposal.rejected",
-							occurredAt: sourceEvent.occurredAt,
-							actor: sourceEvent.actor,
-							governingAuthority: relationship.governingAuthority,
-							reason: sourceEvent.reason,
-							meaning: sourceEvent.type === "relationship.accepted"
-								? "A Relationship interpretation entered the Matter's governed reasoning."
-								: "A Relationship proposal was rejected while its historical trace was preserved.",
-							affectedEntityRefs: [{ kind: "relationship", id: relationship.id }],
-							sourceEventRefs: [reference],
-							evidenceBasis: relationship.uncertainty.evidenceArtifactIds.map(id => ({ kind: "artifact", id })),
-							unresolvedConsequences: relationship.uncertainty.unresolvedQuestions.map((meaning, index) => ({
-								id: `${relationship.id}-question-${index + 1}`,
-								meaning
-							})),
-							provenance: {
-								method: "source-event-reconciliation",
-								origin: "Relationship history"
-							},
-							correlationId: `reconcile-${sourceEvent.id}`,
-							reasoningEpisodeId: null
-						});
-						recovered += 1;
-					});
-			});
-			return recovered;
+		function listPendingOperations() {
+			return Object.values(readStore().pendingOperations).map(clone);
 		}
 
 		function validateIntegrity() {
@@ -484,7 +438,6 @@
 		}
 
 		recoverMalformedEvents();
-		reconcileSourceEvents();
 		recoverPendingOperations();
 		validateIntegrity();
 
@@ -503,8 +456,8 @@
 			listUnresolvedConsequences,
 			listSystemEvents,
 			explainTransition,
-			reconcileSourceEvents,
 			recoverPendingOperations,
+			listPendingOperations,
 			validateIntegrity,
 			prepareOperation,
 			markDomainCommitted,
@@ -515,13 +468,54 @@
 	function createOperationalMemoryCoordinator(options = {}) {
 		const repository = options.repository;
 		invariant(repository && typeof repository.prepareOperation === "function", "Operational Memory Repository is required.");
+		const relationshipRepository = options.relationshipRepository || null;
+		invariant(
+			relationshipRepository === null
+				|| (typeof relationshipRepository.get === "function" && typeof relationshipRepository.list === "function"),
+			"Coordinator relationshipRepository must expose get() and list()."
+		);
+
+		function normalizeSourceDescriptor(descriptor) {
+			invariant(descriptor && typeof descriptor === "object", "sourceDescriptor is required.");
+			invariant(descriptor.aggregateKind === "relationship", "Only the approved Relationship source contract is supported.");
+			invariant(Array.isArray(descriptor.eventTypes) && descriptor.eventTypes.length > 0, "sourceDescriptor.eventTypes is required.");
+			return {
+				aggregateKind: "relationship",
+				aggregateId: nonEmpty(descriptor.aggregateId, "sourceDescriptor.aggregateId"),
+				eventTypes: descriptor.eventTypes.map((type, index) => nonEmpty(type, `sourceDescriptor.eventTypes[${index}]`))
+			};
+		}
+
+		function findSource(descriptor, domainResult) {
+			const aggregate = domainResult || relationshipRepository?.get(descriptor.aggregateId);
+			if (!aggregate) return null;
+			const sourceEvent = [...aggregate.history].reverse().find(event => descriptor.eventTypes.includes(event.type));
+			return sourceEvent ? { aggregate, sourceEvent } : null;
+		}
+
+		function buildEventInput(intent, descriptor, source) {
+			return {
+				...clone(intent),
+				occurredAt: source.sourceEvent.occurredAt,
+				sourceEventRefs: [{
+					aggregateKind: descriptor.aggregateKind,
+					aggregateId: descriptor.aggregateId,
+					eventId: source.sourceEvent.id
+				}]
+			};
+		}
 
 		function execute(input) {
 			invariant(input && typeof input === "object", "Coordinated operation is required.");
 			const operationId = nonEmpty(input.operationId, "operationId");
 			invariant(typeof input.domainCommand === "function", "domainCommand must be a function.");
-			invariant(typeof input.memoryEvent === "function", "memoryEvent must be a function.");
-			repository.prepareOperation({ id: operationId });
+			invariant(input.memoryIntent && typeof input.memoryIntent === "object", "memoryIntent is required.");
+			const sourceDescriptor = normalizeSourceDescriptor(input.sourceDescriptor);
+			repository.prepareOperation({
+				id: operationId,
+				eventIntent: input.memoryIntent,
+				sourceDescriptor
+			});
 			let domainResult;
 			try {
 				domainResult = input.domainCommand();
@@ -529,7 +523,9 @@
 				repository.completeOperation(operationId);
 				throw error;
 			}
-			const eventInput = input.memoryEvent(clone(domainResult));
+			const source = findSource(sourceDescriptor, domainResult);
+			invariant(source, "Domain command did not produce the expected canonical source event.");
+			const eventInput = buildEventInput(input.memoryIntent, sourceDescriptor, source);
 			repository.markDomainCommitted(operationId, eventInput, domainResult);
 			if (input.afterDomainCommit) input.afterDomainCommit();
 			const event = repository.record(eventInput);
@@ -537,7 +533,28 @@
 			return { domainResult, event };
 		}
 
-		return Object.freeze({ execute });
+		function recover() {
+			let recovered = repository.recoverPendingOperations();
+			repository.listPendingOperations()
+				.filter(operation => operation.phase === "prepared")
+				.forEach(operation => {
+					const descriptor = normalizeSourceDescriptor(operation.sourceDescriptor);
+					const source = findSource(descriptor);
+					if (source) {
+						const eventInput = buildEventInput(operation.eventIntent, descriptor, source);
+						repository.markDomainCommitted(operation.id, eventInput, source.aggregate);
+						repository.record(eventInput);
+						repository.completeOperation(operation.id);
+						recovered += 1;
+						return;
+					}
+					const aggregate = relationshipRepository?.get(descriptor.aggregateId);
+					if (aggregate) repository.completeOperation(operation.id);
+				});
+			return recovered;
+		}
+
+		return Object.freeze({ execute, recover });
 	}
 
 	return Object.freeze({

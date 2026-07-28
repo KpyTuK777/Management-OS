@@ -261,20 +261,19 @@ const InvestigationPrototype = (() => {
 		});
 		operationalMemoryRepository = window.ManagementOsOperationalMemory.createOperationalMemoryRepository({
 			storageAdapter: migrationAdapter,
-			matterId,
-			relationshipRepository
+			matterId
 		});
 		operationalMemoryCoordinator = window.ManagementOsOperationalMemory.createOperationalMemoryCoordinator({
-			repository: operationalMemoryRepository
+			repository: operationalMemoryRepository,
+			relationshipRepository
 		});
+		operationalMemoryCoordinator.recover();
 	}
 
-	function relationshipMemoryEvent(relationship, type, reason, operationId) {
-		const sourceEvent = relationship.history.at(-1);
+	function relationshipMemoryIntent(relationship, type, reason, operationId) {
 		return {
 			id: `memory-${operationId}`,
 			type,
-			occurredAt: sourceEvent.occurredAt,
 			actor: ownerActor,
 			governingAuthority: ownerActor,
 			reason,
@@ -282,11 +281,6 @@ const InvestigationPrototype = (() => {
 				? "The owner accepted a proposed interpretation into the Matter's governed reasoning."
 				: "The owner rejected a proposed interpretation while preserving its historical trace.",
 			affectedEntityRefs: [{ kind: "relationship", id: relationship.id }],
-			sourceEventRefs: [{
-				aggregateKind: "relationship",
-				aggregateId: relationship.id,
-				eventId: sourceEvent.id
-			}],
 			evidenceBasis: relationship.uncertainty.evidenceArtifactIds.map(id => ({ kind: "artifact", id })),
 			unresolvedConsequences: relationship.uncertainty.unresolvedQuestions.map((meaning, index) => ({
 				id: `${relationship.id}-question-${index + 1}`,
@@ -303,15 +297,21 @@ const InvestigationPrototype = (() => {
 
 	function coordinateRelationshipGovernance(action, relationshipId, actor, reason) {
 		const operationId = `${relationshipId}-${action}`;
+		const relationship = relationshipRepository.get(relationshipId);
 		return operationalMemoryCoordinator.execute({
 			operationId,
 			domainCommand: () => relationshipRepository[action](relationshipId, actor, reason),
-			memoryEvent: relationship => relationshipMemoryEvent(
+			memoryIntent: relationshipMemoryIntent(
 				relationship,
 				action === "accept" ? "governance.judgment.recorded" : "governance.proposal.rejected",
 				reason,
 				operationId
-			)
+			),
+			sourceDescriptor: {
+				aggregateKind: "relationship",
+				aggregateId: relationshipId,
+				eventTypes: [action === "accept" ? "relationship.accepted" : "relationship.rejected"]
+			}
 		}).domainResult;
 	}
 
