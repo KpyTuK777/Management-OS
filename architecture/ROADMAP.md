@@ -36,20 +36,25 @@ Phase III-B — Operational Core / M6 Product Realization
 ## Active stage
 
 ```text
-M6 — Canonical Design Semantics Architecture Review
+M6.3 — Canonical Rendering Model Architecture Review
 ```
 
 The current task and its completion criteria are defined exclusively in
 [BACKLOG.md](BACKLOG.md).
 
+Canonical Design Semantics remains ready for Architecture Review and is not a
+closed or approved dependency. M6.3 was explicitly reprioritized for definition;
+its Architecture Review cannot approve dependency use until the Semantic Model
+dependency is approved.
+
 ## Next stage
 
 ```text
-M6 — Canonical Rendering Model
+M6 — Semantic Token Architecture
 ```
 
-The next stage may enter the backlog only after the active stage receives an
-approved Architecture Review disposition.
+The next stage may enter the backlog only after the required Design Semantics
+and Rendering Model Architecture Review dispositions are approved.
 
 ## Future stages
 
@@ -58,8 +63,8 @@ approved Architecture Review disposition.
 | 1 | Canonical Management Model | Closed |
 | 2 | M6 Charter | Closed |
 | 3 | Canonical Design Object Model | Closed |
-| 4 | Canonical Design Semantics | Active |
-| 5 | Canonical Rendering Model | Planned |
+| 4 | Canonical Design Semantics | Ready for Architecture Review |
+| 5 | Canonical Rendering Model | Active |
 | 6 | Semantic Token Architecture | Planned |
 | 7 | Presentation State Model | Planned |
 | 8 | Canonical Component Model | Planned |

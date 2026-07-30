@@ -17,7 +17,7 @@ M6 — Canonical Operational Design System
 ## Current Task
 
 ```text
-Architecture Review — M6 Canonical Design Semantics
+Architecture Review — M6.3 Canonical Rendering Model
 ```
 
 ## Dependencies
@@ -26,7 +26,9 @@ Architecture Review — M6 Canonical Design Semantics
 - M6 Canonical Operational Design System Charter — Architecture Definition
   complete.
 - M6 Canonical Design Object Model — Architecture Definition complete.
-- M6 Canonical Design Semantics — Architecture Definition prepared for review.
+- M6 Canonical Design Semantics — Ready for Architecture Review; must be
+  approved before the Rendering Model can be approved for dependency use.
+- M6.3 Canonical Rendering Model — Architecture Definition prepared for review.
 
 ## Expected Output
 
@@ -42,8 +44,10 @@ or:
 Approved with Required Corrections
 ```
 
-The disposition must establish whether Canonical Design Semantics can serve as
-the semantic dependency for the Canonical Rendering Model.
+The disposition must establish whether the Rendering Tree, transformation
+contract, node correspondence, composition, replacement, degradation,
+invariants, and conformance criteria are complete. Approval for dependency use
+requires an approved Canonical Design Semantics disposition.
 
 ## Owner
 
@@ -62,14 +66,17 @@ Ready for Architecture Review
 
 ## Definition of Done
 
-- The document is reviewed against the M6 Charter and Canonical Design Object
-  Model.
-- Semantic roles, composition rules, invariants, mappings, adapter independence,
-  and conformance criteria are complete and mutually consistent.
-- No role creates or reassigns domain truth, information residency, navigation,
-  interaction, authority, lifecycle, or visual meaning.
-- Dependencies on Visual Semantics, Operational Interaction Language, and
-  Information Architecture preserve their canonical ownership.
+- The document is reviewed against the M6 Charter, Canonical Design Object Model,
+  and Canonical Design Semantics.
+- Rendering Tree, transformation, node mappings, composition, ordering,
+  replacement, degradation, adapter independence, and conformance are complete
+  and mutually consistent.
+- Every DO-01–DO-11 occurrence maps to exactly one RN-01–RN-11 kind.
+- Rendering creates no domain truth, information residency, navigation,
+  interaction, authority, lifecycle, Operational Memory, Current Situation, or
+  Context Envelope.
+- The unresolved Design Semantics review dependency is explicitly dispositioned
+  before approval for downstream dependency use.
 - The Architecture Review verdict and evidence are recorded in the repository.
 - All required corrections are absent or resolved.
 - `ROADMAP.md` is advanced to the approved next stage.
