@@ -8,7 +8,8 @@ Integration Hardening Complete
 
 This document is an integration review and terminology/ownership control artifact.
 It creates no domain model, lifecycle, authority, navigation law, or Context
-Envelope. Candidate documents remain candidates until their own canonical reviews.
+Envelope. All downstream documents completed their own canonical reviews and
+canonicalization.
 
 ## 1. Canonical dependency graph
 
@@ -32,8 +33,8 @@ Source-owned systems ───────────> provide execution state 
 ```
 
 The graph is acyclic. Governance constrains navigation architecture; navigation
-architecture does not define its governing laws. Candidates consume canonical
-inputs and grant no authority back to them.
+architecture does not define its governing laws. Downstream models consume
+canonical inputs and grant no authority back to them.
 
 ## 2. Ownership matrix
 
@@ -163,8 +164,8 @@ research-only and may inform a later implementation library.
 | Category | Item | Disposition |
 |---|---|---|
 | Blocks Integration | None after the final Iconography presentation-transition correction. | Closed; repeat final integration review is the verification gate. |
-| Blocks M6 | Final registry evidence reconciliation after all model reviews. | Information Architecture review is complete; registry confirmation remains. |
-| Blocks M6 | Successful repeat M5.9 integration review after this hardening. | Complete; canonicalization sequence is closed. |
+| M6 Readiness | Final registry evidence reconciliation after all model reviews. | Closed; canonical commits and provenance are reconciled. |
+| M6 Readiness | Successful repeat M5.9 integration review after this hardening. | Closed; canonicalization sequence is complete. |
 | Deferred Implementation Debt | Input-specific controls, components, responsive adaptation, and implementation realization. | M6 and later; does not block architecture integration. |
 | Accepted Product Evolution | Future icon library implementing approved Canonical Visual Semantics. | Iconography research remains advisory. |
 
@@ -176,22 +177,24 @@ research-only and may inform a later implementation library.
 | Context Envelope sole ownership | Resolved |
 | Qualified movement terminology | Resolved |
 | Source-owned implementation boundary | Resolved |
-| Candidate/canonical separation | Resolved |
+| Maturity separation | Resolved |
 | Iconography research authority | Resolved |
 | Registry reconciliation | Resolved |
 | Operational Memory canonical disposition | Resolved; approved as Canonical with disclosed validation limitations |
 
-## 10. Readiness sequence
+## 10. Readiness gates
 
-1. Repeat Canonical Management Model Integration Review.
-2. Canonicalize Visual Semantics if approved.
-3. Canonicalize Operational Interaction Language if approved.
-4. Canonicalize Information Architecture if approved.
-5. Reconcile registry commits, tags, dates, and evidence.
-6. Open M6 only after all preceding gates pass.
+| Gate | Status |
+|---|---|
+| Repeat Canonical Management Model Integration Review | Closed |
+| Visual Semantics canonicalization | Closed |
+| Operational Interaction Language canonicalization | Closed |
+| Information Architecture canonicalization | Closed |
+| Registry commits, dates, maturity, dependencies, and evidence | Closed |
+| M6 Readiness | Closed |
 
 ## Integration verdict
 
 ```text
-Ready to Repeat Canonical Management Model Integration Review
+Canonical Management Model Ready for Final Registry Confirmation
 ```

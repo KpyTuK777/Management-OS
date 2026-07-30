@@ -6,11 +6,11 @@
 |---|---|
 | Project Phase | Phase III-B — Operational Core |
 | Phase III-A — Canonical Foundation | ✅ Complete |
-| Phase III-B — Operational Core | 🟡 Starting |
+| Phase III-B — Operational Core | ✅ Ready for M6 |
 | Architecture | Frozen |
 | Design Bible | Frozen v1.0 |
 | Canonical Foundation | ✅ Complete |
-| Canonical Management Model | ✅ Integrated |
+| Canonical Management Model | ✅ Confirmed |
 
 ## Canonical Models
 
@@ -19,19 +19,19 @@
 | Artifact | ✅ Canonical | `b7c5b28` | `artifact-v1.0-canonical` | 2026-07-27 | Frozen v1.0 |
 | Relationship | ✅ Canonical | `748fd29` | `relationship-v1.0-canonical` | 2026-07-28 | Implementation `a1e4edb`; stabilization `2520c66`; Frozen v1.0 |
 | Workbench Canonical Domain Model | ✅ Canonical | `8aad903` | — | 2026-07-27 | Canonical owner of Matter, Current Situation, Focus, Working Set, Inspection, and Context Envelope; Frozen. |
-| Operational Memory | ✅ Canonical | This commit | — | 2026-07-30 | Operational Memory Canonical Status: Approved. Final Canonical Review completed successfully; replay and recovery contracts and standalone browser conformance passed. |
+| Operational Memory | ✅ Canonical | `435e5be37ce6905bf9ce8af7c17d383247808f25` | — | 2026-07-30 | Operational Memory Canonical Status: Approved. Final Canonical Review completed successfully; replay and recovery contracts and standalone browser conformance passed. |
 | Product Operating Model | ✅ Canonical | `cc934f3` | `product-operating-model-v1.0-canonical` | 2026-07-28 | Milestone M2 — Product Operating Model complete; Frozen v1.0 |
 | Matter Experience | ✅ Canonical | `13be427` | `matter-experience-v1.0-canonical` | 2026-07-29 | Milestone M3 — Canonical Matter Experience complete; Frozen v1.0 |
 | Operational Navigation Governance | ✅ Canonical | `325bb9e` | — | 2026-07-30 | M4.0 governance approved; Frozen v1.0 |
 | Canonical Operational Navigation | ✅ Canonical | `7dbbabd` | — | 2026-07-30 | Milestone M4 — Canonical Operational Navigation complete; Frozen v1.0 |
-| Canonical Visual Semantics | ✅ Canonical | This commit | — | 2026-07-30 | Visual Semantics Canonical Status: Approved. Final Canonical Review completed successfully; Frozen. |
-| Canonical Operational Interaction Language | ✅ Canonical | This commit | — | 2026-07-30 | Operational Interaction Language Canonical Status: Approved. Final Canonical Review completed successfully; interaction lifecycle and cancellation, retry, rollback, and Operational Memory alignment passed. |
-| Canonical Information Architecture | ✅ Canonical | This commit | — | 2026-07-30 | Information Architecture Canonical Status: Approved. Final Canonical Review completed successfully; Frozen. |
+| Canonical Visual Semantics | ✅ Canonical | `67529c8989818874684f9207ed89891a435f396f` | — | 2026-07-30 | Visual Semantics Canonical Status: Approved. Final Canonical Review completed successfully; Frozen. |
+| Canonical Operational Interaction Language | ✅ Canonical | `cdff3afa678eef92880242557a9efa492d2bf132` | — | 2026-07-30 | Operational Interaction Language Canonical Status: Approved. Final Canonical Review completed successfully; interaction lifecycle and cancellation, retry, rollback, and Operational Memory alignment passed. |
+| Canonical Information Architecture | ✅ Canonical | `9a4630bc0915e443d410456da13c81115894a7e8` | — | 2026-07-30 | Information Architecture Canonical Status: Approved. Final Canonical Review completed successfully; Frozen. |
 | Canonical Iconography | 🔵 Research Only — Advisory | `cc934f3` | — | 2026-07-30 | Informs representation strategy; creates no semantic authority. |
 | Current Situation | 🟡 Concept Canonical / Implementation Planned | — | — | 2026-07-30 | Identity and contract are owned by Workbench Canonical Domain Model; standalone implementation review remains planned. |
 | Inspection | 🟡 Concept Canonical / Implementation Planned | — | — | 2026-07-30 | Identity and contract are owned by Workbench Canonical Domain Model; standalone implementation review remains planned. |
 | Working Set | 🟡 Concept Canonical / Implementation Planned | — | — | 2026-07-30 | Identity and contract are owned by Workbench Canonical Domain Model; standalone implementation review remains planned. |
-| Watson | 🟡 Authority Constraints Canonical / Interaction Candidate / Implementation Planned | — | — | 2026-07-30 | Authority constraints are canonical in Workbench and Navigation Governance; interaction semantics are candidate; implementation remains planned. |
+| Watson | 🟡 Authority & Interaction Constraints Canonical / Implementation Planned | — | — | 2026-07-30 | Authority constraints are canonical in Workbench and Navigation Governance; interaction semantics are canonical in Operational Interaction Language; implementation remains planned. |
 
 ## Canonical Rules
 
@@ -89,9 +89,17 @@ This is the construction order of the system core, not a roadmap.
 
 | Field | Status |
 |---|---|
-| Current Milestone | Canonical Management Model Integration: Complete |
+| Current Milestone | Final Canonical Registry Hardening: Complete |
 | Current Sprint | — |
 | Next Milestone | Final Canonical Registry Confirmation |
+
+## Maturity Gates
+
+| Gate | Status |
+|---|---|
+| Final Registry | Closed |
+| Canonical Management Model | Closed |
+| M6 Readiness | Closed |
 
 ## Maintenance
 

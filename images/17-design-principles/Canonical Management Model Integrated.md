@@ -32,13 +32,14 @@ realization.
 
 ## Integrated Architecture
 
-The integrated professional architecture includes the currently canonical
-domain, product, experience, and navigation models together with downstream
-canonical review candidates operating under explicit maturity boundaries.
+The integrated professional architecture includes the canonical domain,
+product, experience, navigation, visual semantics, interaction language, and
+information architecture models.
 
 The milestone confirms architectural integration.
 
-It does not promote review candidates to canonical status.
+Each model received Canonical status only through its own completed review and
+canonicalization record.
 
 ## Operational Memory
 
@@ -67,13 +68,14 @@ None
 
 ## M6 Maturity Gates
 
-M6 remains blocked only by final registry confirmation, not by architecture or
-model maturity.
+| Gate | Status |
+|---|---|
+| Final Registry | Closed |
+| Canonical Management Model | Closed |
+| M6 Readiness | Closed |
 
-Required sequence:
-
-1. Final registry confirmation.
-2. Open M6.
+All canonical model reviews, canonicalization commits, dependency reconciliation,
+and commit-provenance checks are complete. M6 may open.
 
 ## Deferred Realization
 
