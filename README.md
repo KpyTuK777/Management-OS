@@ -42,6 +42,8 @@ substitute.
 
 ## Documentation
 
+- [Architecture process and current task](architecture/README.md)
+- [Authoritative architecture roadmap](architecture/ROADMAP.md)
 - [Architecture](docs/ARCHITECTURE.md)
 - [AI Assistant architecture](docs/AI_ASSISTANT_ARCHITECTURE.md)
 - [Watson Professional Ethos](docs/WATSON_PROFESSIONAL_ETHOS.md)
@@ -89,7 +91,7 @@ substitute.
 - [Data model](docs/DATA_MODEL.md)
 - [Development](docs/DEVELOPMENT.md)
 - [Team governance](docs/TEAM.md)
-- [Roadmap](docs/ROADMAP.md)
+- [Legacy product roadmap](docs/ROADMAP.md)
 - [Sprint tracker](docs/SPRINTS.md)
 - [Design system](docs/DESIGN_SYSTEM.md)
 - [Product language](docs/PRODUCT_LANGUAGE.md)
@@ -102,5 +104,5 @@ substitute.
 
 ## Product direction
 
-See the [Roadmap](docs/ROADMAP.md) for future sequencing. README does not define
-implementation priorities.
+See the [Architecture Roadmap](architecture/ROADMAP.md) for architectural
+sequencing. README does not define implementation priorities.

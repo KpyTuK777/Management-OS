@@ -1,5 +1,10 @@
 # Product Roadmap
 
+> **Legacy product-planning record.** From the Architecture Process Bootstrap
+> onward, [`architecture/ROADMAP.md`](../architecture/ROADMAP.md) is the single
+> authoritative architectural roadmap. Do not update this file to sequence
+> current or future architecture work.
+
 AI capability delivery and provider qualification must conform to the canonical
 [Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md). This adds a
 cross-capability evaluation obligation, not a separate feature, runtime, or
