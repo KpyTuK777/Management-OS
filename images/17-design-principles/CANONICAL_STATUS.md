@@ -20,7 +20,8 @@
 | Operational Memory | 🟡 Under Canonical Review | `2d3b82c` | — | 2026-07-28 | Operational Design Brief 01 approved; Sprint 03 implementation applied |
 | Product Operating Model | ✅ Canonical | `cc934f3` | `product-operating-model-v1.0-canonical` | 2026-07-28 | Milestone M2 — Product Operating Model complete; Frozen v1.0 |
 | Matter Experience | ✅ Canonical | `13be427` | `matter-experience-v1.0-canonical` | 2026-07-29 | Milestone M3 — Canonical Matter Experience complete; Frozen v1.0 |
-| Operational Navigation Governance | ✅ Canonical | `325bb9e` | — | 2026-07-30 | M4.0 governance approved; M4 not started; Frozen v1.0 |
+| Operational Navigation Governance | ✅ Canonical | `325bb9e` | — | 2026-07-30 | M4.0 governance approved; Frozen v1.0 |
+| Canonical Operational Navigation | ✅ Canonical | `7dbbabd` | — | 2026-07-30 | Milestone M4 — Canonical Operational Navigation complete; Frozen v1.0 |
 | Current Situation | ⏳ Planned | — | — | — | — |
 | Inspection | ⏳ Planned | — | — | — | — |
 | Working Set | ⏳ Planned | — | — | — | — |
@@ -82,17 +83,9 @@ This is the construction order of the system core, not a roadmap.
 
 | Field | Status |
 |---|---|
-| Current Milestone | Milestone M3 — Canonical Matter Experience: Complete |
+| Current Milestone | Milestone M4 — Canonical Operational Navigation: Complete |
 | Current Sprint | — |
-| Next Milestone | M4 — Operational Navigation |
-
-### Governance gates before M4 implementation
-
-- Matter attention priority — resolved by Operational Navigation Governance;
-- Focus interruption governance — resolved by Operational Navigation Governance;
-- mandatory Context Envelope detail — resolved by Operational Navigation Governance.
-
-M4 is not started.
+| Next Milestone | M5 — Visual Semantics |
 
 ## Maintenance
 
