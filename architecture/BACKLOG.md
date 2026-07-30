@@ -26,8 +26,7 @@ Architecture Review — M6.3 Canonical Rendering Model
 - M6 Canonical Operational Design System Charter — Architecture Definition
   complete.
 - M6 Canonical Design Object Model — Architecture Definition complete.
-- M6 Canonical Design Semantics — Ready for Architecture Review; must be
-  approved before the Rendering Model can be approved for dependency use.
+- M6 Canonical Design Semantics — Approved.
 - M6.3 Canonical Rendering Model — Architecture Definition prepared for review.
 
 ## Expected Output
@@ -45,9 +44,9 @@ Approved with Required Corrections
 ```
 
 The disposition must establish whether the Rendering Tree, transformation
-contract, node correspondence, composition, replacement, degradation,
-invariants, and conformance criteria are complete. Approval for dependency use
-requires an approved Canonical Design Semantics disposition.
+contract, node correspondence, ownership, projection lifecycle, composition,
+replacement, degradation, Adapter Boundary, invariants, and conformance criteria
+are complete.
 
 ## Owner
 
@@ -75,8 +74,7 @@ Ready for Architecture Review
 - Rendering creates no domain truth, information residency, navigation,
   interaction, authority, lifecycle, Operational Memory, Current Situation, or
   Context Envelope.
-- The unresolved Design Semantics review dependency is explicitly dispositioned
-  before approval for downstream dependency use.
+- Rendering Model and Platform Adapter ownership remain mutually exclusive.
 - The Architecture Review verdict and evidence are recorded in the repository.
 - All required corrections are absent or resolved.
 - `ROADMAP.md` is advanced to the approved next stage.

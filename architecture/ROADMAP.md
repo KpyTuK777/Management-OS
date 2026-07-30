@@ -42,10 +42,7 @@ M6.3 — Canonical Rendering Model Architecture Review
 The current task and its completion criteria are defined exclusively in
 [BACKLOG.md](BACKLOG.md).
 
-Canonical Design Semantics remains ready for Architecture Review and is not a
-closed or approved dependency. M6.3 was explicitly reprioritized for definition;
-its Architecture Review cannot approve dependency use until the Semantic Model
-dependency is approved.
+Canonical Design Semantics is an approved dependency for M6.3.
 
 ## Next stage
 
@@ -53,8 +50,8 @@ dependency is approved.
 M6 — Semantic Token Architecture
 ```
 
-The next stage may enter the backlog only after the required Design Semantics
-and Rendering Model Architecture Review dispositions are approved.
+The next stage may enter the backlog only after the Rendering Model Architecture
+Review disposition is approved.
 
 ## Future stages
 
@@ -63,7 +60,7 @@ and Rendering Model Architecture Review dispositions are approved.
 | 1 | Canonical Management Model | Closed |
 | 2 | M6 Charter | Closed |
 | 3 | Canonical Design Object Model | Closed |
-| 4 | Canonical Design Semantics | Ready for Architecture Review |
+| 4 | Canonical Design Semantics | Approved for dependency use |
 | 5 | Canonical Rendering Model | Active |
 | 6 | Semantic Token Architecture | Planned |
 | 7 | Presentation State Model | Planned |
