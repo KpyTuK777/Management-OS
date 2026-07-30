@@ -95,10 +95,10 @@ This is an ordinary forward path, not a mandatory wizard. A Matter may return to
 an earlier state, repeat work, close after assessment, require no execution, or
 reopen without changing identity.
 
-### Canonical Matter Transition Matrix
+### Canonical Matter Lifecycle Transition Matrix
 
-This matrix is exhaustive. A transition not listed here is forbidden until a
-separate architecture review adds it. Every transition appends source state,
+This matrix is exhaustive. A Matter lifecycle transition not listed here is forbidden until a
+separate architecture review adds it. Every Matter lifecycle transition appends source state,
 destination state, actor, time, reason, authority basis, supporting references,
 and proposal/approval status to Matter history and Operational Memory.
 
@@ -113,7 +113,7 @@ and proposal/approval status to Matter history and Operational Memory.
 | `Decision Ready` | `Decided` | Accountable decision owner | An attributable Decision, rationale, intended condition, accepted uncertainty, and authority basis exist | Decision-time snapshot and authoritative Decision reference are appended |
 | `Decided` | `Decision Ready` | Accountable decision owner | Decision requires reconsideration but the existing basis remains sufficient for renewed judgment | Decision remains historical; reconsideration reason is appended |
 | `Decided` | `Under Investigation` | Accountable decision owner | A material premise is invalidated or new uncertainty requires investigation | Decision remains historical and is marked under reconsideration, never erased |
-| `Decided` | `In Execution` | Accountable decision owner plus valid source-owned execution commitments | Decision requires change; impact, guardrails, ownership, and proportionate execution boundary are approved | Transition start and source references are appended; source records are not copied |
+| `Decided` | `In Execution` | Accountable decision owner plus valid source-owned execution commitments | Decision requires change; impact, guardrails, ownership, and proportionate execution boundary are approved | Operational Transition start and source references are appended; source records are not copied |
 | `Decided` | `Outcome Assessed` | Accountable owner | Decision required no execution but has an observable effect or disposition that justifies assessment | Execution-free path and assessment basis are appended |
 | `Decided` | `Closed` | Accountable owner | Decision is terminal, requires neither execution nor Outcome Assessment, and no current work remains | Execution-free/no-observation disposition, residual risk, and closure basis are appended |
 | `In Execution` | `Decided` | Accountable decision owner | Execution is paused/stopped or requires a materially revised Decision | Source execution history remains; stop/reconsideration reason is appended |
@@ -124,7 +124,7 @@ and proposal/approval status to Matter history and Operational Memory.
 | `Outcome Assessed` | `Closed` | Accountable owner | No current work remains; achieved, partial, adverse, unknown, or inconclusive disposition and residual conditions are explicit | Final disposition, accepted risk, monitoring/recurrence conditions, and closure are appended |
 | `Closed` | `Under Assessment` | Accountable owner | Material recurrence or new information justifies current operational work | Same Matter identity continues; reopening reason links prior closure to reassessment |
 
-No other state may transition directly to `Closed`. Investigation that concludes
+No other state may move directly to `Closed`. Investigation that concludes
 that no action is justified returns to `Under Assessment`, where the owner makes
 the no-action closure judgment. A decision-relevant no-action judgment becomes an
 authoritative Decision before closure.
@@ -138,7 +138,7 @@ authoritative Decision before closure.
 | Dominant object | Original report and nascent Matter identity |
 | Required evidence | Original wording, source, time, affected context, and any immediately material signal |
 | Authority | Creation establishes existence only; it does not validate cause, materiality, or response |
-| Transition criteria | An accountable owner and proportionate assessment are warranted |
+| Matter lifecycle transition criteria | An accountable owner and proportionate assessment are warranted |
 | Expected outcome | A preserved report with no premature diagnosis |
 | Focus | What was observed, why it may matter, immediate safety or continuity risk |
 | Periphery | Hypotheses, solutions, broad evidence collection, execution tools |
@@ -152,7 +152,7 @@ authoritative Decision before closure.
 | Dominant object | Matter boundary and pre-synthesis Current Situation condition; initial accepted version when authorized |
 | Required evidence | Scope, affected system, impact signal, ownership, urgency, known constraints |
 | Authority | Owner governs scope and whether active investigation or other response is justified |
-| Transition criteria | Investigation is justified, or no current work is justified |
+| Matter lifecycle transition criteria | Investigation is justified, or no current work is justified |
 | Expected outcome | A bounded Matter with an attributable operational posture |
 | Focus | Scope, materiality, owner, immediate uncertainty, next justified act |
 | Periphery | Detailed solution design, long histories, unrelated Matters |
@@ -166,7 +166,7 @@ authoritative Decision before closure.
 | Dominant object | Current Situation supported by the active Working Set |
 | Required evidence | Provenance-bearing Artifacts, accepted or proposed Relationships, competing Hypotheses, Contradictions, unresolved questions |
 | Authority | Sources own evidence; owner accepts operational interpretation and readiness |
-| Transition criteria | Decision basis is sufficient and inspectable, or reassessment is justified |
+| Matter lifecycle transition criteria | Decision basis is sufficient and inspectable, or reassessment is justified |
 | Expected outcome | Traceable understanding with explicit residual uncertainty |
 | Focus | Current Situation, most valuable uncertainty, relevant evidence neighborhood |
 | Periphery | Execution controls, broad corpus, settled low-relevance material |
@@ -180,7 +180,7 @@ authoritative Decision before closure.
 | Dominant object | Decision Readiness basis, not a proposed answer |
 | Required evidence | Alternatives, expected effects, risks, authority, constraints, contradictions, uncertainty, consequences of delay |
 | Authority | Only authorized human judgment can create an authoritative Decision |
-| Transition criteria | Owner decides, defers, or returns to Investigation; a decision-relevant no-action judgment is recorded as a Decision |
+| Matter lifecycle transition criteria | Owner decides, defers, or returns to Investigation; a decision-relevant no-action judgment is recorded as a Decision |
 | Expected outcome | A deliberate judgment without pressure created by interface progression |
 | Focus | Decision question, basis, alternatives, residual risk, required authority |
 | Periphery | Raw evidence already represented by the basis, execution detail not needed for judgment |
@@ -194,7 +194,7 @@ authoritative Decision before closure.
 | Dominant object | Authoritative Decision |
 | Required evidence | Decision-time snapshot, rationale, expected effect, guardrails, assumptions, accepted risk |
 | Authority | Owner approves Decision and any consequential reconsideration |
-| Transition criteria | No execution is required, or approved impact review and proportionate change preparation are sufficient |
+| Matter lifecycle transition criteria | No execution is required, or approved impact review and proportionate change preparation are sufficient |
 | Expected outcome | A stable boundary between accepted understanding and intended change |
 | Focus | Decision intent, intended condition, affected system, guardrails |
 | Periphery | Rejected alternatives except when inspected; unrelated investigative material |
@@ -207,10 +207,10 @@ authoritative Decision before closure.
 | Owner | Matter owner remains accountable; action owners govern their source records |
 | Dominant object | Operational Transition relating Decision intent to source-owned Actions |
 | Required evidence | Approved adaptations, owners, dependencies, commitments, checkpoints, guardrails, source status, deviations |
-| Authority | Source capabilities validate execution state; Matter owner governs Decision and transition disposition |
-| Transition criteria | Effects are observable enough for outcome assessment, execution is stopped, or Decision reconsideration is required |
+| Authority | Source capabilities validate execution state; Matter owner governs Decision and Operational Transition disposition |
+| Matter lifecycle transition criteria | Effects are observable enough for outcome assessment, execution is stopped, or Decision reconsideration is required |
 | Expected outcome | Traceable change with no manufactured progress |
-| Focus | Current transition focus, dependency, deviation, owner, guardrail |
+| Focus | Current Operational Transition focus, dependency, deviation, owner, guardrail |
 | Periphery | Settled investigation detail, inactive actions, decorative progress summaries |
 
 ### Outcome Assessed
@@ -222,7 +222,7 @@ authoritative Decision before closure.
 | Dominant object | Outcome Assessment |
 | Required evidence | Baseline, intended condition, observed measures and behavior, adverse effects, adoption, residual uncertainty |
 | Authority | Owner accepts Outcome and stabilization disposition; completed work is not proof of success |
-| Transition criteria | Stable enough to close, further action is required, or Decision must be reconsidered |
+| Matter lifecycle transition criteria | Stable enough to close, further action is required, or Decision must be reconsidered |
 | Expected outcome | An honest disposition: achieved, partial, adverse, unknown, or inconclusive |
 | Focus | Intended versus observed condition, guardrails, recurrence and residual risk |
 | Periphery | Activity counts, obsolete plans, evidence unrelated to the expected effect |
@@ -236,7 +236,7 @@ authoritative Decision before closure.
 | Dominant object | Closure disposition and final Current Situation version |
 | Required evidence | Outcome or justified no-action disposition, residual risk, uncertainty, monitoring/recurrence conditions |
 | Authority | Closure is an owner judgment; the system may enforce completeness but cannot declare resolution |
-| Transition criteria | Reopening occurs only when recurrence or new material information justifies reassessment |
+| Matter lifecycle transition criteria | Reopening occurs only when recurrence or new material information justifies reassessment |
 | Expected outcome | A quiet, retrievable Matter whose history remains authoritative |
 | Focus | Final disposition, residual conditions, memory, explicit reopen basis |
 | Periphery | Active prompts, routine capture, execution controls |
@@ -353,7 +353,7 @@ Inconclusive never silently becomes successful, stable, or resolved.
 
 #### Return from Outcome to Investigation
 
-This transition requires an accepted Outcome showing that a material premise is
+This Matter lifecycle transition requires an accepted Outcome showing that a material premise is
 invalid, causal understanding is insufficient, or new uncertainty changes the
 Decision basis. The owner authorizes `Outcome Assessed → Under Investigation`.
 A new Investigation episode is appended under the same Matter; the earlier
@@ -361,7 +361,7 @@ Decision, execution, and Outcome remain intact.
 
 #### Return from Outcome to Execution
 
-This transition requires an accepted Outcome showing that further approved action
+This Matter lifecycle transition requires an accepted Outcome showing that further approved action
 under the current Decision is justified. The owner authorizes
 `Outcome Assessed → In Execution`, while each action owner retains authority for
 source records. The earlier Outcome remains as the baseline for follow-up work.
@@ -493,7 +493,7 @@ Available only when a Matter is active:
 - Matter identity, owner, macro-state, and last consequential change;
 - Current Situation;
 - Matter history and Operational Memory;
-- state transition proposals and authority;
+- Matter lifecycle transition proposals and authority;
 - full corpus access;
 - closure/reopening where authorized.
 
@@ -511,14 +511,14 @@ must be revisited:
 
 Workbench is an environment within the Matter, not the Matter itself.
 
-### Change Layer
+### Transition Layer
 
 Appears after an authoritative Decision requires change:
 
 - Decision intent and intended operating condition;
 - Impact Review and approved adaptations;
 - source-owned Actions, owners, dependencies, and commitments;
-- transition guardrails and deviations;
+- Operational Transition guardrails and deviations;
 - reconsideration path;
 - handoff to Monitoring.
 
@@ -565,10 +565,12 @@ Matter
 + means of return
 ```
 
-This Context Envelope applies between all Product Zones, not only within the
-Workbench. Movement into Decision, Transition, Monitoring, Memory, or Inspection
-must retain the originating Matter, relevant Current Situation version, active
-object, pending change, and return condition.
+The Context Envelope is owned by the Workbench Canonical Domain Model. This
+Product Operating Model defines only cross-zone Context Envelope requirements:
+between all Product Zones, movement into Decision, the Operational Transition,
+Monitoring, Memory, or Inspection must retain the originating Matter, relevant
+Current Situation version, active object, pending change, and return condition.
+It does not own Context Envelope identity or schema authority.
 
 ### Four separate navigation contracts
 
@@ -603,8 +605,9 @@ Rules:
 - a Zone may coexist with other Zones;
 - absence does not deny future capability or erase historical instances.
 
-Example: Transition does not exist for an execution-free Decision. It exists
-only after an approved Decision-to-Transition handoff.
+Example: an Operational Transition does not exist for an execution-free
+Decision. It exists only after an approved Decision-to-Operational-Transition
+handoff.
 
 #### Command Availability
 
@@ -634,12 +637,12 @@ Rules:
 - superseded, rejected, adverse, and inconclusive records remain distinguishable;
 - historical unavailability of a source is reported, not repaired by invention.
 
-Example: after closure, an earlier Transition and adverse Outcome remain
+Example: after closure, an earlier Operational Transition and adverse Outcome remain
 inspectable even though execution commands are unavailable.
 
-### Decision-to-Transition handoff
+### Decision-to-Operational-Transition handoff
 
-Transition exists only after an authoritative Decision requiring change is
+An Operational Transition exists only after an authoritative Decision requiring change is
 accompanied by:
 
 - intended operating condition;
@@ -652,6 +655,17 @@ accompanied by:
 The accountable decision owner authorizes the handoff. Source capabilities
 retain every execution mutation. The handoff appends a consequential event and
 never changes a planned action into reported execution.
+
+### Source-owned implementation boundary
+
+Management OS owns the Decision-to-Operational-Transition handoff, commitments,
+dependencies, approved adaptations, guardrails, the monitoring contract, Outcome
+Assessment, and the professional judgment of stabilization. Source systems own task
+and process execution, deployments, physical implementation, and completion of
+source-owned actions.
+
+**Integration invariant:** source-reported completion does not establish Outcome,
+stabilization, or Matter closure.
 
 ## 4. Dynamic Operational Rail
 
@@ -703,7 +717,7 @@ Contextual tools may appear only when they have a real operational object:
 
 - evidence acquisition during Investigation;
 - Decision readiness and judgment when a decision question exists;
-- impact and transition tools after Decision;
+- impact and Operational Transition tools after Decision;
 - monitoring and Outcome when observable conditions exist;
 - closure when disposition criteria can be inspected.
 
@@ -717,7 +731,7 @@ authorized automatically.
 2. Rail does not infer progression from clicks, tasks, or visual completion.
 3. Rail does not hide a capability merely because the ordinary path moved on.
 4. Rail order does not continuously react to transient behavior.
-5. Proposed transitions remain visually distinct from approved state.
+5. Proposed Matter lifecycle transitions remain visually distinct from approved state.
 6. The active Matter and return path remain continuously identifiable.
 
 ## 5. Product Zones
@@ -731,9 +745,9 @@ Zones are operational contexts, not mandatory pages.
 | Current Situation | Express accepted present understanding | Accepted Current Situation version; pre-synthesis condition before one exists | Synthesis, basis, uncertainty, authority | Accepted version after authorized synthesis; explicit pending condition beforehand | Canonical version is absent before initial authorized synthesis |
 | Workbench | Reduce uncertainty and build understanding | Working Set around Current Situation | Investigation, reasoning, Inspection, capture | When investigative work is active or revisited | When no investigative interaction is justified |
 | Decision | Support and preserve accountable judgment without collapsing readiness into authority | Readiness basis before judgment; authoritative Decision after owner action | Alternatives, authority, rationale, intended condition | When a material decision question or historical Decision exists | When no judgment exists or is required |
-| Transition | Relate Decision intent to source-owned change | Operational Transition | Impact, coordination, guardrails, deviation | When a Decision requires implementation/change | For no-action or execution-free Decisions |
+| Operational Transition | Relate Decision intent to source-owned change | Operational Transition | Impact, coordination, guardrails, deviation | When a Decision requires implementation/change | For no-action or execution-free Decisions |
 | Monitoring | Compare observed operation with intent | Observation contract before evaluation; Outcome Assessment after evaluation | Observation, drift, effect, stabilization | When effects can or must be observed | When no outcome verification is justified |
-| Operational Memory | Provide a zone for inspecting the separate canonical Memory model | Query/projection over Memory Event history | Retrieval, explanation, rejected paths, and historical continuity without owning present truth | Inspectable throughout the Matter life; emphasized when history is requested | The Memory model is never absent after Matter opening; the inspection Zone may be closed |
+| Operational Memory (Ready for Final Canonical Review) | Provide a zone for inspecting the separate Memory model at its current maturity | Query/projection over Memory Event history | Retrieval, explanation, rejected paths, and historical continuity without owning present truth | Inspectable throughout the Matter life; emphasized when history is requested | The Memory model is never absent after Matter opening; the inspection Zone may be closed |
 
 Zones may coexist. Their visual prominence follows current operational need,
 while their authority boundaries remain stable.
@@ -795,7 +809,7 @@ Management OS
    │  ├─ alternatives / risk
    │  └─ intended operating condition
    │
-   ├─ Transition
+   ├─ Operational Transition
    │  ├─ Impact Review
    │  ├─ approved adaptations
    │  ├─ references to source-owned Actions
@@ -832,7 +846,7 @@ External authoritative context:
 Operational System / Operating Model
   → supplies governed current topology and constraints
   → remains source-owned
-  → is referenced by Investigation, Decision, Transition, and Monitoring
+  → is referenced by Investigation, Decision, Operational Transition, and Monitoring
   → is never absorbed into Matter or rewritten by a Product Zone
 ```
 
@@ -852,8 +866,8 @@ Architecture readiness and implementation readiness are independent gates.
 
 | Gate | Required evidence | Passing condition |
 |---|---|---|
-| Lifecycle completeness | Exhaustive transition matrix and exceptional paths | Every intended path is allowed explicitly; every unlisted transition is forbidden |
-| Authority integrity | Actor/action/context contracts for every consequential transition | No UI, Watson, Coordinator, or source event can impersonate owner authority |
+| Lifecycle completeness | Exhaustive Matter lifecycle transition matrix and exceptional paths | Every intended path is allowed explicitly; every unlisted Matter lifecycle transition is forbidden |
+| Authority integrity | Actor/action/context contracts for every consequential Matter lifecycle transition | No UI, Watson, Coordinator, or source event can impersonate owner authority |
 | Model boundaries | Responsibility and dependency map | Matter, zones, source systems, Memory, and navigation have no competing ownership |
 | Recovery semantics | Failure and reconstruction specification | No recovery invents state, meaning, execution, Outcome, or consent |
 | Experience continuity | Canonical Product Map and Context Envelope | Every cross-zone movement preserves identity, origin, change, and return |
@@ -939,13 +953,13 @@ model before navigation can represent them honestly.
 
 ### 3. Operational Navigation
 
-Define global, Matter, Workbench, Change, and Monitoring layers plus the Dynamic
+Define global, Matter, Workbench, Transition Layer, and Monitoring layers plus the Dynamic
 Operational Rail. Navigation precedes layout because it determines orientation,
 context, and capability emphasis.
 
 ### 4. Decision & Change Experience
 
-Create the missing authority boundary and the transition from accepted
+Create the missing authority boundary and the Operational Transition from accepted
 understanding to intended change. Do this before redesigning Investigation so
 the product no longer terminates at explanation.
 
@@ -991,7 +1005,7 @@ only when all of the following are demonstrably true:
    sense of completion.
 4. An authoritative Decision preserves rationale, alternatives, uncertainty,
    intended condition, guardrails, and owner.
-5. A Decision that requires change enters a traceable Transition without copying
+5. A Decision that requires change enters a traceable Operational Transition without copying
    source-owned execution records.
 6. Source status, unknown status, planned work, completed activity, observed
    effect, and stable operation are visually and semantically distinct.

@@ -50,7 +50,18 @@ It answers five questions at every meaningful movement:
 
 Navigation coordinates the answers. The owning canonical models supply them.
 
-## 1.2 What Navigation is not
+## 1.2 Ownership boundary
+
+Canonical Operational Navigation is the sole owner of navigation architecture:
+layers, the navigation transition graph, projection state, Dynamic Operational
+Rail semantics, and the navigation context model. It consumes the laws,
+constraints, readiness gates, and attention/interruption/recovery governance
+owned by Operational Navigation Governance.
+
+Operational Navigation does not own or amend navigation laws. Operational
+Navigation Governance does not own navigation architecture.
+
+## 1.3 What Navigation is not
 
 Navigation is not:
 
@@ -66,7 +77,7 @@ Navigation is not:
 Routes and surfaces may later represent navigation. They never define its
 meaning.
 
-## 1.3 Unit of movement
+## 1.4 Unit of movement
 
 The unit of navigation is a **professional context**, defined as:
 
@@ -86,7 +97,7 @@ A context is valid only when these references can be established or their
 absence is explicitly qualified. Moving to a location without preserving this
 meaning is routing, not canonical navigation.
 
-## 1.4 Three attention bands
+## 1.5 Three attention bands
 
 Every context preserves the Matter Experience attention structure:
 
@@ -111,7 +122,7 @@ The canonical model has eight navigation layers:
 2. Matter;
 3. Workbench;
 4. Decision;
-5. Transition;
+5. Transition Layer;
 6. Monitoring;
 7. Operational Memory Inspection;
 8. Practice & Learning.
@@ -124,9 +135,9 @@ The proposed **Closure** layer is not adopted. Closed is a canonical Matter
 lifecycle posture. Closure disposition is handled in Matter context, and its
 history remains inspectable through Operational Memory.
 
-The canonical name **Transition** is used instead of the generic “Change” layer
-because the Product Operating Model defines Transition as the context relating
-Decision intent to source-owned change.
+The canonical layer name is **Transition Layer**. Its dominant object is the
+**Operational Transition** defined by
+the Product Operating Model to relate Decision intent to source-owned change.
 
 Layers are contexts, not mandatory pages. They may coexist for one Matter.
 Lifecycle influences justified existence and emphasis but does not dictate a
@@ -177,12 +188,12 @@ linear route.
 | Responsibility | Support and preserve accountable judgment without conflating readiness, proposal, authority, and Decision. |
 | Dominant object | Decision question and readiness basis before judgment; canonical Decision after authorized judgment. |
 | Available commands | Inspect basis, alternatives, consequences, uncertainty, dissent, and authority; record an authorized Decision; defer; return for investigation; inspect historical Decisions. |
-| Contextual boundary | Judgment only. It does not report execution, create Transition automatically, or convert a Watson proposal into acceptance. |
+| Contextual boundary | Judgment only. It does not report execution, create an Operational Transition automatically, or convert a Watson proposal into acceptance. |
 | Entry conditions | A material decision question exists, sufficient readiness is claimed, reconsideration is required, or a historical Decision is deliberately inspected. |
-| Exit conditions | Authorized Decision; explicit deferral; return to Workbench; no-action disposition; execution-free disposition; approved Decision-to-Transition handoff. |
+| Exit conditions | Authorized Decision; explicit deferral; return to Workbench; no-action disposition; execution-free disposition; approved Decision-to-Operational-Transition handoff. |
 | Context Envelope relationship | Carries Matter, Current Situation and evidence basis versions, decision question, alternatives, authority, accepted uncertainty, pending judgment, origin Focus, and return/reconsideration path. |
 
-### Layer L5 — Transition
+### Layer L5 — Transition Layer
 
 | Contract | Definition |
 |---|---|
@@ -190,7 +201,7 @@ linear route.
 | Dominant object | Operational Transition grounded in an authoritative Decision and intended operating condition. |
 | Available commands | Inspect Impact Review; coordinate approved adaptations, owners, dependencies, commitments, guardrails, and deviations; reference source-owned execution; pause, stop, or request reconsideration where authorized; hand off to Monitoring. |
 | Contextual boundary | Coordination only. Source systems own every execution mutation; activity and completion do not establish Outcome. |
-| Entry conditions | The full Decision-to-Transition handoff exists: Decision, intended condition, approved adaptations where needed, source ownership, guardrails, accepted risk, execution references or commitment boundary, and monitoring requirement or justified exception. |
+| Entry conditions | The full Decision-to-Operational-Transition handoff exists: Decision, intended condition, approved adaptations where needed, source ownership, guardrails, accepted risk, execution references or commitment boundary, and monitoring requirement or justified exception. |
 | Exit conditions | Monitoring contract is valid; execution-free Decision bypasses the layer; authorized pause/stop; Decision reconsideration; return to Matter after coordination. |
 | Context Envelope relationship | References Decision intent, approved adaptations, source-owned action identities, responsible actors, dependencies, guardrails, deviations, unresolved change, monitoring handoff, and return path without copying source state. |
 
@@ -211,8 +222,8 @@ linear route.
 | Contract | Definition |
 |---|---|
 | Responsibility | Retrieve and explain consequential history across all Matter contexts without owning current truth. |
-| Dominant object | A query or projection over canonical Operational Memory events. |
-| Available commands | Inspect event provenance, prior contexts, rejected paths, revisions, Decisions, transitions, Outcomes, interruptions, and corrections; return to the originating current context. |
+| Dominant object | A query or projection over Operational Memory events from the model currently Ready for Final Canonical Review. |
+| Available commands | Inspect event provenance, prior contexts, rejected paths, revisions, Decisions, Operational Transitions, Outcomes, interruptions, and corrections; return to the originating current context. |
 | Contextual boundary | Read-only historical inspection. It cannot reactivate a state, accept a claim, mutate Memory, or replace the present canonical object. |
 | Entry conditions | The manager requests history; current reasoning requires provenance; recovery requires reconstruction; a consequential change must be explained. |
 | Exit conditions | The historical question is answered, source access prevents further inspection, or the manager deliberately adopts another valid context. |
@@ -292,7 +303,7 @@ and task completion do not independently change emphasis.
 | Dimension | Rail consequence |
 |---|---|
 | Always present | Global return, Matter retrieval, identity/authority orientation, search, Memory access, recovery visibility. |
-| Matter-dependent | Matter identity, Current Situation, Workbench, Decision, Transition, Monitoring, closure/reopen, Matter Memory. |
+| Matter-dependent | Matter identity, Current Situation, Workbench, Decision, Operational Transition, Monitoring, closure/reopen, Matter Memory. |
 | Lifecycle-dependent | Context existence and emphasis may change, but capability discoverability, command availability, and historical inspectability remain separate. |
 | Intent-dependent | One dominant object and active Focus receive emphasis; deliberate inspection can temporarily deepen context without changing lifecycle. |
 | Authority-dependent | Commands and protected information may be unavailable; absence of authority is visible and never inferred from presence. |
@@ -313,7 +324,7 @@ Every Rail change must identify:
 
 Rail movement never changes canonical state.
 
-# 4. Canonical Transition Graph
+# 4. Canonical Navigation Transition Graph
 
 ## 4.1 Graph
 
@@ -342,7 +353,7 @@ Rail movement never changes canonical state.
                             change required │     │ execution-free /
                                             ↓     │ observation required
                                       ┌──────────┐│
-                                      │Transition││
+                                      │Operational Transition│
                                       └────┬─────┘
                                            │ monitoring handoff
                                            ↓
@@ -352,7 +363,7 @@ Rail movement never changes canonical state.
                         adverse/inconcl. │  │  │ stabilized disposition
                                ┌────────┘  │  └──────────────→ Matter / Closed
                                ↓           │ reconsider/adapt
-                          Workbench ←──────┴──────→ Decision / Transition
+                          Workbench ←──────┴──────→ Decision / Operational Transition
 
 Any active Matter context ⇄ Operational Memory Inspection.
 Any governed interruption may suspend one context and enter Global or another
@@ -362,9 +373,9 @@ Closed remains a Matter posture; reopening returns the same Matter to Assessment
 
 This graph expresses permitted professional movement, not mandatory progression.
 
-## 4.2 Transition contracts
+## 4.2 Navigation transition contracts
 
-| ID | Transition | Reason | Prerequisite | Authority | Continuity and recoverability |
+| ID | Navigation transition | Reason | Prerequisite | Authority | Continuity and recoverability |
 |---|---|---|---|---|---|
 | **NT-01** | Global → Matter | Deliberate selection, valid attention claim, recovery, or interruption. | Authorized Matter identity and sufficient fresh context. | Owner/delegate selection or bounded protective policy. | Create no new envelope; restore or reconstruct the Matter envelope and preserve Global origin. |
 | **NT-02** | Matter → Global | Compare attention, retrieve another Matter, or end current session. | Current intent and unfinished work can be preserved or reported missing. | Owner/delegate; system may recover globally after failure. | Suspend rather than discard Matter context; keep separate return conditions. |
@@ -372,14 +383,14 @@ This graph expresses permitted professional movement, not mandatory progression.
 | **NT-04** | Workbench → Matter | Pause, defer, or finish the current investigative context. | Unfinished intent and disposition are explicit. | Owner/delegate. | Preserve Focus status, unresolved question, last meaningful act, and next justified return. |
 | **NT-05** | Workbench → Decision | A material judgment is sufficiently prepared. | Decision question, readiness basis, alternatives, uncertainty, and authority condition. | Authorized human adopts Decision context. | Preserve traceable evidence basis, dissent, Current Situation version, and Workbench return. |
 | **NT-06** | Decision → Workbench | Evidence, contradiction, uncertainty, or adverse result makes judgment premature or invalid. | Attributable reason for reconsideration. | Decision owner or valid delegate; Watson/system may recommend or flag. | Retain the question, prior basis, unresolved gap, and reason for return. |
-| **NT-07** | Decision → Transition | An authoritative Decision requires source-owned change. | Complete Decision-to-Transition handoff defined by the Product Operating Model. | Accountable decision owner. | Carry Decision intent and guardrails by reference; preserve Decision return; never report execution. |
-| **NT-08** | Decision → Monitoring | Execution-free Decision or immediate observation obligation. | Intended condition and valid observation contract; explicit reason Transition is absent. | Decision owner and applicable interpretation authority. | Preserve Decision basis, baseline, sources, expected condition, and reconsideration path. |
+| **NT-07** | Decision → Operational Transition | An authoritative Decision requires source-owned change. | Complete Decision-to-Operational-Transition handoff defined by the Product Operating Model. | Accountable decision owner. | Carry Decision intent and guardrails by reference; preserve Decision return; never report execution. |
+| **NT-08** | Decision → Monitoring | Execution-free Decision or immediate observation obligation. | Intended condition and valid observation contract; explicit reason an Operational Transition is absent. | Decision owner and applicable interpretation authority. | Preserve Decision basis, baseline, sources, expected condition, and reconsideration path. |
 | **NT-09** | Decision → Matter | No-action disposition, deferral, or Decision inspection ends. | Attributable disposition and any return trigger. | Authorized decision owner for judgment; viewer for historical exit. | Preserve Decision, rationale, uncertainty, and future trigger. |
-| **NT-10** | Transition → Monitoring | Effects can or must be observed. | Observation contract, baseline, measures/sources, interval, guardrails, interpretation authority. | Authorized handoff; source owners retain execution authority. | Carry Decision intent and source references without copying execution state. |
-| **NT-11** | Transition → Decision | Impact, deviation, authority, or feasibility requires reconsideration. | Material attributable condition invalidates or exceeds authorized intent. | Responsible owner or bounded protective rule may suspend; only authorized human decides. | Preserve execution facts, deviations, unfinished commitments, and prior Decision. |
+| **NT-10** | Operational Transition → Monitoring | Effects can or must be observed. | Observation contract, baseline, measures/sources, interval, guardrails, interpretation authority. | Authorized handoff; source owners retain execution authority. | Carry Decision intent and source references without copying execution state. |
+| **NT-11** | Operational Transition → Decision | Impact, deviation, authority, or feasibility requires reconsideration. | Material attributable condition invalidates or exceeds authorized intent. | Responsible owner or bounded protective rule may suspend; only authorized human decides. | Preserve execution facts, deviations, unfinished commitments, and prior Decision. |
 | **NT-12** | Monitoring → Workbench | Outcome is adverse/inconclusive or understanding is invalidated. | Attributable observation and unresolved explanatory question. | Authorized owner adopts investigation; policy may interrupt protectively. | Carry baseline, observation, Outcome, uncertainty, and original intended condition. |
 | **NT-13** | Monitoring → Decision | Observations require reconsidering intent or accepted risk. | Material Outcome or guardrail evidence and a defined decision question. | Authorized decision owner. | Preserve the full observation basis and prior Decision history. |
-| **NT-14** | Monitoring → Transition | Approved intent remains valid but adaptation is required. | Authorized adaptation within scope or a revised Decision where scope is exceeded. | Applicable owner/delegate and source authority. | Preserve deviation, adaptation authority, guardrails, and monitoring return. |
+| **NT-14** | Monitoring → Operational Transition | Approved intent remains valid but adaptation is required. | Authorized adaptation within scope or a revised Decision where scope is exceeded. | Applicable owner/delegate and source authority. | Preserve deviation, adaptation authority, guardrails, and monitoring return. |
 | **NT-15** | Monitoring → Matter / Closed | Stabilized, no-current-work, or other supported final disposition. | Outcome and closure criteria are inspectable; residuals and return triggers recorded. | Accountable owner. | Closure quiets attention but retains Matter identity, history, sources, and reopen condition. |
 | **NT-16** | Closed Matter → Matter / Assessment | Material recurrence or new information justifies current work. | Valid reopen trigger, current authority, and freshness validation. | Authorized human. | Reuse Matter identity; join prior closure, residuals, trigger, current context, and new Focus. |
 | **NT-17** | Matter context → Memory Inspection | Provenance, history, recovery, or explanation is needed. | Authorized historical query and available source/retention scope. | Authorized viewer; inspection grants no domain authority. | Preserve the current context as return target; distinguish historical baseline from present truth. |
@@ -396,7 +407,7 @@ This graph expresses permitted professional movement, not mandatory progression.
 | Global orientation | Authorized Matter retrieval, Global return, identity/workspace context. | Attention claims and valid return targets. |
 | Matter identity | Stable identity and isolation from admission through reopening. | Owner, delegate, posture, Current Situation reference, material change. |
 | Capability discoverability | Fundamental capabilities and their conditions remain learnable. | Emphasis changes with intent and justified operational need. |
-| Zone existence | Derived only from canonical object or valid pre-object contract. | Workbench, Decision, Transition, and Monitoring instances appear or become historical. |
+| Zone existence | Derived only from canonical object or valid pre-object contract. | Workbench, Decision, Operational Transition, and Monitoring instances appear or become historical. |
 | Command availability | Requires actor authority, lifecycle prerequisites, and canonical inputs. | Recomputed when authority, state, source validity, or object conditions change. |
 | Historical inspectability | Consequential contexts remain inspectable subject to access and retention. | Current query, event range, and source availability. |
 | Focus | At most one owner-adopted primary Focus per active Matter. | Active, suspended, transferred, abandoned, or resumed intent. |
@@ -421,7 +432,7 @@ canonical meaning.
 | Field | Projection meaning | Canonical basis | Invalid behavior |
 |---|---|---|---|
 | **Active context** | The professional context currently adopted for the actor. | Explicit intent, Matter identity, Focus, layer, dominant object, authority, valid envelope. | Treating route or selection alone as adoption. |
-| **Previous context** | The context directly displaced by deliberate movement. | Preserved origin and attributable transition. | Using browser history as professional history. |
+| **Previous context** | The context directly displaced by deliberate movement. | Preserved origin and attributable navigation transition. | Using browser history as professional history. |
 | **Recovery target** | The best valid context for resumption and its return condition. | Context Envelope, interruption disposition, freshness and authority checks. | Restoring a location without meaning or after invalidation. |
 | **Navigation history** | Inspectable sequence of consequential context changes. | Operational Memory and source histories; navigation events remain references/projections. | Creating a parallel authoritative timeline. |
 | **Bookmarked contexts** | Owner-declared retrieval references with stated purpose. | Stable identities, explicit intent, access, source versions where needed. | Treating a bookmark as priority, acceptance, current truth, or authority. |
@@ -448,7 +459,7 @@ missing truth by inference.
 
 ## 7.1 Single-envelope rule
 
-The canonical Context Envelope passes through every layer. Each transition
+The canonical Context Envelope passes through every layer. Each navigation transition
 selects and qualifies relevant fields from the one contract; no layer owns a
 container, copied payload, or substitute context model.
 
@@ -460,7 +471,7 @@ Canonical state + explicit intent + attributable history
                            │
        ┌───────────┬───────┼────────┬──────────┐
        ▼           ▼       ▼        ▼          ▼
-     Matter    Workbench  Decision Transition Monitoring
+     Matter    Workbench  Decision Operational Transition Monitoring
        │           │       │        │          │
        └───────────┴───────┴────────┴──────────┘
                            │
@@ -478,7 +489,7 @@ applicable scope and explicit production boundary.
 | Matter | Matter identity, owner/delegate, lifecycle posture, Current Situation, professional intent. |
 | Workbench | Working Set, Focus, inspected subject, unresolved question, evidence neighborhood. |
 | Decision | Decision question, readiness basis, alternatives, authority, uncertainty, pending judgment. |
-| Transition | Decision intent, intended condition, source-owned execution references, dependencies, guardrails, deviations. |
+| Operational Transition | Decision intent, intended condition, source-owned execution references, dependencies, guardrails, deviations. |
 | Monitoring | Baseline, observation contract, sources, interval, interpretation authority, Outcome, reconsideration. |
 | Memory Inspection | Historical query, event range, baseline, inspected event, current-truth distinction, return target. |
 | Practice & Learning | Practice identity, non-production provenance, attempt history, authority separation, production return. |
@@ -496,7 +507,7 @@ Every consequential movement:
 5. states whether the destination is current, historical, simulated, stale, or
    degraded;
 6. establishes a reliable return or explains why none is valid;
-7. records the transition through the owning history contracts;
+7. records the navigation transition through the owning history contracts;
 8. revalidates changed assumptions before irreversible or authoritative work.
 
 # 8. Cross-Canonical Consistency
@@ -505,10 +516,10 @@ Every consequential movement:
 |---|---|---|
 | **Artifact** | Identity, provenance, Matter scope, source reference, epistemic and lifecycle conditions. | Navigation retrieves or foregrounds qualified Artifacts; it never creates or promotes Evidence. |
 | **Relationship** | Semantics, endpoints, provenance, confidence, acceptance, lifecycle. | Navigation traverses existing Relationships; proximity, sequence, and movement remain non-semantic. |
-| **Operational Memory** | Append-only consequential history, correction, attribution, reconstruction. | Navigation queries and references Memory; its projection never becomes a parallel timeline. |
+| **Operational Memory (Ready for Final Canonical Review)** | Append-only consequential history, correction, attribution, reconstruction. | Navigation queries and references Memory; its projection never becomes a parallel timeline. |
 | **Canonical Matter Experience** | Professional journey, attention flow, cognitive integrity, continuity, confidence. | Navigation preserves Focus/periphery/context and supports non-linear returns without owning the journey. |
-| **Operational Navigation Governance** | Priority, interruption, recovery, authority, provenance, and degradation laws. | Every transition, Rail change, recovery, and projection must conform to NAV-01 through NAV-33. |
-| **Canonical Product Operating Model** | Matter lifecycle, Product Zones, zone-existence contracts, Context Envelope, Decision-to-Transition handoff. | Layers and transitions derive from canonical Zones and lifecycle prerequisites; Navigation creates neither. |
+| **Operational Navigation Governance** | Priority, interruption, recovery, authority, provenance, and degradation laws. | Every navigation transition, Rail change, recovery, and projection must conform to NAV-01 through NAV-33. |
+| **Canonical Product Operating Model** | Matter lifecycle, Product Zones, zone-existence contracts, downstream cross-zone Context Envelope requirements, Decision-to-Operational-Transition handoff. | Layers and navigation transitions derive from canonical Zones and lifecycle prerequisites; Navigation creates neither. |
 | **Workbench Canonical Domain Model / Workbench Laws** | Matter, Current Situation, Artifact, Relationship, Working Set, Focus, Inspection, Context Envelope, Operational Event, actors and authority. | Workbench navigation preserves these identities and powers; selection or activity never mutates them. |
 | **Operational Dynamics** | Stable Focus, Inspection behavior, context preservation, quiet periphery, attributable motion. | Navigation keeps movement consequential and recoverable, avoiding constant rearrangement or competing centers. |
 
@@ -565,7 +576,7 @@ Envelope.
 2. Authorized reopening retains Matter identity and complete history.
 3. Navigation enters Matter in Assessment with prior closure, residual
    conditions, new trigger, current authority, and a new explicit Focus.
-4. Prior Workbench, Decisions, transitions, and Outcomes remain historical, not
+4. Prior Workbench, Decisions, Operational Transitions, and Outcomes remain historical, not
    silently current.
 
 ## J-06 — Interrupted investigation
@@ -584,7 +595,7 @@ Envelope.
 2. Source-owned observations remain distinct from authorized interpretation.
 3. An adverse Outcome retains Decision intent, baseline, observations,
    uncertainty, and authority.
-4. The owner deliberately returns to Workbench, Decision, or Transition
+4. The owner deliberately returns to Workbench, Decision, or Operational Transition
    according to the unresolved professional question.
 5. Monitoring never infers success or closure from completed activity.
 
@@ -602,7 +613,7 @@ Envelope.
 1. Workbench hands a traceable readiness basis to Decision.
 2. The authorized owner records Decision, rationale, uncertainty, and intended
    condition.
-3. Transition exists only when the full handoff contract passes.
+3. An Operational Transition exists only when the full handoff contract passes.
 4. Navigation references source-owned action and execution records without
    copying them.
 5. Monitoring begins from a valid observation contract and preserves a Decision
@@ -610,7 +621,7 @@ Envelope.
 
 ## J-10 — Execution-free Decision
 
-1. The owner makes an authoritative Decision that requires no Transition.
+1. The owner makes an authoritative Decision that requires no Operational Transition.
 2. Navigation records why execution is absent.
 3. If observation is required, it enters Monitoring directly with intended
    condition and baseline.
@@ -669,7 +680,7 @@ new governance ownership.
 11. Presence, activity, completion, and location imply neither acceptance nor
     progression.
 12. Decision readiness is not Decision authority.
-13. Transition exists only after a valid authoritative handoff.
+13. An Operational Transition exists only after a valid authoritative handoff.
 14. Execution truth remains source-owned.
 15. Monitoring compares observed operation with intent and never infers Outcome
     from activity.
@@ -737,7 +748,7 @@ one-to-one to a layer.
 **Sufficient for semantic design.** Breadcrumb-like representation must express
 professional origin and recoverable context, not a page hierarchy. It must
 distinguish containment, prior context, historical inspection, and return;
-linear ancestors cannot represent the full transition graph by themselves.
+linear ancestors cannot represent the full navigation transition graph by themselves.
 
 ## 11.5 Workbench 2.0
 
@@ -757,7 +768,7 @@ cannot reinterpret the canonical entities or laws.
 
 A proposed visual navigation architecture receives:
 
-- **Pass** when every represented movement maps to one canonical transition,
+- **Pass** when every represented movement maps to one canonical navigation transition,
   preserves the applicable envelope, exposes authority and degradation, and
   violates no invariant;
 - **Fail** when any representation manufactures domain truth, lifecycle,
@@ -794,7 +805,7 @@ Approved as Canonical
 Ready for Visual Navigation Architecture
 ```
 
-The canonical layers, non-linear transition graph, Rail semantics, navigation
+The canonical layers, non-linear navigation transition graph, Rail semantics, navigation
 projection, Context Envelope continuity, authority boundaries, experience
 journeys, and deterministic invariants are sufficient for visual architecture
 without changing an owning canonical model.
@@ -802,8 +813,8 @@ without changing an owning canonical model.
 ## Recommendation
 
 ```text
-Open M5 — Visual Semantics
+Open M5 — Canonical Visual Semantics (Canonical Review Candidate)
 ```
 
 M5 may choose visual representations but may not redefine the navigation model,
-transition meaning, canonical sources, or governance laws established here.
+navigation transition meaning, canonical sources, or governance laws established here.

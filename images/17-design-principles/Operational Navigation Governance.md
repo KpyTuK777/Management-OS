@@ -39,8 +39,10 @@ aggregate, lifecycle, repository, event authority, or parallel history.
 - **Safe point** is the earliest point at which deferral no longer risks losing an
   irreversible act, unrecorded judgment, or essential reasoning context. It is
   not inferred from inactivity.
-- **Context Envelope** is the single canonical continuity contract defined by the
-  Canonical Product Operating Model and Workbench Canonical Domain Model.
+- **Context Envelope** is the single canonical continuity contract owned by the
+  Workbench Canonical Domain Model. Product, experience, navigation, interaction,
+  visual, and information models consume it and define downstream requirements
+  only.
 - **Owner** includes a human holding explicit, valid delegated authority for the
   applicable Matter and act. Delegation never rewrites prior ownership.
 
@@ -490,7 +492,7 @@ canonical contract to Navigation without claiming ownership of its domain truth.
 | ID and canonical name | Classification | Normative statement | Canonical source for derived constraint | Conformance consequence |
 |---|---|---|---|---|
 | **NAV-01 — Admissible Priority Basis** | Independent Navigation Law | Priority derives only from the factors in §1.2 and never from UI, notification, engagement, or raw activity semantics. | — | **Fail** if any forbidden proxy independently changes priority. |
-| **NAV-02 — Priority Is Lifecycle-Neutral** | Derived Navigation Constraint | Priority and lifecycle remain orthogonal; Navigation cannot infer or change lifecycle from attention. | Canonical Product Operating Model — §1 “Complete Operational Lifecycle” and §3 “Navigation invariant”. Navigation consequence: lifecycle state neither grants nor removes attention by itself. | **Fail** if priority causes, implies, or suppresses a lifecycle transition. |
+| **NAV-02 — Priority Is Lifecycle-Neutral** | Derived Navigation Constraint | Priority and lifecycle remain orthogonal; Navigation cannot infer or change lifecycle from attention. | Canonical Product Operating Model — §1 “Complete Operational Lifecycle” and §3 “Navigation invariant”. Navigation consequence: lifecycle state neither grants nor removes attention by itself. | **Fail** if priority causes, implies, or suppresses a Matter lifecycle transition. |
 | **NAV-03 — Honest Priority Determination** | Independent Navigation Law | Equal or uncertain claims remain qualified and deterministic; no score, hidden weight, or fabricated precision may resolve them. | — | **Fail** if identical inputs yield different results or an opaque rank resolves an honest tie. |
 | **NAV-04 — Priority Is Not Notification** | Independent Navigation Law | Notification level, delivery, repetition, acknowledgment, and dismissal do not determine priority. | — | **Fail** if delivery semantics alter a governance class without material canonical change. |
 | **NAV-05 — Lower Priority Preserves Access** | Independent Navigation Law | Lower priority never erases identity, access, history, or return conditions. | — | **Fail** if de-prioritization hides or destroys recoverable professional context. |
@@ -536,10 +538,10 @@ canonical contract to Navigation without claiming ownership of its domain truth.
 
 | ID and canonical name | Classification | Normative statement | Canonical source for derived constraint | Conformance consequence |
 |---|---|---|---|---|
-| **NAV-23 — Mechanics Do Not Mean Progression** | Derived Navigation Constraint | Activity, completion, location, selection, and route mechanics never imply lifecycle progression. | Canonical Product Operating Model — §1 “Complete Operational Lifecycle” and “Navigation invariant”. Navigation consequence: movement cannot advance, close, or reopen a Matter. | **Fail** if navigation mechanics mutate or represent an unsupported transition. |
+| **NAV-23 — Mechanics Do Not Mean Progression** | Derived Navigation Constraint | Activity, completion, location, selection, and route mechanics never imply lifecycle progression. | Canonical Product Operating Model — §1 “Complete Operational Lifecycle” and “Navigation invariant”. Navigation consequence: movement cannot advance, close, or reopen a Matter. | **Fail** if navigation mechanics mutate or represent an unsupported Matter lifecycle transition. |
 | **NAV-24 — Closure Quiets but Preserves** | Derived Navigation Constraint | Closure quiets attention while preserving identity, history, and valid return conditions. | Canonical Product Operating Model — “Closed”, “Closing”, and “Reopening”. Navigation consequence: Closed is not deletion and a valid reopen trigger remains recoverable. | **Fail** if closure erases context or permanently suppresses a valid trigger. |
 | **NAV-25 — Reopening Preserves Identity** | Derived Navigation Constraint | Reopening binds prior closure, residual conditions, new trigger, current authority, and new Focus to the existing Matter. | Canonical Product Operating Model — “Reopening”; Canonical Matter Experience — “Negative Conformance Scenarios / Reopening”. Navigation consequence: the earlier professional history remains inspectable. | **Fail** if reopening creates a replacement Matter or hides closure context. |
-| **NAV-26 — Priority Cannot Change Lifecycle** | Derived Navigation Constraint | No priority or interruption class creates, resolves, transfers, closes, or reopens a Matter. | Canonical Product Operating Model — §1 “Complete Operational Lifecycle” and §3 “Navigation invariant”. Navigation consequence: attention posture is not a transition command. | **Fail** if classification changes canonical lifecycle. |
+| **NAV-26 — Priority Cannot Change Lifecycle** | Derived Navigation Constraint | No priority or interruption class creates, resolves, transfers, closes, or reopens a Matter. | Canonical Product Operating Model — §1 “Complete Operational Lifecycle” and §3 “Navigation invariant”. Navigation consequence: attention posture is not a Matter lifecycle transition command. | **Fail** if classification changes canonical lifecycle. |
 
 ## 5.7 Domain Ownership
 
@@ -603,12 +605,12 @@ requires correction before final canonical review.
 |---|---|---|
 | **Artifact** | Identity, Matter scope, provenance, source reference, epistemic and lifecycle conditions | Use qualified references as context; never create, copy, reclassify, or promote Evidence through attention. |
 | **Relationship** | Semantics, endpoints, provenance, confidence, acceptance, and lifecycle | Traverse or cite connections; never manufacture one from sequence, proximity, similarity, or movement. |
-| **Operational Memory** | Append-only consequential history, ordering, attribution, correction, and reconstruction | Retrieve history explaining priority, interruption, change, and return; never create a parallel timeline. |
+| **Operational Memory (Ready for Final Canonical Review)** | Append-only consequential history, ordering, attribution, correction, and reconstruction | Retrieve history explaining priority, interruption, change, and return; never create a parallel timeline. |
 | **Canonical Matter Experience** | Professional journey, dominant concern, cognitive integrity, confidence, and human continuity test | Coordinate attention without creating a second journey or lifecycle. |
-| **Canonical Product Operating Model** | Matter lifecycle, Product Zones, authority, source ownership, Product Map, and Context Envelope | Govern movement among contexts; never turn Navigation into lifecycle progression or Zone ownership. |
+| **Canonical Product Operating Model** | Matter lifecycle, Product Zones, authority, source ownership, Product Map, and downstream cross-zone Context Envelope requirements | Govern movement among contexts; never turn Navigation into lifecycle progression, Zone ownership, or Context Envelope ownership. |
 | **Workbench Laws and Canonical Domain Model** | Matter, Current Situation, Focus, Working Set, Inspection, Context Envelope, Watson Proposal, Operational Event, and actor authority | Preserve and restore subjects; never redefine identity, ownership, authority, or lifecycle. |
-| **Operational Dynamics** | Stable Focus, consequential movement, quiet periphery, non-rearranging work, and attributable transitions | Navigation preserves stable Focus, changes emphasis only for governed consequence, keeps the periphery quiet, avoids constant rearrangement, and attributes transitions. It does not own behavioral state or motion semantics. |
-| **Canonical Iconography** | Symbol vocabulary, construction, accessibility, and semantic representation | A symbol does not define authority; an icon does not define state alone; navigation semantics precede representation; decorative causality is prohibited. Navigation does not own icon meaning. |
+| **Operational Dynamics** | Stable Focus, consequential movement, quiet periphery, non-rearranging work, and attributable navigation transitions | Navigation preserves stable Focus, changes emphasis only for governed consequence, keeps the periphery quiet, avoids constant rearrangement, and attributes navigation transitions. It does not own behavioral state or motion semantics. |
+| **Canonical Iconography Research** | Advisory symbol research, construction concerns, and accessibility observations | Research is not semantic authority. Navigation semantics precedes representation; decorative causality is prohibited. Canonical Visual Semantics (Canonical Review Candidate) is the intended semantic owner and must be approved before a future icon library implements it. |
 
 Operational Navigation is downstream of these models. On conflict, the owning
 canonical model governs domain truth and this document governs only attention
@@ -655,7 +657,7 @@ reach the same verdict.
 | Weak-signal aggregation escalation is prohibited | **Pass** |
 | Failure scenarios use the complete conformance structure | **Pass — 10** |
 | Risks have formal control dispositions | **Pass — 7** |
-| Operational Dynamics and Canonical Iconography are in the responsibility matrix | **Pass** |
+| Operational Dynamics and Canonical Iconography Research are in the responsibility matrix with advisory status | **Pass** |
 | Delegation visibility and historical inspectability are separate gates | **Pass** |
 | Conformance verdicts are deterministic | **Pass** |
 
@@ -668,7 +670,13 @@ M4 not started
 ```
 
 All required M4.0 hardening corrections are resolved at the governance level.
-Operational Navigation Governance is the single canonical navigation-level
-source of truth for future Management OS navigation decisions. It governs
-professional attention coordination without owning domain truth, lifecycle,
-authority, or the canonical Context Envelope. Canonicalization does not start M4.
+Operational Navigation Governance is the single canonical source of navigation
+laws, constraints, readiness gates, attention governance, interruption
+governance, and recovery governance. It does not own navigation architecture,
+layers, the navigation transition graph, projection state, Dynamic Operational
+Rail semantics, or the navigation context model. Those belong exclusively to
+Canonical Operational Navigation.
+
+Governance controls conformance without owning domain truth, lifecycle,
+authority, or the Workbench-owned Context Envelope. Canonicalization does not
+start M4.

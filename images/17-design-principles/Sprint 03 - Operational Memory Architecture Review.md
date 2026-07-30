@@ -179,7 +179,7 @@ It identifies:
 - the cross-aggregate interpretation of what occurred;
 - its authority and meaning;
 - correction or supersession lineage;
-- its position in canonical Operational Memory.
+- its position in the validated Operational Memory record.
 
 ### Source-event identity
 

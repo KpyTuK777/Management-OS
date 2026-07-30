@@ -9,6 +9,13 @@ Research Only
 This document defines the intended iconography system for Management OS. It does
 not approve assets, change the interface, or authorize implementation.
 
+This research is not a semantic authority. Canonical Visual Semantics (currently a
+Canonical Review Candidate) precedes
+iconographic representation and constrains the meaning of every future symbol.
+This document may inform representation strategy only. A future Canonical
+Iconography Library must implement approved Canonical Visual Semantics and the
+Operational Design System; it cannot redefine them.
+
 ## 1. Purpose
 
 Management OS iconography is a recognition layer for operational meaning. It
@@ -170,7 +177,7 @@ All categories follow these interaction rules:
 | `relationship` | Accepted/proposed semantic relation between endpoints | Decorative connectors, hyperlinks | Outline; state supplied separately |
 | `operational-memory` | Append-only consequential memory | Browser history, archive folder | Outline |
 | `decision` | Governed choice or judgment | Target, task, acceptance alone | Outline; restrained solid status form |
-| `change` | Meaningful transition between states | Refresh, sync, navigation | Outline |
+| `change` | Meaningful presentation transition representing a state change | Refresh, sync, navigation | Outline |
 | `intervention` | Intentional action applied to a situation | Tool/settings, generic task | Outline |
 | `outcome` | Observed result attributable to work | Forecast, upward metric, success | Outline |
 

@@ -10,6 +10,7 @@
 | Architecture | Frozen |
 | Design Bible | Frozen v1.0 |
 | Canonical Foundation | Established |
+| Canonical Management Model | ✅ Integrated |
 
 ## Canonical Models
 
@@ -17,15 +18,20 @@
 |---|---|---|---|---|---|
 | Artifact | ✅ Canonical | `b7c5b28` | `artifact-v1.0-canonical` | 2026-07-27 | Frozen v1.0 |
 | Relationship | ✅ Canonical | `748fd29` | `relationship-v1.0-canonical` | 2026-07-28 | Implementation `a1e4edb`; stabilization `2520c66`; Frozen v1.0 |
-| Operational Memory | 🟡 Under Canonical Review | `2d3b82c` | — | 2026-07-28 | Operational Design Brief 01 approved; Sprint 03 implementation applied |
+| Workbench Canonical Domain Model | ✅ Canonical | `8aad903` | — | 2026-07-27 | Canonical owner of Matter, Current Situation, Focus, Working Set, Inspection, and Context Envelope; Frozen. |
+| Operational Memory | 🟢 Ready for Final Canonical Review | `2d3b82c` | — | 2026-07-30 | Architecture approved and implementation applied; standalone browser contracts pass. Node validation unavailable; integrated browser dump was inconclusive. |
 | Product Operating Model | ✅ Canonical | `cc934f3` | `product-operating-model-v1.0-canonical` | 2026-07-28 | Milestone M2 — Product Operating Model complete; Frozen v1.0 |
 | Matter Experience | ✅ Canonical | `13be427` | `matter-experience-v1.0-canonical` | 2026-07-29 | Milestone M3 — Canonical Matter Experience complete; Frozen v1.0 |
 | Operational Navigation Governance | ✅ Canonical | `325bb9e` | — | 2026-07-30 | M4.0 governance approved; Frozen v1.0 |
 | Canonical Operational Navigation | ✅ Canonical | `7dbbabd` | — | 2026-07-30 | Milestone M4 — Canonical Operational Navigation complete; Frozen v1.0 |
-| Current Situation | ⏳ Planned | — | — | — | — |
-| Inspection | ⏳ Planned | — | — | — | — |
-| Working Set | ⏳ Planned | — | — | — | — |
-| Watson | ⏳ Planned | — | — | — | — |
+| Canonical Visual Semantics | 🟡 Canonical Review Candidate | — | — | 2026-07-30 | Candidate only; intended downstream owner of visual meaning. |
+| Canonical Operational Interaction Language | 🟡 Canonical Review Candidate | — | — | 2026-07-30 | Candidate only; depends on Visual Semantics. |
+| Canonical Information Architecture | 🟡 Canonical Review Candidate | — | — | 2026-07-30 | Candidate only; depends on Interaction Language. |
+| Canonical Iconography | 🔵 Research Only — Advisory | `cc934f3` | — | 2026-07-30 | Informs representation strategy; creates no semantic authority. |
+| Current Situation | 🟡 Concept Canonical / Implementation Planned | — | — | 2026-07-30 | Identity and contract are owned by Workbench Canonical Domain Model; standalone implementation review remains planned. |
+| Inspection | 🟡 Concept Canonical / Implementation Planned | — | — | 2026-07-30 | Identity and contract are owned by Workbench Canonical Domain Model; standalone implementation review remains planned. |
+| Working Set | 🟡 Concept Canonical / Implementation Planned | — | — | 2026-07-30 | Identity and contract are owned by Workbench Canonical Domain Model; standalone implementation review remains planned. |
+| Watson | 🟡 Authority Constraints Canonical / Interaction Candidate / Implementation Planned | — | — | 2026-07-30 | Authority constraints are canonical in Workbench and Navigation Governance; interaction semantics are candidate; implementation remains planned. |
 
 ## Canonical Rules
 
@@ -83,9 +89,9 @@ This is the construction order of the system core, not a roadmap.
 
 | Field | Status |
 |---|---|
-| Current Milestone | Milestone M4 — Canonical Operational Navigation: Complete |
+| Current Milestone | Canonical Management Model Integration: Complete |
 | Current Sprint | — |
-| Next Milestone | M5 — Visual Semantics |
+| Next Milestone | Operational Memory Final Canonical Review |
 
 ## Maintenance
 

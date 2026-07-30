@@ -443,7 +443,7 @@ The system is its custodian. Humans author consequential judgments; Watson contr
 
 Operational Memory begins with the opening of the Matter.
 
-It grows through append-only Operational Events covering material admission, interpretation, state change, relationship governance, Current Situation revision, focus transitions when consequential, and closure.
+It grows through append-only Operational Events covering material admission, interpretation, state change, relationship governance, Current Situation revision, consequential navigation transitions of Focus, and closure.
 
 It does not complete through deletion. When the Matter closes, memory becomes quiet and preserved; reopening continues the same history.
 
@@ -451,7 +451,7 @@ It does not complete through deletion. When the Matter closes, memory becomes qu
 
 Operational Memory stores the lineage of every consequential entity and the events that connect earlier and later states.
 
-It preserves rejected Relationships, superseded Hypotheses, resolved Contradictions, previous Current Situation versions, accepted Watson Proposals, and material Context transitions.
+It preserves rejected Relationships, superseded Hypotheses, resolved Contradictions, previous Current Situation versions, accepted Watson Proposals, and material navigation transitions between professional contexts.
 
 ### Visibility
 
@@ -537,7 +537,7 @@ Inspection begins when a subject becomes the temporary object of close attention
 
 It may reveal source, provenance, content, relationships, state, history, and affected understanding. It may produce judgments or proposals, each recorded separately.
 
-Inspection ends through return, transition to another subject, or shift of Focus. Ending it restores or deliberately updates the preserved Context Envelope.
+Inspection ends through return, a navigation transition to another subject, or shift of Focus. Ending it restores or deliberately updates the preserved Context Envelope.
 
 ### Relationships
 
@@ -563,11 +563,16 @@ The inspector may perform actions already permitted by their role. Watson may ex
 
 A Context Envelope preserves orientation across Focus, Inspection, navigation, contribution, and return.
 
+The Workbench Canonical Domain Model is the sole canonical owner of Context
+Envelope identity and contract. Other models may consume the Context Envelope
+and define downstream continuity requirements for their scope, but they do not
+own its schema, identity, lifecycle, or authority.
+
 It ensures the owner can immediately understand where they are, what they opened, what changed, and how to return.
 
 ### Identity
 
-A Context Envelope is unique to a continuous operational context transition.
+A Context Envelope is unique to a continuous navigation transition between professional contexts.
 
 It includes the Matter, Current Situation version, origin, active Focus, relevant neighborhood, Working Set state, navigation path, pending change, and return condition needed to preserve meaning.
 
@@ -758,7 +763,7 @@ State is not one label. The model keeps independent:
 
 An Artifact can therefore be reviewed but unverified, verified but contradicted, confirmed but outside the Working Set, active but not focused, or archived while remaining part of Operational Memory.
 
-No transition in one dimension silently causes a transition in another.
+No change in one dimension silently causes a change in another.
 
 ---
 
@@ -772,7 +777,7 @@ The owner, or a human with explicit delegated authority, alone may:
 - accept operational Relationships;
 - admit a Hypothesis into the working explanation;
 - declare a Contradiction operationally resolved;
-- authorize consequential state transitions;
+- authorize consequential state changes;
 - close or reopen the Matter;
 - transfer accountable ownership;
 - accept the operational consequence of a Watson Proposal.
@@ -863,7 +868,7 @@ Every future implementation decision must be traceable to:
 1. a canonical entity;
 2. a permitted relationship;
 3. an explicit authority boundary;
-4. a valid lifecycle transition;
+4. a valid Matter lifecycle transition;
 5. an attributable Operational Event when the change is consequential;
 6. the Canonical Workbench Laws and established Design Principles.
 

@@ -56,7 +56,7 @@ Three terms remain distinct:
 - **Focus** is the specific question, object, or condition receiving the
   manager's attention now.
 
-An experience stage does not authorize a state transition. A change of focus
+An experience stage does not authorize a Matter lifecycle transition. A change of focus
 does not change Matter truth. A system suggestion does not become a human
 Decision.
 
@@ -95,7 +95,7 @@ human experience. They do not redefine their canonical sources.
    missing, stale, disputed, inferred, and unverified information is visibly
    qualified rather than given visual confidence.
 4. **Understanding is traceable and revisable.** Derived from
-   [Operational Memory](Operational%20Design%20Brief%2001%20-%20Operational%20Memory.md):
+   [Operational Memory — Ready for Final Canonical Review](Operational%20Design%20Brief%2001%20-%20Operational%20Memory.md):
    the manager can inspect the basis, correction, and earlier accepted form
    without history being rewritten.
 5. **Judgment is deliberate and attributable.** Derived from canonical authority:
@@ -146,7 +146,7 @@ Close
 
 Experience Journey ≠ Matter lifecycle. The Journey describes professional
 intent, attention, judgment, and experience completion criteria. The canonical
-Matter lifecycle describes state, authority, permitted transitions, and
+Matter lifecycle describes state, authority, permitted Matter lifecycle transitions, and
 historical consequences and is owned only by the Canonical Product Operating
 Model.
 
@@ -158,9 +158,9 @@ same Matter identity.
 
 A Matter may compress, revisit, or omit experience stages where the canonical
 lifecycle and authority contracts permit it. Not every Matter passes through all
-nine stages. Stage completion never implies a Matter state transition,
+nine stages. Stage completion never implies a Matter lifecycle transition,
 experience stage omission or compression never creates a new Matter lifecycle
-transition, and no Journey path may bypass an authority boundary.
+Matter lifecycle transition, and no Journey path may bypass an authority boundary.
 
 ### Observe
 
@@ -359,13 +359,14 @@ premature certainty, automatic consent, or removal of relevant risk.
 
 ## 5. Context Continuity
 
-Context continuity means that after any transition, interruption, return, or
+Context continuity means that after any navigation transition, interruption, return, or
 reopening, the manager can continue reasoning rather than reconstruct the Matter.
 
-The Context Envelope defined by the
-[Canonical Product Operating Model](Canonical%20Product%20Operating%20Model.md#navigation-invariant)
-is the single canonical context contract. This document creates no parallel
-container, aggregate, store, payload owner, or implementation schema.
+The Context Envelope owned by the
+[Workbench Canonical Domain Model](Workbench%20Canonical%20Domain%20Model.md#12-context-envelope)
+is the single canonical context contract. The Canonical Product Operating Model
+defines downstream cross-zone requirements only. This document creates no
+parallel container, aggregate, store, payload owner, or implementation schema.
 
 For experience continuity, the canonical Context Envelope restores the applicable
 meaning from these categories:
@@ -379,7 +380,7 @@ meaning from these categories:
 - relevant historical context, including contradictions and residual unknowns.
 
 These are experience-level continuity requirements, not a fixed payload. The
-exact required detail for each cross-zone transition, recovery event, and
+exact required detail for each cross-zone navigation transition, recovery event, and
 degraded-source condition remains a Navigation governance decision.
 
 Continuity rules:
@@ -519,7 +520,7 @@ The following rules may never be violated:
 
 1. Matter identity is stable from first report through closure and reopening.
 2. The original report and its source context are never overwritten.
-3. Context is carried forward; a transition never silently resets the manager's
+3. Context is carried forward; a navigation transition never silently resets the manager's
    work.
 4. The manager can always determine why this Matter requires attention now.
 5. Current focus never obscures the Matter's identity, accountable owner, or
@@ -528,7 +529,7 @@ The following rules may never be violated:
    Outcome never become indistinguishable.
 7. Unknown, disputed, stale, unavailable, and inferred information is never
    represented as established fact.
-8. Every accepted synthesis, Decision, transition, correction, Outcome, and
+8. Every accepted synthesis, Decision, Operational Transition, correction, Outcome, and
    closure is attributable.
 9. A recommendation or prediction never impersonates an authorized human
    judgment.
@@ -640,7 +641,7 @@ Minimum observable evidence, in criterion order:
 Minimum observable evidence, in criterion order:
 
 1. Each applicable professional posture can be performed without stage
-   completion being treated as a state transition.
+   completion being treated as a Matter lifecycle transition.
 2. A compressed or returning path preserves valid canonical states, authority,
    and orientation.
 3. Each applicable exceptional path retains its basis, disposition, prior
@@ -652,7 +653,7 @@ Minimum observable evidence, in criterion order:
 
 - [ ] Every movement restores the applicable experience-level continuity
   requirements through the canonical Context Envelope.
-- [ ] After a transition or return, the manager can identify what changed, why,
+- [ ] After a navigation transition or return, the manager can identify what changed, why,
   and what requires judgment next.
 - [ ] Interruption and resumption preserve unfinished work and a meaningful return
   point.
@@ -752,7 +753,7 @@ prerequisite and is **Required before M4 implementation**:
    risk, change, pending judgment, recurrence, and owner commitments.
 2. Define materiality and conflict-priority rules for interrupting current Focus,
    including safety, authority, contradiction, privacy, and continuity.
-3. Define the mandatory Context Envelope detail for each cross-zone transition,
+3. Define the mandatory Context Envelope detail for each cross-zone navigation transition,
    recovery event, and degraded-source condition.
 
 The following may wait until Workbench 2.0:
