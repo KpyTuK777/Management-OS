@@ -36,25 +36,26 @@ Phase III-B — Operational Core / M6 Product Realization
 ## Active stage
 
 ```text
-M6.9 — Navigation Representation Model Architecture Review
+M6.10 — Rendering Contracts and Platform Adapters Architecture Review
 ```
 
 The current task and its completion criteria are defined exclusively in
 [BACKLOG.md](BACKLOG.md).
 
 Canonical Design Semantics, Canonical Rendering Model, Semantic Token
-Architecture, Presentation State Model, Canonical Component Model, and
-Composition and Layout System, Canonical Interaction Patterns, Operational
-Navigation, and Navigation Governance are approved dependencies for M6.9.
+Architecture, Presentation State Model, Canonical Component Model,
+Composition and Layout System, Canonical Interaction Patterns, Navigation
+Representation Model, Operational Navigation, and Navigation Governance are
+approved dependencies for M6.10.
 
 ## Next stage
 
 ```text
-M6 — Rendering Contracts and Platform Adapters
+M6 — Accessibility Model
 ```
 
-The next stage may enter the backlog only after the Navigation Representation Model
-Review disposition is approved.
+The next stage may enter the backlog only after the Rendering Contracts and
+Platform Adapters Review disposition is approved.
 
 ## Future stages
 
@@ -70,8 +71,8 @@ Review disposition is approved.
 | 8 | Canonical Component Model | Approved for dependency use |
 | 9 | Composition and Layout System | Approved for dependency use |
 | 10 | Canonical Interaction Patterns | Approved for dependency use |
-| 11 | Navigation Representation Model | Active |
-| 12 | Rendering Contracts and Platform Adapters | Planned |
+| 11 | Navigation Representation Model | Approved for dependency use |
+| 12 | Rendering Contracts and Platform Adapters | Active |
 | 13 | Accessibility Model | Planned |
 | 14 | Motion Semantics | Planned |
 | 15 | AI and Conversational Adapters | Planned |

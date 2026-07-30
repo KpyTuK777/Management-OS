@@ -17,7 +17,7 @@ M6 — Canonical Operational Design System
 ## Current Task
 
 ```text
-Architecture Review — M6.9 Navigation Representation Model
+Architecture Review — M6.10 Rendering Contracts and Platform Adapters
 ```
 
 ## Dependencies
@@ -33,9 +33,10 @@ Architecture Review — M6.9 Navigation Representation Model
 - M6.6 Canonical Component Model — Approved.
 - M6.7 Composition and Layout System — Approved.
 - M6.8 Canonical Interaction Patterns — Approved.
+- M6.9 Navigation Representation Model — Approved.
 - Canonical Operational Navigation — Canonical.
 - Operational Navigation Governance — Canonical.
-- M6.9 Navigation Representation Model — Architecture Definition prepared for
+- M6.10 Rendering Contracts and Platform Adapters — Architecture Definition prepared for
   review.
 
 ## Expected Output
@@ -52,10 +53,11 @@ or:
 Approved with Required Corrections
 ```
 
-The disposition must establish whether representation purpose, ownership,
-lifecycle, taxonomy, deterministic projection, exposure, continuity,
-replacement, degradation, recovery, Platform Navigation Framework boundary,
-invariants, and conformance criteria are complete.
+The disposition must establish whether Rendering Contract purpose, ownership,
+lifecycle, AC-01–AC-11 taxonomy, Adapter Contract Set, capability matching,
+guarantees, prohibited transformations, fallback, degradation, determinism,
+three-layer platform boundary, invariants, and conformance evidence are
+complete.
 
 ## Owner
 
@@ -74,21 +76,15 @@ Ready for Architecture Review
 
 ## Definition of Done
 
-- The document is reviewed against the M6 Charter, Canonical Design Object Model,
-  Canonical Design Semantics, Canonical Rendering Model, and Semantic Token
-  Architecture, Presentation State Model, Canonical Component Model, Composition
-  and Layout System, Canonical Interaction Patterns, Canonical Operational
-  Navigation, and Operational Navigation Governance.
-- NR-01–NR-08 taxonomy and M6 mappings are complete and bounded.
-- Destination, exposure, continuity, replacement, degradation, and recovery
-  rules are deterministic.
-- Navigation Representation Model and Platform Navigation Framework ownership
-  remain mutually exclusive.
-- Representation modifies no Navigation, Current Focus, Context Envelope,
-  interruption class, authority, history, Interaction Pattern, Component,
-  Composition Plan, Design Object, Semantic Role, Rendering Node, Semantic Token,
-  Presentation State, canonical meaning, information residency, lifecycle,
-  Operational Memory, or Current Situation.
+- The document is reviewed against every approved dependency listed above.
+- AC-01–AC-11 are complete, mutually bounded, and collectively cover all
+  presentation architecture obligations.
+- Capability matching, fallback order, degradation, qualification, and
+  deterministic rendering rules are unambiguous.
+- Canonical Presentation Architecture, Platform Adapter, and Platform UI
+  Framework ownership remain mutually exclusive.
+- The adapter changes no upstream canonical object, meaning, ownership,
+  authority, lifecycle, navigation, history, or Current Situation.
 - The Architecture Review verdict and evidence are recorded in the repository.
 - All required corrections are absent or resolved.
 - `ROADMAP.md` is advanced to the approved next stage.
