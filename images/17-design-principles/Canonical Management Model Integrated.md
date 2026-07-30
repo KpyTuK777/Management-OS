@@ -72,11 +72,10 @@ architecture or Operational Memory.
 
 Required sequence:
 
-1. Visual Semantics canonicalization.
-2. Operational Interaction Language canonicalization.
-3. Information Architecture canonicalization.
-4. Final registry confirmation.
-5. Open M6.
+1. Operational Interaction Language canonicalization.
+2. Information Architecture canonicalization.
+3. Final registry confirmation.
+4. Open M6.
 
 ## Deferred Realization
 

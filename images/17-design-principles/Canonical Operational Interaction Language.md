@@ -295,7 +295,7 @@ Memory disposition. Neither may be inferred from implementation convenience.
 | **Presentation transition** | Future visual/motion representation of change. | Domain state, professional intent, navigation transition, or authority. |
 | **Decision** | Authorized professional judgment with rationale, alternatives, uncertainty, risk, and intended condition. | Selection, proposal, acknowledgment, Operational Transition, or action completion. |
 | **Navigation** | Coordination and adoption of professional context with continuity and return. | Lifecycle progression, Matter lifecycle transition, or location alone. |
-| **Visualization** | Representation of canonical meaning using Canonical Visual Semantics (Canonical Review Candidate). | State creation, authority, interaction, or evidence. |
+| **Visualization** | Representation of canonical meaning using Canonical Visual Semantics (Canonical). | State creation, authority, interaction, or evidence. |
 | **History** | Append-only attributable record of consequential events and corrections owned by Operational Memory/source histories. | Current view, activity log, browser history, or telemetry. |
 | **Feedback** | System explanation of receipt, validation, pending state, success, failure, or consequence. | The professional interaction itself or proof of domain change. |
 
@@ -540,7 +540,7 @@ These conditions are not interchangeable and cannot share an ambiguous generic
 | **Canonical Matter Experience** | Professional journey, attention flow, authority, continuity, confidence, and proportionality. | Interaction chains support non-linear professional work with one Focus and explicit return. |
 | **Canonical Operational Navigation** | Layers, navigation transitions, Rail, navigation projection, Context Envelope movement, recovery. | Navigate, Return, Interrupt, Suspend, Resume, and Recover map to canonical NT navigation transitions and create no lifecycle. |
 | **Operational Navigation Governance** | Attention Priority, exclusive interruption, authority, provenance, degradation, and recovery laws. | Request Reclassification cannot escalate; interruption and recovery obey NAV-01 through NAV-33. |
-| **Canonical Visual Semantics (Candidate)** | Semantic inventory, independent dimensions, grammar, priority, ambiguity, and persistence. | Interaction state, intent, authority, pending consequence, feedback, and history remain visually distinct. Candidate status grants no canonical authority. |
+| **Canonical Visual Semantics (Canonical)** | Semantic inventory, independent dimensions, grammar, priority, ambiguity, and persistence. | Interaction state, intent, authority, pending consequence, feedback, and history remain visually distinct. |
 | **Canonical Product Operating Model** | Matter lifecycle, Product Zones, Decision-to-Operational-Transition handoff, Monitoring, Outcome, closure/reopening. | Consequential interactions invoke owning-model Matter lifecycle transitions only after prerequisites and authority pass. |
 | **Workbench Canonical Domain Model / Workbench Laws** | Canonical entities, relationships, state dimensions, Focus, Inspection, Context Envelope, actors, authority. | Vocabulary maps to existing entities and acts; it creates no parallel object, status, authority, or event model. |
 
@@ -707,7 +707,7 @@ and initiates recovery. It never reports completion or retries invisibly.
 
 ## 11.1 Canonical Visual System
 
-**Ready.** Canonical Visual Semantics (Canonical Review Candidate) can represent interaction intent, availability,
+**Ready.** Canonical Visual Semantics (Canonical) can represent interaction intent, availability,
 pending validation, authority, expected consequence, success/failure,
 indeterminate state, history, and recovery without confusing them with domain
 state.
@@ -816,5 +816,5 @@ after final canonical review of this M5.5 document.
 ```
 
 M6 may define concrete visual and interaction systems only by mapping them to
-Canonical Visual Semantics (Canonical Review Candidate) and OI candidate contracts. It may not reinterpret professional
+Canonical Visual Semantics (Canonical) and OI candidate contracts. It may not reinterpret professional
 intent, authority, consequence, history, or recovery.

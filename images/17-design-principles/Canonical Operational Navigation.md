@@ -813,7 +813,7 @@ without changing an owning canonical model.
 ## Recommendation
 
 ```text
-Open M5 — Canonical Visual Semantics (Canonical Review Candidate)
+Canonical Visual Semantics — Canonical
 ```
 
 M5 may choose visual representations but may not redefine the navigation model,

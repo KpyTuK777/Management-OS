@@ -5,7 +5,7 @@
 ```text
 Architecture & Design Language
 Milestone M5
-Canonical Review Candidate
+Canonical
 ```
 
 ## Purpose
@@ -501,7 +501,7 @@ inputs.
 | **Canonical Matter Experience** | Professional journey, Focus/periphery/context, continuity, confidence, authority, and cognitive integrity. | Visual gravity follows the dominant professional concern while keeping uncertainty, history, and return available. |
 | **Canonical Operational Navigation** | Layers, navigation transitions, Rail semantics, navigation projection, journeys, and context continuity. | Supplies a consistent language for navigation contexts but cannot create movement, Focus, or recovery validity. |
 | **Operational Navigation Governance** | Attention Priority, interruption class, recovery, authority, provenance, and degradation laws. | Represents classifications and bases without deriving them from prominence, delivery, animation, count, or preference. |
-| **Canonical Iconography Research** | Advisory research into symbol strategy, construction, accessibility, and prohibited icon behavior; it is not semantic authority. | Research may inform representation strategy, but Visual Semantics constrains icon meaning. A future Canonical Iconography Library must implement this candidate and the Operational Design System. |
+| **Canonical Iconography Research** | Advisory research into symbol strategy, construction, accessibility, and prohibited icon behavior; it is not semantic authority. | Research may inform representation strategy, but Visual Semantics constrains icon meaning. A future Canonical Iconography Library must implement this Canonical model and the Operational Design System. |
 | **Canonical Product Operating Model** | Matter lifecycle, Product Zones, authority, Current Situation, downstream cross-zone Context Envelope requirements, Decision-to-Operational-Transition handoff, Outcome and closure. | Visual state follows owning objects and contracts; it never creates progression, Zone existence, command authority, or Outcome. |
 | **Workbench Canonical Domain Model / Workbench Laws** | Matter, Current Situation, Artifact, Relationship, Hypothesis, Contradiction, Collection, Working Set, Memory, Proposal, Inspection, the owned Context Envelope, Focus, Event, and authority. | The inventory maps to canonical subjects and preserves orthogonal review, provenance, epistemic, participation, attention, and lifecycle dimensions. |
 

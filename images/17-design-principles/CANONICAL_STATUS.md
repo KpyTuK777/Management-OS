@@ -24,7 +24,7 @@
 | Matter Experience | ✅ Canonical | `13be427` | `matter-experience-v1.0-canonical` | 2026-07-29 | Milestone M3 — Canonical Matter Experience complete; Frozen v1.0 |
 | Operational Navigation Governance | ✅ Canonical | `325bb9e` | — | 2026-07-30 | M4.0 governance approved; Frozen v1.0 |
 | Canonical Operational Navigation | ✅ Canonical | `7dbbabd` | — | 2026-07-30 | Milestone M4 — Canonical Operational Navigation complete; Frozen v1.0 |
-| Canonical Visual Semantics | 🟡 Canonical Review Candidate | — | — | 2026-07-30 | Candidate only; intended downstream owner of visual meaning. |
+| Canonical Visual Semantics | ✅ Canonical | This commit | — | 2026-07-30 | Visual Semantics Canonical Status: Approved. Final Canonical Review completed successfully; Frozen. |
 | Canonical Operational Interaction Language | 🟡 Canonical Review Candidate | — | — | 2026-07-30 | Candidate only; depends on Visual Semantics. |
 | Canonical Information Architecture | 🟡 Canonical Review Candidate | — | — | 2026-07-30 | Candidate only; depends on Interaction Language. |
 | Canonical Iconography | 🔵 Research Only — Advisory | `cc934f3` | — | 2026-07-30 | Informs representation strategy; creates no semantic authority. |
@@ -91,7 +91,7 @@ This is the construction order of the system core, not a roadmap.
 |---|---|
 | Current Milestone | Canonical Management Model Integration: Complete |
 | Current Sprint | — |
-| Next Milestone | Visual Semantics Final Canonical Review |
+| Next Milestone | Operational Interaction Language Repeat Final Canonical Review |
 
 ## Maintenance
 
