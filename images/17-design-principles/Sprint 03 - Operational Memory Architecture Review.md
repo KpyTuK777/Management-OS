@@ -49,6 +49,11 @@ The Coordinator may:
 - request one corresponding Matter-level Memory append;
 - mark the unit of work complete;
 - resume an incomplete operation idempotently.
+- orchestrate canonical-history replay in immutable Matter-local sequence;
+- checkpoint and resume projection rebuilding;
+- atomically replace an obsolete projection only after complete replay;
+- orchestrate recovery without creating a Memory Event unless a previously
+  committed source consequence requires its missing canonical append.
 
 The Coordinator must not:
 
@@ -350,8 +355,6 @@ A separate aggregate becomes justified only if future requirements introduce gov
 | `listUnresolvedConsequences()` | Query | None |
 | `listSystemEvents()` | Query | None |
 | `explainTransition()` | Query | None |
-| `reconcileSourceEvents()` | Recovery command | Rebuilds projection/index and repairs provable missing ingestion |
-| `recoverPendingOperations()` | Recovery command | Advances or abandons journaled operations idempotently |
 | `validateIntegrity()` | Validation query | None; reports failure rather than repairing |
 
 ### CQRS boundary
@@ -366,7 +369,11 @@ Required rules:
 - `ensure()` is a command despite often returning an existing event;
 - explanation queries return traceable records and do not create judgment.
 
-The surface does not require separate command/query objects in Sprint 03.
+The Repository surface does not require separate command/query objects. Replay,
+projection rebuilding, checkpointing, and recovery workflow are not Repository
+methods; they belong exclusively to the Operational Coordinator. The Repository
+may persist, retrieve, order, validate, and append canonical Memory Events. A
+separate Coordinator journal adapter persists non-canonical workflow progress.
 
 ## 8. Failure Matrix
 
@@ -520,6 +527,136 @@ The Apply phase must prove:
 10. Journal phases never become domain lifecycle.
 11. Non-derivable reasoning is journaled or reported missing, never invented.
 12. Artifact and Relationship do not depend on Operational Memory.
+
+## 13. Final Repository / Coordinator Responsibility Contract
+
+This table is normative and resolves all earlier ambiguity.
+
+| Responsibility | Sole owner | Prohibited transfer |
+|---|---|---|
+| Canonical Memory Event persistence | Operational Memory Repository | Coordinator cannot write storage directly. |
+| Canonical event retrieval | Operational Memory Repository | Coordinator cannot invent or edit input events. |
+| Immutable Matter-local ordering | Operational Memory Repository | Coordinator cannot reorder canonical sequence. |
+| Append-only validation and guarantees | Operational Memory Repository | Projection or recovery cannot bypass Repository validation. |
+| Replay orchestration | Operational Coordinator | Repository cannot initiate or resume replay. |
+| Projection orchestration and rebuilding | Operational Coordinator | Repository cannot own projection state. |
+| Projection checkpoint and replacement workflow | Operational Coordinator | Published projection cannot replace canonical history. |
+| Recovery orchestration | Operational Coordinator | Repository cannot infer recovery intent. |
+| Replay resumability | Operational Coordinator | A checkpoint is not canonical history. |
+| Recovery workflow persistence | Coordinator journal adapter | Journal state cannot enter the canonical Repository store. |
+
+The Repository owns only canonical persistence, retrieval, immutable ordering,
+and append-only guarantees. The Coordinator owns only orchestration of domain
+handoff, replay, projections, projection replacement, replay resumption, and
+recovery. Projection adapters and the Coordinator journal are replaceable
+infrastructure ports and own no professional truth.
+
+## 14. Normative Replay Contract
+
+### Input
+
+Replay input is the complete canonical Memory Event sequence returned by the
+Repository for exactly one Matter, plus an optional compatible replay checkpoint
+and a non-canonical projection adapter. Every input event retains its immutable
+identity, sequence, occurrence time, recorded time, provenance, authority, and
+correction/supersession links.
+
+### Output
+
+Successful replay produces one complete replaceable projection containing:
+
+- every canonical Memory Event exactly once in ascending Matter-local sequence;
+- the source signature and final applied sequence;
+- explicit correction and supersession lineage;
+- a deterministic Current Situation reconstruction basis;
+- completeness metadata.
+
+The reconstruction basis is not Current Situation and cannot publish present
+truth. The Current Situation owner must perform a separate authorized act.
+
+### Determinism and completeness
+
+For identical canonical input bytes and contract version, replay produces
+identical projection bytes. `occurredAt`, delivery order, UI order, and wall-clock
+time cannot override canonical `sequence`. Replay is complete only when every
+Repository event from sequence `1` through the final sequence appears exactly
+once and no unknown event appears.
+
+### Resumability and idempotency
+
+The Coordinator checkpoints the next unapplied sequence and the canonical source
+signature after each applied event. A compatible checkpoint resumes at that
+sequence. A missing or incompatible checkpoint restarts from sequence `1`.
+Repeating or resuming replay cannot append, correct, supersede, or otherwise
+mutate a Memory Event.
+
+### Projection replacement
+
+An interrupted rebuild leaves the published projection unchanged. Only a
+complete replay may atomically replace an obsolete projection. Checkpoint state
+is cleared after replacement. Projection loss never implies history loss.
+
+### Correction and supersession
+
+Replay retains originals and later correction or supersession events. It derives
+lineage without deleting, editing, or hiding canonical history. Current
+interpretation may follow the later event, but historical audit remains complete.
+
+## 15. Normative Replay Recovery Contract
+
+```text
+Interrupted Replay
+        ↓
+Resume from compatible checkpoint or restart deterministically
+        ↓
+Build complete replacement projection
+        ↓
+Atomically replace obsolete projection
+        ↓
+Clear checkpoint and report completion
+        ↓
+Provide Current Situation reconstruction basis
+```
+
+Interruption changes neither canonical history nor the currently published
+projection. Resume is repeatable and idempotent. Recovery creates no Memory
+Event during projection replay. A recovery append is permitted only through the
+separate forward-recovery workflow when a canonical source consequence already
+exists and its required Memory Event is provably missing.
+
+## 16. Executable Replay Conformance
+
+The browser-executable contract
+`tests/operational-memory-replay.browser.html` is normative evidence for the
+following scenarios.
+
+| Scenario | Given | When | Then |
+|---|---|---|---|
+| Interrupted replay | Canonical history and an obsolete published projection | Replay stops after a bounded number of events | History and published projection remain unchanged; a checkpoint identifies the next sequence. |
+| Replay resume | A compatible interrupted checkpoint | Coordinator repeats replay | Replay continues from the checkpoint, completes, and clears it. |
+| Replay after correction | Original and correction-by-addition events | Projection is rebuilt | Both events remain and correction lineage is deterministic. |
+| Obsolete projection replacement | A stale projection | Complete replay succeeds | One complete projection replaces it; partial work is never published. |
+| Superseded history replay | Original and superseding events | Projection is rebuilt | Both remain and supersession lineage is deterministic. |
+| Reordered delivery | Occurrence time differs from append order | Replay runs | Immutable Matter-local sequence determines output. |
+| Replay idempotency | Complete unchanged canonical history | Replay repeats | Projection bytes are identical and no Memory Event is created. |
+
+The Node contract mirrors these invariants in
+`tests/operational-memory-model.test.js`. When Node is unavailable, the browser
+contract is the executable acceptance evidence. The Workbench browser journey
+remains a separate integration check and is not evidence for replay completeness.
+
+### Hardening evidence — 2026-07-30
+
+| Evidence | Result | Scope and limitation |
+|---|---|---|
+| `tests/operational-memory-replay.browser.html` in headless Edge | **Pass** | Executed all seven Given/When/Then replay scenarios, including completeness, determinism, resumption, idempotency, lineage, and replacement. |
+| `tests/operational-memory-model.browser.html` in headless Edge | **Pass** | Persistence, reload, retrieval, unresolved consequence query, and integrity regression. |
+| `tests/operational-memory-model.test.js` | **Not executed in this environment** | Node is unavailable. The contract remains as mirrored executable evidence for a Node-capable environment. |
+| `tests/workbench-operational-memory.browser.html` headless DOM capture | **Inconclusive** | The asynchronous iframe journey did not reach terminal state before DOM capture. It reported neither pass nor failure and is not used as replay evidence. |
+
+The browser replay contract is standalone, deterministic, and does not require
+the Workbench journey. Therefore the integrated-harness limitation does not
+leave any replay claim untested.
 
 ## Final Verdict
 

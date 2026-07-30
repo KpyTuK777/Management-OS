@@ -95,7 +95,7 @@ human experience. They do not redefine their canonical sources.
    missing, stale, disputed, inferred, and unverified information is visibly
    qualified rather than given visual confidence.
 4. **Understanding is traceable and revisable.** Derived from
-   [Operational Memory — Ready for Final Canonical Review](Operational%20Design%20Brief%2001%20-%20Operational%20Memory.md):
+   [Operational Memory — Canonical](Operational%20Design%20Brief%2001%20-%20Operational%20Memory.md):
    the manager can inspect the basis, correction, and earlier accepted form
    without history being rewritten.
 5. **Judgment is deliberate and attributable.** Derived from canonical authority:

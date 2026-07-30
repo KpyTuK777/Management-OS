@@ -9,7 +9,7 @@
 | Phase III-B — Operational Core | 🟡 Starting |
 | Architecture | Frozen |
 | Design Bible | Frozen v1.0 |
-| Canonical Foundation | Established |
+| Canonical Foundation | ✅ Complete |
 | Canonical Management Model | ✅ Integrated |
 
 ## Canonical Models
@@ -19,7 +19,7 @@
 | Artifact | ✅ Canonical | `b7c5b28` | `artifact-v1.0-canonical` | 2026-07-27 | Frozen v1.0 |
 | Relationship | ✅ Canonical | `748fd29` | `relationship-v1.0-canonical` | 2026-07-28 | Implementation `a1e4edb`; stabilization `2520c66`; Frozen v1.0 |
 | Workbench Canonical Domain Model | ✅ Canonical | `8aad903` | — | 2026-07-27 | Canonical owner of Matter, Current Situation, Focus, Working Set, Inspection, and Context Envelope; Frozen. |
-| Operational Memory | 🟢 Ready for Final Canonical Review | `2d3b82c` | — | 2026-07-30 | Architecture approved and implementation applied; standalone browser contracts pass. Node validation unavailable; integrated browser dump was inconclusive. |
+| Operational Memory | ✅ Canonical | This commit | — | 2026-07-30 | Operational Memory Canonical Status: Approved. Final Canonical Review completed successfully; replay and recovery contracts and standalone browser conformance passed. |
 | Product Operating Model | ✅ Canonical | `cc934f3` | `product-operating-model-v1.0-canonical` | 2026-07-28 | Milestone M2 — Product Operating Model complete; Frozen v1.0 |
 | Matter Experience | ✅ Canonical | `13be427` | `matter-experience-v1.0-canonical` | 2026-07-29 | Milestone M3 — Canonical Matter Experience complete; Frozen v1.0 |
 | Operational Navigation Governance | ✅ Canonical | `325bb9e` | — | 2026-07-30 | M4.0 governance approved; Frozen v1.0 |
@@ -91,7 +91,7 @@ This is the construction order of the system core, not a roadmap.
 |---|---|
 | Current Milestone | Canonical Management Model Integration: Complete |
 | Current Sprint | — |
-| Next Milestone | Operational Memory Final Canonical Review |
+| Next Milestone | Visual Semantics Final Canonical Review |
 
 ## Maintenance
 

@@ -7,7 +7,8 @@
 | Project phase | Phase III-B — Operational Core |
 | Document type | Research and architecture brief |
 | Subject | Operational Memory |
-| Implementation status | Not started |
+| Canonical maturity | Canonical |
+| Implementation status | Applied and conformance-validated |
 | Scope boundary | No UI, Repository, storage schema, or Current Situation implementation |
 
 ## Executive Summary

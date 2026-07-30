@@ -45,10 +45,17 @@ It does not promote review candidates to canonical status.
 Status:
 
 ```text
-Ready for Final Canonical Review
+Canonical
 ```
 
-This milestone does not constitute Operational Memory final canonical approval.
+```text
+Operational Memory Canonical Status: Approved
+```
+
+The Final Canonical Review completed successfully on 2026-07-30. Canonical
+history, repository and coordinator boundaries, replay, recovery, ordering,
+projection separation, Current Situation separation, authority, integration,
+implementation independence, evidence, and regression status all passed.
 
 ## Integration Debt
 
@@ -60,16 +67,16 @@ None
 
 ## M6 Maturity Gates
 
-M6 remains blocked by canonical maturity gates, not by integration architecture.
+M6 remains blocked by the downstream candidate maturity gates, not by integration
+architecture or Operational Memory.
 
 Required sequence:
 
-1. Operational Memory Final Canonical Review.
-2. Visual Semantics canonicalization.
-3. Operational Interaction Language canonicalization.
-4. Information Architecture canonicalization.
-5. Final registry confirmation.
-6. Open M6.
+1. Visual Semantics canonicalization.
+2. Operational Interaction Language canonicalization.
+3. Information Architecture canonicalization.
+4. Final registry confirmation.
+5. Open M6.
 
 ## Deferred Realization
 

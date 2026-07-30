@@ -497,7 +497,7 @@ inputs.
 |---|---|---|
 | **Artifact** | Identity, provenance, source reference, Matter scope, epistemic and lifecycle conditions. | Represents Artifact type and independent states without promoting presence into Evidence or truth. |
 | **Relationship** | Endpoints, semantics, direction, provenance, confidence, acceptance, and lifecycle. | Connectors represent only real named Relationships; proposed, accepted, challenged, and historical conditions remain independent. |
-| **Operational Memory (Ready for Final Canonical Review)** | Append-only consequential history, order, attribution, correction, and reconstruction. | Historical treatments preserve lineage and never overwrite or impersonate current truth. |
+| **Operational Memory (Canonical)** | Append-only consequential history, order, attribution, correction, and reconstruction. | Historical treatments preserve lineage and never overwrite or impersonate current truth. |
 | **Canonical Matter Experience** | Professional journey, Focus/periphery/context, continuity, confidence, authority, and cognitive integrity. | Visual gravity follows the dominant professional concern while keeping uncertainty, history, and return available. |
 | **Canonical Operational Navigation** | Layers, navigation transitions, Rail semantics, navigation projection, journeys, and context continuity. | Supplies a consistent language for navigation contexts but cannot create movement, Focus, or recovery validity. |
 | **Operational Navigation Governance** | Attention Priority, interruption class, recovery, authority, provenance, and degradation laws. | Represents classifications and bases without deriving them from prominence, delivery, animation, count, or preference. |

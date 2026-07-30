@@ -16,7 +16,7 @@ Envelope. Candidate documents remain candidates until their own canonical review
 Artifact
   └─> Relationship
        └─> Workbench Canonical Domain Model
-            └─> Operational Memory (Ready for Final Canonical Review)
+            └─> Operational Memory (Canonical)
                  └─> Product Operating Model
                       └─> Matter Experience
                            └─> Operational Navigation Governance
@@ -42,7 +42,7 @@ inputs and grant no authority back to them.
 | Matter, Current Situation, Focus, Working Set, Inspection | Workbench Canonical Domain Model | Experience, navigation, interaction, and IA consume identity and state. |
 | Artifact | Artifact model | Other models reference; they do not redefine artifact truth. |
 | Relationship | Relationship model | Presentation and navigation never create acceptance. |
-| Operational Memory | Operational Memory model (Ready for Final Canonical Review) | Memory records history; it does not create current truth. |
+| Operational Memory | Operational Memory model (Canonical) | Memory records history; it does not create current truth. |
 | Context Envelope | Workbench Canonical Domain Model | Product specifies downstream cross-zone requirements; navigation preserves and transports it. |
 | Matter lifecycle, Decision, Operational Transition, Monitoring, Outcome, Stabilization | Canonical Product Operating Model | No other model creates a lifecycle or state machine. |
 | Matter Experience | Canonical Matter Experience | Defines professional experience obligations, not lifecycle. |
@@ -140,13 +140,14 @@ deployments, physical implementation, and source-owned completion.
 
 ## 6. Operational Memory readiness
 
-**Disposition: Ready for Final Canonical Review.**
+**Disposition: Canonical.**
 
 Architecture approval and implementation evidence exist. The standalone browser
 contract harness passes. Node-based validation is unavailable in this environment,
 and the integrated browser journey dump did not reach a terminal result, so those
-items are disclosed validation limitations rather than silent proof. No canonical
-status or tag is granted by this hardening.
+items remain disclosed validation limitations rather than silent proof. The Final
+Canonical Review completed successfully on 2026-07-30 and approved Operational
+Memory as Canonical.
 
 ## 7. Candidate canonicalization sequence
 
@@ -162,7 +163,6 @@ may inform a later implementation library after Visual Semantics is canonical.
 | Category | Item | Disposition |
 |---|---|---|
 | Blocks Integration | None after the final Iconography presentation-transition correction. | Closed; repeat final integration review is the verification gate. |
-| Blocks M6 | Final canonical review of Operational Memory. | Complete review; do not infer approval. |
 | Blocks M6 | Canonical reviews of Canonical Visual Semantics (Candidate), Canonical Operational Interaction Language (Candidate), and Canonical Information Architecture (Candidate) in dependency order. | Keep candidate status until approved. |
 | Blocks M6 | Successful repeat M5.9 integration review after this hardening and final registry evidence reconciliation after the model reviews. | Required gates; the repeat integration review precedes candidate canonicalization. |
 | Deferred Implementation Debt | Input-specific controls, components, responsive adaptation, and implementation realization. | M6 and later; does not block architecture integration. |
@@ -179,7 +179,7 @@ may inform a later implementation library after Visual Semantics is canonical.
 | Candidate/canonical separation | Resolved |
 | Iconography research authority | Resolved |
 | Registry reconciliation | Resolved |
-| Operational Memory readiness disposition | Resolved with disclosed validation limitations |
+| Operational Memory canonical disposition | Resolved; approved as Canonical with disclosed validation limitations |
 
 ## 10. Readiness sequence
 
@@ -187,9 +187,8 @@ may inform a later implementation library after Visual Semantics is canonical.
 2. Canonicalize Visual Semantics if approved.
 3. Canonicalize Operational Interaction Language if approved.
 4. Canonicalize Information Architecture if approved.
-5. Complete Operational Memory final canonical review.
-6. Reconcile registry commits, tags, dates, and evidence.
-7. Open M6 only after all preceding gates pass.
+5. Reconcile registry commits, tags, dates, and evidence.
+6. Open M6 only after all preceding gates pass.
 
 ## Integration verdict
 

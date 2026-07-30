@@ -536,7 +536,7 @@ These conditions are not interchangeable and cannot share an ambiguous generic
 |---|---|---|
 | **Artifact** | Identity, admission, provenance, source reference, epistemic and lifecycle conditions. | Admit, inspect, verify, qualify, challenge, and compare preserve Artifact identity and never create Evidence from mechanics. |
 | **Relationship** | Semantics, endpoints, provenance, confidence, acceptance, and lifecycle. | Propose, accept, traverse, and trace are separate interactions; traversal/proximity never creates semantics. |
-| **Operational Memory (Ready for Final Canonical Review)** | Append-only consequential history, correction, attribution, and reconstruction. | Persistence classes decide what is recorded; interactions extend rather than rewrite history. |
+| **Operational Memory (Canonical)** | Append-only consequential history, correction, attribution, and reconstruction. | Persistence classes decide what is recorded; interactions extend rather than rewrite history. |
 | **Canonical Matter Experience** | Professional journey, attention flow, authority, continuity, confidence, and proportionality. | Interaction chains support non-linear professional work with one Focus and explicit return. |
 | **Canonical Operational Navigation** | Layers, navigation transitions, Rail, navigation projection, Context Envelope movement, recovery. | Navigate, Return, Interrupt, Suspend, Resume, and Recover map to canonical NT navigation transitions and create no lifecycle. |
 | **Operational Navigation Governance** | Attention Priority, exclusive interruption, authority, provenance, degradation, and recovery laws. | Request Reclassification cannot escalate; interruption and recovery obey NAV-01 through NAV-33. |

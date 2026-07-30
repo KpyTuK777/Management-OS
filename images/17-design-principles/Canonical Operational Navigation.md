@@ -222,7 +222,7 @@ linear route.
 | Contract | Definition |
 |---|---|
 | Responsibility | Retrieve and explain consequential history across all Matter contexts without owning current truth. |
-| Dominant object | A query or projection over Operational Memory events from the model currently Ready for Final Canonical Review. |
+| Dominant object | A query or projection over Operational Memory events from the Canonical model. |
 | Available commands | Inspect event provenance, prior contexts, rejected paths, revisions, Decisions, Operational Transitions, Outcomes, interruptions, and corrections; return to the originating current context. |
 | Contextual boundary | Read-only historical inspection. It cannot reactivate a state, accept a claim, mutate Memory, or replace the present canonical object. |
 | Entry conditions | The manager requests history; current reasoning requires provenance; recovery requires reconstruction; a consequential change must be explained. |
@@ -516,7 +516,7 @@ Every consequential movement:
 |---|---|---|
 | **Artifact** | Identity, provenance, Matter scope, source reference, epistemic and lifecycle conditions. | Navigation retrieves or foregrounds qualified Artifacts; it never creates or promotes Evidence. |
 | **Relationship** | Semantics, endpoints, provenance, confidence, acceptance, lifecycle. | Navigation traverses existing Relationships; proximity, sequence, and movement remain non-semantic. |
-| **Operational Memory (Ready for Final Canonical Review)** | Append-only consequential history, correction, attribution, reconstruction. | Navigation queries and references Memory; its projection never becomes a parallel timeline. |
+| **Operational Memory (Canonical)** | Append-only consequential history, correction, attribution, reconstruction. | Navigation queries and references Memory; its projection never becomes a parallel timeline. |
 | **Canonical Matter Experience** | Professional journey, attention flow, cognitive integrity, continuity, confidence. | Navigation preserves Focus/periphery/context and supports non-linear returns without owning the journey. |
 | **Operational Navigation Governance** | Priority, interruption, recovery, authority, provenance, and degradation laws. | Every navigation transition, Rail change, recovery, and projection must conform to NAV-01 through NAV-33. |
 | **Canonical Product Operating Model** | Matter lifecycle, Product Zones, zone-existence contracts, downstream cross-zone Context Envelope requirements, Decision-to-Operational-Transition handoff. | Layers and navigation transitions derive from canonical Zones and lifecycle prerequisites; Navigation creates neither. |

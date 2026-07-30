@@ -144,7 +144,6 @@
 				nextSequence: 1,
 				events: {},
 				order: [],
-				pendingOperations: {},
 				sourceEventIndex: {},
 				quarantinedEvents: {},
 				migrationDiagnostics: []
@@ -252,7 +251,7 @@
 			invariant(store.schemaVersion === SCHEMA_VERSION, "Unsupported Operational Memory store schema.");
 			invariant(store.matterId === matterId, "Operational Memory store belongs to another Matter.");
 			invariant(Number.isInteger(store.nextSequence) && store.nextSequence > 0, "Operational Memory nextSequence is invalid.");
-			invariant(store.events && store.pendingOperations && store.sourceEventIndex && store.quarantinedEvents, "Operational Memory store is invalid.");
+			invariant(store.events && store.sourceEventIndex && store.quarantinedEvents, "Operational Memory store is invalid.");
 			invariant(Array.isArray(store.order), "Operational Memory order is invalid.");
 			Object.entries(store.events).forEach(([id, event]) => validateEvent(id, event));
 			return store;
@@ -300,6 +299,10 @@
 		function get(eventId) {
 			const event = readStore().events[nonEmpty(eventId, "eventId")];
 			return event ? clone(event) : null;
+		}
+
+		function getMatterId() {
+			return matterId;
 		}
 
 		function list(predicate) {
@@ -376,57 +379,6 @@
 			return events.slice(from, to + 1);
 		}
 
-		function prepareOperation(operation) {
-			const store = readStore();
-			const id = nonEmpty(operation.id, "operation.id");
-			if (store.pendingOperations[id]) return clone(store.pendingOperations[id]);
-			store.pendingOperations[id] = {
-				id,
-				phase: "prepared",
-				eventIntent: clone(operation.eventIntent || null),
-				sourceDescriptor: clone(operation.sourceDescriptor || null),
-				eventInput: null,
-				domainResult: null,
-				preparedAt: clock()
-			};
-			writeStore(store);
-			return clone(store.pendingOperations[id]);
-		}
-
-		function markDomainCommitted(operationId, eventInput, domainResult) {
-			const store = readStore();
-			const operation = store.pendingOperations[nonEmpty(operationId, "operationId")];
-			invariant(operation, "Pending operation does not exist.");
-			operation.phase = "domain-committed";
-			operation.eventInput = clone(eventInput);
-			operation.domainResult = clone(domainResult);
-			writeStore(store);
-			return clone(operation);
-		}
-
-		function completeOperation(operationId) {
-			const store = readStore();
-			delete store.pendingOperations[nonEmpty(operationId, "operationId")];
-			writeStore(store);
-		}
-
-		function recoverPendingOperations() {
-			const pending = Object.values(readStore().pendingOperations);
-			let recovered = 0;
-			pending.forEach(operation => {
-				if (operation.phase === "domain-committed" && operation.eventInput) {
-					record(operation.eventInput);
-					completeOperation(operation.id);
-					recovered += 1;
-				}
-			});
-			return recovered;
-		}
-
-		function listPendingOperations() {
-			return Object.values(readStore().pendingOperations).map(clone);
-		}
-
 		function validateIntegrity() {
 			const store = readStore();
 			invariant(new Set(store.order).size === store.order.length, "Operational Memory order contains duplicates.");
@@ -438,13 +390,13 @@
 		}
 
 		recoverMalformedEvents();
-		recoverPendingOperations();
 		validateIntegrity();
 
 		return Object.freeze({
 			record,
 			ensure,
 			get,
+			getMatterId,
 			list,
 			correct,
 			getSince,
@@ -456,18 +408,120 @@
 			listUnresolvedConsequences,
 			listSystemEvents,
 			explainTransition,
-			recoverPendingOperations,
-			listPendingOperations,
-			validateIntegrity,
-			prepareOperation,
-			markDomainCommitted,
-			completeOperation
+			validateIntegrity
+		});
+	}
+
+	function createOperationalMemoryJournalAdapter(options = {}) {
+		let volatileJournal = null;
+		const storageAdapter = options.storageAdapter || createStorageAdapter({
+			loadStore: () => volatileJournal,
+			saveStore: value => { volatileJournal = clone(value); }
+		});
+		const clock = options.clock || (() => new Date().toISOString());
+		invariant(typeof clock === "function", "clock must be a function.");
+
+		function readJournal() {
+			const value = storageAdapter.loadStore();
+			if (value === null) return { operations: {} };
+			invariant(value && value.operations && typeof value.operations === "object", "Operational Memory journal is invalid.");
+			return value;
+		}
+
+		function writeJournal(journal) {
+			storageAdapter.saveStore(journal);
+		}
+
+		function prepare(operation) {
+			const journal = readJournal();
+			const id = nonEmpty(operation.id, "operation.id");
+			if (journal.operations[id]) return clone(journal.operations[id]);
+			journal.operations[id] = {
+				id,
+				phase: "prepared",
+				eventIntent: clone(operation.eventIntent || null),
+				sourceDescriptor: clone(operation.sourceDescriptor || null),
+				eventInput: null,
+				domainResult: null,
+				preparedAt: clock()
+			};
+			writeJournal(journal);
+			return clone(journal.operations[id]);
+		}
+
+		function markDomainCommitted(operationId, eventInput, domainResult) {
+			const journal = readJournal();
+			const operation = journal.operations[nonEmpty(operationId, "operationId")];
+			invariant(operation, "Pending operation does not exist.");
+			operation.phase = "domain-committed";
+			operation.eventInput = clone(eventInput);
+			operation.domainResult = clone(domainResult);
+			writeJournal(journal);
+			return clone(operation);
+		}
+
+		function complete(operationId) {
+			const journal = readJournal();
+			delete journal.operations[nonEmpty(operationId, "operationId")];
+			writeJournal(journal);
+		}
+
+		function list() {
+			return Object.values(readJournal().operations).map(clone);
+		}
+
+		function importOperations(operations) {
+			invariant(Array.isArray(operations), "operations must be an array.");
+			const journal = readJournal();
+			operations.forEach(operation => {
+				const id = nonEmpty(operation.id, "operation.id");
+				if (!journal.operations[id]) journal.operations[id] = clone(operation);
+			});
+			writeJournal(journal);
+			return list();
+		}
+
+		return Object.freeze({ prepare, markDomainCommitted, complete, list, importOperations });
+	}
+
+	function createOperationalMemoryProjectionAdapter(initialProjection = null) {
+		let projection = initialProjection === null ? null : clone(initialProjection);
+		let checkpoint = null;
+		return Object.freeze({
+			loadProjection: () => projection === null ? null : clone(projection),
+			replaceProjection: value => {
+				projection = clone(value);
+				return clone(projection);
+			},
+			loadCheckpoint: () => checkpoint === null ? null : clone(checkpoint),
+			saveCheckpoint: value => {
+				checkpoint = clone(value);
+				return clone(checkpoint);
+			},
+			clearCheckpoint: () => {
+				checkpoint = null;
+			}
 		});
 	}
 
 	function createOperationalMemoryCoordinator(options = {}) {
 		const repository = options.repository;
-		invariant(repository && typeof repository.prepareOperation === "function", "Operational Memory Repository is required.");
+		invariant(
+			repository
+				&& typeof repository.record === "function"
+				&& typeof repository.list === "function"
+				&& typeof repository.getMatterId === "function",
+			"Operational Memory Repository is required."
+		);
+		const journalAdapter = options.journalAdapter || createOperationalMemoryJournalAdapter();
+		invariant(
+			journalAdapter
+				&& typeof journalAdapter.prepare === "function"
+				&& typeof journalAdapter.markDomainCommitted === "function"
+				&& typeof journalAdapter.complete === "function"
+				&& typeof journalAdapter.list === "function",
+			"Operational Memory Coordinator journal adapter is required."
+		);
 		const relationshipRepository = options.relationshipRepository || null;
 		invariant(
 			relationshipRepository === null
@@ -511,7 +565,7 @@
 			invariant(typeof input.domainCommand === "function", "domainCommand must be a function.");
 			invariant(input.memoryIntent && typeof input.memoryIntent === "object", "memoryIntent is required.");
 			const sourceDescriptor = normalizeSourceDescriptor(input.sourceDescriptor);
-			repository.prepareOperation({
+			journalAdapter.prepare({
 				id: operationId,
 				eventIntent: input.memoryIntent,
 				sourceDescriptor
@@ -520,41 +574,154 @@
 			try {
 				domainResult = input.domainCommand();
 			} catch (error) {
-				repository.completeOperation(operationId);
+				journalAdapter.complete(operationId);
 				throw error;
 			}
 			const source = findSource(sourceDescriptor, domainResult);
 			invariant(source, "Domain command did not produce the expected canonical source event.");
 			const eventInput = buildEventInput(input.memoryIntent, sourceDescriptor, source);
-			repository.markDomainCommitted(operationId, eventInput, domainResult);
+			journalAdapter.markDomainCommitted(operationId, eventInput, domainResult);
 			if (input.afterDomainCommit) input.afterDomainCommit();
 			const event = repository.record(eventInput);
-			repository.completeOperation(operationId);
+			journalAdapter.complete(operationId);
 			return { domainResult, event };
 		}
 
 		function recover() {
-			let recovered = repository.recoverPendingOperations();
-			repository.listPendingOperations()
+			let recovered = 0;
+			journalAdapter.list()
+				.filter(operation => operation.phase === "domain-committed" && operation.eventInput)
+				.forEach(operation => {
+					repository.record(operation.eventInput);
+					journalAdapter.complete(operation.id);
+					recovered += 1;
+				});
+			journalAdapter.list()
 				.filter(operation => operation.phase === "prepared")
 				.forEach(operation => {
 					const descriptor = normalizeSourceDescriptor(operation.sourceDescriptor);
 					const source = findSource(descriptor);
 					if (source) {
 						const eventInput = buildEventInput(operation.eventIntent, descriptor, source);
-						repository.markDomainCommitted(operation.id, eventInput, source.aggregate);
+						journalAdapter.markDomainCommitted(operation.id, eventInput, source.aggregate);
 						repository.record(eventInput);
-						repository.completeOperation(operation.id);
+						journalAdapter.complete(operation.id);
 						recovered += 1;
 						return;
 					}
 					const aggregate = relationshipRepository?.get(descriptor.aggregateId);
-					if (aggregate) repository.completeOperation(operation.id);
+					if (aggregate) journalAdapter.complete(operation.id);
 				});
 			return recovered;
 		}
 
-		return Object.freeze({ execute, recover });
+		function assertProjectionAdapter(adapter) {
+			invariant(adapter && typeof adapter === "object", "projectionAdapter is required.");
+			["loadProjection", "replaceProjection", "loadCheckpoint", "saveCheckpoint", "clearCheckpoint"].forEach(method => {
+				invariant(typeof adapter[method] === "function", `projectionAdapter.${method}() is required.`);
+			});
+			return adapter;
+		}
+
+		function replaySource() {
+			const events = repository.list();
+			events.forEach((event, index) => {
+				invariant(event.sequence === index + 1, "Replay requires contiguous immutable Matter-local ordering.");
+			});
+			return events;
+		}
+
+		function sourceSignature(events) {
+			return JSON.stringify(events);
+		}
+
+		function emptyReplayState(events, signature) {
+			return {
+				schemaVersion: 1,
+				matterId: events[0]?.matterId || repository.getMatterId(),
+				sourceSignature: signature,
+				nextIndex: 0,
+				history: [],
+				correctionsByEventId: {},
+				supersessionsByEventId: {},
+				currentSituationBasis: null
+			};
+		}
+
+		function applyReplayEvent(state, event) {
+			state.history.push(clone(event));
+			if (event.correctsEventId) state.correctionsByEventId[event.correctsEventId] = event.id;
+			if (event.supersedesEventId) state.supersessionsByEventId[event.supersedesEventId] = event.id;
+			state.currentSituationBasis = {
+				eventId: event.id,
+				sequence: event.sequence,
+				meaning: event.meaning,
+				governingAuthority: clone(event.governingAuthority),
+				evidenceBasis: clone(event.evidenceBasis),
+				unresolvedConsequences: clone(event.unresolvedConsequences)
+			};
+			state.nextIndex += 1;
+		}
+
+		function isCompatibleCheckpoint(saved, events, signature) {
+			if (!saved || saved.sourceSignature !== signature) return false;
+			if (!Number.isInteger(saved.nextIndex) || saved.nextIndex < 0 || saved.nextIndex > events.length) return false;
+			if (!Array.isArray(saved.history) || saved.history.length !== saved.nextIndex) return false;
+			return saved.history.every((event, index) => (
+				event.id === events[index].id
+				&& event.sequence === events[index].sequence
+				&& JSON.stringify(event) === JSON.stringify(events[index])
+			));
+		}
+
+		function replayProjection(input = {}) {
+			const projectionAdapter = assertProjectionAdapter(input.projectionAdapter);
+			const interruptAfter = input.interruptAfter === undefined ? null : input.interruptAfter;
+			invariant(
+				interruptAfter === null || (Number.isInteger(interruptAfter) && interruptAfter >= 0),
+				"interruptAfter must be a non-negative integer."
+			);
+			const events = replaySource();
+			const signature = sourceSignature(events);
+			const saved = projectionAdapter.loadCheckpoint();
+			const state = isCompatibleCheckpoint(saved, events, signature)
+				? clone(saved)
+				: emptyReplayState(events, signature);
+			let appliedThisRun = 0;
+
+			while (state.nextIndex < events.length) {
+				if (interruptAfter !== null && appliedThisRun >= interruptAfter) {
+					projectionAdapter.saveCheckpoint(state);
+					return {
+						status: "interrupted",
+						appliedThisRun,
+						nextSequence: events[state.nextIndex].sequence,
+						checkpoint: clone(state)
+					};
+				}
+				applyReplayEvent(state, events[state.nextIndex]);
+				projectionAdapter.saveCheckpoint(state);
+				appliedThisRun += 1;
+			}
+
+			const completed = {
+				schemaVersion: state.schemaVersion,
+				matterId: state.matterId,
+				sourceSignature: state.sourceSignature,
+				complete: true,
+				eventCount: state.history.length,
+				throughSequence: state.history.at(-1)?.sequence || 0,
+				history: clone(state.history),
+				correctionsByEventId: clone(state.correctionsByEventId),
+				supersessionsByEventId: clone(state.supersessionsByEventId),
+				currentSituationBasis: clone(state.currentSituationBasis)
+			};
+			projectionAdapter.replaceProjection(completed);
+			projectionAdapter.clearCheckpoint();
+			return { status: "complete", appliedThisRun, projection: clone(completed) };
+		}
+
+		return Object.freeze({ execute, recover, replayProjection });
 	}
 
 	return Object.freeze({
@@ -565,6 +732,8 @@
 		createStorageAdapter,
 		createLocalStorageAdapter,
 		createOperationalMemoryRepository,
+		createOperationalMemoryJournalAdapter,
+		createOperationalMemoryProjectionAdapter,
 		createOperationalMemoryCoordinator
 	});
 });

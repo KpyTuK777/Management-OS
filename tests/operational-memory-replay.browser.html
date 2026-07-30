@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Operational Memory replay conformance</title>
+		<link rel="icon" href="data:,">
+	</head>
+	<body data-test-result="running">
+		<pre id="result">Running</pre>
+		<script src="../js/authority-policy.js"></script>
+		<script src="../js/operational-memory-model.js"></script>
+		<script>
+			(() => {
+				const result = document.getElementById("result");
+				const assert = (condition, message) => { if (!condition) throw new Error(message); };
+				const clone = value => JSON.parse(JSON.stringify(value));
+				let stored = null;
+				const storageAdapter = {
+					loadStore: () => stored === null ? null : clone(stored),
+					saveStore: store => { stored = clone(store); }
+				};
+				const owner = { id: "owner", name: "Owner", role: "owner" };
+				const event = overrides => ({
+					id: "memory-original",
+					type: "governance.judgment.recorded",
+					occurredAt: "2026-07-30T12:00:00.000Z",
+					actor: owner,
+					governingAuthority: owner,
+					reason: "Replay conformance basis.",
+					meaning: "Original operational meaning.",
+					affectedEntityRefs: [{ kind: "relationship", id: "relationship-1" }],
+					sourceEventRefs: [],
+					evidenceBasis: [{ kind: "artifact", id: "artifact-1" }],
+					unresolvedConsequences: [{ id: "question-1", meaning: "One question remains." }],
+					provenance: { method: "browser-replay-contract", origin: "test" },
+					correlationId: "operation-original",
+					reasoningEpisodeId: "episode-replay",
+					...(overrides || {})
+				});
+
+				try {
+					const repository = ManagementOsOperationalMemory.createOperationalMemoryRepository({
+						storageAdapter,
+						matterId: "MAT-REPLAY"
+					});
+					const original = repository.record(event());
+					const superseding = repository.record(event({
+						id: "memory-superseding",
+						occurredAt: "2026-07-30T11:00:00.000Z",
+						reason: "A later append carries an earlier occurrence time.",
+						meaning: "Superseding operational meaning.",
+						correlationId: "operation-superseding",
+						supersedesEventId: original.id
+					}));
+					const correction = repository.correct(superseding.id, {
+						id: "memory-correction",
+						occurredAt: "2026-07-30T13:00:00.000Z",
+						governingAuthority: owner,
+						reason: "Correction must extend history.",
+						meaning: "Corrected current interpretation.",
+						sourceEventRefs: [],
+						evidenceBasis: [{ kind: "artifact", id: "artifact-2" }],
+						unresolvedConsequences: [],
+						provenance: { method: "browser-replay-contract", origin: "test" },
+						correlationId: "operation-correction"
+					}, owner);
+					const coordinator = ManagementOsOperationalMemory.createOperationalMemoryCoordinator({ repository });
+					const projectionAdapter = ManagementOsOperationalMemory.createOperationalMemoryProjectionAdapter({
+						complete: true,
+						obsolete: true,
+						eventCount: 99
+					});
+					const passed = [];
+					assert(repository.prepareOperation === undefined, "Repository exposes Coordinator journal workflow.");
+					assert(repository.recoverPendingOperations === undefined, "Repository exposes recovery orchestration.");
+					assert(typeof coordinator.replayProjection === "function", "Coordinator does not own replay orchestration.");
+					assert(typeof coordinator.recover === "function", "Coordinator does not own recovery orchestration.");
+					passed.push("repository/coordinator boundary");
+
+					// Given canonical history and an obsolete projection.
+					// When replay is interrupted after one event.
+					// Then canonical history and the published projection remain unchanged.
+					const interrupted = coordinator.replayProjection({ projectionAdapter, interruptAfter: 1 });
+					assert(interrupted.status === "interrupted", "Interrupted replay did not report interruption.");
+					assert(repository.list().length === 3, "Interrupted replay changed canonical history.");
+					assert(projectionAdapter.loadProjection().obsolete === true, "Interrupted replay replaced the published projection.");
+					passed.push("interrupted replay");
+
+					// Given a compatible replay checkpoint.
+					// When replay resumes.
+					// Then it completes from the checkpoint and clears resumable state.
+					const resumed = coordinator.replayProjection({ projectionAdapter });
+					assert(resumed.status === "complete", "Replay resume did not complete.");
+					assert(resumed.appliedThisRun === 2, "Replay resume did not continue from its checkpoint.");
+					assert(projectionAdapter.loadCheckpoint() === null, "Replay checkpoint survived completion.");
+					passed.push("replay resume");
+
+					// Given correction-by-addition in canonical history.
+					// When the projection is rebuilt.
+					// Then original and correction remain while correction lineage is derived.
+					assert(resumed.projection.history.some(item => item.id === original.id), "Correction replay removed original history.");
+					assert(resumed.projection.history.some(item => item.id === correction.id), "Correction replay omitted the correction.");
+					assert(resumed.projection.correctionsByEventId[superseding.id] === correction.id, "Correction replay lost lineage.");
+					passed.push("replay after correction");
+
+					// Given an obsolete published projection.
+					// When replay completes.
+					// Then one complete projection atomically replaces it.
+					assert(projectionAdapter.loadProjection().obsolete === undefined, "Obsolete projection was not replaced.");
+					assert(projectionAdapter.loadProjection().complete === true, "Replacement projection is incomplete.");
+					passed.push("obsolete projection replacement");
+
+					// Given supersession-by-addition.
+					// When canonical history is replayed.
+					// Then both events remain and supersession lineage is derived.
+					assert(resumed.projection.history.some(item => item.id === original.id), "Superseded history was removed.");
+					assert(resumed.projection.history.some(item => item.id === superseding.id), "Superseding history was omitted.");
+					assert(resumed.projection.supersessionsByEventId[original.id] === superseding.id, "Supersession lineage was lost.");
+					passed.push("superseded history replay");
+
+					// Given delivery whose occurrence times are not append ordered.
+					// When replay runs.
+					// Then immutable Matter-local sequence determines deterministic order.
+					assert(
+						JSON.stringify(resumed.projection.history.map(item => item.sequence)) === JSON.stringify([1, 2, 3]),
+						"Reordered delivery changed deterministic replay order."
+					);
+					assert(resumed.projection.history[1].occurredAt < resumed.projection.history[0].occurredAt, "Fixture did not prove reordered delivery.");
+					passed.push("deterministic replay after reordered delivery");
+
+					// Given a complete projection and unchanged canonical input.
+					// When replay is repeated.
+					// Then output bytes are identical and no Memory Event is created.
+					const completedBytes = JSON.stringify(resumed.projection);
+					const repeated = coordinator.replayProjection({ projectionAdapter });
+					assert(JSON.stringify(repeated.projection) === completedBytes, "Replay is not idempotent.");
+					assert(repository.list().length === 3, "Replay created a Memory Event.");
+					assert(repeated.projection.eventCount === repository.list().length, "Replay completeness failed.");
+					passed.push("replay idempotency");
+
+					document.body.dataset.testResult = "passed";
+					result.textContent = `Operational Memory replay conformance passed\n${passed.join("\n")}`;
+				} catch (error) {
+					document.body.dataset.testResult = "failed";
+					result.textContent = error.stack || error.message;
+				}
+			})();
+		</script>
+	</body>
+</html>

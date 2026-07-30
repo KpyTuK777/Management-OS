@@ -7,8 +7,8 @@ Principles are durable tests for design judgment. A proposed interface should be
 - [Canonical Status Registry](CANONICAL_STATUS.md)
 - [Milestone M1 — Canonical Foundation Review](Milestone%20M1%20-%20Canonical%20Foundation%20Review.md)
 - [Canonical Management Model Integrated](Canonical%20Management%20Model%20Integrated.md) — **Integration Milestone**. Records the completed architecture integration without promoting candidates or starting M6.
-- [Operational Design Brief 01 — Operational Memory](Operational%20Design%20Brief%2001%20-%20Operational%20Memory.md)
-- [Sprint 03 — Operational Memory Architecture Review](Sprint%2003%20-%20Operational%20Memory%20Architecture%20Review.md)
+- [Operational Design Brief 01 — Operational Memory](Operational%20Design%20Brief%2001%20-%20Operational%20Memory.md) — **Canonical**. Defines append-only Matter-scoped consequential history without owning current truth.
+- [Sprint 03 — Operational Memory Architecture Review](Sprint%2003%20-%20Operational%20Memory%20Architecture%20Review.md) — Records the approved repository, replay, projection, and recovery contracts and their executable conformance evidence.
 - [Canonical Iconography](Canonical%20Iconography.md) — **Research Only — Advisory**. Informs representation strategy; Canonical Visual Semantics (Canonical Review Candidate) is the intended upstream semantic owner, and a future icon library must implement it only after approval.
 - [Canonical Matter Experience](Canonical%20Matter%20Experience.md) — **Canonical**. Defines the shared professional experience contract for working with a Matter without owning lifecycle, authority, Context Envelope or domain truth.
 - [Canonical Product Operating Model](Canonical%20Product%20Operating%20Model.md)

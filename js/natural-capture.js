@@ -259,12 +259,26 @@ const InvestigationPrototype = (() => {
 		const migrationAdapter = window.ManagementOsStorageMigrations.createOperationalMemoryMigrationAdapter({
 			storageAdapter
 		});
+		const journalStorageAdapter = window.ManagementOsOperationalMemory.createLocalStorageAdapter(
+			window.localStorage,
+			`managementOs.operationalMemoryJournal.v1.${matterId}`
+		);
+		const journalAdapter = window.ManagementOsOperationalMemory.createOperationalMemoryJournalAdapter({
+			storageAdapter: journalStorageAdapter
+		});
+		const legacyStore = migrationAdapter.loadStore();
+		if (legacyStore?.pendingOperations && typeof legacyStore.pendingOperations === "object") {
+			journalAdapter.importOperations(Object.values(legacyStore.pendingOperations));
+			delete legacyStore.pendingOperations;
+			migrationAdapter.saveStore(legacyStore);
+		}
 		operationalMemoryRepository = window.ManagementOsOperationalMemory.createOperationalMemoryRepository({
 			storageAdapter: migrationAdapter,
 			matterId
 		});
 		operationalMemoryCoordinator = window.ManagementOsOperationalMemory.createOperationalMemoryCoordinator({
 			repository: operationalMemoryRepository,
+			journalAdapter,
 			relationshipRepository
 		});
 		operationalMemoryCoordinator.recover();

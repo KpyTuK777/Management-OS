@@ -15,6 +15,7 @@
 				const artifactKey = "managementOs.artifacts.v1.MAT-0247";
 				const relationshipKey = "managementOs.relationships.v1.MAT-0247";
 				const memoryKey = "managementOs.operationalMemory.v1.MAT-0247";
+				const memoryJournalKey = "managementOs.operationalMemoryJournal.v1.MAT-0247";
 				const errors = [];
 				let sequence = 0;
 				const assert = (condition, message) => { if (!condition) throw new Error(message); };
@@ -41,6 +42,7 @@
 					localStorage.removeItem(artifactKey);
 					localStorage.removeItem(relationshipKey);
 					localStorage.removeItem(memoryKey);
+					localStorage.removeItem(memoryJournalKey);
 					let app = await load("../index.html?demo=investigation&capture=approved&journey=first-hypothesis#investigations");
 					app.document.getElementById("acceptRelationship").click();
 					const firstStore = JSON.parse(localStorage.getItem(memoryKey));
@@ -53,7 +55,8 @@
 					app = await load("../index.html?demo=investigation#investigations");
 					const reloadedStore = JSON.parse(localStorage.getItem(memoryKey));
 					assert(Object.keys(reloadedStore.events).length === 1, "Reload duplicated the Memory Event.");
-					assert(Object.keys(reloadedStore.pendingOperations).length === 0, "Completed operation remained pending.");
+					const reloadedJournal = JSON.parse(localStorage.getItem(memoryJournalKey));
+					assert(Object.keys(reloadedJournal.operations).length === 0, "Completed operation remained pending.");
 					assert(errors.length === 0, `Workbench emitted runtime errors: ${errors.join(" | ")}`);
 					document.body.dataset.testResult = "passed";
 					result.textContent = "Workbench Operational Memory journey passed";

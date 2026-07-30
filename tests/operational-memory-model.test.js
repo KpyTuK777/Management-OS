@@ -2,6 +2,8 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const {
 	createOperationalMemoryRepository,
+	createOperationalMemoryJournalAdapter,
+	createOperationalMemoryProjectionAdapter,
 	createOperationalMemoryCoordinator
 } = require("../js/operational-memory-model.js");
 const { createOperationalMemoryMigrationAdapter } = require("../js/storage-migrations.js");
@@ -162,7 +164,9 @@ test("correction is append-only and retains historical action separately from cu
 
 test("coordinator never finalizes memory before domain success and recovers after a partial write", () => {
 	const { repository, storageAdapter, owner, event } = harness();
-	const coordinator = createOperationalMemoryCoordinator({ repository });
+	const journalStorage = memoryAdapter();
+	const journalAdapter = createOperationalMemoryJournalAdapter({ storageAdapter: journalStorage });
+	const coordinator = createOperationalMemoryCoordinator({ repository, journalAdapter });
 	const failedIntent = event();
 	delete failedIntent.occurredAt;
 	delete failedIntent.sourceEventRefs;
@@ -209,12 +213,17 @@ test("coordinator never finalizes memory before domain success and recovers afte
 		storageAdapter,
 		matterId: "MAT-MEMORY"
 	});
+	const recoveredJournal = createOperationalMemoryJournalAdapter({ storageAdapter: journalStorage });
+	const recoveryCoordinator = createOperationalMemoryCoordinator({ repository: recovered, journalAdapter: recoveredJournal });
+	assert.equal(recoveryCoordinator.recover(), 1);
 	assert.equal(recovered.get("memory-partial").type, "governance.judgment.recorded");
-	assert.equal(recovered.recoverPendingOperations(), 0);
+	assert.equal(recoveryCoordinator.recover(), 0);
 });
 
 test("startup reconciliation closes the crash window after domain commit but before journal advancement", () => {
 	const { repository, storageAdapter, owner, event } = harness();
+	const journalStorage = memoryAdapter();
+	const journalAdapter = createOperationalMemoryJournalAdapter({ storageAdapter: journalStorage });
 	const eventIntent = event({
 		id: "memory-prepared-recovery",
 		type: "governance.judgment.recorded",
@@ -222,7 +231,7 @@ test("startup reconciliation closes the crash window after domain commit but bef
 	});
 	delete eventIntent.occurredAt;
 	delete eventIntent.sourceEventRefs;
-	repository.prepareOperation({
+	journalAdapter.prepare({
 		id: "prepared-only",
 		eventIntent,
 		sourceDescriptor: {
@@ -256,13 +265,13 @@ test("startup reconciliation closes the crash window after domain commit but bef
 	});
 	const coordinator = createOperationalMemoryCoordinator({
 		repository: recovered,
+		journalAdapter: createOperationalMemoryJournalAdapter({ storageAdapter: journalStorage }),
 		relationshipRepository
 	});
 	assert.equal(coordinator.recover(), 1);
 	const events = recovered.list();
 	assert.equal(events.length, 1);
 	assert.equal(events[0].sourceEventRefs[0].eventId, "relationship-accepted-event");
-	assert.equal(recovered.recoverPendingOperations(), 0);
 	assert.equal(coordinator.recover(), 0);
 });
 
@@ -343,4 +352,52 @@ test("Operational Memory migration boundary preserves current bytes and rejects 
 		() => createOperationalMemoryRepository({ storageAdapter: migration, matterId: "MAT-MEMORY" }),
 		/Unsupported/
 	);
+});
+
+test("projection replay is complete, deterministic, resumable, idempotent, and lineage-aware", () => {
+	const { repository, owner, event } = harness();
+	const original = repository.record(event({ sourceEventRefs: [] }));
+	repository.record(event({
+		id: "memory-superseding",
+		occurredAt: "2026-07-28T10:55:00.000Z",
+		correlationId: "operation-superseding",
+		sourceEventRefs: [],
+		supersedesEventId: original.id,
+		meaning: "A later judgment superseded the original meaning."
+	}));
+	repository.correct("memory-superseding", {
+		id: "memory-replay-correction",
+		occurredAt: "2026-07-28T11:05:00.000Z",
+		governingAuthority: owner,
+		reason: "Correction for replay conformance.",
+		meaning: "The superseding judgment remains qualified.",
+		sourceEventRefs: [],
+		evidenceBasis: [],
+		unresolvedConsequences: [],
+		provenance: { method: "replay-contract", origin: "test" },
+		correlationId: "operation-replay-correction"
+	}, owner);
+	const coordinator = createOperationalMemoryCoordinator({ repository });
+	const projectionAdapter = createOperationalMemoryProjectionAdapter({
+		complete: true,
+		eventCount: 999,
+		obsolete: true
+	});
+
+	const interrupted = coordinator.replayProjection({ projectionAdapter, interruptAfter: 1 });
+	assert.equal(interrupted.status, "interrupted");
+	assert.equal(projectionAdapter.loadProjection().obsolete, true);
+	const resumed = coordinator.replayProjection({ projectionAdapter });
+	assert.equal(resumed.status, "complete");
+	assert.equal(resumed.projection.eventCount, 3);
+	assert.deepEqual(resumed.projection.history.map(item => item.sequence), [1, 2, 3]);
+	assert.equal(resumed.projection.supersessionsByEventId[original.id], "memory-superseding");
+	assert.equal(resumed.projection.correctionsByEventId["memory-superseding"], "memory-replay-correction");
+	assert.equal(projectionAdapter.loadProjection().obsolete, undefined);
+	assert.equal(projectionAdapter.loadCheckpoint(), null);
+
+	const firstBytes = JSON.stringify(resumed.projection);
+	const repeated = coordinator.replayProjection({ projectionAdapter });
+	assert.equal(JSON.stringify(repeated.projection), firstBytes);
+	assert.equal(repository.list().length, 3);
 });
