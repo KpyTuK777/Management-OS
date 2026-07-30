@@ -17,7 +17,7 @@ M6 — Canonical Operational Design System
 ## Current Task
 
 ```text
-Architecture Review — M6.3 Canonical Rendering Model
+Architecture Review — M6.4 Semantic Token Architecture
 ```
 
 ## Dependencies
@@ -27,7 +27,9 @@ Architecture Review — M6.3 Canonical Rendering Model
   complete.
 - M6 Canonical Design Object Model — Architecture Definition complete.
 - M6 Canonical Design Semantics — Approved.
-- M6.3 Canonical Rendering Model — Architecture Definition prepared for review.
+- M6.3 Canonical Rendering Model — Approved.
+- M6.4 Semantic Token Architecture — Architecture Definition prepared for
+  review.
 
 ## Expected Output
 
@@ -43,10 +45,9 @@ or:
 Approved with Required Corrections
 ```
 
-The disposition must establish whether the Rendering Tree, transformation
-contract, node correspondence, ownership, projection lifecycle, composition,
-replacement, degradation, Adapter Boundary, invariants, and conformance criteria
-are complete.
+The disposition must establish whether token purpose, ownership, lifecycle,
+taxonomy, Rendering Node consumption, deterministic resolution, adapter
+boundary, invariants, and conformance criteria are complete.
 
 ## Owner
 
@@ -66,15 +67,15 @@ Ready for Architecture Review
 ## Definition of Done
 
 - The document is reviewed against the M6 Charter, Canonical Design Object Model,
-  and Canonical Design Semantics.
-- Rendering Tree, transformation, node mappings, composition, ordering,
-  replacement, degradation, adapter independence, and conformance are complete
-  and mutually consistent.
-- Every DO-01–DO-11 occurrence maps to exactly one RN-01–RN-11 kind.
-- Rendering creates no domain truth, information residency, navigation,
-  interaction, authority, lifecycle, Operational Memory, Current Situation, or
-  Context Envelope.
-- Rendering Model and Platform Adapter ownership remain mutually exclusive.
+  Canonical Design Semantics, and Canonical Rendering Model.
+- STC-01–STC-06 taxonomy, token descriptor, lifecycle, relationships,
+  combination, conflict, fallback, and supersession rules are complete.
+- Every RN-01–RN-11 kind has deterministic token consumption obligations.
+- Semantic Token Architecture and Platform Theme / Design System Adapter
+  ownership remain mutually exclusive.
+- Tokens create no domain truth, semantic meaning, information residency,
+  navigation, interaction, authority, lifecycle, Operational Memory, Current
+  Situation, Context Envelope, or concrete platform value.
 - The Architecture Review verdict and evidence are recorded in the repository.
 - All required corrections are absent or resolved.
 - `ROADMAP.md` is advanced to the approved next stage.
