@@ -3,7 +3,7 @@
 ## Status
 
 ```text
-Architecture Definition
+Ready for Architecture Review
 Milestone M6
 ```
 
@@ -476,8 +476,10 @@ Canonical Design Semantics is complete when:
 ## Architecture Verdict
 
 ```text
-Canonical Design Semantics Defined
+Architecture Definition Complete
+Ready for Architecture Review
 ```
 
-This model authorizes downstream M6 architecture work. It defines no component,
-token, layout, Figma artifact, CSS, React implementation, or concrete UI.
+This model does not authorize downstream M6 architecture work until Architecture
+Review approves it for dependency use. It defines no component, token, layout,
+Figma artifact, CSS, React implementation, or concrete UI.
