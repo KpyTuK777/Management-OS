@@ -11,6 +11,7 @@ Principles are durable tests for design judgment. A proposed interface should be
 - [Canonical Iconography](Canonical%20Iconography.md)
 - [Canonical Matter Experience](Canonical%20Matter%20Experience.md) — **Canonical**. Defines the shared professional experience contract for working with a Matter without owning lifecycle, authority, Context Envelope or domain truth.
 - [Canonical Product Operating Model](Canonical%20Product%20Operating%20Model.md)
+- [Operational Navigation Governance](Operational%20Navigation%20Governance.md) — **Canonical**. Defines Matter attention priority, Focus interruption, Context recovery, and Navigation authority laws without prescribing UI or owning domain truth.
 - [Canonical Workbench Audit](Canonical%20Workbench%20Audit.md)
 - [Workbench Canonical Domain Model](Workbench%20Canonical%20Domain%20Model.md)
 - [Artifact First](Artifact%20First.md)
