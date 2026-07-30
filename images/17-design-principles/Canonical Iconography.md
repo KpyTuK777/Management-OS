@@ -9,9 +9,9 @@ Research Only
 This document defines the intended iconography system for Management OS. It does
 not approve assets, change the interface, or authorize implementation.
 
-This research is not a semantic authority. Canonical Visual Semantics (currently a
-Canonical Review Candidate) precedes
-iconographic representation and constrains the meaning of every future symbol.
+This research is not a semantic authority. Canonical Visual Semantics is
+Canonical, precedes iconographic representation, and constrains the meaning of
+every future symbol.
 This document may inform representation strategy only. A future Canonical
 Iconography Library must implement approved Canonical Visual Semantics and the
 Operational Design System; it cannot redefine them.

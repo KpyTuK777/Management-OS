@@ -5,7 +5,7 @@
 ```text
 Architecture & Information Space
 Milestone M5.8
-Canonical Review Candidate
+Canonical
 ```
 
 ## Purpose

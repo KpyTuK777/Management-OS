@@ -23,7 +23,7 @@ Artifact
                                 └─> Canonical Operational Navigation
                                      └─> Visual Semantics (Canonical)
                                           └─> Operational Interaction Language (Canonical)
-                                               └─> Information Architecture (Candidate)
+                                               └─> Information Architecture (Canonical)
                                                     └─> future Operational Design System
 
 Canonical Iconography Research ──> informs future Iconography Library
@@ -50,7 +50,7 @@ inputs and grant no authority back to them.
 | Navigation architecture, layers, navigation transition graph, Rail projection | Canonical Operational Navigation | It consumes Governance and does not own domain truth. |
 | Visual meaning | Canonical Visual Semantics (Canonical) | Sole owner of representation meaning. Iconography research is advisory. |
 | Professional interaction semantics | Canonical Operational Interaction Language (Canonical) | Sole owner of professional interaction meaning; cannot create domain truth. |
-| Information residency | Canonical Information Architecture (Candidate) | Intended owner only after canonicalization; cannot define navigation or ownership. |
+| Information residency | Canonical Information Architecture (Canonical) | Sole owner of information residency; cannot define navigation or domain ownership. |
 | Authority | Owning domain contract and authorized actor role | Visual, interaction, navigation, and IA only expose or enforce it. |
 
 ## 3. Controlled terminology
@@ -149,22 +149,22 @@ items remain disclosed validation limitations rather than silent proof. The Fina
 Canonical Review completed successfully on 2026-07-30 and approved Operational
 Memory as Canonical.
 
-## 7. Candidate canonicalization sequence
+## 7. Canonicalization sequence
 
 1. Canonical Visual Semantics (Canonical).
 2. Canonical Operational Interaction Language (Canonical).
-3. Canonical Information Architecture (Candidate).
+3. Canonical Information Architecture (Canonical).
 
-The sequence is dependency-driven. Canonical Iconography remains research-only and
-may inform a later implementation library after Visual Semantics is canonical.
+The completed sequence was dependency-driven. Canonical Iconography remains
+research-only and may inform a later implementation library.
 
 ## 8. Architecture debt register
 
 | Category | Item | Disposition |
 |---|---|---|
 | Blocks Integration | None after the final Iconography presentation-transition correction. | Closed; repeat final integration review is the verification gate. |
-| Blocks M6 | Canonical review of Canonical Information Architecture (Candidate). | Keep candidate status until approved. |
-| Blocks M6 | Successful repeat M5.9 integration review after this hardening and final registry evidence reconciliation after the model reviews. | Required gates; the repeat integration review precedes candidate canonicalization. |
+| Blocks M6 | Final registry evidence reconciliation after all model reviews. | Information Architecture review is complete; registry confirmation remains. |
+| Blocks M6 | Successful repeat M5.9 integration review after this hardening. | Complete; canonicalization sequence is closed. |
 | Deferred Implementation Debt | Input-specific controls, components, responsive adaptation, and implementation realization. | M6 and later; does not block architecture integration. |
 | Accepted Product Evolution | Future icon library implementing approved Canonical Visual Semantics. | Iconography research remains advisory. |
 

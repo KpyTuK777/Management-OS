@@ -67,14 +67,13 @@ None
 
 ## M6 Maturity Gates
 
-M6 remains blocked by the downstream candidate maturity gates, not by integration
-architecture or Operational Memory.
+M6 remains blocked only by final registry confirmation, not by architecture or
+model maturity.
 
 Required sequence:
 
-1. Information Architecture canonicalization.
-2. Final registry confirmation.
-3. Open M6.
+1. Final registry confirmation.
+2. Open M6.
 
 ## Deferred Realization
 

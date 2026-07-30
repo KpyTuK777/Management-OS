@@ -6,7 +6,7 @@ Principles are durable tests for design judgment. A proposed interface should be
 
 - [Canonical Status Registry](CANONICAL_STATUS.md)
 - [Milestone M1 — Canonical Foundation Review](Milestone%20M1%20-%20Canonical%20Foundation%20Review.md)
-- [Canonical Management Model Integrated](Canonical%20Management%20Model%20Integrated.md) — **Integration Milestone**. Records the completed architecture integration without promoting candidates or starting M6.
+- [Canonical Management Model Integrated](Canonical%20Management%20Model%20Integrated.md) — **Integration Milestone**. Records the completed architecture integration and canonical maturity closure before M6.
 - [Operational Design Brief 01 — Operational Memory](Operational%20Design%20Brief%2001%20-%20Operational%20Memory.md) — **Canonical**. Defines append-only Matter-scoped consequential history without owning current truth.
 - [Sprint 03 — Operational Memory Architecture Review](Sprint%2003%20-%20Operational%20Memory%20Architecture%20Review.md) — Records the approved repository, replay, projection, and recovery contracts and their executable conformance evidence.
 - [Canonical Iconography](Canonical%20Iconography.md) — **Research Only — Advisory**. Informs representation strategy; Canonical Visual Semantics is the Canonical upstream semantic owner, and a future icon library must implement it.
@@ -15,7 +15,7 @@ Principles are durable tests for design judgment. A proposed interface should be
 - [Canonical Operational Navigation](Canonical%20Operational%20Navigation.md) — **Canonical**. Defines the professional navigation layers, transition graph, Dynamic Operational Rail, projected navigation state, context continuity, and non-UI experience journeys.
 - [Canonical Visual Semantics](Canonical%20Visual%20Semantics.md) — **Canonical**. Defines the semantic inventory, independent meaning dimensions, visual grammar, professional priority, persistence, and forbidden ambiguity without prescribing style or components.
 - [Canonical Operational Interaction Language](Canonical%20Operational%20Interaction%20Language.md) — **Canonical**. Defines professional interaction intent, vocabulary, authority, consequences, persistence, feedback, recovery, and cross-input equivalence without prescribing controls or implementation.
-- [Canonical Information Architecture](Canonical%20Information%20Architecture.md) — **Canonical Review Candidate**. Defines canonical information spaces, object residency, persistence, ownership, cross-surface representation roles, and Context Envelope continuity without prescribing layout or components.
+- [Canonical Information Architecture](Canonical%20Information%20Architecture.md) — **Canonical**. Defines canonical information spaces, object residency, persistence, ownership, cross-surface representation roles, and Context Envelope continuity without prescribing layout or components.
 - [Canonical Management Model Integration Review](Canonical%20Management%20Model%20Integration%20Review.md) — **Integration Hardening Review**. Records the dependency graph, sole ownership, controlled terminology, source boundary, candidate sequence, and architecture debt without creating a domain model.
 - [Operational Navigation Governance](Operational%20Navigation%20Governance.md) — **Canonical**. Defines Matter attention priority, Focus interruption, Context recovery, and Navigation authority laws without prescribing UI or owning domain truth.
 - [Canonical Workbench Audit](Canonical%20Workbench%20Audit.md)
