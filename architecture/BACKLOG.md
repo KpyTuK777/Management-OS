@@ -17,7 +17,7 @@ M6 — Canonical Operational Design System
 ## Current Task
 
 ```text
-Architecture Review — M6.8 Canonical Interaction Patterns
+Architecture Review — M6.9 Navigation Representation Model
 ```
 
 ## Dependencies
@@ -32,7 +32,10 @@ Architecture Review — M6.8 Canonical Interaction Patterns
 - M6.5 Presentation State Model — Approved.
 - M6.6 Canonical Component Model — Approved.
 - M6.7 Composition and Layout System — Approved.
-- M6.8 Canonical Interaction Patterns — Architecture Definition prepared for
+- M6.8 Canonical Interaction Patterns — Approved.
+- Canonical Operational Navigation — Canonical.
+- Operational Navigation Governance — Canonical.
+- M6.9 Navigation Representation Model — Architecture Definition prepared for
   review.
 
 ## Expected Output
@@ -49,10 +52,10 @@ or:
 Approved with Required Corrections
 ```
 
-The disposition must establish whether pattern purpose, ownership, lifecycle,
-taxonomy, participants, initiation, validation, progression, interruption,
-completion, cancellation, retry, recovery, composition, Platform Interaction
-Runtime boundary, invariants, and conformance criteria are complete.
+The disposition must establish whether representation purpose, ownership,
+lifecycle, taxonomy, deterministic projection, exposure, continuity,
+replacement, degradation, recovery, Platform Navigation Framework boundary,
+invariants, and conformance criteria are complete.
 
 ## Owner
 
@@ -74,16 +77,18 @@ Ready for Architecture Review
 - The document is reviewed against the M6 Charter, Canonical Design Object Model,
   Canonical Design Semantics, Canonical Rendering Model, and Semantic Token
   Architecture, Presentation State Model, Canonical Component Model, Composition
-  and Layout System, and Canonical Operational Interaction Language.
-- CIP-01–CIP-12 cover OI-01–OI-61 exactly once as primary categories.
-- Participant roles, progression, cancellation, retry, interruption, recovery,
-  correction, reversal, idempotency, and append-only boundaries are complete.
-- Canonical Interaction Patterns and Platform Interaction Runtime ownership
+  and Layout System, Canonical Interaction Patterns, Canonical Operational
+  Navigation, and Operational Navigation Governance.
+- NR-01–NR-08 taxonomy and M6 mappings are complete and bounded.
+- Destination, exposure, continuity, replacement, degradation, and recovery
+  rules are deterministic.
+- Navigation Representation Model and Platform Navigation Framework ownership
   remain mutually exclusive.
-- Patterns modify no OI meaning, Component, Composition Plan, Design Object,
-  Semantic Role, Rendering Node, Semantic Token, Presentation State, canonical
-  meaning, information residency, Navigation, authority, lifecycle, Operational
-  Memory, Current Situation, or Context Envelope.
+- Representation modifies no Navigation, Current Focus, Context Envelope,
+  interruption class, authority, history, Interaction Pattern, Component,
+  Composition Plan, Design Object, Semantic Role, Rendering Node, Semantic Token,
+  Presentation State, canonical meaning, information residency, lifecycle,
+  Operational Memory, or Current Situation.
 - The Architecture Review verdict and evidence are recorded in the repository.
 - All required corrections are absent or resolved.
 - `ROADMAP.md` is advanced to the approved next stage.
