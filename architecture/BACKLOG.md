@@ -17,7 +17,7 @@ M6 — Canonical Operational Design System
 ## Current Task
 
 ```text
-Architecture Review — M6.7 Composition and Layout System
+Architecture Review — M6.8 Canonical Interaction Patterns
 ```
 
 ## Dependencies
@@ -31,7 +31,8 @@ Architecture Review — M6.7 Composition and Layout System
 - M6.4 Semantic Token Architecture — Approved.
 - M6.5 Presentation State Model — Approved.
 - M6.6 Canonical Component Model — Approved.
-- M6.7 Composition and Layout System — Architecture Definition prepared for
+- M6.7 Composition and Layout System — Approved.
+- M6.8 Canonical Interaction Patterns — Architecture Definition prepared for
   review.
 
 ## Expected Output
@@ -48,10 +49,10 @@ or:
 Approved with Required Corrections
 ```
 
-The disposition must establish whether composition purpose, ownership,
-lifecycle, component relationships, Structural Regions, containment, order,
-Layout Intent, adaptation, replacement, Platform Layout Engine boundary,
-invariants, and conformance criteria are complete.
+The disposition must establish whether pattern purpose, ownership, lifecycle,
+taxonomy, participants, initiation, validation, progression, interruption,
+completion, cancellation, retry, recovery, composition, Platform Interaction
+Runtime boundary, invariants, and conformance criteria are complete.
 
 ## Owner
 
@@ -72,16 +73,17 @@ Ready for Architecture Review
 
 - The document is reviewed against the M6 Charter, Canonical Design Object Model,
   Canonical Design Semantics, Canonical Rendering Model, and Semantic Token
-  Architecture, Presentation State Model, and Canonical Component Model.
-- CR-01–CR-08 relationships, SR-01–SR-07 Structural Regions, and LI-01–LI-08
-  Layout Intents are complete and bounded.
-- Containment, ordering, adaptation, and replacement are deterministic.
-- Composition and Layout System and Platform Layout Engine ownership remain
-  mutually exclusive.
-- Composition modifies no Component, Design Object, Semantic Role, Rendering
-  Node, Semantic Token, Presentation State, canonical meaning, information
-  residency, Navigation, authority, lifecycle, Operational Memory, Current
-  Situation, or Context Envelope.
+  Architecture, Presentation State Model, Canonical Component Model, Composition
+  and Layout System, and Canonical Operational Interaction Language.
+- CIP-01–CIP-12 cover OI-01–OI-61 exactly once as primary categories.
+- Participant roles, progression, cancellation, retry, interruption, recovery,
+  correction, reversal, idempotency, and append-only boundaries are complete.
+- Canonical Interaction Patterns and Platform Interaction Runtime ownership
+  remain mutually exclusive.
+- Patterns modify no OI meaning, Component, Composition Plan, Design Object,
+  Semantic Role, Rendering Node, Semantic Token, Presentation State, canonical
+  meaning, information residency, Navigation, authority, lifecycle, Operational
+  Memory, Current Situation, or Context Envelope.
 - The Architecture Review verdict and evidence are recorded in the repository.
 - All required corrections are absent or resolved.
 - `ROADMAP.md` is advanced to the approved next stage.

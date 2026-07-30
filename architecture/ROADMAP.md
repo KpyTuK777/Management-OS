@@ -36,23 +36,23 @@ Phase III-B — Operational Core / M6 Product Realization
 ## Active stage
 
 ```text
-M6.7 — Composition and Layout System Architecture Review
+M6.8 — Canonical Interaction Patterns Architecture Review
 ```
 
 The current task and its completion criteria are defined exclusively in
 [BACKLOG.md](BACKLOG.md).
 
 Canonical Design Semantics, Canonical Rendering Model, Semantic Token
-Architecture, Presentation State Model, and Canonical Component Model are
-approved dependencies for M6.7.
+Architecture, Presentation State Model, Canonical Component Model, and
+Composition and Layout System are approved dependencies for M6.8.
 
 ## Next stage
 
 ```text
-M6 — Canonical Interaction Patterns
+M6 — Navigation Representation Model
 ```
 
-The next stage may enter the backlog only after the Composition and Layout System
+The next stage may enter the backlog only after the Canonical Interaction Patterns
 Review disposition is approved.
 
 ## Future stages
@@ -67,8 +67,8 @@ Review disposition is approved.
 | 6 | Semantic Token Architecture | Approved for dependency use |
 | 7 | Presentation State Model | Approved for dependency use |
 | 8 | Canonical Component Model | Approved for dependency use |
-| 9 | Composition and Layout System | Active |
-| 10 | Canonical Interaction Patterns | Planned |
+| 9 | Composition and Layout System | Approved for dependency use |
+| 10 | Canonical Interaction Patterns | Active |
 | 11 | Navigation Representation Model | Planned |
 | 12 | Rendering Contracts and Platform Adapters | Planned |
 | 13 | Accessibility Model | Planned |
