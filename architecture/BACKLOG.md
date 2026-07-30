@@ -17,7 +17,7 @@ M6 — Canonical Operational Design System
 ## Current Task
 
 ```text
-Architecture Review — M6.4 Semantic Token Architecture
+Architecture Review — M6.5 Presentation State Model
 ```
 
 ## Dependencies
@@ -28,8 +28,8 @@ Architecture Review — M6.4 Semantic Token Architecture
 - M6 Canonical Design Object Model — Architecture Definition complete.
 - M6 Canonical Design Semantics — Approved.
 - M6.3 Canonical Rendering Model — Approved.
-- M6.4 Semantic Token Architecture — Architecture Definition prepared for
-  review.
+- M6.4 Semantic Token Architecture — Approved.
+- M6.5 Presentation State Model — Architecture Definition prepared for review.
 
 ## Expected Output
 
@@ -45,9 +45,10 @@ or:
 Approved with Required Corrections
 ```
 
-The disposition must establish whether token purpose, ownership, lifecycle,
-taxonomy, Rendering Node consumption, deterministic resolution, adapter
-boundary, invariants, and conformance criteria are complete.
+The disposition must establish whether state purpose, ownership, lifecycle,
+taxonomy, Rendering Node applicability, permitted and invalid presentation state
+transitions, cross-dimension consistency, Platform Runtime boundary, invariants,
+and conformance criteria are complete.
 
 ## Owner
 
@@ -67,15 +68,16 @@ Ready for Architecture Review
 ## Definition of Done
 
 - The document is reviewed against the M6 Charter, Canonical Design Object Model,
-  Canonical Design Semantics, and Canonical Rendering Model.
-- STC-01–STC-06 taxonomy, token descriptor, lifecycle, relationships,
-  combination, conflict, fallback, and supersession rules are complete.
-- Every RN-01–RN-11 kind has deterministic token consumption obligations.
-- Semantic Token Architecture and Platform Theme / Design System Adapter
-  ownership remain mutually exclusive.
-- Tokens create no domain truth, semantic meaning, information residency,
-  navigation, interaction, authority, lifecycle, Operational Memory, Current
-  Situation, Context Envelope, or concrete platform value.
+  Canonical Design Semantics, Canonical Rendering Model, and Semantic Token
+  Architecture.
+- PSD-01–PSD-09 taxonomy, state descriptor, lifecycle, applicability,
+  presentation state transition, invalidity, and consistency rules are complete.
+- Every RN-01–RN-11 kind has deterministic state-dimension applicability.
+- Presentation State Model and Platform Runtime ownership remain mutually
+  exclusive.
+- State changes modify no Design Object, Semantic Role, Rendering Node, Semantic
+  Token, canonical meaning, information residency, Navigation, authority,
+  lifecycle, Operational Memory, Current Situation, or Context Envelope.
 - The Architecture Review verdict and evidence are recorded in the repository.
 - All required corrections are absent or resolved.
 - `ROADMAP.md` is advanced to the approved next stage.
