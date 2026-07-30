@@ -640,7 +640,7 @@ understanding remain distinct.
 | **Canonical Operational Navigation** | Layers, navigation transitions, Rail, projected navigation state, recovery. | Navigation adopts and moves among spaces; IA defines their information responsibility but no routes. |
 | **Operational Navigation Governance** | Priority, interruption, authority, provenance, history, degradation, recovery. | Global/Recovery spaces consume governance classifications and cannot create or obscure them. |
 | **Canonical Visual Semantics (Canonical)** | Semantic inventory, dimensions, visual grammar, priority, persistence, ambiguity. | Primary/secondary/reference/inspection roles preserve semantic type, state, currentness, and ownership across representations. |
-| **Canonical Operational Interaction Language (Candidate)** | Professional intents, authority, consequence, persistence, feedback, recovery. | Interactions act on owning objects through space roles; transient interactions cannot create residency or truth. Candidate status grants no canonical authority. |
+| **Canonical Operational Interaction Language (Canonical)** | Professional intents, authority, consequence, persistence, feedback, recovery. | Interactions act on owning objects through space roles; transient interactions cannot create residency or truth. |
 | **Workbench Canonical Domain Model / Workbench Laws** | Matter, Current Situation, Artifact, Relationship, Hypothesis, Contradiction, Collection, Working Set, Memory, Proposal, Inspection, Context Envelope, Focus, Event, authority. | Residency rules map every entity to one primary space and preserve canonical containment, relationship, state, and authority boundaries. |
 
 Information Architecture uses these models and changes none of them.

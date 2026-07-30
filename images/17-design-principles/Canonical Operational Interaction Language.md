@@ -5,7 +5,7 @@
 ```text
 Architecture & Interaction Language
 Milestone M5.5
-Canonical Review Candidate
+Canonical
 ```
 
 ## Purpose
@@ -305,6 +305,120 @@ presentation transition until
 the owning model validates and records it. Visualization may expose both; it may
 not collapse attempted, pending, accepted, failed, and completed meanings.
 
+## 5.1 Canonical interaction processing lifecycle
+
+The following is a normative processing contract, not a domain lifecycle, Matter
+lifecycle, hidden state machine, or new professional model:
+
+```text
+Attempt
+   ↓
+Validation
+   ├─ Cancellation ──> End (no canonical consequence)
+   └─ validation failure ──> End or Retry
+                              ↓
+                         Revalidation
+                              ↓
+Commit
+   ↓
+Canonical Event
+   ↓
+Recovery, when required
+   ↓
+Correction / Reversal, when authorized
+```
+
+`Retry` never resumes after `Commit`; it creates a new Attempt and returns to
+Validation. `Cancellation` ends only an uncommitted Attempt. After a Canonical
+Event exists, the original consequence cannot be cancelled or rolled back.
+Correction or reversal is a separate authorized interaction under the owning
+model and adds a later canonical event.
+
+| Stage | Permitted operations | Prohibited operations | Authority requirement | Operational Memory implication |
+|---|---|---|---|---|
+| **Attempt** | Capture explicit intent, subject, context, requested consequence, and operation identity. | Infer authority, mutate canonical state, report success, or append a domain-consequence event. | Actor identity and permission to request the interaction; consequential authority is not yet assumed. | No canonical consequence. An attempted act is recorded only under the failure rule in §6.2. |
+| **Validation** | Validate subject identity, Matter scope, authority, prerequisites, freshness, source integrity, and concurrency. | Reserve permanent authority, bypass an owning model, or treat validation as commitment. | Current authority required by the requested owning-model command. | No domain-consequence event. Validation evidence may be retained only when independently consequential or required by audit. |
+| **Cancellation** | End the uncommitted Attempt and release transient work. | Delete prior history, withdraw a separately recorded proposal implicitly, abandon context implicitly, or report reversal. | The requesting actor, or an authorized coordinator where policy permits cancellation before commitment. | No Canonical Event for the requested consequence. A separately consequential cancellation record may describe the ended Attempt but cannot impersonate the requested consequence. |
+| **Retry / Revalidation** | Create a new Attempt linked to the prior failed or indeterminate Attempt; repeat every validation. | Re-execute a prior Commit, reuse stale authority, skip concurrency checks, or append a duplicate consequence. | Authority is re-established at retry time; prior validation grants nothing. | Idempotency uses the stable operation/consequence identity to prevent duplicate Canonical Events. Retry may reference prior attempts without rewriting them. |
+| **Commit** | Invoke exactly one validated owning-model command at its defined atomic boundary. | Cancel, roll back committed canonical meaning, broaden consequence, or write Operational Memory outside its Repository contract. | Current explicit authority at the commit boundary. | A successful canonical consequence must produce or link exactly one attributable canonical event under the owning contract. |
+| **Canonical Event** | Preserve identity, actor, authority, time, basis, before/after references, and lineage. | Edit, delete, reorder, reuse identity for another consequence, or reinterpret delivery as occurrence order. | Supplied by the validated committed act and preserved as provenance. | Append-only, Matter-local canonical history; deterministic replay input. |
+| **Recovery** | Determine whether no commit, one complete commit, or an indeterminate outcome exists; resume orchestration or rebuild projections under Operational Memory contracts. | Guess success, retry invisibly, manufacture current truth, append during replay, or replace history with a projection. | Recovery may be orchestrated by the system; any new professional consequence requires current owning authority. | Replay and projection rebuilding are deterministic and idempotent, create no Memory Events, and preserve the canonical sequence. |
+| **Correction / Reversal** | Request a separate authorized owning-model act that qualifies or counteracts an earlier consequence. | Rewrite, erase, reorder, or roll back the original Canonical Event. | Current authority for the corrective or reversing consequence, independently validated. | A new Canonical Event extends history and links to the original; replay retains both. |
+
+## 5.2 Cancellation contract
+
+Cancellation has one narrow meaning in the processing lifecycle: terminate an
+Attempt before canonical commitment.
+
+- **Uncommitted Attempt cancellation** ends transient execution and creates no
+  Canonical Event for the requested consequence.
+- **Proposal withdrawal** is a separate attributable disposition of an existing
+  proposal and preserves that proposal and its history.
+- **Context abandonment** uses **OI-56 Abandon Context** and changes only the
+  preserved professional intent defined by that interaction.
+- **Commitment cancellation** is an owning-model disposition of an already
+  recorded commitment and must preserve the commitment plus the later
+  disposition.
+- **Post-commit reversal** is never cancellation. It is a new authorized
+  consequence linked to the committed event.
+
+Cancellation cannot be inferred from navigation, disappearance, timeout,
+connection loss, inactivity, closing a presentation, or abandoning an input
+mechanic.
+
+## 5.3 Retry contract
+
+A Retry is a new Attempt linked to a prior failed, cancelled, or indeterminate
+Attempt. Before any Commit it must repeat:
+
+1. subject and operation identity validation;
+2. actor and authority validation;
+3. canonical prerequisite and freshness validation;
+4. source integrity and availability validation;
+5. concurrency and current-version validation.
+
+The system must first reconcile an indeterminate prior Attempt. If its Canonical
+Event already exists, Retry returns that committed result and creates no second
+consequence. If no event exists, the new Attempt may proceed. The same stable
+operation/consequence identity makes repeated delivery idempotent; delivery
+count, timing, or adapter behavior cannot create additional canonical meaning.
+
+## 5.4 Rollback boundary
+
+Rollback is permitted only for transient technical work before the owning
+model's Commit boundary. It may discard provisional calculations, staged writes,
+or an uncommitted projection, but it creates no claim that a canonical
+consequence was reversed.
+
+After a Canonical Event exists:
+
+- rollback is prohibited;
+- deletion, mutation, reordering, or replacement of the original event is
+  prohibited;
+- projection replacement cannot replace canonical history;
+- correction or reversal must be separately authorized, validated, and appended
+  as a new linked Canonical Event.
+
+## 5.5 Operational Memory conformance
+
+The interaction processing lifecycle consumes, and does not amend, the
+Operational Memory contracts:
+
+1. canonical history remains append-only and Matter-locally ordered;
+2. correction and reversal extend history;
+3. retry idempotency prevents duplicate canonical consequences;
+4. deterministic replay follows canonical sequence rather than attempt,
+   delivery, or adapter order;
+5. replay completeness retains original and later corrective/reversing events;
+6. replay, recovery orchestration, and projection replacement create no Memory
+   Events;
+7. recovery distinguishes canonical history, projection, Current Situation, and
+   presentation;
+8. every new consequence revalidates authority through its owning model.
+
+No interaction adapter may write, repair, compact, or replace Operational Memory
+directly.
+
 # 6. Interaction Persistence
 
 ## 6.1 Persistence classes
@@ -517,9 +631,11 @@ System feedback must distinguish:
 intent expressed
 request received
 validation pending
+attempt cancelled before commitment
 authority missing
 source unavailable
 conflict detected
+retry awaiting reconciliation
 command accepted
 domain event recorded
 operation indeterminate
@@ -529,6 +645,10 @@ recovery required
 
 These conditions are not interchangeable and cannot share an ambiguous generic
 “done” response.
+
+Feedback for cancellation must not imply reversal. Feedback for Retry must not
+imply that a new consequence was created. Feedback for correction or reversal
+must identify the new event and retain a traceable link to the original event.
 
 # 9. Cross-Canonical Consistency
 
@@ -816,5 +936,5 @@ after final canonical review of this M5.5 document.
 ```
 
 M6 may define concrete visual and interaction systems only by mapping them to
-Canonical Visual Semantics (Canonical) and OI candidate contracts. It may not reinterpret professional
+Canonical Visual Semantics (Canonical) and Canonical OI contracts. It may not reinterpret professional
 intent, authority, consequence, history, or recovery.
