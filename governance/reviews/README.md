@@ -47,3 +47,6 @@ It cannot silently amend its reviewed source or substitute for evidence.
 - [M7.6 — Governance Retrospective Canonical Review](M7.6%20-%20Governance%20Retrospective%20Canonical%20Review.md)
   — **Completed — Canonical**. Records the resumed independent canonical checks
   and authorizes a separate canonicalization transition without opening M7.7.
+- [M7.7 — Governance Review](M7.7%20-%20Governance%20Review.md)
+  — **Ready for Architecture Review**. Evaluates the canonical M7.1–M7.6 corpus
+  as an integrated governance system without amendment or transition authority.

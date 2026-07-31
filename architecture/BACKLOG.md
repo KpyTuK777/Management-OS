@@ -17,7 +17,7 @@ M7 — Governance Layer — Active
 ## Current Task
 
 ```text
-Governance Review Definition — M7.7 Governance Review
+Architecture Review — M7.7 Governance Review
 ```
 
 ## Dependencies
@@ -40,14 +40,14 @@ Governance Review Definition — M7.7 Governance Review
 
 ## Expected Output
 
-One separately governed M7.7 Governance Review, prepared in
-`governance/reviews/`, that evaluates the completed M7 Governance Layer against
-its canonical structure and attributable evidence.
+Independent Architecture Review of the completed
+[M7.7 Governance Review](../governance/reviews/M7.7%20-%20Governance%20Review.md)
+against its order, canonical M7.1–M7.6 dependencies, evidence boundary, and
+declared conformance conditions.
 
-This opening task authorizes review definition and preparation only. It does
-not supply findings, conclusions, corrections, effectiveness judgments, a
-review disposition, M7 closure, a successor stage, or substantive governance
-change.
+This task authorizes Architecture Review only. It does not approve the review
+candidate, amend canonical governance, close M7, open a successor stage, adopt
+advisory recommendations, or perform a repository transition.
 
 ## Owner
 
@@ -62,19 +62,19 @@ disposition.
 ## Status
 
 ```text
-Ready for Governance Review Definition
+Ready for Architecture Review
 ```
 
-M7.7 is the sole active roadmap stage. No substantive Governance Review content
-or disposition exists at this opening transition.
+The M7.7 Governance Review candidate exists and is indexed. Its submitted
+conclusion is evaluative only and awaits independent Architecture Review.
 
 ## Definition of Done
 
-- One independently prepared M7.7 Governance Review is recorded in
-  `governance/reviews/` under separate authority.
-- The review identifies its scope, evidence basis, independence, completion
-  criteria, and constitutional boundaries.
-- Evidence, findings, recommendations, and disposition remain distinguishable.
-- Canonical M7.1–M7.5 content is not silently rewritten, and M7.6 advisory
-  recommendations are not automatically adopted.
-- Review preparation does not close M7 or open a successor stage.
+- The Architecture Review identifies the exact reviewed revision and review
+  authority.
+- Independence from candidate preparation is explicit.
+- Completeness, coherence, operational consistency, baseline suitability,
+  evidence sufficiency, and authority boundaries receive explicit findings.
+- Any correction is finite and returns to the Architecture Review gate.
+- A positive disposition authorizes only the separately defined final
+  transition; it does not itself close M7 or amend governance.
