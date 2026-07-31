@@ -17,3 +17,7 @@ revisions. It cannot create normative authority, priority, or a verdict.
 - [M7.2 — Constitution Correction Evidence](M7.2%20-%20Constitution%20Correction%20Evidence.md)
   — **Accepted review evidence**. Maps the five approved refinement findings to
   the exact reviewed definition.
+- [M7.3 — Organizational Model Definition Evidence](M7.3%20-%20Organizational%20Model%20Definition%20Evidence.md)
+  — **Prepared for Architecture Review**. Maps every ordered organizational
+  concern and exclusion to the review-ready candidate without recording a
+  verdict.

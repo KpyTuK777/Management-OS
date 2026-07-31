@@ -17,5 +17,10 @@ Development Protocol substance and grants no approval.
   Closed**. Establishes the authoritative constitutional foundation for
   enduring governance authority, principles, precedence, separation,
   invariants, interpretation, amendment constraints, and scope.
+- [M7.3 — Organizational Model](M7.3%20-%20Organizational%20Model.md) — **Ready
+  for Architecture Review**. Candidate title-independent allocation of
+  constitutional functions, responsibility domains, authority, delegation,
+  accountability, decision boundaries, and power interaction. No approval is
+  recorded.
 
-M7.3–M7.5 have not been defined.
+M7.4–M7.5 have not been defined.

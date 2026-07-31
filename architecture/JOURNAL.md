@@ -366,3 +366,27 @@ evidence conflict, the cited canonical document and Git history govern.
 - **Boundary:** no substantive Organizational Model, Development Lifecycle,
   Autonomous Development Protocol, retrospective, or governance-review content
   is introduced by this transition.
+
+### 2026-07-31 — M7.3 Organizational Model defined
+
+- **Event:** the implementation-independent Organizational Model candidate was
+  defined under the repository-native M7.3 Organizational Model Order.
+- **Document state:** Ready for Architecture Review.
+- **Defined scope:** title-independent constitutional governance functions;
+  body-conformance conditions; responsibility domains; authority allocation;
+  delegation boundaries; accountability relationships; decision authority
+  classes; and logical interaction of constitutional powers.
+- **Constitutional alignment:** accountable human authority, separation of
+  direction/creation/judgment/transition, non-self-approval, unique semantic
+  ownership, bounded delegation, record non-authority, and implementation
+  independence are preserved.
+- **Excluded:** operational workflow, review procedure, Development Lifecycle,
+  Autonomous Development Protocol, repository mechanics, implementation
+  methodology, and M7.4–M7.7 substance.
+- **Evidence:** `governance/normative/M7.3 - Organizational Model.md`,
+  `governance/orders/M7.3 - Organizational Model Order.md`, and
+  `governance/evidence/M7.3 - Organizational Model Definition Evidence.md` in
+  the definition commit containing this entry.
+- **Disposition:** no approval, dependency-use authority, or canonical status is
+  recorded. Independent Architecture Review is the next required action.
+- **Stage state:** M7 remains Active; M7.3 remains the only active stage.

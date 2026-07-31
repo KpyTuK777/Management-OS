@@ -52,8 +52,11 @@ canonicalize the future definition.
 ## Status
 
 ```text
-Ready for Architecture Definition
+Ready for Architecture Review
 ```
+
+The Organizational Model candidate and definition evidence exist. Independent
+Architecture Review is the next required action; no approval is recorded.
 
 ## Definition of Done
 
