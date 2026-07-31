@@ -28,5 +28,5 @@ serve as completion evidence, or approve their outputs.
   — **Completed / Scope fulfilled**. The bounded retrospective order is complete
   and grants no continuing or later-stage authority.
 - [M7.7 — Governance Review Order](M7.7%20-%20Governance%20Review%20Order.md)
-  — **Effective / Scope bounded**. Opens M7.7 as the single active stage without
-  defining review findings, a final disposition, or successor scope.
+  — **Completed / Scope fulfilled**. The bounded Governance Review order is
+  complete and grants no continuing, M8, or successor authority.

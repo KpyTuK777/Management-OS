@@ -802,3 +802,27 @@ evidence conflict, the cited canonical document and Git history govern.
   successor work.
 - **Stage state:** M7 remains Active; M7.7 remains the sole active stage with
   canonicalization pending.
+
+### 2026-07-31 — M7.7 Governance Review canonicalized and M7 closed
+
+- **Event:** a separate authorized authority transition canonicalized the exact
+  reviewed M7.7 Governance Review and reconciled the completed Governance
+  Architecture baseline.
+- **Reviewed identity:** commit
+  `32c46a8fda080a23b39a9410fd8165558177db3d`; Governance Review blob
+  `7d7c18f8131d1fbbc1ffd07816f202fde5a83e9d`.
+- **Canonical Review authority:** commit
+  `17f1b96e763119e1ce80d3865ef0b9142859e06f`; record
+  `governance/reviews/M7.7 - Governance Review Canonical Review.md`.
+- **Preserved review evidence:** the M7.7 Architecture Review and Canonical
+  Review records remain unchanged, and all earlier M7 review, correction, and
+  canonicalization evidence remains discoverable.
+- **Disposition:** M7.7 Governance Review — Canonical / Closed; Milestone M7 —
+  Completed / Closed.
+- **Repository reconciliation:** governance and review indexes, architecture
+  indexes, roadmap, backlog, order status, review status, and journal report the
+  completed baseline consistently.
+- **Authority boundary:** this transition adds no governance content, changes no
+  canonical governance meaning, adopts no M7.6 recommendation, creates no M8 or
+  successor milestone or stage, and authorizes no successor work.
+- **Final state:** zero active M7 stages and zero active M7 backlog tasks.

@@ -12,7 +12,7 @@ history but does not replace this roadmap.
 ## Current phase
 
 ```text
-Phase IV — M7 Governance Layer
+Phase IV — M7 Governance Layer — Completed
 ```
 
 ## Completed milestones
@@ -21,36 +21,35 @@ Phase IV — M7 Governance Layer
 - Canonical Management Model integration and final confirmation.
 - M6 — Canonical Operational Design System — Closed by the verdict
   `Canonical Operational Design System Complete`.
+- M7 — Governance Layer — Completed / Closed by canonicalization of the M7.7
+  Governance Review conclusion `Governance Architecture Complete`.
 
 ## Active milestone
 
 ```text
-M7 — Governance Layer — Active
+None
 ```
 
-M7 and its first bounded stage were opened by the repository-native
-[M7.1 Governance Structure Order](../governance/orders/M7.1%20-%20Governance%20Structure%20Order.md).
+No milestone is active. M7 is Completed / Closed and no successor milestone is
+opened.
 
 ## Active stage
 
 ```text
-M7.7 — Governance Review — Canonical Review complete — Canonicalization pending
+None
 ```
 
-M7.1 Governance Structure, M7.2 Constitution, M7.3 Organizational Model, M7.4
-Development Lifecycle, and M7.5 Autonomous Development Protocol are Closed and
-Canonical. M7.6 is Closed and Canonical as an institutional historical record.
-M7.7 is now the single active stage; its current task and completion criteria
-are defined in [BACKLOG.md](BACKLOG.md).
+All M7.1–M7.7 stages are Closed. M7.1–M7.5 and M7.7 are Canonical; M7.6 is
+Canonical as an institutional historical record. [BACKLOG.md](BACKLOG.md)
+contains no active task.
 
 ## Successor stage
 
 ```text
-None defined — M7 Governance Review pending
+None defined
 ```
 
-No successor stage is opened or inferred before the M7.7 Governance Review is
-completed and an authorized repository transition records the result.
+No successor milestone or stage is opened or inferred by M7 completion.
 
 ## M7 stage sequence
 
@@ -62,9 +61,9 @@ completed and an authorized repository transition records the result.
 | 4 | M7.4 — Development Lifecycle | Closed — Canonical |
 | 5 | M7.5 — Autonomous Development Protocol | Closed — Canonical |
 | 6 | M7.6 — Retrospective | Closed — Canonical Historical Record |
-| 7 | M7.7 — Governance Review | Active — Canonical Review complete — Canonicalization pending |
+| 7 | M7.7 — Governance Review | Closed — Canonical |
 
-M7 remains Active. M7.7 is the only active stage. No M7 completion or successor
+M7 is Completed / Closed. Zero M7 stages are active. No successor milestone or
 stage is recorded.
 
 ## Roadmap maintenance
@@ -72,7 +71,8 @@ stage is recorded.
 - The Chief Architect owns stage order and transition approval.
 - The Product Owner authorizes milestone direction.
 - Closed milestones retain their recorded outcome and provenance.
-- Only one stage supplies the active task in `BACKLOG.md`.
+- At most one stage supplies an active task in `BACKLOG.md`; a completed
+  milestone with no authorized successor supplies none.
 - A positive independent Architecture Review disposition is required before
   Canonical Review where canonical status is required. Dependent work begins
   only after the reviewed artifact has acquired the authority required by its

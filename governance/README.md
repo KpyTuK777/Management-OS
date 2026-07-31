@@ -5,7 +5,7 @@
 ```text
 Canonical
 M7.1 — Closed
-Milestone M7 — Active
+Milestone M7 — Completed / Closed
 ```
 
 ## Authority
@@ -106,9 +106,10 @@ artifact is indexed here and in its artifact-class index.
 | M7.6 | Governance Retrospective | Retrospective | Canonical Historical Record / M7.6 Closed | [Retrospective](retrospectives/M7.6%20-%20Governance%20Retrospective.md) |
 | M7.6 | Governance Retrospective Architecture Review | Review | Completed — Approved | [Review](reviews/M7.6%20-%20Governance%20Retrospective%20Architecture%20Review.md) |
 | M7.6 | Governance Retrospective Canonical Review | Review | Completed — Canonical | [Review](reviews/M7.6%20-%20Governance%20Retrospective%20Canonical%20Review.md) |
-| M7.7 | Governance Review Order | Order | Effective / Scope bounded | [Order](orders/M7.7%20-%20Governance%20Review%20Order.md) |
-| M7.7 | Governance Review | Review | Architecture Approved / Approved for Governance Review / Ready for Canonical Review | [Review](reviews/M7.7%20-%20Governance%20Review.md) |
+| M7.7 | Governance Review Order | Order | Completed / Scope fulfilled | [Order](orders/M7.7%20-%20Governance%20Review%20Order.md) |
+| M7.7 | Governance Review | Review | Canonical / Closed | [Review](reviews/M7.7%20-%20Governance%20Review.md) |
 | M7.7 | Governance Review Architecture Review | Review | Completed — Approved | [Review](reviews/M7.7%20-%20Governance%20Review%20Architecture%20Review.md) |
+| M7.7 | Governance Review Canonical Review | Review | Completed — Canonical | [Review](reviews/M7.7%20-%20Governance%20Review%20Canonical%20Review.md) |
 
 # 3. Directory Ownership
 
@@ -296,10 +297,10 @@ definition evidence, and completed Architecture and Canonical Reviews. M7.5 is
 Closed with one Canonical Autonomous Development Protocol, its completed order,
 accepted definition evidence, and completed Architecture and Canonical Reviews.
 M7.6 is Closed with one Canonical Historical Record, its completed order, and
-completed Architecture and Canonical Reviews. M7.7 is Active with one bounded
-opening order, one Architecture Approved Governance Review at `Ready for
-Canonical Review`, and its completed independent Architecture Review. Child
-indexes list each artifact only in its applicable class.
+completed Architecture and Canonical Reviews. M7.7 is Closed with one Canonical
+Governance Review, its completed order, and its preserved Architecture and
+Canonical Reviews. Milestone M7 is Completed / Closed. Child indexes list each
+artifact only in its applicable class; no successor milestone is opened.
 
 # 9. Dependency Direction
 

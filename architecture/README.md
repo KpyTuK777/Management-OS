@@ -15,7 +15,8 @@ is recorded in the repository.
 - [CHIEF_ARCHITECT.md](CHIEF_ARCHITECT.md) defines roles, handoffs, reviews, and
   stage-transition authority.
 - [ROADMAP.md](ROADMAP.md) is the single authoritative architectural roadmap.
-- [BACKLOG.md](BACKLOG.md) contains exactly one active architectural task.
+- [BACKLOG.md](BACKLOG.md) reports that no architectural task is active after
+  completion of M7.
 - [JOURNAL.md](JOURNAL.md) is the evidence-backed chronological record of
   architecture definitions, reviews, dispositions, and transitions.
 - [M7 Governance Layer](../governance/README.md) is the canonical M7 structure
@@ -24,9 +25,8 @@ is recorded in the repository.
   Organizational Model, M7.4 Development Lifecycle, and M7.5 Autonomous
   Development Protocol are Canonical; M7.6 Retrospective is Closed and
   Canonical as an institutional historical record; M7.7 Governance Review is
-  the sole active stage with Canonical Review complete and canonicalization
-  pending; its evaluative conclusion introduces no amendment or transition
-  authority.
+  Canonical and Closed; and Milestone M7 is Completed / Closed. No successor
+  milestone or task is opened.
 - [Canonical Management Model](../images/17-design-principles/README.md) contains
   the canonical professional and experience models consumed by M6.
 - [Architecture Decision Records](../docs/adr/README.md) preserve durable

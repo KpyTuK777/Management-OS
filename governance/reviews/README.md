@@ -48,10 +48,8 @@ It cannot silently amend its reviewed source or substitute for evidence.
   — **Completed — Canonical**. Records the resumed independent canonical checks
   and authorizes a separate canonicalization transition without opening M7.7.
 - [M7.7 — Governance Review](M7.7%20-%20Governance%20Review.md)
-  — **Architecture Approved / Approved for Governance Review / Canonical Review
-  complete — Canonicalization pending**. Evaluates the canonical M7.1–M7.6
-  corpus as an integrated governance system without amendment or transition
-  authority.
+  — **Canonical / Closed**. Evaluates the canonical M7.1–M7.6 corpus as an
+  integrated governance system without amendment or transition authority.
 - [M7.7 — Governance Review Architecture Review](M7.7%20-%20Governance%20Review%20Architecture%20Review.md)
   — **Completed — Approved**. Records the Architect Council's independent
   approval of the exact Governance Review revision and authorization for
