@@ -34,7 +34,7 @@ M7 and its first bounded stage were opened by the repository-native
 ## Active stage
 
 ```text
-M7.6 — Retrospective — Ready for Architecture Review
+M7.6 — Retrospective — Ready for Canonical Review
 ```
 
 M7.1 Governance Structure, M7.2 Constitution, M7.3 Organizational Model, M7.4
@@ -60,7 +60,7 @@ authority lifecycle.
 | 3 | M7.3 — Organizational Model | Closed — Canonical |
 | 4 | M7.4 — Development Lifecycle | Closed — Canonical |
 | 5 | M7.5 — Autonomous Development Protocol | Closed — Canonical |
-| 6 | M7.6 — Retrospective | Active — Ready for Architecture Review |
+| 6 | M7.6 — Retrospective | Active — Ready for Canonical Review |
 | 7 | M7.7 — Governance Review | Planned |
 
 M7 remains Active. M7.6 is the only active stage. M7.7 remains Planned and

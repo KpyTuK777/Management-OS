@@ -103,7 +103,8 @@ artifact is indexed here and in its artifact-class index.
 | M7.5 | Autonomous Development Protocol Architecture Review | Review | Completed — Approved | [Review](reviews/M7.5%20-%20Autonomous%20Development%20Protocol%20Architecture%20Review.md) |
 | M7.5 | Autonomous Development Protocol Canonical Review | Review | Completed — Canonical | [Review](reviews/M7.5%20-%20Autonomous%20Development%20Protocol%20Canonical%20Review.md) |
 | M7.6 | Retrospective Order | Order | Effective / Scope bounded | [Order](orders/M7.6%20-%20Retrospective%20Order.md) |
-| M7.6 | Governance Retrospective | Retrospective | Ready for Architecture Review | [Retrospective](retrospectives/M7.6%20-%20Governance%20Retrospective.md) |
+| M7.6 | Governance Retrospective | Retrospective | Ready for Canonical Review / Approved for Historical Reference | [Retrospective](retrospectives/M7.6%20-%20Governance%20Retrospective.md) |
+| M7.6 | Governance Retrospective Architecture Review | Review | Completed — Approved | [Review](reviews/M7.6%20-%20Governance%20Retrospective%20Architecture%20Review.md) |
 
 # 3. Directory Ownership
 
@@ -290,9 +291,10 @@ Closed with one Canonical Development Lifecycle, its completed order, accepted
 definition evidence, and completed Architecture and Canonical Reviews. M7.5 is
 Closed with one Canonical Autonomous Development Protocol, its completed order,
 accepted definition evidence, and completed Architecture and Canonical Reviews.
-M7.6 is Active with one review-ready Governance Retrospective and its bounded
-order. Child indexes list each artifact only in its applicable class; M7.7
-remains without substantive artifacts.
+M7.6 is Active with one Architecture Approved Governance Retrospective ready for
+Canonical Review, its bounded order, and completed Architecture Review. Child
+indexes list each artifact only in its applicable class; M7.7 remains without
+substantive artifacts.
 
 # 9. Dependency Direction
 

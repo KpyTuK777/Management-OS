@@ -659,3 +659,25 @@ evidence conflict, the cited canonical document and Git history govern.
   the preparation change containing this entry.
 - **Stage state:** M7 remains Active; M7.6 remains the only active stage at
   `Ready for Architecture Review`.
+
+### 2026-07-31 — M7.6 Governance Retrospective Architecture Review recorded
+
+- **Event:** the Architect Council's completed independent Architecture Review
+  of the M7.6 Governance Retrospective was recorded and repository status was
+  reconciled.
+- **Reviewed revision:** commit
+  `e4e72d7bf262658adccc35cb6e256a555b50dd33` —
+  `docs(governance): prepare M7.6 governance retrospective`.
+- **Retrospective blob:** `74d5a8263fa07f7eae56b7f7ef7d43917a2ad485`.
+- **Review authority:** Architect Council, independent from retrospective
+  creation.
+- **Disposition:** Architecture Approved; Approved for Historical Reference;
+  Ready for Canonical Review.
+- **Evidence:** `governance/reviews/M7.6 - Governance Retrospective Architecture
+  Review.md` and the exact evidence map embedded in the reviewed retrospective.
+- **Advisory boundary:** historical approval does not adopt a recommendation or
+  convert retrospective interpretation into canonical governance meaning.
+- **Authority boundary:** no canonicalization, M7.6 closure, normative amendment,
+  M7.7 opening, or M7.7 work is authorized or performed.
+- **Stage state:** M7 remains Active; M7.6 remains the only active stage at
+  `Ready for Canonical Review`.

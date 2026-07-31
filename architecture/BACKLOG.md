@@ -17,7 +17,7 @@ M7 — Governance Layer — Active
 ## Current Task
 
 ```text
-Retrospective Definition — M7.6 Governance Retrospective
+Canonical Review — M7.6 Governance Retrospective
 ```
 
 ## Dependencies
@@ -36,46 +36,43 @@ Retrospective Definition — M7.6 Governance Retrospective
 
 ## Expected Output
 
-One attributable M7.6 governance retrospective placed in
-`governance/retrospectives/` and prepared under the repository-native M7.6 order
-from the completed records of M7.1–M7.5.
+One independent Canonical Review disposition for the exact Architecture
+Approved M7.6 Governance Retrospective revision, evaluated against the canonical
+Governance Structure, fixed M7.1–M7.5 inputs, and its completed Architecture
+Review.
 
-This opening backlog entry authorizes retrospective preparation only. It states
-no retrospective finding, conclusion, effectiveness judgment, lesson,
-recommendation, improvement proposal, normative amendment, implementation
-mechanism, or M7.7 authority.
+This task authorizes Canonical Review only. It does not authorize modification
+of the reviewed retrospective, adoption of recommendations, canonicalization,
+stage closure, normative amendment, implementation, or M7.7 work.
 
 ## Owner
 
 ```text
-Lead Engineer
+Chief Architect
 ```
 
-The Chief Architect retains independent review and transition authority. The
-Lead Engineer may prepare attributable retrospective analysis but cannot use it
-to rewrite history, amend canonical governance, or approve its own conclusions.
+The Chief Architect owns independent Canonical Review. The completed Architect
+Council Architecture Review authorizes historical reference and entry to this
+gate; neither review performs canonicalization or opens M7.7.
 
 ## Status
 
 ```text
-Ready for Architecture Review
+Ready for Canonical Review
 ```
 
-The Governance Retrospective exists and preserves attributable M7.1–M7.5
-observations, defect classifications, lessons, recommendations, and authority
-boundaries. Independent Architecture Review is the next required action; no
-approval is recorded.
+The exact Governance Retrospective revision is Architecture Approved and
+approved for historical reference. Its Architecture Review is recorded and
+indexed. Independent Canonical Review is the next required action.
 
 ## Definition of Done
 
-- One separately authorized M7.6 retrospective exists in
-  `governance/retrospectives/`.
-- It cites the canonical Governance Structure and the attributable M7.1–M7.5
-  orders, evidence, reviews, definitions, and transitions it evaluates.
-- Observations, findings, conclusions, lessons, recommendations, and proposals
-  remain distinguishable and evidence-backed.
-- Historical evidence and review dispositions are preserved without rewriting.
-- Any normative change is proposed for a separately ordered authority lifecycle
-  rather than performed by the retrospective.
-- No implementation mechanism, automatic authority, or M7.7 transition is
-  introduced.
+- The exact reviewed revision and Architecture Review disposition are
+  attributable.
+- Historical accuracy, evidence distinction, classification integrity,
+  advisory scope, canonical-input preservation, and unresolved critical risk
+  are evaluated.
+- The review records either `Canonical` or finite `Requires Corrections`.
+- No recommendation is adopted and no canonicalization, stage closure,
+  normative amendment, implementation mechanism, or M7.7 transition is
+  performed by the review.
