@@ -22,7 +22,8 @@ Architecture Definition / Structure Design — M7.1 Governance Structure
 
 ## Dependencies
 
-- Product Owner M7 Governance Layer Order.
+- Repository-native Product Owner
+  [M7.1 Governance Structure Order](../governance/orders/M7.1%20-%20Governance%20Structure%20Order.md).
 - Closed M6 Canonical Operational Design System and its review evidence.
 - Existing Architecture control-plane ownership and repository history.
 
@@ -66,4 +67,6 @@ Ready for Architecture Review
 - Links and repository statuses are consistent.
 - No Constitution, role contract, lifecycle, protocol, retrospective content,
   implementation code, or self-review is introduced.
-- The result is ready for independent Architecture Review.
+- The reconciled candidate is ready for independent Architecture Review.
+- A positive Architecture Review advances this candidate to required Canonical
+  Review; M7.2 remains blocked until M7.1 is separately canonicalized.

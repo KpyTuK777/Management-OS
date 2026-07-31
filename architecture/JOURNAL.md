@@ -225,6 +225,8 @@ evidence conflict, the cited canonical document and Git history govern.
 - **Authority boundary:** the order authorizes roadmap extension and M7.1
   structure design. It does not itself define or approve future governance
   substance.
+- **Authoritative source:** `governance/orders/M7.1 - Governance Structure
+  Order.md`. This journal entry reports the order and does not replace it.
 
 ### 2026-07-31 — M7.1 Governance Structure defined
 
@@ -245,3 +247,17 @@ evidence conflict, the cited canonical document and Git history govern.
 - **Disposition:** no approval is recorded. Independent M7.1 Architecture Review
   is the next required action.
 - **Milestone state:** M7 remains Active.
+
+### 2026-07-31 — M7.1 Governance Structure corrections prepared
+
+- **Event:** the finite Architecture Review preparation findings were reconciled
+  without beginning M7.2.
+- **Corrections:** candidate/canonical authority lifecycle; repository-native
+  order provenance; ownership semantics; Architecture Review, dependency-use,
+  Canonical Review, and canonicalization sequence; deterministic correction
+  status; and root self-index convention.
+- **Evidence:** `governance/evidence/M7.1 - Governance Structure Correction
+  Evidence.md` and the reconciled M7.1 candidate.
+- **Disposition:** no approval is recorded. The corrected candidate remains
+  `Ready for Architecture Review` and awaits independent Architect Council
+  review.

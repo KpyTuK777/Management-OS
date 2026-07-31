@@ -9,10 +9,16 @@ Milestone M7 — Active
 
 ## Authority
 
-This document is the canonical structure design and index for the Management OS
-Governance Layer. It defines where future M7 governance artifacts belong, which
-artifact class owns each concern, how artifacts are named and indexed, and how
-authority and evidence flow between them.
+This document is the candidate structure design and root index for the
+Management OS Governance Layer. It defines where future M7 governance artifacts
+belong, which artifact class owns each concern, how artifacts are named and
+indexed, and how authority and evidence flow between them. It acquires canonical
+authority only after positive Architecture Review, required Canonical Review,
+and a separate canonicalization transition under the existing Chief Architect
+Operating Model.
+
+The repository-native source opening M7 and authorizing this bounded candidate
+is the [M7.1 Governance Structure Order](orders/M7.1%20-%20Governance%20Structure%20Order.md).
 
 It does not define the future Constitution, Organizational Model, Development
 Lifecycle, Autonomous Development Protocol, or Retrospective findings. Those
@@ -54,23 +60,39 @@ governance/
     └── README.md
 ```
 
-`governance/README.md` is the canonical M7 Governance Layer index and structure
-contract. Each child `README.md` is a narrowly scoped boundary index for its
-artifact class. Placeholder indexes create no future substantive contract.
+`governance/README.md` is the candidate M7 Governance Layer structure contract
+and its root index. Each child `README.md` is a narrowly scoped boundary index
+for its artifact class. Placeholder indexes create no future substantive
+contract.
 
 No additional top-level Governance Layer directory may be introduced without a
 reviewed change to this structure contract.
 
+## 2.1 Current M7.1 Artifact Index
+
+The root identifies itself through its title, status, and Authority section and
+therefore has no circular self-entry. Every other substantive Governance Layer
+artifact is indexed here and in its artifact-class index.
+
+| Milestone | Title | Class | Status | Artifact |
+| --- | --- | --- | --- | --- |
+| M7.1 | Governance Structure Order | Order | Effective / Scope bounded | [Order](orders/M7.1%20-%20Governance%20Structure%20Order.md) |
+| M7.1 | Governance Structure Correction Evidence | Evidence | Prepared for Architecture Review | [Evidence](evidence/M7.1%20-%20Governance%20Structure%20Correction%20Evidence.md) |
+
 # 3. Directory Ownership
 
-| Path | Owner | Owns | Must not own |
-| --- | --- | --- | --- |
-| `governance/` | M7 Governance Structure | Layer structure, artifact classes, dependency direction, indexing and structural conformance. | Substantive constitutional rules, role authority, lifecycle, protocol, review verdicts, or retrospective conclusions. |
-| `governance/normative/` | Future approved normative governance documents | Governance rules and contracts only after their own review and approval. | Orders, execution evidence, self-approval, or historical interpretation. |
-| `governance/orders/` | Authorized ordering authority identified by the future normative model | Bounded instructions to perform one governance task. | Durable governance law, evidence, or review disposition. |
-| `governance/evidence/` | Evidence producer named by the applicable order or normative contract | Immutable or append-preserved observations supporting a review. | Normative authority, task priority, or verdict. |
-| `governance/reviews/` | Independent review authority named by the applicable normative contract | Evidence-backed review scope, findings, corrections, and disposition. | Silent amendment of normative sources or production of its own implementation evidence. |
-| `governance/retrospectives/` | Future retrospective process defined by M7.6 | Historical learning and improvement proposals after the governing events. | Retroactive authority, rewritten evidence, or automatic normative change. |
+The table uses **semantic owner** to mean the sole artifact class responsible for
+a concern. Semantic ownership does not grant permission to author, approve,
+review, or transition an artifact.
+
+| Path | Semantic owner and responsibility | Accountable authorship | Review authority | Maintenance responsibility | Must not own |
+| --- | --- | --- | --- | --- | --- |
+| `governance/` | M7 Governance Structure: layer structure, artifact classes, dependency direction, indexing, and structural conformance. | Lead Engineer under the active backlog task. | Chief Architect through independent Architecture Review and required Canonical Review. | Lead Engineer only through an authorized task; authority-changing maintenance requires review. | Substantive constitutional rules, role authority, lifecycle, protocol, review verdicts, or retrospective conclusions. |
+| `governance/normative/` | Each future approved normative document: governance rules and contracts within its reviewed scope. | Lead Engineer under the single active task unless the current approved model is later changed by approved governance. | Chief Architect under the current approved model; authors cannot self-approve. | Lead Engineer through an authorized task; normative change requires the applicable review lifecycle. | Orders, execution evidence, self-approval, or historical interpretation. |
+| `governance/orders/` | Each authorized order: one bounded instruction under cited authority. | Product Owner for product or milestone direction; Chief Architect for architecture-stage definition under the current model. | Orders do not approve their outputs; architectural validity remains subject to the Chief Architect process. | The issuing authority owns meaning; repository maintenance cannot broaden the order. | Durable governance law, evidence, or review disposition. |
+| `governance/evidence/` | Each evidence record: attributable, immutable or append-preserved observations supporting a named claim or review. | Lead Engineer or other evidence producer named by the applicable order under the current model. | The independent Chief Architect review evaluates evidence; evidence cannot approve itself. | The evidence producer preserves attribution; correction is append-preserved and cannot rewrite observations silently. | Normative authority, task priority, or verdict. |
+| `governance/reviews/` | Each independent review: scope, evidence-backed findings, corrections, and disposition. | Chief Architect as current review authority. | Chief Architect under the current approved model, independent from candidate authorship. | Review authority preserves the disposition; clerical maintenance cannot alter findings or verdict. | Silent amendment of normative sources or production of its own implementation evidence. |
+| `governance/retrospectives/` | Each future retrospective: historical learning and improvement proposals after governing events. | Lead Engineer under a future active task until approved governance changes the current model. | Chief Architect where the active task requires architectural review. | Lead Engineer through an authorized task; later edits cannot rewrite source history. | Retroactive authority, rewritten evidence, or automatic normative change. |
 
 The repository control plane under `architecture/` continues to own the
 architectural roadmap, single active backlog task, architecture history, and
@@ -90,7 +112,8 @@ The structure reserves these stages without defining their substance:
 | M7.7 | Governance Review | `governance/reviews/` |
 
 M7.2–M7.6 documents may be created only when their stage is the single active
-task and approved dependencies exist. M7.7 may review M7 only after every
+task and dependencies have acquired the authority required by that task. M7.2
+cannot begin until M7.1 is canonicalized. M7.7 may review M7 only after every
 required prior stage has an explicit disposition.
 
 # 5. Artifact-Class Separation
@@ -134,8 +157,8 @@ independent ownership, status, and reviewability.
 1. Every substantive M7 artifact begins with its milestone identifier.
 2. A normative definition uses `M7.n - <Canonical Title>.md`.
 3. An order uses `M7.n - <Title> Order.md`.
-4. a review uses `M7.n - <Title> Architecture Review.md`, or the exact reviewed
-   governance review class once M7 defines one.
+4. An Architecture Review uses `M7.n - <Title> Architecture Review.md`; a
+   Canonical Review uses `M7.n - <Title> Canonical Review.md`.
 5. Evidence uses `M7.n - <Subject> Evidence.md`.
 6. A retrospective uses `M7.n - <Subject> Retrospective.md`.
 7. Names describe responsibility, not tools, people, chat threads, or temporary
@@ -145,32 +168,73 @@ independent ownership, status, and reviewability.
    review record.
 10. Placeholder indexes may not use the name of a future substantive artifact.
 
-# 7. Status Rules
+# 7. Authority and Status Lifecycle
 
 Every substantive artifact declares one explicit status appropriate to its
 class.
 
-Permitted definition progression:
+For normative definitions and structure contracts, these terms have distinct
+meanings:
+
+- **Candidate** describes an artifact that has been authored but has not
+  completed its required review lifecycle. Candidate is an authority condition,
+  not a substitute for the explicit statuses below.
+- **Architecture Approved** is a review disposition. It confirms satisfaction
+  of the architectural task but is not itself an artifact status and does not
+  grant canonical authority.
+- **Approved for dependency use** is an artifact status granted only when an
+  independent Architecture Review explicitly permits dependent use and the task
+  does not require canonical authority first.
+- **Canonical** is an artifact status acquired only after a positive Canonical
+  Review and a separate repository canonicalization transition. Canonical status
+  includes dependency use within the artifact's approved scope.
+
+The permitted definition statuses are:
 
 ```text
 Ready for Architecture Definition
     ↓
 Ready for Architecture Review
-    ↓
+    ├── Requires Corrections ──→ Ready for Architecture Review
+    ↓ positive Architecture Review
 Approved for dependency use
+    or
+Ready for Canonical Review
+    ├── Requires Corrections ──→ Ready for Canonical Review
+    ↓ positive Canonical Review plus separate canonicalization
+Canonical
 ```
 
-When review identifies required corrections, the active task and artifact use
-the review-defined correction status without implying approval. Orders,
-evidence, reviews, and retrospectives declare class-appropriate states rather
-than borrowing normative approval.
+`Requires Corrections` is the sole correction status for a definition under the
+current Chief Architect process. The review record must identify whether the
+corrected artifact returns to Architecture Review or Canonical Review. The
+backlog, candidate, and indexes must report that status consistently without
+implying approval.
+
+For M7.1, the required sequence is:
+
+```text
+Ready for Architecture Review
+    ↓ positive Architecture Review
+Ready for Canonical Review
+    ↓ positive Canonical Review
+Separate canonicalization repository change
+    ↓
+Canonical and eligible as the M7.2 dependency
+```
+
+Architecture Review and Canonical Review records for M7 reside in
+`governance/reviews/`. Review evidence resides in `governance/evidence/`. The
+Chief Architect retains both review gates and transition authority under the
+current approved model. Orders, evidence, reviews, and retrospectives declare
+class-appropriate states rather than borrowing normative approval.
 
 Rules:
 
 - status changes require repository evidence;
 - a commit alone does not grant approval;
 - an index reports status but does not create it;
-- no artifact may report a later state than its review evidence;
+- no artifact may report a later state than its review and transition evidence;
 - superseded and historical artifacts remain discoverable;
 - only one active M7 stage may appear in `architecture/BACKLOG.md`;
 - M7 remains Active until M7.7 records its authorized final disposition and the
@@ -178,7 +242,9 @@ Rules:
 
 # 8. Index Rules
 
-1. `governance/README.md` indexes every substantive Governance Layer artifact.
+1. `governance/README.md` is self-identifying through its title, status, and
+   authority block; it does not require a circular self-entry. It indexes every
+   other substantive Governance Layer artifact.
 2. Each child directory index lists only artifacts belonging to its class.
 3. An index entry includes milestone, title, class, status, and relative link.
 4. Draft placeholders are not listed as substantive artifacts.
@@ -188,15 +254,16 @@ Rules:
 8. Missing, broken, ambiguous, or cross-class links are non-conformant.
 9. Index text cannot broaden the linked artifact's authority.
 
-At M7.1, only this structure design is substantive. Child indexes therefore
-contain boundary contracts and no future artifact entries.
+At M7.1, this structure design, its opening order, and correction evidence are
+substantive. Child indexes list those artifacts only in their applicable
+classes; no M7.2–M7.7 substantive artifact exists.
 
 # 9. Dependency Direction
 
 The permitted authority and evidence flow is:
 
 ```text
-Approved architecture and approved normative governance
+Approved architecture and governance with the required reviewed authority
     ↓ constrain
 Active order
     ↓ scopes
@@ -221,7 +288,8 @@ Dependency rules:
    review or correct that definition;
 3. evidence cannot depend on a desired verdict;
 4. a review cannot cite itself as implementation evidence;
-5. indexes depend on artifacts and dispositions, never the reverse;
+5. indexes depend on artifacts, dispositions, and transition evidence, never
+   the reverse;
 6. future M7 stages depend on positive review of their required predecessors;
 7. M7 governance may constrain future work but cannot reinterpret approved M6
    professional or presentation meaning.
@@ -246,14 +314,16 @@ When chat memory conflicts with repository evidence:
 
 # 11. Structural Invariants
 
-1. The Governance Layer has one canonical root.
-2. The root index is the sole owner of M7 directory structure.
+1. The Governance Layer has one designated root; that root becomes canonical
+   only through the defined review and canonicalization lifecycle.
+2. The root index is self-identifying and the sole semantic owner of M7
+   directory structure.
 3. Every artifact belongs to exactly one primary artifact class.
 4. Normative definitions, orders, evidence, reviews, and retrospectives remain
    structurally separate.
 5. Child indexes create no future substantive governance contract.
 6. Every directory has one declared ownership boundary.
-7. Every substantive artifact is indexed.
+7. Every substantive artifact except the self-identifying root index is indexed.
 8. Every index entry resolves to a repository artifact.
 9. Every artifact status is explicit and evidence-consistent.
 10. Exactly one M7 stage may be active.
@@ -283,7 +353,8 @@ M7.1 is complete when:
    stage;
 8. links and status declarations are consistent;
 9. no implementation code or platform decision is introduced;
-10. an independent Architecture Review remains required.
+10. an independent Architecture Review and subsequent Canonical Review remain
+    required before canonicalization.
 
 ## Architecture Verdict
 
@@ -291,5 +362,6 @@ M7.1 is complete when:
 Ready for Architecture Review
 ```
 
-This definition does not approve itself and cannot authorize M7.2 dependency
-use before an independent review records a positive disposition.
+This candidate does not approve or canonicalize itself. M7.2 dependency use
+requires positive Architecture Review, positive Canonical Review, and a separate
+M7.1 canonicalization transition.

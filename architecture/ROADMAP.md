@@ -28,6 +28,9 @@ Phase IV — M7 Governance Layer
 M7 — Governance Layer — Active
 ```
 
+M7 and its first bounded stage were opened by the repository-native
+[M7.1 Governance Structure Order](../governance/orders/M7.1%20-%20Governance%20Structure%20Order.md).
+
 ## Active stage
 
 ```text
@@ -46,7 +49,8 @@ M7.2 — Constitution
 ```
 
 M7.2 may enter the backlog only after M7.1 receives a positive independent
-Architecture Review disposition.
+Architecture Review disposition, completes required Canonical Review, and is
+canonicalized through a separate repository transition.
 
 ## M7 stage sequence
 
@@ -69,7 +73,10 @@ recorded.
 - The Product Owner authorizes milestone direction.
 - Closed milestones retain their recorded outcome and provenance.
 - Only one stage supplies the active task in `BACKLOG.md`.
-- A positive independent review disposition is required before dependent work.
+- A positive independent Architecture Review disposition is required before
+  Canonical Review where canonical status is required. Dependent work begins
+  only after the reviewed artifact has acquired the authority required by its
+  task.
 - No stage may be inferred from chat memory when repository state can establish
   it.
 - M7 closes only through its authorized final review and consistent repository
