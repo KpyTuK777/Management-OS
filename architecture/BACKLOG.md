@@ -17,7 +17,7 @@ M7 — Governance Layer — Active
 ## Current Task
 
 ```text
-Canonical Review — M7.6 Governance Retrospective
+Canonicalization — M7.6 Governance Retrospective
 ```
 
 ## Dependencies
@@ -36,14 +36,14 @@ Canonical Review — M7.6 Governance Retrospective
 
 ## Expected Output
 
-One independent Canonical Review disposition for the exact Architecture
-Approved M7.6 Governance Retrospective revision, evaluated against the canonical
-Governance Structure, fixed M7.1–M7.5 inputs, and its completed Architecture
-Review.
+One separate repository transition that canonicalizes the exact Architecture
+Approved and Canonical Review-complete M7.6 Governance Retrospective as an
+institutional historical record and reconciles all status surfaces without
+opening M7.7.
 
-This task authorizes Canonical Review only. It does not authorize modification
-of the reviewed retrospective, adoption of recommendations, canonicalization,
-stage closure, normative amendment, implementation, or M7.7 work.
+This task authorizes M7.6 canonicalization and repository reconciliation only.
+It does not authorize modification of the reviewed retrospective, adoption of
+recommendations, normative amendment, M7.7 opening or work, or implementation.
 
 ## Owner
 
@@ -51,28 +51,29 @@ stage closure, normative amendment, implementation, or M7.7 work.
 Chief Architect
 ```
 
-The Chief Architect owns independent Canonical Review. The completed Architect
-Council Architecture Review authorizes historical reference and entry to this
-gate; neither review performs canonicalization or opens M7.7.
+The Chief Architect owns the separate canonicalization transition. The
+completed Architecture and Canonical Reviews authorize this bounded transition;
+neither review itself performed canonicalization or opened M7.7.
 
 ## Status
 
 ```text
-Ready for Canonical Review
+Approved for Historical Reference
+Canonical Review complete — Canonicalization pending
 ```
 
-The exact Governance Retrospective revision is Architecture Approved and
-approved for historical reference. Its Architecture Review is recorded and
-indexed. Independent Canonical Review is the next required action.
+The exact Governance Retrospective revision is Architecture Approved, approved
+for historical reference, and has received a `Canonical` review disposition. A
+separate canonicalization and repository reconciliation transition is the next
+required action; M7.7 remains unopened.
 
 ## Definition of Done
 
-- The exact reviewed revision and Architecture Review disposition are
+- The exact reviewed revision, Architecture Review, and Canonical Review are
   attributable.
-- Historical accuracy, evidence distinction, classification integrity,
-  advisory scope, canonical-input preservation, and unresolved critical risk
-  are evaluated.
-- The review records either `Canonical` or finite `Requires Corrections`.
-- No recommendation is adopted and no canonicalization, stage closure,
-  normative amendment, implementation mechanism, or M7.7 transition is
-  performed by the review.
+- The retrospective reports canonical historical status and M7.6 reports Closed
+  only through the authorized transition.
+- Governance indexes, roadmap, backlog, journal, and review references report
+  the resulting state consistently.
+- Recommendations remain advisory and no normative amendment, implementation
+  mechanism, or M7.7 transition is introduced.

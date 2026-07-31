@@ -681,3 +681,27 @@ evidence conflict, the cited canonical document and Git history govern.
   M7.7 opening, or M7.7 work is authorized or performed.
 - **Stage state:** M7 remains Active; M7.6 remains the only active stage at
   `Ready for Canonical Review`.
+
+### 2026-07-31 — M7.6 Governance Retrospective Canonical Review completed
+
+- **Event:** independent Canonical Review resumed after the retrospective
+  revision was fixed and the Architecture Review record was supplied.
+- **Reviewed revision:** commit
+  `e4e72d7bf262658adccc35cb6e256a555b50dd33`; retrospective blob
+  `74d5a8263fa07f7eae56b7f7ef7d43917a2ad485`.
+- **Resolved prerequisites:** the Architecture Review is attributable, the
+  retrospective meaning is unchanged, status is consistent, and the record and
+  review are indexed and discoverable.
+- **Canonical findings:** historical accuracy, advisory integrity, fixed
+  canonical inputs, evidence and interpretation separation, classification,
+  recommendation boundaries, conclusion support, and the M7.7 boundary all
+  pass.
+- **Disposition:** Canonical.
+- **Evidence:** `governance/reviews/M7.6 - Governance Retrospective Canonical
+  Review.md`, the completed Architecture Review, and the retrospective's exact
+  evidence map.
+- **Authority boundary:** this review authorizes but does not perform the
+  separate canonicalization transition, adopt recommendations, close M7.6, open
+  M7.7, or authorize M7.7 work.
+- **Stage state:** M7 remains Active; M7.6 remains the only active stage with
+  canonicalization pending.

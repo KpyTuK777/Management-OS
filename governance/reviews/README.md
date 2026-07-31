@@ -44,3 +44,6 @@ It cannot silently amend its reviewed source or substitute for evidence.
   — **Completed — Approved**. Records the Architect Council's independent
   approval of the exact retrospective revision for historical reference and
   authorization for Canonical Review.
+- [M7.6 — Governance Retrospective Canonical Review](M7.6%20-%20Governance%20Retrospective%20Canonical%20Review.md)
+  — **Completed — Canonical**. Records the resumed independent canonical checks
+  and authorizes a separate canonicalization transition without opening M7.7.
