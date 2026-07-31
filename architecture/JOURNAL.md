@@ -465,3 +465,97 @@ evidence conflict, the cited canonical document and Git history govern.
 - **Disposition:** no approval, dependency-use authority, or canonical status is
   recorded. Independent Architecture Review is the next required action.
 - **Stage state:** M7 remains Active; M7.4 remains the only active stage.
+
+### 2026-07-31 — M7.4 Development Lifecycle Architecture Review recorded
+
+- **Event:** the Architect Council's completed independent Architecture Review
+  of the M7.4 Development Lifecycle was recorded and repository status was
+  reconciled.
+- **Reviewed revision:** commit
+  `924aacc00ff64e594c33a25d905746a373c14ed9` —
+  `docs(governance): define M7.4 development lifecycle`.
+- **Review authority:** Architect Council, independent from candidate creation
+  and evidence production.
+- **Disposition:** Architecture Approved; Approved for dependency use; Ready
+  for Canonical Review.
+- **Evidence:** `governance/reviews/M7.4 - Development Lifecycle Architecture
+  Review.md` and `governance/evidence/M7.4 - Development Lifecycle Definition
+  Evidence.md`.
+- **Advisory boundary:** M7.5 must not convert lifecycle stages, gate
+  representation, or tool state into autonomous execution permission or an
+  authority source.
+- **Authority boundary:** no canonicalization, M7.4 closure, or M7.5 work is
+  authorized or performed.
+- **Stage state:** M7 remains Active; M7.4 remains the only active stage at
+  `Ready for Canonical Review`.
+
+### 2026-07-31 — M7.4 Development Lifecycle Canonical Review completed
+
+- **Event:** independent Canonical Review resumed after the missing Architecture
+  Review record was supplied and repository status was reconciled.
+- **Reviewed revision:** commit
+  `924aacc00ff64e594c33a25d905746a373c14ed9` —
+  `docs(governance): define M7.4 development lifecycle`.
+- **Resolved prerequisite:** the completed Architecture Review now records its
+  authority, independence, exact revision, findings, dependency-use approval,
+  advisories, and authorization for Canonical Review.
+- **Canonical findings:** constitutional and organizational consistency,
+  authority-state semantics, gate ownership, separation, independent
+  re-judgment, transition restraint, traceability, implementation independence,
+  and the automation boundary all pass.
+- **Disposition:** Canonical.
+- **Evidence:** `governance/reviews/M7.4 - Development Lifecycle Canonical
+  Review.md` and the completed Architecture Review and definition evidence.
+- **Authority boundary:** this review authorizes but does not perform the
+  separate canonicalization transition, close M7.4, open M7.5, or authorize
+  M7.5 work.
+- **Stage state:** M7 remains Active; M7.4 remains the only active stage with
+  canonicalization pending.
+
+### 2026-07-31 — M7.4 Development Lifecycle canonicalized
+
+- **Event:** the Architecture Approved and Canonical Review-complete Development
+  Lifecycle was canonicalized through a separate repository transition.
+- **Canonical source:** `governance/normative/M7.4 - Development Lifecycle.md`.
+- **Reviewed revision:** commit
+  `924aacc00ff64e594c33a25d905746a373c14ed9`.
+- **Review evidence:** `governance/reviews/M7.4 - Development Lifecycle
+  Architecture Review.md` and `governance/reviews/M7.4 - Development Lifecycle
+  Canonical Review.md`.
+- **Disposition:** M7.4 Development Lifecycle is Canonical and approved for
+  subsequent M7 dependency use within its lifecycle scope.
+- **Stage state:** M7.4 is Closed. M7 remains Active.
+- **Transition:** the repository-native M7.5 Autonomous Development Protocol
+  Order opens M7.5 as the single active stage at `Ready for Architecture
+  Definition`.
+- **Boundary:** no autonomous behavior, agent identity, coordination, handoff,
+  supervision, permission, capability grant, stop condition, retry, scheduling,
+  queueing, orchestration, timeout, recovery, implementation mechanism, or
+  M7.6–M7.7 substance is introduced by this transition.
+
+### 2026-07-31 — M7.5 Autonomous Development Protocol defined
+
+- **Event:** the implementation-independent Autonomous Development Protocol
+  candidate was defined under the repository-native M7.5 Autonomous Development
+  Protocol Order.
+- **Document state:** Ready for Architecture Review.
+- **Defined scope:** autonomous participant and protocol identities; execution
+  roles and boundaries; delegation envelopes and authority inheritance; work
+  offer, acceptance, refusal, and conduct; handoff semantics; evidence
+  responsibilities; review interaction; interruption, suspension, recovery,
+  release, and termination; traceability; invariants; and conformance.
+- **Authority safeguard:** protocol roles remain execution responsibilities
+  subordinate to the canonical organizational functions, protocol conditions
+  remain distinct from lifecycle stages, and every consequential action resolves
+  to bounded delegation and identifiable human accountability.
+- **Excluded:** constitutional change, new organizational powers, new lifecycle
+  stages or gates, repository mechanics, scheduling and retry algorithms,
+  infrastructure architecture, runtime orchestration implementation,
+  implementation methodology, governance operations, and M7.6–M7.7 substance.
+- **Evidence:** `governance/normative/M7.5 - Autonomous Development Protocol.md`,
+  `governance/orders/M7.5 - Autonomous Development Protocol Order.md`, and
+  `governance/evidence/M7.5 - Autonomous Development Protocol Definition
+  Evidence.md` in the definition change containing this entry.
+- **Disposition:** no approval, dependency-use authority, or canonical status is
+  recorded. Independent Architecture Review is the next required action.
+- **Stage state:** M7 remains Active; M7.5 remains the only active stage.

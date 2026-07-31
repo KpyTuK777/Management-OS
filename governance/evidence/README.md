@@ -22,6 +22,10 @@ revisions. It cannot create normative authority, priority, or a verdict.
   exclusion to the exact revision evaluated by the completed Architecture and
   Canonical Reviews.
 - [M7.4 — Development Lifecycle Definition Evidence](M7.4%20-%20Development%20Lifecycle%20Definition%20Evidence.md)
-  — **Prepared for Architecture Review**. Maps every ordered lifecycle concern,
-  constitutional boundary, organizational dependency, and exclusion to the
-  review-ready candidate without recording a verdict.
+  — **Accepted Architecture and Canonical Review evidence**. Maps every ordered
+  lifecycle concern, constitutional boundary, organizational dependency, and
+  exclusion to the exact reviewed revision.
+- [M7.5 — Autonomous Development Protocol Definition Evidence](M7.5%20-%20Autonomous%20Development%20Protocol%20Definition%20Evidence.md)
+  — **Prepared for Architecture Review**. Maps every ordered autonomous
+  protocol concern, canonical dependency, and exclusion to the review-ready
+  candidate without recording a verdict.

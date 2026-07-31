@@ -22,8 +22,9 @@ Development Protocol substance and grants no approval.
   constitutional functions, responsibility domains, authority, delegation,
   accountability, decision boundaries, and power interaction.
 - [M7.4 — Development Lifecycle](M7.4%20-%20Development%20Lifecycle.md) —
-  **Ready for Architecture Review**. Candidate authority-state lifecycle with
-  bounded stages, gates, correction and re-entry, iteration, invariants, and
-  traceability. No approval is recorded.
-
-M7.5 has not been defined.
+  **Canonical / M7.4 Closed**. Authority-state lifecycle with bounded stages,
+  gates, correction and re-entry, iteration, invariants, and traceability.
+- [M7.5 — Autonomous Development Protocol](M7.5%20-%20Autonomous%20Development%20Protocol.md)
+  — **Ready for Architecture Review**. Candidate protocol for bounded autonomous
+  identity, delegation, execution, handoff, evidence, review interaction,
+  suspension, recovery, invariants, and conformance. No approval is recorded.
