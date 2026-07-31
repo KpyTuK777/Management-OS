@@ -10,7 +10,6 @@ reviews, or normative governance.
 ## Artifacts
 
 - [M7.6 — Governance Retrospective](M7.6%20-%20Governance%20Retrospective.md)
-  — **Approved for Historical Reference / Canonical Review complete —
-  Canonicalization pending**. Reviewed assessment of M7.1–M7.5 strengths,
-  friction, defect classes, lessons, recommendations, and residual risks.
-  Advisory only; canonical historical status awaits a separate transition.
+  — **Canonical Historical Record / M7.6 Closed**. Reviewed assessment of
+  M7.1–M7.5 strengths, friction, defect classes, lessons, recommendations, and
+  residual risks. Its recommendations remain advisory.

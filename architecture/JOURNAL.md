@@ -705,3 +705,26 @@ evidence conflict, the cited canonical document and Git history govern.
   M7.7, or authorize M7.7 work.
 - **Stage state:** M7 remains Active; M7.6 remains the only active stage with
   canonicalization pending.
+
+### 2026-07-31 — M7.6 Governance Retrospective canonicalized
+
+- **Event:** a separate authorized repository transition canonicalized the M7.6
+  Governance Retrospective as an institutional historical record.
+- **Reviewed identity:** commit
+  `e4e72d7bf262658adccc35cb6e256a555b50dd33`; retrospective blob
+  `74d5a8263fa07f7eae56b7f7ef7d43917a2ad485`.
+- **Preserved review evidence:** `governance/reviews/M7.6 - Governance
+  Retrospective Architecture Review.md` and `governance/reviews/M7.6 -
+  Governance Retrospective Canonical Review.md` remain unchanged.
+- **Disposition:** Canonical Historical Record / M7.6 Closed. Retrospective
+  observations and recommendations remain advisory and possess no amendment
+  authority.
+- **Repository reconciliation:** governance indexes, architecture indexes,
+  roadmap, backlog, orders, retrospective status, and journal now report the
+  transition consistently.
+- **Successor transition:** the bounded `M7.7 - Governance Review Order` opens
+  M7.7 Governance Review as the sole active stage at `Ready for Governance
+  Review Definition`, with one initial backlog task.
+- **Boundary:** the opening transition introduces no M7.7 findings,
+  conclusions, risks, corrections, effectiveness judgment, review disposition,
+  substantive governance change, M7 closure, or successor stage.

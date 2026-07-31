@@ -34,22 +34,23 @@ M7 and its first bounded stage were opened by the repository-native
 ## Active stage
 
 ```text
-M7.6 — Retrospective — Canonical Review complete — Canonicalization pending
+M7.7 — Governance Review — Ready for Governance Review Definition
 ```
 
 M7.1 Governance Structure, M7.2 Constitution, M7.3 Organizational Model, M7.4
 Development Lifecycle, and M7.5 Autonomous Development Protocol are Closed and
-Canonical. M7.6 is now the single active stage; its current task and completion
-criteria are defined in [BACKLOG.md](BACKLOG.md).
+Canonical. M7.6 is Closed and Canonical as an institutional historical record.
+M7.7 is now the single active stage; its current task and completion criteria
+are defined in [BACKLOG.md](BACKLOG.md).
 
-## Next stage
+## Successor stage
 
 ```text
-M7.7 — Governance Review
+None defined — M7 Governance Review pending
 ```
 
-M7.7 may enter the backlog only after M7.6 completes its required review and
-authority lifecycle.
+No successor stage is opened or inferred before the M7.7 Governance Review is
+completed and an authorized repository transition records the result.
 
 ## M7 stage sequence
 
@@ -60,11 +61,11 @@ authority lifecycle.
 | 3 | M7.3 — Organizational Model | Closed — Canonical |
 | 4 | M7.4 — Development Lifecycle | Closed — Canonical |
 | 5 | M7.5 — Autonomous Development Protocol | Closed — Canonical |
-| 6 | M7.6 — Retrospective | Active — Canonical Review complete — Canonicalization pending |
-| 7 | M7.7 — Governance Review | Planned |
+| 6 | M7.6 — Retrospective | Closed — Canonical Historical Record |
+| 7 | M7.7 — Governance Review | Active — Ready for Governance Review Definition |
 
-M7 remains Active. M7.6 is the only active stage. M7.7 remains Planned and
-no M7 completion is recorded.
+M7 remains Active. M7.7 is the only active stage. No M7 completion or successor
+stage is recorded.
 
 ## Roadmap maintenance
 
