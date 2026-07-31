@@ -13,7 +13,7 @@ history but does not replace this roadmap.
 ## Current phase
 
 ```text
-Phase III-B — Operational Core / M6 Product Realization
+Phase III-B — Operational Core / M6 Product Realization — Complete
 ```
 
 ## Completed stages
@@ -30,25 +30,28 @@ Phase III-B — Operational Core / M6 Product Realization
 - M6.14 — Design-to-Code Mapping — Approved for M6 dependency use.
 - M6.15 — Conformance and Governance Framework — Approved for M6 dependency
   use.
+- M6 Completion Corrections RC-01–RC-03 — completed and independently
+  reviewed.
+- M6 — Canonical Operational Design System — Closed by the Charter-authorized
+  verdict `Canonical Operational Design System Complete`.
 
 ## Active stage
 
 ```text
-M6 — Repeat Final Review
+None — Architecture Roadmap Complete
 ```
 
-The current task and completion criteria are defined exclusively in
-[BACKLOG.md](BACKLOG.md). RC-01–RC-03 are complete and evidence-backed. M6
-remains Active pending repeat Final Review.
+The repeat M6 Final Review passed all fifteen Charter completion criteria.
+There is no active architecture stage or inferred successor milestone.
 
 ## Next stage
 
 ```text
-M6 closure or further finite correction
+None
 ```
 
-The next transition is determined exclusively by the repeat Final Review
-verdict.
+Future architecture requires explicit Product Owner direction or an
+Architect-approved Roadmap extension.
 
 ## Stage sequence
 
@@ -73,9 +76,9 @@ verdict.
 | 17 | Conformance and Governance Framework | Approved for dependency use |
 | 18 | M6 Final Review | Requires Corrections |
 | 19 | M6 Completion Corrections | Completed |
-| 20 | Repeat M6 Final Review | Active — Ready for Final Review |
+| 20 | Repeat M6 Final Review | Closed — Canonical Operational Design System Complete |
 
-M6 remains Active. This roadmap does not record M6 completion.
+M6 is Closed. The architecture roadmap is exhausted.
 
 ## Roadmap maintenance
 

@@ -3,8 +3,8 @@
 ## Status
 
 ```text
-Architecture Definition
-Milestone M6
+Canonical Operational Design System Complete
+Milestone M6 — Closed
 ```
 
 ## Charter Authority

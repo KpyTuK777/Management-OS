@@ -191,3 +191,24 @@ evidence conflict, the cited canonical document and Git history govern.
 - **Correction state:** RC-01 and RC-02 are complete; RC-03 status/history
   reconciliation is complete. Repeat M6 Final Review is the next gate.
 - **Milestone state:** M6 remains Active.
+
+### 2026-07-31 — M6 completed
+
+- **Event:** Repeat M6 Final Review completed after verification of
+  RC-01–RC-03.
+- **Verdict:** Canonical Operational Design System Complete.
+- **Completion evidence:** all seventeen Charter-required responsibilities
+  have approved contracts and review evidence; all fifteen Charter completion
+  criteria pass; cross-canonical, cross-platform, accessibility, degradation,
+  recovery, mapping, conformance, governance, and repository-consistency checks
+  pass.
+- **Evidence:** `images/17-design-principles/M6 - Canonical Operational Design
+  System Repeat Final Review.md`; completion commit containing this entry.
+- **Historical integrity:** the first Final Review and its Requires Corrections
+  verdict remain immutable; correction definitions, reviews, and commits remain
+  attributable.
+- **Milestone state:** M6 is Closed.
+- **Roadmap state:** complete and exhausted; no successor milestone is inferred.
+- **Implementation boundary:** M6 is architecture-complete and eligible for
+  separately ordered engineering realization. This transition selects no
+  implementation technology or mechanism.
