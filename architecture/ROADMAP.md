@@ -27,24 +27,25 @@ Phase III-B — Operational Core / M6 Product Realization
 - M6.11 — Accessibility Model — Approved for M6 dependency use.
 - M6.12 — Motion Semantics — Approved for M6 dependency use.
 - M6.13 — AI and Conversational Adapters — Approved for M6 dependency use.
+- M6.14 — Design-to-Code Mapping — Approved for M6 dependency use.
 
 ## Active stage
 
 ```text
-M6.14 — Design-to-Code Mapping
+M6.15 — Conformance and Governance Framework
 ```
 
 The current task and completion criteria are defined exclusively in
-[BACKLOG.md](BACKLOG.md). M6.14 is awaiting independent Architecture Review.
+[BACKLOG.md](BACKLOG.md). This is the final planned M6 architecture-definition
+stage. M6 remains Active.
 
 ## Next stage
 
 ```text
-M6 — Conformance, Governance, and M6 Final Review
+M6.15 — Architecture Review and M6 Final Review
 ```
 
-This stage may enter the backlog only after M6.14 receives a positive
-Architecture Review disposition.
+Review may begin only after the M6.15 definition and evidence commit exists.
 
 ## Stage sequence
 
@@ -65,8 +66,9 @@ Architecture Review disposition.
 | 13 | Accessibility Model | Approved for dependency use |
 | 14 | Motion Semantics | Approved for dependency use |
 | 15 | AI and Conversational Adapters | Approved for dependency use |
-| 16 | Design-to-Code Mapping | Active — Ready for Architecture Review |
-| 17 | Conformance, Governance, and M6 Final Review | Planned |
+| 16 | Design-to-Code Mapping | Approved for dependency use |
+| 17 | Conformance and Governance Framework | Active — Ready for Architecture Definition |
+| 18 | M6 Final Review | Planned |
 
 M6 remains Active. This roadmap does not record M6 completion.
 

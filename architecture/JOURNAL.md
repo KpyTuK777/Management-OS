@@ -70,3 +70,26 @@ evidence conflict, the cited canonical document and Git history govern.
   containing this journal entry.
 - **Next required action:** independent M6.14 Architecture Review. No M6.14
   review disposition is recorded by this entry.
+
+### 2026-07-31 — M6.14 Architecture Review approved
+
+- **Event:** Independent Architecture Review completed.
+- **Disposition:** Approved for M6 dependency use.
+- **Findings:** no blocking corrections and no advisory corrections.
+- **Evidence:** `images/17-design-principles/M6.14 - Design-to-Code Mapping
+  Architecture Review.md`; review commit containing this journal entry.
+- **Transition:** M6 remains Active. M6.15 Conformance and Governance Framework
+  becomes the single active architecture-definition task.
+
+### 2026-07-31 — M6.15 Conformance and Governance Framework ordered
+
+- **Event:** The final planned M6 architecture-definition stage entered the
+  backlog.
+- **Basis:** M6 Charter required outputs for Conformance and Validation
+  Framework and Design System Governance Model; the Charter permits
+  consolidation when responsibilities remain explicit, independently
+  reviewable, and traceable.
+- **State:** Ready for Architecture Definition.
+- **Milestone state:** M6 remains Active.
+- **Next required action:** Lead Engineer definition commit followed by an
+  independent Architecture Review and M6 Final Review.
