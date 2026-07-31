@@ -24,8 +24,9 @@ is recorded in the repository.
   Organizational Model, M7.4 Development Lifecycle, and M7.5 Autonomous
   Development Protocol are Canonical; M7.6 Retrospective is Closed and
   Canonical as an institutional historical record; M7.7 Governance Review is
-  the sole active stage at `Ready for Canonical Review`; its Architecture
-  Approved evaluative candidate introduces no amendment or transition authority.
+  the sole active stage with Canonical Review complete and canonicalization
+  pending; its evaluative conclusion introduces no amendment or transition
+  authority.
 - [Canonical Management Model](../images/17-design-principles/README.md) contains
   the canonical professional and experience models consumed by M6.
 - [Architecture Decision Records](../docs/adr/README.md) preserve durable

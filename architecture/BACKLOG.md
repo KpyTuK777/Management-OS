@@ -17,7 +17,7 @@ M7 — Governance Layer — Active
 ## Current Task
 
 ```text
-Canonical Review — M7.7 Governance Review
+Canonicalization — M7.7 Governance Review
 ```
 
 ## Dependencies
@@ -40,15 +40,15 @@ Canonical Review — M7.7 Governance Review
 
 ## Expected Output
 
-Independent Canonical Review of the Architecture Approved
+One separate repository transition that canonicalizes the exact reviewed
 [M7.7 Governance Review](../governance/reviews/M7.7%20-%20Governance%20Review.md)
-against its exact reviewed revision, completed Architecture Review, canonical
-M7.1–M7.6 dependencies, evidence boundary, and declared conformance conditions.
+after its completed Architecture and Canonical Reviews and reconciles M7 status
+without inferring or opening successor work.
 
-This task authorizes Canonical Review only. It does not predetermine the
-disposition, canonicalize M7.7, amend canonical governance, close M7, open a
-successor stage, adopt advisory recommendations, or perform a repository
-transition.
+This task records the next required action but does not itself authorize or
+perform canonicalization. A separate authority transition remains required. No
+M8 work, successor stage, advisory adoption, or governance amendment is
+authorized.
 
 ## Owner
 
@@ -63,21 +63,21 @@ disposition.
 ## Status
 
 ```text
-Ready for Canonical Review
+Canonical Review complete — Canonicalization pending
 ```
 
-The exact M7.7 Governance Review revision is Architecture Approved and approved
-for Governance Review. Its submitted conclusion remains evaluative and awaits
-independent Canonical Review.
+The exact M7.7 Governance Review revision has completed Architecture and
+Canonical Review with a `Canonical` disposition. M7 and M7.7 remain Active until
+a separately authorized canonicalization transition is performed.
 
 ## Definition of Done
 
-- The Canonical Review identifies the exact reviewed revision, completed
-  Architecture Review, review authority, and independence.
-- Canonical M7.1–M7.6 remains fixed and the submitted conclusion remains
-  evaluative rather than self-approving.
-- Completeness, coherence, operational consistency, baseline suitability,
-  evidence sufficiency, and authority boundaries receive explicit findings.
-- Any correction is finite and names the return gate.
-- A positive disposition authorizes only a separately ordered final transition;
-  it does not itself canonicalize M7.7, close M7, or create successor work.
+- A separate authority order explicitly authorizes canonicalization and defines
+  the permitted final reconciliation.
+- The exact reviewed revision and both independent review records remain
+  preserved and attributable.
+- Canonicalization does not alter canonical M7.1–M7.6 meaning or adopt M7.6
+  recommendations.
+- Milestone and repository statuses are reconciled consistently within the
+  separately granted authority.
+- No M8 or successor artifact, task, stage, or implied authorization is created.
