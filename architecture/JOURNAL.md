@@ -630,3 +630,32 @@ evidence conflict, the cited canonical document and Git history govern.
   effectiveness judgment, recommendation, improvement proposal, normative
   amendment, implementation mechanism, or M7.7 substance is introduced by this
   transition.
+
+### 2026-07-31 — M7.6 Governance Retrospective prepared
+
+- **Event:** the M7.1–M7.5 governance process was reconstructed and assessed in
+  the separately ordered M7.6 Governance Retrospective.
+- **Document state:** Ready for Architecture Review.
+- **Evidence boundary:** canonical M7.1–M7.5 sources; their orders, evidence,
+  Architecture and Canonical Reviews, canonicalization transitions; the
+  architecture control plane; and attributable Git history.
+- **Strengths observed:** authority-state separation, finite correction,
+  canonical dependency discipline, artifact-class integrity, historical
+  preservation, and later-stage boundary restraint.
+- **Friction observed:** review evidence lag, inconsistent commit boundaries,
+  broad manual status reconciliation, successor-stage terminology drift, and
+  implicit review-submission readiness.
+- **Classification:** corrected M7.1–M7.2 normative defects are distinguished
+  from M7.4–M7.5 procedural evidence defects, tooling or workflow deficiencies,
+  and architectural observations.
+- **Recommendations:** submission-readiness records, narrow change boundaries,
+  transition manifests, successor validation, minimum review fields, checkable
+  consistency assertions, and preserved correction classes. All remain
+  advisory and require separately authorized adoption.
+- **Authority boundary:** the retrospective amends no canonical source, rewrites
+  no evidence or disposition, creates no authority, and introduces no M7.7
+  substance or transition.
+- **Evidence:** `governance/retrospectives/M7.6 - Governance Retrospective.md` in
+  the preparation change containing this entry.
+- **Stage state:** M7 remains Active; M7.6 remains the only active stage at
+  `Ready for Architecture Review`.

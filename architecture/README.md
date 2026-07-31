@@ -23,7 +23,7 @@ is recorded in the repository.
   retrospectives. M7.1 Governance Structure, M7.2 Constitution, and M7.3
   Organizational Model, M7.4 Development Lifecycle, and M7.5 Autonomous
   Development Protocol are Canonical; M7.6 Retrospective is the sole active
-  stage and contains no substantive retrospective yet.
+  stage and is Ready for Architecture Review.
 - [Canonical Management Model](../images/17-design-principles/README.md) contains
   the canonical professional and experience models consumed by M6.
 - [Architecture Decision Records](../docs/adr/README.md) preserve durable

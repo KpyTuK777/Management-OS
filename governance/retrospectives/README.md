@@ -2,11 +2,14 @@
 
 ## Structural contract
 
-This directory is reserved for the future M7.6 Retrospective and
-later separately ordered retrospective records. Retrospectives preserve
+This directory is reserved for M7.6 and later separately ordered retrospective
+records. Retrospectives preserve
 historical learning and may propose changes, but they cannot rewrite evidence,
 reviews, or normative governance.
 
 ## Artifacts
 
-None. No retrospective content is defined by M7.1.
+- [M7.6 — Governance Retrospective](M7.6%20-%20Governance%20Retrospective.md)
+  — **Ready for Architecture Review**. Evidence-backed historical assessment of
+  M7.1–M7.5 strengths, friction, defect classes, lessons, recommendations, and
+  residual risks. Advisory only; no amendment authority is claimed.

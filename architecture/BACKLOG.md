@@ -58,11 +58,13 @@ to rewrite history, amend canonical governance, or approve its own conclusions.
 ## Status
 
 ```text
-Ready for Retrospective Definition
+Ready for Architecture Review
 ```
 
-No M7.6 retrospective artifact exists. Architect Council direction is required
-before substantive retrospective analysis begins.
+The Governance Retrospective exists and preserves attributable M7.1–M7.5
+observations, defect classifications, lessons, recommendations, and authority
+boundaries. Independent Architecture Review is the next required action; no
+approval is recorded.
 
 ## Definition of Done
 
