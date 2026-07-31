@@ -17,19 +17,14 @@ M6 — Canonical Operational Design System
 ## Current Task
 
 ```text
-Architecture Review — M6.11 Accessibility Model
+Architecture Review — M6.12 Motion Semantics
 ```
 
 ## Dependencies
 
-- All approved M6.1–M6.10 Presentation Architecture documents.
-- M6.10 Rendering Contracts and Platform Adapters — Approved for dependency
-  use.
-- Canonical Management Model — Confirmed.
-- Canonical Operational Navigation — Canonical.
-- Operational Navigation Governance — Canonical.
-- Canonical Operational Interaction Language — Canonical.
-- M6.11 Accessibility Model — Architecture Definition prepared for review.
+- All approved M6.1–M6.11 Presentation Architecture documents.
+- M6.11 Accessibility Model — Approved for dependency use.
+- M6.12 Motion Semantics — Architecture Definition prepared for review.
 
 ## Expected Output
 
@@ -45,10 +40,10 @@ or:
 Approved with Required Corrections
 ```
 
-The disposition must establish whether the Accessibility Contract, AO-01–AO-08
-taxonomy, preservation rules, modality equivalence, degradation, recovery,
-adapter boundary, invariants, and conformance evidence are complete and
-implementation-independent.
+The disposition must establish whether the Motion Contract, MT-01–MT-09
+taxonomy, motion and no-motion preservation, accessibility equivalence,
+degradation, recovery, adapter boundary, invariants, and conformance evidence
+are complete and implementation-independent.
 
 ## Owner
 
@@ -67,20 +62,23 @@ Ready for Architecture Review
 
 ## Definition of Done
 
-- The document is reviewed against all approved M6.1–M6.10 dependencies.
-- Accessibility purpose, ownership, lifecycle, responsibilities, and invariants
-  are complete.
-- AO-01–AO-08 are mutually bounded and collectively cover semantic
-  discoverability, operability, perceivability, structural navigation,
-  interaction equivalence, presentation equivalence, degradation, and recovery.
-- Semantic meaning, interaction outcomes, navigation continuity, and
-  professional intent remain equivalent across supported modalities.
-- Degradation and recovery are deterministic, explicit, bounded, and
-  reviewable.
-- Canonical Accessibility Model, Platform Accessibility Adapter, and Platform
-  Accessibility APIs have mutually exclusive ownership.
-- No platform-specific accessibility mechanism or implementation decision
-  enters the canonical model.
+- The document is reviewed against all approved M6.1–M6.11 dependencies.
+- Motion Contract purpose, ownership, lifecycle, responsibilities, and
+  invariants are complete.
+- MT-01–MT-09 are mutually bounded and collectively cover appearance,
+  disappearance, transition, continuity, emphasis, attention guidance, state
+  transition, interruption, and recovery.
+- Motion communicates canonical meaning but never creates or changes it.
+- Motion remains optional, and absence of motion preserves professional
+  interpretation and operation.
+- Accessibility remains equivalent for motion, reduced-motion, no-motion, and
+  alternative supported modalities.
+- Degradation, interruption, supersession, and recovery are deterministic,
+  explicit, bounded, and reviewable.
+- Canonical Motion Semantics, Platform Motion Adapter, and Platform Animation /
+  Rendering APIs have mutually exclusive ownership.
+- No platform-specific animation mechanism or implementation decision enters
+  the canonical model.
 - The Architecture Review verdict and evidence are recorded in the repository.
 - All required corrections are absent or resolved.
 - The M6 milestone remains Active.
