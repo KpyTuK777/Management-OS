@@ -21,5 +21,9 @@ Development Protocol substance and grants no approval.
   **Canonical / M7.3 Closed**. Title-independent allocation of
   constitutional functions, responsibility domains, authority, delegation,
   accountability, decision boundaries, and power interaction.
+- [M7.4 — Development Lifecycle](M7.4%20-%20Development%20Lifecycle.md) —
+  **Ready for Architecture Review**. Candidate authority-state lifecycle with
+  bounded stages, gates, correction and re-entry, iteration, invariants, and
+  traceability. No approval is recorded.
 
-M7.4–M7.5 have not been defined.
+M7.5 has not been defined.

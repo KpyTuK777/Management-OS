@@ -32,8 +32,9 @@ Architecture Definition — M7.4 Development Lifecycle
 
 ## Expected Output
 
-One M7.4 Development Lifecycle candidate prepared under the repository-native
-M7.4 order and constrained by all canonical M7 dependencies.
+One implementation-independent M7.4 Development Lifecycle candidate placed in
+`governance/normative/` and prepared under the repository-native M7.4 order and
+all canonical M7 dependencies.
 
 This opening backlog entry authorizes definition preparation only. It defines
 no lifecycle phase, state, gate, workflow, review procedure, transition,
@@ -53,11 +54,12 @@ canonicalize the future definition.
 ## Status
 
 ```text
-Ready for Architecture Definition
+Ready for Architecture Review
 ```
 
-No M7.4 normative definition or evidence exists. Architect Council direction is
-required before substantive Development Lifecycle definition begins.
+The Development Lifecycle candidate and attributable definition evidence exist.
+Independent Architecture Review is the next required action; no approval is
+recorded.
 
 ## Definition of Done
 

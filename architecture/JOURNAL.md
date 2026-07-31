@@ -441,3 +441,27 @@ evidence conflict, the cited canonical document and Git history govern.
 - **Boundary:** no lifecycle phase, state, gate, workflow, review procedure,
   transition, cadence, autonomous protocol, implementation mechanism, or
   M7.5–M7.7 substance is introduced by this transition.
+
+### 2026-07-31 — M7.4 Development Lifecycle defined
+
+- **Event:** the implementation-independent Development Lifecycle candidate was
+  defined under the repository-native M7.4 Development Lifecycle Order.
+- **Document state:** Ready for Architecture Review.
+- **Defined scope:** enduring lifecycle stages; authority-state transitions;
+  entry and exit conditions; independently owned review and transition gates;
+  correction and re-entry; permitted iteration; invariants; traceability; and
+  lifecycle conformance.
+- **Authority safeguard:** progression cannot self-authorize. Direction,
+  Creation, Judgment, and Transition remain separately attributable, and a
+  positive judgment creates only Transition Ready state until Transition
+  Authority establishes the authorized result.
+- **Excluded:** autonomous execution, AI-agent coordination, automation
+  permissions, retry, scheduling, queueing, orchestration, repository mechanics,
+  tooling workflow, implementation methodology, and M7.5–M7.7 substance.
+- **Evidence:** `governance/normative/M7.4 - Development Lifecycle.md`,
+  `governance/orders/M7.4 - Development Lifecycle Order.md`, and
+  `governance/evidence/M7.4 - Development Lifecycle Definition Evidence.md` in
+  the definition commit containing this entry.
+- **Disposition:** no approval, dependency-use authority, or canonical status is
+  recorded. Independent Architecture Review is the next required action.
+- **Stage state:** M7 remains Active; M7.4 remains the only active stage.
