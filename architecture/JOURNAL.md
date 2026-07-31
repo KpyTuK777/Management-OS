@@ -176,3 +176,18 @@ evidence conflict, the cited canonical document and Git history govern.
   agree with their evidence-backed dispositions.
 - **Milestone state:** M6 remains Active. RC-01 awaits independent Architecture
   Review before the repeat M6 Final Review.
+
+### 2026-07-31 — M6.C1 Architecture Review approved
+
+- **Event:** Independent Architecture Review completed for the Iconography
+  Implementation Contract.
+- **Disposition:** Approved for M6 dependency use.
+- **Coverage:** IS-01–IS-10, 78 invariants, semantic non-authority, ambiguity,
+  accessibility, degradation/recovery, lifecycle, adapter boundary, M6.14
+  mapping, and M6.15 evidence.
+- **Findings:** no blocking or advisory correction.
+- **Evidence:** `images/17-design-principles/M6.C1 - Iconography Implementation
+  Contract Architecture Review.md`; review commit containing this entry.
+- **Correction state:** RC-01 and RC-02 are complete; RC-03 status/history
+  reconciliation is complete. Repeat M6 Final Review is the next gate.
+- **Milestone state:** M6 remains Active.

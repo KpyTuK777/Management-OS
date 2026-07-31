@@ -1,6 +1,6 @@
 # Architecture Backlog
 
-This file contains exactly one active correction stage.
+This file contains exactly one active architectural task.
 
 ## Current Phase
 
@@ -17,46 +17,53 @@ M6 — Canonical Operational Design System
 ## Current Task
 
 ```text
-M6 Completion Corrections — Iconography and Review Evidence
+Repeat M6 Final Review — Canonical Operational Design System
 ```
 
-## Authority
+## Dependencies
 
-The required corrections are RC-01–RC-03 from the first M6 Final Review.
-Existing approved architecture fully bounds the work; no new strategic
-architecture is authorized.
+- M6 Charter and canonical input architectures.
+- Approved M6.1–M6.15 definitions and reviews.
+- Approved M6.C1 Iconography Implementation Contract and review.
+- Completed M6.1–M6.12 consolidated individual review evidence.
+- First M6 Final Review and RC-01–RC-03 correction history.
+- Architecture Journal, Roadmap, indexes, statuses, and Git history.
 
-## Scope
+## Expected Output
 
-1. Define and independently review the missing Iconography Implementation
-   Contract.
-2. Perform twelve missing individual Architecture Reviews for Design Object,
-   Design Semantics, and M6.3–M6.12.
-3. Reconcile document statuses, indexes, Journal, Roadmap, and review history.
-4. Prepare a repeat M6 Final Review without pre-authorizing its verdict.
-
-## Owners
+Exactly one Charter-authorized verdict:
 
 ```text
-Lead Engineer — Iconography definition
-Executive Director — independent reviews and repository governance
+Canonical Operational Design System Complete
+```
+
+or:
+
+```text
+Canonical Operational Design System Requires Corrections
+```
+
+## Owner
+
+```text
+Executive Director
 ```
 
 ## Status
 
 ```text
-Active — Required Corrections
+Ready for Final Review
 ```
 
 ## Definition of Done
 
-- Iconography Implementation Contract is defined without implementation leakage.
-- Its independent Architecture Review records an explicit disposition.
-- Twelve missing model reviews are evidence-backed and individually inspectable.
-- Every review verifies dependencies, ownership, taxonomy, invariants,
-  boundaries, exclusions, and repository scope.
-- Statuses and approval claims agree with review evidence.
-- Journal and Roadmap preserve the failed Final Review and correction history.
-- M6 remains Active.
-- Exactly one repeat M6 Final Review task replaces this correction stage only
-  after all corrections pass.
+- Re-evaluate all 15 Charter completion criteria.
+- Verify RC-01–RC-03 against exact review and commit evidence.
+- Verify every required output has an approved, independently reviewable
+  responsibility contract.
+- Verify cross-canonical, cross-platform, accessibility, degradation, recovery,
+  mapping, conformance, and governance integrity.
+- Verify repository status and history are mutually consistent.
+- Record one immutable repeat Final Review and exact verdict.
+- Close M6 and advance Roadmap only if every criterion passes.
+- Otherwise retain M6 Active and issue exactly one finite correction order.

@@ -34,21 +34,21 @@ Phase III-B — Operational Core / M6 Product Realization
 ## Active stage
 
 ```text
-M6 — Completion Corrections
+M6 — Repeat Final Review
 ```
 
 The current task and completion criteria are defined exclusively in
-[BACKLOG.md](BACKLOG.md). The first M6 Final Review returned Requires
-Corrections. M6 remains Active.
+[BACKLOG.md](BACKLOG.md). RC-01–RC-03 are complete and evidence-backed. M6
+remains Active pending repeat Final Review.
 
 ## Next stage
 
 ```text
-Repeat M6 Final Review
+M6 closure or further finite correction
 ```
 
-Repeat review begins only after the finite correction order is complete and
-independently reviewed.
+The next transition is determined exclusively by the repeat Final Review
+verdict.
 
 ## Stage sequence
 
@@ -72,8 +72,8 @@ independently reviewed.
 | 16 | Design-to-Code Mapping | Approved for dependency use |
 | 17 | Conformance and Governance Framework | Approved for dependency use |
 | 18 | M6 Final Review | Requires Corrections |
-| 19 | M6 Completion Corrections | Active |
-| 20 | Repeat M6 Final Review | Planned |
+| 19 | M6 Completion Corrections | Completed |
+| 20 | Repeat M6 Final Review | Active — Ready for Final Review |
 
 M6 remains Active. This roadmap does not record M6 completion.
 
