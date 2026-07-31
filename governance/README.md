@@ -88,8 +88,10 @@ artifact is indexed here and in its artifact-class index.
 | M7.2 | Constitution Architecture Review | Review | Completed — Approved | [Review](reviews/M7.2%20-%20Constitution%20Architecture%20Review.md) |
 | M7.2 | Constitution Canonical Review | Review | Completed — Canonical | [Review](reviews/M7.2%20-%20Constitution%20Canonical%20Review.md) |
 | M7.3 | Organizational Model Order | Order | Effective / Scope bounded | [Order](orders/M7.3%20-%20Organizational%20Model%20Order.md) |
-| M7.3 | Organizational Model | Normative definition | Ready for Architecture Review | [Definition](normative/M7.3%20-%20Organizational%20Model.md) |
-| M7.3 | Organizational Model Definition Evidence | Evidence | Prepared for Architecture Review | [Evidence](evidence/M7.3%20-%20Organizational%20Model%20Definition%20Evidence.md) |
+| M7.3 | Organizational Model | Normative definition | Approved for dependency use / Canonicalization pending | [Definition](normative/M7.3%20-%20Organizational%20Model.md) |
+| M7.3 | Organizational Model Definition Evidence | Evidence | Accepted review evidence | [Evidence](evidence/M7.3%20-%20Organizational%20Model%20Definition%20Evidence.md) |
+| M7.3 | Organizational Model Architecture Review | Review | Completed — Approved | [Review](reviews/M7.3%20-%20Organizational%20Model%20Architecture%20Review.md) |
+| M7.3 | Organizational Model Canonical Review | Review | Completed — Canonical | [Review](reviews/M7.3%20-%20Organizational%20Model%20Canonical%20Review.md) |
 
 # 3. Directory Ownership
 
@@ -270,9 +272,11 @@ The completed M7.1 artifact set consists of this structure design, its opening
 order, correction evidence, Architecture Review, and Canonical Review. M7.2 is
 Closed with one Canonical Constitution, its completed order, accepted definition
 and correction evidence, and completed Architecture and Canonical Reviews. M7.3
-is Active with one review-ready Organizational Model candidate, its bounded
-order, and definition evidence. Child indexes list each artifact only in its
-applicable class; M7.4–M7.7 remain without substantive artifacts.
+is Active with one Architecture Approved Organizational Model whose Canonical
+Review is complete, its bounded order, accepted definition evidence, and both
+review records. Canonicalization remains a separate pending transition. Child
+indexes list each artifact only in its applicable class; M7.4–M7.7 remain
+without substantive artifacts.
 
 # 9. Dependency Direction
 

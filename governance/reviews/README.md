@@ -20,3 +20,9 @@ It cannot silently amend its reviewed source or substitute for evidence.
 - [M7.2 — Constitution Canonical Review](M7.2%20-%20Constitution%20Canonical%20Review.md)
   — **Completed — Canonical**. Records the independent canonical checks and
   authorizes a separate canonicalization transition without opening M7.3.
+- [M7.3 — Organizational Model Architecture Review](M7.3%20-%20Organizational%20Model%20Architecture%20Review.md)
+  — **Completed — Approved**. Records the Architect Council's approval for
+  dependency use of the exact reviewed revision.
+- [M7.3 — Organizational Model Canonical Review](M7.3%20-%20Organizational%20Model%20Canonical%20Review.md)
+  — **Completed — Canonical**. Records the independent canonical findings and
+  authorizes a separate canonicalization transition without opening M7.4.

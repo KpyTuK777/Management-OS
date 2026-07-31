@@ -390,3 +390,35 @@ evidence conflict, the cited canonical document and Git history govern.
 - **Disposition:** no approval, dependency-use authority, or canonical status is
   recorded. Independent Architecture Review is the next required action.
 - **Stage state:** M7 remains Active; M7.3 remains the only active stage.
+
+### 2026-07-31 — M7.3 Organizational Model Architecture Review approved
+
+- **Reviewed revision:** commit `6a349443b9dfc71d3f3e6c7ea57186d3780d2bbf`
+  (`docs(governance): define M7.3 organizational model`).
+- **Disposition:** Architecture Approved and Approved for dependency use.
+- **Findings:** governance functions, responsibility domains, separation of
+  powers, semantic ownership, delegation, accountability, decision classes,
+  optional-body constraints, implementation independence, and later-stage
+  exclusions all pass.
+- **Evidence:** `governance/reviews/M7.3 - Organizational Model Architecture
+  Review.md` and the accepted M7.3 definition evidence.
+- **Stage state:** M7 remains Active; M7.3 remains the only active stage.
+
+### 2026-07-31 — M7.3 Organizational Model Canonical Review completed
+
+- **Reviewed revision:** commit `6a349443b9dfc71d3f3e6c7ea57186d3780d2bbf`.
+- **Disposition:** Canonical.
+- **Findings:** constitutional consistency, separation, internal coherence,
+  absence of hidden authority, unique semantic ownership, complete
+  accountability, bounded delegation, mutually exclusive decision classes,
+  optional and bounded bodies, implementation independence, later-stage
+  exclusion, and downstream stability all pass.
+- **Advisory risk:** later lifecycle or protocol definitions must not interpret
+  logical power dependencies as a self-authorizing operational sequence; the
+  Organizational Model already prohibits that interpretation.
+- **Evidence:** `governance/reviews/M7.3 - Organizational Model Canonical
+  Review.md`.
+- **Authority boundary:** the review authorizes but does not perform the
+  separate canonicalization transition.
+- **Stage state:** M7 remains Active; M7.3 remains the only active stage. M7.4 is
+  not open and no M7.4 work is authorized.
