@@ -305,3 +305,21 @@ evidence conflict, the cited canonical document and Git history govern.
 - **Disposition:** no approval, dependency-use authority, or canonical status is
   recorded. Independent Architecture Review is the next required action.
 - **Stage state:** M7 remains Active; M7.2 remains the only active stage.
+
+### 2026-07-31 — M7.2 Constitution corrections prepared
+
+- **Event:** five finite Architecture Review findings were reconciled in the
+  constitutional candidate.
+- **Corrections:** legitimately amended product purpose; constitutional
+  definition of accountable human authority; bounded meaning of constitutional
+  silence; reconciliation of concurrently applicable principles; and
+  legitimacy-over-institutional-power interpretation.
+- **Scope preserved:** Constitutional Scope section 10 is unchanged. No future
+  organizational design, lifecycle, autonomous protocol, implementation method,
+  or later-stage substance is introduced.
+- **Evidence:** `governance/evidence/M7.2 - Constitution Correction Evidence.md`
+  and the reconciled `governance/normative/M7.2 - Constitution.md` in the commit
+  containing this entry.
+- **Disposition:** no approval, dependency-use authority, or canonical status is
+  recorded. The reconciled candidate remains `Ready for Architecture Review`.
+- **Stage state:** M7 remains Active; M7.2 remains the only active stage.

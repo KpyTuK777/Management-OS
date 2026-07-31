@@ -15,3 +15,6 @@ revisions. It cannot create normative authority, priority, or a verdict.
   — **Prepared for Architecture Review**. Maps every ordered constitutional
   concern and exclusion to the review-ready candidate without recording a
   verdict.
+- [M7.2 — Constitution Correction Evidence](M7.2%20-%20Constitution%20Correction%20Evidence.md)
+  — **Prepared for Architecture Review**. Maps the five approved refinement
+  findings to the reconciled candidate without recording a verdict.

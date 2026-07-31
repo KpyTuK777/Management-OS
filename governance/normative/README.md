@@ -14,8 +14,8 @@ Development Protocol substance and grants no approval.
 ## Artifacts
 
 - [M7.2 — Constitution](M7.2%20-%20Constitution.md) — **Ready for Architecture
-  Review**. Candidate constitutional foundation for enduring governance
-  authority, principles, precedence, separation, invariants, interpretation,
-  amendment constraints, and scope. No approval is recorded.
+  Review**. Reconciled candidate constitutional foundation for enduring
+  governance authority, principles, precedence, separation, invariants,
+  interpretation, amendment constraints, and scope. No approval is recorded.
 
 M7.3–M7.5 have not been defined.

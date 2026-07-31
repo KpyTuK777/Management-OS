@@ -55,8 +55,9 @@ canonicalize the definition.
 Ready for Architecture Review
 ```
 
-The Constitution candidate and definition evidence exist. Independent
-Architecture Review is the next required action; no approval is recorded.
+The reconciled Constitution candidate, definition evidence, and correction
+evidence exist. Independent Architecture Review is the next required action; no
+approval is recorded.
 
 ## Definition of Done
 
