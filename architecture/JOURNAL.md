@@ -349,3 +349,20 @@ evidence conflict, the cited canonical document and Git history govern.
   canonicalization transition.
 - **Stage state:** M7 remains Active; M7.2 remains the only active stage. M7.3 is
   not open and no M7.3 work is authorized.
+
+### 2026-07-31 — M7.2 Constitution canonicalized
+
+- **Event:** the Architecture Approved and Canonical Review-complete
+  Constitution was canonicalized through a separate repository transition.
+- **Canonical source:** `governance/normative/M7.2 - Constitution.md`.
+- **Reviewed revision:** commit `5c3f885906aec390a0eeefbfc2c4f650d1d5e697`.
+- **Review evidence:** `governance/reviews/M7.2 - Constitution Architecture
+  Review.md` and `governance/reviews/M7.2 - Constitution Canonical Review.md`.
+- **Disposition:** M7.2 Constitution is Canonical and approved for subsequent M7
+  dependency use within its constitutional scope.
+- **Stage state:** M7.2 is Closed. M7 remains Active.
+- **Transition:** the repository-native M7.3 Organizational Model Order opens
+  M7.3 as the single active stage at `Ready for Architecture Definition`.
+- **Boundary:** no substantive Organizational Model, Development Lifecycle,
+  Autonomous Development Protocol, retrospective, or governance-review content
+  is introduced by this transition.

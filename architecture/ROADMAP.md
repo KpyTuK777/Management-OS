@@ -34,22 +34,20 @@ M7 and its first bounded stage were opened by the repository-native
 ## Active stage
 
 ```text
-M7.2 — Constitution — Ready for Architecture Definition
+M7.3 — Organizational Model — Ready for Architecture Definition
 ```
 
-M7.1 is Closed and Canonical. Its reviewed Governance Structure defines the
-directory structure, artifact-class ownership, naming, status, indexing,
-dependency direction, and repository-truth boundary. M7.2 is now the single
-active stage; its current task and completion criteria are defined in
-[BACKLOG.md](BACKLOG.md).
+M7.1 Governance Structure and M7.2 Constitution are Closed and Canonical. M7.3
+is now the single active stage; its current task and completion criteria are
+defined in [BACKLOG.md](BACKLOG.md).
 
 ## Next stage
 
 ```text
-M7.3 — Organizational Model
+M7.4 — Development Lifecycle
 ```
 
-M7.3 may enter the backlog only after M7.2 completes its required review and
+M7.4 may enter the backlog only after M7.3 completes its required review and
 authority lifecycle.
 
 ## M7 stage sequence
@@ -57,14 +55,14 @@ authority lifecycle.
 | Sequence | Stage | Status |
 | ---: | --- | --- |
 | 1 | M7.1 — Governance Structure | Closed — Canonical |
-| 2 | M7.2 — Constitution | Active — Ready for Architecture Definition |
-| 3 | M7.3 — Organizational Model | Planned |
+| 2 | M7.2 — Constitution | Closed — Canonical |
+| 3 | M7.3 — Organizational Model | Active — Ready for Architecture Definition |
 | 4 | M7.4 — Development Lifecycle | Planned |
 | 5 | M7.5 — Autonomous Development Protocol | Planned |
 | 6 | M7.6 — Retrospective | Planned |
 | 7 | M7.7 — Governance Review | Planned |
 
-M7 remains Active. M7.2 is the only active stage. M7.3–M7.7 remain Planned and
+M7 remains Active. M7.3 is the only active stage. M7.4–M7.7 remain Planned and
 no M7 completion is recorded.
 
 ## Roadmap maintenance
