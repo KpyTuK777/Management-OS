@@ -17,7 +17,7 @@ M8 — Operational Intelligence Evolution Architecture — Active
 ## Current Task
 
 ```text
-Architecture Definition — M8.1 Baseline and Corpus Mapping
+Architecture Review — M8.1 Architectural Identity and Baseline Mapping
 ```
 
 ## Dependencies
@@ -33,6 +33,8 @@ Architecture Definition — M8.1 Baseline and Corpus Mapping
 - [Architecture Approved M8 Vision](M8_ARCHITECTURE_VISION.md).
 - [M8 Architecture Vision Architecture Review](../governance/reviews/M8%20-%20Architecture%20Vision%20Architecture%20Review.md).
 - [M8 Milestone Opening Order](../governance/orders/M8%20-%20Milestone%20Opening%20Order.md).
+- [M8.1 Architectural Identity and Baseline Mapping Order](../governance/orders/M8.1%20-%20Architectural%20Identity%20and%20Baseline%20Mapping%20Order.md).
+- [M8.1 Architectural Identity and Baseline Mapping](M8.1_ARCHITECTURAL_IDENTITY_AND_BASELINE_MAPPING.md).
 - [Canonical Governance Structure](../governance/README.md).
 - [Canonical Constitution](../governance/normative/M7.2%20-%20Constitution.md).
 - [Canonical Organizational Model](../governance/normative/M7.3%20-%20Organizational%20Model.md).
@@ -47,15 +49,14 @@ Architecture Definition — M8.1 Baseline and Corpus Mapping
 
 ## Expected Output
 
-One implementation-independent M8.1 Architectural Baseline and Corpus Map that
-identifies relevant architecture sources and classifies each source by identity,
-authority condition, scope, ownership, dependencies, overlap, and applicability
-to future integrated M8 analysis.
+One independent Architecture Review of the exact M8.1 Architectural Identity and
+Baseline Mapping candidate against its order, the Architecture Approved M8
+Vision, canonical M7 governance, Product Vision, cited source authorities,
+active Definition of Done, and repository-visible evidence.
 
-This task authorizes architecture definition only. It does not authorize
-normative definition, implementation, canonicalization, later M8 stages,
-successor milestones, or modification of the reviewed Vision and Architecture
-Review.
+This task authorizes Architecture Review only. It does not approve the
+candidate, modify its sources, close M8.1, activate later stages, perform
+canonicalization, or authorize implementation.
 
 ## Owner
 
@@ -69,22 +70,22 @@ Done. Independent review remains separate from artifact creation.
 ## Status
 
 ```text
-Ready for Architecture Definition
+Ready for Architecture Review
 ```
 
-M8 is Active and M8.1 is the sole active stage. No substantive M8.1 artifact has
-been created by the opening transition.
+M8 is Active and M8.1 is the sole active stage. The candidate claims no approval
+or canonical authority and awaits independent Architecture Review.
 
 ## Definition of Done
 
-- Every material architecture source in the approved M8 scope is attributable
-  or explicitly identified as an unresolved inclusion question.
-- Each included source has an authority condition, owned scope, dependencies,
-  applicability, and overlap assessment.
-- Canonical, approved, exploratory, historical, and superseded sources remain
-  distinguishable.
-- Conflicts and gaps are recorded without silently modifying their sources.
-- The map remains implementation-independent and introduces no normative
-  authority, lifecycle, protocol, product design, or later-stage content.
-- Review readiness and evidence sufficiency are explicit and independently
-  testable.
+- The Architecture Review identifies the exact candidate revision, authority,
+  independence, scope, dependencies, and evidence.
+- System identity, boundary, layers, responsibilities, and invariants receive
+  explicit findings.
+- The corpus map is verified to map authority sources to system
+  responsibilities rather than define the system through documents.
+- Gaps, overlaps, unknowns, and assumptions are checked for attribution and
+  non-authorizing treatment.
+- Implementation, runtime, data, API, governance, lifecycle, protocol, product
+  design, and later-stage exclusions are confirmed.
+- Any blocking correction is finite and names the required return gate.

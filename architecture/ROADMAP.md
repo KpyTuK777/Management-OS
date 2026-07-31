@@ -38,12 +38,12 @@ after independent Architecture Approval of the
 ## Active stage
 
 ```text
-M8.1 — Baseline and Corpus Mapping — Ready for Architecture Definition
+M8.1 — Architectural Identity and Baseline Mapping — Ready for Architecture Review
 ```
 
-M8.1 is the single active stage. Its bounded task and Definition of Done are
-defined in [BACKLOG.md](BACKLOG.md). No substantive M8.1 architecture exists
-through this opening transition.
+M8.1 is the single active stage. Its implementation-independent architecture
+candidate is defined and awaits independent Architecture Review under the task
+and Definition of Done in [BACKLOG.md](BACKLOG.md).
 
 ## Successor stage
 
@@ -73,7 +73,7 @@ later, separately reviewed and authorized transition.
 
 | Sequence | Stage | Status |
 | ---: | --- | --- |
-| 1 | M8.1 — Baseline and Corpus Mapping | Active — Ready for Architecture Definition |
+| 1 | M8.1 — Architectural Identity and Baseline Mapping | Active — Ready for Architecture Review |
 
 M8 is Active. M8.1 is the only active stage. No later M8 stage or successor
 milestone is opened.

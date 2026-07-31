@@ -852,3 +852,32 @@ evidence conflict, the cited canonical document and Git history govern.
   normative source, lifecycle, protocol, product design, implementation,
   repository mechanism, later M8 stage, or successor milestone and claims no
   canonical authority beyond the recorded Architecture Review.
+
+### 2026-07-31 — M8.1 Architectural Identity and Baseline Mapping defined
+
+- **Event:** the Architect Council refined the active M8.1 working title and
+  definition scope, and one implementation-independent architecture candidate
+  was prepared.
+- **Stage identity:** M8.1 remains the same single active stage; only its working
+  title changes from `Baseline and Corpus Mapping` to `Architectural Identity
+  and Baseline Mapping`.
+- **Definition:** Management OS is identified as one owner-governed operational
+  intelligence system rather than an Operational System, Matter, Investigation,
+  AI participant, module, record, repository, or document corpus.
+- **Boundary and layers:** the candidate defines explicit inside/outside tests
+  and eight enduring responsibility layers without creating implementation
+  tiers or workflow states.
+- **Authority map:** existing sources are mapped to system responsibilities;
+  their meaning and authority conditions remain source-owned.
+- **Findings inventory:** six gaps, six overlap areas, and six unknowns remain
+  visible without authorized correction or later-stage conclusions.
+- **Status:** Ready for Architecture Review; no approval or canonical authority
+  claimed.
+- **Evidence:** `architecture/M8.1_ARCHITECTURAL_IDENTITY_AND_BASELINE_MAPPING.md`
+  and `governance/orders/M8.1 - Architectural Identity and Baseline Mapping
+  Order.md` in the definition commit containing this entry.
+- **Boundary:** no implementation, repository mechanics, runtime architecture,
+  data model, API, governance amendment, lifecycle or protocol change, product
+  design, later-stage substance, closure, or transition is introduced.
+- **Stage state:** M8 remains Active; M8.1 remains the sole active stage at
+  `Ready for Architecture Review`.

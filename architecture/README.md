@@ -27,15 +27,19 @@ is recorded in the repository.
   Canonical and Closed; and Milestone M7 is Completed / Closed. No successor
   authority is implied by M7 completion.
 - [M8 Architecture Vision](M8_ARCHITECTURE_VISION.md) is the independently
-  Architecture Approved basis for the now-open M8 milestone. M8.1 Baseline and
-  Corpus Mapping is the single active stage at `Ready for Architecture
-  Definition`; no substantive M8.1 architecture is introduced by the opening
-  transition.
+  Architecture Approved basis for the open M8 milestone.
+- [M8.1 Architectural Identity and Baseline Mapping](M8.1_ARCHITECTURAL_IDENTITY_AND_BASELINE_MAPPING.md)
+  defines the system-first architectural baseline and is the sole active stage
+  at `Ready for Architecture Review`, with no approval or canonical authority
+  claimed.
 - [M8 Architecture Vision Architecture Review](../governance/reviews/M8%20-%20Architecture%20Vision%20Architecture%20Review.md)
   preserves the exact reviewed revision, findings, advisories, and opening
   authorization.
 - [M8 Milestone Opening Order](../governance/orders/M8%20-%20Milestone%20Opening%20Order.md)
   records the bounded opening direction without defining future architecture.
+- [M8.1 Architectural Identity and Baseline Mapping Order](../governance/orders/M8.1%20-%20Architectural%20Identity%20and%20Baseline%20Mapping%20Order.md)
+  records the Architect Council's refined, system-first definition scope without
+  opening another stage.
 - [Canonical Management Model](../images/17-design-principles/README.md) contains
   the canonical professional and experience models consumed by M6.
 - [Architecture Decision Records](../docs/adr/README.md) preserve durable

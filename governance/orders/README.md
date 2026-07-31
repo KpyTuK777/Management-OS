@@ -34,3 +34,6 @@ evidence, or approve their outputs.
 - [M8 — Milestone Opening Order](M8%20-%20Milestone%20Opening%20Order.md)
   — **Effective / Scope bounded**. Opens M8 and activates M8.1 as the single
   active stage without defining its architecture or authorizing later stages.
+- [M8.1 — Architectural Identity and Baseline Mapping Order](M8.1%20-%20Architectural%20Identity%20and%20Baseline%20Mapping%20Order.md)
+  — **Effective / Scope bounded**. Refines the active M8.1 working title and
+  definition scope without opening another stage or defining later-stage work.
