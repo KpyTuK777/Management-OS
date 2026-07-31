@@ -17,27 +17,28 @@ M7 — Governance Layer — Active
 ## Current Task
 
 ```text
-Architecture Definition — M7.3 Organizational Model
+Architecture Definition — M7.4 Development Lifecycle
 ```
 
 ## Dependencies
 
 - M7.1 Governance Structure — Closed and Canonical.
 - M7.2 Constitution — Closed and Canonical.
+- M7.3 Organizational Model — Closed and Canonical.
 - [Canonical Governance Structure](../governance/README.md).
 - [Canonical Constitution](../governance/normative/M7.2%20-%20Constitution.md).
+- [Canonical Organizational Model](../governance/normative/M7.3%20-%20Organizational%20Model.md).
 - Existing architecture control plane and preserved repository history.
 
 ## Expected Output
 
-One implementation-independent M7.3 Organizational Model candidate placed in
-`governance/normative/` and prepared within the constitutional authority,
-separation, ownership, scope, evidence, and review boundaries established by
-M7.1 and M7.2.
+One M7.4 Development Lifecycle candidate prepared under the repository-native
+M7.4 order and constrained by all canonical M7 dependencies.
 
-This opening backlog entry authorizes definition preparation only. It supplies
-no organizational role, body, reporting line, delegation, decision right,
-workflow, lifecycle, or autonomous procedure and does not authorize M7.4–M7.7.
+This opening backlog entry authorizes definition preparation only. It defines
+no lifecycle phase, state, gate, workflow, review procedure, transition,
+cadence, autonomous protocol, implementation method, or repository mechanism.
+It does not authorize M7.5–M7.7.
 
 ## Owner
 
@@ -52,28 +53,20 @@ canonicalize the future definition.
 ## Status
 
 ```text
-Approved for dependency use
-Canonical Review complete — Canonicalization pending
+Ready for Architecture Definition
 ```
 
-The Organizational Model is Architecture Approved and approved for dependency
-use. Independent Canonical Review returned `Canonical`. A separate authorized
-canonicalization and repository reconciliation transition is the next required
-action; M7.4 is not open.
+No M7.4 normative definition or evidence exists. Architect Council direction is
+required before substantive Development Lifecycle definition begins.
 
 ## Definition of Done
 
-- One M7.3 Organizational Model candidate exists in `governance/normative/`.
-- The candidate cites the canonical M7.1 Governance Structure and M7.2
-  Constitution.
+- One separately authorized M7.4 Development Lifecycle candidate exists in
+  `governance/normative/`.
+- The candidate cites the canonical M7.1 Governance Structure, M7.2
+  Constitution, and M7.3 Organizational Model.
 - Its purpose, authority, scope, dependencies, exclusions, status, and
   completion criteria are explicit.
-- It preserves accountable human authority and the constitutional separation of
-  direction, creation, judgment, and transition.
-- It remains implementation-independent.
-- It does not define M7.4 Development Lifecycle, M7.5 Autonomous Development
-  Protocol, M7.6 Retrospective, or M7.7 Governance Review substance.
-- It is indexed in the governance root and normative indexes.
 - Attributable evidence supports independent Architecture Review.
-- No approval, canonical status, or later-stage transition is claimed by the
-  definition commit.
+- No approval, canonical status, autonomous protocol, implementation mechanism,
+  or later-stage transition is claimed by the definition commit.

@@ -422,3 +422,22 @@ evidence conflict, the cited canonical document and Git history govern.
   separate canonicalization transition.
 - **Stage state:** M7 remains Active; M7.3 remains the only active stage. M7.4 is
   not open and no M7.4 work is authorized.
+
+### 2026-07-31 — M7.3 Organizational Model canonicalized
+
+- **Event:** the Architecture Approved and Canonical Review-complete
+  Organizational Model was canonicalized through a separate repository
+  transition.
+- **Canonical source:** `governance/normative/M7.3 - Organizational Model.md`.
+- **Reviewed revision:** commit `6a349443b9dfc71d3f3e6c7ea57186d3780d2bbf`.
+- **Review evidence:** `governance/reviews/M7.3 - Organizational Model
+  Architecture Review.md` and `governance/reviews/M7.3 - Organizational Model
+  Canonical Review.md`.
+- **Disposition:** M7.3 Organizational Model is Canonical and approved for
+  subsequent M7 dependency use within its organizational scope.
+- **Stage state:** M7.3 is Closed. M7 remains Active.
+- **Transition:** the repository-native M7.4 Development Lifecycle Order opens
+  M7.4 as the single active stage at `Ready for Architecture Definition`.
+- **Boundary:** no lifecycle phase, state, gate, workflow, review procedure,
+  transition, cadence, autonomous protocol, implementation mechanism, or
+  M7.5–M7.7 substance is introduced by this transition.

@@ -20,8 +20,9 @@ is recorded in the repository.
   architecture definitions, reviews, dispositions, and transitions.
 - [M7 Governance Layer](../governance/README.md) is the canonical M7 structure
   and index for normative governance, orders, evidence, reviews, and
-  retrospectives. M7.1 Governance Structure and M7.2 Constitution completed
-  their review and separate canonicalization lifecycles before M7.3 opened.
+  retrospectives. M7.1 Governance Structure, M7.2 Constitution, and M7.3
+  Organizational Model are Canonical; M7.4 Development Lifecycle is the sole
+  active stage and contains no substantive definition yet.
 - [Canonical Management Model](../images/17-design-principles/README.md) contains
   the canonical professional and experience models consumed by M6.
 - [Architecture Decision Records](../docs/adr/README.md) preserve durable

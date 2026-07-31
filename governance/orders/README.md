@@ -16,5 +16,8 @@ serve as completion evidence, or approve their outputs.
   Scope fulfilled**. The bounded constitutional-definition order is complete
   and grants no continuing or later-stage authority.
 - [M7.3 — Organizational Model Order](M7.3%20-%20Organizational%20Model%20Order.md)
-  — **Effective / Scope bounded**. Opens M7.3 as the single active stage without
-  defining organizational substance or authorizing later stages.
+  — **Completed / Scope fulfilled**. The bounded organizational-definition
+  order is complete and grants no continuing or later-stage authority.
+- [M7.4 — Development Lifecycle Order](M7.4%20-%20Development%20Lifecycle%20Order.md)
+  — **Effective / Scope bounded**. Opens M7.4 as the single active stage without
+  defining lifecycle substance or authorizing later stages.
