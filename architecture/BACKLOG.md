@@ -1,27 +1,26 @@
 # Architecture Backlog
 
-This file records the absence of an active architectural task after completion
-of the M7 Governance Layer. A new task requires separately recorded authority.
+This file contains exactly one active architectural task.
 
 ## Current Phase
 
 ```text
-Phase IV — M7 Governance Layer — Completed
+Phase V — M8 Operational Intelligence Evolution Architecture
 ```
 
 ## Current Milestone
 
 ```text
-M7 — Governance Layer — Completed / Closed
+M8 — Operational Intelligence Evolution Architecture — Active
 ```
 
-## Active Task
+## Current Task
 
 ```text
-None
+Architecture Definition — M8.1 Baseline and Corpus Mapping
 ```
 
-## Completed Baseline
+## Dependencies
 
 - M7.1 Governance Structure — Closed and Canonical.
 - M7.2 Constitution — Closed and Canonical.
@@ -31,6 +30,9 @@ None
 - M7.6 Governance Retrospective — Closed and Canonical as an institutional
   historical record.
 - M7.7 Governance Review — Closed and Canonical.
+- [Architecture Approved M8 Vision](M8_ARCHITECTURE_VISION.md).
+- [M8 Architecture Vision Architecture Review](../governance/reviews/M8%20-%20Architecture%20Vision%20Architecture%20Review.md).
+- [M8 Milestone Opening Order](../governance/orders/M8%20-%20Milestone%20Opening%20Order.md).
 - [Canonical Governance Structure](../governance/README.md).
 - [Canonical Constitution](../governance/normative/M7.2%20-%20Constitution.md).
 - [Canonical Organizational Model](../governance/normative/M7.3%20-%20Organizational%20Model.md).
@@ -43,40 +45,46 @@ None
 - [M7.7 Governance Review Canonical Review](../governance/reviews/M7.7%20-%20Governance%20Review%20Canonical%20Review.md).
 - Existing architecture control plane and preserved repository history.
 
-## Completion Record
+## Expected Output
 
-The separately authorized transition canonicalized the exact reviewed M7.7
-Governance Review, closed M7.7, and reconciled Milestone M7 to Completed /
-Closed. The completed Architecture and Canonical Review records remain
-preserved.
+One implementation-independent M8.1 Architectural Baseline and Corpus Map that
+identifies relevant architecture sources and classifies each source by identity,
+authority condition, scope, ownership, dependencies, overlap, and applicability
+to future integrated M8 analysis.
 
-No M8 work, successor milestone, successor stage, advisory adoption, or
-governance amendment is authorized or implied.
+This task authorizes architecture definition only. It does not authorize
+normative definition, implementation, canonicalization, later M8 stages,
+successor milestones, or modification of the reviewed Vision and Architecture
+Review.
 
 ## Owner
 
 ```text
-None
+Chief Architect
 ```
 
-No active task owner is assigned. Future direction requires separately recorded
-authority under the completed governance baseline.
+The Chief Architect owns the architectural definition and its Definition of
+Done. Independent review remains separate from artifact creation.
 
 ## Status
 
 ```text
-No active task
+Ready for Architecture Definition
 ```
 
-M7.7 is Canonical / Closed and Milestone M7 is Completed / Closed. The backlog
-contains zero active M7 tasks.
+M8 is Active and M8.1 is the sole active stage. No substantive M8.1 artifact has
+been created by the opening transition.
 
 ## Definition of Done
 
-- The exact reviewed revision and both independent review records are preserved
-  and attributable.
-- M7.1–M7.7 report their completed authority condition consistently.
-- Zero M7 stages and zero M7 backlog tasks are active.
-- Historical review, correction, and canonicalization evidence remains
-  discoverable.
-- No M8 or successor artifact, task, stage, or implied authorization exists.
+- Every material architecture source in the approved M8 scope is attributable
+  or explicitly identified as an unresolved inclusion question.
+- Each included source has an authority condition, owned scope, dependencies,
+  applicability, and overlap assessment.
+- Canonical, approved, exploratory, historical, and superseded sources remain
+  distinguishable.
+- Conflicts and gaps are recorded without silently modifying their sources.
+- The map remains implementation-independent and introduces no normative
+  authority, lifecycle, protocol, product design, or later-stage content.
+- Review readiness and evidence sufficiency are explicit and independently
+  testable.

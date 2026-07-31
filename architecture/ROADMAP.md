@@ -12,7 +12,7 @@ history but does not replace this roadmap.
 ## Current phase
 
 ```text
-Phase IV — M7 Governance Layer — Completed
+Phase V — M8 Operational Intelligence Evolution Architecture
 ```
 
 ## Completed milestones
@@ -27,29 +27,32 @@ Phase IV — M7 Governance Layer — Completed
 ## Active milestone
 
 ```text
-None
+M8 — Operational Intelligence Evolution Architecture — Active
 ```
 
-No milestone is active. M7 is Completed / Closed and no successor milestone is
-opened.
+M8 is opened by the repository-native
+[M8 Milestone Opening Order](../governance/orders/M8%20-%20Milestone%20Opening%20Order.md)
+after independent Architecture Approval of the
+[M8 Architecture Vision](M8_ARCHITECTURE_VISION.md).
 
 ## Active stage
 
 ```text
-None
+M8.1 — Baseline and Corpus Mapping — Ready for Architecture Definition
 ```
 
-All M7.1–M7.7 stages are Closed. M7.1–M7.5 and M7.7 are Canonical; M7.6 is
-Canonical as an institutional historical record. [BACKLOG.md](BACKLOG.md)
-contains no active task.
+M8.1 is the single active stage. Its bounded task and Definition of Done are
+defined in [BACKLOG.md](BACKLOG.md). No substantive M8.1 architecture exists
+through this opening transition.
 
 ## Successor stage
 
 ```text
-None defined
+None activated
 ```
 
-No successor milestone or stage is opened or inferred by M7 completion.
+The remaining sequence proposed by the reviewed Vision is not activated or
+authorized by this transition. No successor milestone is created.
 
 ## M7 stage sequence
 
@@ -63,8 +66,17 @@ No successor milestone or stage is opened or inferred by M7 completion.
 | 6 | M7.6 — Retrospective | Closed — Canonical Historical Record |
 | 7 | M7.7 — Governance Review | Closed — Canonical |
 
-M7 is Completed / Closed. Zero M7 stages are active. No successor milestone or
-stage is recorded.
+M7 is Completed / Closed and zero M7 stages are active. M8 was opened only by a
+later, separately reviewed and authorized transition.
+
+## M8 stage sequence
+
+| Sequence | Stage | Status |
+| ---: | --- | --- |
+| 1 | M8.1 — Baseline and Corpus Mapping | Active — Ready for Architecture Definition |
+
+M8 is Active. M8.1 is the only active stage. No later M8 stage or successor
+milestone is opened.
 
 ## Roadmap maintenance
 

@@ -15,8 +15,7 @@ is recorded in the repository.
 - [CHIEF_ARCHITECT.md](CHIEF_ARCHITECT.md) defines roles, handoffs, reviews, and
   stage-transition authority.
 - [ROADMAP.md](ROADMAP.md) is the single authoritative architectural roadmap.
-- [BACKLOG.md](BACKLOG.md) reports that no architectural task is active after
-  completion of M7.
+- [BACKLOG.md](BACKLOG.md) contains exactly one active architectural task.
 - [JOURNAL.md](JOURNAL.md) is the evidence-backed chronological record of
   architecture definitions, reviews, dispositions, and transitions.
 - [M7 Governance Layer](../governance/README.md) is the canonical M7 structure
@@ -26,7 +25,17 @@ is recorded in the repository.
   Development Protocol are Canonical; M7.6 Retrospective is Closed and
   Canonical as an institutional historical record; M7.7 Governance Review is
   Canonical and Closed; and Milestone M7 is Completed / Closed. No successor
-  milestone or task is opened.
+  authority is implied by M7 completion.
+- [M8 Architecture Vision](M8_ARCHITECTURE_VISION.md) is the independently
+  Architecture Approved basis for the now-open M8 milestone. M8.1 Baseline and
+  Corpus Mapping is the single active stage at `Ready for Architecture
+  Definition`; no substantive M8.1 architecture is introduced by the opening
+  transition.
+- [M8 Architecture Vision Architecture Review](../governance/reviews/M8%20-%20Architecture%20Vision%20Architecture%20Review.md)
+  preserves the exact reviewed revision, findings, advisories, and opening
+  authorization.
+- [M8 Milestone Opening Order](../governance/orders/M8%20-%20Milestone%20Opening%20Order.md)
+  records the bounded opening direction without defining future architecture.
 - [Canonical Management Model](../images/17-design-principles/README.md) contains
   the canonical professional and experience models consumed by M6.
 - [Architecture Decision Records](../docs/adr/README.md) preserve durable

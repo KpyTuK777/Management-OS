@@ -826,3 +826,29 @@ evidence conflict, the cited canonical document and Git history govern.
   canonical governance meaning, adopts no M7.6 recommendation, creates no M8 or
   successor milestone or stage, and authorizes no successor work.
 - **Final state:** zero active M7 stages and zero active M7 backlog tasks.
+
+### 2026-07-31 — Milestone M8 opened
+
+- **Event:** a separate repository transition opened M8 Operational
+  Intelligence Evolution Architecture after independent Architecture Approval
+  of its exploratory Vision.
+- **Reviewed Vision:** commit
+  `35f65a66e76c8456f4b690c55d9e665bb196454b`; Vision blob
+  `f17ec6b6ad1200ac4e06f070e10767dfa6335471`.
+- **Architecture Review:** commit
+  `50cd3e99398b3c0f5f1b31d99340fd62a8f19782`; record
+  `governance/reviews/M8 - Architecture Vision Architecture Review.md`.
+- **Opening authority:** `governance/orders/M8 - Milestone Opening Order.md`,
+  recording Architect Council direction and the separate Chief Architect
+  transition authority.
+- **Milestone state:** M8 — Active.
+- **Stage state:** M8.1 Baseline and Corpus Mapping is the sole active stage at
+  `Ready for Architecture Definition`.
+- **Backlog state:** exactly one active task, `Architecture Definition — M8.1
+  Baseline and Corpus Mapping`.
+- **Preservation:** the reviewed Vision and its Architecture Review remain
+  unchanged and attributable.
+- **Boundary:** the opening transition defines no M8 architecture artifact,
+  normative source, lifecycle, protocol, product design, implementation,
+  repository mechanism, later M8 stage, or successor milestone and claims no
+  canonical authority beyond the recorded Architecture Review.

@@ -300,7 +300,9 @@ M7.6 is Closed with one Canonical Historical Record, its completed order, and
 completed Architecture and Canonical Reviews. M7.7 is Closed with one Canonical
 Governance Review, its completed order, and its preserved Architecture and
 Canonical Reviews. Milestone M7 is Completed / Closed. Child indexes list each
-artifact only in its applicable class; no successor milestone is opened.
+artifact only in its applicable class. The later M8 opening is separately
+recorded in the architecture control plane and creates no continuing M7
+authority.
 
 # 9. Dependency Direction
 

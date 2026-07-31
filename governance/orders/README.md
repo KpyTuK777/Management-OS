@@ -2,9 +2,10 @@
 
 ## Structural contract
 
-This directory is reserved for repository-recorded M7 governance orders. Orders
-scope work under cited authority; they do not create durable normative meaning,
-serve as completion evidence, or approve their outputs.
+This directory indexes repository-recorded governance and architecture orders
+prepared under the canonical governance baseline. Orders scope work under cited
+authority; they do not create durable normative meaning, serve as completion
+evidence, or approve their outputs.
 
 ## Artifacts
 
@@ -30,3 +31,6 @@ serve as completion evidence, or approve their outputs.
 - [M7.7 — Governance Review Order](M7.7%20-%20Governance%20Review%20Order.md)
   — **Completed / Scope fulfilled**. The bounded Governance Review order is
   complete and grants no continuing, M8, or successor authority.
+- [M8 — Milestone Opening Order](M8%20-%20Milestone%20Opening%20Order.md)
+  — **Effective / Scope bounded**. Opens M8 and activates M8.1 as the single
+  active stage without defining its architecture or authorizing later stages.
