@@ -137,3 +137,25 @@ evidence conflict, the cited canonical document and Git history govern.
 - **Escalation:** not required because the Charter and existing canonical
   architecture fully bound the corrections.
 - **Milestone state:** M6 remains Active.
+
+### 2026-07-31 — M6.C1 Iconography Implementation Contract defined
+
+- **Event:** RC-01 architecture definition created within the single active M6
+  Completion Corrections stage.
+- **Document state:** Ready for Architecture Review.
+- **Defined scope:** exact semantic source binding; symbol definition and
+  occurrence lifecycles; IS-01–IS-10; qualifier, modifier, composition, and
+  ambiguity rules; accessibility and cross-platform equivalence; degradation,
+  recovery, lifecycle governance, adapter boundary, Design-to-Code traceability,
+  and Conformance evidence.
+- **Authority preserved:** Canonical Visual Semantics remains the sole visual
+  meaning authority; Canonical Design Semantics and Semantic Token Architecture
+  retain their ownership; `Canonical Iconography.md` remains Research Only —
+  Advisory.
+- **Disposition:** no approval recorded by this definition entry. Independent
+  Architecture Review remains required.
+- **Milestone state:** M6 remains Active. The single M6 Completion Corrections
+  backlog stage remains Active while RC-02 proceeds; neither Roadmap completion
+  nor M6 closure is recorded.
+- **Evidence:** `images/17-design-principles/M6.C1 - Iconography Implementation
+  Contract.md`; definition commit containing this entry.
