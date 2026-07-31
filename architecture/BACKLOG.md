@@ -17,7 +17,7 @@ M7 — Governance Layer — Active
 ## Current Task
 
 ```text
-Architecture Review — M7.7 Governance Review
+Canonical Review — M7.7 Governance Review
 ```
 
 ## Dependencies
@@ -40,14 +40,15 @@ Architecture Review — M7.7 Governance Review
 
 ## Expected Output
 
-Independent Architecture Review of the completed
+Independent Canonical Review of the Architecture Approved
 [M7.7 Governance Review](../governance/reviews/M7.7%20-%20Governance%20Review.md)
-against its order, canonical M7.1–M7.6 dependencies, evidence boundary, and
-declared conformance conditions.
+against its exact reviewed revision, completed Architecture Review, canonical
+M7.1–M7.6 dependencies, evidence boundary, and declared conformance conditions.
 
-This task authorizes Architecture Review only. It does not approve the review
-candidate, amend canonical governance, close M7, open a successor stage, adopt
-advisory recommendations, or perform a repository transition.
+This task authorizes Canonical Review only. It does not predetermine the
+disposition, canonicalize M7.7, amend canonical governance, close M7, open a
+successor stage, adopt advisory recommendations, or perform a repository
+transition.
 
 ## Owner
 
@@ -62,19 +63,21 @@ disposition.
 ## Status
 
 ```text
-Ready for Architecture Review
+Ready for Canonical Review
 ```
 
-The M7.7 Governance Review candidate exists and is indexed. Its submitted
-conclusion is evaluative only and awaits independent Architecture Review.
+The exact M7.7 Governance Review revision is Architecture Approved and approved
+for Governance Review. Its submitted conclusion remains evaluative and awaits
+independent Canonical Review.
 
 ## Definition of Done
 
-- The Architecture Review identifies the exact reviewed revision and review
-  authority.
-- Independence from candidate preparation is explicit.
+- The Canonical Review identifies the exact reviewed revision, completed
+  Architecture Review, review authority, and independence.
+- Canonical M7.1–M7.6 remains fixed and the submitted conclusion remains
+  evaluative rather than self-approving.
 - Completeness, coherence, operational consistency, baseline suitability,
   evidence sufficiency, and authority boundaries receive explicit findings.
-- Any correction is finite and returns to the Architecture Review gate.
-- A positive disposition authorizes only the separately defined final
-  transition; it does not itself close M7 or amend governance.
+- Any correction is finite and names the return gate.
+- A positive disposition authorizes only a separately ordered final transition;
+  it does not itself canonicalize M7.7, close M7, or create successor work.

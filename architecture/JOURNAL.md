@@ -752,3 +752,30 @@ evidence conflict, the cited canonical document and Git history govern.
   perform a transition.
 - **Stage state:** M7 remains Active; M7.7 remains the sole active stage at
   `Ready for Architecture Review`.
+
+### 2026-07-31 — M7.7 Governance Review Architecture Review recorded
+
+- **Event:** the Architect Council completed and recorded its independent
+  Architecture Review of the M7.7 Governance Review.
+- **Reviewed revision:** commit
+  `32c46a8fda080a23b39a9410fd8165558177db3d`; Governance Review blob
+  `7d7c18f8131d1fbbc1ffd07816f202fde5a83e9d`.
+- **Review authority:** Architect Council, independent from candidate creation.
+- **Findings:** the candidate remains evaluative, treats M7.1–M7.6 as fixed,
+  separates evidence, observations, conclusions, review, and transition,
+  preserves all canonical authority boundaries, and introduces no amendment,
+  successor, or out-of-scope governance substance.
+- **Submitted conclusion:** `Governance Architecture Complete` is adequately
+  supported but remains a reviewed conclusion rather than approval or
+  transition.
+- **Disposition:** Architecture Approved; Approved for Governance Review; Ready
+  for Canonical Review.
+- **Evidence:** `governance/reviews/M7.7 - Governance Review Architecture
+  Review.md` and the fixed evidence map in the reviewed revision.
+- **Advisory boundary:** M7.6 recommendations remain advisory and are not
+  adopted by this disposition.
+- **Authority boundary:** Architecture Approval does not perform Canonical
+  Review, canonicalize M7.7, close Milestone M7, create a successor stage, or
+  authorize successor work.
+- **Stage state:** M7 remains Active; M7.7 remains the sole active stage at
+  `Ready for Canonical Review`.
