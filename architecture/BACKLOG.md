@@ -17,51 +17,59 @@ M6 — Canonical Operational Design System
 ## Current Task
 
 ```text
-Architecture Review — M6.15 Conformance and Governance Framework
+M6 Final Review — Canonical Operational Design System
 ```
 
 ## Authority
 
-The Chief Architect / Executive Director owns the independent review. The Lead
-Engineer produced the definition and cannot review or approve its own work.
+The Executive Director performs the independent final review against every M6
+Charter completion criterion and the complete approved dependency set.
 
 ## Dependencies
 
-- All approved M6.1–M6.14 Presentation Architecture documents.
-- Canonical Management Model and approved M6 source architectures.
+- M6 Charter.
+- Canonical Management Model and canonical M6 input architectures.
+- All M6.1–M6.15 definitions and available Architecture Review records.
+- Architecture Journal, Roadmap, Backlog, indexes, and Git history.
 
 ## Expected Output
 
-One independent, evidence-backed M6.15 Architecture Review record.
+One evidence-backed M6 Final Review returning exactly:
+
+```text
+Canonical Operational Design System Complete
+```
+
+or:
+
+```text
+Canonical Operational Design System Requires Corrections
+```
 
 ## Owner
 
 ```text
-Chief Architect / Executive Director
+Executive Director
 ```
-
-The M6 Final Review remains a separate subsequent gate.
 
 ## Status
 
 ```text
-Ready for Architecture Review
+Ready for Final Review
 ```
 
 ## Definition of Done
 
-- Review the complete Conformance Contract, CF-01–CF-16 taxonomy, all 40
-  conformance invariants, evidence architecture, verdict lifecycle, correction,
-  expiry, and requalification.
-- Independently review the complete Governance Contract, all 36 governance
-  invariants, authority separation, change control, compatibility, migration,
-  exceptions, history, and conflict escalation.
-- Verify exact-revision traceability to every approved M6.1–M6.14 owner and no
-  implementation leakage.
-- Record evidence, findings, repository consistency, and exactly one explicit
-  Architecture Review disposition.
-- Keep M6 Active.
-- Do not infer milestone closure or Roadmap completion from a positive M6.15
-  review.
-- Record that the separate M6 Final Review has not yet been completed and
-  remains the next required gate.
+- Review every one of the 15 M6 Charter completion criteria.
+- Verify every required M6 output responsibility exists, is approved, and is
+  independently reviewable.
+- Verify exact dependency, ownership, identifier, and revision consistency.
+- Verify cross-canonical and cross-platform equivalence, degradation, recovery,
+  and governance.
+- Verify every required individual Architecture Review record and unresolved
+  correction.
+- Record repository consistency, evidence limitations, risks, and exactly one
+  Charter-authorized verdict.
+- If Complete, close M6 and advance the Roadmap.
+- If Requires Corrections, keep M6 Active and replace this backlog with exactly
+  one finite correction order.

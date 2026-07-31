@@ -109,3 +109,15 @@ evidence conflict, the cited canonical document and Git history govern.
 - **Next required action:** independent M6.15 Architecture Review. The separate
   M6 Final Review has not been completed and remains the subsequent gate. No
   approval or M6 completion is recorded by this entry.
+
+### 2026-07-31 — M6.15 Architecture Review approved
+
+- **Event:** Independent Architecture Review completed.
+- **Disposition:** Approved for M6 dependency use.
+- **Findings:** no M6.15 blocking or advisory corrections.
+- **Evidence:** `images/17-design-principles/M6.15 - Conformance and Governance
+  Framework Architecture Review.md`; review commit containing this entry.
+- **Reservation:** aggregate Charter completeness and historical review-record
+  completeness remain exclusively for the M6 Final Review.
+- **Transition:** M6 remains Active; M6 Final Review becomes the single active
+  gate.
