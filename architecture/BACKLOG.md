@@ -1,44 +1,69 @@
 # Architecture Backlog
 
-No active architecture task exists because the authoritative architecture
-roadmap is complete.
+This file contains exactly one active architectural task.
 
 ## Current Phase
 
 ```text
-Phase III-B — Operational Core / M6 Product Realization — Complete
+Phase IV — M7 Governance Layer
 ```
 
 ## Current Milestone
 
 ```text
-M6 — Canonical Operational Design System — Closed
+M7 — Governance Layer — Active
 ```
 
 ## Current Task
 
 ```text
-None
+Architecture Definition / Structure Design — M7.1 Governance Structure
 ```
+
+## Dependencies
+
+- Product Owner M7 Governance Layer Order.
+- Closed M6 Canonical Operational Design System and its review evidence.
+- Existing Architecture control-plane ownership and repository history.
+
+## Expected Output
+
+One canonical, implementation-independent Governance Layer structure and index
+artifact defining directory boundaries, future-section ownership, naming,
+status, indexing, dependency direction, artifact-class separation, and
+repository-truth authority without defining M7.2–M7.6 substance.
+
+## Owner
+
+```text
+Lead Engineer
+```
+
+The Chief Architect owns independent Architecture Review and transition
+approval. The Lead Engineer cannot approve this definition.
 
 ## Status
 
 ```text
-Roadmap Complete
+Ready for Architecture Review
 ```
 
-## Completion Evidence
+## Definition of Done
 
-- The repeat M6 Final Review returned `Canonical Operational Design System
-  Complete`.
-- All fifteen M6 Charter completion criteria passed.
-- All seventeen required responsibilities have approved contracts and review
-  evidence.
-- M6 corrections RC-01–RC-03 are complete and historically preserved.
-- The Architecture Journal and Roadmap record M6 closure.
-
-## Next Action
-
-No task may be inferred beyond the exhausted Roadmap. New work requires an
-explicit Product Owner direction or an Architect-approved extension recorded
-through normal governance.
+- `governance/` exists with one canonical structure-design/index artifact.
+- The directory tree is defined before substantive M7.2–M7.6 documents.
+- Normative definitions, orders, evidence, reviews, and retrospectives have
+  separate locations and non-overlapping ownership.
+- Future M7.2–M7.7 artifact locations are reserved without defining their
+  substantive contracts or findings.
+- Naming, status, and index rules are deterministic.
+- Dependency direction is explicit and prevents lower artifacts from becoming
+  normative authority.
+- Repository evidence is authoritative and chat memory is explicitly
+  non-authoritative.
+- M7 is Active and M7.1 is the only active stage.
+- M7.2–M7.7 remain Planned.
+- Links and repository statuses are consistent.
+- No Constitution, role contract, lifecycle, protocol, retrospective content,
+  implementation code, or self-review is introduced.
+- The result is ready for independent Architecture Review.

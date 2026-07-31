@@ -3,89 +3,74 @@
 ## Authority
 
 This is the single authoritative roadmap for product architecture. It owns
-architectural phase, milestone sequence, and transition from the Canonical
-Management Model into product realization.
+architectural phase, milestone sequence, and approved stage transitions.
 
 Delivery timing remains in delivery trackers. Canonical documents remain the
-source of truth for professional meaning. The Architecture Journal records
+source of truth for their owned meaning. The Architecture Journal records
 history but does not replace this roadmap.
 
 ## Current phase
 
 ```text
-Phase III-B — Operational Core / M6 Product Realization — Complete
+Phase IV — M7 Governance Layer
 ```
 
-## Completed stages
+## Completed milestones
 
-- Canonical Foundation.
-- Canonical Experience.
+- Canonical Foundation and Canonical Experience.
 - Canonical Management Model integration and final confirmation.
-- M6 Charter and M6.1–M6.9 — approved architecture sequence.
-- M6.10 — Rendering Contracts and Platform Adapters — Approved for M6
-  dependency use.
-- M6.11 — Accessibility Model — Approved for M6 dependency use.
-- M6.12 — Motion Semantics — Approved for M6 dependency use.
-- M6.13 — AI and Conversational Adapters — Approved for M6 dependency use.
-- M6.14 — Design-to-Code Mapping — Approved for M6 dependency use.
-- M6.15 — Conformance and Governance Framework — Approved for M6 dependency
-  use.
-- M6 Completion Corrections RC-01–RC-03 — completed and independently
-  reviewed.
-- M6 — Canonical Operational Design System — Closed by the Charter-authorized
-  verdict `Canonical Operational Design System Complete`.
+- M6 — Canonical Operational Design System — Closed by the verdict
+  `Canonical Operational Design System Complete`.
+
+## Active milestone
+
+```text
+M7 — Governance Layer — Active
+```
 
 ## Active stage
 
 ```text
-None — Architecture Roadmap Complete
+M7.1 — Governance Structure — Ready for Architecture Review
 ```
 
-The repeat M6 Final Review passed all fifteen Charter completion criteria.
-There is no active architecture stage or inferred successor milestone.
+M7.1 defines the Governance Layer directory structure, artifact-class ownership,
+naming, status, indexing, dependency direction, and repository-truth boundary.
+The current task and completion criteria are defined in
+[BACKLOG.md](BACKLOG.md).
 
 ## Next stage
 
 ```text
-None
+M7.2 — Constitution
 ```
 
-Future architecture requires explicit Product Owner direction or an
-Architect-approved Roadmap extension.
+M7.2 may enter the backlog only after M7.1 receives a positive independent
+Architecture Review disposition.
 
-## Stage sequence
+## M7 stage sequence
 
 | Sequence | Stage | Status |
 | ---: | --- | --- |
-| 1 | Canonical Management Model | Closed |
-| 2 | M6 Charter | Closed |
-| 3 | Canonical Design Object Model | Closed |
-| 4 | Canonical Design Semantics | Approved for dependency use |
-| 5 | Canonical Rendering Model | Approved for dependency use |
-| 6 | Semantic Token Architecture | Approved for dependency use |
-| 7 | Presentation State Model | Approved for dependency use |
-| 8 | Canonical Component Model | Approved for dependency use |
-| 9 | Composition and Layout System | Approved for dependency use |
-| 10 | Canonical Interaction Patterns | Approved for dependency use |
-| 11 | Navigation Representation Model | Approved for dependency use |
-| 12 | Rendering Contracts and Platform Adapters | Approved for dependency use |
-| 13 | Accessibility Model | Approved for dependency use |
-| 14 | Motion Semantics | Approved for dependency use |
-| 15 | AI and Conversational Adapters | Approved for dependency use |
-| 16 | Design-to-Code Mapping | Approved for dependency use |
-| 17 | Conformance and Governance Framework | Approved for dependency use |
-| 18 | M6 Final Review | Requires Corrections |
-| 19 | M6 Completion Corrections | Completed |
-| 20 | Repeat M6 Final Review | Closed — Canonical Operational Design System Complete |
+| 1 | M7.1 — Governance Structure | Active — Ready for Architecture Review |
+| 2 | M7.2 — Constitution | Planned |
+| 3 | M7.3 — Organizational Model | Planned |
+| 4 | M7.4 — Development Lifecycle | Planned |
+| 5 | M7.5 — Autonomous Development Protocol | Planned |
+| 6 | M7.6 — Retrospective | Planned |
+| 7 | M7.7 — Governance Review | Planned |
 
-M6 is Closed. The architecture roadmap is exhausted.
+M7 remains Active. No M7.2–M7.7 stage is active and no M7 completion is
+recorded.
 
 ## Roadmap maintenance
 
 - The Chief Architect owns stage order and transition approval.
-- Closed stages retain their recorded outcome and provenance.
-- A newly discovered dependency is recorded before dependent work starts.
+- The Product Owner authorizes milestone direction.
+- Closed milestones retain their recorded outcome and provenance.
 - Only one stage supplies the active task in `BACKLOG.md`.
-- A positive review disposition must be recorded before dependent work begins.
-- M6 completion requires its final review and cannot be inferred from completion
-  of an individual architecture definition.
+- A positive independent review disposition is required before dependent work.
+- No stage may be inferred from chat memory when repository state can establish
+  it.
+- M7 closes only through its authorized final review and consistent repository
+  reconciliation.

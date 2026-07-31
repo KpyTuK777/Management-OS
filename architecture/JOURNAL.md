@@ -212,3 +212,36 @@ evidence conflict, the cited canonical document and Git history govern.
 - **Implementation boundary:** M6 is architecture-complete and eligible for
   separately ordered engineering realization. This transition selects no
   implementation technology or mechanism.
+
+### 2026-07-31 — M7 Governance Layer ordered
+
+- **Event:** The Product Owner explicitly opened M7 after the M6 roadmap was
+  exhausted.
+- **Milestone:** M7 — Governance Layer.
+- **Authorized sequence:** M7.1 Governance Structure followed by planned
+  M7.2–M7.7 stages.
+- **Repository transition:** M7 becomes Active; M7.1 becomes the single active
+  architecture stage.
+- **Authority boundary:** the order authorizes roadmap extension and M7.1
+  structure design. It does not itself define or approve future governance
+  substance.
+
+### 2026-07-31 — M7.1 Governance Structure defined
+
+- **Event:** The dedicated `governance/` layer, canonical root index, and
+  artifact-class boundary indexes were created before substantive governance
+  documents.
+- **Document state:** Ready for Architecture Review.
+- **Defined scope:** directory tree; ownership; separation of normative
+  definitions, orders, evidence, reviews, and retrospectives; naming, status,
+  indexing, dependency direction, and repository-truth rules.
+- **Reserved only:** M7.2 Constitution, M7.3 Organizational Model, M7.4
+  Development Lifecycle, M7.5 Autonomous Development Protocol, M7.6
+  Retrospective, and M7.7 Governance Review. No reserved substantive content is
+  defined.
+- **Evidence:** `governance/README.md`, its child boundary indexes,
+  `architecture/ROADMAP.md`, and `architecture/BACKLOG.md`; definition commit
+  containing this entry.
+- **Disposition:** no approval is recorded. Independent M7.1 Architecture Review
+  is the next required action.
+- **Milestone state:** M7 remains Active.
