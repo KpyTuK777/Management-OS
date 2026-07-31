@@ -17,27 +17,19 @@ M6 — Canonical Operational Design System
 ## Current Task
 
 ```text
-Architecture Review — M6.10 Rendering Contracts and Platform Adapters
+Architecture Review — M6.11 Accessibility Model
 ```
 
 ## Dependencies
 
+- All approved M6.1–M6.10 Presentation Architecture documents.
+- M6.10 Rendering Contracts and Platform Adapters — Approved for dependency
+  use.
 - Canonical Management Model — Confirmed.
-- M6 Canonical Operational Design System Charter — Architecture Definition
-  complete.
-- M6 Canonical Design Object Model — Architecture Definition complete.
-- M6 Canonical Design Semantics — Approved.
-- M6.3 Canonical Rendering Model — Approved.
-- M6.4 Semantic Token Architecture — Approved.
-- M6.5 Presentation State Model — Approved.
-- M6.6 Canonical Component Model — Approved.
-- M6.7 Composition and Layout System — Approved.
-- M6.8 Canonical Interaction Patterns — Approved.
-- M6.9 Navigation Representation Model — Approved.
 - Canonical Operational Navigation — Canonical.
 - Operational Navigation Governance — Canonical.
-- M6.10 Rendering Contracts and Platform Adapters — Architecture Definition prepared for
-  review.
+- Canonical Operational Interaction Language — Canonical.
+- M6.11 Accessibility Model — Architecture Definition prepared for review.
 
 ## Expected Output
 
@@ -53,11 +45,10 @@ or:
 Approved with Required Corrections
 ```
 
-The disposition must establish whether Rendering Contract purpose, ownership,
-lifecycle, AC-01–AC-11 taxonomy, Adapter Contract Set, capability matching,
-guarantees, prohibited transformations, fallback, degradation, determinism,
-three-layer platform boundary, invariants, and conformance evidence are
-complete.
+The disposition must establish whether the Accessibility Contract, AO-01–AO-08
+taxonomy, preservation rules, modality equivalence, degradation, recovery,
+adapter boundary, invariants, and conformance evidence are complete and
+implementation-independent.
 
 ## Owner
 
@@ -76,16 +67,23 @@ Ready for Architecture Review
 
 ## Definition of Done
 
-- The document is reviewed against every approved dependency listed above.
-- AC-01–AC-11 are complete, mutually bounded, and collectively cover all
-  presentation architecture obligations.
-- Capability matching, fallback order, degradation, qualification, and
-  deterministic rendering rules are unambiguous.
-- Canonical Presentation Architecture, Platform Adapter, and Platform UI
-  Framework ownership remain mutually exclusive.
-- The adapter changes no upstream canonical object, meaning, ownership,
-  authority, lifecycle, navigation, history, or Current Situation.
+- The document is reviewed against all approved M6.1–M6.10 dependencies.
+- Accessibility purpose, ownership, lifecycle, responsibilities, and invariants
+  are complete.
+- AO-01–AO-08 are mutually bounded and collectively cover semantic
+  discoverability, operability, perceivability, structural navigation,
+  interaction equivalence, presentation equivalence, degradation, and recovery.
+- Semantic meaning, interaction outcomes, navigation continuity, and
+  professional intent remain equivalent across supported modalities.
+- Degradation and recovery are deterministic, explicit, bounded, and
+  reviewable.
+- Canonical Accessibility Model, Platform Accessibility Adapter, and Platform
+  Accessibility APIs have mutually exclusive ownership.
+- No platform-specific accessibility mechanism or implementation decision
+  enters the canonical model.
 - The Architecture Review verdict and evidence are recorded in the repository.
 - All required corrections are absent or resolved.
-- `ROADMAP.md` is advanced to the approved next stage.
-- This file is replaced with exactly one task for that stage.
+- The M6 milestone remains Active.
+- `ROADMAP.md` completion is not advanced by this task.
+- This file remains at `Ready for Architecture Review` until the review
+  disposition is recorded.
