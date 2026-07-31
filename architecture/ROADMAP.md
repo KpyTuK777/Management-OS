@@ -67,7 +67,7 @@ Review may begin only after the M6.15 definition and evidence commit exists.
 | 14 | Motion Semantics | Approved for dependency use |
 | 15 | AI and Conversational Adapters | Approved for dependency use |
 | 16 | Design-to-Code Mapping | Approved for dependency use |
-| 17 | Conformance and Governance Framework | Active — Ready for Architecture Definition |
+| 17 | Conformance and Governance Framework | Active — Ready for Architecture Review |
 | 18 | M6 Final Review | Planned |
 
 M6 remains Active. This roadmap does not record M6 completion.

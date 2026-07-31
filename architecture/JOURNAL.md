@@ -93,3 +93,19 @@ evidence conflict, the cited canonical document and Git history govern.
 - **Milestone state:** M6 remains Active.
 - **Next required action:** Lead Engineer definition commit followed by an
   independent Architecture Review and M6 Final Review.
+
+### 2026-07-31 — M6.15 Conformance and Governance Framework defined
+
+- **Event:** Architecture definition created for the two remaining M6 Charter
+  responsibilities.
+- **Document state:** Ready for Architecture Review.
+- **Evidence:** `images/17-design-principles/M6.15 - Conformance and Governance
+  Framework.md`; definition commit containing this journal entry.
+- **Defined scope:** independently reviewable Conformance and Governance
+  Contracts; CF-01–CF-16; 40 conformance and 36 governance invariants;
+  exact-revision evidence, deterministic verdicts, correction,
+  requalification, change governance, authority separation, and final M6 gates.
+- **Milestone state:** M6 remains Active.
+- **Next required action:** independent M6.15 Architecture Review. The separate
+  M6 Final Review has not been completed and remains the subsequent gate. No
+  approval or M6 completion is recorded by this entry.
