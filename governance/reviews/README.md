@@ -2,9 +2,10 @@
 
 ## Structural contract
 
-This directory is reserved for independent M7 review records. A review names its
-scope, dependencies, evidence, findings, corrections, and explicit disposition.
-It cannot silently amend its reviewed source or substitute for evidence.
+This directory indexes independent governance and architecture review records
+prepared under the canonical governance baseline. A review names its scope,
+dependencies, evidence, findings, corrections, and explicit disposition. It
+cannot silently amend its reviewed source or substitute for evidence.
 
 ## Artifacts
 
@@ -58,3 +59,7 @@ It cannot silently amend its reviewed source or substitute for evidence.
   — **Completed — Canonical**. Records the independent canonical findings and
   authorizes a separate M7.7 canonicalization transition without closing M7 or
   authorizing M8.
+- [M8 — Architecture Vision Architecture Review](M8%20-%20Architecture%20Vision%20Architecture%20Review.md)
+  — **Completed — Approved**. Approves the exact exploratory Architecture Vision
+  as the architectural basis for a separately authorized M8 opening without
+  opening M8, activating a stage, or creating work.
