@@ -12,3 +12,6 @@ serve as completion evidence, or approve their outputs.
   — **Completed / Scope fulfilled**. Repository-native Product Owner authority
   that opened M7 and bounded the now-closed M7.1 stage without approving its
   output.
+- [M7.2 — Constitution Order](M7.2%20-%20Constitution%20Order.md) — **Effective /
+  Scope bounded**. Authorizes the M7.2 constitutional definition only and grants
+  no approval or later-stage authority.

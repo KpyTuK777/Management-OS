@@ -81,6 +81,9 @@ artifact is indexed here and in its artifact-class index.
 | M7.1 | Governance Structure Correction Evidence | Evidence | Accepted review evidence | [Evidence](evidence/M7.1%20-%20Governance%20Structure%20Correction%20Evidence.md) |
 | M7.1 | Governance Structure Architecture Review | Review | Completed — Approved | [Review](reviews/M7.1%20-%20Governance%20Structure%20Architecture%20Review.md) |
 | M7.1 | Governance Structure Canonical Review | Review | Completed — Approved | [Review](reviews/M7.1%20-%20Governance%20Structure%20Canonical%20Review.md) |
+| M7.2 | Constitution Order | Order | Effective / Scope bounded | [Order](orders/M7.2%20-%20Constitution%20Order.md) |
+| M7.2 | Constitution | Normative definition | Ready for Architecture Review | [Definition](normative/M7.2%20-%20Constitution.md) |
+| M7.2 | Constitution Definition Evidence | Evidence | Prepared for Architecture Review | [Evidence](evidence/M7.2%20-%20Constitution%20Definition%20Evidence.md) |
 
 # 3. Directory Ownership
 
@@ -258,9 +261,10 @@ Rules:
 9. Index text cannot broaden the linked artifact's authority.
 
 The completed M7.1 artifact set consists of this structure design, its opening
-order, correction evidence, Architecture Review, and Canonical Review. Child
-indexes list those artifacts only in their applicable classes. M7.2 is active,
-but no M7.2 substantive definition exists at this transition.
+order, correction evidence, Architecture Review, and Canonical Review. M7.2 is
+active with one review-ready Constitution candidate, its bounded order, and
+definition evidence. Child indexes list each artifact only in its applicable
+class; M7.3–M7.7 remain without substantive artifacts.
 
 # 9. Dependency Direction
 

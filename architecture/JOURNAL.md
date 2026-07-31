@@ -283,3 +283,25 @@ evidence conflict, the cited canonical document and Git history govern.
 - **Transition:** M7.2 Constitution becomes the single active architecture
   stage at `Ready for Architecture Definition`. No Constitution substance is
   defined by this transition.
+
+### 2026-07-31 — M7.2 Constitution defined
+
+- **Event:** the implementation-independent constitutional candidate was
+  defined under the repository-native M7.2 Constitution Order.
+- **Document state:** Ready for Architecture Review.
+- **Defined scope:** governance purpose; bounded constitutional authority;
+  immutable principles; scope-aware authority hierarchy; separation of
+  direction, creation, judgment, and transition; governance invariants;
+  amendment constraints; precedence; interpretation; constitutional scope; and
+  conformance tests.
+- **Excluded:** future organizational roles and structure, operational
+  workflows, Development Lifecycle, autonomous execution procedures,
+  implementation methodology, review procedures, repository structure, and all
+  M7.3–M7.7 substance.
+- **Evidence:** `governance/normative/M7.2 - Constitution.md`,
+  `governance/orders/M7.2 - Constitution Order.md`, and
+  `governance/evidence/M7.2 - Constitution Definition Evidence.md` in the
+  definition commit containing this entry.
+- **Disposition:** no approval, dependency-use authority, or canonical status is
+  recorded. Independent Architecture Review is the next required action.
+- **Stage state:** M7 remains Active; M7.2 remains the only active stage.

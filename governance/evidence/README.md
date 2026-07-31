@@ -11,3 +11,7 @@ revisions. It cannot create normative authority, priority, or a verdict.
 - [M7.1 — Governance Structure Correction Evidence](M7.1%20-%20Governance%20Structure%20Correction%20Evidence.md)
   — **Accepted review evidence**. Maps the six approved findings to bounded
   corrections and affected artifacts supporting the completed reviews.
+- [M7.2 — Constitution Definition Evidence](M7.2%20-%20Constitution%20Definition%20Evidence.md)
+  — **Prepared for Architecture Review**. Maps every ordered constitutional
+  concern and exclusion to the review-ready candidate without recording a
+  verdict.
