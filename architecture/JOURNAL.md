@@ -261,3 +261,25 @@ evidence conflict, the cited canonical document and Git history govern.
 - **Disposition:** no approval is recorded. The corrected candidate remains
   `Ready for Architecture Review` and awaits independent Architect Council
   review.
+
+### 2026-07-31 — M7.1 Governance Structure approved and canonicalized
+
+- **Reviewed revision:** commit `2435a437a99f921d9994288930b4aa8177612f02`
+  (`docs(governance): reconcile M7.1 review corrections`).
+- **Architecture Review:** Approved. All six finite findings are resolved; the
+  structure is complete, internally consistent, acyclic, uniquely owned, and
+  non-duplicative of the Architecture control plane.
+- **Canonical Review:** Approved. The structure has unique ownership,
+  terminology consistency, dependency integrity, implementation independence,
+  and no unresolved critical risk.
+- **Evidence:** `governance/evidence/M7.1 - Governance Structure Correction
+  Evidence.md`; `governance/reviews/M7.1 - Governance Structure Architecture
+  Review.md`; `governance/reviews/M7.1 - Governance Structure Canonical
+  Review.md`.
+- **Canonicalization:** recorded through the separate reconciliation commit
+  containing this entry. The Governance Structure is Canonical and approved for
+  M7 dependency use.
+- **Milestone state:** M7 remains Active; M7.1 is Closed.
+- **Transition:** M7.2 Constitution becomes the single active architecture
+  stage at `Ready for Architecture Definition`. No Constitution substance is
+  defined by this transition.

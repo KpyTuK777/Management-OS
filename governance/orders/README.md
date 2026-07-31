@@ -9,5 +9,6 @@ serve as completion evidence, or approve their outputs.
 ## Artifacts
 
 - [M7.1 — Governance Structure Order](M7.1%20-%20Governance%20Structure%20Order.md)
-  — **Effective / Scope bounded**. Repository-native Product Owner authority to
-  open M7 and prepare M7.1 without authorizing M7.2 or approving the M7.1 output.
+  — **Completed / Scope fulfilled**. Repository-native Product Owner authority
+  that opened M7 and bounded the now-closed M7.1 stage without approving its
+  output.

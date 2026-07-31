@@ -9,5 +9,5 @@ revisions. It cannot create normative authority, priority, or a verdict.
 ## Artifacts
 
 - [M7.1 — Governance Structure Correction Evidence](M7.1%20-%20Governance%20Structure%20Correction%20Evidence.md)
-  — **Prepared for Architecture Review**. Maps the six approved findings to
-  bounded corrections and affected artifacts without recording approval.
+  — **Accepted review evidence**. Maps the six approved findings to bounded
+  corrections and affected artifacts supporting the completed reviews.

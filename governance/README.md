@@ -3,18 +3,19 @@
 ## Status
 
 ```text
-Ready for Architecture Review
+Canonical
+M7.1 — Closed
 Milestone M7 — Active
 ```
 
 ## Authority
 
-This document is the candidate structure design and root index for the
+This document is the canonical structure design and root index for the
 Management OS Governance Layer. It defines where future M7 governance artifacts
 belong, which artifact class owns each concern, how artifacts are named and
-indexed, and how authority and evidence flow between them. It acquires canonical
-authority only after positive Architecture Review, required Canonical Review,
-and a separate canonicalization transition under the existing Chief Architect
+indexed, and how authority and evidence flow between them. It acquired canonical
+authority after positive Architecture Review, positive Canonical Review, and a
+separate canonicalization transition under the existing Chief Architect
 Operating Model.
 
 The repository-native source opening M7 and authorizing this bounded candidate
@@ -60,7 +61,7 @@ governance/
     └── README.md
 ```
 
-`governance/README.md` is the candidate M7 Governance Layer structure contract
+`governance/README.md` is the canonical M7 Governance Layer structure contract
 and its root index. Each child `README.md` is a narrowly scoped boundary index
 for its artifact class. Placeholder indexes create no future substantive
 contract.
@@ -76,8 +77,10 @@ artifact is indexed here and in its artifact-class index.
 
 | Milestone | Title | Class | Status | Artifact |
 | --- | --- | --- | --- | --- |
-| M7.1 | Governance Structure Order | Order | Effective / Scope bounded | [Order](orders/M7.1%20-%20Governance%20Structure%20Order.md) |
-| M7.1 | Governance Structure Correction Evidence | Evidence | Prepared for Architecture Review | [Evidence](evidence/M7.1%20-%20Governance%20Structure%20Correction%20Evidence.md) |
+| M7.1 | Governance Structure Order | Order | Completed / Scope fulfilled | [Order](orders/M7.1%20-%20Governance%20Structure%20Order.md) |
+| M7.1 | Governance Structure Correction Evidence | Evidence | Accepted review evidence | [Evidence](evidence/M7.1%20-%20Governance%20Structure%20Correction%20Evidence.md) |
+| M7.1 | Governance Structure Architecture Review | Review | Completed — Approved | [Review](reviews/M7.1%20-%20Governance%20Structure%20Architecture%20Review.md) |
+| M7.1 | Governance Structure Canonical Review | Review | Completed — Approved | [Review](reviews/M7.1%20-%20Governance%20Structure%20Canonical%20Review.md) |
 
 # 3. Directory Ownership
 
@@ -211,7 +214,7 @@ corrected artifact returns to Architecture Review or Canonical Review. The
 backlog, candidate, and indexes must report that status consistently without
 implying approval.
 
-For M7.1, the required sequence is:
+For M7.1, the completed sequence was:
 
 ```text
 Ready for Architecture Review
@@ -254,9 +257,10 @@ Rules:
 8. Missing, broken, ambiguous, or cross-class links are non-conformant.
 9. Index text cannot broaden the linked artifact's authority.
 
-At M7.1, this structure design, its opening order, and correction evidence are
-substantive. Child indexes list those artifacts only in their applicable
-classes; no M7.2–M7.7 substantive artifact exists.
+The completed M7.1 artifact set consists of this structure design, its opening
+order, correction evidence, Architecture Review, and Canonical Review. Child
+indexes list those artifacts only in their applicable classes. M7.2 is active,
+but no M7.2 substantive definition exists at this transition.
 
 # 9. Dependency Direction
 
@@ -340,7 +344,7 @@ When chat memory conflicts with repository evidence:
 
 # 12. Validation and Completion Criteria
 
-M7.1 is complete when:
+M7.1 satisfied its completion gate when:
 
 1. the canonical Governance Layer root and tree exist;
 2. every required artifact class has an explicit ownership boundary;
@@ -349,19 +353,20 @@ M7.1 is complete when:
 4. naming, status, and indexing rules are deterministic;
 5. dependency direction and repository-truth authority are explicit;
 6. M7.2–M7.7 locations are reserved without defining their substance;
-7. the Architecture control plane reports M7 Active and M7.1 as the only active
-   stage;
+7. before transition, the Architecture control plane reported M7 Active and
+   M7.1 as the only active stage;
 8. links and status declarations are consistent;
 9. no implementation code or platform decision is introduced;
 10. an independent Architecture Review and subsequent Canonical Review remain
     required before canonicalization.
 
-## Architecture Verdict
+## Final Architecture Disposition
 
 ```text
-Ready for Architecture Review
+Canonical — M7.1 Closed
 ```
 
-This candidate does not approve or canonicalize itself. M7.2 dependency use
-requires positive Architecture Review, positive Canonical Review, and a separate
-M7.1 canonicalization transition.
+The independent Architecture Review and Canonical Review approved exact revision
+`2435a437a99f921d9994288930b4aa8177612f02`. This separate reconciliation records
+canonicalization and closes M7.1. M7.2 may now depend on this structure within
+its approved scope.

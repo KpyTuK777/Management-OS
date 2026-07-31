@@ -18,10 +18,10 @@ is recorded in the repository.
 - [BACKLOG.md](BACKLOG.md) contains exactly one active architectural task.
 - [JOURNAL.md](JOURNAL.md) is the evidence-backed chronological record of
   architecture definitions, reviews, dispositions, and transitions.
-- [M7 Governance Layer](../governance/README.md) is the review-ready M7.1
-  structure candidate and index for normative governance, orders, evidence,
-  reviews, and retrospectives. It becomes canonical only through the review and
-  canonicalization lifecycle defined by the existing architecture process.
+- [M7 Governance Layer](../governance/README.md) is the canonical M7 structure
+  and index for normative governance, orders, evidence, reviews, and
+  retrospectives. M7.1 completed its Architecture Review, Canonical Review, and
+  separate canonicalization lifecycle before M7.2 opened.
 - [Canonical Management Model](../images/17-design-principles/README.md) contains
   the canonical professional and experience models consumed by M6.
 - [Architecture Decision Records](../docs/adr/README.md) preserve durable

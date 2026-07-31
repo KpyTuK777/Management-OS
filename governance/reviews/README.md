@@ -8,5 +8,9 @@ It cannot silently amend its reviewed source or substitute for evidence.
 
 ## Artifacts
 
-None. M7.1 awaits independent Architecture Review.
-
+- [M7.1 — Governance Structure Architecture Review](M7.1%20-%20Governance%20Structure%20Architecture%20Review.md)
+  — **Completed — Approved**. Records the exact-revision Architecture Review
+  and resolution of all six finite findings.
+- [M7.1 — Governance Structure Canonical Review](M7.1%20-%20Governance%20Structure%20Canonical%20Review.md)
+  — **Completed — Approved**. Records the canonical authority checks and
+  authorization for separate canonicalization.

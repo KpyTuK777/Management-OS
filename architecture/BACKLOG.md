@@ -17,22 +17,27 @@ M7 — Governance Layer — Active
 ## Current Task
 
 ```text
-Architecture Definition / Structure Design — M7.1 Governance Structure
+Architecture Definition — M7.2 Constitution
 ```
 
 ## Dependencies
 
-- Repository-native Product Owner
-  [M7.1 Governance Structure Order](../governance/orders/M7.1%20-%20Governance%20Structure%20Order.md).
+- M7.1 Governance Structure — Closed and Canonical.
+- [Canonical Governance Structure](../governance/README.md).
+- Existing Chief Architect Operating Model and repository architecture control
+  plane.
 - Closed M6 Canonical Operational Design System and its review evidence.
-- Existing Architecture control-plane ownership and repository history.
 
 ## Expected Output
 
-One canonical, implementation-independent Governance Layer structure and index
-artifact defining directory boundaries, future-section ownership, naming,
-status, indexing, dependency direction, artifact-class separation, and
-repository-truth authority without defining M7.2–M7.6 substance.
+One implementation-independent M7.2 Constitution candidate placed in
+`governance/normative/` and prepared through the authority, ownership, naming,
+status, indexing, dependency, evidence, and review boundaries established by
+M7.1.
+
+This backlog entry authorizes definition preparation only. It does not supply
+constitutional substance, approve its future output, alter current roles, or
+authorize M7.3–M7.7 work.
 
 ## Owner
 
@@ -40,33 +45,28 @@ repository-truth authority without defining M7.2–M7.6 substance.
 Lead Engineer
 ```
 
-The Chief Architect owns independent Architecture Review and transition
-approval. The Lead Engineer cannot approve this definition.
+The Chief Architect retains independent Architecture Review, required Canonical
+Review, and transition authority. The Lead Engineer cannot approve or
+canonicalize the definition.
 
 ## Status
 
 ```text
-Ready for Architecture Review
+Ready for Architecture Definition
 ```
 
 ## Definition of Done
 
-- `governance/` exists with one canonical structure-design/index artifact.
-- The directory tree is defined before substantive M7.2–M7.6 documents.
-- Normative definitions, orders, evidence, reviews, and retrospectives have
-  separate locations and non-overlapping ownership.
-- Future M7.2–M7.7 artifact locations are reserved without defining their
-  substantive contracts or findings.
-- Naming, status, and index rules are deterministic.
-- Dependency direction is explicit and prevents lower artifacts from becoming
-  normative authority.
-- Repository evidence is authoritative and chat memory is explicitly
-  non-authoritative.
-- M7 is Active and M7.1 is the only active stage.
-- M7.2–M7.7 remain Planned.
-- Links and repository statuses are consistent.
-- No Constitution, role contract, lifecycle, protocol, retrospective content,
-  implementation code, or self-review is introduced.
-- The reconciled candidate is ready for independent Architecture Review.
-- A positive Architecture Review advances this candidate to required Canonical
-  Review; M7.2 remains blocked until M7.1 is separately canonicalized.
+- One M7.2 Constitution candidate exists in `governance/normative/`.
+- The candidate cites the canonical M7.1 Governance Structure and current
+  architecture control plane.
+- Its scope, authority, dependencies, exclusions, status, and completion
+  criteria are explicit.
+- It remains implementation-independent.
+- It does not define M7.3 Organizational Model, M7.4 Development Lifecycle,
+  M7.5 Autonomous Development Protocol, M7.6 Retrospective, or M7.7 Governance
+  Review substance.
+- It is indexed in the governance root and normative indexes.
+- Attributable evidence supports independent Architecture Review.
+- No approval, canonical status, or later-stage transition is claimed by the
+  definition commit.
