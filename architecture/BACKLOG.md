@@ -17,7 +17,7 @@ M7 — Governance Layer — Active
 ## Current Task
 
 ```text
-Canonical Review — M7.5 Autonomous Development Protocol
+Canonicalization — M7.5 Autonomous Development Protocol
 ```
 
 ## Dependencies
@@ -34,13 +34,13 @@ Canonical Review — M7.5 Autonomous Development Protocol
 
 ## Expected Output
 
-One independent Canonical Review disposition for the exact Architecture
-Approved M7.5 Autonomous Development Protocol revision, evaluated against all
-canonical M7 dependencies and its completed Architecture Review.
+One separate repository transition that canonicalizes the exact Architecture
+Approved and Canonical Review-complete M7.5 Autonomous Development Protocol
+revision and reconciles all authoritative status surfaces without opening M7.6.
 
-This task authorizes Canonical Review only. It does not authorize modification
-of the reviewed normative content, canonicalization, stage closure, Governance
-Operations, implementation, or M7.6–M7.7.
+This task authorizes M7.5 canonicalization and repository reconciliation only.
+It does not authorize modification of the reviewed normative content, M7.6
+opening or work, Governance Operations, implementation, or M7.7.
 
 ## Owner
 
@@ -48,27 +48,29 @@ Operations, implementation, or M7.6–M7.7.
 Chief Architect
 ```
 
-The Chief Architect owns independent Canonical Review. The completed Architect
-Council Architecture Review authorizes dependency use and entry to this gate;
-neither review performs canonicalization or opens M7.6.
+The Chief Architect owns the separate canonicalization transition. The
+completed Architecture and Canonical Reviews authorize this bounded transition;
+neither review itself performed canonicalization or opened M7.6.
 
 ## Status
 
 ```text
-Ready for Canonical Review
+Approved for dependency use
+Canonical Review complete — Canonicalization pending
 ```
 
-The exact Autonomous Development Protocol revision is Architecture Approved and
-approved for dependency use. Its Architecture Review and accepted definition
-evidence are recorded. Independent Canonical Review is the next required action.
+The exact Autonomous Development Protocol revision is Architecture Approved,
+approved for dependency use, and has received a `Canonical` review disposition.
+A separate canonicalization and repository reconciliation transition is the
+next required action; M7.6 remains unopened.
 
 ## Definition of Done
 
-- The exact reviewed revision and Architecture Review disposition are
+- The exact reviewed revision, Architecture Review, and Canonical Review are
   attributable.
-- Canonical consistency, ownership, terminology, dependency integrity,
-  implementation independence, lifecycle fidelity, and unresolved critical
-  risk are evaluated.
-- The review records either `Canonical` or finite `Requires Corrections`.
-- No canonicalization, stage closure, Governance Operations, implementation
-  mechanism, or later-stage transition is performed by the review.
+- The normative document reports `Canonical` and M7.5 reports Closed only
+  through the authorized transition.
+- Governance indexes, evidence, roadmap, backlog, journal, and architecture
+  overview report the resulting state consistently.
+- M7.6 remains unopened and no Governance Operations or implementation
+  mechanism is introduced.

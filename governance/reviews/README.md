@@ -37,3 +37,6 @@ It cannot silently amend its reviewed source or substitute for evidence.
   — **Completed — Approved**. Records the Architect Council's independent
   approval, dependency-use authorization, and return of the exact reviewed
   revision to the Canonical Review gate.
+- [M7.5 — Autonomous Development Protocol Canonical Review](M7.5%20-%20Autonomous%20Development%20Protocol%20Canonical%20Review.md)
+  — **Completed — Canonical**. Records the resumed independent canonical checks
+  and authorizes a separate canonicalization transition without opening M7.6.

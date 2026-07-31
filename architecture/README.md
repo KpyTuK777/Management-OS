@@ -22,8 +22,8 @@ is recorded in the repository.
   and index for normative governance, orders, evidence, reviews, and
   retrospectives. M7.1 Governance Structure, M7.2 Constitution, and M7.3
   Organizational Model, and M7.4 Development Lifecycle are Canonical; M7.5
-  Autonomous Development Protocol is the sole active stage, is Architecture
-  Approved, and is Ready for Canonical Review.
+  Autonomous Development Protocol is the sole active stage, has completed
+  Canonical Review, and awaits a separate canonicalization transition.
 - [Canonical Management Model](../images/17-design-principles/README.md) contains
   the canonical professional and experience models consumed by M6.
 - [Architecture Decision Records](../docs/adr/README.md) preserve durable

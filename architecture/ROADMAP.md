@@ -34,7 +34,7 @@ M7 and its first bounded stage were opened by the repository-native
 ## Active stage
 
 ```text
-M7.5 — Autonomous Development Protocol — Ready for Canonical Review
+M7.5 — Autonomous Development Protocol — Canonical Review complete — Canonicalization pending
 ```
 
 M7.1 Governance Structure, M7.2 Constitution, M7.3 Organizational Model, and
@@ -59,7 +59,7 @@ authority lifecycle.
 | 2 | M7.2 — Constitution | Closed — Canonical |
 | 3 | M7.3 — Organizational Model | Closed — Canonical |
 | 4 | M7.4 — Development Lifecycle | Closed — Canonical |
-| 5 | M7.5 — Autonomous Development Protocol | Active — Ready for Canonical Review |
+| 5 | M7.5 — Autonomous Development Protocol | Active — Canonical Review complete — Canonicalization pending |
 | 6 | M7.6 — Retrospective | Planned |
 | 7 | M7.7 — Governance Review | Planned |
 

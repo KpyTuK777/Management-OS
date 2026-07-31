@@ -583,3 +583,27 @@ evidence conflict, the cited canonical document and Git history govern.
   Operations, or M7.6 work is authorized or performed.
 - **Stage state:** M7 remains Active; M7.5 remains the only active stage at
   `Ready for Canonical Review`.
+
+### 2026-07-31 — M7.5 Autonomous Development Protocol Canonical Review completed
+
+- **Event:** independent Canonical Review resumed after the reviewed revision
+  was fixed and the Architecture Review record was supplied.
+- **Reviewed revision:** commit
+  `c8a07eb4cf3be3d97df7a80473d07015541b8ed2`; normative blob
+  `899ef9e72ef8517b9e4187c83bb4cc36381ac99a`.
+- **Resolved prerequisites:** the Architecture Review is attributable, Sections
+  1–13 retain the fixed protocol meaning, repository status is consistent, and
+  evidence and review records are indexed and discoverable.
+- **Canonical findings:** constitutional, organizational, and lifecycle
+  consistency; identity and delegation boundaries; evidence and review
+  separation; interruption and recovery integrity; implementation independence;
+  and the M7.6 boundary all pass.
+- **Disposition:** Canonical.
+- **Evidence:** `governance/reviews/M7.5 - Autonomous Development Protocol
+  Canonical Review.md`, the completed Architecture Review, and definition
+  evidence.
+- **Authority boundary:** this review authorizes but does not perform the
+  separate canonicalization transition, close M7.5, open M7.6, or authorize
+  M7.6 work.
+- **Stage state:** M7 remains Active; M7.5 remains the only active stage with
+  canonicalization pending.

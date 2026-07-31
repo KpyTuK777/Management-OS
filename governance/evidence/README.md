@@ -26,6 +26,6 @@ revisions. It cannot create normative authority, priority, or a verdict.
   lifecycle concern, constitutional boundary, organizational dependency, and
   exclusion to the exact reviewed revision.
 - [M7.5 — Autonomous Development Protocol Definition Evidence](M7.5%20-%20Autonomous%20Development%20Protocol%20Definition%20Evidence.md)
-  — **Accepted Architecture Review evidence**. Maps every ordered autonomous
-  protocol concern, canonical dependency, and exclusion to the exact revision
-  approved for dependency use and Canonical Review.
+  — **Accepted Architecture and Canonical Review evidence**. Maps every ordered
+  autonomous protocol concern, canonical dependency, and exclusion to the exact
+  reviewed revision.
