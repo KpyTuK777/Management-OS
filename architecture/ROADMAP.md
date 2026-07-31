@@ -3,12 +3,12 @@
 ## Authority
 
 This is the single authoritative roadmap for product architecture. It owns
-architectural phase, milestone sequence, and the transition from the Canonical
-Management Model into product realization. It is updated whenever an
-architectural milestone closes.
+architectural phase, milestone sequence, and transition from the Canonical
+Management Model into product realization.
 
 Delivery timing remains in delivery trackers. Canonical documents remain the
-source of truth for professional meaning.
+source of truth for professional meaning. The Architecture Journal records
+history but does not replace this roadmap.
 
 ## Current phase
 
@@ -18,46 +18,35 @@ Phase III-B — Operational Core / M6 Product Realization
 
 ## Completed stages
 
-- Canonical Foundation:
-  - Workbench Canonical Domain Model;
-  - Product Operating Model;
-  - Matter Experience;
-  - Operational Navigation Governance;
-  - Canonical Operational Navigation;
-  - Operational Memory.
-- Canonical Experience:
-  - Visual Semantics;
-  - Operational Interaction Language;
-  - Information Architecture.
+- Canonical Foundation.
+- Canonical Experience.
 - Canonical Management Model integration and final confirmation.
-- M6 Canonical Operational Design System Charter — architecture defined.
-- M6 Canonical Design Object Model — architecture defined.
+- M6 Charter and M6.1–M6.9 — approved architecture sequence.
+- M6.10 — Rendering Contracts and Platform Adapters — Approved for M6
+  dependency use.
+- M6.11 — Accessibility Model — Approved for M6 dependency use.
+- M6.12 — Motion Semantics — Approved for M6 dependency use.
+- M6.13 — AI and Conversational Adapters — Approved for M6 dependency use.
 
 ## Active stage
 
 ```text
-M6.10 — Rendering Contracts and Platform Adapters Architecture Review
+M6.14 — Design-to-Code Mapping
 ```
 
-The current task and its completion criteria are defined exclusively in
-[BACKLOG.md](BACKLOG.md).
-
-Canonical Design Semantics, Canonical Rendering Model, Semantic Token
-Architecture, Presentation State Model, Canonical Component Model,
-Composition and Layout System, Canonical Interaction Patterns, Navigation
-Representation Model, Operational Navigation, and Navigation Governance are
-approved dependencies for M6.10.
+The current task and completion criteria are defined exclusively in
+[BACKLOG.md](BACKLOG.md). M6.14 is awaiting independent Architecture Review.
 
 ## Next stage
 
 ```text
-M6 — Accessibility Model
+M6 — Conformance, Governance, and M6 Final Review
 ```
 
-The next stage may enter the backlog only after the Rendering Contracts and
-Platform Adapters Review disposition is approved.
+This stage may enter the backlog only after M6.14 receives a positive
+Architecture Review disposition.
 
-## Future stages
+## Stage sequence
 
 | Sequence | Stage | Status |
 | ---: | --- | --- |
@@ -72,12 +61,14 @@ Platform Adapters Review disposition is approved.
 | 9 | Composition and Layout System | Approved for dependency use |
 | 10 | Canonical Interaction Patterns | Approved for dependency use |
 | 11 | Navigation Representation Model | Approved for dependency use |
-| 12 | Rendering Contracts and Platform Adapters | Active |
-| 13 | Accessibility Model | Planned |
-| 14 | Motion Semantics | Planned |
-| 15 | AI and Conversational Adapters | Planned |
-| 16 | Design-to-Code Mapping | Planned |
+| 12 | Rendering Contracts and Platform Adapters | Approved for dependency use |
+| 13 | Accessibility Model | Approved for dependency use |
+| 14 | Motion Semantics | Approved for dependency use |
+| 15 | AI and Conversational Adapters | Approved for dependency use |
+| 16 | Design-to-Code Mapping | Active — Ready for Architecture Review |
 | 17 | Conformance, Governance, and M6 Final Review | Planned |
+
+M6 remains Active. This roadmap does not record M6 completion.
 
 ## Roadmap maintenance
 
@@ -85,5 +76,6 @@ Platform Adapters Review disposition is approved.
 - Closed stages retain their recorded outcome and provenance.
 - A newly discovered dependency is recorded before dependent work starts.
 - Only one stage supplies the active task in `BACKLOG.md`.
-- After every milestone closure, update completed, active, next, and future
-  stages in the same repository change as the recorded disposition.
+- A positive review disposition must be recorded before dependent work begins.
+- M6 completion requires its final review and cannot be inferred from completion
+  of an individual architecture definition.

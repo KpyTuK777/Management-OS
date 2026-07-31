@@ -16,6 +16,8 @@ is recorded in the repository.
   stage-transition authority.
 - [ROADMAP.md](ROADMAP.md) is the single authoritative architectural roadmap.
 - [BACKLOG.md](BACKLOG.md) contains exactly one active architectural task.
+- [JOURNAL.md](JOURNAL.md) is the evidence-backed chronological record of
+  architecture definitions, reviews, dispositions, and transitions.
 - [Canonical Management Model](../images/17-design-principles/README.md) contains
   the canonical professional and experience models consumed by M6.
 - [Architecture Decision Records](../docs/adr/README.md) preserve durable
