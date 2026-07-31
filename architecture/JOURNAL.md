@@ -121,3 +121,19 @@ evidence conflict, the cited canonical document and Git history govern.
   completeness remain exclusively for the M6 Final Review.
 - **Transition:** M6 remains Active; M6 Final Review becomes the single active
   gate.
+
+### 2026-07-31 — M6 Final Review requires corrections
+
+- **Event:** The first M6 Final Review evaluated all 15 Charter completion
+  criteria.
+- **Verdict:** Canonical Operational Design System Requires Corrections.
+- **Passed architecture:** no cross-canonical contradiction was found; M6.1–M6.15
+  substantive ownership remains coherent.
+- **Required corrections:** create and review the Charter-required Iconography
+  Implementation Contract; complete twelve missing individual Architecture
+  Review records; reconcile statuses and repeat the Final Review.
+- **Evidence:** `images/17-design-principles/M6 - Canonical Operational Design
+  System Final Review.md`; review commit containing this entry.
+- **Escalation:** not required because the Charter and existing canonical
+  architecture fully bound the corrections.
+- **Milestone state:** M6 remains Active.
