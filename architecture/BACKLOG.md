@@ -52,12 +52,15 @@ canonicalize the definition.
 ## Status
 
 ```text
-Ready for Architecture Review
+Approved for dependency use
+Canonical Review complete — Canonicalization pending
 ```
 
-The reconciled Constitution candidate, definition evidence, and correction
-evidence exist. Independent Architecture Review is the next required action; no
-approval is recorded.
+The Architect Council completed the final Architecture Review and approved the
+Constitution for dependency use. Independent Canonical Review returned
+`Canonical`. A separate repository reconciliation and canonicalization
+transition is the next required action. M7.2 remains the only active stage and
+M7.3 is not open.
 
 ## Definition of Done
 

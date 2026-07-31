@@ -323,3 +323,29 @@ evidence conflict, the cited canonical document and Git history govern.
 - **Disposition:** no approval, dependency-use authority, or canonical status is
   recorded. The reconciled candidate remains `Ready for Architecture Review`.
 - **Stage state:** M7 remains Active; M7.2 remains the only active stage.
+
+### 2026-07-31 — M7.2 Constitution Architecture Review approved
+
+- **Reviewed revision:** commit `5c3f885906aec390a0eeefbfc2c4f650d1d5e697`
+  (`docs(governance): reconcile M7.2 constitution review findings`).
+- **Disposition:** Architecture Approved and Approved for dependency use.
+- **Findings:** all constitutional responsibilities and five finite corrections
+  pass; Constitutional Scope remains unchanged; no later-stage substance is
+  introduced.
+- **Evidence:** `governance/reviews/M7.2 - Constitution Architecture Review.md`
+  and the indexed definition and correction evidence.
+- **Stage state:** M7 remains Active; M7.2 remains the only active stage.
+
+### 2026-07-31 — M7.2 Constitution Canonical Review completed
+
+- **Reviewed revision:** commit `5c3f885906aec390a0eeefbfc2c4f650d1d5e697`.
+- **Disposition:** Canonical.
+- **Findings:** internal consistency, authority integrity, principle coherence,
+  terminology, hierarchy/interpretation compatibility, amendment integrity,
+  unique ownership, later-stage boundaries, implementation independence, M6
+  compatibility, M7.1 conformance, and long-term stability all pass.
+- **Evidence:** `governance/reviews/M7.2 - Constitution Canonical Review.md`.
+- **Authority boundary:** the review authorizes but does not perform the separate
+  canonicalization transition.
+- **Stage state:** M7 remains Active; M7.2 remains the only active stage. M7.3 is
+  not open and no M7.3 work is authorized.

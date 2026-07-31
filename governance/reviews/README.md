@@ -14,3 +14,9 @@ It cannot silently amend its reviewed source or substitute for evidence.
 - [M7.1 — Governance Structure Canonical Review](M7.1%20-%20Governance%20Structure%20Canonical%20Review.md)
   — **Completed — Approved**. Records the canonical authority checks and
   authorization for separate canonicalization.
+- [M7.2 — Constitution Architecture Review](M7.2%20-%20Constitution%20Architecture%20Review.md)
+  — **Completed — Approved**. Records the Architect Council's final Architecture
+  Review and approval for dependency use.
+- [M7.2 — Constitution Canonical Review](M7.2%20-%20Constitution%20Canonical%20Review.md)
+  — **Completed — Canonical**. Records the independent canonical checks and
+  authorizes a separate canonicalization transition without opening M7.3.
