@@ -559,3 +559,27 @@ evidence conflict, the cited canonical document and Git history govern.
 - **Disposition:** no approval, dependency-use authority, or canonical status is
   recorded. Independent Architecture Review is the next required action.
 - **Stage state:** M7 remains Active; M7.5 remains the only active stage.
+
+### 2026-07-31 — M7.5 Autonomous Development Protocol Architecture Review recorded
+
+- **Event:** the Architect Council's completed independent Architecture Review
+  of the M7.5 Autonomous Development Protocol was recorded and repository status
+  was reconciled.
+- **Reviewed revision:** commit
+  `c8a07eb4cf3be3d97df7a80473d07015541b8ed2` —
+  `docs(governance): canonicalize M7.4 and define M7.5 protocol`.
+- **Normative blob:** `899ef9e72ef8517b9e4187c83bb4cc36381ac99a`.
+- **Review authority:** Architect Council, independent from candidate creation
+  and evidence production.
+- **Disposition:** Architecture Approved; Approved for dependency use; Ready
+  for Canonical Review.
+- **Evidence:** `governance/reviews/M7.5 - Autonomous Development Protocol
+  Architecture Review.md` and `governance/evidence/M7.5 - Autonomous Development
+  Protocol Definition Evidence.md`.
+- **Advisory boundary:** M7.6 must not convert protocol identities, records,
+  conditions, or operational representation into independent authority or
+  lifecycle state.
+- **Authority boundary:** no canonicalization, M7.5 closure, Governance
+  Operations, or M7.6 work is authorized or performed.
+- **Stage state:** M7 remains Active; M7.5 remains the only active stage at
+  `Ready for Canonical Review`.

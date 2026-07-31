@@ -17,7 +17,7 @@ M7 — Governance Layer — Active
 ## Current Task
 
 ```text
-Architecture Definition — M7.5 Autonomous Development Protocol
+Canonical Review — M7.5 Autonomous Development Protocol
 ```
 
 ## Dependencies
@@ -34,48 +34,41 @@ Architecture Definition — M7.5 Autonomous Development Protocol
 
 ## Expected Output
 
-One implementation-independent M7.5 Autonomous Development Protocol candidate
-placed in `governance/normative/` and prepared under the repository-native M7.5
-order and all canonical M7 dependencies.
+One independent Canonical Review disposition for the exact Architecture
+Approved M7.5 Autonomous Development Protocol revision, evaluated against all
+canonical M7 dependencies and its completed Architecture Review.
 
-This opening backlog entry authorizes definition preparation only. It defines
-no autonomous behavior, agent identity, coordination, handoff, supervision,
-permission, capability grant, stop condition, retry, schedule, queue,
-orchestration, timeout, recovery rule, or implementation mechanism. It does not
-authorize M7.6–M7.7.
+This task authorizes Canonical Review only. It does not authorize modification
+of the reviewed normative content, canonicalization, stage closure, Governance
+Operations, implementation, or M7.6–M7.7.
 
 ## Owner
 
 ```text
-Lead Engineer
+Chief Architect
 ```
 
-The Chief Architect retains independent Architecture Review, required Canonical
-Review, and transition authority. The Lead Engineer cannot approve or
-canonicalize the future definition.
+The Chief Architect owns independent Canonical Review. The completed Architect
+Council Architecture Review authorizes dependency use and entry to this gate;
+neither review performs canonicalization or opens M7.6.
 
 ## Status
 
 ```text
-Ready for Architecture Review
+Ready for Canonical Review
 ```
 
-The Autonomous Development Protocol candidate and attributable definition
-evidence exist. Independent Architecture Review is the next required action; no
-approval is recorded.
+The exact Autonomous Development Protocol revision is Architecture Approved and
+approved for dependency use. Its Architecture Review and accepted definition
+evidence are recorded. Independent Canonical Review is the next required action.
 
 ## Definition of Done
 
-- One separately authorized M7.5 Autonomous Development Protocol candidate
-  exists in `governance/normative/`.
-- The candidate cites the canonical M7.1 Governance Structure, M7.2
-  Constitution, M7.3 Organizational Model, and M7.4 Development Lifecycle.
-- Its purpose, authority, scope, dependencies, exclusions, status, and
-  completion criteria are explicit.
-- It preserves accountable human authority, lifecycle gate ownership,
-  independent judgment, transition restraint, and traceability.
-- It remains implementation-independent and grants no authority merely through
-  automation or capability.
-- Attributable evidence supports independent Architecture Review.
-- No approval, canonical status, implementation mechanism, or later-stage
-  transition is claimed by the definition commit.
+- The exact reviewed revision and Architecture Review disposition are
+  attributable.
+- Canonical consistency, ownership, terminology, dependency integrity,
+  implementation independence, lifecycle fidelity, and unresolved critical
+  risk are evaluated.
+- The review records either `Canonical` or finite `Requires Corrections`.
+- No canonicalization, stage closure, Governance Operations, implementation
+  mechanism, or later-stage transition is performed by the review.
