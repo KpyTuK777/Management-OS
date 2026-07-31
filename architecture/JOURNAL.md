@@ -607,3 +607,26 @@ evidence conflict, the cited canonical document and Git history govern.
   M7.6 work.
 - **Stage state:** M7 remains Active; M7.5 remains the only active stage with
   canonicalization pending.
+
+### 2026-07-31 — M7.5 Autonomous Development Protocol canonicalized
+
+- **Event:** the Architecture Approved and Canonical Review-complete Autonomous
+  Development Protocol was canonicalized through a separate repository
+  transition.
+- **Canonical source:** `governance/normative/M7.5 - Autonomous Development
+  Protocol.md`.
+- **Reviewed revision:** commit
+  `c8a07eb4cf3be3d97df7a80473d07015541b8ed2`; normative blob
+  `899ef9e72ef8517b9e4187c83bb4cc36381ac99a`.
+- **Review evidence:** `governance/reviews/M7.5 - Autonomous Development Protocol
+  Architecture Review.md` and `governance/reviews/M7.5 - Autonomous Development
+  Protocol Canonical Review.md`.
+- **Disposition:** M7.5 Autonomous Development Protocol is Canonical and
+  approved for subsequent M7 dependency use within its protocol scope.
+- **Stage state:** M7.5 is Closed. M7 remains Active.
+- **Transition:** the repository-native M7.6 Retrospective Order opens M7.6 as
+  the single active stage at `Ready for Retrospective Definition`.
+- **Boundary:** no retrospective observation, finding, conclusion, lesson,
+  effectiveness judgment, recommendation, improvement proposal, normative
+  amendment, implementation mechanism, or M7.7 substance is introduced by this
+  transition.

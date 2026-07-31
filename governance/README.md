@@ -97,11 +97,12 @@ artifact is indexed here and in its artifact-class index.
 | M7.4 | Development Lifecycle Definition Evidence | Evidence | Accepted Architecture and Canonical Review evidence | [Evidence](evidence/M7.4%20-%20Development%20Lifecycle%20Definition%20Evidence.md) |
 | M7.4 | Development Lifecycle Architecture Review | Review | Completed — Approved | [Review](reviews/M7.4%20-%20Development%20Lifecycle%20Architecture%20Review.md) |
 | M7.4 | Development Lifecycle Canonical Review | Review | Completed — Canonical | [Review](reviews/M7.4%20-%20Development%20Lifecycle%20Canonical%20Review.md) |
-| M7.5 | Autonomous Development Protocol Order | Order | Effective / Scope bounded | [Order](orders/M7.5%20-%20Autonomous%20Development%20Protocol%20Order.md) |
-| M7.5 | Autonomous Development Protocol | Normative definition | Approved for dependency use / Canonical Review complete — Canonicalization pending | [Definition](normative/M7.5%20-%20Autonomous%20Development%20Protocol.md) |
+| M7.5 | Autonomous Development Protocol Order | Order | Completed / Scope fulfilled | [Order](orders/M7.5%20-%20Autonomous%20Development%20Protocol%20Order.md) |
+| M7.5 | Autonomous Development Protocol | Normative definition | Canonical / M7.5 Closed | [Definition](normative/M7.5%20-%20Autonomous%20Development%20Protocol.md) |
 | M7.5 | Autonomous Development Protocol Definition Evidence | Evidence | Accepted Architecture and Canonical Review evidence | [Evidence](evidence/M7.5%20-%20Autonomous%20Development%20Protocol%20Definition%20Evidence.md) |
 | M7.5 | Autonomous Development Protocol Architecture Review | Review | Completed — Approved | [Review](reviews/M7.5%20-%20Autonomous%20Development%20Protocol%20Architecture%20Review.md) |
 | M7.5 | Autonomous Development Protocol Canonical Review | Review | Completed — Canonical | [Review](reviews/M7.5%20-%20Autonomous%20Development%20Protocol%20Canonical%20Review.md) |
+| M7.6 | Retrospective Order | Order | Effective / Scope bounded | [Order](orders/M7.6%20-%20Retrospective%20Order.md) |
 
 # 3. Directory Ownership
 
@@ -286,11 +287,11 @@ is Closed with one Canonical Organizational Model, its completed order, accepted
 definition evidence, and completed Architecture and Canonical Reviews. M7.4 is
 Closed with one Canonical Development Lifecycle, its completed order, accepted
 definition evidence, and completed Architecture and Canonical Reviews. M7.5 is
-Active with one Architecture Approved, Canonical Review-complete Autonomous
-Development Protocol awaiting separate canonicalization, its bounded order,
+Closed with one Canonical Autonomous Development Protocol, its completed order,
 accepted definition evidence, and completed Architecture and Canonical Reviews.
-Child indexes list each artifact only in its applicable class; M7.6–M7.7 remain
-without substantive artifacts.
+M7.6 is Active with one bounded opening order and no substantive retrospective
+artifact. Child indexes list each artifact only in its applicable class; M7.7
+remains without substantive artifacts.
 
 # 9. Dependency Direction
 

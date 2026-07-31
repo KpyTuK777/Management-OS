@@ -21,9 +21,9 @@ is recorded in the repository.
 - [M7 Governance Layer](../governance/README.md) is the canonical M7 structure
   and index for normative governance, orders, evidence, reviews, and
   retrospectives. M7.1 Governance Structure, M7.2 Constitution, and M7.3
-  Organizational Model, and M7.4 Development Lifecycle are Canonical; M7.5
-  Autonomous Development Protocol is the sole active stage, has completed
-  Canonical Review, and awaits a separate canonicalization transition.
+  Organizational Model, M7.4 Development Lifecycle, and M7.5 Autonomous
+  Development Protocol are Canonical; M7.6 Retrospective is the sole active
+  stage and contains no substantive retrospective yet.
 - [Canonical Management Model](../images/17-design-principles/README.md) contains
   the canonical professional and experience models consumed by M6.
 - [Architecture Decision Records](../docs/adr/README.md) preserve durable

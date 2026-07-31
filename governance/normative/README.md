@@ -25,7 +25,6 @@ Development Protocol substance and grants no approval.
   **Canonical / M7.4 Closed**. Authority-state lifecycle with bounded stages,
   gates, correction and re-entry, iteration, invariants, and traceability.
 - [M7.5 — Autonomous Development Protocol](M7.5%20-%20Autonomous%20Development%20Protocol.md)
-  — **Approved for dependency use / Canonical Review complete — Canonicalization
-  pending**. Reviewed protocol for bounded autonomous identity, delegation,
-  execution, handoff, evidence, review interaction, suspension, recovery,
-  invariants, and conformance. Canonical authority awaits a separate transition.
+  — **Canonical / M7.5 Closed**. Protocol for bounded autonomous identity,
+  delegation, execution, handoff, evidence, review interaction, suspension,
+  recovery, invariants, and conformance.

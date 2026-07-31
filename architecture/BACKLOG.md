@@ -17,7 +17,7 @@ M7 — Governance Layer — Active
 ## Current Task
 
 ```text
-Canonicalization — M7.5 Autonomous Development Protocol
+Retrospective Definition — M7.6 Governance Retrospective
 ```
 
 ## Dependencies
@@ -26,51 +26,54 @@ Canonicalization — M7.5 Autonomous Development Protocol
 - M7.2 Constitution — Closed and Canonical.
 - M7.3 Organizational Model — Closed and Canonical.
 - M7.4 Development Lifecycle — Closed and Canonical.
+- M7.5 Autonomous Development Protocol — Closed and Canonical.
 - [Canonical Governance Structure](../governance/README.md).
 - [Canonical Constitution](../governance/normative/M7.2%20-%20Constitution.md).
 - [Canonical Organizational Model](../governance/normative/M7.3%20-%20Organizational%20Model.md).
 - [Canonical Development Lifecycle](../governance/normative/M7.4%20-%20Development%20Lifecycle.md).
+- [Canonical Autonomous Development Protocol](../governance/normative/M7.5%20-%20Autonomous%20Development%20Protocol.md).
 - Existing architecture control plane and preserved repository history.
 
 ## Expected Output
 
-One separate repository transition that canonicalizes the exact Architecture
-Approved and Canonical Review-complete M7.5 Autonomous Development Protocol
-revision and reconciles all authoritative status surfaces without opening M7.6.
+One attributable M7.6 governance retrospective placed in
+`governance/retrospectives/` and prepared under the repository-native M7.6 order
+from the completed records of M7.1–M7.5.
 
-This task authorizes M7.5 canonicalization and repository reconciliation only.
-It does not authorize modification of the reviewed normative content, M7.6
-opening or work, Governance Operations, implementation, or M7.7.
+This opening backlog entry authorizes retrospective preparation only. It states
+no retrospective finding, conclusion, effectiveness judgment, lesson,
+recommendation, improvement proposal, normative amendment, implementation
+mechanism, or M7.7 authority.
 
 ## Owner
 
 ```text
-Chief Architect
+Lead Engineer
 ```
 
-The Chief Architect owns the separate canonicalization transition. The
-completed Architecture and Canonical Reviews authorize this bounded transition;
-neither review itself performed canonicalization or opened M7.6.
+The Chief Architect retains independent review and transition authority. The
+Lead Engineer may prepare attributable retrospective analysis but cannot use it
+to rewrite history, amend canonical governance, or approve its own conclusions.
 
 ## Status
 
 ```text
-Approved for dependency use
-Canonical Review complete — Canonicalization pending
+Ready for Retrospective Definition
 ```
 
-The exact Autonomous Development Protocol revision is Architecture Approved,
-approved for dependency use, and has received a `Canonical` review disposition.
-A separate canonicalization and repository reconciliation transition is the
-next required action; M7.6 remains unopened.
+No M7.6 retrospective artifact exists. Architect Council direction is required
+before substantive retrospective analysis begins.
 
 ## Definition of Done
 
-- The exact reviewed revision, Architecture Review, and Canonical Review are
-  attributable.
-- The normative document reports `Canonical` and M7.5 reports Closed only
-  through the authorized transition.
-- Governance indexes, evidence, roadmap, backlog, journal, and architecture
-  overview report the resulting state consistently.
-- M7.6 remains unopened and no Governance Operations or implementation
-  mechanism is introduced.
+- One separately authorized M7.6 retrospective exists in
+  `governance/retrospectives/`.
+- It cites the canonical Governance Structure and the attributable M7.1–M7.5
+  orders, evidence, reviews, definitions, and transitions it evaluates.
+- Observations, findings, conclusions, lessons, recommendations, and proposals
+  remain distinguishable and evidence-backed.
+- Historical evidence and review dispositions are preserved without rewriting.
+- Any normative change is proposed for a separately ordered authority lifecycle
+  rather than performed by the retrospective.
+- No implementation mechanism, automatic authority, or M7.7 transition is
+  introduced.

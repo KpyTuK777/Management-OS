@@ -22,5 +22,8 @@ serve as completion evidence, or approve their outputs.
   — **Completed / Scope fulfilled**. The bounded lifecycle-definition order is
   complete and grants no continuing or later-stage authority.
 - [M7.5 — Autonomous Development Protocol Order](M7.5%20-%20Autonomous%20Development%20Protocol%20Order.md)
-  — **Effective / Scope bounded**. Opens M7.5 as the single active stage without
-  defining autonomous protocol substance or authorizing later stages.
+  — **Completed / Scope fulfilled**. The bounded autonomous-protocol order is
+  complete and grants no continuing or later-stage authority.
+- [M7.6 — Retrospective Order](M7.6%20-%20Retrospective%20Order.md)
+  — **Effective / Scope bounded**. Opens M7.6 as the single active stage without
+  defining retrospective findings or authorizing M7.7.
