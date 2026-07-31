@@ -3,7 +3,7 @@
 ## Status
 
 ```text
-Architecture Definition
+Approved for M6 dependency use
 Milestone M6
 ```
 
@@ -370,8 +370,9 @@ The Canonical Design Object Model is complete when:
 ## Architecture Verdict
 
 ```text
-Canonical Design Object Model Defined
+Approved for M6 dependency use
 ```
 
-The model is ready to govern subsequent M6 architecture work. It authorizes no
-UI, component, token, layout, Figma, or implementation production.
+Independent Architecture Review approved the model for M6 dependency use on
+2026-07-31. It authorizes no UI, component, token, layout, Figma, or
+implementation production.

@@ -3,7 +3,7 @@
 ## Status
 
 ```text
-Ready for Architecture Review
+Approved for M6 dependency use
 Milestone M6
 ```
 
@@ -477,9 +477,9 @@ Canonical Design Semantics is complete when:
 
 ```text
 Architecture Definition Complete
-Ready for Architecture Review
+Approved for M6 dependency use
 ```
 
-This model does not authorize downstream M6 architecture work until Architecture
-Review approves it for dependency use. It defines no component, token, layout,
-Figma artifact, CSS, React implementation, or concrete UI.
+Independent Architecture Review approved this model for M6 dependency use on
+2026-07-31. It defines no component, token, layout, Figma artifact, CSS, React
+implementation, or concrete UI.

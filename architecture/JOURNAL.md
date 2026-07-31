@@ -159,3 +159,20 @@ evidence conflict, the cited canonical document and Git history govern.
   nor M6 closure is recorded.
 - **Evidence:** `images/17-design-principles/M6.C1 - Iconography Implementation
   Contract.md`; definition commit containing this entry.
+
+### 2026-07-31 — M6.1–M6.12 review evidence completed
+
+- **Event:** RC-02 completed twelve independently inspectable Architecture
+  Reviews in one consolidated evidence record.
+- **Reviewed models:** Canonical Design Object Model, Canonical Design
+  Semantics, and M6.3–M6.12.
+- **Evidence coverage:** all model taxonomies, adapter boundaries, ownership,
+  exclusions, and 458 combined numbered invariants.
+- **Dispositions:** each of the twelve models is Approved for M6 dependency
+  use; no model-level blocking or advisory correction was found.
+- **Evidence:** `images/17-design-principles/M6.1-M6.12 Consolidated Architecture
+  Review Evidence.md`; review commit containing this entry.
+- **Reconciliation:** model status blocks and the design-principles index now
+  agree with their evidence-backed dispositions.
+- **Milestone state:** M6 remains Active. RC-01 awaits independent Architecture
+  Review before the repeat M6 Final Review.
