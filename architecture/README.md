@@ -88,7 +88,12 @@ is recorded in the repository.
 - [M8.5 Evolution Architecture](M8.5_EVOLUTION_ARCHITECTURE.md) defines the
   implementation-independent capability-evolution model, architectural
   increments, dependency constraints, alternative routes, decision boundaries,
-  invariants, and sustainability criteria and is Ready for Architecture Review.
+  invariants, and sustainability criteria and is Architecture Approved / Ready
+  for Canonical Review.
+- [M8.5 Evolution Architecture Architecture Review](../governance/reviews/M8.5%20-%20Evolution%20Architecture%20Architecture%20Review.md)
+  records the independent review of the fixed candidate, its findings and
+  advisory observations, Architecture Approval, and return to the Canonical
+  Review gate.
 - [M8 Architecture Vision Architecture Review](../governance/reviews/M8%20-%20Architecture%20Vision%20Architecture%20Review.md)
   preserves the exact reviewed revision, findings, advisories, and opening
   authorization.

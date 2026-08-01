@@ -1395,3 +1395,33 @@ evidence conflict, the cited canonical document and Git history govern.
   implementation, delivery sequence, roadmap priority, backlog work, Gap
   resolution, Risk acceptance or treatment, Recommendation adoption,
   governance amendment, M8.6–M8.7 substance, or successor work is introduced.
+
+### 2026-08-01 — M8.5 Architecture Review completed
+
+- **Event:** the Architect Council completed an independent Architecture Review
+  of the fixed M8.5 Evolution Architecture candidate under canonical M7, the
+  approved M8 Vision, and canonical M8.1–M8.4.
+- **Reviewed identity:** commit
+  `b90f17f642bbf0e89da8938895d193d2d02b9538`; candidate blob
+  `5166992acd03034176b0236581ceebb41a35bce9`.
+- **Findings:** all 18 review objectives passed. Evolution remains
+  implementation-independent; ownership and dependencies remain coherent;
+  alternatives and logical precedence imply no priority or delivery sequence;
+  decision, framing, governance, assessment, source-authority, canonical, and
+  later-stage boundaries remain intact. No blocking finding exists.
+- **Advisories:** the Vision's portfolio label remains non-planning; unresolved
+  ownership cannot support a coherent increment; the no-change route is not Risk
+  acceptance; and local review-readiness checks are not M8.6 architecture.
+- **Disposition:** `Architecture Approved`; `Ready for Canonical Review`.
+- **Evidence:** `governance/reviews/M8.5 - Evolution Architecture Architecture
+  Review.md`.
+- **Active task:** exactly one backlog task, `Canonical Review — M8.5 Evolution
+  Architecture`, at `Ready for Canonical Review`.
+- **Stage state:** M8 remains the sole active milestone; M8.5 remains the sole
+  active stage and is not canonical or closed; M8.6 and later stages remain
+  unopened.
+- **Boundary:** no reviewed architectural meaning changes; no Gap is resolved,
+  Risk accepted or treated, Recommendation adopted, Canonical Review performed,
+  canonicalization, closure, or stage transition recorded, source authority or
+  canonical M7/M8 meaning modified, implementation or backlog work authorized,
+  or M8.6–M8.7 substance introduced.
