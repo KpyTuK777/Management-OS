@@ -94,3 +94,8 @@ cannot silently amend its reviewed source or substitute for evidence.
   regression across previously passing objectives, approves the fixed corrected
   candidate, and returns M8.4 to the Canonical Review gate without resolving a
   Gap, accepting a Risk, canonicalization, closure, or M8.5 opening.
+- [M8.4 — Gap and Risk Assessment Canonical Review](M8.4%20-%20Gap%20and%20Risk%20Assessment%20Canonical%20Review.md)
+  — **Completed — Canonical**. Confirms canonical suitability of the exact
+  corrected candidate and evidence and authorizes a separate canonicalization
+  transition without resolving a Gap, accepting a Risk, canonicalizing or
+  closing M8.4, or opening M8.5.

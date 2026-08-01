@@ -1307,3 +1307,32 @@ evidence conflict, the cited canonical document and Git history govern.
   Decision authorized, Canonical Review performed, canonicalization or closure
   recorded, M8.5 work opened, governance amended, or implementation or successor
   work introduced.
+
+### 2026-08-01 — M8.4 Canonical Review completed
+
+- **Event:** an independent Canonical Review evaluated the exact Architecture
+  Approved corrected M8.4 Gap and Risk Assessment and correction evidence under
+  canonical M7.
+- **Reviewed identity:** commit
+  `906fa1de66bd8fa78dc34456122c031af777f854`; candidate blob
+  `78d5919e11939b9ecc206c52969b974193fad424`; correction-evidence blob
+  `2d09739b4c0647fd97dff8da3aa00e99e6298bdc`.
+- **Architecture Review attribution:** record
+  `governance/reviews/M8.4 - Gap and Risk Assessment Architecture Review.md` at
+  commit `a19e7221df9b017bd3cc1e2180a4a0438fd782de`.
+- **Canonical findings:** identity, review attribution, register immutability,
+  advisory boundaries, assessment-object separation, non-resolution,
+  non-acceptance, canonical baseline integrity, implementation independence,
+  later-stage exclusion, and transition suitability all passed without a
+  blocking finding.
+- **Disposition:** `Canonical`; approved for canonicalization through a separate
+  authority transition; canonicalization pending.
+- **Evidence:** `governance/reviews/M8.4 - Gap and Risk Assessment Canonical
+  Review.md`, the preserved Architecture Review, and correction evidence.
+- **Stage state:** M8 remains the sole active milestone; M8.4 remains the sole
+  active stage; exactly one backlog task records the pending canonicalization
+  gate; M8.5 and later stages remain unopened.
+- **Boundary:** Canonical Review does not resolve a Gap, accept or treat a Risk,
+  authorize a Recommendation or Decision, canonicalize or close M8.4, open
+  M8.5, modify reviewed meaning or source authority, amend governance, or
+  authorize implementation, delivery, or successor work.

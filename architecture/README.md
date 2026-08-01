@@ -71,8 +71,9 @@ is recorded in the repository.
 - [M8.4 Gap and Risk Assessment](M8.4_GAP_AND_RISK_ASSESSMENT.md)
   defines the implementation-independent product-wide architectural assessment,
   gap and risk registers, blocking and residual-risk models, findings, and
-  advisory recommendations and is Architecture Approved at `Ready for Canonical
-  Review`, without canonical authority or closure.
+  advisory recommendations and is the sole active stage at `Canonical Review
+  complete — Canonicalization pending`; it has not acquired canonical authority
+  and remains open.
 - [M8.4 Architecture Review Correction Evidence](M8.4_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md)
   records the bounded resolution of `AR-M8.4-01` without changing any register,
   recommendation, classification, evidence reference, severity, or authority.
@@ -80,6 +81,10 @@ is recorded in the repository.
   records the Architect Council's repeat independent review, resolution of
   `AR-M8.4-01`, absence of regression, Architecture Approval, and return to the
   Canonical Review gate.
+- [M8.4 Gap and Risk Assessment Canonical Review](../governance/reviews/M8.4%20-%20Gap%20and%20Risk%20Assessment%20Canonical%20Review.md)
+  records the `Canonical` disposition and approval for a separate authority
+  transition without resolving a Gap, accepting a Risk, canonicalizing or
+  closing M8.4, or opening M8.5.
 - [M8 Architecture Vision Architecture Review](../governance/reviews/M8%20-%20Architecture%20Vision%20Architecture%20Review.md)
   preserves the exact reviewed revision, findings, advisories, and opening
   authorization.

@@ -17,7 +17,7 @@ M8 — Operational Intelligence Evolution Architecture — Active
 ## Current Task
 
 ```text
-Canonical Review — M8.4 Gap and Risk Assessment
+Canonicalization — M8.4 Gap and Risk Assessment
 ```
 
 ## Dependencies
@@ -40,21 +40,22 @@ Canonical Review — M8.4 Gap and Risk Assessment
 - [M8.4 Gap and Risk Assessment](M8.4_GAP_AND_RISK_ASSESSMENT.md).
 - [M8.4 Architecture Review Correction Evidence](M8.4_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md).
 - [M8.4 Gap and Risk Assessment Architecture Review](../governance/reviews/M8.4%20-%20Gap%20and%20Risk%20Assessment%20Architecture%20Review.md).
+- [M8.4 Gap and Risk Assessment Canonical Review](../governance/reviews/M8.4%20-%20Gap%20and%20Risk%20Assessment%20Canonical%20Review.md).
 - Existing canonical and approved source architectures within their recorded
   scopes and authority conditions.
 
 ## Expected Output
 
-One independent Canonical Review of the exact Architecture Approved corrected
-M8.4 Gap and Risk Assessment candidate and correction evidence against its
-opening order, canonical M8.1–M8.3, the approved M8 Vision, canonical M7
-governance, cited source authorities, the Architecture Review record, active
-Definition of Done, and repository-visible evidence.
+One separate repository transition that canonicalizes the exact reviewed M8.4
+Gap and Risk Assessment revision and correction evidence after completed
+Architecture and Canonical Reviews and reconciles M8.4 status without changing
+any Gap, Risk, Recommendation, assessment-object boundary, source authority
+condition, or Product Purpose / System Identity framing concern.
 
-This task authorizes Canonical Review only. It does not modify the candidate or
-its sources, predetermine a disposition, resolve a Gap, accept or treat a Risk,
-canonicalize M8.4, close the stage, open M8.5, introduce implementation, amend
-governance, or authorize successor work.
+This task records the next required action but does not itself authorize or
+perform canonicalization. A separate authority transition remains required. It
+does not resolve a Gap, accept or treat a Risk, close M8.4, open M8.5,
+introduce implementation, amend governance, or authorize successor work.
 
 ## Owner
 
@@ -68,34 +69,31 @@ Done. Independent review remains separate from artifact creation.
 ## Status
 
 ```text
-Ready for Canonical Review
+Canonical Review complete — Canonicalization pending
 ```
 
-M8 is Active. M8.1, M8.2, and M8.3 are Canonical / Closed. M8.4 is Architecture
-Approved, is the sole active M8 stage, and claims no canonical authority. M8.5
-and later stages remain unopened.
+M8 is Active. M8.1, M8.2, and M8.3 are Canonical / Closed. M8.4 is the sole
+active M8 stage. The exact reviewed revision completed Architecture and
+Canonical Review with a `Canonical` disposition and is approved for a separate
+canonicalization transition. It has not acquired canonical authority. M8.5 and
+later stages remain unopened.
 
 ## Definition of Done
 
-- The Canonical Review verifies the exact Architecture Approved candidate and
-  correction-evidence revisions, review provenance, authority, independence,
-  scope, dependencies, and evidence.
-- Gap and risk taxonomies cover every required distinction without collapsing
-  issue classifications.
-- Every register row is attributable and includes its required scope,
-  consequence, severity, dependency, blocking or residual condition, and
-  non-authorizing future boundary.
-- Findings, gaps, risks, recommendations, and decisions remain distinct.
-- Overlap, contradiction, maturity, blocking-condition, and residual-risk
-  assessments preserve canonical ownership and authority.
-- Canonical M8.1–M8.3, Product Purpose / System Identity framing, canonical M7,
-  source authority conditions, and semantic ownership remain unchanged.
-- No gap is resolved, risk accepted or treated, recommendation authorized, or
-  individual finding converted into backlog work.
-- Implementation, runtime, API, schema, event, persistence, storage,
-  infrastructure, deployment, UI, workflow, lifecycle, protocol, governance
-  amendment, M8.5–M8.7, delivery, and successor substance are absent.
-- The disposition is exactly `Canonical` or `Requires Corrections`, with an
-  explicit return gate where applicable.
-- A `Canonical` disposition authorizes only a separate canonicalization
-  transition; it does not itself canonicalize or close M8.4 or open M8.5.
+- A separate authority order explicitly authorizes canonicalization and defines
+  the permitted repository reconciliation.
+- The fixed reviewed commit, candidate blob, correction-evidence blob,
+  Architecture Review, and Canonical Review remain preserved and attributable.
+- Canonicalization changes authority and status only; all 15 Gaps, 15 Risks, six
+  Recommendations, seven assessment-object boundaries, classifications,
+  evidence, severity, controls, and residual exposures remain unchanged.
+- No Gap is resolved, Risk accepted or treated, Recommendation or Decision
+  authorized, or individual issue converted into backlog work.
+- Product Purpose and System Identity remain framing concerns; canonical
+  M8.1–M8.3, canonical M7, source authority conditions, and semantic ownership
+  remain unchanged.
+- M8.4 remains the sole active stage until the authorized transition records
+  closure or another permitted state.
+- M8.5 and later stages remain unopened unless separately authorized; no
+  implementation, governance amendment, delivery, or successor substance is
+  introduced.
