@@ -102,3 +102,7 @@ cannot silently amend its reviewed source or substitute for evidence.
   — **Completed — Approved**. Records the Architect Council's independent
   approval of the fixed Evolution Architecture candidate and returns that exact
   revision to the Canonical Review gate without canonicalization or transition.
+- [M8.5 — Evolution Architecture Canonical Review](M8.5%20-%20Evolution%20Architecture%20Canonical%20Review.md)
+  — **Completed — Canonical**. Confirms canonical suitability of the exact
+  reviewed candidate and authorizes a separate canonicalization transition while
+  leaving M8.5 active and M8.6 unopened.

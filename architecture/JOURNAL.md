@@ -1425,3 +1425,35 @@ evidence conflict, the cited canonical document and Git history govern.
   canonicalization, closure, or stage transition recorded, source authority or
   canonical M7/M8 meaning modified, implementation or backlog work authorized,
   or M8.6–M8.7 substance introduced.
+
+### 2026-08-01 — M8.5 Canonical Review completed
+
+- **Event:** an independent Canonical Review evaluated the exact Architecture
+  Approved M8.5 Evolution Architecture and its attributable Architecture Review
+  under canonical M7.
+- **Reviewed identity:** candidate commit
+  `b90f17f642bbf0e89da8938895d193d2d02b9538`; candidate blob
+  `5166992acd03034176b0236581ceebb41a35bce9`.
+- **Architecture Review attribution:** record
+  `governance/reviews/M8.5 - Evolution Architecture Architecture Review.md` at
+  commit `3c35ff22998c58efdfef78d42911418bb4ab2611`; review blob
+  `9f747d06a5558721c81902396eaf5a4248264411`.
+- **Canonical findings:** all 18 canonical checks passed. Fixed identities,
+  review eligibility, unchanged meaning, ownership, dependencies, framing,
+  governance, canonical baselines, source authority, M8.4 preservation,
+  implementation independence, later-stage exclusion, discoverability, active
+  state, and worktree consistency are confirmed.
+- **Disposition:** `Canonical`; approved for canonicalization through a separate
+  authority transition; canonicalization pending.
+- **Evidence:** `governance/reviews/M8.5 - Evolution Architecture Canonical
+  Review.md` and the preserved Architecture Review.
+- **Active task:** exactly one backlog task, `Canonicalization — M8.5 Evolution
+  Architecture`, at `Canonicalization Pending`; it records the gate and grants
+  no transition authority.
+- **Stage state:** M8 remains the sole active milestone; M8.5 remains the sole
+  active stage and is not canonicalized or closed; M8.6 and later stages remain
+  unopened.
+- **Boundary:** no evolution option is selected; no Gap is resolved, Risk
+  accepted or treated, Recommendation adopted, canonicalization, closure, or
+  stage transition performed, source authority or reviewed meaning changed,
+  implementation or backlog work authorized, or M8.6–M8.7 substance introduced.

@@ -17,7 +17,7 @@ M8 — Operational Intelligence Evolution Architecture — Active
 ## Current Task
 
 ```text
-Canonical Review — M8.5 Evolution Architecture
+Canonicalization — M8.5 Evolution Architecture
 ```
 
 ## Dependencies
@@ -44,15 +44,16 @@ Canonical Review — M8.5 Evolution Architecture
 - [M8.5 Evolution Architecture Order](../governance/orders/M8.5%20-%20Evolution%20Architecture%20Order.md).
 - [M8.5 Evolution Architecture candidate](M8.5_EVOLUTION_ARCHITECTURE.md).
 - [M8.5 Evolution Architecture Architecture Review](../governance/reviews/M8.5%20-%20Evolution%20Architecture%20Architecture%20Review.md).
+- [M8.5 Evolution Architecture Canonical Review](../governance/reviews/M8.5%20-%20Evolution%20Architecture%20Canonical%20Review.md).
 - Existing canonical and approved source architectures within their recorded
   scopes and authority conditions.
 
 ## Expected Output
 
-One independent Canonical Review disposition for the fixed, Architecture
-Approved M8.5 Evolution Architecture candidate.
+One separately authorized repository transition that canonicalizes and closes
+the fixed, canonically suitable M8.5 Evolution Architecture candidate.
 
-This task authorizes independent Canonical Review only. It does not predetermine or
+This task records canonicalization pending and grants no transition authority. It does not predetermine or
 supply an evolution increment, target architecture, correction, treatment,
 priority, portfolio, dependency sequence, roadmap, or work package; resolve a
 Gap; accept or treat a Risk; adopt a Recommendation; approve or canonicalize
@@ -71,7 +72,7 @@ Done. Independent review remains separate from artifact creation.
 ## Status
 
 ```text
-Ready for Canonical Review
+Canonicalization Pending
 ```
 
 M8 is Active. M8.1–M8.4 are Canonical / Closed. M8.5 is the sole active M8 stage
@@ -80,8 +81,8 @@ stages remain unopened.
 
 ## Definition of Done
 
-- The fixed, Architecture Approved M8.5 candidate is independently reviewed for
-  canonical suitability under canonical M7 and the controlling M8 baseline.
+- A separate authority transition canonicalizes M8.5 only when explicitly
+  ordered under canonical M7 and the controlling M8 baseline.
 - Canonical M8.1–M8.4 remain unchanged and controlling within their respective
   architectural and assessment scopes.
 - All 15 Gaps, 15 Risks, six advisory Recommendations, seven assessment-object
