@@ -38,15 +38,15 @@ after independent Architecture Approval of the
 ## Active stage
 
 ```text
-M8.7 — Integrated Architecture Review — Ready for Architecture Definition
+M8.7 — Integrated Architecture Review — Ready for Architecture Review
 ```
 
 M8.1 Architectural Identity and Baseline Mapping, M8.2 Capability and Ownership
 Coherence, M8.3 Information, Evidence, and Handoff Architecture, M8.4 Gap and
 Risk Assessment, M8.5 Evolution Architecture, and M8.6 Validation and Readiness
-are Canonical / Closed. M8.7 is the single active stage. Its scope-bounded
-opening order supplies only the stage objective, dependencies, exclusions, and
-completion boundary; definition work has not begun.
+are Canonical / Closed. M8.7 is the single active stage. Its fixed,
+implementation-independent candidate is prepared under the scope-bounded
+opening order and awaits independent Architecture Review.
 
 ## Successor stage
 
@@ -81,7 +81,7 @@ later, separately reviewed and authorized transition.
 | 4 | M8.4 — Gap and Risk Assessment | Closed — Canonical |
 | 5 | M8.5 — Evolution Architecture | Closed — Canonical |
 | 6 | M8.6 — Validation and Readiness | Closed — Canonical |
-| 7 | M8.7 — Integrated Architecture Review | Active — Ready for Architecture Definition |
+| 7 | M8.7 — Integrated Architecture Review | Active — Ready for Architecture Review |
 
 M8 is Active. M8.7 is the only active stage. No M9 or successor milestone is
 opened.

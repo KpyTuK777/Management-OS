@@ -1636,3 +1636,34 @@ evidence conflict, the cited canonical document and Git history govern.
   completion statement, substantive architecture, implementation, runtime,
   API, data model, UI, protocol, lifecycle change, governance amendment,
   delivery mechanics, M9 work, or successor milestone is introduced.
+
+### 2026-08-01 — M8.7 Integrated Architecture Review defined
+
+- **Event:** the implementation-independent M8.7 Integrated Architecture Review
+  candidate was prepared under its scope-bounded opening order and submitted to
+  independent Architecture Review.
+- **Definition:** `architecture/M8.7_INTEGRATED_ARCHITECTURE_REVIEW.md` fixes the
+  canonical M8.1–M8.6 inputs; evaluates identity, boundary, ownership,
+  information, evidence, handoffs, decision authority, learning, evolution,
+  validation, and readiness; traces the end-to-end architectural chain; defines
+  sixteen integrated invariants; and records residual uncertainty.
+- **Integrated result boundary:** the corpus is evaluated as coherent within
+  its mapped and evidenced scope; this is not approval, exhaustive completeness,
+  an M8.6 readiness class, implementation readiness, or milestone completion.
+- **Assessment preservation:** all M8.4 Gaps remain unresolved, Risks remain
+  unaccepted and untreated, Recommendations remain advisory, and M8.5
+  alternatives remain unselected and non-authorizing.
+- **Authority preservation:** canonical M7, canonical M8.1–M8.6, source
+  authority, Product Purpose / System Identity framing, semantic ownership,
+  provenance, uncertainty, human authority, and external Governance remain
+  unchanged.
+- **Active task:** exactly one backlog task, `Architecture Review — M8.7
+  Integrated Architecture Review`, at `Ready for Architecture Review`.
+- **Stage state:** M8 remains the sole active milestone; M8.1–M8.6 remain
+  Canonical / Closed; M8.7 remains the sole active stage; no M9 or successor
+  milestone is opened.
+- **Boundary:** no Architecture Review, Canonical Review, canonicalization,
+  M8.7 or M8 closure, final disposition, milestone-completion claim,
+  implementation, runtime, API, schema, data model, UI, protocol, lifecycle
+  change, governance amendment, delivery mechanics, M9 work, or successor
+  milestone is introduced.

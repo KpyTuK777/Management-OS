@@ -117,6 +117,10 @@ is recorded in the repository.
   opens M8.7 as the sole active stage and establishes only its objective,
   dependencies, exclusions, and completion boundary without supplying review
   findings, conclusions, milestone completion, or substantive architecture.
+- [M8.7 Integrated Architecture Review](M8.7_INTEGRATED_ARCHITECTURE_REVIEW.md)
+  evaluates the fixed canonical M8.1–M8.6 corpus as one coherent, bounded,
+  attributable, implementation-independent architectural baseline and is Ready
+  for Architecture Review without claiming approval or milestone completion.
 - [M8 Architecture Vision Architecture Review](../governance/reviews/M8%20-%20Architecture%20Vision%20Architecture%20Review.md)
   preserves the exact reviewed revision, findings, advisories, and opening
   authorization.
