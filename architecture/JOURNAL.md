@@ -1521,3 +1521,27 @@ evidence conflict, the cited canonical document and Git history govern.
   deployment, tooling, automation, CI, repository mechanic, protocol, lifecycle
   change, governance amendment, delivery plan, backlog execution, release
   criterion, or successor work is introduced.
+
+### 2026-08-01 — M8.6 Architecture Review findings corrected
+
+- **Findings:** the return-gate findings against commit
+  `f2c1109ff8d2d5e2b029467e666c0dbfd88dd523`, candidate blob
+  `e134c2ead3bbf99e0245f2976739d6c68150240a`, identified overlapping readiness
+  classes and an external governance-authorization condition in the
+  architectural blocker model.
+- **Correction:** Section 11.2 now applies an explicit, mutually exclusive,
+  stop-on-first-match procedure; Sections 12.2–12.4 restrict blockers to
+  architectural deficiencies and separate external governance eligibility.
+- **Evidence:** `architecture/M8.6_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md`.
+- **Status:** Ready for Architecture Review; no approval or canonical authority
+  claimed.
+- **Active task:** exactly one backlog task, `Architecture Review — M8.6
+  Validation and Readiness`, remains at the independent Architecture Review
+  return gate.
+- **Stage state:** M8 remains the sole active milestone; M8.1–M8.5 remain
+  Canonical / Closed; M8.6 remains the sole active stage; M8.7 remains unopened.
+- **Boundary:** no Architecture Review, Canonical Review, canonicalization,
+  closure, M8.7 substance, Gap resolution, Risk acceptance or treatment,
+  Recommendation adoption, evolution-option selection, implementation,
+  governance amendment, lifecycle state, review protocol, tooling, or delivery
+  mechanics are introduced.

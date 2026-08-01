@@ -47,6 +47,7 @@ Architecture Review — M8.6 Validation and Readiness
 - [M8.5 Evolution Architecture Canonical Review](../governance/reviews/M8.5%20-%20Evolution%20Architecture%20Canonical%20Review.md).
 - [M8.6 Validation and Readiness Order](../governance/orders/M8.6%20-%20Validation%20and%20Readiness%20Order.md).
 - [M8.6 Validation and Readiness candidate](M8.6_VALIDATION_AND_READINESS.md).
+- [M8.6 Architecture Review Correction Evidence](M8.6_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md).
 - Existing canonical and approved source architectures within their recorded
   scopes and authority conditions.
 

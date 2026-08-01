@@ -104,6 +104,9 @@ is recorded in the repository.
   artifact and integrated validation models, evidence sufficiency, methods,
   readiness classes, blocking conditions, limitations, invariants, and
   traceability and is Ready for Architecture Review.
+- [M8.6 Architecture Review Correction Evidence](M8.6_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md)
+  records the bounded resolution of the two finite Architecture Review findings
+  while preserving all other candidate meaning and the active review gate.
 - [M8 Architecture Vision Architecture Review](../governance/reviews/M8%20-%20Architecture%20Vision%20Architecture%20Review.md)
   preserves the exact reviewed revision, findings, advisories, and opening
   authorization.
