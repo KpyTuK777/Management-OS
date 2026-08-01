@@ -1281,3 +1281,29 @@ evidence conflict, the cited canonical document and Git history govern.
   claimed.
 - **Boundary:** no review, canonicalization, transition, M8.5 work,
   implementation, governance amendment, or successor work is performed.
+
+### 2026-08-01 — M8.4 repeat Architecture Review completed
+
+- **Event:** the Architect Council independently reviewed the fixed corrected
+  M8.4 Gap and Risk Assessment candidate and correction evidence.
+- **Reviewed identity:** commit
+  `906fa1de66bd8fa78dc34456122c031af777f854`; candidate blob
+  `78d5919e11939b9ecc206c52969b974193fad424`; correction-evidence blob
+  `2d09739b4c0647fd97dff8da3aa00e99e6298bdc`.
+- **Finding resolution:** `AR-M8.4-01` is resolved. Observation and Conclusion
+  have distinct purpose, evidence, authority, non-authority, and inter-object
+  relationships; neither can acquire evidentiary, decision, approval, work, or
+  transition authority.
+- **Regression review:** all previously passing objectives remain satisfied;
+  all 15 Gaps, 15 Risks, six Recommendations, classifications, evidence,
+  severity, ownership, canonical baselines, and exclusions remain unchanged.
+- **Disposition:** Architecture Approved; Ready for Canonical Review.
+- **Evidence:** `governance/reviews/M8.4 - Gap and Risk Assessment Architecture
+  Review.md` and `architecture/M8.4_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md`.
+- **Stage state:** M8 remains the sole active milestone; M8.4 remains the sole
+  active stage and is not canonical or closed; exactly one backlog task now
+  authorizes Canonical Review; M8.5 and later stages remain unopened.
+- **Boundary:** no Gap is resolved, Risk accepted or treated, Recommendation or
+  Decision authorized, Canonical Review performed, canonicalization or closure
+  recorded, M8.5 work opened, governance amended, or implementation or successor
+  work introduced.

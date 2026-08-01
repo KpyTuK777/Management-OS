@@ -38,14 +38,14 @@ after independent Architecture Approval of the
 ## Active stage
 
 ```text
-M8.4 — Gap and Risk Assessment — Ready for Architecture Review
+M8.4 — Gap and Risk Assessment — Ready for Canonical Review
 ```
 
 M8.1 Architectural Identity and Baseline Mapping, M8.2 Capability and Ownership
 Coherence, and M8.3 Information, Evidence, and Handoff Architecture are
 Canonical / Closed. M8.4 is the single active stage. Its
-implementation-independent assessment candidate is defined and awaits
-independent Architecture Review under the task and Definition of Done in
+fixed corrected assessment candidate is Architecture Approved and awaits
+independent Canonical Review under the task and Definition of Done in
 [BACKLOG.md](BACKLOG.md).
 
 ## Successor stage
@@ -79,7 +79,7 @@ later, separately reviewed and authorized transition.
 | 1 | M8.1 — Architectural Identity and Baseline Mapping | Closed — Canonical |
 | 2 | M8.2 — Capability and Ownership Coherence | Closed — Canonical |
 | 3 | M8.3 — Information, Evidence, and Handoff Architecture | Closed — Canonical |
-| 4 | M8.4 — Gap and Risk Assessment | Active — Ready for Architecture Review |
+| 4 | M8.4 — Gap and Risk Assessment | Active — Ready for Canonical Review |
 
 M8 is Active. M8.4 is the only active stage. M8.5 and later stages remain
 unopened and no successor milestone is opened.

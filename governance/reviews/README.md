@@ -89,3 +89,8 @@ cannot silently amend its reviewed source or substitute for evidence.
   — **Completed — Canonical**. Confirms canonical suitability of the exact
   reviewed candidate and authorizes the separate transition that later
   canonicalized and closed M8.3 without modifying either review record.
+- [M8.4 — Gap and Risk Assessment Architecture Review](M8.4%20-%20Gap%20and%20Risk%20Assessment%20Architecture%20Review.md)
+  — **Completed — Approved**. Records resolution of `AR-M8.4-01`, confirms no
+  regression across previously passing objectives, approves the fixed corrected
+  candidate, and returns M8.4 to the Canonical Review gate without resolving a
+  Gap, accepting a Risk, canonicalization, closure, or M8.5 opening.
