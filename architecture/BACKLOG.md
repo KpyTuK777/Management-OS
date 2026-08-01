@@ -17,7 +17,7 @@ M8 — Operational Intelligence Evolution Architecture — Active
 ## Current Task
 
 ```text
-Canonical Review — M8.2 Capability and Ownership Coherence
+Canonicalization — M8.2 Capability and Ownership Coherence
 ```
 
 ## Dependencies
@@ -31,21 +31,22 @@ Canonical Review — M8.2 Capability and Ownership Coherence
 - [M8.2 Capability and Ownership Coherence Order](../governance/orders/M8.2%20-%20Capability%20and%20Ownership%20Coherence%20Order.md).
 - [M8.2 Capability and Ownership Coherence](M8.2_CAPABILITY_AND_OWNERSHIP_COHERENCE.md).
 - [M8.2 Capability and Ownership Coherence Architecture Review](../governance/reviews/M8.2%20-%20Capability%20and%20Ownership%20Coherence%20Architecture%20Review.md).
+- [M8.2 Capability and Ownership Coherence Canonical Review](../governance/reviews/M8.2%20-%20Capability%20and%20Ownership%20Coherence%20Canonical%20Review.md).
 - Existing canonical and approved source architectures within their recorded
   scopes and authority conditions.
 
 ## Expected Output
 
-One independent Canonical Review of the exact Architecture Approved M8.2
-Capability and Ownership Coherence candidate against its order, canonical
-M8.1, the M8.1 Product Purpose / System Identity watchpoint, the Architecture
-Approved M8 Vision, canonical M7 governance, cited source authorities, the
-Architecture Review record, active Definition of Done, and repository-visible
-evidence.
+One separate repository transition that canonicalizes the exact reviewed M8.2
+Capability and Ownership Coherence revision after its completed Architecture
+and Canonical Reviews and reconciles M8.2 status without changing architectural
+meaning, source authority conditions, or the Product Purpose / System Identity
+watchpoint.
 
-This task authorizes Canonical Review only. It does not modify the candidate or
-its sources, predetermine a disposition, canonicalize M8.2, close the stage,
-open M8.3, define handoff architecture, or authorize implementation.
+This task records the next required action but does not itself authorize or
+perform canonicalization. A separate authority transition remains required. It
+does not close M8.2, open M8.3, define handoff architecture, introduce successor
+work, or authorize implementation.
 
 ## Owner
 
@@ -59,33 +60,28 @@ Done. Independent review remains separate from artifact creation.
 ## Status
 
 ```text
-Ready for Canonical Review
+Canonical Review complete — Canonicalization pending
 ```
 
-M8 is Active. M8.1 is Canonical / Closed. M8.2 is Architecture Approved, is the
-sole active M8 stage, and claims no canonical authority. M8.3 and later stages
+M8 is Active. M8.1 is Canonical / Closed. M8.2 is the sole active M8 stage. The
+exact reviewed revision has completed Architecture and Canonical Review with a
+`Canonical` disposition and is approved for a separate canonicalization
+transition. It has not yet acquired canonical authority. M8.3 and later stages
 remain unopened.
 
 ## Definition of Done
 
-- The Canonical Review verifies the exact Architecture Approved candidate
-  revision, review provenance, authority, independence, scope, dependencies,
-  and evidence.
-- The capability identity, ownership, responsibility, interaction, and
-  dependency models receive explicit findings.
-- Major and routine capability coverage, unique semantic ownership, experience
-  composition, and cross-cutting classification are verified against sources.
-- Capability, source, governance, organizational, human, runtime, and
-  implementation ownership remain distinct.
-- Composition and dependency create no authority transfer or hidden semantic
-  duplication.
-- Overlap determinations and unresolved ownership findings remain attributable
-  and non-authorizing.
-- Canonical M8.1 meaning, the Product Purpose / System Identity watchpoint,
-  canonical M7, and source authority conditions remain unchanged.
-- M8.3 information-flow and handoff architecture, implementation detail, and
-  later-stage substance are excluded.
-- The disposition is exactly `Canonical` or `Requires Corrections`, with an
-  explicit return gate where applicable.
-- A `Canonical` disposition authorizes only a separate canonicalization
-  transition; it does not itself canonicalize or close M8.2 or open M8.3.
+- A separate authority order explicitly authorizes canonicalization and defines
+  the permitted repository reconciliation.
+- The fixed reviewed commit, candidate blob, Architecture Review, and Canonical
+  Review remain preserved and attributable.
+- Canonicalization changes authority and status only; reviewed architectural
+  meaning and source authority conditions remain unchanged.
+- Product Purpose and System Identity remain architectural-object-level framing
+  concerns and do not become locally owned capabilities.
+- Capability ownership remains complete, unique, and internally coherent.
+- M8.2 remains the sole active stage until the authorized transition records
+  closure or another permitted state.
+- M8.3 and later stages remain unopened unless separately authorized; no
+  information-flow, handoff, implementation, or later-stage substance is
+  introduced.

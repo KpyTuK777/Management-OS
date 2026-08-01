@@ -1043,3 +1043,28 @@ evidence conflict, the cited canonical document and Git history govern.
   status metadata. They do not modify reviewed architectural meaning, source
   authority conditions, canonicalize M8.2, perform Canonical Review, close the
   stage, open M8.3, or introduce later-stage or implementation substance.
+
+### 2026-08-01 — M8.2 Canonical Review completed
+
+- **Event:** an independent Canonical Review evaluated the exact Architecture
+  Approved M8.2 Capability and Ownership Coherence revision under canonical M7.
+- **Reviewed identity:** commit
+  `30ad7ad2272c0364fa3467957378d457a7feaac3`; candidate blob
+  `b64748fe70a17c1c6b6499ce6e031c31b04ea5f5`.
+- **Architecture Review attribution:** record
+  `governance/reviews/M8.2 - Capability and Ownership Coherence Architecture
+  Review.md` at commit `df813bfefd5247230e20662d0c26ed399c7ff239`.
+- **Canonical findings:** review attribution, fixed identity, unchanged meaning,
+  ownership coherence, framing concerns, external governance, source authority,
+  M8.3 exclusion, implementation independence, and repository consistency all
+  passed with no blocking finding.
+- **Disposition:** `Canonical`; approved for canonicalization through a separate
+  authority transition; canonicalization pending.
+- **Evidence:** `governance/reviews/M8.2 - Capability and Ownership Coherence
+  Canonical Review.md` and the preserved Architecture Review.
+- **Stage state:** M8 remains the sole active milestone; M8.2 remains the sole
+  active stage; exactly one backlog task records the pending canonicalization
+  gate; M8.3 and later stages remain unopened.
+- **Boundary:** Canonical Review does not canonicalize or close M8.2, open M8.3,
+  modify reviewed architectural meaning or source authority conditions, or
+  authorize implementation, handoff architecture, or successor work.
