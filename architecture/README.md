@@ -29,10 +29,8 @@ is recorded in the repository.
 - [M8 Architecture Vision](M8_ARCHITECTURE_VISION.md) is the independently
   Architecture Approved basis for the open M8 milestone.
 - [M8.1 Architectural Identity and Baseline Mapping](M8.1_ARCHITECTURAL_IDENTITY_AND_BASELINE_MAPPING.md)
-  defines the system-first architectural baseline and is the sole active stage
-  at `Canonical Review complete — Canonicalization pending`. Its exact reviewed
-  revision has a `Canonical` disposition but has not acquired canonical authority
-  through the required separate transition.
+  is the Canonical / Closed system-first architectural identity and baseline for
+  M8.
 - [M8.1 Architecture Review Correction Evidence](M8.1_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md)
   preserves the attributable resolution of all five prior findings.
 - [M8.1 Architectural Identity and Baseline Mapping Architecture Review](../governance/reviews/M8.1%20-%20Architectural%20Identity%20and%20Baseline%20Mapping%20Architecture%20Review.md)
@@ -40,16 +38,19 @@ is recorded in the repository.
   gate without canonicalization, closure, or M8.2 opening.
 - [M8.1 Architectural Identity and Baseline Mapping Canonical Review](../governance/reviews/M8.1%20-%20Architectural%20Identity%20and%20Baseline%20Mapping%20Canonical%20Review.md)
   records the `Canonical` disposition and approval for a separate
-  canonicalization transition without performing that transition, closing
-  M8.1, or opening M8.2.
+  canonicalization transition; it remains preserved as review evidence distinct
+  from the later transition.
+- [M8.2 Capability and Ownership Coherence Order](../governance/orders/M8.2%20-%20Capability%20and%20Ownership%20Coherence%20Order.md)
+  opens M8.2 as the sole active stage at `Ready for Architecture Definition`
+  and establishes only its objective and dependencies, without defining
+  capability-coherence conclusions.
 - [M8 Architecture Vision Architecture Review](../governance/reviews/M8%20-%20Architecture%20Vision%20Architecture%20Review.md)
   preserves the exact reviewed revision, findings, advisories, and opening
   authorization.
 - [M8 Milestone Opening Order](../governance/orders/M8%20-%20Milestone%20Opening%20Order.md)
   records the bounded opening direction without defining future architecture.
 - [M8.1 Architectural Identity and Baseline Mapping Order](../governance/orders/M8.1%20-%20Architectural%20Identity%20and%20Baseline%20Mapping%20Order.md)
-  records the Architect Council's refined, system-first definition scope without
-  opening another stage.
+  records the completed, scope-fulfilled M8.1 definition direction.
 - [Canonical Management Model](../images/17-design-principles/README.md) contains
   the canonical professional and experience models consumed by M6.
 - [Architecture Decision Records](../docs/adr/README.md) preserve durable

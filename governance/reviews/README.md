@@ -67,9 +67,9 @@ cannot silently amend its reviewed source or substitute for evidence.
   — **Completed — Approved**. Records resolution of all five prior findings,
   approves the exact reconciled revision as the M8 architectural identity and
   baseline, authorizes dependency use by M8.2 after applicable stage opening,
-  and advances M8.1 to Canonical Review without canonicalization, closure, or
-  M8.2 opening.
+  and remains preserved as the independent Architecture Approval record for the
+  now Canonical / Closed M8.1 baseline.
 - [M8.1 — Architectural Identity and Baseline Mapping Canonical Review](M8.1%20-%20Architectural%20Identity%20and%20Baseline%20Mapping%20Canonical%20Review.md)
   — **Completed — Canonical**. Confirms canonical suitability of the exact
-  reviewed revision and authorizes a separate canonicalization transition
-  without performing canonicalization, closing M8.1, or opening M8.2.
+  reviewed revision and authorizes the separate transition that later
+  canonicalized and closed M8.1 without modifying either review record.

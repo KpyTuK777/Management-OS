@@ -38,23 +38,24 @@ after independent Architecture Approval of the
 ## Active stage
 
 ```text
-M8.1 — Architectural Identity and Baseline Mapping — Canonical Review complete — Canonicalization pending
+M8.2 — Capability and Ownership Coherence — Ready for Architecture Definition
 ```
 
-M8.1 is the single active stage. Its exact reconciled revision completed
-Architecture and Canonical Review with a `Canonical` disposition and is approved
-for a separate canonicalization transition. Canonicalization has not occurred;
-the pending transition task and completion criteria are defined in
-[BACKLOG.md](BACKLOG.md).
+M8.1 Architectural Identity and Baseline Mapping is Canonical / Closed after its
+separate authorized canonicalization transition. M8.2 is the single active
+stage. Its bounded objective, dependencies, exclusions, task, and completion
+criteria are recorded in the
+[M8.2 Opening Order](../governance/orders/M8.2%20-%20Capability%20and%20Ownership%20Coherence%20Order.md)
+and [BACKLOG.md](BACKLOG.md).
 
 ## Successor stage
 
 ```text
-None activated
+None activated beyond M8.2
 ```
 
-The remaining sequence proposed by the reviewed Vision is not activated or
-authorized by this transition. No successor milestone is created.
+M8.3 and every later M8 stage remain unopened. No successor milestone is
+created.
 
 ## M7 stage sequence
 
@@ -75,10 +76,11 @@ later, separately reviewed and authorized transition.
 
 | Sequence | Stage | Status |
 | ---: | --- | --- |
-| 1 | M8.1 — Architectural Identity and Baseline Mapping | Active — Canonical Review complete — Canonicalization pending |
+| 1 | M8.1 — Architectural Identity and Baseline Mapping | Closed — Canonical |
+| 2 | M8.2 — Capability and Ownership Coherence | Active — Ready for Architecture Definition |
 
-M8 is Active. M8.1 is the only active stage. No later M8 stage or successor
-milestone is opened.
+M8 is Active. M8.2 is the only active stage. M8.3 and later stages remain
+unopened and no successor milestone is opened.
 
 ## Roadmap maintenance
 

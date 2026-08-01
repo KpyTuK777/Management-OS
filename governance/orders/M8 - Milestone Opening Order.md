@@ -24,8 +24,9 @@ This repository-native order records the Architect Council direction to open
 Milestone M8 after independent approval of the exact M8 Architecture Vision at
 commit `35f65a66e76c8456f4b690c55d9e665bb196454b`.
 
-The separate transition recorded with this order opens M8 and activates only
-M8.1 — Baseline and Corpus Mapping at `Ready for Architecture Definition`. The
+The separate transition recorded with this order opened M8 and initially
+activated only M8.1 — Baseline and Corpus Mapping at `Ready for Architecture
+Definition`. The
 Architecture Roadmap owns milestone and stage status, the Architecture Backlog
 owns the single active task, and the Chief Architect Operating Model owns review
 and transition authority.
@@ -68,7 +69,11 @@ This order does not:
 
 ## Completion Boundary
 
-M8.1 remains Active until its separately created architecture artifact completes
-the authority lifecycle required by its future reviewed task and an authorized
-transition records the resulting state. This order performs only the M8/M8.1
-opening transition and supplies no substantive M8.1 architecture.
+M8.1 remained Active until its separately created architecture artifact
+completed the required authority lifecycle and a later authorized transition
+recorded canonical closure. This order performed only the original M8/M8.1
+opening transition and supplied no substantive M8.1 architecture.
+
+M8 remains Active. The later M8.1 canonicalization transition and bounded M8.2
+opening order now govern stage state. This order grants no M8.2 definition or
+later-stage authority.

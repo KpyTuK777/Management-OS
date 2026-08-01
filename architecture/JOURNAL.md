@@ -950,3 +950,39 @@ evidence conflict, the cited canonical document and Git history govern.
 - **Boundary:** this review does not canonicalize or close M8.1, open M8.2 or
   M8.3, modify reviewed architectural meaning or source authority conditions,
   perform a repository transition, or authorize successor work.
+
+### 2026-08-01 — M8.1 canonicalized and closed; M8.2 opened
+
+- **Event:** a separate Architect Council authority transition canonicalized and
+  closed M8.1 Architectural Identity and Baseline Mapping, then opened M8.2
+  Capability and Ownership Coherence as the sole active M8 stage.
+- **Canonicalized subject:** reviewed commit
+  `d9e99dba5a3eb458782bf8c971527ee293520321`; architectural baseline blob
+  `acb14142a2b8c22b8a4d32e4d604ee3360a4cb2c`.
+- **Preserved correction evidence:** the fixed reviewed evidence identity remains
+  blob `e5569245f3ac45d27fbdd02a8361b7aa3d7046d7`; the live evidence file remains
+  unchanged from the Canonical Review reconciliation and indexed.
+- **Preserved Architecture Review:** reconciliation commit
+  `71b4d92b67699c8321285d33a60b949950c43bcd`; review blob
+  `16259111b1c2e5e000d0ea274a887098b837cbb3`.
+- **Canonical Review authority:** commit
+  `9e7461b804fdf43c822850bace16c8701654124b`; record
+  `governance/reviews/M8.1 - Architectural Identity and Baseline Mapping
+  Canonical Review.md`.
+- **M8.1 disposition:** Canonical / Closed. Architectural meaning and mapped
+  source authority conditions are unchanged.
+- **Preserved watchpoint:** Product Purpose and System Identity remain
+  architectural-object-level framing concerns. Their P1 and P2 mappings provide
+  responsibility lookup only and do not create ordinary local capability
+  ownership.
+- **M8.2 opening authority:** `governance/orders/M8.2 - Capability and Ownership
+  Coherence Order.md`, establishing only the stage objective, dependencies,
+  exclusions, and completion boundary.
+- **Active task:** exactly one backlog task, `Architecture Definition — M8.2
+  Capability and Ownership Coherence`, at `Ready for Architecture Definition`.
+- **Stage state:** M8 remains Active; M8.1 is Canonical / Closed; M8.2 is the
+  sole active stage; M8.3 and every later stage remain unopened.
+- **Boundary:** no substantive M8.2 capability-coherence conclusion, M8.3
+  handoff architecture, implementation, runtime, data, API, UI, lifecycle,
+  protocol, governance amendment, delivery mechanics, or successor work is
+  introduced.
