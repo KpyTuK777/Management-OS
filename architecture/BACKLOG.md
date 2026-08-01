@@ -17,7 +17,7 @@ M8 — Operational Intelligence Evolution Architecture — Active
 ## Current Task
 
 ```text
-Canonical Review — M8.6 Validation and Readiness
+Canonicalization — M8.6 Validation and Readiness
 ```
 
 ## Dependencies
@@ -49,15 +49,17 @@ Canonical Review — M8.6 Validation and Readiness
 - [M8.6 Validation and Readiness candidate](M8.6_VALIDATION_AND_READINESS.md).
 - [M8.6 Architecture Review Correction Evidence](M8.6_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md).
 - [M8.6 Validation and Readiness Architecture Review](../governance/reviews/M8.6%20-%20Validation%20and%20Readiness%20Architecture%20Review.md).
+- [M8.6 Validation and Readiness Canonical Review](../governance/reviews/M8.6%20-%20Validation%20and%20Readiness%20Canonical%20Review.md).
 - Existing canonical and approved source architectures within their recorded
   scopes and authority conditions.
 
 ## Expected Output
 
-One independent Canonical Review disposition for the exact Architecture
-Approved M8.6 candidate and correction evidence.
+One separately authorized repository transition that canonicalizes and closes
+the exact, canonically suitable M8.6 candidate and preserves its correction and
+review evidence.
 
-This task authorizes independent Canonical Review only. It does not predetermine or
+This task records canonicalization pending and grants no transition authority. It does not predetermine or
 supply validation criteria, a validation framework, evidence threshold,
 readiness conclusion, M8.7 substance, roadmap, or work package; resolve a Gap;
 accept or treat a Risk; adopt a Recommendation or evolution option; approve or
@@ -77,17 +79,18 @@ Done. Independent review remains separate from artifact creation.
 ## Status
 
 ```text
-Ready for Canonical Review
+Canonicalization Pending
 ```
 
 M8 is Active. M8.1–M8.5 are Canonical / Closed. M8.6 is the sole active M8 stage
-and is Architecture Approved but claims no canonical authority. M8.7 and later
+and has a Canonical Review disposition of `Canonical` but remains non-canonical.
+M8.7 and later
 stages remain unopened.
 
 ## Definition of Done
 
-- The exact Architecture Approved M8.6 candidate, correction evidence, and
-  Architecture Review are independently evaluated for canonical suitability.
+- A separate authority transition canonicalizes M8.6 only when explicitly
+  ordered under canonical M7 and the controlling M8 baseline.
 - Canonical M8.1–M8.5 remain unchanged and controlling within their respective
   architectural and assessment scopes.
 - All 15 Gaps, 15 Risks, six advisory Recommendations, seven assessment-object
@@ -101,6 +104,5 @@ stages remain unopened.
   UI, workflow, protocol, lifecycle, governance amendment, delivery planning,
   M8.7 or later-stage substance is introduced.
 - M8.7 and later stages remain unopened; no successor milestone is created.
-- Architecture Approval is recorded by the independent review; the candidate
-  claims no canonical authority, closure, or stage-transition authority and is
-  submitted to independent Canonical Review.
+- Canonical suitability is recorded by the independent review; the candidate
+  remains active and non-canonical until a separate authority transition.

@@ -103,13 +103,17 @@ is recorded in the repository.
   implementation-independent validation-object taxonomy, readiness dimensions,
   artifact and integrated validation models, evidence sufficiency, methods,
   readiness classes, blocking conditions, limitations, invariants, and
-  traceability and is Architecture Approved / Ready for Canonical Review.
+  traceability and has a Canonical Review disposition of `Canonical`;
+  canonicalization remains pending.
 - [M8.6 Architecture Review Correction Evidence](M8.6_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md)
   records the bounded resolution of the two finite Architecture Review findings
   while preserving all other candidate meaning and the active review gate.
 - [M8.6 Validation and Readiness Architecture Review](../governance/reviews/M8.6%20-%20Validation%20and%20Readiness%20Architecture%20Review.md)
   records the independent approval of the fixed corrected candidate and
   correction evidence and returns M8.6 to the Canonical Review gate.
+- [M8.6 Validation and Readiness Canonical Review](../governance/reviews/M8.6%20-%20Validation%20and%20Readiness%20Canonical%20Review.md)
+  records canonical suitability and approval for a separate authority
+  transition; M8.6 remains active and non-canonical.
 - [M8 Architecture Vision Architecture Review](../governance/reviews/M8%20-%20Architecture%20Vision%20Architecture%20Review.md)
   preserves the exact reviewed revision, findings, advisories, and opening
   authorization.

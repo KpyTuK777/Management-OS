@@ -1571,3 +1571,33 @@ evidence conflict, the cited canonical document and Git history govern.
   opening or substance, Gap resolution, Risk acceptance or treatment,
   Recommendation adoption, evolution-option selection, implementation,
   governance amendment, or delivery mechanics are introduced.
+
+### 2026-08-01 — M8.6 Canonical Review completed
+
+- **Event:** the Architect Council independently evaluated the exact
+  Architecture Approved M8.6 candidate, correction evidence, and Architecture
+  Review for canonical suitability.
+- **Reviewed identity:** candidate commit
+  `48e5b53d11d0ba976a4eb189aa538facd469a97e`; candidate blob
+  `833d831cca116e45dff7da6207f4b7525b6eac36`; correction-evidence blob
+  `ed9a1879e720dd7330e74fb7185d96027cbdd8c7`; Architecture Review commit
+  `d4568b4a4796499e90e1e65034073c4a054bd127`; review-record blob
+  `ceebb4528dd8a13e985ce18fe5cfedf4d28129f4`.
+- **Disposition:** `Canonical`; approved for canonicalization through a separate
+  authority transition; canonicalization pending.
+- **Findings:** all ten Canonical Review objectives pass; no blocking finding
+  remains and both finite Architecture Review corrections remain valid.
+- **Review record:** `governance/reviews/M8.6 - Validation and Readiness
+  Canonical Review.md`.
+- **Advisories:** canonicalization must preserve the deterministic classifier
+  and external governance-eligibility boundary; M8.7 must not treat R3 or
+  framework completeness as its own result.
+- **Active task:** exactly one backlog task, `Canonicalization — M8.6 Validation
+  and Readiness`, at `Canonicalization Pending`.
+- **Stage state:** M8 remains the sole active milestone; M8.1–M8.5 remain
+  Canonical / Closed; M8.6 remains the sole active, non-canonical stage; M8.7
+  remains unopened.
+- **Boundary:** no canonicalization, M8.6 closure, M8.7 opening or substance,
+  Gap resolution, Risk acceptance or treatment, Recommendation adoption,
+  evolution-option selection, implementation, governance amendment, lifecycle
+  change, protocol change, or delivery mechanics are introduced.
