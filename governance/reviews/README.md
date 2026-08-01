@@ -106,3 +106,8 @@ cannot silently amend its reviewed source or substitute for evidence.
   — **Completed — Canonical**. Confirms canonical suitability of the exact
   reviewed candidate and authorizes the separate transition that later
   canonicalized and closed M8.5 without modifying either review record.
+- [M8.6 — Validation and Readiness Architecture Review](M8.6%20-%20Validation%20and%20Readiness%20Architecture%20Review.md)
+  — **Completed — Approved**. Confirms resolution of `AR-M8.6-01` and
+  `AR-M8.6-02`, approves the fixed corrected candidate and correction evidence,
+  and returns M8.6 to the Canonical Review gate without canonicalization or
+  transition.

@@ -1545,3 +1545,29 @@ evidence conflict, the cited canonical document and Git history govern.
   Recommendation adoption, evolution-option selection, implementation,
   governance amendment, lifecycle state, review protocol, tooling, or delivery
   mechanics are introduced.
+
+### 2026-08-01 — M8.6 repeat Architecture Review completed
+
+- **Event:** the Architect Council independently reviewed the fixed corrected
+  M8.6 Validation and Readiness candidate and correction evidence.
+- **Reviewed identity:** commit
+  `48e5b53d11d0ba976a4eb189aa538facd469a97e`; candidate blob
+  `833d831cca116e45dff7da6207f4b7525b6eac36`; correction-evidence blob
+  `ed9a1879e720dd7330e74fb7185d96027cbdd8c7`.
+- **Finding resolution:** `AR-M8.6-01` and `AR-M8.6-02` are fully resolved; no
+  previously passing objective regressed and no blocking finding remains.
+- **Disposition:** Architecture Approved; Ready for Canonical Review.
+- **Review record:** `governance/reviews/M8.6 - Validation and Readiness
+  Architecture Review.md`.
+- **Advisories:** R2 must remain limited to claim-dependent architectural
+  conditions; governance eligibility must remain external to readiness
+  classification.
+- **Active task:** exactly one backlog task, `Canonical Review — M8.6 Validation
+  and Readiness`, at `Ready for Canonical Review`.
+- **Stage state:** M8 remains the sole active milestone; M8.1–M8.5 remain
+  Canonical / Closed; M8.6 remains the sole active, non-canonical stage; M8.7
+  remains unopened.
+- **Boundary:** no Canonical Review, canonicalization, M8.6 closure, M8.7
+  opening or substance, Gap resolution, Risk acceptance or treatment,
+  Recommendation adoption, evolution-option selection, implementation,
+  governance amendment, or delivery mechanics are introduced.
