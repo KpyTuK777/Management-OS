@@ -1368,3 +1368,30 @@ evidence conflict, the cited canonical document and Git history govern.
   treatment, priority, portfolio, work package, Gap resolution, Risk acceptance,
   Recommendation adoption, implementation, governance amendment, M8.6 content,
   or successor milestone is introduced.
+
+### 2026-08-01 — M8.5 Evolution Architecture defined
+
+- **Event:** the implementation-independent M8.5 Evolution Architecture
+  candidate was prepared under its scope-bounded opening order and submitted to
+  independent Architecture Review.
+- **Definition:** `architecture/M8.5_EVOLUTION_ARCHITECTURE.md` defines evolution
+  objectives and principles, the capability-evolution model,
+  dependency-respecting architectural increments, alternative evolution routes,
+  logical sequencing constraints, decision boundaries, invariants, and
+  long-term sustainability criteria.
+- **Baseline preservation:** canonical M8.1–M8.4 meaning, source authority,
+  semantic ownership, Product Purpose / System Identity framing, the
+  cross-cutting plane, human authority, and external canonical M7 Governance
+  remain unchanged.
+- **Assessment preservation:** all 15 M8.4 Gaps remain unresolved; all 15 Risks
+  remain unaccepted and untreated; all six Recommendations remain advisory; and
+  all seven assessment-object boundaries remain unchanged.
+- **Active task:** exactly one backlog task, `Architecture Review — M8.5
+  Evolution Architecture`, at `Ready for Architecture Review`.
+- **Stage state:** M8 remains the sole active milestone; M8.1–M8.4 are Canonical
+  / Closed; M8.5 is the sole active stage; M8.6 and later stages remain
+  unopened.
+- **Boundary:** no evolution option or route is selected; no target architecture,
+  implementation, delivery sequence, roadmap priority, backlog work, Gap
+  resolution, Risk acceptance or treatment, Recommendation adoption,
+  governance amendment, M8.6–M8.7 substance, or successor work is introduced.

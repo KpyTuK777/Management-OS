@@ -38,14 +38,14 @@ after independent Architecture Approval of the
 ## Active stage
 
 ```text
-M8.5 — Evolution Architecture — Ready for Architecture Definition
+M8.5 — Evolution Architecture — Ready for Architecture Review
 ```
 
 M8.1 Architectural Identity and Baseline Mapping, M8.2 Capability and Ownership
 Coherence, M8.3 Information, Evidence, and Handoff Architecture, and M8.4 Gap
 and Risk Assessment are Canonical / Closed. M8.5 is the single active stage. Its
-scope-bounded opening order supplies only the stage objective, dependencies,
-exclusions, and completion boundary; definition work has not begun.
+implementation-independent candidate is prepared under the scope-bounded
+opening order and awaits independent Architecture Review.
 
 ## Successor stage
 
@@ -79,7 +79,7 @@ later, separately reviewed and authorized transition.
 | 2 | M8.2 — Capability and Ownership Coherence | Closed — Canonical |
 | 3 | M8.3 — Information, Evidence, and Handoff Architecture | Closed — Canonical |
 | 4 | M8.4 — Gap and Risk Assessment | Closed — Canonical |
-| 5 | M8.5 — Evolution Architecture | Active — Ready for Architecture Definition |
+| 5 | M8.5 — Evolution Architecture | Active — Ready for Architecture Review |
 
 M8 is Active. M8.5 is the only active stage. M8.6 and later stages remain
 unopened and no successor milestone is opened.
