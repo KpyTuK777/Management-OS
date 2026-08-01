@@ -17,7 +17,7 @@ M8 — Operational Intelligence Evolution Architecture — Active
 ## Current Task
 
 ```text
-Architecture Definition — M8.4 Gap and Risk Assessment
+Architecture Review — M8.4 Gap and Risk Assessment
 ```
 
 ## Dependencies
@@ -37,21 +37,21 @@ Architecture Definition — M8.4 Gap and Risk Assessment
 - [M8.3 Information, Evidence, and Handoff Architecture Review](../governance/reviews/M8.3%20-%20Information%2C%20Evidence%2C%20and%20Handoff%20Architecture%20Review.md).
 - [M8.3 Information, Evidence, and Handoff Architecture Canonical Review](../governance/reviews/M8.3%20-%20Information%2C%20Evidence%2C%20and%20Handoff%20Architecture%20Canonical%20Review.md).
 - [M8.4 Gap and Risk Assessment Order](../governance/orders/M8.4%20-%20Gap%20and%20Risk%20Assessment%20Order.md).
+- [M8.4 Gap and Risk Assessment](M8.4_GAP_AND_RISK_ASSESSMENT.md).
 - Existing canonical and approved source architectures within their recorded
   scopes and authority conditions.
 
 ## Expected Output
 
-One implementation-independent M8.4 Gap and Risk Assessment candidate prepared
-within the bounded opening order and submitted to independent Architecture
-Review.
+One independent Architecture Review of the exact M8.4 Gap and Risk Assessment
+candidate against its opening order, canonical M8.1–M8.3, the approved M8
+Vision, canonical M7 governance, cited source authorities, active Definition of
+Done, and repository-visible evidence.
 
-This task authorizes architecture definition only. It does not predetermine or
-supply a gap or risk inventory, classification, assessment, priority,
-treatment, acceptance, mitigation, ownership, recommendation, disposition, or
-correction; approve or canonicalize its future output; close M8.4; open M8.5;
-modify canonical M8.1–M8.3; alter source authority; amend governance; or
-authorize implementation or delivery.
+This task authorizes Architecture Review only. It does not modify the candidate
+or its sources, predetermine a disposition, resolve a gap, accept or treat a
+risk, approve or canonicalize M8.4, close the stage, open M8.5, introduce
+implementation, amend governance, or authorize successor work.
 
 ## Owner
 
@@ -65,7 +65,7 @@ Done. Independent review remains separate from artifact creation.
 ## Status
 
 ```text
-Ready for Architecture Definition
+Ready for Architecture Review
 ```
 
 M8 is Active. M8.1, M8.2, and M8.3 are Canonical / Closed. M8.4 is the sole
@@ -74,20 +74,20 @@ M8.5 and later stages remain unopened.
 
 ## Definition of Done
 
-- One M8.4 candidate is created under the scope-bounded opening order.
-- Canonical M8.1–M8.3 remain unchanged and controlling within their respective
-  architectural scopes.
-- Product Purpose and System Identity remain architectural-object-level framing
-  concerns.
-- Capability ownership, semantic-kind distinctions, authority-preserving
-  handoffs, source authority, human authority, and external governance remain
-  distinct and unchanged.
-- Any gap or risk assessment is attributable, evidence-backed,
-  implementation-independent, and reviewable without pre-authorizing action.
-- No implementation, runtime, API, data model, persistence, storage,
-  infrastructure, UI, workflow, lifecycle, protocol, governance amendment, or
-  delivery mechanics are introduced.
-- M8.5 and later stages remain unopened; no successor milestone is created.
-- The candidate claims no Architecture Approval, canonical authority, closure,
-  or stage-transition authority and is submitted to independent Architecture
-  Review.
+- The review identifies the exact candidate revision, authority, independence,
+  scope, dependencies, and evidence.
+- Gap and risk taxonomies cover every required distinction without collapsing
+  issue classifications.
+- Every register row is attributable and includes its required scope,
+  consequence, severity, dependency, blocking or residual condition, and
+  non-authorizing future boundary.
+- Findings, gaps, risks, recommendations, and decisions remain distinct.
+- Overlap, contradiction, maturity, blocking-condition, and residual-risk
+  assessments preserve canonical ownership and authority.
+- Canonical M8.1–M8.3, Product Purpose / System Identity framing, canonical M7,
+  source authority conditions, and semantic ownership remain unchanged.
+- No gap is resolved, risk accepted or treated, recommendation authorized, or
+  individual finding converted into backlog work.
+- Implementation, runtime, API, schema, event, persistence, storage,
+  infrastructure, deployment, UI, workflow, lifecycle, protocol, governance
+  amendment, M8.5–M8.7, delivery, and successor substance are absent.

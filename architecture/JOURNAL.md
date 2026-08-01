@@ -1223,3 +1223,34 @@ evidence conflict, the cited canonical document and Git history govern.
   ranking, treatment, acceptance, mitigation, ownership, recommendation,
   disposition, correction, implementation, governance amendment, M8.5 content,
   or successor milestone is introduced.
+
+### 2026-08-01 — M8.4 Gap and Risk Assessment defined
+
+- **Event:** one implementation-independent M8.4 Gap and Risk Assessment
+  candidate was prepared under the bounded M8.4 opening order.
+- **Controlling baselines:** canonical M8.1–M8.3 remain unchanged and control
+  architectural identity, capability ownership, information and handoff
+  semantics, source authority, assumptions, invariants, and unresolved findings.
+- **Assessment model:** findings, gaps, risks, recommendations, and decisions are
+  distinct; gap and risk taxonomies, classification discipline, severity,
+  plausibility, blocking, and residual-exposure meanings are explicit.
+- **Registers:** 15 material gaps and 15 material risks are attributable to
+  repository-visible evidence; four gaps block an eventual unqualified M8
+  completion claim while none blocks bounded M8.4 assessment.
+- **Classification:** issues retain architectural, semantic, authority-related,
+  evidence-related, maturity-related, procedural, tooling/workflow,
+  implementation, and product-validation classifications without collapse.
+- **Recommendations:** six advisory directions create no decision, priority,
+  owner, task, correction, treatment, acceptance, or successor authority.
+- **Status:** Ready for Architecture Review; no approval or canonical authority
+  claimed.
+- **Evidence:** `architecture/M8.4_GAP_AND_RISK_ASSESSMENT.md`, canonical
+  M8.1–M8.3, cited repository sources, and `governance/orders/M8.4 - Gap and Risk
+  Assessment Order.md`.
+- **Stage state:** M8 remains the sole active milestone; M8.4 remains the sole
+  active stage; exactly one backlog task now authorizes Architecture Review;
+  M8.5 and later stages remain unopened.
+- **Boundary:** no gap is resolved, risk accepted or treated, recommendation
+  authorized, source authority changed, individual finding converted to backlog
+  work, implementation introduced, M8.5–M8.7 content supplied, governance
+  amended, stage closed, or successor milestone created.
