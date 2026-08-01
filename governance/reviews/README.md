@@ -121,3 +121,7 @@ cannot silently amend its reviewed source or substitute for evidence.
   the fixed corrected integrated-review package and correction evidence, and
   returns M8.7 to the Canonical Review gate without canonicalization, closure,
   or milestone completion.
+- [M8.7 — Integrated Architecture Review Canonical Review](M8.7%20-%20Integrated%20Architecture%20Review%20Canonical%20Review.md)
+  — **Completed — Canonical**. Confirms canonical suitability of the exact
+  reviewed M8.7 package and approves a separate canonicalization transition
+  while leaving M8.7 and M8 active and every successor unopened.

@@ -1491,6 +1491,36 @@ evidence conflict, the cited canonical document and Git history govern.
   governance amendment, delivery mechanics, M8.7 substance, or successor
   milestone is introduced.
 
+### 2026-08-01 — M8.7 Canonical Review completed
+
+- **Event:** the Architect Council independently evaluated the exact
+  Architecture Approved M8.7 package, correction evidence, and Architecture
+  Review for canonical suitability.
+- **Reviewed identity:** candidate commit
+  `543611601e0b6a399952c43f327daa825e55865b`; candidate blob
+  `ec537ac1589209b1163066f6c95c0f086fc852fd`; correction-evidence blob
+  `904afe588eeceaa06f15c659054648f6bd28d3ba`; Architecture Review commit
+  `ff11f3f3ff603b39c7bcdc996534a67c2dce0c4f`; review-record blob
+  `1bb317483c133cafc566c20d92b26093f547fde1`.
+- **Disposition:** `Canonical`; approved for canonicalization through a separate
+  authority transition; canonicalization pending.
+- **Findings:** all Canonical Review objectives pass; no blocking finding
+  remains and `AR-M8.7-01` remains fully resolved.
+- **Review record:** `governance/reviews/M8.7 - Integrated Architecture Review
+  Canonical Review.md`.
+- **Advisories:** canonicalization must preserve the modeled-output and Outcome-
+  verification qualifiers; M8.7 canonicalization and M8 closure remain distinct
+  authority acts.
+- **Active task:** exactly one backlog task, `Canonicalization — M8.7 Integrated
+  Architecture Review`, at `Canonicalization Pending`.
+- **Stage state:** M8 remains the sole active milestone; M8.1–M8.6 remain
+  Canonical / Closed; M8.7 remains the sole active, non-canonical stage; no M8.8,
+  M9, or successor milestone is opened.
+- **Boundary:** no reviewed artifact modification, canonicalization, M8.7 or M8
+  closure, milestone-completion claim, successor opening, M8.4 disposition,
+  M8.5 selection, implementation, governance amendment, lifecycle or protocol
+  change, or delivery mechanics are introduced.
+
 ### 2026-08-01 — M8.7 repeat Architecture Review completed
 
 - **Event:** the Architect Council independently reviewed the fixed corrected

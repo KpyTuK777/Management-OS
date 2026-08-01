@@ -17,7 +17,7 @@ M8 — Operational Intelligence Evolution Architecture — Active
 ## Current Task
 
 ```text
-Canonical Review — M8.7 Integrated Architecture Review
+Canonicalization — M8.7 Integrated Architecture Review
 ```
 
 ## Dependencies
@@ -54,15 +54,18 @@ Canonical Review — M8.7 Integrated Architecture Review
 - [M8.7 Integrated Architecture Review candidate](M8.7_INTEGRATED_ARCHITECTURE_REVIEW.md).
 - [M8.7 Architecture Review Correction Evidence](M8.7_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md).
 - [M8.7 Integrated Architecture Review Architecture Review](../governance/reviews/M8.7%20-%20Integrated%20Architecture%20Review%20Architecture%20Review.md).
+- [M8.7 Integrated Architecture Review Canonical Review](../governance/reviews/M8.7%20-%20Integrated%20Architecture%20Review%20Canonical%20Review.md).
 - Existing canonical and approved source architectures within their recorded
   scopes and authority conditions.
 
 ## Expected Output
 
-One independent Canonical Review disposition for the exact Architecture
-Approved M8.7 candidate and correction evidence.
+One separately authorized repository transition that canonicalizes the exact,
+canonically suitable M8.7 package while preserving its correction and review
+evidence. Any M8 closure remains separately authorized.
 
-This task authorizes independent Canonical Review only. It does not predetermine or
+This task records canonicalization pending and grants no transition or milestone-
+closure authority. It does not predetermine or
 supply an integrated finding, result, readiness class, conclusion, disposition,
 milestone-completion claim, M9 substance, roadmap, or work package; resolve a
 Gap; accept or treat a Risk; adopt a Recommendation or evolution option; approve
@@ -82,18 +85,17 @@ Done. Independent review remains separate from artifact creation.
 ## Status
 
 ```text
-Ready for Canonical Review
+Canonicalization Pending
 ```
 
 M8 is Active. M8.1–M8.6 are Canonical / Closed. M8.7 is the sole active M8 stage
-and is Architecture Approved but claims no final milestone disposition,
-milestone-completion authority, or canonical authority. No M9 or successor
-milestone is opened.
+and has a Canonical Review disposition of `Canonical` but remains non-canonical.
+No M8 closure, M8.8, M9, or successor milestone is authorized or opened.
 
 ## Definition of Done
 
-- The exact Architecture Approved M8.7 candidate, correction evidence, and
-  Architecture Review are independently evaluated for canonical suitability.
+- A separate authority transition canonicalizes M8.7 only when explicitly
+  ordered under canonical M7; M8 closure remains a distinct authority act.
 - Canonical M8.1–M8.6 remain unchanged and controlling within their respective
   architectural and assessment scopes.
 - All 15 Gaps, 15 Risks, six advisory Recommendations, seven assessment-object
@@ -108,6 +110,6 @@ milestone is opened.
   UI, workflow, protocol, lifecycle, governance amendment, delivery planning,
   M9 or successor-stage substance is introduced.
 - No successor milestone is created.
-- Architecture Approval is recorded by the independent review; the candidate
-  claims no canonical authority, closure, milestone-completion, or
-  stage-transition authority and is submitted to independent Canonical Review.
+- Canonical suitability is recorded by the independent review; M8.7 remains
+  active and non-canonical until a separate authority transition, and no M8
+  milestone-completion claim follows.
