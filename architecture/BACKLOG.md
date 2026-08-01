@@ -17,7 +17,7 @@ M8 — Operational Intelligence Evolution Architecture — Active
 ## Current Task
 
 ```text
-Canonical Review — M8.3 Information, Evidence, and Handoff Architecture
+Canonicalization — M8.3 Information, Evidence, and Handoff Architecture
 ```
 
 ## Dependencies
@@ -35,20 +35,22 @@ Canonical Review — M8.3 Information, Evidence, and Handoff Architecture
 - [M8.3 Information, Evidence, and Handoff Architecture Order](../governance/orders/M8.3%20-%20Information%2C%20Evidence%2C%20and%20Handoff%20Architecture%20Order.md).
 - [M8.3 Information, Evidence, and Handoff Architecture](M8.3_INFORMATION_EVIDENCE_AND_HANDOFF_ARCHITECTURE.md).
 - [M8.3 Information, Evidence, and Handoff Architecture Review](../governance/reviews/M8.3%20-%20Information%2C%20Evidence%2C%20and%20Handoff%20Architecture%20Review.md).
+- [M8.3 Information, Evidence, and Handoff Architecture Canonical Review](../governance/reviews/M8.3%20-%20Information%2C%20Evidence%2C%20and%20Handoff%20Architecture%20Canonical%20Review.md).
 - Existing canonical and approved source architectures within their recorded
   scopes and authority conditions.
 
 ## Expected Output
 
-One independent Canonical Review of the exact Architecture Approved M8.3
-Information, Evidence, and Handoff Architecture candidate against its opening
-order, canonical M8.1, canonical M8.2, the approved M8 Vision, canonical M7
-governance, cited source authorities, the Architecture Review record, active
-Definition of Done, and repository-visible evidence.
+One separate repository transition that canonicalizes the exact reviewed M8.3
+Information, Evidence, and Handoff Architecture revision after its completed
+Architecture and Canonical Reviews and reconciles M8.3 status without changing
+architectural meaning, source authority conditions, unresolved findings, or the
+Product Purpose / System Identity watchpoint.
 
-This task authorizes Canonical Review only. It does not modify the candidate or
-its sources, predetermine a disposition, canonicalize M8.3, close the stage,
-open M8.4, introduce implementation, or authorize successor work.
+This task records the next required action but does not itself authorize or
+perform canonicalization. A separate authority transition remains required. It
+does not close M8.3, open M8.4, introduce implementation, amend governance, or
+authorize successor work.
 
 ## Owner
 
@@ -62,37 +64,29 @@ Done. Independent review remains separate from artifact creation.
 ## Status
 
 ```text
-Ready for Canonical Review
+Canonical Review complete — Canonicalization pending
 ```
 
-M8 is Active. M8.1 and M8.2 are Canonical / Closed. M8.3 is Architecture
-Approved, is the sole active M8 stage, and claims no canonical authority. M8.4
-and later stages remain unopened.
+M8 is Active. M8.1 and M8.2 are Canonical / Closed. M8.3 is the sole active M8
+stage. The exact reviewed revision completed Architecture and Canonical Review
+with a `Canonical` disposition and is approved for a separate canonicalization
+transition. It has not acquired canonical authority. M8.4 and later stages
+remain unopened.
 
 ## Definition of Done
 
-- The Canonical Review verifies the exact Architecture Approved candidate
-  revision, review provenance, authority, independence, scope, dependencies,
-  and evidence.
-- The product-wide information-flow model and architectural information graph
-  cover all canonical M8.2 capability responsibility classes without changing
-  ownership.
-- Information, Evidence, interpretation, hypothesis, recommendation, decision,
-  execution intent, execution outcome, learning, and Knowledge remain distinct.
-- Evidence lifecycle, bounded context transition, handoff, decision-state,
-  provenance, uncertainty, traceability, trust, dependency, and interruption
-  models receive explicit findings.
-- Orchestration, presentation, automation, and composition transfer no
-  ownership; approval, Evidence promotion, acceptance, and semantic mutation
-  are never implicit.
-- Product Purpose and System Identity remain framing concerns; canonical M8.1,
-  canonical M8.2, canonical M7, human authority, and source authority conditions
-  remain unchanged.
-- Gaps and unresolved questions remain evidence-backed and non-authorizing.
-- Implementation, runtime, API, persistence, data-model, event, messaging,
-  storage, infrastructure, deployment, UI, workflow, lifecycle, protocol,
-  governance-amendment, delivery, M8.4, and successor substance are absent.
-- The disposition is exactly `Canonical` or `Requires Corrections`, with an
-  explicit return gate where applicable.
-- A `Canonical` disposition authorizes only a separate canonicalization
-  transition; it does not itself canonicalize or close M8.3 or open M8.4.
+- A separate authority order explicitly authorizes canonicalization and defines
+  the permitted repository reconciliation.
+- The fixed reviewed commit, candidate blob, Architecture Review, and Canonical
+  Review remain preserved and attributable.
+- Canonicalization changes authority and status only; reviewed architectural
+  meaning, source authority conditions, and unresolved findings remain
+  unchanged.
+- Product Purpose and System Identity remain architectural-object-level framing
+  concerns and do not become flow nodes or locally owned capabilities.
+- Semantic-kind distinctions and ownership-preserving handoff invariants remain
+  intact.
+- M8.3 remains the sole active stage until the authorized transition records
+  closure or another permitted state.
+- M8.4 and later stages remain unopened unless separately authorized; no
+  implementation, governance amendment, or successor substance is introduced.

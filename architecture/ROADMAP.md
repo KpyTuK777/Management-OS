@@ -38,14 +38,15 @@ after independent Architecture Approval of the
 ## Active stage
 
 ```text
-M8.3 — Information, Evidence, and Handoff Architecture — Ready for Canonical Review
+M8.3 — Information, Evidence, and Handoff Architecture — Canonical Review complete — Canonicalization pending
 ```
 
 M8.1 Architectural Identity and Baseline Mapping and M8.2 Capability and
 Ownership Coherence are Canonical / Closed. M8.3 is the single active stage. Its
-fixed implementation-independent architecture candidate is Architecture
-Approved and awaits independent Canonical Review under the task and Definition
-of Done in [BACKLOG.md](BACKLOG.md).
+exact reviewed candidate completed Architecture and Canonical Review with a
+`Canonical` disposition and is approved for a separate canonicalization
+transition. Canonicalization has not occurred; the pending transition task and
+completion criteria are defined in [BACKLOG.md](BACKLOG.md).
 
 ## Successor stage
 
@@ -77,7 +78,7 @@ later, separately reviewed and authorized transition.
 | ---: | --- | --- |
 | 1 | M8.1 — Architectural Identity and Baseline Mapping | Closed — Canonical |
 | 2 | M8.2 — Capability and Ownership Coherence | Closed — Canonical |
-| 3 | M8.3 — Information, Evidence, and Handoff Architecture | Active — Ready for Canonical Review |
+| 3 | M8.3 — Information, Evidence, and Handoff Architecture | Active — Canonical Review complete — Canonicalization pending |
 
 M8 is Active. M8.3 is the only active stage. M8.4 and later stages remain
 unopened and no successor milestone is opened.

@@ -1165,3 +1165,29 @@ evidence conflict, the cited canonical document and Git history govern.
   authority conditions, canonicalize M8.3, perform Canonical Review, close the
   stage, open M8.4, amend governance, or introduce implementation or successor
   substance.
+
+### 2026-08-01 — M8.3 Canonical Review completed
+
+- **Event:** an independent Canonical Review evaluated the exact Architecture
+  Approved M8.3 Information, Evidence, and Handoff Architecture revision under
+  canonical M7.
+- **Reviewed identity:** commit
+  `2eeb00cb782bd7fdcbd436b027bde4072326c2ec`; candidate blob
+  `c392f45dbe52a61828af4277a79e220423fbce00`.
+- **Architecture Review attribution:** record
+  `governance/reviews/M8.3 - Information, Evidence, and Handoff Architecture
+  Review.md` at commit `89fa0c1907ac684b1f55ae936d4cbab3ce593786`.
+- **Canonical findings:** attribution, fixed identity, unchanged meaning,
+  information-flow coherence, semantic-kind separation, ownership-preserving
+  handoffs, framing concerns, external governance, implementation independence,
+  and repository consistency all passed with no blocking finding.
+- **Disposition:** `Canonical`; approved for canonicalization through a separate
+  authority transition; canonicalization pending.
+- **Evidence:** `governance/reviews/M8.3 - Information, Evidence, and Handoff
+  Architecture Canonical Review.md` and the preserved Architecture Review.
+- **Stage state:** M8 remains the sole active milestone; M8.3 remains the sole
+  active stage; exactly one backlog task records the pending canonicalization
+  gate; M8.4 and later stages remain unopened.
+- **Boundary:** Canonical Review does not canonicalize or close M8.3, open M8.4,
+  modify reviewed architectural meaning or source authority conditions, amend
+  governance, or authorize implementation, delivery, or successor work.
