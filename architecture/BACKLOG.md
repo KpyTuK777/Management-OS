@@ -17,7 +17,7 @@ M8 — Operational Intelligence Evolution Architecture — Active
 ## Current Task
 
 ```text
-Architecture Review — M8.1 Architectural Identity and Baseline Mapping
+Canonical Review — M8.1 Architectural Identity and Baseline Mapping
 ```
 
 ## Dependencies
@@ -35,6 +35,8 @@ Architecture Review — M8.1 Architectural Identity and Baseline Mapping
 - [M8 Milestone Opening Order](../governance/orders/M8%20-%20Milestone%20Opening%20Order.md).
 - [M8.1 Architectural Identity and Baseline Mapping Order](../governance/orders/M8.1%20-%20Architectural%20Identity%20and%20Baseline%20Mapping%20Order.md).
 - [M8.1 Architectural Identity and Baseline Mapping](M8.1_ARCHITECTURAL_IDENTITY_AND_BASELINE_MAPPING.md).
+- [M8.1 Architecture Review Correction Evidence](M8.1_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md).
+- [M8.1 Architectural Identity and Baseline Mapping Architecture Review](../governance/reviews/M8.1%20-%20Architectural%20Identity%20and%20Baseline%20Mapping%20Architecture%20Review.md).
 - [Canonical Governance Structure](../governance/README.md).
 - [Canonical Constitution](../governance/normative/M7.2%20-%20Constitution.md).
 - [Canonical Organizational Model](../governance/normative/M7.3%20-%20Organizational%20Model.md).
@@ -49,14 +51,16 @@ Architecture Review — M8.1 Architectural Identity and Baseline Mapping
 
 ## Expected Output
 
-One independent Architecture Review of the exact M8.1 Architectural Identity and
-Baseline Mapping candidate against its order, the Architecture Approved M8
-Vision, canonical M7 governance, Product Vision, cited source authorities,
-active Definition of Done, and repository-visible evidence.
+One independent Canonical Review of the exact Architecture Approved M8.1
+Architectural Identity and Baseline Mapping revision and its attributable
+correction evidence against the completed Architecture Review, M8.1 order,
+Architecture Approved M8 Vision, canonical M7 governance, Product Vision, cited
+source authorities, active Definition of Done, and repository-visible evidence.
 
-This task authorizes Architecture Review only. It does not approve the
-candidate, modify its sources, close M8.1, activate later stages, perform
-canonicalization, or authorize implementation.
+This task authorizes Canonical Review only. It does not predetermine the
+disposition, canonicalize M8.1, close M8.1, open or activate M8.2 or M8.3,
+perform a repository transition, modify source authority, or authorize
+implementation.
 
 ## Owner
 
@@ -70,22 +74,29 @@ Done. Independent review remains separate from artifact creation.
 ## Status
 
 ```text
-Ready for Architecture Review
+Ready for Canonical Review
 ```
 
-M8 is Active and M8.1 is the sole active stage. The candidate claims no approval
-or canonical authority and awaits independent Architecture Review.
+M8 is Active and M8.1 is the sole active stage. The exact reconciled revision is
+Architecture Approved as the M8 architectural identity and baseline and approved
+for dependency use by M8.2 after applicable stage opening. It is not canonical
+and awaits independent Canonical Review.
 
 ## Definition of Done
 
-- The Architecture Review identifies the exact candidate revision, authority,
-  independence, scope, dependencies, and evidence.
-- System identity, boundary, layers, responsibilities, and invariants receive
-  explicit findings.
-- The corpus map is verified to map authority sources to system
-  responsibilities rather than define the system through documents.
-- Gaps, overlaps, unknowns, and assumptions are checked for attribution and
-  non-authorizing treatment.
-- Implementation, runtime, data, API, governance, lifecycle, protocol, product
-  design, and later-stage exclusions are confirmed.
+- The Canonical Review identifies the exact reviewed revision, completed
+  Architecture Review, review authority, independence, scope, dependencies, and
+  evidence.
+- The approved architectural identity, boundary, product layers, constraint
+  planes, responsibility ownership, authority map, invariants, and exclusions
+  are checked for canonical suitability without changing their meaning.
+- Resolution of all five prior findings and attribution of the correction
+  evidence are confirmed.
+- Source authority conditions and the distinction between primary semantic
+  owners and supporting constraints remain unchanged.
+- The advisory watchpoint for product purpose and system identity is preserved
+  without introducing M8.2 capability-coherence substance.
+- A positive disposition may authorize only a separate canonicalization
+  transition; it does not itself canonicalize or close M8.1, open M8.2, or
+  introduce implementation or later-stage substance.
 - Any blocking correction is finite and names the required return gate.

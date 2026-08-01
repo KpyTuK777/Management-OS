@@ -881,3 +881,37 @@ evidence conflict, the cited canonical document and Git history govern.
   design, later-stage substance, closure, or transition is introduced.
 - **Stage state:** M8 remains Active; M8.1 remains the sole active stage at
   `Ready for Architecture Review`.
+
+### 2026-08-01 — M8.1 Architecture Review completed
+
+- **Event:** the Architect Council completed the repeat independent Architecture
+  Review of the reconciled M8.1 Architectural Identity and Baseline Mapping and
+  its correction evidence.
+- **Reviewed revision:** commit
+  `d9e99dba5a3eb458782bf8c971527ee293520321`;
+  architectural baseline blob
+  `acb14142a2b8c22b8a4d32e4d604ee3360a4cb2c`; correction evidence blob
+  `e5569245f3ac45d27fbdd02a8361b7aa3d7046d7`.
+- **Review record:** `governance/reviews/M8.1 - Architectural Identity and
+  Baseline Mapping Architecture Review.md`.
+- **Finding resolution:** all five prior findings are resolved: product
+  architecture is separated from external governance meta-architecture;
+  enduring product layers are separated from the cross-cutting product plane;
+  primary source authority conditions are explicit; responsibility ownership
+  is deterministic; and stage identity is consistent and attributable.
+- **Disposition:** Architecture Approved; Approved as the M8 architectural
+  identity and baseline; Approved for Dependency Use by M8.2 after applicable
+  stage opening; Ready for Canonical Review; canonicalization not performed.
+- **Advisory watchpoint:** product purpose and system identity remain
+  architectural-object-level framing concerns even though P1 and P2 provide
+  responsibility lookup; later work must not reinterpret them as ordinary
+  capability ownership local to those layers.
+- **Meaning preservation:** the reconciled architectural meaning, correction
+  evidence attribution, and mapped source authority conditions are unchanged by
+  this review-and-status reconciliation.
+- **Repository state:** M8 remains Active; M8.1 remains the sole active stage at
+  `Ready for Canonical Review`; exactly one backlog task remains active,
+  `Canonical Review — M8.1 Architectural Identity and Baseline Mapping`.
+- **Boundary:** M8.1 is not canonicalized or closed; M8.2 and M8.3 remain
+  unopened; no Canonical Review, repository transition, implementation, or
+  later-stage substance is performed.
