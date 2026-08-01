@@ -81,3 +81,7 @@ cannot silently amend its reviewed source or substitute for evidence.
   — **Completed — Canonical**. Confirms canonical suitability of the exact
   reviewed candidate and authorizes the separate transition that later
   canonicalized and closed M8.2 without modifying either review record.
+- [M8.3 — Information, Evidence, and Handoff Architecture Review](M8.3%20-%20Information%2C%20Evidence%2C%20and%20Handoff%20Architecture%20Review.md)
+  — **Completed — Approved**. Records the Architect Council's independent
+  approval of the fixed candidate and returns M8.3 to the Canonical Review gate
+  without canonicalization, closure, M8.4 opening, or architectural amendment.

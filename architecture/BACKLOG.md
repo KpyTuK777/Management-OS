@@ -17,7 +17,7 @@ M8 — Operational Intelligence Evolution Architecture — Active
 ## Current Task
 
 ```text
-Architecture Review — M8.3 Information, Evidence, and Handoff Architecture
+Canonical Review — M8.3 Information, Evidence, and Handoff Architecture
 ```
 
 ## Dependencies
@@ -34,19 +34,21 @@ Architecture Review — M8.3 Information, Evidence, and Handoff Architecture
 - [M8.2 Capability and Ownership Coherence Canonical Review](../governance/reviews/M8.2%20-%20Capability%20and%20Ownership%20Coherence%20Canonical%20Review.md).
 - [M8.3 Information, Evidence, and Handoff Architecture Order](../governance/orders/M8.3%20-%20Information%2C%20Evidence%2C%20and%20Handoff%20Architecture%20Order.md).
 - [M8.3 Information, Evidence, and Handoff Architecture](M8.3_INFORMATION_EVIDENCE_AND_HANDOFF_ARCHITECTURE.md).
+- [M8.3 Information, Evidence, and Handoff Architecture Review](../governance/reviews/M8.3%20-%20Information%2C%20Evidence%2C%20and%20Handoff%20Architecture%20Review.md).
 - Existing canonical and approved source architectures within their recorded
   scopes and authority conditions.
 
 ## Expected Output
 
-One independent Architecture Review of the exact M8.3 Information, Evidence,
-and Handoff Architecture candidate against its opening order, canonical M8.1,
-canonical M8.2, the approved M8 Vision, canonical M7 governance, cited source
-authorities, active Definition of Done, and repository-visible evidence.
+One independent Canonical Review of the exact Architecture Approved M8.3
+Information, Evidence, and Handoff Architecture candidate against its opening
+order, canonical M8.1, canonical M8.2, the approved M8 Vision, canonical M7
+governance, cited source authorities, the Architecture Review record, active
+Definition of Done, and repository-visible evidence.
 
-This task authorizes Architecture Review only. It does not modify the candidate
-or its sources, predetermine a disposition, approve or canonicalize M8.3, close
-the stage, open M8.4, introduce implementation, or authorize successor work.
+This task authorizes Canonical Review only. It does not modify the candidate or
+its sources, predetermine a disposition, canonicalize M8.3, close the stage,
+open M8.4, introduce implementation, or authorize successor work.
 
 ## Owner
 
@@ -60,17 +62,18 @@ Done. Independent review remains separate from artifact creation.
 ## Status
 
 ```text
-Ready for Architecture Review
+Ready for Canonical Review
 ```
 
-M8 is Active. M8.1 and M8.2 are Canonical / Closed. M8.3 is the sole active M8
-stage and claims no Architecture Approval or canonical authority. M8.4 and later
-stages remain unopened.
+M8 is Active. M8.1 and M8.2 are Canonical / Closed. M8.3 is Architecture
+Approved, is the sole active M8 stage, and claims no canonical authority. M8.4
+and later stages remain unopened.
 
 ## Definition of Done
 
-- The review identifies the exact candidate revision, authority, independence,
-  scope, dependencies, and evidence.
+- The Canonical Review verifies the exact Architecture Approved candidate
+  revision, review provenance, authority, independence, scope, dependencies,
+  and evidence.
 - The product-wide information-flow model and architectural information graph
   cover all canonical M8.2 capability responsibility classes without changing
   ownership.
@@ -89,3 +92,7 @@ stages remain unopened.
 - Implementation, runtime, API, persistence, data-model, event, messaging,
   storage, infrastructure, deployment, UI, workflow, lifecycle, protocol,
   governance-amendment, delivery, M8.4, and successor substance are absent.
+- The disposition is exactly `Canonical` or `Requires Corrections`, with an
+  explicit return gate where applicable.
+- A `Canonical` disposition authorizes only a separate canonicalization
+  transition; it does not itself canonicalize or close M8.3 or open M8.4.

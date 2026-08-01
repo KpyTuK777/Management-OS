@@ -1140,3 +1140,28 @@ evidence conflict, the cited canonical document and Git history govern.
   lifecycle, protocol, governance amendment, delivery mechanics, M8.4 content,
   successor milestone, approval, canonicalization, closure, or transition is
   introduced.
+
+### 2026-08-01 — M8.3 Architecture Review completed
+
+- **Event:** the Architect Council independently reviewed the fixed M8.3
+  Information, Evidence, and Handoff Architecture candidate.
+- **Reviewed identity:** commit
+  `2eeb00cb782bd7fdcbd436b027bde4072326c2ec`; candidate blob
+  `c392f45dbe52a61828af4277a79e220423fbce00`.
+- **Findings:** all ten review objectives passed; no blocking Architecture
+  Review finding requires correction or correction evidence.
+- **Advisories:** later realization must not convert semantic handoff conditions
+  into a runtime state machine, graph arrows into workflow or transport,
+  unresolved routine semantics into normalized contracts, Evidence correction
+  into silent rewrite, or partitioned decision ownership into one owner.
+- **Disposition:** Architecture Approved; Ready for Canonical Review.
+- **Evidence:** `governance/reviews/M8.3 - Information, Evidence, and Handoff
+  Architecture Review.md` and the fixed candidate revision.
+- **Stage state:** M8 remains the sole active milestone; M8.3 remains the sole
+  active stage and is not canonical or closed; exactly one backlog task now
+  authorizes Canonical Review; M8.4 and later stages remain unopened.
+- **Boundary:** the review and reconciliation change only permitted review and
+  status metadata. They do not modify reviewed architectural meaning, source
+  authority conditions, canonicalize M8.3, perform Canonical Review, close the
+  stage, open M8.4, amend governance, or introduce implementation or successor
+  substance.
