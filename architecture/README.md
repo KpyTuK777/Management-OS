@@ -41,9 +41,12 @@ is recorded in the repository.
   canonicalization transition; it remains preserved as review evidence distinct
   from the later transition.
 - [M8.2 Capability and Ownership Coherence Order](../governance/orders/M8.2%20-%20Capability%20and%20Ownership%20Coherence%20Order.md)
-  opens M8.2 as the sole active stage at `Ready for Architecture Definition`
-  and establishes only its objective and dependencies, without defining
-  capability-coherence conclusions.
+  opens M8.2 as the sole active stage and establishes only its objective and
+  dependencies.
+- [M8.2 Capability and Ownership Coherence](M8.2_CAPABILITY_AND_OWNERSHIP_COHERENCE.md)
+  defines the implementation-independent capability model and is the sole
+  active stage at `Ready for Architecture Review`, with no approval or canonical
+  authority claimed.
 - [M8 Architecture Vision Architecture Review](../governance/reviews/M8%20-%20Architecture%20Vision%20Architecture%20Review.md)
   preserves the exact reviewed revision, findings, advisories, and opening
   authorization.

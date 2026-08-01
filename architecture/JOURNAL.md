@@ -986,3 +986,36 @@ evidence conflict, the cited canonical document and Git history govern.
   handoff architecture, implementation, runtime, data, API, UI, lifecycle,
   protocol, governance amendment, delivery mechanics, or successor work is
   introduced.
+
+### 2026-08-01 — M8.2 Capability and Ownership Coherence defined
+
+- **Event:** one implementation-independent M8.2 Capability and Ownership
+  Coherence candidate was prepared under the bounded M8.2 opening order.
+- **Controlling baseline:** canonical and closed M8.1 remains unchanged and owns
+  the architectural identity, product-layer model, constraint planes,
+  responsibility baseline, authority map, and exclusions used by M8.2.
+- **Framing watchpoint:** Product Purpose and System Identity remain
+  architectural-object-level concerns; P1 and P2 provide responsibility lookup
+  only and do not create local capability ownership.
+- **Capability model:** the candidate identifies capability identity tests,
+  ownership types, 19 major semantic capabilities, 13 routine source-owned
+  operational capabilities, experience compositions, cross-cutting and
+  allocation responsibilities, and the bounded Operational Learning context.
+- **Coherence model:** unique semantic ownership, ownership-preserving
+  cooperation classes, architectural dependency direction, composition
+  principles, ownership invariants, and eight evaluated overlap areas are
+  explicit.
+- **Findings:** six unresolved ownership findings remain visible without source
+  correction, consolidation, ownership reassignment, new capability creation,
+  or authority-condition change.
+- **Status:** Ready for Architecture Review; no approval or canonical authority
+  claimed.
+- **Evidence:** `architecture/M8.2_CAPABILITY_AND_OWNERSHIP_COHERENCE.md`,
+  canonical M8.1, cited authoritative sources, and
+  `governance/orders/M8.2 - Capability and Ownership Coherence Order.md`.
+- **Stage state:** M8 remains Active; M8.1 is Canonical / Closed; M8.2 remains
+  the sole active stage; M8.3 and later stages remain unopened.
+- **Boundary:** no M8.3 information, evidence, authority, or handoff architecture
+  and no implementation, runtime, data, API, UI, repository, lifecycle,
+  protocol, governance amendment, product redesign, delivery mechanics, or
+  later-stage substance is introduced.

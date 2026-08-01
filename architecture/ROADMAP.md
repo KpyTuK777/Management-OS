@@ -38,15 +38,13 @@ after independent Architecture Approval of the
 ## Active stage
 
 ```text
-M8.2 — Capability and Ownership Coherence — Ready for Architecture Definition
+M8.2 — Capability and Ownership Coherence — Ready for Architecture Review
 ```
 
-M8.1 Architectural Identity and Baseline Mapping is Canonical / Closed after its
-separate authorized canonicalization transition. M8.2 is the single active
-stage. Its bounded objective, dependencies, exclusions, task, and completion
-criteria are recorded in the
-[M8.2 Opening Order](../governance/orders/M8.2%20-%20Capability%20and%20Ownership%20Coherence%20Order.md)
-and [BACKLOG.md](BACKLOG.md).
+M8.1 Architectural Identity and Baseline Mapping is Canonical / Closed. M8.2 is
+the single active stage. Its implementation-independent capability and ownership
+coherence candidate is defined and awaits independent Architecture Review under
+the task and Definition of Done in [BACKLOG.md](BACKLOG.md).
 
 ## Successor stage
 
@@ -77,7 +75,7 @@ later, separately reviewed and authorized transition.
 | Sequence | Stage | Status |
 | ---: | --- | --- |
 | 1 | M8.1 — Architectural Identity and Baseline Mapping | Closed — Canonical |
-| 2 | M8.2 — Capability and Ownership Coherence | Active — Ready for Architecture Definition |
+| 2 | M8.2 — Capability and Ownership Coherence | Active — Ready for Architecture Review |
 
 M8 is Active. M8.2 is the only active stage. M8.3 and later stages remain
 unopened and no successor milestone is opened.
