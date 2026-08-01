@@ -83,20 +83,22 @@ is recorded in the repository.
   transition; it remains preserved as review evidence distinct from the later
   transition.
 - [M8.5 Evolution Architecture Order](../governance/orders/M8.5%20-%20Evolution%20Architecture%20Order.md)
-  opens M8.5 as the sole active stage and establishes only its objective,
-  dependencies, exclusions, and completion boundary.
+  is scope fulfilled and grants no continuing or M8.6 authority.
 - [M8.5 Evolution Architecture](M8.5_EVOLUTION_ARCHITECTURE.md) defines the
   implementation-independent capability-evolution model, architectural
   increments, dependency constraints, alternative routes, decision boundaries,
-  invariants, and sustainability criteria and has a Canonical Review disposition
-  of `Canonical`; canonicalization remains pending.
+  invariants, and sustainability criteria and is Canonical / Closed.
 - [M8.5 Evolution Architecture Architecture Review](../governance/reviews/M8.5%20-%20Evolution%20Architecture%20Architecture%20Review.md)
   records the independent review of the fixed candidate, its findings and
   advisory observations, Architecture Approval, and return to the Canonical
   Review gate.
 - [M8.5 Evolution Architecture Canonical Review](../governance/reviews/M8.5%20-%20Evolution%20Architecture%20Canonical%20Review.md)
   records canonical suitability and approval for a separate authority
-  transition; M8.5 remains active and uncanonicalized.
+  transition and remains preserved as review evidence distinct from the later
+  transition.
+- [M8.6 Validation and Readiness Order](../governance/orders/M8.6%20-%20Validation%20and%20Readiness%20Order.md)
+  opens M8.6 as the sole active stage and establishes only its objective,
+  dependencies, exclusions, and completion boundary.
 - [M8 Architecture Vision Architecture Review](../governance/reviews/M8%20-%20Architecture%20Vision%20Architecture%20Review.md)
   preserves the exact reviewed revision, findings, advisories, and opening
   authorization.

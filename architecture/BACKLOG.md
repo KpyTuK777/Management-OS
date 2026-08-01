@@ -17,7 +17,7 @@ M8 — Operational Intelligence Evolution Architecture — Active
 ## Current Task
 
 ```text
-Canonicalization — M8.5 Evolution Architecture
+Architecture Definition — M8.6 Validation and Readiness
 ```
 
 ## Dependencies
@@ -45,20 +45,23 @@ Canonicalization — M8.5 Evolution Architecture
 - [M8.5 Evolution Architecture candidate](M8.5_EVOLUTION_ARCHITECTURE.md).
 - [M8.5 Evolution Architecture Architecture Review](../governance/reviews/M8.5%20-%20Evolution%20Architecture%20Architecture%20Review.md).
 - [M8.5 Evolution Architecture Canonical Review](../governance/reviews/M8.5%20-%20Evolution%20Architecture%20Canonical%20Review.md).
+- [M8.6 Validation and Readiness Order](../governance/orders/M8.6%20-%20Validation%20and%20Readiness%20Order.md).
 - Existing canonical and approved source architectures within their recorded
   scopes and authority conditions.
 
 ## Expected Output
 
-One separately authorized repository transition that canonicalizes and closes
-the fixed, canonically suitable M8.5 Evolution Architecture candidate.
+One implementation-independent M8.6 Validation and Readiness architecture
+candidate prepared within the bounded opening order and submitted to independent
+Architecture Review.
 
-This task records canonicalization pending and grants no transition authority. It does not predetermine or
-supply an evolution increment, target architecture, correction, treatment,
-priority, portfolio, dependency sequence, roadmap, or work package; resolve a
-Gap; accept or treat a Risk; adopt a Recommendation; approve or canonicalize
-future output; close M8.5; open M8.6; modify canonical M8.1–M8.4; alter source
-authority; amend governance; or authorize implementation or delivery.
+This task authorizes architecture definition only. It does not predetermine or
+supply validation criteria, a validation framework, evidence threshold,
+readiness conclusion, M8.7 substance, roadmap, or work package; resolve a Gap;
+accept or treat a Risk; adopt a Recommendation or evolution option; approve or
+canonicalize future output; close M8.6; open M8.7; modify canonical M8.1–M8.5;
+alter source authority; amend governance; or authorize implementation or
+delivery.
 
 ## Owner
 
@@ -72,30 +75,29 @@ Done. Independent review remains separate from artifact creation.
 ## Status
 
 ```text
-Canonicalization Pending
+Ready for Architecture Definition
 ```
 
-M8 is Active. M8.1–M8.4 are Canonical / Closed. M8.5 is the sole active M8 stage
-and claims no Architecture Approval or canonical authority. M8.6 and later
+M8 is Active. M8.1–M8.5 are Canonical / Closed. M8.6 is the sole active M8 stage
+and claims no Architecture Approval or canonical authority. M8.7 and later
 stages remain unopened.
 
 ## Definition of Done
 
-- A separate authority transition canonicalizes M8.5 only when explicitly
-  ordered under canonical M7 and the controlling M8 baseline.
-- Canonical M8.1–M8.4 remain unchanged and controlling within their respective
+- One M8.6 candidate is created under the scope-bounded opening order.
+- Canonical M8.1–M8.5 remain unchanged and controlling within their respective
   architectural and assessment scopes.
 - All 15 Gaps, 15 Risks, six advisory Recommendations, seven assessment-object
   boundaries, source authority conditions, semantic ownership, and Product
   Purpose / System Identity framing remain preserved.
-- The candidate defines only architectural evolution meaning and boundaries; it
-  does not adopt a Recommendation, resolve a Gap, accept or treat a Risk, create
-  priority or work, or authorize implementation.
+- The candidate defines only bounded validation and readiness architecture; it
+  does not adopt a Recommendation or evolution option, resolve a Gap, accept or
+  treat a Risk, create priority or work, or authorize implementation.
 - Canonical M7 remains external and unchanged.
 - No runtime, API, data model, persistence, event, infrastructure, deployment,
   UI, workflow, protocol, lifecycle, governance amendment, delivery planning,
-  M8.6–M8.7, or later-stage substance is introduced.
-- M8.6 and later stages remain unopened; no successor milestone is created.
+  M8.7 or later-stage substance is introduced.
+- M8.7 and later stages remain unopened; no successor milestone is created.
 - The candidate claims no Architecture Approval, canonical authority, closure,
   or stage-transition authority and is submitted to independent Architecture
   Review.

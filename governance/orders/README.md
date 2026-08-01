@@ -48,6 +48,9 @@ evidence, or approve their outputs.
   — **Completed / Scope fulfilled**. The bounded M8.4 definition order is
   complete and grants no continuing or M8.5 authority.
 - [M8.5 — Evolution Architecture Order](M8.5%20-%20Evolution%20Architecture%20Order.md)
-  — **Effective / Scope bounded**. Opens M8.5 as the sole active M8 stage and
-  establishes only its objective and dependencies without defining an evolution
-  increment, correction, treatment, priority, or substantive architecture.
+  — **Completed / Scope fulfilled**. The bounded M8.5 definition order is
+  complete and grants no continuing or M8.6 authority.
+- [M8.6 — Validation and Readiness Order](M8.6%20-%20Validation%20and%20Readiness%20Order.md)
+  — **Effective / Scope bounded**. Opens M8.6 as the sole active M8 stage and
+  establishes only its objective and dependencies without defining validation
+  criteria, a framework, readiness meaning, or substantive architecture.

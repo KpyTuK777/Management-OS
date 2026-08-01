@@ -1457,3 +1457,36 @@ evidence conflict, the cited canonical document and Git history govern.
   accepted or treated, Recommendation adopted, canonicalization, closure, or
   stage transition performed, source authority or reviewed meaning changed,
   implementation or backlog work authorized, or M8.6–M8.7 substance introduced.
+
+### 2026-08-01 — M8.5 canonicalized and closed; M8.6 opened
+
+- **Event:** the separately authorized repository transition canonicalized and
+  closed M8.5 Evolution Architecture, then opened M8.6 Validation and Readiness
+  as the sole active M8 stage.
+- **Canonicalized subject:** reviewed candidate commit
+  `b90f17f642bbf0e89da8938895d193d2d02b9538`; candidate blob
+  `5166992acd03034176b0236581ceebb41a35bce9`.
+- **Architecture Review authority:** commit
+  `3c35ff22998c58efdfef78d42911418bb4ab2611`; preserved record
+  `governance/reviews/M8.5 - Evolution Architecture Architecture Review.md`.
+- **Canonical Review authority:** commit
+  `374969c09427cefa31b2bab60d52f9fe2080532e`; preserved record
+  `governance/reviews/M8.5 - Evolution Architecture Canonical Review.md`.
+- **M8.5 disposition:** Canonical / Closed. Reviewed architectural meaning,
+  Product Purpose / System Identity framing, source authority conditions,
+  canonical M7, canonical M8.1–M8.4, M8.4 assessment conditions, and review
+  advisories remain unchanged.
+- **M8.5 order:** `governance/orders/M8.5 - Evolution Architecture Order.md` is
+  `Completed / Scope fulfilled` and grants no continuing authority.
+- **M8.6 opening authority:** `governance/orders/M8.6 - Validation and Readiness
+  Order.md`, establishing only the stage objective, dependencies, exclusions,
+  and completion boundary.
+- **Active task:** exactly one backlog task, `Architecture Definition — M8.6
+  Validation and Readiness`, at `Ready for Architecture Definition`.
+- **Stage state:** M8 remains the sole active milestone; M8.1–M8.5 are Canonical
+  / Closed; M8.6 is the sole active stage; M8.7 and later stages remain
+  unopened.
+- **Boundary:** no validation criteria, validation framework, readiness
+  conclusion, implementation, runtime, API, data, UI, protocol, lifecycle,
+  governance amendment, delivery mechanics, M8.7 substance, or successor
+  milestone is introduced.
