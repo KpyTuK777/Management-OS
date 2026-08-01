@@ -1068,3 +1068,36 @@ evidence conflict, the cited canonical document and Git history govern.
 - **Boundary:** Canonical Review does not canonicalize or close M8.2, open M8.3,
   modify reviewed architectural meaning or source authority conditions, or
   authorize implementation, handoff architecture, or successor work.
+
+### 2026-08-01 — M8.2 canonicalized and closed; M8.3 opened
+
+- **Event:** the separately authorized repository transition canonicalized and
+  closed M8.2 Capability and Ownership Coherence, then opened M8.3 Information,
+  Evidence, and Handoff Architecture as the sole active M8 stage.
+- **Canonicalized subject:** reviewed commit
+  `30ad7ad2272c0364fa3467957378d457a7feaac3`; candidate blob
+  `b64748fe70a17c1c6b6499ce6e031c31b04ea5f5`.
+- **Architecture Review authority:** commit
+  `df813bfefd5247230e20662d0c26ed399c7ff239`; preserved review record
+  `governance/reviews/M8.2 - Capability and Ownership Coherence Architecture
+  Review.md`.
+- **Canonical Review authority:** commit
+  `f38b13ebf112d89380907a642377810b334dd6e4`; preserved review record
+  `governance/reviews/M8.2 - Capability and Ownership Coherence Canonical
+  Review.md`.
+- **M8.2 disposition:** Canonical / Closed. Reviewed architectural meaning,
+  capability ownership, source authority conditions, and the Product Purpose /
+  System Identity watchpoint remain unchanged.
+- **M8.3 opening authority:** `governance/orders/M8.3 - Information, Evidence,
+  and Handoff Architecture Order.md`, establishing only the stage objective,
+  dependencies, exclusions, and completion boundary.
+- **Active task:** exactly one backlog task, `Architecture Definition — M8.3
+  Information, Evidence, and Handoff Architecture`, at `Ready for Architecture
+  Definition`.
+- **Stage state:** M8 remains the sole active milestone; M8.1 and M8.2 are
+  Canonical / Closed; M8.3 is the sole active stage; M8.4 and later stages
+  remain unopened.
+- **Boundary:** no substantive M8.3 information, evidence, authority,
+  interaction, or handoff architecture; no implementation, runtime, API, data,
+  persistence, infrastructure, UI, lifecycle, protocol, governance amendment,
+  delivery mechanics, M8.4 work, or successor milestone is introduced.

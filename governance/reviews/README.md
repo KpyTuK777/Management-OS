@@ -75,9 +75,9 @@ cannot silently amend its reviewed source or substitute for evidence.
   canonicalized and closed M8.1 without modifying either review record.
 - [M8.2 — Capability and Ownership Coherence Architecture Review](M8.2%20-%20Capability%20and%20Ownership%20Coherence%20Architecture%20Review.md)
   — **Completed — Approved**. Records the Architect Council's independent
-  approval of the fixed candidate and returns M8.2 to the Canonical Review gate
-  without canonicalization, closure, M8.3 opening, or architectural amendment.
+  approval of the fixed candidate and remains preserved as the Architecture
+  Approval record for the now Canonical / Closed M8.2 architecture.
 - [M8.2 — Capability and Ownership Coherence Canonical Review](M8.2%20-%20Capability%20and%20Ownership%20Coherence%20Canonical%20Review.md)
   — **Completed — Canonical**. Confirms canonical suitability of the exact
-  reviewed candidate and authorizes a separate canonicalization transition
-  without canonicalizing or closing M8.2 or opening M8.3.
+  reviewed candidate and authorizes the separate transition that later
+  canonicalized and closed M8.2 without modifying either review record.

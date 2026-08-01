@@ -41,18 +41,20 @@ is recorded in the repository.
   canonicalization transition; it remains preserved as review evidence distinct
   from the later transition.
 - [M8.2 Capability and Ownership Coherence Order](../governance/orders/M8.2%20-%20Capability%20and%20Ownership%20Coherence%20Order.md)
-  opens M8.2 as the sole active stage and establishes only its objective and
-  dependencies.
+  is scope fulfilled and grants no continuing or M8.3 authority.
 - [M8.2 Capability and Ownership Coherence](M8.2_CAPABILITY_AND_OWNERSHIP_COHERENCE.md)
-  defines the implementation-independent capability model and is the sole
-  active stage at `Canonical Review complete — Canonicalization pending`; it has
-  not yet acquired canonical authority and remains open.
+  is the Canonical / Closed implementation-independent capability and ownership
+  model.
 - [M8.2 Capability and Ownership Coherence Architecture Review](../governance/reviews/M8.2%20-%20Capability%20and%20Ownership%20Coherence%20Architecture%20Review.md)
   records the Architect Council's independent approval of the fixed candidate
   and its return to the Canonical Review gate.
 - [M8.2 Capability and Ownership Coherence Canonical Review](../governance/reviews/M8.2%20-%20Capability%20and%20Ownership%20Coherence%20Canonical%20Review.md)
   records the `Canonical` disposition and approval for a separate authority
-  transition without canonicalizing or closing M8.2 or opening M8.3.
+  transition; it remains preserved as review evidence distinct from the later
+  transition.
+- [M8.3 Information, Evidence, and Handoff Architecture Order](../governance/orders/M8.3%20-%20Information%2C%20Evidence%2C%20and%20Handoff%20Architecture%20Order.md)
+  opens M8.3 as the sole active stage and establishes only its objective,
+  dependencies, exclusions, and completion boundary.
 - [M8 Architecture Vision Architecture Review](../governance/reviews/M8%20-%20Architecture%20Vision%20Architecture%20Review.md)
   preserves the exact reviewed revision, findings, advisories, and opening
   authorization.
