@@ -17,7 +17,7 @@ M8 — Operational Intelligence Evolution Architecture — Active
 ## Current Task
 
 ```text
-Architecture Definition — M8.6 Validation and Readiness
+Architecture Review — M8.6 Validation and Readiness
 ```
 
 ## Dependencies
@@ -46,16 +46,16 @@ Architecture Definition — M8.6 Validation and Readiness
 - [M8.5 Evolution Architecture Architecture Review](../governance/reviews/M8.5%20-%20Evolution%20Architecture%20Architecture%20Review.md).
 - [M8.5 Evolution Architecture Canonical Review](../governance/reviews/M8.5%20-%20Evolution%20Architecture%20Canonical%20Review.md).
 - [M8.6 Validation and Readiness Order](../governance/orders/M8.6%20-%20Validation%20and%20Readiness%20Order.md).
+- [M8.6 Validation and Readiness candidate](M8.6_VALIDATION_AND_READINESS.md).
 - Existing canonical and approved source architectures within their recorded
   scopes and authority conditions.
 
 ## Expected Output
 
-One implementation-independent M8.6 Validation and Readiness architecture
-candidate prepared within the bounded opening order and submitted to independent
-Architecture Review.
+One independent Architecture Review disposition for the fixed M8.6 Validation
+and Readiness candidate prepared within the bounded opening order.
 
-This task authorizes architecture definition only. It does not predetermine or
+This task authorizes independent Architecture Review only. It does not predetermine or
 supply validation criteria, a validation framework, evidence threshold,
 readiness conclusion, M8.7 substance, roadmap, or work package; resolve a Gap;
 accept or treat a Risk; adopt a Recommendation or evolution option; approve or
@@ -75,7 +75,7 @@ Done. Independent review remains separate from artifact creation.
 ## Status
 
 ```text
-Ready for Architecture Definition
+Ready for Architecture Review
 ```
 
 M8 is Active. M8.1–M8.5 are Canonical / Closed. M8.6 is the sole active M8 stage
@@ -84,7 +84,8 @@ stages remain unopened.
 
 ## Definition of Done
 
-- One M8.6 candidate is created under the scope-bounded opening order.
+- The fixed M8.6 candidate is independently reviewed under canonical M7 and the
+  controlling M8 baseline.
 - Canonical M8.1–M8.5 remain unchanged and controlling within their respective
   architectural and assessment scopes.
 - All 15 Gaps, 15 Risks, six advisory Recommendations, seven assessment-object

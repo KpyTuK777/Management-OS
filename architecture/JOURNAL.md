@@ -1490,3 +1490,34 @@ evidence conflict, the cited canonical document and Git history govern.
   conclusion, implementation, runtime, API, data, UI, protocol, lifecycle,
   governance amendment, delivery mechanics, M8.7 substance, or successor
   milestone is introduced.
+
+### 2026-08-01 — M8.6 Validation and Readiness defined
+
+- **Event:** the implementation-independent M8.6 Validation and Readiness
+  candidate was prepared under its scope-bounded opening order and submitted to
+  independent Architecture Review.
+- **Definition:** `architecture/M8.6_VALIDATION_AND_READINESS.md` defines eleven
+  validation objects; twelve readiness dimensions; artifact-specific and
+  integrated validation models; evidence-sufficiency rules; ten analytical
+  methods; five deterministic readiness classes; blocking, limitation, and
+  residual-risk models; twenty invariants; and end-to-end readiness
+  traceability.
+- **Readiness boundary:** R0–R4 are scope-bounded architectural assessment
+  labels, not maturity levels, governance lifecycle states, approvals, gates, or
+  work authorization.
+- **Baseline preservation:** canonical M8.1–M8.5 meaning, canonical M7, source
+  authority, semantic ownership, Product Purpose / System Identity framing,
+  human authority, and external Governance remain unchanged.
+- **Assessment preservation:** all M8.4 Gaps remain unresolved, all Risks remain
+  unaccepted and untreated, all Recommendations remain advisory, and M8.5
+  alternatives remain unselected and non-authorizing.
+- **Active task:** exactly one backlog task, `Architecture Review — M8.6
+  Validation and Readiness`, at `Ready for Architecture Review`.
+- **Stage state:** M8 remains the sole active milestone; M8.1–M8.5 are Canonical
+  / Closed; M8.6 is the sole active stage; M8.7 and later stages remain
+  unopened.
+- **Boundary:** no integrated M8.7 review or conclusion, implementation,
+  runtime, API, schema, data model, event, storage, infrastructure, UI,
+  deployment, tooling, automation, CI, repository mechanic, protocol, lifecycle
+  change, governance amendment, delivery plan, backlog execution, release
+  criterion, or successor work is introduced.

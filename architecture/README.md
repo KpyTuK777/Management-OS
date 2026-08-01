@@ -99,6 +99,11 @@ is recorded in the repository.
 - [M8.6 Validation and Readiness Order](../governance/orders/M8.6%20-%20Validation%20and%20Readiness%20Order.md)
   opens M8.6 as the sole active stage and establishes only its objective,
   dependencies, exclusions, and completion boundary.
+- [M8.6 Validation and Readiness](M8.6_VALIDATION_AND_READINESS.md) defines the
+  implementation-independent validation-object taxonomy, readiness dimensions,
+  artifact and integrated validation models, evidence sufficiency, methods,
+  readiness classes, blocking conditions, limitations, invariants, and
+  traceability and is Ready for Architecture Review.
 - [M8 Architecture Vision Architecture Review](../governance/reviews/M8%20-%20Architecture%20Vision%20Architecture%20Review.md)
   preserves the exact reviewed revision, findings, advisories, and opening
   authorization.
