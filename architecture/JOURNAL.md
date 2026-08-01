@@ -1521,6 +1521,29 @@ evidence conflict, the cited canonical document and Git history govern.
   M8.5 selection, implementation, governance amendment, lifecycle or protocol
   change, or delivery mechanics are introduced.
 
+### 2026-08-01 — M8 Milestone Completion Review completed
+
+- **Event:** the Architect Council independently reviewed fulfillment of the M8
+  Architecture Vision and stage-completion integrity after M8.1–M8.7 became
+  Canonical / Closed.
+- **Review record:** `governance/reviews/M8 - Milestone Completion Review.md`.
+- **Finding:** all seven stages have attributable candidates, completed
+  Architecture Reviews, completed Canonical Reviews, separate canonicalization
+  transitions, preserved reviewed identities, and no unauthorized scope
+  expansion. The approved M8 Vision deliverables and success concerns are
+  fulfilled across the canonical corpus.
+- **Residual state:** M8.4 Gaps, Risks, Recommendations, and unresolved questions;
+  M8.5 alternatives; M8.7 uncertainty; and all review advisories remain under
+  their existing non-dispositive conditions and are not converted into work.
+- **Recommendation:** `Ready for Milestone Closure Review` with zero blocking
+  findings and three non-blocking advisory observations.
+- **Repository state:** M8 remains Active; M8.1–M8.7 remain Canonical / Closed;
+  zero stages and zero backlog tasks are active; no M8.8, M9, or successor is
+  opened.
+- **Boundary:** no milestone closure, canonicalization, successor creation,
+  implementation planning, implementation authority, governance amendment, or
+  residual-matter disposition is performed.
+
 ### 2026-08-01 — M8.7 canonicalized and closed; M8 remains active
 
 - **Event:** the separately authorized repository transition canonicalized and
