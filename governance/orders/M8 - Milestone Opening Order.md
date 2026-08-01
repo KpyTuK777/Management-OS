@@ -74,6 +74,6 @@ completed the required authority lifecycle and a later authorized transition
 recorded canonical closure. This order performed only the original M8/M8.1
 opening transition and supplied no substantive M8.1 architecture.
 
-M8 remains Active. The later M8.1, M8.2, and M8.3 canonicalization transitions
-and the bounded M8.4 opening order now govern stage state. This order grants no
-M8.4 definition or later-stage authority.
+M8 remains Active. The later M8.1–M8.4 canonicalization transitions and the
+bounded M8.5 opening order now govern stage state. This order grants no M8.5
+definition or later-stage authority.

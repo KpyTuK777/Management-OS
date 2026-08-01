@@ -45,6 +45,9 @@ evidence, or approve their outputs.
   — **Completed / Scope fulfilled**. The bounded M8.3 definition order is
   complete and grants no continuing or M8.4 authority.
 - [M8.4 — Gap and Risk Assessment Order](M8.4%20-%20Gap%20and%20Risk%20Assessment%20Order.md)
-  — **Effective / Scope bounded**. Opens M8.4 as the sole active M8 stage and
-  establishes only its objective and dependencies without identifying,
-  assessing, or resolving any gap or risk.
+  — **Completed / Scope fulfilled**. The bounded M8.4 definition order is
+  complete and grants no continuing or M8.5 authority.
+- [M8.5 — Evolution Architecture Order](M8.5%20-%20Evolution%20Architecture%20Order.md)
+  — **Effective / Scope bounded**. Opens M8.5 as the sole active M8 stage and
+  establishes only its objective and dependencies without defining an evolution
+  increment, correction, treatment, priority, or substantive architecture.

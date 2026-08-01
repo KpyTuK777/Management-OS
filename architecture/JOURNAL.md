@@ -1336,3 +1336,35 @@ evidence conflict, the cited canonical document and Git history govern.
   authorize a Recommendation or Decision, canonicalize or close M8.4, open
   M8.5, modify reviewed meaning or source authority, amend governance, or
   authorize implementation, delivery, or successor work.
+
+### 2026-08-01 — M8.4 canonicalized and closed; M8.5 opened
+
+- **Event:** the separately authorized repository transition canonicalized and
+  closed M8.4 Gap and Risk Assessment, then opened M8.5 Evolution Architecture
+  as the sole active M8 stage.
+- **Canonicalized subject:** reviewed commit
+  `906fa1de66bd8fa78dc34456122c031af777f854`; candidate blob
+  `78d5919e11939b9ecc206c52969b974193fad424`; correction-evidence blob
+  `2d09739b4c0647fd97dff8da3aa00e99e6298bdc`.
+- **Architecture Review authority:** commit
+  `a19e7221df9b017bd3cc1e2180a4a0438fd782de`; preserved record
+  `governance/reviews/M8.4 - Gap and Risk Assessment Architecture Review.md`.
+- **Canonical Review authority:** commit
+  `a65a9d7cbfeda9a8b77b97117cbf82181063b532`; preserved record
+  `governance/reviews/M8.4 - Gap and Risk Assessment Canonical Review.md`.
+- **M8.4 disposition:** Canonical / Closed. All 15 Gaps, 15 Risks, six advisory
+  Recommendations, seven assessment-object boundaries, classifications,
+  evidence, severity, controls, residual exposures, source authority conditions,
+  and Product Purpose / System Identity framing remain unchanged.
+- **M8.5 opening authority:** `governance/orders/M8.5 - Evolution Architecture
+  Order.md`, establishing only the stage objective, dependencies, exclusions,
+  and completion boundary.
+- **Active task:** exactly one backlog task, `Architecture Definition — M8.5
+  Evolution Architecture`, at `Ready for Architecture Definition`.
+- **Stage state:** M8 remains the sole active milestone; M8.1–M8.4 are Canonical
+  / Closed; M8.5 is the sole active stage; M8.6 and later stages remain
+  unopened.
+- **Boundary:** no evolution increment, target architecture, correction,
+  treatment, priority, portfolio, work package, Gap resolution, Risk acceptance,
+  Recommendation adoption, implementation, governance amendment, M8.6 content,
+  or successor milestone is introduced.

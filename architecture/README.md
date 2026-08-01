@@ -66,14 +66,11 @@ is recorded in the repository.
   transition; it remains preserved as review evidence distinct from the later
   transition.
 - [M8.4 Gap and Risk Assessment Order](../governance/orders/M8.4%20-%20Gap%20and%20Risk%20Assessment%20Order.md)
-  opens M8.4 as the sole active stage and establishes only its objective,
-  dependencies, exclusions, and completion boundary.
+  is scope fulfilled and grants no continuing or M8.5 authority.
 - [M8.4 Gap and Risk Assessment](M8.4_GAP_AND_RISK_ASSESSMENT.md)
   defines the implementation-independent product-wide architectural assessment,
   gap and risk registers, blocking and residual-risk models, findings, and
-  advisory recommendations and is the sole active stage at `Canonical Review
-  complete — Canonicalization pending`; it has not acquired canonical authority
-  and remains open.
+  advisory recommendations and is Canonical / Closed.
 - [M8.4 Architecture Review Correction Evidence](M8.4_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md)
   records the bounded resolution of `AR-M8.4-01` without changing any register,
   recommendation, classification, evidence reference, severity, or authority.
@@ -83,8 +80,11 @@ is recorded in the repository.
   Canonical Review gate.
 - [M8.4 Gap and Risk Assessment Canonical Review](../governance/reviews/M8.4%20-%20Gap%20and%20Risk%20Assessment%20Canonical%20Review.md)
   records the `Canonical` disposition and approval for a separate authority
-  transition without resolving a Gap, accepting a Risk, canonicalizing or
-  closing M8.4, or opening M8.5.
+  transition; it remains preserved as review evidence distinct from the later
+  transition.
+- [M8.5 Evolution Architecture Order](../governance/orders/M8.5%20-%20Evolution%20Architecture%20Order.md)
+  opens M8.5 as the sole active stage and establishes only its objective,
+  dependencies, exclusions, and completion boundary.
 - [M8 Architecture Vision Architecture Review](../governance/reviews/M8%20-%20Architecture%20Vision%20Architecture%20Review.md)
   preserves the exact reviewed revision, findings, advisories, and opening
   authorization.
