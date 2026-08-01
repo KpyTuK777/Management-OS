@@ -53,20 +53,21 @@ is recorded in the repository.
   transition; it remains preserved as review evidence distinct from the later
   transition.
 - [M8.3 Information, Evidence, and Handoff Architecture Order](../governance/orders/M8.3%20-%20Information%2C%20Evidence%2C%20and%20Handoff%20Architecture%20Order.md)
-  opens M8.3 as the sole active stage and establishes only its objective,
-  dependencies, exclusions, and completion boundary.
+  is scope fulfilled and grants no continuing or M8.4 authority.
 - [M8.3 Information, Evidence, and Handoff Architecture](M8.3_INFORMATION_EVIDENCE_AND_HANDOFF_ARCHITECTURE.md)
   defines the implementation-independent product-wide semantic flow, evidence,
   context, authority-preserving handoff, provenance, uncertainty, traceability,
-  trust, and interruption model and is the sole active stage at `Canonical
-  Review complete — Canonicalization pending`; it has not acquired canonical
-  authority and remains open.
+  trust, and interruption model and is Canonical / Closed.
 - [M8.3 Information, Evidence, and Handoff Architecture Review](../governance/reviews/M8.3%20-%20Information%2C%20Evidence%2C%20and%20Handoff%20Architecture%20Review.md)
   records the Architect Council's independent approval of the fixed candidate
   and its return to the Canonical Review gate.
 - [M8.3 Information, Evidence, and Handoff Architecture Canonical Review](../governance/reviews/M8.3%20-%20Information%2C%20Evidence%2C%20and%20Handoff%20Architecture%20Canonical%20Review.md)
   records the `Canonical` disposition and approval for a separate authority
-  transition without canonicalizing or closing M8.3 or opening M8.4.
+  transition; it remains preserved as review evidence distinct from the later
+  transition.
+- [M8.4 Gap and Risk Assessment Order](../governance/orders/M8.4%20-%20Gap%20and%20Risk%20Assessment%20Order.md)
+  opens M8.4 as the sole active stage and establishes only its objective,
+  dependencies, exclusions, and completion boundary.
 - [M8 Architecture Vision Architecture Review](../governance/reviews/M8%20-%20Architecture%20Vision%20Architecture%20Review.md)
   preserves the exact reviewed revision, findings, advisories, and opening
   authorization.

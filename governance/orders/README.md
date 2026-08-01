@@ -42,6 +42,9 @@ evidence, or approve their outputs.
   — **Completed / Scope fulfilled**. The bounded M8.2 definition order is
   complete and grants no continuing or M8.3 authority.
 - [M8.3 — Information, Evidence, and Handoff Architecture Order](M8.3%20-%20Information%2C%20Evidence%2C%20and%20Handoff%20Architecture%20Order.md)
-  — **Effective / Scope bounded**. Opens M8.3 as the sole active M8 stage and
-  establishes only its objective and dependencies without defining substantive
-  information, evidence, or handoff architecture.
+  — **Completed / Scope fulfilled**. The bounded M8.3 definition order is
+  complete and grants no continuing or M8.4 authority.
+- [M8.4 — Gap and Risk Assessment Order](M8.4%20-%20Gap%20and%20Risk%20Assessment%20Order.md)
+  — **Effective / Scope bounded**. Opens M8.4 as the sole active M8 stage and
+  establishes only its objective and dependencies without identifying,
+  assessing, or resolving any gap or risk.

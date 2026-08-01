@@ -1191,3 +1191,35 @@ evidence conflict, the cited canonical document and Git history govern.
 - **Boundary:** Canonical Review does not canonicalize or close M8.3, open M8.4,
   modify reviewed architectural meaning or source authority conditions, amend
   governance, or authorize implementation, delivery, or successor work.
+
+### 2026-08-01 — M8.3 canonicalized and closed; M8.4 opened
+
+- **Event:** the separately authorized repository transition canonicalized and
+  closed M8.3 Information, Evidence, and Handoff Architecture, then opened M8.4
+  Gap and Risk Assessment as the sole active M8 stage.
+- **Canonicalized subject:** reviewed commit
+  `2eeb00cb782bd7fdcbd436b027bde4072326c2ec`; candidate blob
+  `c392f45dbe52a61828af4277a79e220423fbce00`.
+- **Architecture Review authority:** commit
+  `89fa0c1907ac684b1f55ae936d4cbab3ce593786`; preserved record
+  `governance/reviews/M8.3 - Information, Evidence, and Handoff Architecture
+  Review.md`.
+- **Canonical Review authority:** commit
+  `a2e364079a4897ea571c5d485d80896dcd08b26c`; preserved record
+  `governance/reviews/M8.3 - Information, Evidence, and Handoff Architecture
+  Canonical Review.md`.
+- **M8.3 disposition:** Canonical / Closed. Reviewed architectural meaning,
+  Product Purpose / System Identity watchpoint, semantic ownership, source
+  authority conditions, and unresolved findings remain unchanged.
+- **M8.4 opening authority:** `governance/orders/M8.4 - Gap and Risk Assessment
+  Order.md`, establishing only the stage objective, dependencies, exclusions,
+  and completion boundary.
+- **Active task:** exactly one backlog task, `Architecture Definition — M8.4 Gap
+  and Risk Assessment`, at `Ready for Architecture Definition`.
+- **Stage state:** M8 remains the sole active milestone; M8.1–M8.3 are Canonical
+  / Closed; M8.4 is the sole active stage; M8.5 and later stages remain
+  unopened.
+- **Boundary:** no gap inventory, risk inventory, classification, assessment,
+  ranking, treatment, acceptance, mitigation, ownership, recommendation,
+  disposition, correction, implementation, governance amendment, M8.5 content,
+  or successor milestone is introduced.
