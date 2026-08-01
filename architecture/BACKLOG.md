@@ -17,7 +17,7 @@ M8 — Operational Intelligence Evolution Architecture — Active
 ## Current Task
 
 ```text
-Canonical Review — M8.1 Architectural Identity and Baseline Mapping
+Canonicalization — M8.1 Architectural Identity and Baseline Mapping
 ```
 
 ## Dependencies
@@ -37,6 +37,7 @@ Canonical Review — M8.1 Architectural Identity and Baseline Mapping
 - [M8.1 Architectural Identity and Baseline Mapping](M8.1_ARCHITECTURAL_IDENTITY_AND_BASELINE_MAPPING.md).
 - [M8.1 Architecture Review Correction Evidence](M8.1_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md).
 - [M8.1 Architectural Identity and Baseline Mapping Architecture Review](../governance/reviews/M8.1%20-%20Architectural%20Identity%20and%20Baseline%20Mapping%20Architecture%20Review.md).
+- [M8.1 Architectural Identity and Baseline Mapping Canonical Review](../governance/reviews/M8.1%20-%20Architectural%20Identity%20and%20Baseline%20Mapping%20Canonical%20Review.md).
 - [Canonical Governance Structure](../governance/README.md).
 - [Canonical Constitution](../governance/normative/M7.2%20-%20Constitution.md).
 - [Canonical Organizational Model](../governance/normative/M7.3%20-%20Organizational%20Model.md).
@@ -51,16 +52,15 @@ Canonical Review — M8.1 Architectural Identity and Baseline Mapping
 
 ## Expected Output
 
-One independent Canonical Review of the exact Architecture Approved M8.1
-Architectural Identity and Baseline Mapping revision and its attributable
-correction evidence against the completed Architecture Review, M8.1 order,
-Architecture Approved M8 Vision, canonical M7 governance, Product Vision, cited
-source authorities, active Definition of Done, and repository-visible evidence.
+One separate repository transition that canonicalizes the exact reviewed M8.1
+Architectural Identity and Baseline Mapping revision after its completed
+Architecture and Canonical Reviews and reconciles M8.1 status without changing
+architectural meaning, source authority conditions, or the required watchpoint.
 
-This task authorizes Canonical Review only. It does not predetermine the
-disposition, canonicalize M8.1, close M8.1, open or activate M8.2 or M8.3,
-perform a repository transition, modify source authority, or authorize
-implementation.
+This task records the next required action but does not itself authorize or
+perform canonicalization. A separate authority transition remains required. It
+does not close M8.1, open or activate M8.2 or M8.3, introduce successor work, or
+authorize implementation.
 
 ## Owner
 
@@ -74,29 +74,25 @@ Done. Independent review remains separate from artifact creation.
 ## Status
 
 ```text
-Ready for Canonical Review
+Canonical Review complete — Canonicalization pending
 ```
 
-M8 is Active and M8.1 is the sole active stage. The exact reconciled revision is
-Architecture Approved as the M8 architectural identity and baseline and approved
-for dependency use by M8.2 after applicable stage opening. It is not canonical
-and awaits independent Canonical Review.
+M8 is Active and M8.1 is the sole active stage. The exact reviewed revision has
+completed Architecture and Canonical Review with a `Canonical` disposition and
+is approved for a separate canonicalization transition. It has not yet acquired
+canonical authority.
 
 ## Definition of Done
 
-- The Canonical Review identifies the exact reviewed revision, completed
-  Architecture Review, review authority, independence, scope, dependencies, and
-  evidence.
-- The approved architectural identity, boundary, product layers, constraint
-  planes, responsibility ownership, authority map, invariants, and exclusions
-  are checked for canonical suitability without changing their meaning.
-- Resolution of all five prior findings and attribution of the correction
-  evidence are confirmed.
-- Source authority conditions and the distinction between primary semantic
-  owners and supporting constraints remain unchanged.
-- The advisory watchpoint for product purpose and system identity is preserved
-  without introducing M8.2 capability-coherence substance.
-- A positive disposition may authorize only a separate canonicalization
-  transition; it does not itself canonicalize or close M8.1, open M8.2, or
-  introduce implementation or later-stage substance.
-- Any blocking correction is finite and names the required return gate.
+- A separate authority order explicitly authorizes canonicalization and defines
+  the permitted repository reconciliation.
+- The fixed reviewed commit, candidate blob, correction-evidence blob,
+  Architecture Review, and Canonical Review remain preserved and attributable.
+- Canonicalization changes authority and status only; reviewed architectural
+  meaning and source authority conditions remain unchanged.
+- Product Purpose and System Identity remain architectural-object-level framing
+  concerns; their P1 and P2 mappings remain lookup aids only.
+- M8.1 remains the sole active stage until the authorized transition records
+  closure or another permitted state.
+- M8.2 and M8.3 remain unopened unless separately authorized after the M8.1
+  transition; no later-stage substance is introduced.

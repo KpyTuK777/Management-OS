@@ -38,13 +38,14 @@ after independent Architecture Approval of the
 ## Active stage
 
 ```text
-M8.1 — Architectural Identity and Baseline Mapping — Ready for Canonical Review
+M8.1 — Architectural Identity and Baseline Mapping — Canonical Review complete — Canonicalization pending
 ```
 
-M8.1 is the single active stage. Its exact reconciled revision is Architecture
-Approved as the M8 architectural identity and baseline, approved for dependency
-use by M8.2 after applicable stage opening, and awaits independent Canonical
-Review under the task and Definition of Done in [BACKLOG.md](BACKLOG.md).
+M8.1 is the single active stage. Its exact reconciled revision completed
+Architecture and Canonical Review with a `Canonical` disposition and is approved
+for a separate canonicalization transition. Canonicalization has not occurred;
+the pending transition task and completion criteria are defined in
+[BACKLOG.md](BACKLOG.md).
 
 ## Successor stage
 
@@ -74,7 +75,7 @@ later, separately reviewed and authorized transition.
 
 | Sequence | Stage | Status |
 | ---: | --- | --- |
-| 1 | M8.1 — Architectural Identity and Baseline Mapping | Active — Ready for Canonical Review |
+| 1 | M8.1 — Architectural Identity and Baseline Mapping | Active — Canonical Review complete — Canonicalization pending |
 
 M8 is Active. M8.1 is the only active stage. No later M8 stage or successor
 milestone is opened.

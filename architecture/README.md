@@ -30,14 +30,18 @@ is recorded in the repository.
   Architecture Approved basis for the open M8 milestone.
 - [M8.1 Architectural Identity and Baseline Mapping](M8.1_ARCHITECTURAL_IDENTITY_AND_BASELINE_MAPPING.md)
   defines the system-first architectural baseline and is the sole active stage
-  at `Ready for Canonical Review`. Its exact reconciled revision is Architecture
-  Approved as the M8 architectural identity and baseline and approved for
-  dependency use by M8.2 after applicable stage opening; it is not canonical.
+  at `Canonical Review complete — Canonicalization pending`. Its exact reviewed
+  revision has a `Canonical` disposition but has not acquired canonical authority
+  through the required separate transition.
 - [M8.1 Architecture Review Correction Evidence](M8.1_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md)
   preserves the attributable resolution of all five prior findings.
 - [M8.1 Architectural Identity and Baseline Mapping Architecture Review](../governance/reviews/M8.1%20-%20Architectural%20Identity%20and%20Baseline%20Mapping%20Architecture%20Review.md)
   records the Architect Council's independent approval and the Canonical Review
   gate without canonicalization, closure, or M8.2 opening.
+- [M8.1 Architectural Identity and Baseline Mapping Canonical Review](../governance/reviews/M8.1%20-%20Architectural%20Identity%20and%20Baseline%20Mapping%20Canonical%20Review.md)
+  records the `Canonical` disposition and approval for a separate
+  canonicalization transition without performing that transition, closing
+  M8.1, or opening M8.2.
 - [M8 Architecture Vision Architecture Review](../governance/reviews/M8%20-%20Architecture%20Vision%20Architecture%20Review.md)
   preserves the exact reviewed revision, findings, advisories, and opening
   authorization.

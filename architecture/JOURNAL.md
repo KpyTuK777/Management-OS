@@ -915,3 +915,38 @@ evidence conflict, the cited canonical document and Git history govern.
 - **Boundary:** M8.1 is not canonicalized or closed; M8.2 and M8.3 remain
   unopened; no Canonical Review, repository transition, implementation, or
   later-stage substance is performed.
+
+### 2026-08-01 — M8.1 Canonical Review completed
+
+- **Event:** an independent Canonical Review evaluated the exact Architecture
+  Approved M8.1 revision, correction evidence, completed Architecture Review,
+  canonical M7 constraints, approved M8 Vision, and repository reconciliation.
+- **Reviewed revision:** commit
+  `d9e99dba5a3eb458782bf8c971527ee293520321`;
+  architectural baseline blob
+  `acb14142a2b8c22b8a4d32e4d604ee3360a4cb2c`; correction evidence blob
+  `e5569245f3ac45d27fbdd02a8361b7aa3d7046d7`.
+- **Architecture Review identity:** reconciliation commit
+  `71b4d92b67699c8321285d33a60b949950c43bcd`; Architecture Review blob
+  `16259111b1c2e5e000d0ea274a887098b837cbb3`.
+- **Canonical Review record:** `governance/reviews/M8.1 - Architectural Identity
+  and Baseline Mapping Canonical Review.md`.
+- **Integrity:** the fixed subject and review identities match; correction
+  evidence remains unchanged and attributable; all five prior findings remain
+  resolved; review evidence remains independent, indexed, and discoverable.
+- **Canonical findings:** architectural identity, system boundary,
+  responsibility-first organization, six product layers, cross-cutting product
+  plane, external governance plane, semantic ownership, source authority,
+  finding treatment, implementation independence, M8 Vision consistency, and
+  canonical M7 consistency all pass without a blocking finding.
+- **Watchpoint:** Product Purpose and System Identity remain
+  architectural-object-level framing concerns; P1 and P2 provide responsibility
+  lookup only and do not create ordinary local capability ownership.
+- **Disposition:** `Canonical`; approved for canonicalization through a separate
+  authority transition; canonicalization pending.
+- **Repository state:** M8 remains Active; M8.1 remains the sole active stage at
+  `Canonical Review complete — Canonicalization pending`; exactly one backlog
+  task records the pending separate canonicalization transition.
+- **Boundary:** this review does not canonicalize or close M8.1, open M8.2 or
+  M8.3, modify reviewed architectural meaning or source authority conditions,
+  perform a repository transition, or authorize successor work.
