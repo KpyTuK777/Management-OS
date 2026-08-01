@@ -1601,3 +1601,38 @@ evidence conflict, the cited canonical document and Git history govern.
   Gap resolution, Risk acceptance or treatment, Recommendation adoption,
   evolution-option selection, implementation, governance amendment, lifecycle
   change, protocol change, or delivery mechanics are introduced.
+
+### 2026-08-01 — M8.6 canonicalized and closed; M8.7 opened
+
+- **Event:** the separately authorized repository transition canonicalized and
+  closed M8.6 Validation and Readiness, then opened M8.7 Integrated Architecture
+  Review as the sole active M8 stage.
+- **Canonicalized subject:** reviewed candidate commit
+  `48e5b53d11d0ba976a4eb189aa538facd469a97e`; candidate blob
+  `833d831cca116e45dff7da6207f4b7525b6eac36`; preserved correction-evidence
+  blob `ed9a1879e720dd7330e74fb7185d96027cbdd8c7`.
+- **Architecture Review authority:** commit
+  `d4568b4a4796499e90e1e65034073c4a054bd127`; preserved record
+  `governance/reviews/M8.6 - Validation and Readiness Architecture Review.md`.
+- **Canonical Review authority:** commit
+  `84310a85f5c9e6b3cc3f0fefbe894562fae4ed24`; preserved record
+  `governance/reviews/M8.6 - Validation and Readiness Canonical Review.md`.
+- **M8.6 disposition:** Canonical / Closed. The validation-object model,
+  readiness classes, deterministic R0–R4 procedure, evidence-sufficiency model,
+  method taxonomy, blocker model, traceability, Product Purpose / System
+  Identity framing, source authority, canonical M7, canonical M8.1–M8.5, and
+  both review records remain unchanged.
+- **M8.6 order:** `governance/orders/M8.6 - Validation and Readiness Order.md`
+  is `Completed / Scope fulfilled` and grants no continuing authority.
+- **M8.7 opening authority:** `governance/orders/M8.7 - Integrated Architecture
+  Review Order.md`, establishing only the stage objective, dependencies,
+  exclusions, and completion boundary.
+- **Active task:** exactly one backlog task, `Architecture Definition — M8.7
+  Integrated Architecture Review`, at `Ready for Architecture Definition`.
+- **Stage state:** M8 remains the sole active milestone; M8.1–M8.6 are Canonical
+  / Closed; M8.7 is the sole active stage; no M9 or successor milestone is
+  opened.
+- **Boundary:** no M8.7 review finding, conclusion, disposition, milestone-
+  completion statement, substantive architecture, implementation, runtime,
+  API, data model, UI, protocol, lifecycle change, governance amendment,
+  delivery mechanics, M9 work, or successor milestone is introduced.

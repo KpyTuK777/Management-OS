@@ -113,5 +113,6 @@ cannot silently amend its reviewed source or substitute for evidence.
   transition.
 - [M8.6 — Validation and Readiness Canonical Review](M8.6%20-%20Validation%20and%20Readiness%20Canonical%20Review.md)
   — **Completed — Canonical**. Confirms canonical suitability of the exact
-  reviewed candidate and correction evidence and approves a separate
-  canonicalization transition while leaving M8.6 active and M8.7 unopened.
+  reviewed candidate and correction evidence and authorizes the separate
+  transition that later canonicalized and closed M8.6 without modifying either
+  review record.

@@ -97,14 +97,12 @@ is recorded in the repository.
   transition and remains preserved as review evidence distinct from the later
   transition.
 - [M8.6 Validation and Readiness Order](../governance/orders/M8.6%20-%20Validation%20and%20Readiness%20Order.md)
-  opens M8.6 as the sole active stage and establishes only its objective,
-  dependencies, exclusions, and completion boundary.
+  is scope fulfilled and grants no continuing or M8.7 authority.
 - [M8.6 Validation and Readiness](M8.6_VALIDATION_AND_READINESS.md) defines the
   implementation-independent validation-object taxonomy, readiness dimensions,
   artifact and integrated validation models, evidence sufficiency, methods,
   readiness classes, blocking conditions, limitations, invariants, and
-  traceability and has a Canonical Review disposition of `Canonical`;
-  canonicalization remains pending.
+  traceability and is Canonical / Closed.
 - [M8.6 Architecture Review Correction Evidence](M8.6_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md)
   records the bounded resolution of the two finite Architecture Review findings
   while preserving all other candidate meaning and the active review gate.
@@ -113,7 +111,12 @@ is recorded in the repository.
   correction evidence and returns M8.6 to the Canonical Review gate.
 - [M8.6 Validation and Readiness Canonical Review](../governance/reviews/M8.6%20-%20Validation%20and%20Readiness%20Canonical%20Review.md)
   records canonical suitability and approval for a separate authority
-  transition; M8.6 remains active and non-canonical.
+  transition and remains preserved as review evidence distinct from the later
+  transition.
+- [M8.7 Integrated Architecture Review Order](../governance/orders/M8.7%20-%20Integrated%20Architecture%20Review%20Order.md)
+  opens M8.7 as the sole active stage and establishes only its objective,
+  dependencies, exclusions, and completion boundary without supplying review
+  findings, conclusions, milestone completion, or substantive architecture.
 - [M8 Architecture Vision Architecture Review](../governance/reviews/M8%20-%20Architecture%20Vision%20Architecture%20Review.md)
   preserves the exact reviewed revision, findings, advisories, and opening
   authorization.
