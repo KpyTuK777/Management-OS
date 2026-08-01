@@ -17,7 +17,7 @@ M8 — Operational Intelligence Evolution Architecture — Active
 ## Current Task
 
 ```text
-Architecture Definition — M8.3 Information, Evidence, and Handoff Architecture
+Architecture Review — M8.3 Information, Evidence, and Handoff Architecture
 ```
 
 ## Dependencies
@@ -33,20 +33,20 @@ Architecture Definition — M8.3 Information, Evidence, and Handoff Architecture
 - [M8.2 Capability and Ownership Coherence Architecture Review](../governance/reviews/M8.2%20-%20Capability%20and%20Ownership%20Coherence%20Architecture%20Review.md).
 - [M8.2 Capability and Ownership Coherence Canonical Review](../governance/reviews/M8.2%20-%20Capability%20and%20Ownership%20Coherence%20Canonical%20Review.md).
 - [M8.3 Information, Evidence, and Handoff Architecture Order](../governance/orders/M8.3%20-%20Information%2C%20Evidence%2C%20and%20Handoff%20Architecture%20Order.md).
+- [M8.3 Information, Evidence, and Handoff Architecture](M8.3_INFORMATION_EVIDENCE_AND_HANDOFF_ARCHITECTURE.md).
 - Existing canonical and approved source architectures within their recorded
   scopes and authority conditions.
 
 ## Expected Output
 
-One implementation-independent M8.3 Information, Evidence, and Handoff
-Architecture candidate prepared within the bounded opening order and submitted
-to independent Architecture Review.
+One independent Architecture Review of the exact M8.3 Information, Evidence,
+and Handoff Architecture candidate against its opening order, canonical M8.1,
+canonical M8.2, the approved M8 Vision, canonical M7 governance, cited source
+authorities, active Definition of Done, and repository-visible evidence.
 
-This task authorizes architecture definition only. It does not predetermine or
-supply information, evidence, authority, interaction, or handoff conclusions;
-approve or canonicalize its future output; close M8.3; open M8.4; modify
-canonical M8.1 or M8.2; alter source authority; or authorize implementation or
-delivery.
+This task authorizes Architecture Review only. It does not modify the candidate
+or its sources, predetermine a disposition, approve or canonicalize M8.3, close
+the stage, open M8.4, introduce implementation, or authorize successor work.
 
 ## Owner
 
@@ -60,28 +60,32 @@ Done. Independent review remains separate from artifact creation.
 ## Status
 
 ```text
-Ready for Architecture Definition
+Ready for Architecture Review
 ```
 
 M8 is Active. M8.1 and M8.2 are Canonical / Closed. M8.3 is the sole active M8
-stage and claims no architectural approval or canonical authority. M8.4 and
-later stages remain unopened.
+stage and claims no Architecture Approval or canonical authority. M8.4 and later
+stages remain unopened.
 
 ## Definition of Done
 
-- One M8.3 candidate is created under the scope-bounded opening order.
-- Canonical M8.1 remains the controlling architectural identity and baseline;
-  canonical M8.2 remains the controlling capability and ownership model.
-- Product Purpose and System Identity remain architectural-object-level framing
-  concerns and do not become locally owned capabilities.
-- Semantic ownership, source authority, human authority, and external
-  governance remain distinct and unchanged.
-- Any information, evidence, and handoff architecture is defined only in the
-  candidate and remains implementation-independent and reviewable.
-- No runtime, API, data model, persistence, storage, infrastructure, UI,
-  lifecycle, protocol, governance amendment, implementation, or delivery
-  mechanics are introduced.
-- M8.4 and later stages remain unopened; no successor milestone is created.
-- The candidate claims no Architecture Approval, canonical authority, closure,
-  or stage-transition authority and is submitted to independent Architecture
-  Review.
+- The review identifies the exact candidate revision, authority, independence,
+  scope, dependencies, and evidence.
+- The product-wide information-flow model and architectural information graph
+  cover all canonical M8.2 capability responsibility classes without changing
+  ownership.
+- Information, Evidence, interpretation, hypothesis, recommendation, decision,
+  execution intent, execution outcome, learning, and Knowledge remain distinct.
+- Evidence lifecycle, bounded context transition, handoff, decision-state,
+  provenance, uncertainty, traceability, trust, dependency, and interruption
+  models receive explicit findings.
+- Orchestration, presentation, automation, and composition transfer no
+  ownership; approval, Evidence promotion, acceptance, and semantic mutation
+  are never implicit.
+- Product Purpose and System Identity remain framing concerns; canonical M8.1,
+  canonical M8.2, canonical M7, human authority, and source authority conditions
+  remain unchanged.
+- Gaps and unresolved questions remain evidence-backed and non-authorizing.
+- Implementation, runtime, API, persistence, data-model, event, messaging,
+  storage, infrastructure, deployment, UI, workflow, lifecycle, protocol,
+  governance-amendment, delivery, M8.4, and successor substance are absent.

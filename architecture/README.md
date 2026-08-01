@@ -55,6 +55,11 @@ is recorded in the repository.
 - [M8.3 Information, Evidence, and Handoff Architecture Order](../governance/orders/M8.3%20-%20Information%2C%20Evidence%2C%20and%20Handoff%20Architecture%20Order.md)
   opens M8.3 as the sole active stage and establishes only its objective,
   dependencies, exclusions, and completion boundary.
+- [M8.3 Information, Evidence, and Handoff Architecture](M8.3_INFORMATION_EVIDENCE_AND_HANDOFF_ARCHITECTURE.md)
+  defines the implementation-independent product-wide semantic flow, evidence,
+  context, authority-preserving handoff, provenance, uncertainty, traceability,
+  trust, and interruption model and is `Ready for Architecture Review` with no
+  approval or canonical authority claimed.
 - [M8 Architecture Vision Architecture Review](../governance/reviews/M8%20-%20Architecture%20Vision%20Architecture%20Review.md)
   preserves the exact reviewed revision, findings, advisories, and opening
   authorization.

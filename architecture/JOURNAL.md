@@ -1101,3 +1101,42 @@ evidence conflict, the cited canonical document and Git history govern.
   interaction, or handoff architecture; no implementation, runtime, API, data,
   persistence, infrastructure, UI, lifecycle, protocol, governance amendment,
   delivery mechanics, M8.4 work, or successor milestone is introduced.
+
+### 2026-08-01 — M8.3 Information, Evidence, and Handoff Architecture defined
+
+- **Event:** one implementation-independent M8.3 Information, Evidence, and
+  Handoff Architecture candidate was prepared under the bounded M8.3 opening
+  order.
+- **Controlling baselines:** canonical M8.1 remains the architectural identity,
+  responsibility, and authority baseline; canonical M8.2 remains the capability
+  identity and unique semantic-ownership model.
+- **Framing watchpoint:** Product Purpose and System Identity remain
+  architectural-object-level concerns and are not flow nodes, capabilities, or
+  local owners.
+- **Semantic model:** information, Evidence, interpretation, hypothesis,
+  recommendation, decision, execution intent, execution outcome, learning, and
+  Knowledge are explicitly distinct and cannot be promoted implicitly.
+- **Boundary model:** product-wide flow relations, capability participation,
+  evidence lifecycle, context transition, authority-preserving handoff,
+  decision-state propagation, provenance, uncertainty, traceability, trust,
+  failure, dependency, and information-graph responsibilities are explicit.
+- **Ownership preservation:** orchestration, presentation, automation, and
+  composition transfer no semantic ownership or authority; acceptance begins
+  only an existing receiver-owned responsibility.
+- **Findings:** ten architectural gaps and unresolved questions remain visible
+  without source correction, consolidation, ownership reassignment,
+  implementation authorization, or M8.4 transition.
+- **Status:** Ready for Architecture Review; no approval or canonical authority
+  claimed.
+- **Evidence:** `architecture/M8.3_INFORMATION_EVIDENCE_AND_HANDOFF_ARCHITECTURE.md`,
+  canonical M8.1, canonical M8.2, cited authoritative sources, and
+  `governance/orders/M8.3 - Information, Evidence, and Handoff Architecture
+  Order.md`.
+- **Stage state:** M8 remains the sole active milestone; M8.3 remains the sole
+  active stage; exactly one backlog task now authorizes Architecture Review;
+  M8.4 and later stages remain unopened.
+- **Boundary:** no implementation, runtime, API, persistence, data model, event,
+  messaging, storage, infrastructure, deployment, UI design, workflow,
+  lifecycle, protocol, governance amendment, delivery mechanics, M8.4 content,
+  successor milestone, approval, canonicalization, closure, or transition is
+  introduced.
