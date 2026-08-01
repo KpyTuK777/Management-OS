@@ -15,7 +15,8 @@ is recorded in the repository.
 - [CHIEF_ARCHITECT.md](CHIEF_ARCHITECT.md) defines roles, handoffs, reviews, and
   stage-transition authority.
 - [ROADMAP.md](ROADMAP.md) is the single authoritative architectural roadmap.
-- [BACKLOG.md](BACKLOG.md) contains exactly one active architectural task.
+- [BACKLOG.md](BACKLOG.md) records the active architectural task when one is
+  authorized and otherwise records that no task is active.
 - [JOURNAL.md](JOURNAL.md) is the evidence-backed chronological record of
   architecture definitions, reviews, dispositions, and transitions.
 - [M7 Governance Layer](../governance/README.md) is the canonical M7 structure
@@ -27,7 +28,8 @@ is recorded in the repository.
   Canonical and Closed; and Milestone M7 is Completed / Closed. No successor
   authority is implied by M7 completion.
 - [M8 Architecture Vision](M8_ARCHITECTURE_VISION.md) is the independently
-  Architecture Approved basis for the open M8 milestone.
+  Architecture Approved basis fulfilled by the now Completed / Closed M8
+  milestone.
 - [M8.1 Architectural Identity and Baseline Mapping](M8.1_ARCHITECTURAL_IDENTITY_AND_BASELINE_MAPPING.md)
   is the Canonical / Closed system-first architectural identity and baseline for
   M8.
@@ -135,7 +137,11 @@ is recorded in the repository.
   preserves the exact reviewed revision, findings, advisories, and opening
   authorization.
 - [M8 Milestone Opening Order](../governance/orders/M8%20-%20Milestone%20Opening%20Order.md)
-  records the bounded opening direction without defining future architecture.
+  records the completed, scope-fulfilled opening direction without granting
+  continuing or successor authority.
+- [M8 Milestone Completion Review](../governance/reviews/M8%20-%20Milestone%20Completion%20Review.md)
+  records the independent `Ready for Milestone Closure Review` recommendation
+  that supported the later separate closure transition and remains unchanged.
 - [M8.1 Architectural Identity and Baseline Mapping Order](../governance/orders/M8.1%20-%20Architectural%20Identity%20and%20Baseline%20Mapping%20Order.md)
   records the completed, scope-fulfilled M8.1 definition direction.
 - [Canonical Management Model](../images/17-design-principles/README.md) contains

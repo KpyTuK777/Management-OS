@@ -129,5 +129,6 @@ cannot silently amend its reviewed source or substitute for evidence.
 - [M8 — Milestone Completion Review](M8%20-%20Milestone%20Completion%20Review.md)
   — **Completed — Ready for Milestone Closure Review**. Confirms fulfillment of
   the reviewed M8 Architecture Vision and complete authority chains for
-  canonical M8.1–M8.7 without closing M8, disposing residual matters, creating
-  a successor, or authorizing implementation.
+  canonical M8.1–M8.7; it remains unchanged after the later separate transition
+  closed M8 without disposing residual matters, creating a successor, or
+  authorizing implementation.

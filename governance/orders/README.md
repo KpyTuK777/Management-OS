@@ -32,9 +32,9 @@ evidence, or approve their outputs.
   — **Completed / Scope fulfilled**. The bounded Governance Review order is
   complete and grants no continuing, M8, or successor authority.
 - [M8 — Milestone Opening Order](M8%20-%20Milestone%20Opening%20Order.md)
-  — **Effective / Scope bounded**. Opened M8 and initially activated M8.1
-  without defining its architecture; M8 remains Active, while current stage
-  authority is recorded by later bounded orders and the Architecture Roadmap.
+  — **Completed / Scope fulfilled**. Opened the now Completed / Closed M8 and
+  initially activated M8.1 without defining architecture; it grants no
+  continuing, successor, or implementation authority.
 - [M8.1 — Architectural Identity and Baseline Mapping Order](M8.1%20-%20Architectural%20Identity%20and%20Baseline%20Mapping%20Order.md)
   — **Completed / Scope fulfilled**. The bounded M8.1 definition order is
   complete and grants no continuing or M8.2 authority.

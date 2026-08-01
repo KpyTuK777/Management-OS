@@ -3,7 +3,7 @@
 ## Status
 
 ```text
-Effective / Scope bounded
+Completed / Scope fulfilled
 ```
 
 ## Direction Authority
@@ -74,6 +74,6 @@ completed the required authority lifecycle and a later authorized transition
 recorded canonical closure. This order performed only the original M8/M8.1
 opening transition and supplied no substantive M8.1 architecture.
 
-M8 remains Active. The later M8.1–M8.4 canonicalization transitions and the
-bounded M8.5 opening order now govern stage state. This order grants no M8.5
-definition or later-stage authority.
+M8 is Completed / Closed through a later, separate milestone closure authority
+transition. M8.1–M8.7 are Canonical / Closed. This opening order is scope
+fulfilled and grants no continuing, successor, or implementation authority.

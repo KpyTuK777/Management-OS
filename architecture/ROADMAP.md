@@ -12,7 +12,7 @@ history but does not replace this roadmap.
 ## Current phase
 
 ```text
-Phase V — M8 Operational Intelligence Evolution Architecture
+Phase V — M8 Operational Intelligence Evolution Architecture — Completed / Closed
 ```
 
 ## Completed milestones
@@ -23,30 +23,31 @@ Phase V — M8 Operational Intelligence Evolution Architecture
   `Canonical Operational Design System Complete`.
 - M7 — Governance Layer — Completed / Closed by canonicalization of the M7.7
   Governance Review conclusion `Governance Architecture Complete`.
+- M8 — Operational Intelligence Evolution Architecture — Completed / Closed
+  after fulfillment of the approved M8 Architecture Vision, canonical closure
+  of M8.1–M8.7, and a separate milestone closure transition based on the M8
+  Milestone Completion Review.
 
 ## Active milestone
 
 ```text
-M8 — Operational Intelligence Evolution Architecture — Active
+None
 ```
 
-M8 is opened by the repository-native
-[M8 Milestone Opening Order](../governance/orders/M8%20-%20Milestone%20Opening%20Order.md)
-after independent Architecture Approval of the
-[M8 Architecture Vision](M8_ARCHITECTURE_VISION.md).
+M8 is Completed / Closed. No successor milestone is authorized or open.
 
 ## Active stage
 
 ```text
-None — M8.7 is Canonical / Closed
+None
 ```
 
 M8.1 Architectural Identity and Baseline Mapping, M8.2 Capability and Ownership
 Coherence, M8.3 Information, Evidence, and Handoff Architecture, M8.4 Gap and
 Risk Assessment, M8.5 Evolution Architecture, and M8.6 Validation and Readiness
 are Canonical / Closed. M8.7 Integrated Architecture Review is also Canonical /
-Closed. M8 has no active stage and remains Active because no separate M8
-completion or closure authority has been recorded.
+Closed. M8 has no active stage and is Completed / Closed through the separate
+milestone closure transition.
 
 ## Successor stage
 
@@ -83,8 +84,8 @@ later, separately reviewed and authorized transition.
 | 6 | M8.6 — Validation and Readiness | Closed — Canonical |
 | 7 | M8.7 — Integrated Architecture Review | Closed — Canonical |
 
-M8 is Active with zero active stages. M8.7 is Canonical / Closed. No M8 closure,
-M8.8, M9, or successor milestone is authorized or opened.
+M8 is Completed / Closed with zero active stages. No M8.8, M9, or successor
+milestone is authorized or opened.
 
 ## Roadmap maintenance
 

@@ -5,19 +5,19 @@ This file contains no active architectural task.
 ## Current Phase
 
 ```text
-Phase V — M8 Operational Intelligence Evolution Architecture
+Phase V — M8 Operational Intelligence Evolution Architecture — Completed / Closed
 ```
 
 ## Current Milestone
 
 ```text
-M8 — Operational Intelligence Evolution Architecture — Active
+None — M8 is Completed / Closed
 ```
 
 ## Current Task
 
 ```text
-None — M8 completion is not authorized
+None
 ```
 
 ## Dependencies
@@ -55,16 +55,16 @@ None — M8 completion is not authorized
 - [M8.7 Architecture Review Correction Evidence](M8.7_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md).
 - [M8.7 Integrated Architecture Review Architecture Review](../governance/reviews/M8.7%20-%20Integrated%20Architecture%20Review%20Architecture%20Review.md).
 - [M8.7 Integrated Architecture Review Canonical Review](../governance/reviews/M8.7%20-%20Integrated%20Architecture%20Review%20Canonical%20Review.md).
+- [M8 Milestone Completion Review](../governance/reviews/M8%20-%20Milestone%20Completion%20Review.md).
 - Existing canonical and approved source architectures within their recorded
   scopes and authority conditions.
 
 ## Expected Output
 
-None. M8.7 is Canonical / Closed. Any M8 completion or closure requires separate
-confirmed authority; no successor work is open.
+None. M8 and M8.1–M8.7 are Completed / Closed. No successor work is open.
 
 No active task is authorized. This state does not supply a milestone-completion
-claim, M8 closure, M8.8, M9, successor substance, roadmap, or work package;
+claim, M8.8, M9, successor substance, roadmap, or work package;
 resolve a Gap; accept or treat a Risk; adopt a Recommendation or evolution
 option; modify canonical M8.1–M8.7; alter source authority; amend governance; or
 authorize implementation or delivery.
@@ -84,9 +84,8 @@ Done. Independent review remains separate from artifact creation.
 No Active Task
 ```
 
-M8 is Active. M8.1–M8.7 are Canonical / Closed. No M8 stage and no backlog task
-is active because M8.7 is closed and no successor or M8 completion transition is
-authorized. No M8.8, M9, or successor milestone is opened.
+M8 is Completed / Closed. M8.1–M8.7 are Canonical / Closed. No stage and no
+backlog task is active. No M8.8, M9, or successor milestone is opened.
 
 ## Preserved Conditions
 
@@ -105,5 +104,5 @@ authorized. No M8.8, M9, or successor milestone is opened.
   UI, workflow, protocol, lifecycle, governance amendment, delivery planning,
   M9 or successor-stage substance is introduced.
 - No successor milestone is created.
-- M8.7 canonicalization and closure are complete; no M8 milestone-completion
-  claim or successor authority follows.
+- M8 milestone closure is complete; no successor or implementation authority
+  follows.
