@@ -116,3 +116,8 @@ cannot silently amend its reviewed source or substitute for evidence.
   reviewed candidate and correction evidence and authorizes the separate
   transition that later canonicalized and closed M8.6 without modifying either
   review record.
+- [M8.7 — Integrated Architecture Review Architecture Review](M8.7%20-%20Integrated%20Architecture%20Review%20Architecture%20Review.md)
+  — **Completed — Approved**. Confirms resolution of `AR-M8.7-01`, approves
+  the fixed corrected integrated-review package and correction evidence, and
+  returns M8.7 to the Canonical Review gate without canonicalization, closure,
+  or milestone completion.

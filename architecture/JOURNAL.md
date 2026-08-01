@@ -1491,6 +1491,33 @@ evidence conflict, the cited canonical document and Git history govern.
   governance amendment, delivery mechanics, M8.7 substance, or successor
   milestone is introduced.
 
+### 2026-08-01 — M8.7 repeat Architecture Review completed
+
+- **Event:** the Architect Council independently reviewed the fixed corrected
+  M8.7 Integrated Architecture Review candidate and correction evidence.
+- **Reviewed identity:** commit
+  `543611601e0b6a399952c43f327daa825e55865b`; candidate blob
+  `ec537ac1589209b1163066f6c95c0f086fc852fd`; correction-evidence blob
+  `904afe588eeceaa06f15c659054648f6bd28d3ba`.
+- **Finding resolution:** `AR-M8.7-01` is fully resolved through explicit
+  modeled/scenario-output separation in the end-to-end trace, trace invariants,
+  integrated invariants, outcome boundary, and final readiness criterion.
+- **Disposition:** Architecture Approved; Ready for Canonical Review.
+- **Review record:** `governance/reviews/M8.7 - Integrated Architecture Review
+  Architecture Review.md`.
+- **Advisories:** outcome still requires applicable Evidence and owned
+  verification judgment; any later M8 closure remains a separate authority
+  transition from the bounded architecture conclusion.
+- **Active task:** exactly one backlog task, `Canonical Review — M8.7 Integrated
+  Architecture Review`, at `Ready for Canonical Review`.
+- **Stage state:** M8 remains the sole active milestone; M8.1–M8.6 remain
+  Canonical / Closed; M8.7 remains the sole active, non-canonical stage; no M8.8,
+  M9, or successor milestone is opened.
+- **Boundary:** no Canonical Review, canonicalization, M8.7 or M8 closure,
+  milestone-completion claim, successor opening, M8.4 disposition, M8.5
+  selection, implementation, governance amendment, or delivery mechanics are
+  introduced.
+
 ### 2026-08-01 — M8.6 Validation and Readiness defined
 
 - **Event:** the implementation-independent M8.6 Validation and Readiness

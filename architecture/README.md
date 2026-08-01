@@ -119,8 +119,15 @@ is recorded in the repository.
   findings, conclusions, milestone completion, or substantive architecture.
 - [M8.7 Integrated Architecture Review](M8.7_INTEGRATED_ARCHITECTURE_REVIEW.md)
   evaluates the fixed canonical M8.1–M8.6 corpus as one coherent, bounded,
-  attributable, implementation-independent architectural baseline and is Ready
-  for Architecture Review without claiming approval or milestone completion.
+  attributable, implementation-independent architectural baseline and is
+  Architecture Approved / Ready for Canonical Review without claiming milestone
+  completion.
+- [M8.7 Architecture Review Correction Evidence](M8.7_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md)
+  records the bounded resolution of `AR-M8.7-01` while preserving all other
+  integrated-review meaning and canonical authority.
+- [M8.7 Integrated Architecture Review Architecture Review](../governance/reviews/M8.7%20-%20Integrated%20Architecture%20Review%20Architecture%20Review.md)
+  records independent approval of the fixed corrected package and returns M8.7
+  to the Canonical Review gate without closing M8 or opening a successor.
 - [M8 Architecture Vision Architecture Review](../governance/reviews/M8%20-%20Architecture%20Vision%20Architecture%20Review.md)
   preserves the exact reviewed revision, findings, advisories, and opening
   authorization.
