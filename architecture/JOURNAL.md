@@ -1521,6 +1521,36 @@ evidence conflict, the cited canonical document and Git history govern.
   M8.5 selection, implementation, governance amendment, lifecycle or protocol
   change, or delivery mechanics are introduced.
 
+### 2026-08-01 — M8.7 canonicalized and closed; M8 remains active
+
+- **Event:** the separately authorized repository transition canonicalized and
+  closed M8.7 Integrated Architecture Review without closing M8 or opening a
+  successor stage or milestone.
+- **Canonicalized subject:** reviewed candidate commit
+  `543611601e0b6a399952c43f327daa825e55865b`; candidate blob
+  `ec537ac1589209b1163066f6c95c0f086fc852fd`; unchanged correction-evidence
+  blob `904afe588eeceaa06f15c659054648f6bd28d3ba`.
+- **Architecture Review authority:** commit
+  `ff11f3f3ff603b39c7bcdc996534a67c2dce0c4f`; unchanged review-record blob
+  `1bb317483c133cafc566c20d92b26093f547fde1`.
+- **Canonical Review authority:** commit
+  `3bd1e4d59fab2f767ffb0647cf9c6712a916ea82`; unchanged review-record blob
+  `b4a9028f8bf48f325e1652cd64282273fe665a32`.
+- **M8.7 disposition:** Canonical / Closed. Reviewed architectural meaning,
+  modeled-output boundaries, source authority, Product Purpose / System Identity
+  framing, canonical M7, canonical M8.1–M8.6, correction evidence, and both
+  review records remain unchanged.
+- **M8.7 order:** `governance/orders/M8.7 - Integrated Architecture Review
+  Order.md` is `Completed / Scope fulfilled` and grants no continuing authority.
+- **Milestone state:** M8 remains Active because no separate M8 completion or
+  closure procedure has been authorized or recorded.
+- **Task and stage state:** M8.1–M8.7 are Canonical / Closed; zero M8 stages and
+  zero backlog tasks are active; no M8.8, M9, or successor milestone is opened.
+- **Boundary:** no reviewed artifact change, M8 closure, milestone-completion
+  claim, successor opening, implementation, runtime, API, data model, UI,
+  service, deployment, lifecycle or protocol change, governance amendment,
+  delivery mechanics, or backlog work is introduced.
+
 ### 2026-08-01 — M8.7 repeat Architecture Review completed
 
 - **Event:** the Architect Council independently reviewed the fixed corrected

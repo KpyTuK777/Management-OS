@@ -1,6 +1,6 @@
 # Architecture Backlog
 
-This file contains exactly one active architectural task.
+This file contains no active architectural task.
 
 ## Current Phase
 
@@ -17,7 +17,7 @@ M8 — Operational Intelligence Evolution Architecture — Active
 ## Current Task
 
 ```text
-Canonicalization — M8.7 Integrated Architecture Review
+None — M8 completion is not authorized
 ```
 
 ## Dependencies
@@ -60,18 +60,14 @@ Canonicalization — M8.7 Integrated Architecture Review
 
 ## Expected Output
 
-One separately authorized repository transition that canonicalizes the exact,
-canonically suitable M8.7 package while preserving its correction and review
-evidence. Any M8 closure remains separately authorized.
+None. M8.7 is Canonical / Closed. Any M8 completion or closure requires separate
+confirmed authority; no successor work is open.
 
-This task records canonicalization pending and grants no transition or milestone-
-closure authority. It does not predetermine or
-supply an integrated finding, result, readiness class, conclusion, disposition,
-milestone-completion claim, M9 substance, roadmap, or work package; resolve a
-Gap; accept or treat a Risk; adopt a Recommendation or evolution option; approve
-or canonicalize future output; close M8.7 or M8; modify canonical M8.1–M8.6;
-alter source authority; amend governance; or authorize implementation or
-delivery.
+No active task is authorized. This state does not supply a milestone-completion
+claim, M8 closure, M8.8, M9, successor substance, roadmap, or work package;
+resolve a Gap; accept or treat a Risk; adopt a Recommendation or evolution
+option; modify canonical M8.1–M8.7; alter source authority; amend governance; or
+authorize implementation or delivery.
 
 ## Owner
 
@@ -85,18 +81,17 @@ Done. Independent review remains separate from artifact creation.
 ## Status
 
 ```text
-Canonicalization Pending
+No Active Task
 ```
 
-M8 is Active. M8.1–M8.6 are Canonical / Closed. M8.7 is the sole active M8 stage
-and has a Canonical Review disposition of `Canonical` but remains non-canonical.
-No M8 closure, M8.8, M9, or successor milestone is authorized or opened.
+M8 is Active. M8.1–M8.7 are Canonical / Closed. No M8 stage and no backlog task
+is active because M8.7 is closed and no successor or M8 completion transition is
+authorized. No M8.8, M9, or successor milestone is opened.
 
-## Definition of Done
+## Preserved Conditions
 
-- A separate authority transition canonicalizes M8.7 only when explicitly
-  ordered under canonical M7; M8 closure remains a distinct authority act.
-- Canonical M8.1–M8.6 remain unchanged and controlling within their respective
+- No task Definition of Done applies until a new task is separately authorized.
+- Canonical M8.1–M8.7 remain unchanged and controlling within their respective
   architectural and assessment scopes.
 - All 15 Gaps, 15 Risks, six advisory Recommendations, seven assessment-object
   boundaries, source authority conditions, semantic ownership, and Product
@@ -110,6 +105,5 @@ No M8 closure, M8.8, M9, or successor milestone is authorized or opened.
   UI, workflow, protocol, lifecycle, governance amendment, delivery planning,
   M9 or successor-stage substance is introduced.
 - No successor milestone is created.
-- Canonical suitability is recorded by the independent review; M8.7 remains
-  active and non-canonical until a separate authority transition, and no M8
-  milestone-completion claim follows.
+- M8.7 canonicalization and closure are complete; no M8 milestone-completion
+  claim or successor authority follows.

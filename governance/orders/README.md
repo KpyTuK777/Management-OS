@@ -54,7 +54,5 @@ evidence, or approve their outputs.
   — **Completed / Scope fulfilled**. The bounded M8.6 definition order is
   complete and grants no continuing or M8.7 authority.
 - [M8.7 — Integrated Architecture Review Order](M8.7%20-%20Integrated%20Architecture%20Review%20Order.md)
-  — **Effective / Scope bounded**. Opens M8.7 as the sole active M8 stage and
-  establishes only its objective and dependencies without performing review,
-  issuing a conclusion, declaring milestone completion, or defining
-  substantive M8.7 architecture.
+  — **Completed / Scope fulfilled**. The bounded M8.7 definition order is
+  complete and grants no continuing, M8-closure, M9, or successor authority.

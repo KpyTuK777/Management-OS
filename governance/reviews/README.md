@@ -123,5 +123,6 @@ cannot silently amend its reviewed source or substitute for evidence.
   or milestone completion.
 - [M8.7 — Integrated Architecture Review Canonical Review](M8.7%20-%20Integrated%20Architecture%20Review%20Canonical%20Review.md)
   — **Completed — Canonical**. Confirms canonical suitability of the exact
-  reviewed M8.7 package and approves a separate canonicalization transition
-  while leaving M8.7 and M8 active and every successor unopened.
+  reviewed M8.7 package and authorizes the separate transition that later
+  canonicalized and closed M8.7 without modifying the reviewed package or
+  closing M8.

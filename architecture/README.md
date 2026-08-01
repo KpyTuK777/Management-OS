@@ -114,14 +114,13 @@ is recorded in the repository.
   transition and remains preserved as review evidence distinct from the later
   transition.
 - [M8.7 Integrated Architecture Review Order](../governance/orders/M8.7%20-%20Integrated%20Architecture%20Review%20Order.md)
-  opens M8.7 as the sole active stage and establishes only its objective,
-  dependencies, exclusions, and completion boundary without supplying review
-  findings, conclusions, milestone completion, or substantive architecture.
+  is scope fulfilled and grants no continuing, M8-closure, M9, or successor
+  authority.
 - [M8.7 Integrated Architecture Review](M8.7_INTEGRATED_ARCHITECTURE_REVIEW.md)
   evaluates the fixed canonical M8.1–M8.6 corpus as one coherent, bounded,
-  attributable, implementation-independent architectural baseline and has a
-  Canonical Review disposition of `Canonical`; canonicalization remains pending
-  and no milestone-completion claim follows.
+  attributable, implementation-independent architectural baseline and is
+  Canonical / Closed through a separate authority transition; no M8
+  milestone-completion claim follows.
 - [M8.7 Architecture Review Correction Evidence](M8.7_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md)
   records the bounded resolution of `AR-M8.7-01` while preserving all other
   integrated-review meaning and canonical authority.
@@ -130,8 +129,8 @@ is recorded in the repository.
   to the Canonical Review gate without closing M8 or opening a successor.
 - [M8.7 Integrated Architecture Review Canonical Review](../governance/reviews/M8.7%20-%20Integrated%20Architecture%20Review%20Canonical%20Review.md)
   records canonical suitability and approval for a separate M8.7
-  canonicalization transition while preserving M8 closure as a distinct
-  authority act.
+  canonicalization transition and remains preserved unchanged after that
+  transition; M8 closure remains a distinct authority act.
 - [M8 Architecture Vision Architecture Review](../governance/reviews/M8%20-%20Architecture%20Vision%20Architecture%20Review.md)
   preserves the exact reviewed revision, findings, advisories, and opening
   authorization.
