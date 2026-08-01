@@ -38,6 +38,7 @@ Architecture Review — M8.4 Gap and Risk Assessment
 - [M8.3 Information, Evidence, and Handoff Architecture Canonical Review](../governance/reviews/M8.3%20-%20Information%2C%20Evidence%2C%20and%20Handoff%20Architecture%20Canonical%20Review.md).
 - [M8.4 Gap and Risk Assessment Order](../governance/orders/M8.4%20-%20Gap%20and%20Risk%20Assessment%20Order.md).
 - [M8.4 Gap and Risk Assessment](M8.4_GAP_AND_RISK_ASSESSMENT.md).
+- [M8.4 Architecture Review Correction Evidence](M8.4_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md).
 - Existing canonical and approved source architectures within their recorded
   scopes and authority conditions.
 

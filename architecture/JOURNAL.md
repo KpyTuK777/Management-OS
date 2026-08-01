@@ -1254,3 +1254,30 @@ evidence conflict, the cited canonical document and Git history govern.
   authorized, source authority changed, individual finding converted to backlog
   work, implementation introduced, M8.5–M8.7 content supplied, governance
   amended, stage closed, or successor milestone created.
+
+### 2026-08-01 — M8.4 Architecture Review finding corrected
+
+- **Finding:** `AR-M8.4-01 — Incomplete assessment-object classification` was
+  issued at the Architecture Review return gate against commit
+  `f1bd1b9272085fd571cf45e2e8be63229147aa71`, candidate blob
+  `ccf33dc86c390ff65d9341d1d4af5e315042e1de`.
+- **Correction:** Section 2.1 now defines Observation and Conclusion explicitly
+  alongside Finding, Gap, Risk, Recommendation, and Decision, with purpose,
+  evidence relationship, authority boundary, explicit non-authority, and
+  inter-object relationships.
+- **Observation boundary:** explanatory and repository-evidence-derived but not
+  evidentiary; cannot become a Finding, promote evidence, imply severity,
+  Recommendation, Decision, or work authorization.
+- **Conclusion boundary:** bounded assessment synthesis only; cannot approve,
+  correct, accept Risk, resolve Gap, authorize implementation, governance
+  change, backlog work, stage transition, Architecture Approval, or canonical
+  authority.
+- **Preservation:** all 15 Gaps, 15 Risks, six Recommendations,
+  classifications, evidence references, severity, architectural meaning,
+  canonical sources, source authority conditions, and active stage state remain
+  unchanged.
+- **Evidence:** `architecture/M8.4_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md`.
+- **Status:** Ready for Architecture Review; no approval or canonical authority
+  claimed.
+- **Boundary:** no review, canonicalization, transition, M8.5 work,
+  implementation, governance amendment, or successor work is performed.

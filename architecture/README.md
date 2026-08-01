@@ -73,6 +73,9 @@ is recorded in the repository.
   gap and risk registers, blocking and residual-risk models, findings, and
   advisory recommendations and is `Ready for Architecture Review` with no
   approval or canonical authority claimed.
+- [M8.4 Architecture Review Correction Evidence](M8.4_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md)
+  records the bounded resolution of `AR-M8.4-01` without changing any register,
+  recommendation, classification, evidence reference, severity, or authority.
 - [M8 Architecture Vision Architecture Review](../governance/reviews/M8%20-%20Architecture%20Vision%20Architecture%20Review.md)
   preserves the exact reviewed revision, findings, advisories, and opening
   authorization.
