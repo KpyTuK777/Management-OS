@@ -159,3 +159,7 @@ Delivery: NOT AUTHORIZED
 This state becomes repository truth through the same commit that creates this
 record and reconciles the Roadmap and Backlog. The transition authority is
 fulfilled by that commit and grants no continuing substantive authority.
+<<<<<<< HEAD
+=======
+
+>>>>>>> a86dc959936fac129985c40f614667663b9d8c4d
