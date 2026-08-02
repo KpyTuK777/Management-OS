@@ -12,7 +12,7 @@ history but does not replace this roadmap.
 ## Current phase
 
 ```text
-Phase V — M8 Operational Intelligence Evolution Architecture — Completed / Closed
+Phase VI — M9 Empirical Product Value Learning — Active
 ```
 
 ## Completed milestones
@@ -31,31 +31,32 @@ Phase V — M8 Operational Intelligence Evolution Architecture — Completed / C
 ## Active milestone
 
 ```text
-None
+M9 — Empirical Product Value Learning — Active
 ```
 
-M8 is Completed / Closed. No successor milestone is authorized or open.
+M9 is the sole active milestone. It was opened through the bounded authority
+transition recorded in
+`governance/orders/M9_OPENING_AUTHORITY_TRANSITION.md`, based on the fixed
+reviewed proposal and the recorded attributable human opening Decision.
 
 ## Active stage
 
 ```text
-None
+M9.1 — Empirical Learning Preparation — Active
 ```
 
-M8.1 Architectural Identity and Baseline Mapping, M8.2 Capability and Ownership
-Coherence, M8.3 Information, Evidence, and Handoff Architecture, M8.4 Gap and
-Risk Assessment, M8.5 Evolution Architecture, and M8.6 Validation and Readiness
-are Canonical / Closed. M8.7 Integrated Architecture Review is also Canonical /
-Closed. M8 has no active stage and is Completed / Closed through the separate
-milestone closure transition.
+M9.1 prepares bounded empirical learning without selecting hypotheses,
+scenarios, validation execution, or implementation. It supplies exactly one
+active preparation-only task in `BACKLOG.md`.
 
 ## Successor stage
 
 ```text
-None activated beyond M8.7
+None authorized beyond M9.1
 ```
 
-No M9 or successor milestone is opened.
+No M9.2 or later M9 stage is authorized. No successor milestone beyond M9 is
+created or opened.
 
 ## M7 stage sequence
 
@@ -84,8 +85,20 @@ later, separately reviewed and authorized transition.
 | 6 | M8.6 — Validation and Readiness | Closed — Canonical |
 | 7 | M8.7 — Integrated Architecture Review | Closed — Canonical |
 
-M8 is Completed / Closed with zero active stages. No M8.8, M9, or successor
-milestone is authorized or opened.
+M8 is Completed / Closed with zero active M8 stages. No M8.8 is authorized. M9
+was opened only through its separate attributable Decision and bounded
+repository transition.
+
+## M9 stage sequence
+
+| Sequence | Stage | Status |
+| ---: | --- | --- |
+| 1 | M9.1 — Empirical Learning Preparation | Active |
+
+M9.1 is the only defined and active M9 stage. Its active backlog item prepares
+future attributable human consideration of hypothesis selection; it does not
+select H1–H5, a scenario, or a validation subject and grants no validation,
+Engineering Architecture, implementation, or delivery authority.
 
 ## Roadmap maintenance
 
