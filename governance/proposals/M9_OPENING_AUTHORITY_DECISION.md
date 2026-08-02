@@ -1,18 +1,19 @@
-# M9 Opening Authority Decision Shell
+# M9 Opening Authority Decision
 
-## Shell Status
+## Decision Record Status
 
-**Artifact type:** empty attributable Decision shell
+**Artifact type:** attributable human Decision record
 
-**Decision:** Not recorded
+**Decision:** Recorded
 
-**Disposition:** None
+**Disposition:** A — Approve proposal and authorize bounded opening of M9
 
-**Authority effect:** None
+**Authority effect:** AUTHORIZED TO EXECUTE A SEPARATE BOUNDED M9 OPENING TRANSITION
 
-This shell provides the prepared structure for a possible attributable human
-Decision. It is not a Decision, contains no human-owned Decision input, approves
-nothing, authorizes no transition, and does not open M9.
+This record preserves the directly supplied human-owned inputs for one
+attributable human Decision. It approves only the fixed reviewed proposal and
+authorizes execution of a separate bounded M9 opening transition. This Decision
+does not perform that transition and does not itself open M9.
 
 ## 1. Exact Decision Identity
 
@@ -42,7 +43,7 @@ Advisory observations: 3
 ```
 
 Any proposal change creates a new Decision object requiring a new review and a
-new shell or attributable Decision consideration.
+new attributable Decision consideration.
 
 ## 3. Four Permissible Dispositions
 
@@ -67,18 +68,53 @@ automatic later effect.
 
 Decline opening under the fixed proposal and current evidence basis.
 
-The options are unranked. This shell selects, recommends, prefers, and defaults
-to none.
+The options are unranked. This record selects A only through the direct
+human-owned input preserved in Section 4; it creates no general preference,
+default, or recommendation.
 
 ## 4. Required Human-Owned Fields
 
 ```text
-Accountable authority identity: UNASSIGNED
-Authority basis: UNRECORDED
-Selected disposition: NONE
-Human-owned rationale: UNRECORDED
-Decision date: UNASSIGNED
-Attributable human attestation: UNRECORDED
+Accountable authority identity:
+Serhii Horbachenko — Product Owner and accountable authority for Management OS
+
+Authority basis:
+As Product Owner and accountable authority for Management OS, I am responsible
+for approving milestone proposals and authorizing bounded milestone opening
+while preserving separate authority for hypothesis selection, scenario
+selection, validation, Engineering Architecture, implementation, roadmap
+evolution, and backlog evolution.
+
+Selected disposition:
+A — Approve proposal and authorize bounded opening of M9.
+
+Human-owned rationale:
+The reviewed proposal establishes a sufficiently bounded milestone identity
+focused on empirical product-value learning.
+
+The architectural research program has reached the point where further
+analytical work is expected to provide diminishing returns, while the dominant
+remaining uncertainty concerns empirical product value in real operational
+contexts.
+
+Opening M9 is therefore justified as the beginning of an empirical learning
+milestone rather than an implementation milestone.
+
+This Decision approves only the fixed reviewed proposal and authorizes a
+separate bounded authority transition that may open M9 under the reviewed
+identity.
+
+It does not authorize hypothesis selection, scenario selection, Evidence
+access, validation preparation or execution, operational Change, Engineering
+Architecture, implementation, deployment, delivery, roadmap evolution, or
+backlog evolution beyond the explicit opening transition.
+
+Decision date:
+2026-08-02
+
+Attributable human attestation:
+I confirm that this is my attributable human Decision and that I understand
+both its bounded authority effect and its explicit non-effects.
 ```
 
 AI must not infer, populate, choose, simulate, paraphrase into existence, or
@@ -127,7 +163,7 @@ direct human clarification.
 
 ## 6. Disposition A Maximum Effect
 
-If validly selected, A may at most:
+The validly selected disposition A may at most:
 
 - approve only the fixed reviewed proposal;
 - authorize preparation and execution of a separate bounded authority
@@ -149,7 +185,7 @@ Decision
 
 ## 7. Explicit Non-Effects
 
-Even a future valid Decision A does not by itself:
+This Decision does not by itself:
 
 - open M9 without a separate attributable authority transition;
 - mutate roadmap, backlog, milestone, stage, order, or control surfaces;
@@ -181,9 +217,9 @@ Even a future valid Decision A does not by itself:
 - M9 opening remains distinct from validation authorization.
 - Repository presence creates no authority.
 
-## 9. Future Validity Checks
+## 9. Record Validity Checks
 
-Before reporting this shell as a completed attributable Decision, verify:
+Before relying on this record as a completed attributable Decision, verify:
 
 1. the exact Decision identity is unchanged;
 2. every fixed commit/blob pair resolves exactly;
@@ -199,21 +235,23 @@ Before reporting this shell as a completed attributable Decision, verify:
 11. repository state is reported truthfully without mutation by the Decision
     record itself.
 
-Failure of any check leaves the shell incomplete or invalid for authority
-reporting. AI and repository mechanics cannot cure missing human authority.
+Failure of any check makes the record invalid for authority reporting until an
+applicable attributable human correction is supplied. AI and repository
+mechanics cannot cure missing human authority.
 
-## 10. Initial State
+## 10. Current Decision State
 
 ```text
-Decision: NOT RECORDED
-Disposition: NONE
-Proposal approval: NONE
-Accountable authority: UNASSIGNED
-Authority basis: UNRECORDED
-Rationale: UNRECORDED
-Decision date: UNASSIGNED
-Human attestation: UNRECORDED
-Authority effect: NONE
+Decision: RECORDED
+Disposition: A — Approve proposal and authorize bounded opening of M9
+Proposal approval: FIXED REVIEWED PROPOSAL APPROVED
+Accountable authority: Serhii Horbachenko — Product Owner and accountable authority for Management OS
+Authority basis: RECORDED
+Rationale: RECORDED
+Decision date: 2026-08-02
+Human attestation: RECORDED
+Authority effect: AUTHORIZED TO EXECUTE A SEPARATE BOUNDED M9 OPENING TRANSITION
 ```
 
-M9 remains not created and not opened. No transition is authorized or executed.
+M9 remains not created and not opened. A separate bounded opening transition is
+authorized but has not been prepared or executed by this Decision record.
