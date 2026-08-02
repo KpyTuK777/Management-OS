@@ -1,73 +1,94 @@
 # Architecture Backlog
 
-This file contains no active architectural task.
+This file owns the single active architectural preparation task for the current
+stage. Exactly one task is active.
 
 ## Current Phase
 
 ```text
-Phase V — M8 Operational Intelligence Evolution Architecture — Completed / Closed
+Phase VI — M9 Empirical Product Value Learning — Active
 ```
 
 ## Current Milestone
 
 ```text
-None — M8 is Completed / Closed
+M9 — Empirical Product Value Learning — Active
 ```
+
+## Current Stage
+
+```text
+M9.1 — Empirical Learning Preparation — Active
+```
+
+**Stage purpose:** Prepare bounded empirical learning without selecting
+hypotheses, scenarios, validation execution, or implementation.
 
 ## Current Task
 
 ```text
-None
+Prepare bounded hypothesis-selection consideration.
 ```
 
-## Dependencies
+This is the sole active backlog item. It prepares a future attributable human
+consideration only. It does not select, rank, prioritize, prove, validate, or
+reject H1–H5.
 
-- M7 Governance Architecture — Completed / Closed and Canonical.
-- [Architecture Approved M8 Vision](M8_ARCHITECTURE_VISION.md).
-- [Canonical / Closed M8.1 Architectural Identity and Baseline Mapping](M8.1_ARCHITECTURAL_IDENTITY_AND_BASELINE_MAPPING.md).
-- [M8.1 Architecture Review Correction Evidence](M8.1_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md).
-- [M8.1 Architecture Review](../governance/reviews/M8.1%20-%20Architectural%20Identity%20and%20Baseline%20Mapping%20Architecture%20Review.md).
-- [M8.1 Canonical Review](../governance/reviews/M8.1%20-%20Architectural%20Identity%20and%20Baseline%20Mapping%20Canonical%20Review.md).
-- [M8.2 Capability and Ownership Coherence Order](../governance/orders/M8.2%20-%20Capability%20and%20Ownership%20Coherence%20Order.md).
-- [M8.2 Capability and Ownership Coherence](M8.2_CAPABILITY_AND_OWNERSHIP_COHERENCE.md).
-- [M8.2 Capability and Ownership Coherence Architecture Review](../governance/reviews/M8.2%20-%20Capability%20and%20Ownership%20Coherence%20Architecture%20Review.md).
-- [M8.2 Capability and Ownership Coherence Canonical Review](../governance/reviews/M8.2%20-%20Capability%20and%20Ownership%20Coherence%20Canonical%20Review.md).
-- [M8.3 Information, Evidence, and Handoff Architecture Order](../governance/orders/M8.3%20-%20Information%2C%20Evidence%2C%20and%20Handoff%20Architecture%20Order.md).
-- [M8.3 Information, Evidence, and Handoff Architecture](M8.3_INFORMATION_EVIDENCE_AND_HANDOFF_ARCHITECTURE.md).
-- [M8.3 Information, Evidence, and Handoff Architecture Review](../governance/reviews/M8.3%20-%20Information%2C%20Evidence%2C%20and%20Handoff%20Architecture%20Review.md).
-- [M8.3 Information, Evidence, and Handoff Architecture Canonical Review](../governance/reviews/M8.3%20-%20Information%2C%20Evidence%2C%20and%20Handoff%20Architecture%20Canonical%20Review.md).
-- [M8.4 Gap and Risk Assessment Order](../governance/orders/M8.4%20-%20Gap%20and%20Risk%20Assessment%20Order.md).
-- [M8.4 Gap and Risk Assessment](M8.4_GAP_AND_RISK_ASSESSMENT.md).
-- [M8.4 Architecture Review Correction Evidence](M8.4_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md).
-- [M8.4 Gap and Risk Assessment Architecture Review](../governance/reviews/M8.4%20-%20Gap%20and%20Risk%20Assessment%20Architecture%20Review.md).
-- [M8.4 Gap and Risk Assessment Canonical Review](../governance/reviews/M8.4%20-%20Gap%20and%20Risk%20Assessment%20Canonical%20Review.md).
-- [M8.5 Evolution Architecture Order](../governance/orders/M8.5%20-%20Evolution%20Architecture%20Order.md).
-- [M8.5 Evolution Architecture candidate](M8.5_EVOLUTION_ARCHITECTURE.md).
-- [M8.5 Evolution Architecture Architecture Review](../governance/reviews/M8.5%20-%20Evolution%20Architecture%20Architecture%20Review.md).
-- [M8.5 Evolution Architecture Canonical Review](../governance/reviews/M8.5%20-%20Evolution%20Architecture%20Canonical%20Review.md).
-- [M8.6 Validation and Readiness Order](../governance/orders/M8.6%20-%20Validation%20and%20Readiness%20Order.md).
-- [M8.6 Validation and Readiness candidate](M8.6_VALIDATION_AND_READINESS.md).
-- [M8.6 Architecture Review Correction Evidence](M8.6_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md).
-- [M8.6 Validation and Readiness Architecture Review](../governance/reviews/M8.6%20-%20Validation%20and%20Readiness%20Architecture%20Review.md).
-- [M8.6 Validation and Readiness Canonical Review](../governance/reviews/M8.6%20-%20Validation%20and%20Readiness%20Canonical%20Review.md).
-- [M8.7 Integrated Architecture Review Order](../governance/orders/M8.7%20-%20Integrated%20Architecture%20Review%20Order.md).
-- [M8.7 Integrated Architecture Review candidate](M8.7_INTEGRATED_ARCHITECTURE_REVIEW.md).
-- [M8.7 Architecture Review Correction Evidence](M8.7_ARCHITECTURE_REVIEW_CORRECTION_EVIDENCE.md).
-- [M8.7 Integrated Architecture Review Architecture Review](../governance/reviews/M8.7%20-%20Integrated%20Architecture%20Review%20Architecture%20Review.md).
-- [M8.7 Integrated Architecture Review Canonical Review](../governance/reviews/M8.7%20-%20Integrated%20Architecture%20Review%20Canonical%20Review.md).
-- [M8 Milestone Completion Review](../governance/reviews/M8%20-%20Milestone%20Completion%20Review.md).
-- Existing canonical and approved source architectures within their recorded
-  scopes and authority conditions.
+## Authority and Dependencies
+
+- [M9 Opening Authority Decision](../governance/proposals/M9_OPENING_AUTHORITY_DECISION.md),
+  fixed authority source commit
+  `a43a50f479466af5540cc3a3c9a482a14d48f6f4`, blob
+  `90d4caf978c818566334127478984ba9208fe823`.
+- [M9 Opening Authority Transition](../governance/orders/M9_OPENING_AUTHORITY_TRANSITION.md).
+- [M9 Empirical Product Value Learning Proposal](../governance/proposals/M9_EMPIRICAL_PRODUCT_VALUE_LEARNING_PROPOSAL.md),
+  fixed reviewed blob `78740c6665c6d5457059cee92181615253a113f4`.
+- [M9 Proposal Critical Review](../governance/reviews/M9%20-%20Empirical%20Product%20Value%20Learning%20Proposal%20Critical%20Review.md),
+  fixed blob `cd09ae21dc9d1087bafd24593082fc8b94f70463`, disposition
+  `M9 Proposal Boundary Preserved`, blocking findings `0`.
+- [Product Value Hypotheses](research/MANAGEMENT_OS_PRODUCT_VALUE_HYPOTHESES.md),
+  fixed blob `c0a62f9166d47d20dd22cc64cb9ffdeb483d722b`.
+- [Product Value Hypotheses Critical Review](research/MANAGEMENT_OS_PRODUCT_VALUE_HYPOTHESES_CRITICAL_REVIEW.md),
+  fixed blob `69dfdd000128135bc1feb916b50d379e301a402f`.
+- Canonical M7 and canonical M8 remain unchanged and controlling within their
+  owned scopes.
 
 ## Expected Output
 
-None. M8 and M8.1–M8.7 are Completed / Closed. No successor work is open.
+One bounded decision-support artifact that prepares future attributable human
+consideration of which, if any, Product Value Hypothesis should be selected for
+later bounded work.
 
-No active task is authorized. This state does not supply a milestone-completion
-claim, M8.8, M9, successor substance, roadmap, or work package;
-resolve a Gap; accept or treat a Risk; adopt a Recommendation or evolution
-option; modify canonical M8.1–M8.7; alter source authority; amend governance; or
-authorize implementation or delivery.
+The output may organize:
+
+- the fixed identities and distinct meanings of H1–H5;
+- current Evidence and empirical uncertainty relevant to selection;
+- neutral selection, deferral, evidence-request, and decline options;
+- required human-owned inputs; and
+- explicit effects and non-effects of any future selection Decision.
+
+The output must not select or rank a hypothesis, select a scenario or case,
+authorize Evidence access, define or authorize validation, create Engineering
+Architecture, or authorize implementation or delivery.
+
+## Definition of Done
+
+The task is complete only when one fixed preparation artifact:
+
+1. preserves H1–H5 as separate, unvalidated research hypotheses;
+2. states that no hypothesis, scenario, case, or validation subject is selected;
+3. presents neutral human-consideration options without recommendation;
+4. identifies required attributable human Decision inputs;
+5. preserves source Evidence and human authority boundaries;
+6. defines no protocol, KPI, metric, experiment, Engineering Architecture, or
+   implementation artifact;
+7. records explicit non-effects and current repository truth;
+8. receives any review required before it is relied upon for a later Decision;
+   and
+9. is closed only through a separate attributable transition.
+
+Completing the artifact does not select a hypothesis, activate another stage,
+authorize validation, or complete M9.
 
 ## Owner
 
@@ -75,34 +96,28 @@ authorize implementation or delivery.
 Chief Architect
 ```
 
-The Chief Architect owns the architectural definition and its Definition of
-Done. Independent review remains separate from artifact creation.
+The owner is accountable for bounded preparation and preservation of the task
+scope. Product Value Hypothesis selection remains an attributable human Decision
+outside this task.
 
 ## Status
 
 ```text
-No Active Task
+Active — 1 bounded preparation item
 ```
-
-M8 is Completed / Closed. M8.1–M8.7 are Canonical / Closed. No stage and no
-backlog task is active. No M8.8, M9, or successor milestone is opened.
 
 ## Preserved Conditions
 
-- No task Definition of Done applies until a new task is separately authorized.
-- Canonical M8.1–M8.7 remain unchanged and controlling within their respective
-  architectural and assessment scopes.
-- All 15 Gaps, 15 Risks, six advisory Recommendations, seven assessment-object
-  boundaries, source authority conditions, semantic ownership, and Product
-  Purpose / System Identity framing remain preserved.
-- The candidate defines only the bounded integrated Architecture Review subject
-  and evidence; it does not predetermine a finding, conclusion, disposition, M8
-  completion, Recommendation adoption, evolution selection, Gap resolution,
-  Risk acceptance or treatment, priority, or work.
-- Canonical M7 remains external and unchanged.
-- No runtime, API, data model, persistence, event, infrastructure, deployment,
-  UI, workflow, protocol, lifecycle, governance amendment, delivery planning,
-  M9 or successor-stage substance is introduced.
-- No successor milestone is created.
-- M8 milestone closure is complete; no successor or implementation authority
-  follows.
+- M8 remains Completed / Closed; M8.1–M8.7 remain Canonical / Closed.
+- M9 is Active and M9.1 is its sole active stage.
+- Exactly one backlog task is active.
+- H1–H5 remain unvalidated, unranked, and unselected.
+- Scenario and case selection remain `NONE`.
+- Operational Evidence access is not authorized.
+- Validation preparation and execution are not authorized.
+- Engineering Architecture is not created or authorized.
+- Prototype, implementation, deployment, and delivery are not authorized.
+- Product Vision, Systems, Owner Journey, Product Constitution role, canonical
+  M7/M8, reviewed proposal, critical review, and research sources remain
+  unchanged.
+- No M9.2, milestone completion, closure, or successor work is authorized.
