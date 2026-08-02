@@ -1,17 +1,19 @@
-# M9 Proposal Preparation Authority Decision Shell
+# M9 Proposal Preparation Authority Decision
 
-## Shell Status
+## Decision Record Status
 
-**Artifact type:** empty attributable Decision shell
+**Artifact type:** attributable human Decision record
 
-**Decision status:** No Decision
+**Decision status:** Recorded
 
-**Authority effect:** None
+**Disposition:** A — Authorized preparation
 
-This shell preserves the structure required for a possible future attributable
-human Decision. It is not a Decision, does not record a disposition, and cannot
-acquire authority through completeness, repository presence, citation, review,
-or AI use.
+**Authority effect:** bounded M9 proposal preparation authorized
+
+This record preserves the directly supplied human-owned inputs for one
+attributable human Decision. Its authority effect is limited to preparation of
+the bounded proposal described in Section 1. Completeness, repository presence,
+citation, review, or AI use cannot enlarge that effect.
 
 ## 1. Decision Identity
 
@@ -50,9 +52,9 @@ Architecture, or begin implementation.
 
 ## 2. Fixed Evidence Inputs
 
-Any future Decision recorded in this shell must reference the following exact
-fixed identities. Paths, filenames, branches, `HEAD`, later revisions, summaries,
-or apparent textual equivalence cannot substitute for these commit/blob pairs.
+This Decision references the following exact fixed identities. Paths,
+filenames, branches, `HEAD`, later revisions, summaries, or apparent textual
+equivalence cannot substitute for these commit/blob pairs.
 
 | Evidence input | Commit | Blob |
 | --- | --- | --- |
@@ -74,7 +76,7 @@ Exactly one of four dispositions may be selected by an accountable human:
 ### A — Authorized preparation
 
 Authorize preparation of one bounded M9 proposal within the exact scope and
-non-effects of this shell.
+non-effects of this record.
 
 ### B — Deferred
 
@@ -92,20 +94,49 @@ Decline authorization to prepare the bounded M9 proposal under the current
 Decision identity and evidence basis.
 
 The dispositions are unranked. Their lettering creates no preference, default,
-sequence, or recommendation. This shell selects none.
+sequence, or recommendation. This record selects A through the direct
+human-owned input preserved in Section 4.
 
 ## 4. Mandatory Human-Owned Fields
 
-The following fields must be supplied directly by the accountable human
-authority before this shell can become an attributable Decision record:
+The accountable human authority directly supplied the following mandatory
+fields:
 
 ```text
-Accountable authority identity: UNASSIGNED
-Authority basis: UNRECORDED
-Selected disposition: NONE
-Human-owned rationale: UNRECORDED
-Decision date: UNASSIGNED
-Attributable human attestation: UNRECORDED
+Accountable authority identity:
+Serhii Horbachenko — Product Owner and accountable authority for Management OS
+
+Authority basis:
+As Product Owner and accountable authority for Management OS, I am responsible
+for authorizing bounded preparation of milestone proposals while preserving
+separate authority for proposal approval, milestone opening, validation,
+Engineering Architecture, implementation, roadmap, and backlog changes.
+
+Selected disposition:
+A — Authorized preparation
+
+Human-owned rationale:
+The post-M8 research program is analytically complete within its current scope,
+the dominant remaining uncertainty concerns empirical product value, and the
+possible identity of M9 has been sufficiently examined to support preparation
+of a bounded milestone proposal.
+
+Authorizing proposal preparation will allow the purpose, scope, boundaries,
+decision identities, and explicit non-effects of a possible M9 milestone to be
+examined in a fixed artifact before any decision to open the milestone is made.
+
+This Decision authorizes only preparation of the M9 proposal. It does not
+approve the future proposal, create or open M9, modify roadmap or backlog,
+select any Product Value Hypothesis or operational scenario, authorize
+validation, define Engineering Architecture, or authorize implementation or
+delivery.
+
+Decision date:
+2026-08-02
+
+Attributable human attestation:
+I confirm that this is my attributable human Decision and that I understand its
+bounded authority effect and explicit non-effects.
 ```
 
 AI must not fill, infer, assume, predict, choose, simulate, paraphrase into
@@ -118,10 +149,10 @@ only by AI, no Decision or authority effect may be claimed.
 
 ## 5. Disposition-Specific Minimum Requirements
 
-Every future record must preserve the exact Decision identity, all fixed
-evidence identities, all mandatory human-owned fields, explicit non-effects,
-and preservation boundaries. It must also satisfy the selected disposition's
-minimum requirements.
+This record preserves the exact Decision identity, all fixed evidence
+identities, all mandatory human-owned fields, explicit non-effects, and
+preservation boundaries. It must also continue to satisfy the selected
+disposition's minimum requirements.
 
 ### A — Authorized preparation
 
@@ -172,12 +203,11 @@ The human-owned record must:
   different future question.
 
 Mixed, conditional, implicit, or multiple disposition selections are invalid
-under this shell and require direct human clarification.
+under this record structure and require direct human clarification.
 
 ## 6. Explicit Non-Effects
 
-This shell, and any future Decision recorded within its exact identity, does not
-by itself:
+This Decision does not by itself:
 
 - create, authorize, open, approve, close, or transition M9;
 - approve, adopt, execute, or give milestone effect to an M9 proposal;
@@ -194,10 +224,10 @@ by itself:
 - modify any canonical, source, research, governance, roadmap, backlog, or
   control-surface artifact.
 
-Only a valid future disposition A may authorize the bounded act of creating the
-proposal described in Section 1. That proposal would remain non-authoritative
-decision support and would require separate human consideration for any later
-effect.
+The valid disposition A recorded here authorizes only the bounded act of
+creating the proposal described in Section 1. That proposal remains
+non-authoritative decision support and requires separate human consideration
+for any later effect.
 
 ## 7. Preservation Boundaries
 
@@ -211,14 +241,14 @@ effect.
 - M8 remains Completed / Closed.
 - No active milestone, stage, or architecture backlog task is created.
 - M9 remains not created and not opened.
-- No M9 proposal exists by virtue of this shell.
+- No M9 proposal exists by virtue of this Decision alone.
 
-This shell introduces no governance beyond the exact bounded Decision identity
-and reusable record structure stated here.
+This Decision introduces no governance beyond its exact bounded Decision
+identity and recorded authority effect.
 
-## 8. Future Validity Checks
+## 8. Record Validity Checks
 
-Before reporting a future record as a valid attributable Decision, verify all of
+Before relying on this record as a valid attributable Decision, verify all of
 the following:
 
 1. The Decision identity is textually and materially unchanged.
@@ -238,21 +268,24 @@ the following:
 10. The resulting authority effect, if any, is reported only within the exact
     scope of the selected disposition.
 
-Failure of any check leaves the shell structurally incomplete or invalid for
-authority reporting. A later readiness assessment may test structure but cannot
-complete a human-owned field or make the Decision.
+Failure of any check makes the record invalid for authority reporting until an
+applicable attributable human correction is supplied. The earlier readiness
+assessment tested the empty shell's structure; it did not complete a
+human-owned field or make this Decision.
 
-## 9. Current Shell State
+## 9. Current Decision State
 
 ```text
-Disposition: NONE
-Accountable authority: UNASSIGNED
-Authority basis: UNRECORDED
-Rationale: UNRECORDED
-Decision date: UNASSIGNED
-Human attestation: UNRECORDED
-Authority effect: NONE
+Decision: RECORDED
+Disposition: A — Authorized preparation
+Accountable authority: Serhii Horbachenko — Product Owner and accountable authority for Management OS
+Authority basis: RECORDED
+Rationale: RECORDED
+Decision date: 2026-08-02
+Human attestation: RECORDED
+Authority effect: BOUNDED M9 PROPOSAL PREPARATION AUTHORIZED
 ```
 
-No attributable Decision has been made. No preparation is authorized. M9 and
-the M9 proposal remain uncreated.
+The bounded M9 proposal may now be prepared. The proposal is not approved by
+this Decision. M9 remains not created and not opened, and the M9 proposal does
+not yet exist.
