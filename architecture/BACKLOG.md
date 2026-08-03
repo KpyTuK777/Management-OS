@@ -29,15 +29,16 @@ Architecture, or implementation.
 ## Current Task
 
 ```text
-Prepare Knight Capital source manifest and chronology assessment.
+Prepare Knight Capital bounded operational-control walkthrough protocol.
 ```
 
-This is the sole active backlog item. It prepares attributable public-source and
-chronology material for the bounded Knight Capital episode recorded by the
-published-case selection Decision. It does not create the source manifest or
-chronology by its own presence, authorize a walkthrough or Replay, establish
-source sufficiency or historical truth, infer missing Decision rationale,
-validate H3, or authorize architecture or implementation.
+This is the sole active backlog item. It prepares a protocol for the selected
+**Shape B — Bounded operational-control walkthrough** using the fixed source
+manifest, chronology assessment, and Evidence-gap assessment. Its presence does
+not create the protocol, define historical claims, prohibited inferences,
+citation requirements, or branch boundaries, authorize walkthrough execution or
+Replay, establish complete source sufficiency or historical truth, infer missing
+Decision rationale, validate H3, or authorize architecture or implementation.
 
 ## Authority and Dependencies
 
@@ -52,6 +53,12 @@ validate H3, or authorize architecture or implementation.
   `eea695025b4c7ed661e302ca2087e24dc299e060`, disposition
   `A — Select Knight Capital`.
 - [M9 H3 Knight Capital Preparation Transition](../governance/orders/M9_H3_KNIGHT_CAPITAL_PREPARATION_TRANSITION.md).
+- [M9 Knight Capital Walkthrough Shape Authority Decision](../governance/proposals/M9_KNIGHT_CAPITAL_WALKTHROUGH_SHAPE_AUTHORITY_DECISION.md),
+  fixed authority source commit
+  `047a9c4f191ec1c6c7a351d7d825c8a9fd55cc90`, blob
+  `e1b284ba906848ae8b5a96b37d447620e72f3f3a`, disposition
+  `B — Prepare a bounded operational-control walkthrough`.
+- [M9 Knight Capital Walkthrough Protocol Preparation Transition](../governance/orders/M9_KNIGHT_CAPITAL_WALKTHROUGH_PROTOCOL_PREPARATION_TRANSITION.md).
 - [M9 Empirical Product Value Learning Proposal](../governance/proposals/M9_EMPIRICAL_PRODUCT_VALUE_LEARNING_PROPOSAL.md),
   fixed reviewed blob `78740c6665c6d5457059cee92181615253a113f4`.
 - [M9 Proposal Critical Review](../governance/reviews/M9%20-%20Empirical%20Product%20Value%20Learning%20Proposal%20Critical%20Review.md),
@@ -66,42 +73,42 @@ validate H3, or authorize architecture or implementation.
 
 ## Expected Output
 
-One bounded preparation set consisting of an attributable public-source manifest
-and chronology assessment for the selected Knight Capital episode, with Evidence
-gaps and source limits preserved for later separate walkthrough-readiness
-consideration.
+One bounded protocol-preparation set for the selected Shape B inquiry, preserving
+the fixed source, chronology, and Evidence-gap identities and remaining separate
+from walkthrough authorization and execution.
 
 The output may organize:
 
-- fixed public-source identity and provenance;
-- an attributable chronology of the bounded August 1, 2012 episode;
-- contemporaneous versus retrospective material;
-- known missingness, conflicts, and Evidence gaps; and
-- explicit source, copyright, Decision-rationale, Change, Outcome, and
-  attribution limits.
+- permitted historical claims;
+- prohibited inferences;
+- source-citation requirements;
+- historical and possible future Replay branch boundaries;
+- protocol steps that preserve missing Decision owner, rationale, actor knowledge,
+  Change fidelity, and organizational Learning; and
+- a separate walkthrough-authorization consideration boundary.
 
-The output must not create or execute a walkthrough or Replay, claim complete
-historical truth, invent missing rationale, declare source sufficiency, define or
-authorize validation, create Engineering Architecture, or authorize
-implementation or delivery.
+The output must not execute or authorize a walkthrough or Replay, claim complete
+historical truth, invent missing rationale or actor knowledge, establish Root
+Cause, define a confident counterfactual Outcome, validate H3, create Engineering
+Architecture, or authorize implementation or delivery.
 
 ## Definition of Done
 
-The task is complete only when bounded preparation:
+The task is complete only when bounded protocol preparation:
 
-1. preserves the fixed Knight Capital candidate and bounded episode identity;
-2. records an attributable public-source manifest without importing source
-   ownership;
-3. reconstructs chronology while separating contemporaneous from retrospective
-   material;
-4. preserves missing Evidence, conflicts, uncertainty, and inaccessible records;
-5. distinguishes Decision, intended Change, Actual Change, Outcome, attribution,
-   and Learning where public sources permit;
-6. identifies Evidence gaps without declaring source sufficiency;
-7. defines no walkthrough, Replay, protocol, KPI, metric, experiment,
-   Engineering Architecture, or implementation artifact;
+1. preserves the fixed Knight Capital candidate, bounded episode, and Shape B
+   identity;
+2. fixes source citations to the accepted manifest boundary;
+3. defines permitted historical claims without expanding source authority;
+4. defines prohibited inferences without filling Evidence gaps;
+5. separates historical and possible future Replay branches;
+6. preserves Decision, actor-information, Change, Outcome, attribution, and
+   Learning uncertainty;
+7. creates no walkthrough execution, Replay, validation, KPI, metric, experiment,
+   Engineering Architecture, or implementation authority;
 8. records explicit non-effects and current repository truth; and
-9. is closed only through a separate attributable transition.
+9. remains subject to a separate walkthrough-authorization consideration and
+   separate attributable transition.
 
 Completing the preparation does not authorize walkthrough readiness, a
 walkthrough, Replay, validation, another stage, or M9 completion.
@@ -112,10 +119,10 @@ walkthrough, Replay, validation, another stage, or M9 completion.
 Chief Architect
 ```
 
-The owner is accountable for bounded source and chronology preparation and
-preservation of the task scope. Source acceptance, walkthrough readiness,
-walkthrough authorization, Replay, validation, architecture, and implementation
-remain separate attributable human Decisions.
+The owner is accountable for bounded Shape B protocol preparation and preservation
+of the task scope. Protocol acceptance, walkthrough authorization, walkthrough
+execution, Replay, validation, architecture, and implementation remain separate
+attributable human Decisions.
 
 ## Status
 
@@ -131,8 +138,12 @@ Active — 1 bounded preparation item
 - H3 — Experience Amplification is selected and remains unvalidated.
 - Knight Capital — 2012 software deployment and trading-loss incident is the
   selected published candidate.
+- Shape B — Bounded operational-control walkthrough is the selected inquiry shape.
 - Source manifest, chronology assessment, Evidence-gap assessment, and
-  walkthrough-readiness consideration are not yet created.
+  walkthrough-readiness consideration are created.
+- Walkthrough protocol, permitted historical claims, prohibited inferences,
+  source-citation requirements, historical/Replay branch boundaries, and
+  walkthrough-authorization consideration are not yet created or defined.
 - Published walkthrough and Replay are not authorized.
 - Evidence ingestion beyond ordinary public research is not authorized.
 - Validation preparation and execution are not authorized.
