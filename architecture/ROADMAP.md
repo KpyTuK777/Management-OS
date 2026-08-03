@@ -45,9 +45,13 @@ reviewed proposal and the recorded attributable human opening Decision.
 M9.1 — Empirical Learning Preparation — Active
 ```
 
-M9.1 prepares bounded empirical learning without selecting hypotheses,
-scenarios, validation execution, or implementation. It supplies exactly one
-active preparation-only task in `BACKLOG.md`.
+M9.1 prepares bounded empirical learning for selected hypothesis
+**H3 — Experience Amplification**. The selected published candidate is
+**Knight Capital — 2012 software deployment and trading-loss incident**. Current
+work is limited to source-manifest and chronology preparation; published
+walkthrough, Replay, validation, Engineering Architecture, and implementation
+remain unauthorized. M9.1 supplies exactly one active preparation-only task in
+`BACKLOG.md`.
 
 ## Successor stage
 
@@ -95,9 +99,11 @@ repository transition.
 | ---: | --- | --- |
 | 1 | M9.1 — Empirical Learning Preparation | Active |
 
-M9.1 is the only defined and active M9 stage. Its active backlog item prepares
-future attributable human consideration of hypothesis selection; it does not
-select H1–H5, a scenario, or a validation subject and grants no validation,
+M9.1 is the only defined and active M9 stage. H3 remains the selected Product
+Value Hypothesis, and Knight Capital remains the selected published candidate.
+Its active backlog item prepares the Knight Capital source manifest and
+chronology assessment. It does not create or authorize a walkthrough or Replay,
+claim source sufficiency or historical truth, validate H3, or grant validation,
 Engineering Architecture, implementation, or delivery authority.
 
 ## Roadmap maintenance
