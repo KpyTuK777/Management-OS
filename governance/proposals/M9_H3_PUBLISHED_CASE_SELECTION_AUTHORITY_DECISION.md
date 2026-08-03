@@ -1,23 +1,23 @@
 # M9 H3 Published Case Selection Authority Decision
 
-## Initial Decision State
+## Recorded Decision State
 
 ```text
-Decision: NOT RECORDED
-Disposition: NONE
-Selected candidate: NONE
-Bounded episode: NONE
-Accountable authority: UNASSIGNED
-Authority basis: UNRECORDED
-Rationale: UNRECORDED
-Decision date: UNASSIGNED
-Human attestation: UNRECORDED
-Authority effect: NONE
+Decision: RECORDED
+Disposition: A — Select Knight Capital.
+Selected candidate: Knight Capital — 2012 software deployment and trading-loss incident
+Bounded episode: RECORDED
+Accountable authority: Serhii Horbachenko — Product Owner and accountable authority for Management OS
+Authority basis: RECORDED
+Rationale: RECORDED
+Decision date: 2026-08-03
+Human attestation: RECORDED
+Authority effect: AUTHORIZED TO PREPARE SOURCE MANIFEST, CHRONOLOGY, EVIDENCE-GAP ASSESSMENT, AND WALKTHROUGH-READINESS CONSIDERATION THROUGH A SEPARATE BOUNDED TRANSITION
 ```
 
-This artifact is an empty Decision shell. It prepares fields and validity checks
-for direct attributable human input. It does not record a Decision, select or
-recommend a candidate, define a selected episode, or create authority.
+This artifact records direct attributable human inputs supplied by Serhii
+Horbachenko. AI has transcribed those inputs into the prepared shell; it has not
+inferred, selected, completed, or attested any human-owned field.
 
 # 1. Exact Decision Identity
 
@@ -115,68 +115,80 @@ candidate or changing the candidate pool.
 The dispositions are complete, neutral, symmetric across A–H, unranked, and
 without recommendation, preference, default, or automatic progression.
 
-# 4. Required Human-Owned Fields
+# 4. Recorded Human-Owned Fields
 
 ## Accountable authority identity
 
-```text
-HUMAN INPUT REQUIRED — UNASSIGNED
-```
+> Serhii Horbachenko — Product Owner and accountable authority for Management OS
 
 ## Authority basis
 
-```text
-HUMAN INPUT REQUIRED — UNRECORDED
-```
+> As Product Owner and accountable authority for Management OS, I am responsible for selecting the first published operational case for bounded H3 preparation while preserving separate authority for source-manifest acceptance, walkthrough readiness, walkthrough authorization, Replay, validation, architecture change, implementation, and repository transitions.
 
 ## Selected disposition
 
-```text
-HUMAN INPUT REQUIRED — NONE
-```
+> A — Select Knight Capital.
 
 ## Exact selected candidate identity where applicable
 
-```text
-HUMAN INPUT REQUIRED FOR A–H — NONE
-```
+> Knight Capital — 2012 software deployment and trading-loss incident
+
+The recorded disposition unambiguously maps this human-supplied identity to fixed
+pool Candidate 1:
+
+> **Knight Capital: dormant code activation and uncontrolled market orders**
+
+The mapping preserves the fixed candidate identity while retaining the supplied
+human-owned wording verbatim.
 
 ## Exact bounded historical episode
 
-```text
-HUMAN INPUT REQUIRED FOR A–H — NONE
-```
+> The bounded episode begins with preparation and deployment of the software change associated with the August 1, 2012 production release, includes the activation of unintended trading behavior and the organizational response during the incident, and ends with stabilization of the immediate incident and the first attributable official findings concerning the deployment, controls, response, and resulting losses.
+>
+> The episode does not include the entire corporate history of Knight Capital, every later legal or commercial consequence, or later interpretations unrelated to reconstruction of the bounded operational incident.
 
 ## Human-owned rationale
 
-```text
-HUMAN INPUT REQUIRED — UNRECORDED
-```
-
-For A–H, the rationale must explain the bounded preparation selection and confirm
-that source sufficiency remains unresolved and walkthrough authorization remains
-separate. For I, it must identify missing Decision Evidence. For J, it must explain
-decline under the current identity and fixed inputs.
+> Knight Capital is selected as the first Published Historical Walkthrough candidate because it offers a comparatively bounded operational episode, an identifiable software Change, a compressed and reconstructable chronology, observable consequences, and authoritative public documentation.
+>
+> Its manageable scope should allow Management OS to examine whether structured re-engagement with a real independently documented case can generate Additional Learning without first being overwhelmed by the scale, duration, disputed causality, or distributed programme complexity present in several other candidates.
+>
+> The selection does not assert that the public record is complete, that historical Decision rationale is fully visible, or that Knight Capital is superior to the other candidates generally. It identifies this fixed case only as the first subject for source-manifest, chronology, Evidence-gap, and walkthrough-readiness preparation under H3.
 
 ## Explicit non-effects
 
-```text
-HUMAN INPUT REQUIRED — UNATTESTED
-```
+> This Decision authorizes only:
+>
+> - recording Knight Capital as the fixed selected published candidate;
+> - recording the bounded August 1, 2012 operational episode;
+> - preparation of an attributable public-source manifest;
+> - preparation of chronology and Evidence-gap assessment;
+> - preparation of a separate walkthrough-readiness consideration.
+>
+> This Decision does not:
+>
+> - authorize creation or execution of the walkthrough;
+> - authorize Replay;
+> - claim complete historical truth;
+> - authorize invention of missing rationale;
+> - treat public reporting as source-owned internal Evidence;
+> - validate or confirm H3;
+> - authorize validation;
+> - authorize architecture changes;
+> - authorize Engineering Architecture;
+> - authorize implementation, prototype, deployment, or delivery;
+> - expand the backlog or change repository control surfaces without a separate bounded transition.
 
 ## Decision date
 
-```text
-HUMAN INPUT REQUIRED — UNASSIGNED
-```
+`2026-08-03`
 
 ## Attributable human attestation
 
-```text
-HUMAN INPUT REQUIRED — UNRECORDED
-```
+> I confirm that this is my attributable human Decision and that I understand its bounded authority effect and explicit non-effects.
 
-AI must not infer, select, pre-populate, complete, simulate, or attest any field.
+All human-owned fields originate from direct attributable human input. AI has not
+inferred or populated their substance.
 
 # 5. Disposition-Specific Minimum Requirements
 
@@ -197,7 +209,7 @@ All dispositions additionally require an accountable authority identity,
 legitimate authority basis, explicit non-effects, Decision date, and attributable
 human attestation.
 
-A candidate-identity mismatch, multiple candidates, absent A–H episode,
+A candidate-identity mismatch without an explicit fixed-pool mapping, multiple candidates, absent A–H episode,
 unacknowledged source uncertainty, or implied walkthrough authorization makes an
 A–H Decision invalid under this shell.
 
@@ -219,7 +231,7 @@ disposition creates automatic transition authority.
 
 # 7. Explicit Non-Effects
 
-Even a valid future Decision under this shell must not:
+This recorded Decision must not:
 
 - authorize creation or publication of the walkthrough;
 - authorize Replay or alternative Outcome modeling;
@@ -257,9 +269,9 @@ Published material remains externally owned and incomplete. Synthetic
 walkthroughs remain non-empirical. H3 remains unvalidated. Canonical M7/M8 and
 repository control surfaces remain unchanged.
 
-# 9. Future Validity Checks
+# 9. Recorded Decision Validity Checks
 
-A future populated Decision is valid under this shell only if:
+The recorded Decision is valid under this shell only if:
 
 1. the exact singular Decision identity is unchanged;
 2. every fixed source commit/blob identity matches;
@@ -267,7 +279,8 @@ A future populated Decision is valid under this shell only if:
 4. the accountable authority identity and authority basis are explicit and
    legitimate for this Decision;
 5. all human-owned fields originate from direct attributable human input;
-6. A–H contains exactly the corresponding fixed candidate identity;
+6. A–H maps the human-supplied candidate wording unambiguously to the exact
+   corresponding fixed candidate identity;
 7. A–H contains one exact bounded historical episode;
 8. A–H explicitly preserves unresolved source sufficiency;
 9. A–H explicitly preserves separate walkthrough authorization;
@@ -281,25 +294,32 @@ A future populated Decision is valid under this shell only if:
 16. no walkthrough, Replay, validation, architecture, implementation, or backlog
     authority is smuggled into the Decision.
 
-Failure of any applicable check means the shell has not become a valid Decision.
+The recorded A disposition maps to fixed Candidate 1, supplies one bounded episode,
+preserves unresolved source sufficiency and separate walkthrough authorization, and
+contains every required directly supplied human-owned field. No adjacent authority
+is introduced.
 
-# 10. Empty Decision Record
+# 10. Recorded Decision
 
 ```text
 Decision identity:
 Which published operational case, if any, should be selected as Published Historical Walkthrough 01 for bounded H3 preparation?
 
-Decision: NOT RECORDED
-Disposition: NONE
-Selected candidate: NONE
-Bounded episode: NONE
-Accountable authority: UNASSIGNED
-Authority basis: UNRECORDED
-Rationale: UNRECORDED
-Explicit non-effects: UNATTESTED
-Decision date: UNASSIGNED
-Human attestation: UNRECORDED
-Authority effect: NONE
+Decision: RECORDED
+Disposition: A — Select Knight Capital.
+Selected candidate: Knight Capital — 2012 software deployment and trading-loss incident
+Fixed pool mapping: Candidate 1 — Knight Capital: dormant code activation and uncontrolled market orders
+Bounded episode: RECORDED
+Accountable authority: Serhii Horbachenko — Product Owner and accountable authority for Management OS
+Authority basis: RECORDED
+Rationale: RECORDED
+Explicit non-effects: RECORDED
+Decision date: 2026-08-03
+Human attestation: RECORDED
+Authority effect: AUTHORIZED TO PREPARE SOURCE MANIFEST, CHRONOLOGY, EVIDENCE-GAP ASSESSMENT, AND WALKTHROUGH-READINESS CONSIDERATION THROUGH A SEPARATE BOUNDED TRANSITION
 ```
 
-The placeholders contain no human Decision. Repository state remains unchanged.
+Published walkthrough remains `NOT AUTHORIZED`. Replay remains `NOT AUTHORIZED`.
+H3 remains unvalidated. Source sufficiency remains unresolved. Roadmap, backlog,
+M9.1, validation, architecture, implementation, and other repository control
+surfaces remain unchanged.
