@@ -1,22 +1,22 @@
 # M9 Product Value Hypothesis Selection Authority Decision
 
-## Initial state
+## Recorded Decision state
 
 ```text
-Decision: NOT RECORDED
-Disposition: NONE
-Selected hypothesis: NONE
-Accountable authority: UNASSIGNED
-Authority basis: UNRECORDED
-Rationale: UNRECORDED
-Decision date: UNASSIGNED
-Human attestation: UNRECORDED
-Authority effect: NONE
+Decision: RECORDED
+Disposition: C — Select H3 — Experience Amplification for bounded empirical-preparation consideration.
+Selected hypothesis: H3 — Experience Amplification
+Accountable authority: Serhii Horbachenko — Product Owner and accountable authority for Management OS
+Authority basis: RECORDED
+Rationale: RECORDED
+Decision date: 2026-08-03
+Human attestation: RECORDED
+Authority effect: BOUNDED H3 EMPIRICAL-PREPARATION CONSIDERATION ONLY
 ```
 
-This is an intentionally empty Decision shell. It is not a Decision and cannot
-be completed by AI, repository authorship, inference, or the apparent
-completeness of its supporting inputs.
+This Decision records direct attributable human inputs supplied by Serhii
+Horbachenko. AI has transcribed those inputs into the prepared shell; it has not
+inferred, chosen, completed, or attested any human-owned field.
 
 ## 1. Exact Decision identity
 
@@ -94,23 +94,83 @@ The dispositions are complete for this identity, symmetric across H1–H5,
 unranked, and without recommendation, preference, default, or automatic
 progression.
 
-## 4. Required human-owned fields
+## 4. Recorded human-owned inputs
 
-The following fields must be populated directly by the accountable human:
+### Accountable authority identity
 
-```text
-Accountable authority identity: [HUMAN INPUT REQUIRED]
-Authority basis: [HUMAN INPUT REQUIRED]
-Selected disposition: [HUMAN INPUT REQUIRED — exactly one of A–G]
-Human-owned rationale: [HUMAN INPUT REQUIRED]
-Fixed hypothesis identity where applicable: [HUMAN INPUT REQUIRED for A–E; NONE for F–G]
-Explicit non-effects: [HUMAN INPUT REQUIRED]
-Decision date: [HUMAN INPUT REQUIRED]
-Attributable human attestation: [HUMAN INPUT REQUIRED]
-```
+> Serhii Horbachenko — Product Owner and accountable authority for Management
+> OS
 
-AI must not infer, populate, propose as completed, select, or attest these
-fields. The placeholder text has no authority effect.
+### Authority basis
+
+> As Product Owner and accountable authority for Management OS, I am
+> responsible for selecting the first bounded Product Value Hypothesis for
+> empirical-preparation consideration within M9 while preserving separate
+> authority for case selection, Evidence access, validation, operational
+> Change, Engineering Architecture, implementation, and subsequent repository
+> transitions.
+
+### Selected disposition
+
+> C — Select H3 — Experience Amplification for bounded empirical-preparation
+> consideration.
+
+### Fixed selected hypothesis identity
+
+> **H3 — Experience Amplification**
+
+> Management OS may enable managers to obtain substantially more learning from
+> each completed operational case through structured re-engagement with
+> preserved operational history than from the original real-world experience
+> alone.
+
+### Human-owned rationale
+
+> Experience Amplification most directly represents a distinctive and
+> strategically important element of the current Management OS product
+> understanding: completed operational cases may remain reusable environments
+> for structured reflection, alternative reasoning, recognition of previously
+> missed signals, and deeper managerial learning.
+>
+> Selecting H3 first does not assert that it is true, superior to H1, H2, H4,
+> or H5, or ready for validation. It identifies H3 only as the first bounded
+> uncertainty for further empirical-preparation consideration.
+>
+> H3 is appropriate for this next step because its meaning, semantic risks,
+> synthetic-training boundaries, replay limitations, and relationship to human
+> authority have been sufficiently articulated to support preparation of case
+> suitability, Evidence-access, Outcome-observability, and bounded-question
+> considerations.
+>
+> This Decision does not select a synthetic, historical, replay, or live case;
+> does not treat modeled material as empirical Evidence; and does not authorize
+> Evidence access, validation design or execution, operational Change,
+> Engineering Architecture, prototype development, implementation, deployment,
+> delivery, metrics, KPIs, or experiments.
+
+### Explicit non-effects
+
+This Decision authorizes only:
+
+- recording H3 as the fixed selected hypothesis;
+- preparation of case or scenario suitability consideration for H3;
+- preparation of Evidence-access and Outcome-observability questions; and
+- refinement of the bounded empirical question through a separate authorized
+  transition.
+
+All subsequent decisions remain separate and human-owned.
+
+### Decision date
+
+`2026-08-03`
+
+### Attributable human attestation
+
+> I confirm that this is my attributable human Decision and that I understand
+> its bounded authority effect and explicit non-effects.
+
+All required human-owned fields are present. Their content originates from the
+accountable human authority, not from AI inference.
 
 ## 5. Disposition-specific minimum requirements
 
@@ -179,10 +239,9 @@ cases remain modeled and non-empirical. Canonical M7/M8 and source ownership,
 Evidence, Decision, Change, Outcome, Learning, and human-authority boundaries
 remain unchanged.
 
-## 9. Future validity checks
+## 9. Recorded Decision validity checks
 
-Before any future record can be treated as a valid Decision under this shell,
-an accountable human must confirm that:
+The recorded inputs satisfy the prepared validity checks:
 
 1. the Decision identity is unchanged and singular;
 2. every fixed source commit/blob identity matches;
@@ -200,26 +259,31 @@ an accountable human must confirm that:
 12. no case, Evidence access, validation, Change, or implementation authority is
     smuggled into the record.
 
-Failure of any applicable check means the Decision remains **NOT RECORDED** or
-invalid under this shell. Validity checking does not itself select a hypothesis
-or create authority.
+The fixed sources match; exactly one permitted disposition is recorded; the
+selected hypothesis matches disposition C; all required human-owned fields are
+present; and the explicit non-effects preserve the maximum bounded effect. The
+Decision selects no case or scenario and creates no Evidence-access,
+validation, operational Change, Engineering Architecture, implementation, or
+automatic transition authority.
 
-## 10. Current unfilled Decision record
+## 10. Recorded Decision
 
 ```text
 Decision identity:
 Which Product Value Hypothesis, if any, should be selected as the first bounded subject for empirical-preparation consideration within M9?
 
-Decision: NOT RECORDED
-Disposition: NONE
-Selected hypothesis: NONE
-Accountable authority: UNASSIGNED
-Authority basis: UNRECORDED
-Rationale: UNRECORDED
-Explicit non-effects: UNATTESTED
-Decision date: UNASSIGNED
-Human attestation: UNRECORDED
-Authority effect: NONE
+Decision: RECORDED
+Disposition: C — Select H3 — Experience Amplification for bounded empirical-preparation consideration.
+Selected hypothesis: H3 — Experience Amplification
+Accountable authority: Serhii Horbachenko — Product Owner and accountable authority for Management OS
+Authority basis: RECORDED
+Rationale: RECORDED
+Explicit non-effects: RECORDED
+Decision date: 2026-08-03
+Human attestation: RECORDED
+Authority effect: BOUNDED H3 EMPIRICAL-PREPARATION CONSIDERATION ONLY
 ```
 
-The shell remains empty until direct attributable human input is supplied.
+This Decision records H3 only as the first bounded subject for further
+empirical-preparation consideration. Any refinement through repository control
+surfaces requires a separate authorized transition.
