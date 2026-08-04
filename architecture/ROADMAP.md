@@ -51,12 +51,13 @@ M9.1 prepares bounded empirical learning for selected hypothesis
 selected inquiry shape is **Shape B — Bounded operational-control walkthrough**.
 The fixed Shape B historical walkthrough has completed its bounded phase sequence.
 The attributable human selected **Alternative A — Historical Walkthrough Reader**
-as the first bounded user-facing slice and authorized bounded Product Realization
-preparation within its fixed definition. Current work is exactly one bounded
-preparation item: **Prepare Historical Walkthrough Reader bounded Product
-Realization.** Repository execution state is `READY TO BEGIN`; preparation is
-authorized but `NOT STARTED`. User-facing realization execution, Replay,
-Engineering Architecture, and implementation remain unauthorized. H3 remains
+as the first bounded user-facing slice. Its Product Realization foundation is
+prepared and independently reviewed. Bounded Engineering Architecture preparation
+is authorized within that fixed foundation. Current work is exactly one bounded
+preparation item: **Prepare Historical Walkthrough Reader bounded Engineering
+Architecture.** Repository execution state is `READY TO BEGIN`; preparation is
+authorized but `NOT STARTED`. UI development, implementation, and Replay remain
+unauthorized. H3 remains
 unvalidated, and Root Cause and causal proof remain unestablished.
 
 ## Successor stage
@@ -111,10 +112,10 @@ Shape B — Bounded operational-control walkthrough is the selected inquiry shap
 Published Historical Walkthrough 01 completed its bounded historical sequence,
 and the human reflection remains deferred pending a user-facing interaction.
 Alternative A — Historical Walkthrough Reader is the selected first bounded
-user-facing slice. Its active backlog item prepares bounded Product Realization
-within the fixed slice definition. The item does not authorize user-facing
-realization execution, Replay, H3 validation, Root Cause or causal proof,
-Engineering Architecture, implementation, deployment, or delivery.
+user-facing slice. Its Product Realization foundation is prepared and reviewed.
+The active backlog item prepares bounded Engineering Architecture within that
+fixed foundation. It does not authorize UI development, implementation, Replay,
+H3 validation, Root Cause or causal proof, deployment, or delivery.
 
 ## Roadmap maintenance
 
