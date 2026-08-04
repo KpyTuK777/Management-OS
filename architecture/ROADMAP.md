@@ -49,12 +49,14 @@ M9.1 prepares bounded empirical learning for selected hypothesis
 **H3 — Experience Amplification**. The selected published candidate is
 **Knight Capital — 2012 software deployment and trading-loss incident**, and the
 selected inquiry shape is **Shape B — Bounded operational-control walkthrough**.
-Current work is limited to preparing the bounded walkthrough protocol, permitted
-historical claims, prohibited inferences, source-citation requirements, branch
-boundaries, and a separate walkthrough-authorization consideration. Walkthrough
-execution, Replay, validation, Engineering Architecture, and implementation remain
-unauthorized. M9.1 supplies exactly one active preparation-only task in
-`BACKLOG.md`.
+The fixed protocol package is complete and walkthrough execution is authorized
+under the fixed Shape B protocol. Current work is exactly one bounded execution
+item: **Execute Published Historical Walkthrough 01 — Knight Capital (Shape B).**
+Repository execution state is `READY TO BEGIN`; walkthrough execution and Phase 1
+— Source-bound orientation remain `NOT STARTED`, and the historical claim ledger
+is `NOT YET CREATED`. Replay remains unauthorized, H3 remains unvalidated, Root
+Cause and causal proof remain unestablished, and validation, Engineering
+Architecture, and implementation authority remain absent.
 
 ## Successor stage
 
@@ -105,10 +107,12 @@ repository transition.
 M9.1 is the only defined and active M9 stage. H3 remains the selected Product
 Value Hypothesis, and Knight Capital remains the selected published candidate.
 Shape B — Bounded operational-control walkthrough is the selected inquiry shape.
-Its active backlog item prepares the bounded walkthrough protocol only. It does
-not execute or authorize a walkthrough or Replay, claim complete source
-sufficiency or historical truth, validate H3, or grant validation, Engineering
-Architecture, implementation, or delivery authority.
+Its active backlog item executes Published Historical Walkthrough 01 under the
+already recorded authorization and fixed protocol. The walkthrough is authorized
+but not started; Phase 1 and the historical claim ledger have not begun. The item
+does not authorize or execute Replay, claim complete source sufficiency or
+historical truth, validate H3, establish Root Cause or causal proof, or grant
+validation, Engineering Architecture, implementation, or delivery authority.
 
 ## Roadmap maintenance
 
