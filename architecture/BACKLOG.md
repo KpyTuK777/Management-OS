@@ -1,7 +1,7 @@
 # Architecture Backlog
 
-This file owns the single active bounded walkthrough-execution task for the current
-stage. Exactly one task is active.
+This file owns the single active bounded Historical Walkthrough Reader Product
+Realization preparation task for the current stage. Exactly one task is active.
 
 ## Current Phase
 
@@ -22,23 +22,24 @@ M9.1 — Empirical Learning Preparation — Active
 ```
 
 **Stage purpose:** Conduct bounded empirical learning for selected hypothesis H3
-— Experience Amplification through the authorized Knight Capital historical
-walkthrough, without authorizing Replay, validation execution, Engineering
-Architecture, or implementation.
+— Experience Amplification. The Knight Capital historical walkthrough is complete;
+the current bounded work prepares the selected Historical Walkthrough Reader
+product slice without authorizing user-facing realization execution, Replay, H3
+validation, Engineering Architecture, or implementation.
 
 ## Current Task
 
 ```text
-Execute Published Historical Walkthrough 01 — Knight Capital (Shape B).
+Prepare Historical Walkthrough Reader bounded Product Realization.
 ```
 
-This is the sole active backlog item. Walkthrough execution is authorized under
-the fixed **Shape B — Bounded operational-control walkthrough** protocol, but it
-has not started. Repository execution state is `READY TO BEGIN`; Phase 1 —
-Source-bound orientation remains `NOT STARTED`, and the historical claim ledger is
-`NOT YET CREATED`. This item creates no new authority and does not authorize
-Replay, establish complete historical truth, validate H3, establish Root Cause or
-causal proof, or authorize architecture or implementation.
+This is the sole active backlog item. Bounded Product Realization preparation is
+authorized within the fixed Historical Walkthrough Reader slice definition and
+has not started. Repository execution state is `READY TO BEGIN`. The item may
+prepare only the product-level interaction foundation permitted by the recorded
+Decision. It does not authorize user-facing realization execution, Replay, H3
+validation, Root Cause or causal proof, Engineering Architecture, implementation,
+UI development, testing, deployment, or delivery.
 
 ## Authority and Dependencies
 
@@ -65,6 +66,22 @@ causal proof, or authorize architecture or implementation.
   `edc7b9e50b0d73cd93edd8afd6b179307dccc2a9`, disposition
   `A — Authorize execution of the bounded historical walkthrough under the fixed protocol.`
 - [M9 Knight Capital Walkthrough Execution Transition](../governance/orders/M9_KNIGHT_CAPITAL_WALKTHROUGH_EXECUTION_TRANSITION.md).
+- [M9 First User-Facing Interaction Slice Selection Decision](../governance/proposals/M9_FIRST_USER_FACING_INTERACTION_SLICE_SELECTION_DECISION.md),
+  fixed Decision commit `18b0e089ce2c98f8ae916dfcf792b50d2e44b911`,
+  blob `f8ec29a2d78af79a5a6fb8813eb14a4c2d7337a0`, selecting
+  `Alternative A — Historical Walkthrough Reader`.
+- [Historical Walkthrough Reader Bounded Product Slice Definition](../governance/proposals/M9_HISTORICAL_WALKTHROUGH_READER_BOUNDED_PRODUCT_SLICE_DEFINITION.md),
+  fixed commit `a794b1e804eb2f1469dd2fd984d251f480e0c4af`, blob
+  `a8d95009f04e55a9eee488038e724524cdc4a6f6`.
+- [Historical Walkthrough Reader Product Realization Readiness Assessment](../governance/proposals/M9_HISTORICAL_WALKTHROUGH_READER_PRODUCT_REALIZATION_READINESS_ASSESSMENT.md),
+  fixed commit `0cbe2a9141c053ff9bc0fb5d895f94586588b0cc`, blob
+  `81fd1d05038a2fe5414f442407dc9b2f0b281085`, disposition
+  `READY FOR PRODUCT REALIZATION AUTHORITY CONSIDERATION`.
+- [Historical Walkthrough Reader Product Realization Authorization Consideration Package](../governance/proposals/M9_HISTORICAL_WALKTHROUGH_READER_PRODUCT_REALIZATION_AUTHORIZATION_CONSIDERATION_PACKAGE.md),
+  fixed Decision commit `b9ed97783168c85ed6afc239b8f187a200e4171a`,
+  blob `1635a8d07cb30b7feb77234452b1fe9bd8c5b688`, disposition
+  `A — Authorize bounded Product Realization preparation for Historical Walkthrough Reader`.
+- [Historical Walkthrough Reader Product Realization Preparation Transition](../governance/orders/M9_HISTORICAL_WALKTHROUGH_READER_PRODUCT_REALIZATION_PREPARATION_TRANSITION.md).
 - [M9 Empirical Product Value Learning Proposal](../governance/proposals/M9_EMPIRICAL_PRODUCT_VALUE_LEARNING_PROPOSAL.md),
   fixed reviewed blob `78740c6665c6d5457059cee92181615253a113f4`.
 - [M9 Proposal Critical Review](../governance/reviews/M9%20-%20Empirical%20Product%20Value%20Learning%20Proposal%20Critical%20Review.md),
@@ -79,37 +96,34 @@ causal proof, or authorize architecture or implementation.
 
 ## Expected Output
 
-One bounded execution of Published Historical Walkthrough 01 under the fixed Shape
-B protocol and fixed source, claim, inference, citation, and branch boundaries.
+A complete, reviewable Product Realization foundation for the fixed Historical
+Walkthrough Reader slice at the product level only. It may elaborate the fixed
+user, job, entry, exit, interaction sequence, required capabilities,
+canonical-concept mapping, exclusions, success boundary, unresolved product
+questions, and later authority boundaries.
 
-Execution may produce only the outputs permitted by the fixed protocol, including:
-
-- the historical claim ledger created during actual walkthrough execution;
-- phase outputs grounded in permitted historical claims and fixed citations; and
-- observations arising from structured historical re-engagement.
-
-Execution must not authorize or execute Replay, claim complete historical truth,
-invent missing rationale or actor knowledge, establish Root Cause or causal proof,
-define a confident counterfactual Outcome, validate H3, create Engineering
-Architecture, or authorize implementation or delivery.
+It must not create Engineering Architecture, screens, wireframes, mockups,
+components, schemas, APIs, prototype, code, tests, metrics, KPIs, experiments,
+deployment, delivery, or user-facing realization execution.
 
 ## Definition of Done
 
-The task is complete only when bounded walkthrough execution:
+The task is complete only when bounded Product Realization preparation:
 
-1. follows the fixed Shape B protocol phase order;
-2. cites every historical claim under the fixed source-citation requirements;
-3. creates the historical claim ledger only during actual execution;
-4. obeys permitted-claim and prohibited-inference boundaries;
-5. preserves historical and future Replay branch separation;
-6. preserves Decision, actor-information, Change, Outcome, attribution, and
-   Learning uncertainty;
-7. does not execute or authorize Replay;
-8. does not validate H3 or establish Root Cause or causal proof; and
-9. records bounded phase outputs without expanding authority.
+1. remains within the fixed Historical Walkthrough Reader definition;
+2. preserves the primary user, job, case basis, entry, and exit boundaries;
+3. defines a coherent product-level interaction foundation without technical design;
+4. preserves Evidence, claim, source, uncertainty, hindsight, authority, Working
+   Set, and attributable-reflection distinctions;
+5. preserves the historical and Replay branch separation;
+6. makes unresolved product and technical questions explicit;
+7. identifies the exact next authority boundary;
+8. receives independent review with zero blocking findings; and
+9. creates no Engineering Architecture, implementation, UI, validation, Replay,
+   metric, KPI, experiment, deployment, or delivery authority.
 
-Completing the walkthrough does not authorize Replay, validation, another stage,
-or M9 completion.
+Completion does not authorize realization execution, Engineering Architecture,
+implementation, user interaction, validation, another stage, or M9 completion.
 
 ## Owner
 
@@ -117,14 +131,15 @@ or M9 completion.
 Chief Architect
 ```
 
-The owner is accountable for bounded Shape B walkthrough execution and preservation
-of the fixed protocol boundaries. Replay, validation, architecture, and
-implementation remain separate attributable human Decisions.
+The owner is accountable for bounded Historical Walkthrough Reader Product
+Realization preparation and preservation of the fixed product, evidence, and
+authority boundaries. User-facing realization execution, Replay, validation,
+Engineering Architecture, and implementation remain separate attributable human Decisions.
 
 ## Status
 
 ```text
-Active — 1 bounded execution item; ready to begin; not started
+Active — 1 bounded Product Realization preparation item; ready to begin; not started
 ```
 
 ## Preserved Conditions
@@ -136,20 +151,18 @@ Active — 1 bounded execution item; ready to begin; not started
 - Knight Capital — 2012 software deployment and trading-loss incident is the
   selected published candidate.
 - Shape B — Bounded operational-control walkthrough is the selected inquiry shape.
-- Source manifest, chronology assessment, Evidence-gap assessment, walkthrough
-  protocol, permitted historical claims, prohibited historical inferences,
-  source-citation requirements, historical/Replay branch boundaries,
-  walkthrough-authorization readiness assessment, and attributable walkthrough
-  authorization Decision are fixed and unchanged.
-- Walkthrough execution is authorized but not started.
-- Phase 1 — Source-bound orientation is not started.
-- Historical claim ledger is not yet created and becomes active only during actual
-  walkthrough execution.
+- The Knight Capital walkthrough completed its fixed bounded phase sequence.
+- The historical claim ledger and walkthrough phase artifacts are fixed and unchanged.
+- Phase 11 human reflection is deferred pending user-facing interaction.
+- Alternative A — Historical Walkthrough Reader is the selected first bounded
+  user-facing slice.
+- Bounded Product Realization preparation is authorized but not started.
+- User-facing realization execution is not authorized.
 - Replay is not authorized.
 - H3 remains unvalidated.
 - Root Cause and causal proof remain unestablished.
 - Evidence ingestion beyond ordinary public research is not authorized.
-- Validation preparation and execution are not authorized.
+- H3 validation preparation and execution are not authorized.
 - Engineering Architecture is not created or authorized.
 - Prototype, implementation, deployment, and delivery are not authorized.
 - Product Vision, Systems, Owner Journey, Product Constitution role, canonical

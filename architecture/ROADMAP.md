@@ -49,14 +49,15 @@ M9.1 prepares bounded empirical learning for selected hypothesis
 **H3 — Experience Amplification**. The selected published candidate is
 **Knight Capital — 2012 software deployment and trading-loss incident**, and the
 selected inquiry shape is **Shape B — Bounded operational-control walkthrough**.
-The fixed protocol package is complete and walkthrough execution is authorized
-under the fixed Shape B protocol. Current work is exactly one bounded execution
-item: **Execute Published Historical Walkthrough 01 — Knight Capital (Shape B).**
-Repository execution state is `READY TO BEGIN`; walkthrough execution and Phase 1
-— Source-bound orientation remain `NOT STARTED`, and the historical claim ledger
-is `NOT YET CREATED`. Replay remains unauthorized, H3 remains unvalidated, Root
-Cause and causal proof remain unestablished, and validation, Engineering
-Architecture, and implementation authority remain absent.
+The fixed Shape B historical walkthrough has completed its bounded phase sequence.
+The attributable human selected **Alternative A — Historical Walkthrough Reader**
+as the first bounded user-facing slice and authorized bounded Product Realization
+preparation within its fixed definition. Current work is exactly one bounded
+preparation item: **Prepare Historical Walkthrough Reader bounded Product
+Realization.** Repository execution state is `READY TO BEGIN`; preparation is
+authorized but `NOT STARTED`. User-facing realization execution, Replay,
+Engineering Architecture, and implementation remain unauthorized. H3 remains
+unvalidated, and Root Cause and causal proof remain unestablished.
 
 ## Successor stage
 
@@ -107,12 +108,13 @@ repository transition.
 M9.1 is the only defined and active M9 stage. H3 remains the selected Product
 Value Hypothesis, and Knight Capital remains the selected published candidate.
 Shape B — Bounded operational-control walkthrough is the selected inquiry shape.
-Its active backlog item executes Published Historical Walkthrough 01 under the
-already recorded authorization and fixed protocol. The walkthrough is authorized
-but not started; Phase 1 and the historical claim ledger have not begun. The item
-does not authorize or execute Replay, claim complete source sufficiency or
-historical truth, validate H3, establish Root Cause or causal proof, or grant
-validation, Engineering Architecture, implementation, or delivery authority.
+Published Historical Walkthrough 01 completed its bounded historical sequence,
+and the human reflection remains deferred pending a user-facing interaction.
+Alternative A — Historical Walkthrough Reader is the selected first bounded
+user-facing slice. Its active backlog item prepares bounded Product Realization
+within the fixed slice definition. The item does not authorize user-facing
+realization execution, Replay, H3 validation, Root Cause or causal proof,
+Engineering Architecture, implementation, deployment, or delivery.
 
 ## Roadmap maintenance
 
