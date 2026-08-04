@@ -3,14 +3,16 @@
 ## Package State
 
 ```text
-Package: READY FOR HUMAN CONSIDERATION
-Decision: [EMPTY — HUMAN INPUT REQUIRED]
-Selected disposition: [EMPTY — HUMAN INPUT REQUIRED]
-Accountable human: [EMPTY — HUMAN INPUT REQUIRED]
-Human rationale: [EMPTY — HUMAN INPUT REQUIRED]
-Decision date: [EMPTY — HUMAN INPUT REQUIRED]
-Attestation: [EMPTY — HUMAN INPUT REQUIRED]
-Implementation authority: NONE
+Package: HUMAN DECISION RECORDED
+Decision: RECORDED
+Selected disposition: A — Authorize bounded implementation preparation
+Accountable human: Serhii Horbachenko — Product Owner and accountable authority for Management OS
+Human rationale: RECORDED
+Decision date: 2026-08-04
+Attestation: RECORDED
+Implementation preparation authority: AUTHORIZED WITHIN THE FIXED HISTORICAL WALKTHROUGH READER ARCHITECTURE
+Implementation preparation execution: NOT STARTED — SEPARATE REPOSITORY TRANSITION REQUIRED
+Implementation execution: NOT AUTHORIZED
 UI development: NOT AUTHORIZED
 ```
 
@@ -27,7 +29,11 @@ UI development: NOT AUTHORIZED
 > What should happen after completion and conforming review of the bounded
 > Historical Walkthrough Reader Engineering Architecture preparation?
 
-## Neutral Dispositions
+## Presented Dispositions and Recorded Selection
+
+The package presented three neutral, unranked dispositions. The accountable
+human selected Disposition A. B and C remain only as the unselected alternatives
+presented under this Decision identity.
 
 ### A — Authorize bounded implementation preparation
 
@@ -49,18 +55,44 @@ preparation or creating an automatic reconsideration date.
 
 The alternatives are unranked and have no recommendation, preference, or default.
 
-## Required Human-Owned Fields
+## Recorded Human-Owned Fields
 
-- Decision: `[EMPTY — HUMAN INPUT REQUIRED]`
-- Selected disposition: `[EMPTY — HUMAN INPUT REQUIRED]`
-- Accountable human: `[EMPTY — HUMAN INPUT REQUIRED]`
-- Human rationale: `[EMPTY — HUMAN INPUT REQUIRED]`
-- Decision date: `[EMPTY — HUMAN INPUT REQUIRED]`
-- Attestation: `[EMPTY — HUMAN INPUT REQUIRED]`
+### Decision and selected disposition
+
+> A — Authorize bounded implementation preparation.
+
+### Accountable human confirmation
+
+> Serhii Horbachenko — Product Owner and accountable authority for Management OS
+
+### Human rationale
+
+> I determine that the completed Engineering Architecture preparation provides a
+> sufficiently bounded, reviewed, and governance-ready basis to begin
+> Implementation Preparation for the Historical Walkthrough Reader.
+>
+> The objective is to prepare the implementation discipline while preserving all
+> existing authority boundaries and without authorizing implementation execution.
+
+### Decision date
+
+`2026-08-04`
+
+### Human attestation
+
+> I confirm that this is my attributable human Decision.
+>
+> I authorize only bounded Implementation Preparation within the authority defined
+> by the existing Implementation Authority Consideration Package.
+>
+> This authorization does not authorize implementation execution, UI development,
+> coding, testing, deployment, Replay, H3 validation, Root Cause determination,
+> causal proof, or modifications to canonical artifacts except through separately
+> authorized governance transitions.
 
 ## Universal Non-Effects
 
-No disposition by itself changes ROADMAP, BACKLOG, canonical artifacts, or the
+The recorded Decision does not change ROADMAP, BACKLOG, canonical artifacts, or the
 P1–P6 layer model. Implementation execution, UI development, code, tests,
 deployment, H3 validation, Replay, Root Cause, causal proof, metrics, KPIs, and
 experiments remain unauthorized. A positive human Decision must be recorded, and
@@ -73,3 +105,21 @@ Implemented interface ≠ validated product value
 User interaction ≠ H3 validation
 ```
 
+## Recorded Repository Boundary
+
+```text
+Decision: RECORDED
+Selected disposition: A — Authorize bounded implementation preparation
+Implementation preparation authority: AUTHORIZED WITHIN THE FIXED ARCHITECTURE
+Implementation preparation execution: NOT STARTED — SEPARATE REPOSITORY TRANSITION REQUIRED
+Implementation execution: NOT AUTHORIZED
+UI development: NOT AUTHORIZED
+Coding: NOT AUTHORIZED
+Testing: NOT AUTHORIZED
+Deployment: NOT AUTHORIZED
+H3: UNVALIDATED
+Replay: NOT AUTHORIZED
+Root Cause: NOT ESTABLISHED
+Causal proof: NOT ESTABLISHED
+Repository transition: NOT AUTHORIZED
+```
