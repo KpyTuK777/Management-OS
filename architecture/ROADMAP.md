@@ -50,16 +50,15 @@ M9.1 prepares bounded empirical learning for selected hypothesis
 **Knight Capital — 2012 software deployment and trading-loss incident**, and the
 selected inquiry shape is **Shape B — Bounded operational-control walkthrough**.
 The fixed Shape B historical walkthrough has completed its bounded phase sequence.
-The attributable human selected **Alternative A — Historical Walkthrough Reader**
-as the first bounded user-facing slice. Its Product Realization foundation,
-Interaction Architecture handoff, and Engineering Architecture preparation are
-prepared and reviewed. The bounded Implementation Contract is prepared and
-independently reviewed, and implementation execution is authorized within that
-fixed contract. Current work is exactly one bounded execution item: **Execute
-bounded Historical Walkthrough Reader implementation.** Repository execution
-state is `READY TO BEGIN`; execution is authorized but `NOT STARTED`. Deployment
-and Replay remain unauthorized. H3 remains
-unvalidated, and Root Cause and causal proof remain unestablished.
+The Historical Walkthrough Reader remains a supported secondary learning and
+evidence-discipline module, and its completed work remains valid. The attributable
+human has recorded Investigation Workbench as the primary MVP direction and
+authorized bounded Investigation-first Canonical Product Materialization under
+the fixed reviewed plan. Current work is exactly one bounded execution item:
+**Execute bounded Investigation-first Canonical Product Materialization.**
+Repository execution state is `AUTHORIZED BUT NOT STARTED`. Deployment and Replay
+remain unauthorized. H3 remains unvalidated, and Root Cause and causal proof
+remain unestablished.
 
 ## Successor stage
 
@@ -112,13 +111,14 @@ Value Hypothesis, and Knight Capital remains the selected published candidate.
 Shape B — Bounded operational-control walkthrough is the selected inquiry shape.
 Published Historical Walkthrough 01 completed its bounded historical sequence,
 and the human reflection remains deferred pending a user-facing interaction.
-Alternative A — Historical Walkthrough Reader is the selected first bounded
-user-facing slice. Its Product Realization foundation, Interaction Architecture
-handoff, and Engineering Architecture preparation are prepared and reviewed. The
-Implementation Contract is prepared and reviewed. The active backlog item
-executes only the bounded Historical Walkthrough Reader implementation under that
-fixed contract. It does not authorize scope expansion, deployment, Replay, H3
-validation, Root Cause or causal proof, or upstream architecture changes.
+Alternative A — Historical Walkthrough Reader remains the selected first bounded
+user-facing slice and is preserved as a supported secondary module. Investigation
+Workbench is now the recorded primary MVP direction. The active backlog item
+executes bounded Investigation-first Canonical Product Materialization only under
+the fixed readiness inventory, MVP definition, reviewed materialization plan, and
+attributable authority Decision. It does not authorize scope expansion,
+dependency changes, framework migration, deployment, Replay, H3 validation, Root
+Cause or causal proof, or upstream architecture changes.
 
 ## Roadmap maintenance
 

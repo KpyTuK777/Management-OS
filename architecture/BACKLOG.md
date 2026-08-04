@@ -1,7 +1,7 @@
 # Architecture Backlog
 
-This file owns the single active bounded Historical Walkthrough Reader
-implementation execution task for the current stage. Exactly one task is active.
+This file owns the single active bounded Investigation-first Canonical Product
+Materialization execution task for the current stage. Exactly one task is active.
 
 ## Current Phase
 
@@ -21,26 +21,28 @@ M9 — Empirical Product Value Learning — Active
 M9.1 — Empirical Learning Preparation — Active
 ```
 
-**Stage purpose:** Conduct bounded empirical learning for selected hypothesis H3
-— Experience Amplification. The Knight Capital historical walkthrough is complete;
-the selected Historical Walkthrough Reader Product Realization foundation,
-Interaction Architecture handoff, and Engineering Architecture preparation are
-prepared and reviewed. The Implementation Contract is prepared and reviewed.
-Current work executes only that bounded contract without authorizing deployment,
-Replay, H3 validation, or upstream meaning changes.
+**Stage purpose:** Materialize the maximum repository-supported subset of the
+already approved canonical Product, Interaction, Engineering, and Implementation
+model as one coherent Investigation-first Live Server experience. Investigation
+is the primary MVP direction. The Historical Walkthrough Reader remains a
+supported secondary learning and evidence-discipline module. Current work remains
+bounded by the fixed reviewed plan and does not authorize deployment, Replay, H3
+validation, or upstream meaning changes.
 
 ## Current Task
 
 ```text
-Execute bounded Historical Walkthrough Reader implementation.
+Execute bounded Investigation-first Canonical Product Materialization.
 ```
 
 This is the sole active backlog item. Bounded implementation execution is
-authorized under the fixed reviewed Implementation Contract and has not started.
-Repository execution state is `READY TO BEGIN`. UI, coding, tests, conditional
-technology/dependency choices, and verification are permitted only inside that
-contract. Deployment, scope expansion, Replay, H3 validation, Root Cause, causal
-proof, and upstream meaning changes remain unauthorized.
+authorized under the fixed reviewed plan and has not started. Repository
+execution state is `AUTHORIZED BUT NOT STARTED`. UI development, coding, tests,
+bounded representative local sample data, necessary Investigation implementation
+files, necessary shared-shell changes, and bounded Stage 8 Reader reconciliation
+are permitted only inside that plan. Deployment, dependency changes, technology
+selection, framework migration, scope expansion, Replay, H3 validation, Root
+Cause, causal proof, and upstream meaning changes remain unauthorized.
 
 ## Authority and Dependencies
 
@@ -119,6 +121,27 @@ proof, and upstream meaning changes remain unauthorized.
   blob `78cbf9214bed6e12fb006a5488eb5dfc9cfb5e11`, disposition
   `A — Authorize bounded implementation execution`.
 - [Historical Walkthrough Reader Implementation Execution Transition](../governance/orders/M9_HISTORICAL_WALKTHROUGH_READER_IMPLEMENTATION_EXECUTION_TRANSITION.md).
+- [Investigation-first MVP Product Direction Record](../governance/proposals/M9_INVESTIGATION_FIRST_MVP_PRODUCT_DIRECTION_RECORD.md),
+  fixed commit `dba06767a08f58417f8c1f838d14c15682617bd3`, blob
+  `5edcac0fea6499026de4701f056188ca62cb2d67`.
+- [Canonical Product Materialization Inventory](research/M9_CANONICAL_PRODUCT_MATERIALIZATION_INVENTORY.md),
+  fixed commit `d8fb11946f21b596b2e7167430579496b22250d2`, blob
+  `21e9190b2875351074680c48530738a2d2737822`.
+- [Investigation-first Bounded MVP and Shared Primitive Definition](../governance/proposals/M9_INVESTIGATION_FIRST_BOUNDED_MVP_AND_SHARED_PRIMITIVE_DEFINITION.md),
+  fixed commit `afbd86f3eeb414e6de501c89cd51a9b167ac829b`, blob
+  `e46a5e734fbc49c52c29dfab842b8abf10e86e3a`.
+- [Investigation-first Live Server Materialization Plan](../governance/proposals/M9_INVESTIGATION_FIRST_LIVE_SERVER_MATERIALIZATION_PLAN.md),
+  fixed commit `242aed510b847bd345bb1c7d4dcfbd183794c31b`, blob
+  `9bb9eea3aa5e139d2b45d6e014f642ab433a9058`.
+- [Investigation-first Materialization Critical Review](../governance/reviews/M9_INVESTIGATION_FIRST_CANONICAL_PRODUCT_MATERIALIZATION_CRITICAL_REVIEW.md),
+  fixed commit `5f7656f8eb0e0bbd4e0f0c5c0ed48337162db91a`, blob
+  `632baed1d9fc37961756c51321e21c3b13ffea46`, disposition
+  `PASS — NO BLOCKING FINDINGS`.
+- [Investigation-first Authority Decision](../governance/proposals/M9_INVESTIGATION_FIRST_CANONICAL_PRODUCT_MATERIALIZATION_AUTHORITY_DECISION.md),
+  fixed commit `f92f35958f2f334b13f59cb58cfaaec3bccdfa1e`, blob
+  `8ad153df2ebbac64b076004932f645529db27312`, disposition
+  `A — Authorize bounded Investigation-first Canonical Product Materialization`.
+- [Investigation-first Execution Transition](../governance/orders/M9_INVESTIGATION_FIRST_CANONICAL_PRODUCT_MATERIALIZATION_EXECUTION_TRANSITION.md).
 - [M9 Empirical Product Value Learning Proposal](../governance/proposals/M9_EMPIRICAL_PRODUCT_VALUE_LEARNING_PROPOSAL.md),
   fixed reviewed blob `78740c6665c6d5457059cee92181615253a113f4`.
 - [M9 Proposal Critical Review](../governance/reviews/M9%20-%20Empirical%20Product%20Value%20Learning%20Proposal%20Critical%20Review.md),
@@ -133,15 +156,17 @@ proof, and upstream meaning changes remain unauthorized.
 
 ## Expected Output
 
-A bounded implementation of the Historical Walkthrough Reader that conforms to
-the fixed Implementation Contract and produces the required verification evidence
-without deployment, scope expansion, Replay, H3 validation, or upstream changes.
+A coherent runnable Investigation-first Management OS experience that realizes
+the maximum eligible subset of the fixed readiness inventory and reviewed plan,
+while preserving the Historical Walkthrough Reader as a supported secondary
+module and producing required verification evidence without deployment, scope
+expansion, Replay, H3 validation, or upstream changes.
 
 ## Definition of Done
 
 The task is complete only when bounded implementation execution:
 
-1. remains traceable to the fixed Implementation Contract;
+1. remains traceable to the fixed readiness inventory, MVP definition, and materialization plan;
 2. preserves every semantic invariant and authority boundary;
 3. stays within necessary implementation files and permitted change classes;
 4. produces the fixed verification evidence;
@@ -158,15 +183,15 @@ stage, or M9 completion.
 Chief Architect
 ```
 
-The owner is accountable for bounded Historical Walkthrough Reader implementation
-execution and preservation of the fixed contract and authority boundaries.
+The owner is accountable for bounded Investigation-first Canonical Product
+Materialization execution and preservation of the fixed plan and authority boundaries.
 Deployment, Replay, H3 validation, and upstream changes remain
 separate attributable human Decisions.
 
 ## Status
 
 ```text
-Active — 1 bounded implementation execution item; ready to begin; not started
+Active — 1 bounded Investigation-first execution item; authorized but not started
 ```
 
 ## Preserved Conditions
@@ -181,20 +206,23 @@ Active — 1 bounded implementation execution item; ready to begin; not started
 - The Knight Capital walkthrough completed its fixed bounded phase sequence.
 - The historical claim ledger and walkthrough phase artifacts are fixed and unchanged.
 - Phase 11 human reflection is deferred pending user-facing interaction.
-- Alternative A — Historical Walkthrough Reader is the selected first bounded
-  user-facing slice.
+- Historical Walkthrough Reader remains the selected first bounded user-facing
+  slice and a supported secondary product module; completed work remains valid.
 - The Product Realization foundation is prepared and independently reviewed.
 - Engineering Architecture preparation is prepared and reviewed.
 - Implementation Preparation is complete and reviewed.
-- Bounded implementation execution is authorized but not started.
-- UI development, coding, and tests are authorized only within the fixed contract.
+- Investigation-first Canonical Product Materialization is the primary MVP direction.
+- Bounded Investigation-first implementation execution is authorized but not started.
+- UI development, coding, tests, bounded local sample data, and necessary
+  implementation files are authorized only within the fixed reviewed plan.
 - Replay is not authorized.
 - H3 remains unvalidated.
 - Root Cause and causal proof remain unestablished.
 - Evidence ingestion beyond ordinary public research is not authorized.
 - H3 validation preparation and execution are not authorized.
 - Deployment is not authorized.
-- Prototype, implementation, deployment, and delivery are not authorized.
+- Implementation is authorized only within the fixed reviewed plan; deployment
+  and delivery remain unauthorized.
 - Product Vision, Systems, Owner Journey, Product Constitution role, canonical
   M7/M8, reviewed proposal, critical review, and research sources remain
   unchanged.
