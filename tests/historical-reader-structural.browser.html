@@ -1,3 +1,82 @@
-<!doctype html><html lang="uk"><head><meta charset="utf-8"><title>Перевірка української версії історичного розбору</title><link rel="icon" href="data:,"></head><body data-test-result="running"><pre id="result">Виконується перевірка</pre><iframe id="app" title="Історичний розбір"></iframe><script>
-(async()=>{const result=document.getElementById("result"),frame=document.getElementById("app"),assert=(v,m)=>{if(!v)throw new Error(m)};try{await new Promise((resolve,reject)=>{const t=setTimeout(()=>reject(new Error("Перевищено час завантаження")),8000);frame.onload=()=>{clearTimeout(t);resolve()};frame.src="../historical-reader.html#workspace"});const doc=frame.contentDocument,app=frame.contentWindow;for(let i=0;i<80&&!app.HistoricalReaderState?.phases?.length;i++)await new Promise(r=>setTimeout(r,50));assert(app.HistoricalReaderState.phases.length===11,"Зафіксовані фази не завантажено");assert(app.HistoricalReaderState.phases.reduce((n,p)=>n+p.claims.length,0)===48,"Кількість зафіксованих тверджень змінилася");assert(doc.querySelectorAll("#phaseNavigation button").length===11,"Навігація фазами неповна");assert([...doc.querySelectorAll("#phaseNavigation button")].every(button=>button.getAttribute("aria-label").startsWith("Фаза ")),"Підписи доступності фаз не локалізовано");assert(doc.querySelector('.reader-nav').textContent.includes("Робочий простір"),"Основну навігацію не локалізовано");assert(doc.querySelector('a[href="historical-reader.html"]')?.getAttribute("aria-label")==="Історичний розбір","Бічну навігацію не локалізовано");assert(app.HistoricalReaderState.selectedClaim,"Початкове твердження не вибрано");assert(doc.getElementById("evidenceDetail").textContent.includes("Ідентичність джерела"),"Перевірка доказів недоступна");assert([...doc.querySelectorAll("#evidenceDetail a")].some(a=>a.href.startsWith("https://")),"Перехід до публічного джерела недоступний");assert(doc.getElementById("traceabilityDetail").textContent.includes("Статус ретроспективного знання"),"Простежуваність недоступна");const initialPhase=app.HistoricalReaderState.selectedPhase.id;doc.getElementById("nextPhase").click();assert(app.HistoricalReaderState.selectedPhase.id===initialPhase+1,"Перехід до сусідньої фази не працює");assert(doc.querySelector('#phaseNavigation button[aria-current="step"]'),"Поточну фазу не позначено");[...doc.querySelectorAll("#evidenceDetail button")].find(b=>b.textContent.includes("робочого набору")).click();assert(app.HistoricalReaderState.workingSet.length===1,"Додавання до робочого набору не працює");assert(doc.getElementById("workingSetCount").textContent==="1","Лічильник робочого набору неправильний");assert(doc.getElementById("workingSetFeedback").textContent.includes("не змінює статус доказу"),"Пояснення межі робочого набору відсутнє");doc.querySelector(".working-set-remove").click();assert(app.HistoricalReaderState.workingSet.length===0,"Вилучення з робочого набору не працює");assert(doc.body.textContent.includes("Повторне проходження недоступне"),"Межа повторного проходження відсутня");frame.contentWindow.location.hash="#reflection";await new Promise(r=>setTimeout(r,50));assert(!doc.querySelector('[data-panel="reflection"]').hidden,"Перехід до осмислення не працює");assert([...doc.querySelectorAll("#reflectionContainer button")].every(button=>button.disabled),"Межу осмислення послаблено");assert(doc.documentElement.lang==="uk","Основну мову інтерфейсу не встановлено");document.body.dataset.testResult="passed";result.textContent="Перевірка української версії пройдена"}catch(e){document.body.dataset.testResult="failed";result.textContent=e.stack||e.message}})();
-</script></body></html>
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <title>Перевірка Історичного розбору</title>
+  <link rel="icon" href="data:,">
+</head>
+<body data-test-result="running">
+<pre id="result">Виконується перевірка</pre>
+<iframe id="app" title="Історичний розбір"></iframe>
+<script>
+(async () => {
+  const result = document.getElementById("result");
+  const frame = document.getElementById("app");
+  const assert = (value, message) => { if (!value) throw new Error(message); };
+  try {
+    await new Promise((resolve, reject) => {
+      const timeout = setTimeout(() => reject(new Error("Перевищено час завантаження")), 8000);
+      frame.onload = () => { clearTimeout(timeout); resolve(); };
+      frame.src = "../historical-reader.html#workspace";
+    });
+    const doc = frame.contentDocument;
+    const app = frame.contentWindow;
+    for (let index = 0; index < 80 && !app.HistoricalReaderState?.phases?.length; index += 1) await new Promise(resolve => setTimeout(resolve, 50));
+
+    assert(app.HistoricalReaderState.phases.length === 11, "Зафіксовані фази не завантажено");
+    assert(app.HistoricalReaderState.phases.reduce((count, phase) => count + phase.claims.length, 0) === 48, "Кількість зафіксованих тверджень змінилася");
+    assert(Object.keys(app.HistoricalReaderUkrainianClaims).length === 48, "Український reading layer неповний");
+    assert(doc.querySelectorAll("#phaseNavigation button").length === 11, "Навігація фазами неповна");
+    assert([...doc.querySelectorAll("#phaseNavigation button")].every(button => button.getAttribute("aria-label").startsWith("Фаза ")), "Підписи доступності фаз не локалізовано");
+    assert(doc.querySelector(".reader-nav").textContent.includes("Робочий простір"), "Основну навігацію не локалізовано");
+    assert(doc.querySelector('a[href="historical-reader.html"]')?.getAttribute("aria-label") === "Історичний розбір", "Ідентичність відкритого кейсу недоступна");
+    assert(doc.getElementById("sidebarCurrentPhase").textContent.includes("Фаза 02"), "Sidebar не показує поточну фазу");
+    assert(doc.getElementById("sidebarAttentionCount").textContent.includes("потребують уваги"), "Sidebar не показує залишок уваги");
+
+    assert(app.HistoricalReaderState.selectedClaim, "Початкове твердження не вибрано");
+    assert(doc.querySelector(".claim-translation")?.lang === "uk", "Український переклад не є первинним reading layer");
+    assert(doc.querySelector(".claim-translation").textContent.length > 80, "Український переклад порожній або надто короткий");
+    assert(doc.querySelector(".original-disclosure") && !doc.querySelector(".original-disclosure").open, "Оригінал не згорнуто за замовчуванням");
+    assert(doc.querySelector(".original-disclosure summary").textContent === "Показати мовою оригіналу", "Контроль мови оригіналу неправильний");
+    assert(doc.querySelector(".source-disclosure") && !doc.querySelector(".source-disclosure").open, "Source metadata не згорнуто за замовчуванням");
+    assert(doc.querySelector(".traceability-details") && !doc.querySelector(".traceability-details").open, "Простежуваність не згорнуто за замовчуванням");
+    doc.querySelector(".original-disclosure").open = true;
+    assert(doc.querySelector(".claim-text")?.lang === "en", "Оригінальний англійський текст недоступний");
+    doc.querySelector(".source-disclosure").open = true;
+    assert(doc.getElementById("evidenceDetail").textContent.includes("Ідентичність джерела"), "Перевірка доказів недоступна");
+    assert([...doc.querySelectorAll("#evidenceDetail a")].some(link => link.href.startsWith("https://")), "Перехід до публічного джерела недоступний");
+    doc.querySelector(".traceability-details").open = true;
+    assert(doc.getElementById("traceabilityDetail").textContent.includes("Статус ретроспективного знання"), "Простежуваність недоступна");
+
+    const initialPhase = app.HistoricalReaderState.selectedPhase.id;
+    doc.getElementById("nextPhase").click();
+    assert(app.HistoricalReaderState.selectedPhase.id === initialPhase + 1, "Перехід до сусідньої фази не працює");
+    assert(doc.querySelector('#phaseNavigation button[aria-current="step"]'), "Поточну фазу не позначено");
+    doc.querySelector(".claim-button").click();
+    assert(app.HistoricalReaderState.inspectedClaims.size === 1, "Переглянуте твердження не позначено");
+    assert(doc.querySelector(".claim-kind").textContent.includes("Переглянуто"), "Видимий статус перегляду не оновлено");
+
+    [...doc.querySelectorAll("#evidenceDetail button")].find(button => button.textContent.includes("робочого набору")).click();
+    assert(app.HistoricalReaderState.workingSet.length === 1, "Додавання до робочого набору не працює");
+    assert(doc.getElementById("workingSetCount").textContent === "1", "Лічильник робочого набору неправильний");
+    assert(doc.getElementById("workingSetFeedback").textContent.includes("не змінює статус доказу"), "Пояснення межі робочого набору відсутнє");
+    doc.querySelector(".working-set-remove").click();
+    assert(app.HistoricalReaderState.workingSet.length === 0, "Вилучення з робочого набору не працює");
+
+    assert(doc.body.textContent.includes("Повторне проходження недоступне"), "Межа повторного проходження відсутня");
+    frame.contentWindow.location.hash = "#reflection";
+    await new Promise(resolve => setTimeout(resolve, 50));
+    assert(!doc.querySelector('[data-panel="reflection"]').hidden, "Перехід до осмислення не працює");
+    assert([...doc.querySelectorAll("#reflectionContainer button")].every(button => button.disabled), "Межу осмислення послаблено");
+    assert(doc.documentElement.lang === "uk", "Основну мову інтерфейсу не встановлено");
+
+    document.body.dataset.testResult = "passed";
+    result.textContent = "Перевірка Історичного розбору пройдена";
+  } catch (error) {
+    document.body.dataset.testResult = "failed";
+    result.textContent = error.stack || error.message;
+  }
+})();
+</script>
+</body>
+</html>

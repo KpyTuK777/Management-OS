@@ -17,11 +17,14 @@
         <h1>Історичний розбір 01</h1>
         <p class="case-line">Knight Capital · інцидент 2012 року з розгортанням ПЗ та торговельними збитками · Shape B</p>
       </div>
-      <div class="authority-strip" aria-label="Межі історичного розбору">
-        <span class="state-chip state-chip--fixed">Історичні матеріали лише для читання</span>
-        <span class="state-chip">Повторне проходження недоступне</span>
-        <span class="state-chip">Гіпотезу H3 не валідовано</span>
-      </div>
+      <details class="authority-disclosure">
+        <summary>Межі читання · 3</summary>
+        <div class="authority-strip" aria-label="Межі історичного розбору">
+          <span class="state-chip state-chip--fixed">Історичні матеріали лише для читання</span>
+          <span class="state-chip">Повторне проходження недоступне</span>
+          <span class="state-chip">Гіпотезу H3 не валідовано</span>
+        </div>
+      </details>
       <nav class="reader-nav" aria-label="Розділи історичного розбору">
         <a href="#orientation" data-route="orientation"><span>01</span> Орієнтація</a>
         <a href="#workspace" data-route="workspace"><span>02</span> Робочий простір</a>
@@ -71,21 +74,21 @@
       <div class="workbench-layout">
         <section class="claim-browser" id="claimContainer" aria-labelledby="claim-heading">
           <header class="surface-heading">
-            <div><p class="eyebrow">Основна робоча поверхня</p><h3 id="claim-heading">Історичні твердження</h3></div>
+            <div><p class="eyebrow">Навігація матеріалом</p><h3 id="claim-heading">Твердження фази</h3></div>
             <span id="phaseClaimCount" class="count-badge">0</span>
           </header>
-          <p class="surface-guidance">Оберіть твердження, щоб перевірити його зафіксований текст, зв’язок із доказами та невизначеність.</p>
+          <p class="surface-guidance">Оберіть твердження для робочого читання. Оригінал і джерельні деталі відкриваються на запит.</p>
           <div id="claimList"><p class="empty-state">Фазу не вибрано.</p></div>
         </section>
 
         <article class="inspection-surface" aria-labelledby="inspection-heading">
           <header class="surface-heading inspection-heading">
-            <div><p class="eyebrow">Контекстна перевірка</p><h3 id="inspection-heading">Твердження · докази · джерело</h3></div>
+            <div><p class="eyebrow">Поточний фокус</p><h3 id="inspection-heading">Робоче читання твердження</h3></div>
             <span class="read-only-mark">Лише читання</span>
           </header>
           <div id="evidenceDetail"><p class="empty-state">Оберіть твердження, щоб відкрити його зафіксований запис.</p></div>
           <section class="traceability-region" id="traceabilityContainer" aria-labelledby="traceability-heading">
-            <h4 id="traceability-heading">Невизначеність і простежуваність</h4>
+            <h4 id="traceability-heading">Перевірка меж і простежуваності</h4>
             <div id="traceabilityDetail"><p class="empty-state">Зв’язок твердження з джерелом не вибрано.</p></div>
           </section>
         </article>
@@ -122,6 +125,7 @@
   </main>
 </div>
 <script src="js/sidebar.js"></script>
+<script src="js/historical-reader-uk.js"></script>
 <script src="js/historical-reader.js"></script>
 </body>
 </html>
