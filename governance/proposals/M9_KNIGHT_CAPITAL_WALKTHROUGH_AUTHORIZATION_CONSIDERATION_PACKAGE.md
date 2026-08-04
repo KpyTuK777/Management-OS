@@ -1,24 +1,35 @@
 # M9 Knight Capital Walkthrough Authorization Consideration Package
 
-## Initial Consideration State
+## Recorded Decision State
 
 ```text
-Package preparation: PREPARED FOR READINESS ASSESSMENT
-Decision: NOT RECORDED
-Disposition: NONE
-Accountable authority: UNASSIGNED
-Authority basis: UNRECORDED
-Rationale: UNRECORDED
-Decision date: UNASSIGNED
-Human attestation: UNRECORDED
-Walkthrough authorization: NONE
+Package readiness: READY FOR AUTHORITY CONSIDERATION
+Decision: RECORDED
+Disposition: A — Authorize execution of the bounded historical walkthrough under the fixed protocol.
+Accountable authority: Serhii Horbachenko — Product Owner and accountable authority for Management OS
+Authority basis: RECORDED
+Rationale: RECORDED
+Decision date: 2026-08-03
+Human attestation: RECORDED
+Walkthrough authorization: AUTHORIZED
+Walkthrough execution: AUTHORIZED UNDER THE FIXED SHAPE B PROTOCOL
+Historical claim ledger: AUTHORIZED DURING WALKTHROUGH EXECUTION
 Replay authorization: NONE
-Authority effect: NONE
+Replay execution: NOT AUTHORIZED
+H3: UNVALIDATED
+Root Cause: NOT ESTABLISHED
+Causal proof: NOT ESTABLISHED
+Architecture authority: NONE
+Engineering Architecture authority: NONE
+Implementation authority: NONE
+Authority effect: AUTHORIZED TO EXECUTE PUBLISHED HISTORICAL WALKTHROUGH 01 UNDER THE FIXED SHAPE B PROTOCOL, CREATE THE HISTORICAL CLAIM LEDGER DURING EXECUTION, PRODUCE WALKTHROUGH PHASE OUTPUTS, AND RECORD OBSERVATIONS ARISING FROM STRUCTURED HISTORICAL RE-ENGAGEMENT
 ```
 
-This package prepares a future attributable human authorization consideration. It
-does not perform the separate readiness assessment, record a human Decision,
-recommend a disposition, or authorize walkthrough or Replay execution.
+This artifact records direct attributable human inputs supplied by Serhii
+Horbachenko after the separate positive readiness assessment. AI has transcribed
+those inputs into the prepared package; it has not inferred, selected, completed,
+or attested any human-owned field. Walkthrough execution has not begun through this
+recording commit.
 
 # 1. Decision Identity
 
@@ -60,6 +71,7 @@ Shape B — Bounded operational-control walkthrough
 | Walkthrough Shape Authority Decision | `047a9c4f191ec1c6c7a351d7d825c8a9fd55cc90` | `e1b284ba906848ae8b5a96b37d447620e72f3f3a` |
 | Walkthrough Shape Authority Decision Readiness Assessment | `09553431f1e30d35f3339f26c848e7d3e237181f` | `e26feef478854ef73c162ee1d916f28f67838a17` |
 | Walkthrough Protocol Preparation Transition | `d1173e1425f973a4de53f9bb0b9b77739876b37a` | `8ec2576a1269acbd338c219893f1562ce2cab428` |
+| Walkthrough Authorization Readiness Assessment | `e22694ca407e6931efac4158b260e45900b3efb0` | `0fe4eb80bc971d5ff05ffa97b3d10bff0fd85633` |
 
 These identities remain fixed. This package does not modify them or infer current
 meaning from paths alone.
@@ -198,10 +210,10 @@ A future readiness assessment must verify that the package does not fill:
 
 Unknown remains unknown. Walkthrough structure does not create historical Evidence.
 
-# 12. Permitted Future Dispositions
+# 12. Permissible Dispositions and Recorded Selection
 
-Exactly one disposition may be supplied only after a separate positive readiness
-assessment and direct attributable human input:
+The prepared shell supplied four neutral dispositions after a separate positive
+readiness assessment. Direct attributable human input selected exactly one:
 
 ## A — Authorize execution of the bounded historical walkthrough under the fixed protocol.
 
@@ -211,41 +223,77 @@ assessment and direct attributable human input:
 
 ## D — Decline execution of the Knight Capital walkthrough under the current evidence and protocol identity.
 
-The dispositions are neutral, unranked, and without recommendation, preference,
-default, or selection.
+The alternatives were neutral, unranked, and without recommendation, preference,
+or default. Disposition A is now the recorded human selection; B–D remain preserved
+only as the unselected alternatives that were presented for this Decision identity.
 
 # 13. Required Human-Owned Decision Fields
 
 ## Accountable authority identity
 
-`UNASSIGNED`
+> Serhii Horbachenko — Product Owner and accountable authority for Management OS
 
 ## Authority basis
 
-`UNRECORDED`
+> As Product Owner and accountable authority for Management OS, I am responsible for determining whether the prepared Knight Capital bounded operational-control walkthrough protocol package is sufficiently bounded, source-disciplined, and structurally complete to authorize execution of Published Historical Walkthrough 01 while preserving separate authority for Replay, H3 validation, Root Cause determination, causal proof, architecture change, Engineering Architecture, implementation, roadmap transitions, and subsequent repository state changes.
 
 ## Selected disposition
 
-`NONE`
+> A — Authorize execution of the bounded historical walkthrough under the fixed protocol.
 
 ## Human-owned rationale
 
-`UNRECORDED`
+> The completed preparation sequence, protocol package, and readiness assessment demonstrate that the Knight Capital walkthrough can now be executed within explicitly bounded historical, evidential, and authority limits.
+>
+> The protocol preserves strict separation between historical reconstruction, analyst synthesis, uncertainty, hindsight, future Replay, and future validation activities.
+>
+> Permitted historical claims, prohibited historical inferences, citation discipline, and Historical/Replay branch boundaries together materially reduce the risk of retrospective narrative construction while preserving the educational value required for H3 — Experience Amplification.
+>
+> The remaining Evidence gaps remain explicitly visible and intentionally unresolved. They define the limits of the walkthrough rather than defects in the protocol itself.
+>
+> This Decision therefore authorizes execution of Published Historical Walkthrough 01 under the fixed Shape B protocol without asserting completeness of the historical record, establishing Root Cause, validating H3, authorizing Replay, or expanding architectural authority.
+
+## Explicit authority effect
+
+> This Decision authorizes only:
+>
+> - execution of Published Historical Walkthrough 01 under the fixed Shape B bounded operational-control protocol;
+> - creation of the historical claim ledger during walkthrough execution;
+> - production of walkthrough phase outputs;
+> - recording of observations arising from structured historical re-engagement under the fixed protocol.
+
+## Explicit non-effects
+
+> This Decision does not:
+>
+> - authorize Replay preparation or Replay execution;
+> - validate or confirm H3;
+> - establish Root Cause;
+> - establish causal proof;
+> - remove or resolve Missing Evidence;
+> - authorize invention of Decision owners, rationale, actor knowledge, or historical conversations;
+> - authorize counterfactual historical conclusions;
+> - authorize architecture changes;
+> - authorize creation of canonical domain objects;
+> - authorize Engineering Architecture;
+> - authorize implementation, prototype, deployment, or delivery;
+> - authorize metrics, KPIs, experiments, or product validation conclusions;
+> - modify ROADMAP.md, BACKLOG.md, milestone, stage, hypothesis, selected inquiry shape, or repository control surfaces without a separate bounded transition.
 
 ## Decision date
 
-`UNASSIGNED`
+`2026-08-03`
 
 ## Required attributable human attestation
 
-`UNRECORDED`
+> I confirm that this is my attributable human Decision and that I understand its bounded authority effect, explicit non-effects, and the continuing separation between historical walkthrough execution, Replay, validation, Root Cause determination, causal proof, architecture evolution, and implementation.
 
-AI must not infer, populate, select, complete, or attest these fields. Their
-intentional emptiness is required before the future human Decision.
+All human-owned fields above originate from direct attributable human input. AI has
+not inferred or populated their substance.
 
 # 14. Maximum Effect of Disposition A
 
-A valid future attributable disposition A may at most:
+The valid recorded attributable disposition A may at most:
 
 - authorize execution of the bounded historical walkthrough under the fixed
   protocol;
@@ -292,13 +340,11 @@ permanently, and does not select another case.
 
 # 16. Explicit Non-Effects
 
-This package does not:
+This recording commit and recorded Decision do not:
 
-- record a Decision or select a disposition;
-- recommend, rank, prefer, or default a disposition;
-- perform the protocol-package readiness assessment;
-- authorize or execute walkthrough phases;
-- create or populate a historical claim ledger;
+- execute any walkthrough phase;
+- create or populate the historical claim ledger before execution begins;
+- recommend, rank, prefer, or default a different disposition;
 - authorize or execute Replay;
 - fill Evidence gaps;
 - infer Decision owner, rationale, actor knowledge, or alert recognition;
@@ -314,9 +360,9 @@ This package does not:
 - modify ROADMAP, BACKLOG, active milestone, active stage, selected hypothesis,
   selected candidate, or selected inquiry shape.
 
-# 17. Future Validity Checks
+# 17. Recorded Decision Validity Checks
 
-A future authorization Decision is structurally valid only if:
+The recorded authorization Decision is structurally valid only if:
 
 1. a separate readiness assessment fixes these exact package identities and returns
    a positive readiness disposition;
@@ -344,15 +390,16 @@ Permitted claim classes defined: YES
 Prohibited inference classes defined: YES
 Citation requirements and empty ledger schema defined: YES
 Historical/Replay boundaries defined: YES
-Human-owned fields intentionally empty: YES
-Walkthrough execution authorized: NO
+Human-owned fields recorded from attributable human input: YES
+Walkthrough execution authorized: YES — under fixed Shape B protocol
+Walkthrough execution started or performed by this artifact: NO
 Replay authorized: NO
-Readiness assessment performed: NO
+Readiness assessment performed: YES — Ready for authority consideration; 0 blocking deficiencies
 Structural omissions observed during package construction: 0
 ```
 
-This construction check is not the separate readiness assessment and does not make
-the package ready for human Decision by itself.
+The separate readiness assessment preceded the attributable human Decision. These
+checks do not expand the recorded maximum effect.
 
 # 19. Current Repository State
 
@@ -364,16 +411,21 @@ Selected published candidate: Knight Capital — 2012 software deployment and tr
 Selected inquiry shape: Shape B — Bounded operational-control walkthrough
 Active backlog item: Prepare Knight Capital bounded operational-control walkthrough protocol.
 
-Protocol package preparation: PREPARED FOR READINESS ASSESSMENT
-Walkthrough authorization Decision: NOT RECORDED
-Walkthrough authorization: NONE
-Walkthrough execution: NOT AUTHORIZED
+Protocol package readiness: READY FOR AUTHORITY CONSIDERATION
+Walkthrough authorization Decision: RECORDED
+Disposition: A — Authorize execution of the bounded historical walkthrough under the fixed protocol.
+Walkthrough authorization: AUTHORIZED
+Walkthrough execution: AUTHORIZED UNDER THE FIXED SHAPE B PROTOCOL
+Historical claim ledger: AUTHORIZED DURING WALKTHROUGH EXECUTION
 Replay authorization: NONE
 Replay execution: NOT AUTHORIZED
-H3 validation: NOT AUTHORIZED
+H3: UNVALIDATED
+Root Cause: NOT ESTABLISHED
+Causal proof: NOT ESTABLISHED
+Architecture authority: NONE
 Engineering Architecture: NOT AUTHORIZED
 Implementation: NOT AUTHORIZED
-Authority effect: NONE
+Authority effect: AUTHORIZED TO EXECUTE PUBLISHED HISTORICAL WALKTHROUGH 01 UNDER THE FIXED SHAPE B PROTOCOL, CREATE THE HISTORICAL CLAIM LEDGER DURING EXECUTION, PRODUCE WALKTHROUGH PHASE OUTPUTS, AND RECORD OBSERVATIONS ARISING FROM STRUCTURED HISTORICAL RE-ENGAGEMENT
 ```
 
 # 20. Final Preservation Boundary
@@ -386,8 +438,13 @@ Walkthrough authorization ≠ Replay authorization
 Walkthrough observation ≠ H3 validation
 ```
 
-All human-owned fields remain empty. No walkthrough or Replay has been authorized
-or performed. H3 remains unvalidated. Root Cause and causal proof remain
-unestablished. Fixed artifacts, ROADMAP, BACKLOG, canonical and product-control
-sources, validation state, architecture state, Engineering Architecture, and
-implementation state remain unchanged.
+The attributable human Decision is recorded. Walkthrough execution is authorized
+under the fixed Shape B protocol but has not begun and no execution output exists.
+Replay remains unauthorized and unperformed. H3 remains unvalidated. Missing
+Evidence remains missing. Root Cause and causal proof remain unestablished.
+
+Shape B, the historical protocol, citation requirements, prohibited historical
+inferences, Historical/Replay branch boundaries, fixed artifacts, ROADMAP, BACKLOG,
+milestone, stage, hypothesis, selected candidate, selected inquiry shape, active
+backlog item, canonical and product-control sources, validation state, architecture
+state, Engineering Architecture, and implementation state remain unchanged.
