@@ -74,51 +74,72 @@ const Layout = (() => {
 
 		const currentMode = getCurrentMode();
 		const mode = modes[currentMode];
+		const isReader = document.body.classList.contains("historical-reader-page");
 		const logo = document.createElement("div");
 		const title = document.createElement("h1");
 		const descriptor = document.createElement("span");
-		const modeLabel = document.createElement("label");
-		const modeSelect = document.createElement("select");
 		const navigation = document.createElement("nav");
-		const priorities = document.createElement("p");
+		const navigationLabel = document.createElement("p");
+		const dockFooter = document.createElement("div");
 
 		logo.className = "sidebar__logo";
-		modeLabel.className = "sidebar__mode";
-		modeSelect.id = "operatingMode";
-		modeLabel.htmlFor = modeSelect.id;
-		priorities.className = "sidebar__priority-note";
-		title.textContent = "Management OS";
-		descriptor.textContent = "Операційні справи";
-		modeLabel.textContent = "Поточний акцент";
-		priorities.textContent = "Профіль";
-
-		Object.entries(modes).forEach(([value, definition]) => {
-			const option = document.createElement("option");
-			option.value = value;
-			option.textContent = definition.label;
-			option.selected = value === currentMode;
-			modeSelect.appendChild(option);
-		});
-
-		modeSelect.addEventListener("change", () => {
-			window.sessionStorage.setItem("managementOsPrototypeMode", modeSelect.value);
-			window.dispatchEvent(new CustomEvent("managementos:modechange", { detail: { mode: modeSelect.value } }));
-			renderSidebar();
-		});
-
-		title.textContent = "";
 		title.setAttribute("aria-label", "Management OS");
 		const productMark = document.createElement("span");
 		productMark.className = "product-mark product-mark--os";
 		productMark.textContent = "OS";
-		title.appendChild(productMark);
+		const productName = document.createElement("span");
+		productName.className = "sidebar__product-name";
+		productName.textContent = "Management OS";
+		title.append(productMark, productName);
+		descriptor.textContent = isReader ? "Операційний кабінет" : "Операційні справи";
 		logo.append(title, descriptor);
-		modeLabel.appendChild(modeSelect);
+
+		navigationLabel.className = "sidebar__section-label";
+		navigationLabel.textContent = "Простори";
+		navigation.setAttribute("aria-label", "Основні простори Management OS");
 		mode.links.forEach(link => navigation.appendChild(createLink(link)));
-		const dockFooter = document.createElement("div");
+
 		dockFooter.className = "sidebar__footer";
-		dockFooter.append(priorities, modeLabel);
-		mountPoint.replaceChildren(logo, navigation, dockFooter);
+		if (isReader) {
+			const caseContext = document.createElement("section");
+			const label = document.createElement("p");
+			const name = document.createElement("strong");
+			const meta = document.createElement("span");
+			const state = document.createElement("span");
+			caseContext.className = "sidebar__case-context";
+			label.textContent = "Відкритий кейс";
+			name.textContent = "Knight Capital";
+			meta.textContent = "Історичний розбір 01 · Shape B";
+			state.className = "sidebar__case-state";
+			state.textContent = "Лише читання";
+			caseContext.append(label, name, meta, state);
+			dockFooter.append(caseContext);
+		} else {
+			const modeLabel = document.createElement("label");
+			const modeSelect = document.createElement("select");
+			const priorities = document.createElement("p");
+			modeLabel.className = "sidebar__mode";
+			modeSelect.id = "operatingMode";
+			modeLabel.htmlFor = modeSelect.id;
+			priorities.className = "sidebar__priority-note";
+			modeLabel.textContent = "Поточний акцент";
+			priorities.textContent = "Профіль";
+			Object.entries(modes).forEach(([value, definition]) => {
+				const option = document.createElement("option");
+				option.value = value;
+				option.textContent = definition.label;
+				option.selected = value === currentMode;
+				modeSelect.appendChild(option);
+			});
+			modeSelect.addEventListener("change", () => {
+				window.sessionStorage.setItem("managementOsPrototypeMode", modeSelect.value);
+				window.dispatchEvent(new CustomEvent("managementos:modechange", { detail: { mode: modeSelect.value } }));
+				renderSidebar();
+			});
+			modeLabel.appendChild(modeSelect);
+			dockFooter.append(priorities, modeLabel);
+		}
+		mountPoint.replaceChildren(logo, navigationLabel, navigation, dockFooter);
 	}
 
 	function init() {
