@@ -1,7 +1,7 @@
 # Architecture Backlog
 
 This file owns the single active bounded Historical Walkthrough Reader
-Implementation Preparation task for the current stage. Exactly one task is active.
+implementation execution task for the current stage. Exactly one task is active.
 
 ## Current Phase
 
@@ -25,21 +25,22 @@ M9.1 — Empirical Learning Preparation — Active
 — Experience Amplification. The Knight Capital historical walkthrough is complete;
 the selected Historical Walkthrough Reader Product Realization foundation,
 Interaction Architecture handoff, and Engineering Architecture preparation are
-prepared and reviewed. Current work prepares bounded Implementation Preparation
-without authorizing implementation execution, UI, code, tests, Replay, or H3 validation.
+prepared and reviewed. The Implementation Contract is prepared and reviewed.
+Current work executes only that bounded contract without authorizing deployment,
+Replay, H3 validation, or upstream meaning changes.
 
 ## Current Task
 
 ```text
-Prepare Historical Walkthrough Reader bounded Implementation Preparation.
+Execute bounded Historical Walkthrough Reader implementation.
 ```
 
-This is the sole active backlog item. Bounded Implementation Preparation is
-authorized within the fixed and reviewed Product Realization, Interaction
-Architecture, and Engineering Architecture inputs and has not started. Repository
-execution state is `READY TO BEGIN`. The item does not authorize implementation
-execution, UI development, coding, testing, deployment, delivery, Replay, H3
-validation, Root Cause, or causal proof.
+This is the sole active backlog item. Bounded implementation execution is
+authorized under the fixed reviewed Implementation Contract and has not started.
+Repository execution state is `READY TO BEGIN`. UI, coding, tests, conditional
+technology/dependency choices, and verification are permitted only inside that
+contract. Deployment, scope expansion, Replay, H3 validation, Root Cause, causal
+proof, and upstream meaning changes remain unauthorized.
 
 ## Authority and Dependencies
 
@@ -107,6 +108,17 @@ validation, Root Cause, or causal proof.
   blob `5b95dc483ad04473d1b631423b42ac708dc484d7`, disposition
   `A — Authorize bounded implementation preparation`.
 - [Historical Walkthrough Reader Implementation Preparation Transition](../governance/orders/M9_HISTORICAL_WALKTHROUGH_READER_IMPLEMENTATION_PREPARATION_TRANSITION.md).
+- [Historical Walkthrough Reader Implementation Contract](../governance/proposals/M9_HISTORICAL_WALKTHROUGH_READER_IMPLEMENTATION_CONTRACT.md),
+  fixed commit `966c3dbf757ee0e450eede1177ee13e43ebb5ea8`, blob
+  `08ea5821ee414cb632255a70f783e9b70ba53e16`.
+- [Implementation Contract Critical Review](../governance/reviews/M9_HISTORICAL_WALKTHROUGH_READER_IMPLEMENTATION_CONTRACT_CRITICAL_REVIEW.md),
+  fixed commit `3082bca91a81b6851df0bdbc8e0ceff8294a3185`, blob
+  `fa22f9606b7835b1367ff1a4ea32dee448eb7960`.
+- [Implementation Execution Authority Consideration Package](../governance/proposals/M9_HISTORICAL_WALKTHROUGH_READER_IMPLEMENTATION_EXECUTION_AUTHORITY_CONSIDERATION_PACKAGE.md),
+  fixed Decision commit `92e27acbc133080c58285459fc214c1fafcac725`,
+  blob `78cbf9214bed6e12fb006a5488eb5dfc9cfb5e11`, disposition
+  `A — Authorize bounded implementation execution`.
+- [Historical Walkthrough Reader Implementation Execution Transition](../governance/orders/M9_HISTORICAL_WALKTHROUGH_READER_IMPLEMENTATION_EXECUTION_TRANSITION.md).
 - [M9 Empirical Product Value Learning Proposal](../governance/proposals/M9_EMPIRICAL_PRODUCT_VALUE_LEARNING_PROPOSAL.md),
   fixed reviewed blob `78740c6665c6d5457059cee92181615253a113f4`.
 - [M9 Proposal Critical Review](../governance/reviews/M9%20-%20Empirical%20Product%20Value%20Learning%20Proposal%20Critical%20Review.md),
@@ -121,26 +133,24 @@ validation, Root Cause, or causal proof.
 
 ## Expected Output
 
-A bounded, reviewable Implementation Preparation package that translates the
-fixed Product, Interaction, and Engineering Architecture inputs into an
-implementation discipline, realization specification, bounded work sequence,
-verification obligations, and explicit stop boundaries without creating UI,
-code, tests, prototype execution, deployment, or delivery.
+A bounded implementation of the Historical Walkthrough Reader that conforms to
+the fixed Implementation Contract and produces the required verification evidence
+without deployment, scope expansion, Replay, H3 validation, or upstream changes.
 
 ## Definition of Done
 
-The task is complete only when bounded Implementation Preparation:
+The task is complete only when bounded implementation execution:
 
-1. remains traceable through Product Realization, Interaction Architecture, and Engineering Architecture;
-2. preserves Evidence, Working Set, reflection, historical, Replay, and authority semantics;
-3. defines a bounded realization specification and work sequence without executing it;
-4. defines verification and stop obligations without creating tests;
-5. makes technology and implementation choices explicit and reviewable;
-6. receives independent review with zero blocking findings; and
-7. identifies the next attributable implementation-execution authority boundary.
+1. remains traceable to the fixed Implementation Contract;
+2. preserves every semantic invariant and authority boundary;
+3. stays within necessary implementation files and permitted change classes;
+4. produces the fixed verification evidence;
+5. satisfies every stop condition;
+6. receives independent implementation review with zero blocking findings; and
+7. creates no deployment, Replay, H3 validation, or upstream change.
 
-Completion does not authorize UI development, code, tests, implementation
-execution, deployment, user interaction, validation, another stage, or M9 completion.
+Completion does not authorize deployment, product-value validation, another
+stage, or M9 completion.
 
 ## Owner
 
@@ -148,15 +158,15 @@ execution, deployment, user interaction, validation, another stage, or M9 comple
 Chief Architect
 ```
 
-The owner is accountable for bounded Historical Walkthrough Reader Implementation
-Preparation and preservation of the fixed product, interaction, engineering, and
-authority boundaries. UI development, implementation execution, Replay, and validation remain
+The owner is accountable for bounded Historical Walkthrough Reader implementation
+execution and preservation of the fixed contract and authority boundaries.
+Deployment, Replay, H3 validation, and upstream changes remain
 separate attributable human Decisions.
 
 ## Status
 
 ```text
-Active — 1 bounded Implementation Preparation item; ready to begin; not started
+Active — 1 bounded implementation execution item; ready to begin; not started
 ```
 
 ## Preserved Conditions
@@ -175,14 +185,15 @@ Active — 1 bounded Implementation Preparation item; ready to begin; not starte
   user-facing slice.
 - The Product Realization foundation is prepared and independently reviewed.
 - Engineering Architecture preparation is prepared and reviewed.
-- Bounded Implementation Preparation is authorized but not started.
-- Implementation execution, UI development, coding, and testing are not authorized.
+- Implementation Preparation is complete and reviewed.
+- Bounded implementation execution is authorized but not started.
+- UI development, coding, and tests are authorized only within the fixed contract.
 - Replay is not authorized.
 - H3 remains unvalidated.
 - Root Cause and causal proof remain unestablished.
 - Evidence ingestion beyond ordinary public research is not authorized.
 - H3 validation preparation and execution are not authorized.
-- Implementation execution is not authorized.
+- Deployment is not authorized.
 - Prototype, implementation, deployment, and delivery are not authorized.
 - Product Vision, Systems, Owner Journey, Product Constitution role, canonical
   M7/M8, reviewed proposal, critical review, and research sources remain
