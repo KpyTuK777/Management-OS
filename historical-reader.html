@@ -1,9 +1,127 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Historical Reader — Management OS</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/historical-reader.css"></head>
-<body><div class="app"><aside class="sidebar" id="sidebar"></aside><main class="reader-shell" id="historicalReader" data-reader-state="unoriented">
-<header class="reader-header"><p class="eyebrow">Published Historical Walkthrough 01</p><h1>Historical Walkthrough Reader</h1><p>Knight Capital · Shape B · bounded historical branch</p><div class="boundaries"><span>Replay unavailable</span><span>H3 unvalidated</span><span>Historical record read-only</span></div></header>
-<nav class="reader-nav" aria-label="Reader sections"><a href="#orientation" data-route="orientation">Orientation</a><a href="#workspace" data-route="workspace">Workbench</a><a href="#reflection" data-route="reflection">Reflection</a></nav>
-<section class="reader-panel" data-panel="orientation"><h2>Case orientation</h2><p>Eleven fixed walkthrough phases are projected read-only with their claim, source, uncertainty, and traceability boundaries intact.</p><dl><dt>Case</dt><dd>Knight Capital — 2012 software deployment and trading-loss incident</dd><dt>Inquiry shape</dt><dd>Shape B — Bounded operational-control walkthrough</dd></dl><a href="#workspace">Enter guided workbench</a></section>
-<section class="reader-panel" data-panel="workspace" hidden><header><p class="eyebrow">Current Situation</p><h2 id="currentSituationTitle">Source-bound workspace</h2><p id="currentSituationText">Select a fixed phase to begin.</p></header><p id="readerStatus" role="status">Loading fixed walkthrough artifacts…</p><nav id="phaseNavigation" class="phase-nav" aria-label="Walkthrough phases"></nav><div class="reader-grid">
-<section class="reader-container" id="claimContainer"><h3>Claims</h3><div id="claimList"><p>No phase selected.</p></div></section><section class="reader-container" id="evidenceContainer"><h3>Evidence and source</h3><div id="evidenceDetail"><p>No claim selected.</p></div></section><section class="reader-container" id="workingSetContainer"><h3>Working Set</h3><div id="workingSetList"><p>Empty. Membership remains distinct from Evidence.</p></div><output id="workingSetCount">0 items</output></section><section class="reader-container" id="traceabilityContainer"><h3>Traceability</h3><div id="traceabilityDetail"><p>No claim-to-source path selected.</p></div></section></div></section>
-<section class="reader-panel" data-panel="reflection" hidden><h2>Attributable reflection</h2><div class="reader-container" id="reflectionContainer"><p>Unavailable until direct traversal requirements are satisfied.</p><button disabled>Record response</button><button disabled>Record explicit deferral</button></div></section>
-</main></div><script src="js/sidebar.js"></script><script src="js/historical-reader.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Historical Reader — Management OS</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/historical-reader.css">
+</head>
+<body class="historical-reader-page">
+<div class="app reader-app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="reader-shell" id="historicalReader" data-reader-state="unoriented">
+    <header class="reader-frame">
+      <div class="reader-identity">
+        <p class="eyebrow">Management OS · Historical Workbench</p>
+        <h1>Published Historical Walkthrough 01</h1>
+        <p class="case-line">Knight Capital · 2012 deployment and trading-loss incident · Shape B</p>
+      </div>
+      <div class="authority-strip" aria-label="Reader boundaries">
+        <span class="state-chip state-chip--fixed">Historical record read-only</span>
+        <span class="state-chip">Replay unavailable</span>
+        <span class="state-chip">H3 unvalidated</span>
+      </div>
+      <nav class="reader-nav" aria-label="Reader sections">
+        <a href="#orientation" data-route="orientation"><span>01</span> Orientation</a>
+        <a href="#workspace" data-route="workspace"><span>02</span> Workbench</a>
+        <a href="#reflection" data-route="reflection"><span>03</span> Reflection boundary</a>
+      </nav>
+    </header>
+
+    <section class="reader-panel orientation-panel" data-panel="orientation">
+      <div class="orientation-copy">
+        <p class="eyebrow">Bounded operational case</p>
+        <h2>Re-enter a real operational episode without rewriting it.</h2>
+        <p class="lede">Move through eleven fixed phases, inspect each claim against its source relationship, and keep uncertainty visible beside what the record can support.</p>
+        <a class="primary-action" href="#workspace">Enter the historical workbench <span aria-hidden="true">→</span></a>
+      </div>
+      <aside class="orientation-docket" aria-label="Case docket">
+        <p class="docket-label">Case docket · 01</p>
+        <dl>
+          <div><dt>Case</dt><dd>Knight Capital</dd></div>
+          <div><dt>Inquiry</dt><dd>Bounded operational-control walkthrough</dd></div>
+          <div><dt>Material</dt><dd>11 fixed phases · 48 ledger claims</dd></div>
+          <div><dt>Authority</dt><dd>Historical reading only</dd></div>
+        </dl>
+        <p class="boundary-note"><strong>Boundary:</strong> presence in this reader does not establish Root Cause, causal proof, or validated Learning.</p>
+      </aside>
+    </section>
+
+    <section class="reader-panel workspace-panel" data-panel="workspace" hidden>
+      <header class="situation-focus">
+        <div>
+          <p class="eyebrow">Current Situation · <span id="phasePosition">Phase 02 of 11</span></p>
+          <h2 id="currentSituationTitle">Source-bound workspace</h2>
+          <p id="currentSituationText">Loading the fixed historical record.</p>
+        </div>
+        <div class="phase-step-controls" aria-label="Adjacent phase navigation">
+          <button type="button" id="previousPhase">Previous phase</button>
+          <button type="button" id="nextPhase">Next phase</button>
+        </div>
+      </header>
+
+      <div class="reader-status-line">
+        <p id="readerStatus" role="status">Loading fixed walkthrough artifacts…</p>
+        <p><span class="status-marker" aria-hidden="true"></span> Fixed repository projection</p>
+      </div>
+
+      <nav id="phaseNavigation" class="phase-nav" aria-label="Walkthrough phases"></nav>
+
+      <div class="workbench-layout">
+        <section class="claim-browser" id="claimContainer" aria-labelledby="claim-heading">
+          <header class="surface-heading">
+            <div><p class="eyebrow">Primary work surface</p><h3 id="claim-heading">Historical claims</h3></div>
+            <span id="phaseClaimCount" class="count-badge">0</span>
+          </header>
+          <p class="surface-guidance">Select a claim to inspect its fixed wording, Evidence relationship, and uncertainty.</p>
+          <div id="claimList"><p class="empty-state">No phase selected.</p></div>
+        </section>
+
+        <article class="inspection-surface" aria-labelledby="inspection-heading">
+          <header class="surface-heading inspection-heading">
+            <div><p class="eyebrow">Contextual inspection</p><h3 id="inspection-heading">Claim · Evidence · source</h3></div>
+            <span class="read-only-mark">Read-only</span>
+          </header>
+          <div id="evidenceDetail"><p class="empty-state">Choose a claim to open its fixed record.</p></div>
+          <section class="traceability-region" id="traceabilityContainer" aria-labelledby="traceability-heading">
+            <h4 id="traceability-heading">Uncertainty and traceability</h4>
+            <div id="traceabilityDetail"><p class="empty-state">No claim-to-source path selected.</p></div>
+          </section>
+        </article>
+
+        <aside class="working-set-surface" id="workingSetContainer" aria-labelledby="working-set-heading">
+          <header class="surface-heading">
+            <div><p class="eyebrow">Your reading context</p><h3 id="working-set-heading">Working Set</h3></div>
+            <output id="workingSetCount" class="count-badge" aria-live="polite">0</output>
+          </header>
+          <p class="working-set-rule">A private reading selection. Membership never promotes a claim to Evidence.</p>
+          <div id="workingSetList"><p class="empty-state">Nothing held yet. Add a claim while inspecting it.</p></div>
+          <p id="workingSetFeedback" class="working-set-feedback" role="status" aria-live="polite"></p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="reader-panel reflection-panel" data-panel="reflection" hidden>
+      <div class="reflection-copy">
+        <p class="eyebrow">Human-owned destination</p>
+        <h2>Reflection is visible, but finalization is intentionally unavailable.</h2>
+        <p class="lede">The reader may support deliberate traversal. It cannot manufacture Serhii’s response, infer a deferral, or treat repository completion as human participation.</p>
+      </div>
+      <div class="reflection-boundary" id="reflectionContainer">
+        <p class="boundary-kicker">Authority boundary</p>
+        <h3>Attributable identity and direct traversal are required first.</h3>
+        <p>A later, separately bounded interaction may record a human response or explicit deferral with provenance and finality. This wave records neither.</p>
+        <div class="blocked-actions" aria-label="Unavailable reflection actions">
+          <button disabled>Record attributable response</button>
+          <button disabled>Record explicit deferral</button>
+        </div>
+        <p class="blocked-explanation">Unavailable by governance design · not a system error</p>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="js/sidebar.js"></script>
+<script src="js/historical-reader.js"></script>
+</body>
+</html>
