@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="uk">
+<head><meta charset="utf-8"><title>Investigation Workbench browser journey</title></head>
+<body data-test-result="running">
+  <h1 id="result">Running Investigation Workbench journey…</h1>
+  <iframe id="app" title="Management OS test application" style="position:absolute;left:-10000px;width:390px;height:844px;border:0"></iframe>
+  <script>
+    const result = document.getElementById("result");
+    const frame = document.getElementById("app");
+    const assert = (condition, message) => { if (!condition) throw new Error(message); };
+    const click = element => element.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    const wait = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
+
+    async function run() {
+      try {
+        localStorage.removeItem("management-os-investigation-workbench-v1");
+        frame.src = "../index.html#situation";
+        await new Promise((resolve, reject) => {
+          frame.onload = resolve;
+          setTimeout(() => reject(new Error("Application load timed out")), 4000);
+        });
+        const app = frame.contentDocument;
+        const win = frame.contentWindow;
+        assert(app.documentElement.lang === "uk", "Primary application language is not Ukrainian.");
+        assert(app.documentElement.scrollWidth <= frame.clientWidth, `Narrow viewport overflows horizontally: ${app.documentElement.scrollWidth}px.`);
+        assert(app.querySelector("[data-workspace-view='situation'].is-active"), "Current Situation is not the default view.");
+        assert(app.querySelectorAll("#knownList .compact-item").length >= 3, "Known material did not render.");
+        assert(app.querySelectorAll("#unknownList .compact-item").length >= 3, "Unknowns did not render.");
+
+        click(app.querySelector("[data-view='evidence']"));
+        assert(app.querySelector("[data-workspace-view='evidence'].is-active"), "Evidence view did not activate.");
+        const firstAdd = app.querySelector("[data-working-set='evidence-1']");
+        click(firstAdd);
+        assert(app.querySelectorAll("#workingSetList .working-set-item").length === 1, "Working Set did not receive material.");
+        assert(app.querySelector("[data-evidence-status='verified']"), "Adding to Working Set changed or removed Evidence status.");
+
+        click(app.querySelector("[data-inspect='evidence-1']"));
+        assert(!app.getElementById("inspectorContent").classList.contains("hidden"), "Inspector did not open.");
+        assert(app.getElementById("inspectorContent").textContent.includes("Час події"), "Inspector omitted event time.");
+        assert(app.getElementById("inspectorContent").textContent.includes("Час запису"), "Inspector omitted record time.");
+
+        click(app.querySelector("[data-view='reasoning']"));
+        assert(app.querySelectorAll("#hypothesisList .hypothesis-card").length >= 4, "Hypotheses did not render.");
+        assert(app.getElementById("relationshipList").textContent.includes("підтримує"), "Bounded Relationships did not render.");
+
+        click(app.querySelector("[data-view='timeline']"));
+        assert(app.querySelectorAll("#timelineList .timeline-event").length === 3, "Read-only timeline did not render.");
+        assert(app.querySelector("[data-workspace-view='timeline'] .state-label").textContent.includes("Лише читання"), "Timeline boundary is not visible.");
+        assert(app.body.textContent.includes("Потребує окремого дозволу"), "Future-authority boundary is missing.");
+        assert(!app.body.textContent.includes("Replay"), "Replay leaked into the Investigation experience.");
+
+        const stored = JSON.parse(win.localStorage.getItem("management-os-investigation-workbench-v1"));
+        assert(stored.data.workingSet.includes("evidence-1"), "Working Set did not persist locally.");
+        document.body.dataset.testResult = "passed";
+        result.textContent = "Investigation Workbench browser journey passed";
+      } catch (error) {
+        document.body.dataset.testResult = "failed";
+        result.textContent = `Investigation Workbench browser journey failed: ${error.message}`;
+      }
+    }
+    run();
+  </script>
+</body>
+</html>

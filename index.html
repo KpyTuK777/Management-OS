@@ -1,384 +1,174 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Management OS — Операційне розслідування</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/investigation-workbench.css">
+</head>
+<body class="investigation-app">
+  <div class="os-shell">
+    <aside class="os-rail" aria-label="Основна навігація">
+      <a class="os-brand" href="index.html" aria-label="Management OS — головна">
+        <span class="os-brand__mark">OS</span>
+        <span><strong>Management OS</strong><small>Операційний кабінет</small></span>
+      </a>
 
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Management OS — Операційні справи</title>
-		<link rel="icon" href="data:,">
-		<link rel="stylesheet" href="css/style.css">
-	</head>
+      <nav class="os-primary-nav" aria-label="Простори Management OS">
+        <p>Робочі простори</p>
+        <a class="is-current" href="index.html" aria-current="page"><span aria-hidden="true">◉</span><span>Розслідування</span></a>
+        <a href="historical-reader.html"><span aria-hidden="true">▤</span><span>Історичний розбір</span><small>Навчальний модуль</small></a>
+        <a href="knowledge-base.html"><span aria-hidden="true">◇</span><span>Знання</span></a>
+      </nav>
 
-	<body>
-		<div class="app">
-			<aside class="sidebar" id="sidebar"></aside>
+      <section class="rail-matter" aria-labelledby="railMatterTitle">
+        <p id="railMatterTitle">Відкрита справа</p>
+        <strong>MAT-0247</strong>
+        <span>Падіння прибутку</span>
+        <span class="status-dot"><i></i> У роботі</span>
+      </section>
 
-			<main class="workspace investigation-prototype">
-				<section class="investigation-home" id="investigationHome" aria-labelledby="homeTitle">
-					<header class="investigation-hero">
-						<h1 id="homeTitle">Що потребує вашої уваги?</h1>
-					</header>
+      <div class="rail-boundary">
+        <span>Локальний прототип</span>
+        <small>Без зовнішніх інтеграцій</small>
+      </div>
+    </aside>
 
-					<form class="investigation-intake" id="investigationIntake">
-						<label class="context-field" for="investigationContext">Контекст розслідування
-							<select id="investigationContext" name="investigation-context"><option value="learning">Операційне навчання</option><option value="reality">Операційна реальність</option></select>
-						</label>
-						<label for="investigationInput">Що сьогодні важливо зрозуміти?</label>
-						<textarea id="investigationInput" rows="4" placeholder="Опишіть ситуацію…" required></textarea>
-						<div class="investigation-intake__footer">
-							<button class="btn-primary" type="submit">Відкрити справу</button>
-						</div>
-					</form>
+    <main class="os-main">
+      <header class="matter-command-bar">
+        <div class="matter-identity">
+          <button class="mobile-rail-toggle" id="mobileRailToggle" type="button" aria-label="Відкрити навігацію" aria-expanded="false">☰</button>
+          <div><span>Операційне розслідування</span><strong>MAT-0247 · Різке падіння чистого прибутку</strong></div>
+        </div>
+        <div class="command-status"><span class="prototype-state">Локальні демонстраційні дані</span><button class="quiet-button" id="resetWorkspace" type="button">Відновити приклад</button></div>
+      </header>
 
-					<div class="home-priorities" id="agenda">
-						<article>
-							<span>Сьогодні</span>
-							<strong>Продовжити: падіння прибутку</strong>
-						</article>
-						<article>
-							<span>Потребує судження</span>
-							<strong>Причину ще не встановлено</strong>
-						</article>
-					</div>
-				</section>
+      <div class="investigation-frame">
+        <header class="investigation-header">
+          <div>
+            <p class="eyebrow">Поточне розслідування</p>
+            <h1>Чому прибуток знижується, хоча виручка зростає?</h1>
+            <p>Зрозумійте ситуацію, зберіть матеріали й відокремте підтверджене від того, що ще потребує перевірки.</p>
+          </div>
+          <dl class="investigation-meta">
+            <div><dt>Статус</dt><dd>У роботі</dd></div>
+            <div><dt>Власник</dt><dd>Serhii Horbachenko</dd></div>
+            <div><dt>Оновлено</dt><dd>сьогодні</dd></div>
+          </dl>
+        </header>
 
-				<section class="investigation-workspace hidden" id="investigationWorkspace" aria-label="Операційна картина MAT-0247">
-					<header class="matter-bar" aria-label="Поточна операційна справа">
-						<label><span>Справа</span><select aria-label="Поточна справа"><option>MAT-0247 · Падіння чистого прибутку</option></select></label>
-						<span class="matter-status"><i aria-hidden="true"></i> У роботі</span>
-						<span>Оновлено сьогодні</span>
-						<div><button type="button" aria-label="Пошук">⌕</button><button type="button" aria-label="Сповіщення">○</button></div>
-					</header>
-					<header class="case-header" id="investigations">
-						<div>
-							<div class="case-header__meta">
-								<span class="environment-badge environment-badge--learning" id="investigationContextBadge">Операційне навчання</span>
-								<span>MAT-0247</span>
-								<span>Розслідування 1</span>
-							</div>
-							<label class="working-title" for="caseWorkingTitle">
-								<span>Робоча назва · редагується</span>
-								<textarea id="caseWorkingTitle" rows="1" aria-describedby="workingTitleGuidance">Різке падіння прибутку</textarea>
-							</label>
-							<p id="workingTitleGuidance">Робоча назва — не підтверджена причина. Уникайте причинних висновків, яких ще не підтримують докази.</p>
-						</div>
-						<button class="btn-secondary" id="newInvestigationButton" type="button">Нова операційна справа</button>
-					</header>
+        <nav class="workspace-tabs" aria-label="Розділи розслідування">
+          <button class="is-active" type="button" data-view="situation" aria-selected="true">Ситуація <span>5</span></button>
+          <button type="button" data-view="evidence" aria-selected="false">Матеріали <span id="evidenceTabCount">6</span></button>
+          <button type="button" data-view="reasoning" aria-selected="false">Робочі версії <span id="reasoningTabCount">4</span></button>
+          <button type="button" data-view="timeline" aria-selected="false">Хронологія</button>
+        </nav>
 
-					<div class="perceptual-workspace operational-workbench" id="operationalWorkbench">
-						<div class="board-column">
-					<section class="situation-board-summary current-situation-canvas" id="situationBoard" aria-labelledby="situationBoardTitle">
-						<header class="current-situation__header">
-							<div><span><b aria-hidden="true">🔍</b> Поточна ситуація</span><h2 id="situationBoardTitle">Різке падіння прибутку потребує перевірки</h2></div>
-						</header>
-						<div class="key-indicators" aria-label="Ключові показники">
-							<article><span>Чистий прибуток</span><strong class="metric-down">−18%</strong><small>за 2 місяці</small></article>
-							<article><span>Виручка</span><strong>+3%</strong><small>за 2 місяці</small></article>
-							<article><span>Витрати</span><strong class="metric-risk">+22%</strong><small>за 2 місяці</small></article>
-							<article><span>Грошовий потік</span><strong class="metric-down">−11%</strong><small>за 2 місяці</small></article>
-						</div>
-						<div class="situation-map-stage">
-							<div class="situation-map-core">
-								<div class="current-situation__reported">
-									<span>Ви повідомили</span>
-									<blockquote id="reportedSymptomText"></blockquote>
-								</div>
-								<p class="current-situation__narrative" id="boardUnderstanding">Падіння ще не перевірено за джерелами, а його причина не встановлена.</p>
-								<span class="map-core-status">Поточне робоче розуміння</span>
-							</div>
-							<button class="map-material map-material--symptom" type="button" data-item-type="Симптом"><span><b aria-hidden="true">△</b> Симптом</span><strong>Падіння чистого прибутку</strong><small>Останні 2 місяці · 1 джерело</small></button>
-							<button class="map-material map-material--conversation" type="button" data-item-type="Розмова"><span><b aria-hidden="true">□</b> Розмова</span><strong>Фінансовий директор підтвердив зниження</strong><small>Сьогодні · точне формулювання</small></button>
-							<button class="map-material map-material--observation" type="button" data-item-type="Спостереження"><span><b aria-hidden="true">◉</b> Спостереження</span><strong>Ціни ключових постачальників зросли</strong><small>Потребує звіту закупівель</small></button>
-							<button class="map-material map-material--hypothesis" type="button" data-item-type="Гіпотеза"><span><b aria-hidden="true">◇</b> Гіпотеза</span><strong>Витрати знижують маржу</strong><small>Запропоновано · не підтверджено</small></button>
-							<button class="map-material map-material--evidence" type="button" data-item-type="Звіт"><span><b aria-hidden="true">▤</b> Звіт</span><strong>Фінансовий звіт Q1–Q2</strong><small>2 вкладення · джерело відоме</small></button>
-							<div class="current-situation__threads">
-							<section class="situation-thread hidden distinction-observation" id="knownContextCard"><span>Що ще відомо</span><strong id="boardReasoningBasis">Додано перший контекст</strong><p>Повідомлено власником; ще не перевірено за джерелом.</p></section>
-							<section class="situation-thread hidden distinction-assumption" id="missingOrientationCard"><span>Що поки припускаємо</span><strong id="boardUncertainty">Падіння може стосуватися всього B2B-напряму</strong><p>Поки невідомо, змінився дохід, маржа чи обидва показники.</p></section>
-							<section class="situation-thread hidden distinction-evidence" id="evidenceSummaryCard"><span>Що показало джерело</span><strong id="boardRecentChange">Докази ще не отримано</strong><p>Джерело й походження з’являться після дозволеного порівняння.</p></section>
-							<section class="situation-thread hidden distinction-hypothesis" id="hypothesisSummaryCard"><span>Провідне пояснення</span><strong id="boardNextJudgment">Ще не сформовано</strong><p>Це перевірювана гіпотеза, а не встановлений факт.</p></section>
-							</div>
-							<section class="cognitive-map hidden" id="cognitiveMap" aria-labelledby="cognitiveMapTitle">
-							<header><span>Як це може бути пов’язано</span><h3 id="cognitiveMapTitle">Поточні робочі зв’язки</h3></header>
-							<div class="relationship-flow" id="acceptedRelationshipView"></div>
-							</section>
-						</div>
-						<section class="transition-emphasis hidden" id="transitionEmphasis" aria-labelledby="transitionEmphasisTitle">
-							<span>Після рішення · поточний акцент</span>
-							<h3 id="transitionEmphasisTitle">Зробити обмежений пілот робочим</h3>
-							<dl>
-								<div><dt>Бажаний стан</dt><dd>Передача B2B-лідів займає не більше чотирьох годин без погіршення інших сегментів.</dd></div>
-								<div><dt>Зачеплена система</dt><dd>Передача B2B-лідів між маркетингом і продажами.</dd></div>
-								<div><dt>Потрібна адаптація</dt><dd>Один відповідальний власник і видимий SLA передачі.</dd></div>
-								<div><dt>Виконання</dt><dd>Пілот однієї команди · 30 днів · щотижневий огляд.</dd></div>
-								<div><dt>Перевірка</dt><dd>Маржа, час відповіді та захисні показники інших сегментів.</dd></div>
-							</dl>
-							<button class="text-button" id="returnToInvestigation" type="button">Переглянути підстави рішення</button>
-						</section>
-						<div class="material-safeguard hidden" id="sourcePermissionSafeguard" role="note"><strong>Потрібен ваш дозвіл</strong><span>Внутрішній фінансовий звіт не відкривається автоматично.</span></div>
-						<nav class="working-collections hidden" id="workingCollections" aria-label="Матеріали поточної ситуації">
-							<button class="collection-chip collection-chip--symptoms" id="symptomCollection" type="button" data-collection="symptoms" aria-haspopup="dialog"><span class="collection-icon" aria-hidden="true">📌</span><span>Симптоми</span><strong data-collection-count>1</strong></button>
-							<button class="collection-chip collection-chip--conversation" id="conversationCollection" type="button" data-collection="conversations" aria-haspopup="dialog"><span class="collection-icon" aria-hidden="true">🎙</span><span>Розмови</span><strong data-collection-count>1</strong></button>
-							<button class="collection-chip collection-chip--observations hidden" id="observationCollection" type="button" data-collection="observations" aria-haspopup="dialog"><span class="collection-icon" aria-hidden="true">👀</span><span>Спостереження</span><strong data-collection-count>0</strong></button>
-							<button class="collection-chip collection-chip--documents hidden" id="documentCollection" type="button" data-collection="documents" aria-haspopup="dialog"><span class="collection-icon" aria-hidden="true">📄</span><span>Документи</span><strong data-collection-count>0</strong></button>
-							<button class="collection-chip collection-chip--data hidden" id="dataCollection" type="button" data-collection="data" aria-haspopup="dialog"><span class="collection-icon" aria-hidden="true">📊</span><span>Дані</span><strong data-collection-count>0</strong></button>
-							<button class="collection-chip collection-chip--hypothesis hidden" id="hypothesisCollection" type="button" data-collection="hypotheses" aria-haspopup="dialog"><span class="collection-icon" aria-hidden="true">🧠</span><span>Гіпотези</span><strong data-collection-count>0</strong></button>
-							<button class="collection-chip collection-chip--warning hidden" id="contradictionCollection" type="button" data-collection="contradictions" aria-haspopup="dialog"><span class="collection-icon" aria-hidden="true">⚠</span><span>Суперечності</span><strong data-collection-count>0</strong></button>
-						</nav>
-						<aside class="contradiction-rail" aria-label="Суперечності">
-							<header><span>Суперечності</span><strong>2</strong></header>
-							<p><b aria-hidden="true">!</b> Виручка зросла, а чистий прибуток упав.</p>
-							<p><b aria-hidden="true">?</b> Логістика зросла непропорційно витратам.</p>
-						</aside>
-						<section class="collection-inspection hidden" id="collectionInspection" role="dialog" aria-modal="false" aria-labelledby="collectionInspectionTitle" tabindex="-1">
-							<header><div><span id="collectionInspectionIcon" aria-hidden="true">📌</span><div><small>Матеріали розслідування</small><h3 id="collectionInspectionTitle">Симптоми</h3></div></div><button class="collection-inspection__close" id="closeCollectionInspection" type="button" aria-label="Закрити колекцію">×</button></header>
-							<div id="collectionInspectionItems"></div>
-							<form class="item-inspector hidden" id="itemInspector">
-								<label>Формулювання<textarea id="itemInspectorWording" rows="3"></textarea></label>
-								<label>Тип<select id="itemInspectorType"><option>Звіт</option><option>KPI</option><option>Метрика</option><option>Розмова</option><option>Фото</option><option>Голосова нотатка</option><option>Гіпотеза</option><option>Спостереження</option><option>Суперечність</option><option>Посилання</option><option>Файл</option><option>Симптом</option></select></label>
-								<details><summary>Походження та історія</summary><p id="itemInspectorProvenance"></p></details>
-								<button class="btn-primary" id="saveItemInspection" type="submit">Зберегти</button>
-							</form>
-						</section>
-					</section>
+        <div class="workbench-layout">
+          <section class="workbench-canvas" aria-live="polite">
+            <section class="workspace-view is-active" data-workspace-view="situation" aria-labelledby="situationTitle">
+              <article class="situation-paper">
+                <header class="paper-heading">
+                  <div><p class="eyebrow">Поточна ситуація</p><h2 id="situationTitle">Що зараз відомо</h2></div>
+                  <button class="secondary-button" id="editSituation" type="button">Уточнити</button>
+                </header>
+                <p class="situation-lead" id="situationSummary">За останні два місяці чистий прибуток знизився на 18%, хоча виручка зросла на 3%. Витрати зросли швидше за виручку. Причина зміни поки не встановлена.</p>
+                <div class="metric-row" aria-label="Ключові показники">
+                  <article><span>Чистий прибуток</span><strong class="negative">−18%</strong><small>за два місяці</small></article>
+                  <article><span>Виручка</span><strong>+3%</strong><small>за два місяці</small></article>
+                  <article><span>Витрати</span><strong class="warning">+22%</strong><small>за два місяці</small></article>
+                  <article><span>Грошовий потік</span><strong class="negative">−11%</strong><small>за два місяці</small></article>
+                </div>
+                <details class="revision-history"><summary>Історія уточнень <span id="revisionCount">1 версія</span></summary><ol id="revisionList"></ol></details>
+              </article>
 
-					<section class="matter-natural-capture" aria-labelledby="matterCaptureTitle">
-						<div class="section-heading">
-							<div><span>Операційний Inbox</span><h2 id="matterCaptureTitle">Запис</h2></div>
-							<button class="inbox-watson-trigger" id="inboxWatsonTrigger" type="button" aria-controls="watsonExpanded"><span aria-hidden="true">W</span> Запитати Watson</button>
-						</div>
-						<form id="matterCaptureForm">
-							<label class="sr-only" id="matterCapturePrompt" for="matterCaptureInput">Додайте думку, спостереження або матеріал</label>
-							<textarea id="matterCaptureInput" rows="4" placeholder="Напишіть усе, що знаєте…"></textarea>
-							<div class="capture-tools">
-								<label class="attachment-control" for="matterCaptureFiles">＋ Матеріал</label>
-								<input id="matterCaptureFiles" type="file" multiple>
-								<button class="text-button" id="voiceNoteButton" type="button">🎙 Голос</button>
-								<button class="text-button" id="structuredEntryButton" type="button">↗ Посилання</button>
-								<button class="text-button watson-request" type="button" data-watson-request="review">Переглянути</button>
-								<button class="text-button watson-request" type="button" data-watson-request="contradiction">Знайти суперечність</button>
-							</div>
-							<div class="investigation-intake__footer">
-								<button class="btn-primary" type="submit">Зберегти</button>
-							</div>
-						</form>
-						<div class="capture-review hidden" id="matterCaptureReview" aria-live="polite">
-							<div><span>Ваше оригінальне формулювання</span><blockquote id="captureOriginal"></blockquote><small>Збережено без інтерпретації.</small></div>
-							<section class="semantic-review" aria-labelledby="semanticReviewTitle">
-								<button class="semantic-review-toggle" id="semanticReviewToggle" type="button" aria-expanded="false"><span><small>Watson організував внесок</small><strong id="semanticReviewTitle">Знайдено 4 значення</strong></span><span>Переглянути</span></button>
-								<div class="semantic-review-body hidden" id="semanticReviewBody">
-									<header><small>Знайдені елементи</small><button class="text-button" id="closeSemanticReview" type="button">Готово</button></header>
-									<div class="semantic-items" id="semanticItems"></div>
-									<div class="semantic-actions">
-										<button class="text-button" id="splitSemanticItem" type="button">Розділити</button>
-										<button class="text-button" id="mergeSemanticItems" type="button">Об’єднати</button>
-										<button class="text-button" id="deleteSemanticItems" type="button">Видалити</button>
-										<button class="text-button" id="attachSemanticEvidence" type="button">Додати до симптому</button>
-									</div>
-									<div class="relationship-proposal" id="relationshipProposal">
-										<span>Запропонований зв’язок</span>
-										<strong>Зростання витрат ⇢ падіння прибутку</strong>
-										<button class="text-button" id="acceptRelationship" type="button">Прийняти</button>
-										<button class="text-button" id="rejectRelationship" type="button">Відхилити</button>
-									</div>
-								</div>
-							</section>
-						</div>
-					</section>
+              <div class="situation-grid">
+                <section class="knowledge-section" aria-labelledby="knownTitle">
+                  <header><span class="semantic-icon semantic-icon--known">✓</span><div><p class="eyebrow">Підтверджене матеріалами</p><h2 id="knownTitle">Що ми знаємо</h2></div></header>
+                  <div class="compact-list" id="knownList"></div>
+                </section>
+                <section class="knowledge-section" aria-labelledby="unknownTitle">
+                  <header><span class="semantic-icon semantic-icon--unknown">?</span><div><p class="eyebrow">Потребує перевірки</p><h2 id="unknownTitle">Чого ми не знаємо</h2></div></header>
+                  <div class="compact-list" id="unknownList"></div>
+                  <form class="inline-add" id="unknownForm"><label class="sr-only" for="unknownInput">Нове невідоме питання</label><input id="unknownInput" placeholder="Додати питання…" required><button type="submit" aria-label="Додати питання">＋</button></form>
+                </section>
+              </div>
 
-					<details class="board-inspection" id="boardInspection">
-						<summary>
-							<span><small>Прямий доступ</small><strong>Переглянути деталі та спеціальні інструменти</strong></span>
-							<small>Для досвідчених користувачів</small>
-						</summary>
-						<div class="board-inspection__content">
-					<section class="reasoning-milestone hidden" id="reasoningMilestone" aria-labelledby="reasoningMilestoneTitle">
-						<div class="section-heading"><div><span>Зміна міркування · RM-001</span><h2 id="reasoningMilestoneTitle">Новий внесок уточнив часову межу</h2></div><span class="owner-review-chip">Схвалено власником · у пам’яті сторінки</span></div>
-						<div class="reasoning-change-grid">
-							<article><span>Попереднє розуміння</span><p>Період можливої зміни не визначено.</p></article>
-							<article><span>Новий внесок</span><p id="milestoneContribution"></p></article>
-							<article><span>Результуюча зміна</span><p>18 квітня стає кандидатом часової межі, а не підтвердженою точкою перелому.</p></article>
-							<article><span>Зачеплені гіпотези</span><p>Гіпотеза розриву передачі посилює пріоритет перевірки; її істинність не встановлено.</p></article>
-							<article><span>Залишкова невизначеність</span><p>Потрібні CRM-когорти, SLA-журнал і незалежна перевірка послідовності.</p></article>
-						</div>
-					</section>
+              <section class="attention-section" aria-labelledby="attentionTitle">
+                <header class="section-heading"><div><p class="eyebrow">Потребує уваги</p><h2 id="attentionTitle">Суперечності й прогалини</h2></div><span class="count-chip" id="attentionCount"></span></header>
+                <div class="attention-grid" id="attentionGrid"></div>
+              </section>
+            </section>
 
-					<details class="operational-timeline" open>
-						<summary><div><span>Операційна хронологія</span><h2>Де система почала поводитися інакше?</h2></div><small>Події ≠ причинність</small></summary>
-						<div class="timeline-track">
-							<article class="timeline-event"><time>01 квітня</time><span>Звичайна подія</span><strong>Оновлено квартальний план продажів</strong><p>Контекст, але немає підтвердженої зміни поведінки.</p></article>
-							<article class="timeline-event"><time>12 квітня</time><span>Звичайна подія</span><strong>Змінено розподіл enterprise-лідів</strong><p>Релевантна подія перед зміною; сама послідовність не доводить причину.</p></article>
-							<article class="timeline-event timeline-inflection is-candidate" id="primaryInflectionPoint"><time>18 квітня</time><span id="inflectionStatus">Кандидат · підготував AI</span><strong>Час першої відповіді перейшов із 3,8 до 11,2 години</strong><p>Після цієї межі enterprise-поновлення почали стійко знижуватися.</p><div class="inflection-meta"><b>Основний доказ:</b> CRM-когорти й SLA-журнал · <b>Підтримує:</b> гіпотезу розриву передачі · <b>Відхилено:</b> загальну сезонність · <b>Впевненість:</b> середня · <b>Невизначеність:</b> внесок зміни ціни</div></article>
-							<article class="timeline-event"><time>02 травня</time><span>Звичайна подія</span><strong>Перші повторні скарги клієнтів</strong><p>Підтримувальна подія після встановленої межі.</p></article>
-						</div>
-					</details>
+            <section class="workspace-view" data-workspace-view="evidence" aria-labelledby="evidenceTitle">
+              <header class="section-heading sticky-heading">
+                <div><p class="eyebrow">Матеріали розслідування</p><h2 id="evidenceTitle">Докази та джерела</h2><p>Матеріал стає доказом лише після перевірки. Додавання до робочого набору не змінює його статус.</p></div>
+                <button class="primary-button" id="addMaterial" type="button">Додати матеріал</button>
+              </header>
+              <div class="filter-bar" role="group" aria-label="Фільтр матеріалів">
+                <button class="is-active" type="button" data-evidence-filter="all">Усі</button>
+                <button type="button" data-evidence-filter="verified">Перевірені</button>
+                <button type="button" data-evidence-filter="unverified">Потребують перевірки</button>
+                <button type="button" data-evidence-filter="contradiction">Суперечливі</button>
+              </div>
+              <div class="evidence-list" id="evidenceList"></div>
+            </section>
 
-					<nav class="case-stage-nav" aria-label="Розділи операційної картини">
-						<button class="case-stage is-active" type="button" data-view="understanding">Розуміння</button>
-						<button class="case-stage" type="button" data-view="evidence">Підстави</button>
-						<button class="case-stage" type="button" data-view="decision">Наступне судження</button>
-						<button class="case-stage" type="button" data-view="outcome">Результат і навчання</button>
-					</nav>
+            <section class="workspace-view" data-workspace-view="reasoning" aria-labelledby="reasoningTitle">
+              <header class="section-heading sticky-heading">
+                <div><p class="eyebrow">Робоче пояснення</p><h2 id="reasoningTitle">Гіпотези та зв’язки</h2><p>Гіпотези залишаються попередніми версіями, навіть коли мають підтримувальні матеріали.</p></div>
+                <button class="primary-button" id="addHypothesis" type="button">Додати гіпотезу</button>
+              </header>
+              <div class="hypothesis-list" id="hypothesisList"></div>
+              <section class="relationship-section" aria-labelledby="relationshipTitle">
+                <header class="section-heading"><div><p class="eyebrow">Простежуваність</p><h2 id="relationshipTitle">Як пов’язані матеріали</h2></div><span class="state-label">Лише читання</span></header>
+                <div id="relationshipList" class="relationship-list"></div>
+              </section>
+              <aside class="judgment-boundary">
+                <span aria-hidden="true">◆</span><div><strong>Рішення залишається за людиною</strong><p>Management OS допомагає організувати матеріали й перевірити робочі версії, але не встановлює причину та не приймає рішення.</p></div><button type="button" disabled title="Потребує окремого дозволу">Зафіксувати рішення</button>
+              </aside>
+            </section>
 
-					<div class="case-layout">
-						<div class="case-main">
-							<section class="case-view is-active" data-case-view="understanding">
-								<div class="orientation-grid">
-									<article><span>Відомо</span><strong>Зафіксовано повідомлений симптом</strong><p>Початкове формулювання власника збережено без інтерпретації.</p></article>
-									<article><span>Потрібно з’ясувати</span><strong>Масштаб, період і базову лінію</strong><p>Даних ще недостатньо, щоб підтвердити відхилення.</p></article>
-									<article><span>Припущення</span><strong>Причина ще не визначена</strong><p>Жодна гіпотеза не прийнята як факт.</p></article>
-									<article><span>Наступне судження</span><strong>Які дані дадуть базове порівняння?</strong><p>Власник вирішує, які джерела дозволено використати.</p></article>
-								</div>
+            <section class="workspace-view" data-workspace-view="timeline" aria-labelledby="timelineTitle">
+              <header class="section-heading sticky-heading"><div><p class="eyebrow">Часовий контекст</p><h2 id="timelineTitle">Хронологія спостережень</h2><p>Події впорядковано лише настільки, наскільки це підтримують матеріали. Час події та час запису показано окремо.</p></div><span class="state-label">Лише читання · частково</span></header>
+              <ol class="timeline-list" id="timelineList"></ol>
+              <div class="unavailable-note"><strong>Редагування хронології недоступне</strong><p>Interaction contract для зміни порядку й невизначеного часу ще не завершений. Тут показано лише підтверджений read-only subset.</p></div>
+            </section>
+          </section>
 
-								<section class="hypothesis-board hidden" id="hypothesisSection">
-									<div class="section-heading"><div><span>Операційне розуміння</span><h2>Пояснення ще відкриті</h2></div><span class="uncertainty-chip">Висока невизначеність</span></div>
-									<p>Спочатку підтвердьте, що зміна існує. Потім порівняйте можливі пояснення, не перетворюючи кореляцію на причину.</p>
-									<div class="hypothesis-list hidden" id="hypothesisList">
-										<article><span>Підтримується</span><strong>Зниження сконцентроване в enterprise-поновленнях</strong><p>CRM-зріз і когортний аналіз узгоджуються. Причина ще не підтверджена.</p></article>
-										<article><span>Відхилено</span><strong>Загальний сезонний спад</strong><p>P&amp;L показує, що зміна перевищує сезонний діапазон.</p></article>
-										<article><span>Потребує перевірки</span><strong>Затримки передачі лідів погіршили поновлення</strong><p>Структурні дані вказують на розрив відповідальності, але фактичну взаємодію ще потрібно підтвердити.</p></article>
-									</div>
-									<button class="btn-primary hidden" id="validateCauseButton" type="button">Перевірити причинне пояснення</button>
-								</section>
-							</section>
+          <aside class="context-panel" aria-label="Контекст і перевірка">
+            <section class="working-set-panel" aria-labelledby="workingSetTitle">
+              <header><div><p class="eyebrow">Тимчасовий контекст</p><h2 id="workingSetTitle">Робочий набір</h2></div><span id="workingSetCount">0</span></header>
+              <p>Зберіть тут матеріали, важливі для поточної лінії перевірки.</p>
+              <div id="workingSetList" class="working-set-list"></div>
+              <div class="empty-state" id="workingSetEmpty"><strong>Набір порожній</strong><span>Додайте матеріал із розділу «Матеріали».</span></div>
+            </section>
 
-							<section class="case-view" data-case-view="evidence" id="evidence">
-								<div class="section-heading"><div><span>Дошка доказів</span><h2>Матеріали розслідування</h2></div><button class="btn-secondary" type="button" id="requestEvidenceButton">Запросити доказ</button></div>
-								<p class="section-intro">Категорії допомагають шукати матеріал. Вони не визначають його достовірність чи вагу.</p>
-								<div class="evidence-filters" role="group" aria-label="Категорії доказів">
-									<button class="evidence-filter is-active" type="button" data-evidence-filter="all">Усі</button>
-									<button class="evidence-filter" type="button" data-evidence-filter="financial">Фінансові</button>
-									<button class="evidence-filter" type="button" data-evidence-filter="operational">Операційні</button>
-									<button class="evidence-filter" type="button" data-evidence-filter="human">Людські</button>
-									<button class="evidence-filter" type="button" data-evidence-filter="structural">Структурні</button>
-									<button class="evidence-filter" type="button" data-evidence-filter="historical">Історичні</button>
-									<button class="evidence-filter" type="button" data-evidence-filter="system">Системні</button>
-								</div>
-								<div class="evidence-board" id="evidenceBoard">
-									<article class="evidence-card" data-evidence-category="financial"><span class="evidence-card__state">Запитано</span><h3>P&amp;L за 12 місяців</h3><p>Фінансові · Джерело</p><small>Потрібно для перевірки тренду та сезонності.</small><span class="influence-role">Вплив: встановити симптом</span></article>
-									<article class="evidence-card" data-evidence-category="operational system"><span class="evidence-card__state evidence-card__state--missing">Відсутнє</span><h3>CRM-зріз за сегментами</h3><p>Операційні · Системні</p><small>Потрібно визначити, де саме виникла зміна.</small><span class="influence-role influence-role--pending">Вплив ще не визначено</span></article>
-									<article class="evidence-card" data-evidence-category="structural"><span class="evidence-card__state evidence-card__state--review">Потребує порівняння</span><h3>Організаційна структура продажів</h3><p>Структурні · Джерело</p><small>Формальна схема не доводить фактичні повноваження та взаємодію.</small><span class="influence-role">Вплив: фоновий контекст</span></article>
-									<article class="evidence-card" data-evidence-category="human"><span class="evidence-card__state">Запропоновано</span><h3>Інтерв’ю з керівниками сегментів</h3><p>Людські · Свідчення</p><small>Потрібно зіставити твердження з операційними даними.</small><span class="influence-role influence-role--pending">Вплив ще не визначено</span></article>
-									<article class="evidence-card" data-evidence-category="historical"><span class="evidence-card__state evidence-card__state--context">Контекст</span><h3>INV-0182 · Падіння поновлень</h3><p>Історичні · Попередній кейс</p><small>Схожий сегмент, але інший ринок і зміна ціни. Причина не переноситься.</small><span class="influence-role">Вплив: відкрив шлях перевірки</span></article>
-								</div>
-								<div class="flow-action"><p id="evidenceFlowStatus">AI підготував мінімальний набір доказів. Власник має схвалити запит.</p><button class="btn-primary" id="collectEvidenceButton" type="button">Схвалити й отримати демонстраційні докази</button></div>
-							</section>
+            <section class="inspector-panel" id="inspectorPanel" aria-labelledby="inspectorTitle">
+              <header><div><p class="eyebrow">Інспектор</p><h2 id="inspectorTitle">Нічого не вибрано</h2></div><button class="icon-button" id="closeInspector" type="button" aria-label="Закрити інспектор">×</button></header>
+              <div class="inspector-empty" id="inspectorEmpty"><span aria-hidden="true">⌁</span><p>Виберіть матеріал, питання, суперечність або гіпотезу, щоб перевірити деталі без втрати контексту.</p></div>
+              <div class="inspector-content hidden" id="inspectorContent"></div>
+            </section>
 
-							<section class="case-view" data-case-view="decision">
-								<div class="section-heading"><div><span>Готовність до рішення</span><h2 id="decisionReadinessTitle">Ще не готове до прийняття</h2></div><span class="uncertainty-chip" id="readinessChip">Бракує базових доказів</span></div>
-								<div class="readiness-summary hidden" id="readinessSummary">
-									<article><span>Відомо</span><p>Спад триває три місяці та зосереджений у enterprise-поновленнях.</p></article><article><span>Невідомо</span><p>Повний вплив зміни ціни на окремі когорти.</p></article><article><span>Залишкова невизначеність</span><p>Фактичний внесок розриву відповідальності ще обмежено перевірений.</p></article><article><span>Основний доказ</span><p>CRM-зріз за сегментами й когортами.</p></article><article><span>Підтримувальні</span><p>P&amp;L, SLA передачі лідів та інтерв’ю.</p></article><article><span>Відхилена гіпотеза</span><p>Загальний сезонний спад.</p></article><article><span>Відкрите питання</span><p>Який захисний показник найраніше виявить небажаний ефект?</p></article>
-								</div>
-								<div class="decision-readiness">
-									<p><strong>Потрібне ваше судження:</strong> чи достатньо підстав, яку дію обрати та який ризик прийняти.</p>
-									<button class="btn-secondary" id="openSimulationButton" type="button">Відкрити Лабораторію рішень</button>
-									<button class="btn-primary hidden" id="approveDecisionButton" type="button">Підтвердити пілот і прийняти невизначеність</button>
-								</div>
-								<section class="execution-plan hidden" id="executionPlan">
-									<div class="section-heading"><div><span>Підготовлено AI · схвалює власник</span><h2>План виконання</h2></div><span class="owner-review-chip">Не схвалено</span></div>
-									<div class="execution-grid"><article><span>Дія</span><strong>Пілот передачі enterprise-лідів</strong><p>Одна команда, 30 днів.</p></article><article><span>Критерій</span><strong>Час відповіді ≤ 4 години</strong><p>Без погіршення інших сегментів.</p></article><article><span>Власник</span><strong>Керівник продажів</strong><p>Щотижневий огляд.</p></article></div>
-									<button class="btn-primary" id="approvePlanButton" type="button">Схвалити план і запланувати перевірку</button>
-								</section>
-								<section class="scenario-branch hidden" id="scenarioBranch">
-									<div class="section-heading"><div><span class="environment-badge environment-badge--laboratory">Лабораторія рішень · неавторитетна гілка</span><h3>Експериментальна гілка A · MAT-0247 v1</h3></div><button class="text-button" id="closeSimulationButton" type="button">Повернутися до операційної справи</button></div>
-									<p><strong>Умова:</strong> якщо спад підтвердиться лише в enterprise-сегменті та потужність команди не зміниться.</p>
-									<p><strong>Модельований наслідок:</strong> можливе подальше навантаження на поновлення. Це не прогноз і не спостережений результат.</p>
-									<p><strong>Перевірити:</strong> другорядний вплив на підтримку, час відповіді та утримання інших сегментів.</p>
-								</section>
-							</section>
+            <section class="capability-boundary">
+              <p class="eyebrow">Межі цього прототипу</p>
+              <ul><li><span>Зовнішні інтеграції</span><b>Недоступні</b></li><li><span>AI-аналіз</span><b>Потребує окремого дозволу</b></li><li><span>Розгортання</span><b>Не авторизовано</b></li></ul>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </main>
+  </div>
 
-							<section class="case-view" data-case-view="outcome">
-								<div class="empty-outcome" id="followUpPanel"><span>Перевірка результату</span><h2 id="followUpTitle">Результат ще не спостерігався</h2><p id="followUpDescription">Активність не дорівнює успіху. Порівняйте очікуваний і спостережений ефект.</p><button class="btn-primary hidden" id="recordOutcomeButton" type="button">Зафіксувати демонстраційний результат</button></div>
-								<section class="decision-evidence-summary" aria-labelledby="evidenceSummaryTitle">
-									<div class="section-heading"><div><span>Прототип завершення</span><h2 id="evidenceSummaryTitle">Підсумок доказів рішення</h2></div><span class="owner-review-chip">Потребує перевірки власника</span></div>
-									<p>Якісне пояснення внеску — без балів, відсотків або рейтингу документів.</p>
-									<div class="summary-groups">
-										<article><span>Основний доказ</span><strong>CRM-зріз за сегментами</strong><p>Матеріально встановив би масштаб відхилення та готовність рішення.</p></article>
-										<article><span>Вагомі підтримувальні</span><strong>P&amp;L і когортний аналіз</strong><p>Сформували б базову лінію та перевірили сезонність.</p></article>
-										<article><span>Підтримувальні</span><strong>Інтерв’ю з керівниками</strong><p>Уточнили б контекст, але не визначали б рішення самостійно.</p></article>
-										<article><span>Фоновий контекст</span><strong>Організаційна структура</strong><p>Описує формальні зв’язки; фактичну взаємодію ще потрібно перевірити.</p></article>
-									</div>
-									<div class="summary-warning"><strong>Невирішено:</strong> відсутній CRM-зріз, а формальна структура ще не зіставлена з реальною взаємодією. Підсумок не готовий до схвалення.</div>
-								</section>
-								<section class="inflection-summary" aria-labelledby="inflectionSummaryTitle">
-									<div class="section-heading"><div><span>Підсумок розслідування</span><h2 id="inflectionSummaryTitle">Точки операційного перелому</h2></div><span class="owner-review-chip" id="inflectionSummaryStatus">Потребує прийняття власником</span></div>
-									<article><time>18 квітня</time><h3>Час першої відповіді зріс із 3,8 до 11,2 години</h3><p><strong>Докази:</strong> CRM-когорти, SLA-журнал, інтерв’ю команди. <strong>Гіпотеза:</strong> розрив передачі enterprise-лідів. <strong>Впевненість:</strong> середня. <strong>Невирішено:</strong> внесок зміни ціни.</p><p class="causality-note">Поведінка змінилася після цієї межі; це не доводить, що попередня подія була причиною.</p></article>
-								</section>
-								<section class="knowledge-capture hidden" id="knowledgeCapture" aria-labelledby="knowledgeCaptureTitle">
-									<div class="section-heading"><div><span>Кандидат знання</span><h2 id="knowledgeCaptureTitle">Зберегти операційне навчання</h2></div><span class="owner-review-chip">Не збережено</span></div>
-									<p>Кандидат посилається на справу, розслідування, рішення, результат і обмеження. Закриття справи не залежить від окремого перегляду знання.</p>
-									<label>Урок<textarea id="knowledgeLesson" rows="3">Чітка відповідальність за передачу enterprise-лідів скоротила час відповіді та покращила поновлення в межах пілоту.</textarea></label>
-									<label>Підтверджена межа зміни<textarea rows="2">18 квітня: час першої відповіді зріс із 3,8 до 11,2 години; причинне пояснення залишається обмеженим цим розслідуванням.</textarea></label>
-									<label>Обмеження<textarea rows="2">Перевірено в одній команді протягом 30 днів; не переносити автоматично на інші сегменти.</textarea></label>
-									<button class="btn-primary" id="captureKnowledgeButton" type="button">Підготувати кандидат на перегляд</button>
-									<p class="knowledge-captured hidden" id="knowledgeCaptured">Кандидат підготовлено в межах цієї сесії. Він не є схваленим знанням і не змінює стан операційної справи.</p>
-								</section>
-							</section>
-						</div>
+  <dialog id="materialDialog"><form method="dialog" id="materialForm" class="dialog-form"><header><div><p class="eyebrow">Локальний матеріал</p><h2>Додати до розслідування</h2></div><button value="cancel" aria-label="Закрити">×</button></header><label>Назва<input id="materialTitle" required></label><label>Тип<select id="materialType"><option>Звіт</option><option>Нотатка</option><option>Спостереження</option><option>Розмова</option><option>Посилання</option></select></label><label>Джерело<input id="materialSource" placeholder="Наприклад: фінансовий відділ" required></label><label>Короткий зміст<textarea id="materialSummary" rows="4" required></textarea></label><p class="form-boundary">Матеріал буде позначено як неперевірений. Це локальний приклад, а не запис із зовнішньої системи.</p><footer><button value="cancel" class="secondary-button">Скасувати</button><button value="default" class="primary-button" id="saveMaterial">Додати матеріал</button></footer></form></dialog>
 
-					</div>
-						</div>
-					</details>
-						</div>
+  <dialog id="hypothesisDialog"><form method="dialog" id="hypothesisForm" class="dialog-form"><header><div><p class="eyebrow">Попередня версія</p><h2>Додати гіпотезу</h2></div><button value="cancel" aria-label="Закрити">×</button></header><label>Формулювання<textarea id="hypothesisText" rows="3" required></textarea></label><label>Матеріал, що підтримує версію<select id="hypothesisEvidence"></select></label><p class="form-boundary">Гіпотеза не стане фактом. Її статус залишиться попереднім до окремого людського судження.</p><footer><button value="cancel" class="secondary-button">Скасувати</button><button value="default" class="primary-button" id="saveHypothesis">Додати гіпотезу</button></footer></form></dialog>
 
-						<aside class="watson-surface is-compact" id="watsonSurface" aria-labelledby="guidedInvestigationTitle" aria-label="Watson у робочому столі">
-							<button class="watson-surface__identity" id="watsonToggle" type="button" aria-expanded="false"><span class="ai-avatar" aria-hidden="true">W</span><span><span>Watson</span><strong id="watsonStatus">Одна думка</strong></span><b aria-hidden="true">●</b></button>
-							<div class="watson-expanded hidden" id="watsonExpanded">
-							<section class="guided-investigation" id="guidedInvestigation">
-								<div class="guided-investigation__status">
-									<span id="guidedCondition">Почнімо з відомого</span>
-									<small>Одна дія зараз</small>
-								</div>
-								<div class="guided-investigation__content">
-									<p class="watson-understanding"><span>Що я зараз розумію</span><strong id="guidedInvestigationReason">Ви повідомили про різке падіння прибутку за останні два місяці. Поки це не перевірено за джерелами.</strong></p>
-									<div class="watson-next"><span>Що пропоную далі</span><h2 id="guidedInvestigationTitle">Коли ви вперше помітили падіння і що вже про нього знаєте?</h2></div>
-									<div class="guided-investigation__basis">
-										<div><span>Чому це корисно</span><strong id="guidedInvestigationNeed">Це допоможе відокремити те, що вже відомо, від того, що потрібно перевірити.</strong></div>
-									</div>
-								</div>
-								<div class="guided-investigation__actions">
-									<button class="btn-primary" id="guidedActionButton" type="button">Додати те, що знаю</button>
-									<button class="btn-secondary hidden" id="redirectGuidanceButton" type="button">Змінити напрям</button>
-									<button class="text-button" id="deferGuidanceButton" type="button">Відкласти</button>
-									<button class="text-button hidden" id="rejectGuidanceButton" type="button">Відхилити</button>
-								</div>
-							</section>
-							<section class="watson-contribution-review hidden" id="watsonContributionReview" aria-live="polite">
-								<span>Watson</span>
-								<h2>Ось що я зрозумів</h2>
-								<p id="watsonUnderstandingSummary">Падіння почалося приблизно два місяці тому і, можливо, стосується B2B-напряму. Поки не зрозуміло, змінився дохід, маржа чи обидва показники.</p>
-								<p><strong>Я правильно вас зрозумів?</strong></p>
-								<div class="capture-review__actions">
-									<button class="btn-primary" id="approveMatterContribution" type="button">Так</button>
-									<button class="btn-secondary" id="rejectMatterContribution" type="button">Ні</button>
-									<button class="text-button" id="discardMatterContribution" type="button">Виправити</button>
-									<button class="text-button" id="addMatterDetail" type="button">Додати деталь</button>
-									<button class="text-button" id="laterMatterContribution" type="button">Пізніше</button>
-								</div>
-							</section>
-							<details class="watson-context" aria-labelledby="aiPartnerTitle">
-								<summary><span>Підстави рекомендації</span><strong id="aiPartnerTitle">Перевірити контекст Watson</strong></summary>
-								<div class="watson-context__content">
-									<div class="ai-observation"><span>Чого бракує</span><p>Періоду порівняння, визначення показника продажів і сегментованого CRM-зрізу.</p></div>
-									<div class="ai-observation"><span>Суперечність</span><p>Немає даних, що відрізняють загальний спад від зміни в одному сегменті.</p></div>
-									<div class="discipline-checks"><span>Захист якості</span><ul><li>Бракує базового зрізу</li><li>Гіпотези ще не готові до підтвердження</li><li>Суперечності залишаються видимими</li></ul></div>
-								</div>
-							</details>
-							</div>
-						</aside>
-					</div>
-				</section>
+  <dialog id="situationDialog"><form method="dialog" id="situationForm" class="dialog-form"><header><div><p class="eyebrow">Нова версія</p><h2>Уточнити поточну ситуацію</h2></div><button value="cancel" aria-label="Закрити">×</button></header><label>Опис ситуації<textarea id="situationInput" rows="6" required></textarea></label><p class="form-boundary">Попередня версія залишиться в історії. Не додавайте причинного висновку без матеріалів.</p><footer><button value="cancel" class="secondary-button">Скасувати</button><button value="default" class="primary-button" id="saveSituation">Зберегти нову версію</button></footer></form></dialog>
 
-			</main>
-		</div>
-
-		<p class="sr-only" id="prototypeAnnouncement" aria-live="polite" aria-atomic="true"></p>
-		<script src="js/sidebar.js"></script>
-		<script src="js/authority-policy.js"></script>
-		<script src="js/storage-migrations.js"></script>
-		<script src="js/artifact-model.js"></script>
-		<script src="js/relationship-model.js"></script>
-		<script src="js/operational-memory-model.js"></script>
-		<script src="js/natural-capture.js"></script>
-	</body>
-
+  <p class="sr-only" id="appAnnouncement" aria-live="polite" aria-atomic="true"></p>
+  <script src="js/investigation-workbench.js"></script>
+</body>
 </html>
