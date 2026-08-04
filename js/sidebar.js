@@ -6,7 +6,8 @@ const Layout = (() => {
 				["Головна", "index.html"],
 				["Порядок денний", "index.html#agenda"],
 				["Операційні справи", "index.html#investigations"],
-				["Знання", "knowledge-base.html"]
+				["Знання", "knowledge-base.html"],
+				["Historical Reader", "historical-reader.html"]
 			]
 		},
 		work: {
@@ -15,7 +16,8 @@ const Layout = (() => {
 				["Головна", "index.html"],
 				["Порядок денний", "index.html#agenda"],
 				["Операційні справи", "index.html#investigations"],
-				["Знання", "knowledge-base.html"]
+				["Знання", "knowledge-base.html"],
+				["Historical Reader", "historical-reader.html"]
 			]
 		}
 	};
@@ -23,7 +25,8 @@ const Layout = (() => {
 		"Головна": '<path d="M4 11.5 12 4l8 7.5"/><path d="M6.5 10.5V20h11v-9.5"/><path d="M10 20v-5h4v5"/>',
 		"Порядок денний": '<circle cx="12" cy="12" r="8"/><path d="M12 7v5l3.5 2"/>',
 		"Операційні справи": '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 1.5v3M22.5 12h-3M12 22.5v-3M1.5 12h3"/>',
-		"Знання": '<path d="M5 4.5h10a4 4 0 0 1 4 4V20H8a3 3 0 0 1-3-3Z"/><path d="M8 4.5V20M11 8h5M11 12h5"/>'
+		"Знання": '<path d="M5 4.5h10a4 4 0 0 1 4 4V20H8a3 3 0 0 1-3-3Z"/><path d="M8 4.5V20M11 8h5M11 12h5"/>',
+		"Historical Reader": '<path d="M6 3.5h12v17H6z"/><path d="M9 8h6M9 12h6M9 16h4"/>'
 	};
 	const svgNamespace = "http://www.w3.org/2000/svg";
 
