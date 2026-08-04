@@ -1,7 +1,7 @@
 # Architecture Backlog
 
-This file owns the single active bounded Historical Walkthrough Reader Engineering
-Architecture preparation task for the current stage. Exactly one task is active.
+This file owns the single active bounded Historical Walkthrough Reader
+Implementation Preparation task for the current stage. Exactly one task is active.
 
 ## Current Phase
 
@@ -23,21 +23,23 @@ M9.1 — Empirical Learning Preparation — Active
 
 **Stage purpose:** Conduct bounded empirical learning for selected hypothesis H3
 — Experience Amplification. The Knight Capital historical walkthrough is complete;
-the selected Historical Walkthrough Reader Product Realization foundation is
-prepared and reviewed. Current work prepares bounded Engineering Architecture
-without authorizing UI development, implementation, Replay, or H3 validation.
+the selected Historical Walkthrough Reader Product Realization foundation,
+Interaction Architecture handoff, and Engineering Architecture preparation are
+prepared and reviewed. Current work prepares bounded Implementation Preparation
+without authorizing implementation execution, UI, code, tests, Replay, or H3 validation.
 
 ## Current Task
 
 ```text
-Prepare Historical Walkthrough Reader bounded Engineering Architecture.
+Prepare Historical Walkthrough Reader bounded Implementation Preparation.
 ```
 
-This is the sole active backlog item. Bounded Engineering Architecture preparation
-is authorized within the fixed and reviewed Historical Walkthrough Reader Product
-Realization foundation and has not started. Repository execution state is `READY
-TO BEGIN`. The item does not authorize UI development, implementation, coding,
-testing, deployment, delivery, Replay, H3 validation, Root Cause, or causal proof.
+This is the sole active backlog item. Bounded Implementation Preparation is
+authorized within the fixed and reviewed Product Realization, Interaction
+Architecture, and Engineering Architecture inputs and has not started. Repository
+execution state is `READY TO BEGIN`. The item does not authorize implementation
+execution, UI development, coding, testing, deployment, delivery, Replay, H3
+validation, Root Cause, or causal proof.
 
 ## Authority and Dependencies
 
@@ -91,6 +93,20 @@ testing, deployment, delivery, Replay, H3 validation, Root Cause, or causal proo
   blob `cccec03d1766095abcdfb73a665d259a22ffae90`, disposition
   `A — Authorize bounded Engineering Architecture preparation`.
 - [Historical Walkthrough Reader Engineering Architecture Preparation Transition](../governance/orders/M9_HISTORICAL_WALKTHROUGH_READER_ENGINEERING_ARCHITECTURE_PREPARATION_TRANSITION.md).
+- [Historical Walkthrough Reader Interaction Architecture Handoff](../governance/proposals/M9_HISTORICAL_WALKTHROUGH_READER_INTERACTION_ARCHITECTURE_HANDOFF.md),
+  fixed commit `2eb7d579d97311768d8cf3db14ca9439d33e066d`, blob
+  `7cc026792dee6ffb592f04aac73e064c941c7a9b`.
+- [Historical Walkthrough Reader Engineering Architecture Preparation](../governance/proposals/M9_HISTORICAL_WALKTHROUGH_READER_ENGINEERING_ARCHITECTURE_PREPARATION.md),
+  fixed commit `b0035ae46c655af9f5aafb8b41429d048f608a85`, blob
+  `7480898dffea78cce8eb9d7d82122a00a60cb41b`.
+- [Engineering Architecture Preparation Critical Review](../governance/reviews/M9_HISTORICAL_WALKTHROUGH_READER_ENGINEERING_ARCHITECTURE_PREPARATION_CRITICAL_REVIEW.md),
+  fixed commit `166129d938ad5ea54c2a3687e4b2e962d102dc77`, blob
+  `80b4f05890a5c531a6ab1668b4636670d468defa`.
+- [Implementation Authority Consideration Package](../governance/proposals/M9_HISTORICAL_WALKTHROUGH_READER_IMPLEMENTATION_AUTHORITY_CONSIDERATION_PACKAGE.md),
+  fixed Decision commit `4e6370dbafc889b92b6f7aea3a83835b83f24135`,
+  blob `5b95dc483ad04473d1b631423b42ac708dc484d7`, disposition
+  `A — Authorize bounded implementation preparation`.
+- [Historical Walkthrough Reader Implementation Preparation Transition](../governance/orders/M9_HISTORICAL_WALKTHROUGH_READER_IMPLEMENTATION_PREPARATION_TRANSITION.md).
 - [M9 Empirical Product Value Learning Proposal](../governance/proposals/M9_EMPIRICAL_PRODUCT_VALUE_LEARNING_PROPOSAL.md),
   fixed reviewed blob `78740c6665c6d5457059cee92181615253a113f4`.
 - [M9 Proposal Critical Review](../governance/reviews/M9%20-%20Empirical%20Product%20Value%20Learning%20Proposal%20Critical%20Review.md),
@@ -105,25 +121,26 @@ testing, deployment, delivery, Replay, H3 validation, Root Cause, or causal proo
 
 ## Expected Output
 
-A bounded, reviewable Engineering Architecture that translates the fixed Product
-Realization foundation into coherent technical interaction responsibilities,
-boundaries, dependencies, state ownership, and traceability constraints without
-creating UI, code, implementation tasks, tests, deployment, or delivery.
+A bounded, reviewable Implementation Preparation package that translates the
+fixed Product, Interaction, and Engineering Architecture inputs into an
+implementation discipline, realization specification, bounded work sequence,
+verification obligations, and explicit stop boundaries without creating UI,
+code, tests, prototype execution, deployment, or delivery.
 
 ## Definition of Done
 
-The task is complete only when bounded Engineering Architecture preparation:
+The task is complete only when bounded Implementation Preparation:
 
-1. remains traceable to the fixed Product Realization foundation;
-2. preserves all product, Evidence, Working Set, reflection, and authority semantics;
-3. defines technical responsibilities and boundaries without implementation allocation;
-4. preserves historical/Replay separation and H3 non-validation;
-5. exposes unresolved implementation questions;
+1. remains traceable through Product Realization, Interaction Architecture, and Engineering Architecture;
+2. preserves Evidence, Working Set, reflection, historical, Replay, and authority semantics;
+3. defines a bounded realization specification and work sequence without executing it;
+4. defines verification and stop obligations without creating tests;
+5. makes technology and implementation choices explicit and reviewable;
 6. receives independent review with zero blocking findings; and
-7. identifies the next attributable implementation-authority boundary.
+7. identifies the next attributable implementation-execution authority boundary.
 
-Completion does not authorize UI development, implementation, testing, deployment,
-user interaction, validation, another stage, or M9 completion.
+Completion does not authorize UI development, code, tests, implementation
+execution, deployment, user interaction, validation, another stage, or M9 completion.
 
 ## Owner
 
@@ -131,15 +148,15 @@ user interaction, validation, another stage, or M9 completion.
 Chief Architect
 ```
 
-The owner is accountable for bounded Historical Walkthrough Reader Engineering
-Architecture preparation and preservation of the fixed product and authority
-boundaries. UI development, implementation, Replay, and validation remain
+The owner is accountable for bounded Historical Walkthrough Reader Implementation
+Preparation and preservation of the fixed product, interaction, engineering, and
+authority boundaries. UI development, implementation execution, Replay, and validation remain
 separate attributable human Decisions.
 
 ## Status
 
 ```text
-Active — 1 bounded Engineering Architecture preparation item; ready to begin; not started
+Active — 1 bounded Implementation Preparation item; ready to begin; not started
 ```
 
 ## Preserved Conditions
@@ -157,14 +174,15 @@ Active — 1 bounded Engineering Architecture preparation item; ready to begin; 
 - Alternative A — Historical Walkthrough Reader is the selected first bounded
   user-facing slice.
 - The Product Realization foundation is prepared and independently reviewed.
-- Bounded Engineering Architecture preparation is authorized but not started.
-- UI development and implementation are not authorized.
+- Engineering Architecture preparation is prepared and reviewed.
+- Bounded Implementation Preparation is authorized but not started.
+- Implementation execution, UI development, coding, and testing are not authorized.
 - Replay is not authorized.
 - H3 remains unvalidated.
 - Root Cause and causal proof remain unestablished.
 - Evidence ingestion beyond ordinary public research is not authorized.
 - H3 validation preparation and execution are not authorized.
-- Engineering Architecture execution beyond bounded preparation is not authorized.
+- Implementation execution is not authorized.
 - Prototype, implementation, deployment, and delivery are not authorized.
 - Product Vision, Systems, Owner Journey, Product Constitution role, canonical
   M7/M8, reviewed proposal, critical review, and research sources remain
