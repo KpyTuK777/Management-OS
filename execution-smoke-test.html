@@ -79,6 +79,8 @@
           assert(doc.activeElement === doc.getElementById("startInvestigation"), "Focus did not return after Cancel");
           doc.getElementById("startInvestigation").click();
           doc.getElementById("creationTitle").value = "Перевірка затримок";
+          doc.getElementById("creationTitle").dispatchEvent(new win.KeyboardEvent("keydown", { key: "Enter", isComposing: true, bubbles: true, cancelable: true }));
+          assert(doc.getElementById("creationDialog").open, "IME composition Enter submitted accidentally");
           doc.getElementById("creationTitle").dispatchEvent(new win.KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
           assert(doc.getElementById("creationDialog").open, "Enter submitted while a required field was empty");
           assert(!localStorage.getItem(key), "Invalid Enter created an Investigation");
@@ -122,6 +124,10 @@
           assert(doc.getElementById("situationSummary").textContent === "Замовлення надходять клієнтам пізніше обіцяного строку.", "Dismissed situation modal changed state");
           doc.getElementById("editSituation").click();
           doc.getElementById("situationInput").value = "Затримки тривають довше очікуваного.";
+          doc.getElementById("situationInput").setAttribute("data-long-form", "");
+          doc.getElementById("situationInput").dispatchEvent(new win.KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
+          assert(doc.getElementById("situationDialog").open, "Long-form Enter submitted accidentally");
+          doc.getElementById("situationInput").removeAttribute("data-long-form");
           assertShiftEnterNewline(win, doc.getElementById("situationInput"), doc.getElementById("situationDialog"));
           doc.getElementById("situationInput").dispatchEvent(new win.KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
           assert(doc.getElementById("situationSummary").textContent.includes("Затримки тривають довше очікуваного."), "Valid Situation Enter did not submit");

@@ -259,6 +259,7 @@
       dialog.querySelectorAll("[data-modal-close]").forEach(control => control.addEventListener("click", () => closeModal(dialog)));
       dialog.addEventListener("cancel", event => { event.preventDefault(); closeModal(dialog); });
       dialog.addEventListener("keydown", event => {
+        if (event.isComposing) return;
         if (event.key === "Escape") { event.preventDefault(); closeModal(dialog); }
         if (event.key === "Enter" && event.shiftKey && event.target.matches("textarea") && !event.target.hasAttribute("data-long-form")) {
           event.preventDefault();
