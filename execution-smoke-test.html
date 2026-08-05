@@ -11,6 +11,7 @@
     const key = "management-os-user-investigations-v1";
     localStorage.removeItem(key);
     let stage = 0;
+    let savedId = "";
     const assert = (condition, message) => { if (!condition) throw new Error(message); };
     const fail = error => { result.textContent = `FAIL: ${error.message}`; };
 
@@ -49,19 +50,39 @@
           assert(stored.investigations.length === 1, "User Investigation was not persisted");
           assert(stored.investigations[0].data.evidence.length === 1, "First material was not persisted");
           assert(stored.investigations[0].data.known.length === 0, "Stored state contains demo facts");
+          savedId = stored.investigations[0].id;
           stage = 1;
-          frame.src = `index.html?investigation=${encodeURIComponent(stored.investigations[0].id)}`;
+          frame.src = "index.html";
         } else if (stage === 1) {
+          doc.getElementById("openSaved").click();
+          assert(doc.getElementById("openSaved").getAttribute("aria-expanded") === "true", "Saved Investigation list did not expand");
+          const savedControl = doc.querySelector(`[data-open-investigation='${savedId}']`);
+          assert(savedControl, "Persisted Investigation is absent from the saved list");
+          savedControl.click();
           assert(doc.getElementById("startPage").classList.contains("hidden"), "Saved Investigation did not restore");
           assert(doc.querySelectorAll("#evidenceList .evidence-card").length === 1, "Restored Investigation lost material");
           assert(doc.querySelectorAll("#knownList .compact-item").length === 0, "Restored Investigation gained demo facts");
           stage = 2;
-          frame.src = "index.html?demo=MAT-0247";
-        } else {
+          frame.src = "index.html";
+        } else if (stage === 2) {
+          const demoLink = doc.querySelector("a[href='index.html?demo=MAT-0247']");
+          assert(demoLink, "Demonstration entry action is missing");
+          stage = 3;
+          demoLink.click();
+        } else if (stage === 3) {
           assert(doc.querySelectorAll("#evidenceList .evidence-card").length === 6, "Explicit demo did not preserve MAT-0247");
           const stored = JSON.parse(localStorage.getItem(key));
           assert(stored.investigations[0].data.evidence.length === 1, "Opening demo contaminated user state");
-          result.textContent = "PASS: start → create empty → add material → persist/restore → explicit demo separation";
+          stage = 4;
+          frame.src = "index.html";
+        } else if (stage === 4) {
+          const historicalLink = doc.querySelector("a[href='historical-reader.html']");
+          assert(historicalLink, "Historical Reader entry action is missing");
+          stage = 5;
+          historicalLink.click();
+        } else {
+          assert(win.location.pathname.endsWith("/historical-reader.html"), "Historical Reader action did not navigate to the reader");
+          result.textContent = "PASS: start → create empty → add material → open saved → demo separation → Historical Reader";
         }
       } catch (error) { fail(error); }
     });

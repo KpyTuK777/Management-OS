@@ -17,12 +17,12 @@ The existing start page was corrected so the new-Investigation path is compositi
 
 - `01-start-wide.png`: 1620 × 980 rendered start page.
 - `05-reference-comparison.png`: normalized side-by-side reference and wide implementation.
-- `07-start-390-iframe.png`: exact 390 × 844 responsive render.
+- `07-start-390-iframe.png`: 450 × 900 outer artifact containing an exact 390 × 844 CSS px responsive iframe render.
 - `02-start-390.png`, `03-start-390-corrected.png`, `04-start-390-final.png`, `06-start-390-reviewed.png`: rejected top-level Edge captures retained as iteration evidence; Edge's minimum top-level layout width made them unsuitable for exact responsive judgment.
 
 ## Exact verification results
 
-- Full entry smoke journey: PASS — start → create empty → add material → persist/restore → explicit demo separation.
+- Full entry smoke journey: PASS — start → create empty → add material → open saved through the rendered list → click explicit demo → verify separation → click Historical Reader.
 - Cancel/close with valid creation values: PASS — no user Investigation storage created.
 - Start-page horizontal overflow assertion: PASS.
 - Empty Workbench collections: PASS for facts, unknowns, Evidence, hypotheses, Relationships, Timeline, and Working Set.

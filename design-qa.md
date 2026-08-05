@@ -5,7 +5,7 @@
 - Exact responsive implementation: `governance/evidence/INVESTIGATION_ENTRY_HIERARCHY/07-start-390-iframe.png`
 - Combined comparison: `governance/evidence/INVESTIGATION_ENTRY_HIERARCHY/05-reference-comparison.png`
 - Wide viewport: 1620 × 980 CSS px, device scale 1; source normalized from 1647 × 987 to 1635 × 980 for the combined comparison.
-- Mobile viewport: exact 390 × 844 CSS px inside a visible iframe; top-level Edge screenshots were rejected because headless Edge imposed a wider minimum layout viewport.
+- Mobile evidence artifact: 450 × 900 PNG containing a visible iframe explicitly sized to 390 × 844 CSS px. The iframe width/height are fixed in the capture harness and the browser journey separately asserts `documentElement.scrollWidth <= innerWidth`. Top-level Edge screenshots were rejected because headless Edge imposed a wider minimum layout viewport.
 - State: default start page, no saved Investigation list expanded.
 
 ## Full-view comparison evidence
@@ -38,9 +38,9 @@ The 390 × 844 iframe capture was inspected at original resolution. The primary 
 - Closing with valid values creates no Investigation.
 - Native submit creates an empty Investigation.
 - First material persists and restores.
-- Saved Investigation opening remains available.
-- Explicit demo route preserves MAT-0247 without user-state contamination.
-- Historical reader link remains `historical-reader.html`.
+- “Відкрити збережене” expands the list, reports `aria-expanded=true`, renders the saved record, and opens it through the actual list control.
+- The demonstration option is clicked and preserves MAT-0247 without user-state contamination.
+- The Historical Reader option is clicked and navigation to `historical-reader.html` is asserted.
 - Console/runtime blocking errors: none observed in the browser journeys.
 
 ## Residual P3
