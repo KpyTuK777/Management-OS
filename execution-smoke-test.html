@@ -63,6 +63,10 @@
           assert(doc.documentElement.scrollWidth <= win.innerWidth, `Start page overflows horizontally: ${doc.documentElement.scrollWidth}px > ${win.innerWidth}px`);
           doc.getElementById("startInvestigation").click();
           assert(doc.getElementById("creationDialog").matches(":modal"), "Creation flow is not a modal top-layer dialog");
+          assert(!doc.getElementById("creationTitle").hasAttribute("placeholder"), "Title field still has a placeholder");
+          assert(!doc.getElementById("creationSituation").hasAttribute("placeholder"), "Situation field still has a placeholder");
+          assert(doc.getElementById("creationTitle").labels.length === 1, "Title field lost its accessible label");
+          assert(doc.getElementById("creationSituation").labels.length === 1, "Situation field lost its accessible label");
           assert(doc.activeElement === doc.getElementById("creationTitle"), "Focus did not enter the title field");
           assertModalGeometry(win, doc.getElementById("creationDialog"));
           doc.getElementById("creationDialog").dispatchEvent(new win.KeyboardEvent("keydown", { key: "Escape", bubbles: true, cancelable: true }));
