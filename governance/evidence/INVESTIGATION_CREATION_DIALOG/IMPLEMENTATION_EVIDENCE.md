@@ -21,12 +21,23 @@ The creation dialog was reduced to a minimal two-field form and explicitly cente
 
 ## Exact verification
 
-- Desktop centering: PASS.
-- Exact 390 px safe margins and no visible horizontal overflow: PASS.
+Reproducible Windows/Edge invocation from the repository root:
+
+```powershell
+& 'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe' --headless --disable-gpu --no-first-run --allow-file-access-from-files --user-data-dir="$PWD\.edge-dialog-verification" --dump-dom 'file:///D:/Frontend/GitHub/Management-OS/execution-smoke-test.html'
+```
+
+`--allow-file-access-from-files` is required because this static prototype and its iframe test harness are loaded from `file://`; without it, Edge correctly blocks null-origin frame access. Verification used Microsoft Edge headless on Windows in a clean disposable profile.
+
+- Desktop centering: PASS by inspected browser screenshot.
+- Exact 390 px centering: PASS by bounding-rect assertions for both axes.
+- Exact 390 px 20px side/top/bottom safety margins: PASS by bounding-rect assertions.
+- Exact 390 px no horizontal modal overflow: PASS by `scrollWidth <= clientWidth` assertion and inspected screenshot.
 - Native modal top-layer state (`:modal`): PASS.
 - Focus enters title: PASS.
 - Escape closes, creates no state, returns focus: PASS.
-- Cancel/close creates no state, clears abandoned values, returns focus: PASS.
+- Header close creates no state, clears abandoned values, returns focus: PASS through direct control click.
+- Footer Cancel creates no state, clears abandoned values, returns focus: PASS through direct control click.
 - Invalid Enter remains open and creates no state: PASS.
 - Valid Enter creates an Investigation: PASS.
 - New Investigation required collections remain empty: PASS.

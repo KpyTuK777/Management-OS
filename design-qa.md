@@ -27,6 +27,7 @@ The exact 390 px capture shows 20 px safe side margins, balanced top and bottom 
 - Focus enters `#creationTitle`.
 - Escape closes without creating state and returns focus to the primary entry action.
 - Close and Cancel clear abandoned values, create no state, and return focus.
+- At 390 px, bounding-rect assertions verify horizontal and vertical centering plus 20 px minimum viewport margins; modal `scrollWidth <= clientWidth` verifies no internal horizontal overflow.
 - Enter from the title field does not submit while the situation field is empty.
 - Enter submits when both required fields are valid.
 - Valid creation opens a genuinely empty Investigation with no demo content.
