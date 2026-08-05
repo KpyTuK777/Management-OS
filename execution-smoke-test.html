@@ -21,6 +21,7 @@
         if (stage === 0) {
           assert(!doc.getElementById("startPage").classList.contains("hidden"), "Default entry is not the start page");
           assert(doc.getElementById("workbenchShell").classList.contains("hidden"), "Demo opened automatically");
+          assert(doc.documentElement.scrollWidth <= win.innerWidth, `Start page overflows horizontally: ${doc.documentElement.scrollWidth}px > ${win.innerWidth}px`);
           doc.getElementById("startInvestigation").click();
           doc.getElementById("creationTitle").value = "Перевірка затримок";
           doc.getElementById("creationSituation").value = "Замовлення надходять клієнтам пізніше обіцяного строку.";

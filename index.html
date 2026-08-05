@@ -13,14 +13,18 @@
     <section class="start-page__content" aria-labelledby="startTitle">
       <p class="eyebrow">Management OS · Розслідування</p>
       <h1 id="startTitle">Почніть із ситуації, яку потрібно зрозуміти</h1>
-      <p>Створіть чистий робочий простір, поверніться до збереженого розслідування або окремо відкрийте приклад.</p>
-      <button class="primary-button start-primary" id="startInvestigation" type="button">Розпочати розслідування</button>
-      <div class="start-actions">
-        <button class="secondary-button" id="openSaved" type="button" aria-expanded="false" aria-controls="savedInvestigations">Відкрити збережене</button>
-        <a class="secondary-button" href="index.html?demo=MAT-0247">Переглянути демонстраційний кейс</a>
-        <a class="secondary-button" href="historical-reader.html">Переглянути історичний розбір</a>
-      </div>
+      <p class="start-intro">Створіть чистий робочий простір для розслідування, зберіть матеріали, відокремте відоме від невідомого та поступово сформуйте робочу версію того, що відбувається.</p>
+      <button class="start-primary" id="startInvestigation" type="button"><span>Розпочати розслідування</span><small>Створіть нове розслідування з чистого аркуша</small><b aria-hidden="true">→</b></button>
+      <section class="supporting-tools" aria-labelledby="supportingToolsTitle">
+        <h2 id="supportingToolsTitle"><span>Додаткові інструменти</span></h2>
+        <div class="start-actions">
+          <button class="start-option" id="openSaved" type="button" aria-expanded="false" aria-controls="savedInvestigations"><strong>Відкрити збережене</strong><span>Продовжити роботу над збереженим розслідуванням</span></button>
+          <a class="start-option" href="index.html?demo=MAT-0247"><strong>Переглянути демонстраційний кейс</strong><span>Ознайомитися з прикладом готового розслідування</span></a>
+          <a class="start-option" href="historical-reader.html"><strong>Переглянути історичний розбір</strong><span>Вивчити завершений розбір реальної ситуації</span></a>
+        </div>
+      </section>
       <section class="saved-investigations hidden" id="savedInvestigations" aria-labelledby="savedTitle"><h2 id="savedTitle">Збережені розслідування</h2><div id="savedInvestigationList"></div></section>
+      <p class="local-storage-note">Ваші дані зберігаються локально у цьому браузері. Нічого не передається назовні.</p>
     </section>
   </main>
 
