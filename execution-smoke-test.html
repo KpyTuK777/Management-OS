@@ -8,12 +8,39 @@
   <script>
     const result = document.getElementById("result");
     const frame = document.getElementById("app");
+    if (new URLSearchParams(location.search).get("viewport") === "desktop") { frame.style.width = "1280px"; frame.style.height = "800px"; }
     const key = "management-os-user-investigations-v1";
     localStorage.removeItem(key);
     let stage = 0;
     let savedId = "";
     const assert = (condition, message) => { if (!condition) throw new Error(message); };
     const fail = error => { result.textContent = `FAIL: ${error.message}`; };
+    const assertModalGeometry = (win, dialog) => {
+      const rect = dialog.getBoundingClientRect();
+      const viewportWidth = dialog.ownerDocument.documentElement.clientWidth;
+      const viewportHeight = dialog.ownerDocument.documentElement.clientHeight;
+      assert(Math.abs((rect.left + rect.right) / 2 - viewportWidth / 2) <= 1, `${dialog.id} is not horizontally centered`);
+      assert(Math.abs((rect.top + rect.bottom) / 2 - viewportHeight / 2) <= 1, `${dialog.id} is not vertically centered`);
+      assert(rect.left >= 20 && rect.right <= viewportWidth - 20, `${dialog.id} violates viewport side margins`);
+      assert(rect.top >= 20 && rect.bottom <= viewportHeight - 20, `${dialog.id} violates viewport vertical margins`);
+      assert(dialog.scrollWidth <= dialog.clientWidth, `${dialog.id} overflows horizontally`);
+    };
+    const exerciseModalDismissals = (win, doc, opener, dialogId) => {
+      const dialog = doc.getElementById(dialogId);
+      const paths = ["close", "cancel", "escape"];
+      paths.forEach(path => {
+        opener.click();
+        assert(dialog.matches(":modal"), `${dialogId} did not open as a modal`);
+        assertModalGeometry(win, dialog);
+        assert(doc.activeElement === dialog.querySelector("[data-modal-autofocus]"), `${dialogId} did not focus its first field`);
+        if (path === "close") dialog.querySelector("header [data-modal-close]").click();
+        if (path === "cancel") dialog.querySelector("footer [data-modal-close]").click();
+        if (path === "escape") dialog.dispatchEvent(new win.KeyboardEvent("keydown", { key: "Escape", bubbles: true, cancelable: true }));
+        assert(!dialog.open, `${dialogId} did not close by ${path}`);
+        assert(doc.activeElement === opener, `${dialogId} did not restore focus after ${path}`);
+        assert(!doc.querySelector("dialog:modal"), `${dialogId} left a stale modal overlay after ${path}`);
+      });
+    };
 
     frame.addEventListener("load", () => {
       try {
@@ -26,35 +53,30 @@
           doc.getElementById("startInvestigation").click();
           assert(doc.getElementById("creationDialog").matches(":modal"), "Creation flow is not a modal top-layer dialog");
           assert(doc.activeElement === doc.getElementById("creationTitle"), "Focus did not enter the title field");
-          const modalRect = doc.getElementById("creationDialog").getBoundingClientRect();
-          assert(Math.abs((modalRect.left + modalRect.right) / 2 - win.innerWidth / 2) <= 1, "Creation dialog is not horizontally centered");
-          assert(Math.abs((modalRect.top + modalRect.bottom) / 2 - win.innerHeight / 2) <= 1, "Creation dialog is not vertically centered");
-          assert(modalRect.left >= 20 && modalRect.right <= win.innerWidth - 20, "Creation dialog violates 20px viewport side margins");
-          assert(modalRect.top >= 20 && modalRect.bottom <= win.innerHeight - 20, "Creation dialog violates 20px viewport vertical margins");
-          assert(doc.getElementById("creationDialog").scrollWidth <= doc.getElementById("creationDialog").clientWidth, "Creation dialog overflows horizontally");
-          doc.getElementById("creationDialog").dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true, cancelable: true }));
+          assertModalGeometry(win, doc.getElementById("creationDialog"));
+          doc.getElementById("creationDialog").dispatchEvent(new win.KeyboardEvent("keydown", { key: "Escape", bubbles: true, cancelable: true }));
           assert(!doc.getElementById("creationDialog").open, "Escape did not close the creation dialog");
           assert(doc.activeElement === doc.getElementById("startInvestigation"), "Focus did not return to the primary entry action after Escape");
           assert(!localStorage.getItem(key), "Escape created an Investigation");
           doc.getElementById("startInvestigation").click();
           doc.getElementById("creationTitle").value = "Перевірка затримок";
           doc.getElementById("creationSituation").value = "Замовлення надходять клієнтам пізніше обіцяного строку.";
-          doc.querySelector("#creationDialog header [data-close-creation]").click();
+          doc.querySelector("#creationDialog header [data-modal-close]").click();
           assert(!localStorage.getItem(key), "Close action created an Investigation");
           assert(doc.activeElement === doc.getElementById("startInvestigation"), "Focus did not return after Close");
           doc.getElementById("startInvestigation").click();
           doc.getElementById("creationTitle").value = "Перевірка затримок";
           doc.getElementById("creationSituation").value = "Замовлення надходять клієнтам пізніше обіцяного строку.";
-          doc.querySelector("#creationDialog footer [data-close-creation]").click();
+          doc.querySelector("#creationDialog footer [data-modal-close]").click();
           assert(!localStorage.getItem(key), "Cancel created an Investigation");
           assert(doc.activeElement === doc.getElementById("startInvestigation"), "Focus did not return after Cancel");
           doc.getElementById("startInvestigation").click();
           doc.getElementById("creationTitle").value = "Перевірка затримок";
-          doc.getElementById("creationTitle").dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
+          doc.getElementById("creationTitle").dispatchEvent(new win.KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
           assert(doc.getElementById("creationDialog").open, "Enter submitted while a required field was empty");
           assert(!localStorage.getItem(key), "Invalid Enter created an Investigation");
           doc.getElementById("creationSituation").value = "Замовлення надходять клієнтам пізніше обіцяного строку.";
-          doc.getElementById("creationTitle").dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
+          doc.getElementById("creationTitle").dispatchEvent(new win.KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
           assert(doc.querySelectorAll("#knownList .compact-item").length === 0, "New Investigation inherited facts");
           assert(doc.querySelectorAll("#unknownList .compact-item").length === 0, "New Investigation inherited unknowns");
           assert(doc.querySelectorAll("#evidenceList .evidence-card").length === 0, "New Investigation inherited Evidence");
@@ -63,12 +85,21 @@
           assert(doc.querySelectorAll("#timelineList .timeline-event").length === 0, "New Investigation inherited Timeline events");
           assert(doc.querySelectorAll("#workingSetList .working-set-item").length === 0, "New Investigation inherited Working Set");
           assert(!doc.body.textContent.includes("−18%"), "Demo metrics contaminated new Investigation");
-          doc.querySelector("[data-start-material]").click();
+          doc.querySelector("[data-view='evidence']").click();
+          const addMaterialButton = doc.getElementById("addMaterial");
+          exerciseModalDismissals(win, doc, addMaterialButton, "materialDialog");
+          addMaterialButton.click();
           doc.getElementById("materialTitle").value = "Журнал доставки";
           doc.getElementById("materialSource").value = "Операційна команда";
           doc.getElementById("materialSummary").value = "Перший неперевірений матеріал користувача.";
           doc.getElementById("saveMaterial").click();
           assert(doc.querySelectorAll("#evidenceList .evidence-card").length === 1, "First user material was not added");
+          doc.querySelector("[data-view='reasoning']").click();
+          exerciseModalDismissals(win, doc, doc.getElementById("addHypothesis"), "hypothesisDialog");
+          assert(doc.querySelectorAll("#hypothesisList .hypothesis-card").length === 0, "Dismissed hypothesis modal changed state");
+          doc.querySelector("[data-view='situation']").click();
+          exerciseModalDismissals(win, doc, doc.getElementById("editSituation"), "situationDialog");
+          assert(doc.getElementById("situationSummary").textContent === "Замовлення надходять клієнтам пізніше обіцяного строку.", "Dismissed situation modal changed state");
           const stored = JSON.parse(localStorage.getItem(key));
           assert(stored.investigations.length === 1, "User Investigation was not persisted");
           assert(stored.investigations[0].data.evidence.length === 1, "First material was not persisted");

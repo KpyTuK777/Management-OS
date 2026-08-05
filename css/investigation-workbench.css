@@ -256,9 +256,9 @@ h2 { margin: 0; font: 500 24px/1.2 var(--serif); }
 .capability-boundary li { display: flex; justify-content: space-between; gap: 10px; padding: 6px 0; border-top: 1px solid var(--line); font-size: 9px; }
 .capability-boundary b { color: var(--ink-soft); text-align: right; font-weight: 600; }
 
-dialog { width: min(560px, calc(100vw - 28px)); padding: 0; color: var(--ink); background: var(--paper-bright); border: 1px solid var(--line-strong); box-shadow: var(--shadow); }
-#creationDialog { width: min(520px, calc(100vw - 40px)); max-width: none; max-height: calc(100vh - 40px); border-radius: 5px; box-shadow: 0 24px 70px rgba(24,20,16,.28); overflow: auto; }
-#creationDialog[open] { position: fixed; inset: 0; margin: auto; }
+dialog { width: min(560px, calc(100% - 40px)); max-width: none; max-height: calc(100% - 40px); padding: 0; color: var(--ink); background: var(--paper-bright); border: 1px solid var(--line-strong); border-radius: 5px; box-shadow: 0 24px 70px rgba(24,20,16,.28); overflow: auto; }
+dialog[open] { position: fixed; inset: 0; margin: auto; }
+#creationDialog { width: min(520px, calc(100% - 40px)); }
 dialog::backdrop { background: rgba(27,23,19,.52); backdrop-filter: blur(2px); }
 .dialog-form { padding: 22px; }
 .dialog-form header, .dialog-form footer { display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; }

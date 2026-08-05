@@ -56,6 +56,7 @@
   let currentFilter = "all";
   let focused = null;
   let demoMetricsMarkup = "";
+  const modalInvokers = new WeakMap();
 
   function loadState() {
     if (activeKind === "user" && activeInvestigation) return clone(activeInvestigation.data);
@@ -235,6 +236,38 @@
     $("#hypothesisEvidence").innerHTML = `<option value="">Без підтримувального матеріалу</option>${state.evidence.map(item => `<option value="${item.id}">${escapeHtml(item.title)} · ${statusLabel(item.status)}</option>`).join("")}`;
   }
 
+  function openModal(dialog, invoker) {
+    if (dialog.open) return;
+    modalInvokers.set(dialog, invoker || document.activeElement);
+    dialog.showModal();
+    const firstField = dialog.querySelector("[data-modal-autofocus]") || dialog.querySelector("input, textarea, select, button");
+    if (firstField) firstField.focus();
+  }
+
+  function closeModal(dialog) {
+    if (!dialog.open) return;
+    const form = dialog.querySelector("form");
+    if (form) form.reset();
+    dialog.querySelectorAll("input, textarea, select").forEach(field => field.setCustomValidity(""));
+    dialog.close();
+    const invoker = modalInvokers.get(dialog);
+    if (invoker?.isConnected && !invoker.closest(".hidden")) invoker.focus();
+  }
+
+  function bindModalFoundation() {
+    $$("dialog").forEach(dialog => {
+      dialog.querySelectorAll("[data-modal-close]").forEach(control => control.addEventListener("click", () => closeModal(dialog)));
+      dialog.addEventListener("cancel", event => { event.preventDefault(); closeModal(dialog); });
+      dialog.addEventListener("keydown", event => {
+        if (event.key === "Escape") { event.preventDefault(); closeModal(dialog); }
+      });
+      dialog.addEventListener("close", () => {
+        const invoker = modalInvokers.get(dialog);
+        if (invoker?.isConnected && !invoker.closest(".hidden")) invoker.focus();
+      });
+    });
+  }
+
   function showStart() {
     $("#startPage").classList.remove("hidden");
     $("#workbenchShell").classList.add("hidden");
@@ -298,35 +331,21 @@
         $$("[data-evidence-filter]").forEach(button => button.classList.toggle("is-active", button === filterControl));
         renderEvidence();
       }
-      if (materialControl) { switchView("evidence"); $("#materialDialog").showModal(); }
+      if (materialControl) { switchView("evidence"); openModal($("#materialDialog"), materialControl); }
       if (openControl) {
         const record = loadInvestigations().find(item => item.id === openControl.dataset.openInvestigation);
         if (record) openWorkbench(record, "user");
       }
     });
 
-    $("#startInvestigation").addEventListener("click", () => {
-      $("#creationDialog").showModal();
-      $("#creationTitle").focus();
-    });
+    bindModalFoundation();
+    $("#startInvestigation").addEventListener("click", event => openModal($("#creationDialog"), event.currentTarget));
     $("#openSaved").addEventListener("click", () => {
       renderSavedInvestigations();
       $("#savedInvestigations").classList.toggle("hidden");
       $("#openSaved").setAttribute("aria-expanded", $("#savedInvestigations").classList.contains("hidden") ? "false" : "true");
     });
-    const closeCreationDialog = () => {
-      $("#creationForm").reset();
-      $("#creationTitle").setCustomValidity("");
-      $("#creationSituation").setCustomValidity("");
-      $("#creationDialog").close();
-      if (!$("#startPage").classList.contains("hidden")) $("#startInvestigation").focus();
-    };
-    $$('[data-close-creation]').forEach(button => button.addEventListener("click", closeCreationDialog));
-    $("#creationDialog").addEventListener("close", () => {
-      if (!$("#startPage").classList.contains("hidden")) $("#startInvestigation").focus();
-    });
     $("#creationDialog").addEventListener("keydown", event => {
-      if (event.key === "Escape") { event.preventDefault(); closeCreationDialog(); }
       if (event.key === "Enter" && event.target === $("#creationTitle")) { event.preventDefault(); $("#creationForm").requestSubmit(); }
     });
     [$("#creationTitle"), $("#creationSituation")].forEach(input => input.addEventListener("input", () => input.setCustomValidity("")));
@@ -344,8 +363,7 @@
       activeKind = "user";
       state = clone(record.data);
       persist();
-      $("#creationForm").reset();
-      $("#creationDialog").close();
+      closeModal($("#creationDialog"));
       openWorkbench(activeInvestigation, "user");
     });
 
@@ -359,9 +377,9 @@
       announce("Відкрите питання додано. Воно не стало фактом або завданням.");
     });
 
-    $("#addMaterial").addEventListener("click", () => $("#materialDialog").showModal());
-    $("#addHypothesis").addEventListener("click", () => { updateHypothesisEvidenceOptions(); $("#hypothesisDialog").showModal(); });
-    $("#editSituation").addEventListener("click", () => { $("#situationInput").value = state.situation.summary; $("#situationDialog").showModal(); });
+    $("#addMaterial").addEventListener("click", event => openModal($("#materialDialog"), event.currentTarget));
+    $("#addHypothesis").addEventListener("click", event => { updateHypothesisEvidenceOptions(); openModal($("#hypothesisDialog"), event.currentTarget); });
+    $("#editSituation").addEventListener("click", event => { $("#situationInput").value = state.situation.summary; openModal($("#situationDialog"), event.currentTarget); });
 
     $("#materialForm").addEventListener("submit", event => {
       event.preventDefault();
@@ -380,8 +398,7 @@
       };
       state.evidence.push(item);
       persist();
-      $("#materialForm").reset();
-      $("#materialDialog").close();
+      closeModal($("#materialDialog"));
       renderEvidence();
       announce(`${item.title} додано як неперевірений локальний матеріал.`);
     });
@@ -392,8 +409,7 @@
       const item = { id: `hypothesis-${Date.now()}`, text: $("#hypothesisText").value.trim(), status: "Попередня", support: evidenceId ? [evidenceId] : [], contradict: [] };
       state.hypotheses.push(item);
       persist();
-      $("#hypothesisForm").reset();
-      $("#hypothesisDialog").close();
+      closeModal($("#hypothesisDialog"));
       renderHypotheses();
       announce("Гіпотезу додано як попередню робочу версію.");
     });
@@ -404,7 +420,7 @@
       state.situation.summary = $("#situationInput").value.trim();
       state.situation.revisions.push({ at: "Сьогодні · нова версія", text: `Попередню версію збережено: ${previous}` });
       persist();
-      $("#situationDialog").close();
+      closeModal($("#situationDialog"));
       renderSituation();
       announce("Поточну ситуацію уточнено. Попередню версію збережено в історії.");
     });
