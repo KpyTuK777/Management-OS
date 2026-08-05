@@ -22,7 +22,9 @@ Headless Microsoft Edge, local files, fresh browser-local profiles:
 The journey asserts:
 
 - invalid Enter stays open and creates no state;
+- IME composition Enter is ignored and cannot submit accidentally;
 - Shift+Enter inserts exactly one newline and does not submit;
+- the long-form escape hatch bypasses short-form Enter submission;
 - Enter submits valid New Investigation, Add Material, Add Hypothesis, and Edit Current Situation forms;
 - close icon, Cancel, and Escape dismiss every current modal and restore focus;
 - each modal can be reopened repeatedly without a stale overlay;
@@ -33,7 +35,7 @@ The journey asserts:
 ## Visual evidence
 
 - `watson-desktop.png`: Watson dormant state within the desktop Workbench.
-- `workbench-390.png`: 390 px responsive Workbench rendering used alongside the exact-width automated journey.
+- `workbench-390.png`: the pre-existing Workbench at 390 px, retained as a visual context record rather than evidence of full Workbench responsiveness. Exact-width claims here concern the bounded modal/keyboard journey, not a redesign of the legacy Workbench layout.
 
 ## Findings and corrections
 
