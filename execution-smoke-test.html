@@ -56,6 +56,10 @@
         if (stage === 0) {
           assert(!doc.getElementById("startPage").classList.contains("hidden"), "Default entry is not the start page");
           assert(doc.getElementById("workbenchShell").classList.contains("hidden"), "Demo opened automatically");
+          assert(!doc.querySelector(".start-intro"), "Start page still contains explanatory intro copy");
+          assert(doc.getElementById("startInvestigation").children.length === 0, "Primary action still contains decorative or explanatory children");
+          assert(doc.querySelectorAll(".start-option strong").length === 3, "Supporting actions are not represented by three concise labels");
+          assert(!doc.querySelector(".start-option span"), "Supporting actions still contain explanatory copy");
           assert(doc.documentElement.scrollWidth <= win.innerWidth, `Start page overflows horizontally: ${doc.documentElement.scrollWidth}px > ${win.innerWidth}px`);
           doc.getElementById("startInvestigation").click();
           assert(doc.getElementById("creationDialog").matches(":modal"), "Creation flow is not a modal top-layer dialog");
