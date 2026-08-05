@@ -305,13 +305,31 @@
       }
     });
 
-    $("#startInvestigation").addEventListener("click", () => $("#creationDialog").showModal());
+    $("#startInvestigation").addEventListener("click", () => {
+      $("#creationDialog").showModal();
+      $("#creationTitle").focus();
+    });
     $("#openSaved").addEventListener("click", () => {
       renderSavedInvestigations();
       $("#savedInvestigations").classList.toggle("hidden");
       $("#openSaved").setAttribute("aria-expanded", $("#savedInvestigations").classList.contains("hidden") ? "false" : "true");
     });
-    $$('[data-close-creation]').forEach(button => button.addEventListener("click", () => $("#creationDialog").close()));
+    const closeCreationDialog = () => {
+      $("#creationForm").reset();
+      $("#creationTitle").setCustomValidity("");
+      $("#creationSituation").setCustomValidity("");
+      $("#creationDialog").close();
+      if (!$("#startPage").classList.contains("hidden")) $("#startInvestigation").focus();
+    };
+    $$('[data-close-creation]').forEach(button => button.addEventListener("click", closeCreationDialog));
+    $("#creationDialog").addEventListener("close", () => {
+      if (!$("#startPage").classList.contains("hidden")) $("#startInvestigation").focus();
+    });
+    $("#creationDialog").addEventListener("keydown", event => {
+      if (event.key === "Escape") { event.preventDefault(); closeCreationDialog(); }
+      if (event.key === "Enter" && event.target === $("#creationTitle")) { event.preventDefault(); $("#creationForm").requestSubmit(); }
+    });
+    [$("#creationTitle"), $("#creationSituation")].forEach(input => input.addEventListener("input", () => input.setCustomValidity("")));
     $("#creationForm").addEventListener("submit", event => {
       event.preventDefault();
       const titleInput = $("#creationTitle");

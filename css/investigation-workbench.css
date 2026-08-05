@@ -257,7 +257,9 @@ h2 { margin: 0; font: 500 24px/1.2 var(--serif); }
 .capability-boundary b { color: var(--ink-soft); text-align: right; font-weight: 600; }
 
 dialog { width: min(560px, calc(100vw - 28px)); padding: 0; color: var(--ink); background: var(--paper-bright); border: 1px solid var(--line-strong); box-shadow: var(--shadow); }
-dialog::backdrop { background: rgba(27,23,19,.58); backdrop-filter: blur(2px); }
+#creationDialog { width: min(520px, calc(100vw - 40px)); max-width: none; max-height: calc(100vh - 40px); border-radius: 5px; box-shadow: 0 24px 70px rgba(24,20,16,.28); overflow: auto; }
+#creationDialog[open] { position: fixed; inset: 0; margin: auto; }
+dialog::backdrop { background: rgba(27,23,19,.52); backdrop-filter: blur(2px); }
 .dialog-form { padding: 22px; }
 .dialog-form header, .dialog-form footer { display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; }
 .dialog-form header { padding-bottom: 16px; border-bottom: 1px solid var(--line); }
@@ -265,6 +267,12 @@ dialog::backdrop { background: rgba(27,23,19,.58); backdrop-filter: blur(2px); }
 .dialog-form label { display: grid; gap: 5px; margin-top: 14px; color: var(--ink-soft); font-size: 10px; font-weight: 700; }
 .dialog-form input, .dialog-form select, .dialog-form textarea { width: 100%; padding: 10px 11px; color: var(--ink); background: var(--paper); border: 1px solid var(--line-strong); resize: vertical; }
 .dialog-form footer { justify-content: flex-end; margin-top: 18px; padding-top: 15px; border-top: 1px solid var(--line); }
+#creationDialog .dialog-form { padding: clamp(24px, 4vw, 34px); }
+#creationDialog .dialog-form header { align-items: center; padding-bottom: 20px; }
+#creationDialog .dialog-form header h2 { font-size: 28px; }
+#creationDialog .dialog-form label { gap: 7px; margin-top: 19px; color: var(--ink); font-size: 12px; }
+#creationDialog .dialog-form input, #creationDialog .dialog-form textarea { padding: 12px 13px; }
+#creationDialog .dialog-form footer { align-items: center; margin-top: 24px; padding-top: 19px; }
 .form-boundary { margin: 13px 0 0; padding: 10px; color: var(--ink-soft); background: rgba(167,122,54,.06); border-left: 2px solid var(--brass); font-size: 10px; }
 
 @media (max-width: 1180px) {
