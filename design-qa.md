@@ -1,50 +1,47 @@
-# Investigation Entry Hierarchy — Design QA
+# New Investigation Creation Dialog — Design QA
 
-- Source visual truth: `C:\Users\serge\OneDrive\Рабочий стол\ChatGPT Image 5 серп. 2026 р., 10_03_46.png`
-- Wide implementation: `governance/evidence/INVESTIGATION_ENTRY_HIERARCHY/01-start-wide.png`
-- Exact responsive implementation: `governance/evidence/INVESTIGATION_ENTRY_HIERARCHY/07-start-390-iframe.png`
-- Combined comparison: `governance/evidence/INVESTIGATION_ENTRY_HIERARCHY/05-reference-comparison.png`
-- Wide viewport: 1620 × 980 CSS px, device scale 1; source normalized from 1647 × 987 to 1635 × 980 for the combined comparison.
-- Mobile evidence artifact: 450 × 900 PNG containing a visible iframe explicitly sized to 390 × 844 CSS px. The iframe width/height are fixed in the capture harness and the browser journey separately asserts `documentElement.scrollWidth <= innerWidth`. Top-level Edge screenshots were rejected because headless Edge imposed a wider minimum layout viewport.
-- State: default start page, no saved Investigation list expanded.
+- Desktop implementation: `governance/evidence/INVESTIGATION_CREATION_DIALOG/01-desktop-centered.png`
+- Mobile implementation: `governance/evidence/INVESTIGATION_CREATION_DIALOG/02-mobile-390.png`
+- Desktop viewport: visible 1280 × 800 CSS px iframe in a 1280 × 800 artifact.
+- Mobile viewport: fixed 390 × 844 CSS px iframe inside a 450 × 900 artifact.
+- State: default start page with the New Investigation modal open and focus in the title field.
 
-## Full-view comparison evidence
+## Full-view evidence
 
-The combined source/implementation image confirms the intended, non-literal hierarchy: editorial orientation first, one autonomous dark primary entry block, a clearly separated supporting-tools section, and a final local-storage note. Existing Management OS tokens and typography are retained.
+The desktop capture shows a horizontally and vertically centered restrained-width modal, calm dimmed backdrop, strong but quiet title, two self-explanatory fields, and a clear primary/secondary action pair. It does not read as a drawer, alert, settings panel, or debug surface.
 
-## Focused responsive evidence
-
-The 390 × 844 iframe capture was inspected at original resolution. The primary action remains first and dominant; all three supporting tools stack; copy wraps within the viewport; no horizontal overflow is present; the privacy note remains visible without competing with the workflow.
+The exact 390 px capture shows 20 px safe side margins, balanced top and bottom space, no horizontal overflow, a full-width field stack, and actions that remain readable without crowding.
 
 ## Required fidelity surfaces
 
-- Fonts and typography: existing Georgia/Management OS editorial stack retained; display hierarchy and optical weight follow the reference direction without claiming a new font canon.
-- Spacing and layout rhythm: strong central composition, controlled whitespace, explicit divider before supporting tools, and responsive vertical stacking.
-- Colors and tokens: existing warm paper, dark wood, brass, and ink tokens retained. No new canonical palette introduced.
-- Image and asset fidelity: the reference contains optional line icons. They were intentionally omitted rather than approximated with custom SVG/CSS/glyph assets; hierarchy does not depend on them.
-- Copy and content: primary purpose, primary action, supporting purpose statements, and local-only persistence are all human-readable and explicit.
-
-## Comparison history
-
-1. Initial wide pass: no P0/P1 findings. The primary action and secondary tools were materially separated as required.
-2. Initial 390 top-level capture: apparent P2 right-edge crop on the CTA and long descriptions. Added mobile safe gutters and explicit wrapping.
-3. Repeated top-level capture retained the crop because Edge headless used a minimum top-level layout width. The browser journey's scroll-width assertion passed, identifying the capture method as the remaining mismatch.
-4. Final exact 390 iframe capture: safe gutters, wrapping, vertical tool stack, and privacy note all render correctly. No actionable P0/P1/P2 remains.
+- Typography: existing Management OS editorial/sans pairing retained. Dialog heading is prominent without competing with the start-page hierarchy.
+- Spacing: desktop and mobile modal geometry is balanced; field and footer rhythm is consistent.
+- Colors: existing warm paper, dark ink, brass focus ring, and calm translucent overlay retained.
+- Assets: no imagery or icons are required for this minimal bounded flow.
+- Copy: only “Нове розслідування”, “Назва”, “Що відбувається?”, concise placeholders, “Скасувати”, and “Створити розслідування” remain.
 
 ## Interaction verification
 
-- Default entry renders the start page, not MAT-0247.
-- Primary action opens the bounded creation dialog.
-- Closing with valid values creates no Investigation.
-- Native submit creates an empty Investigation.
-- First material persists and restores.
-- “Відкрити збережене” expands the list, reports `aria-expanded=true`, renders the saved record, and opens it through the actual list control.
-- The demonstration option is clicked and preserves MAT-0247 without user-state contamination.
-- The Historical Reader option is clicked and navigation to `historical-reader.html` is asserted.
-- Console/runtime blocking errors: none observed in the browser journeys.
+- Primary entry action opens a native top-layer modal.
+- Background content is protected by native `showModal()` modality.
+- Focus enters `#creationTitle`.
+- Escape closes without creating state and returns focus to the primary entry action.
+- Close and Cancel clear abandoned values, create no state, and return focus.
+- Enter from the title field does not submit while the situation field is empty.
+- Enter submits when both required fields are valid.
+- Valid creation opens a genuinely empty Investigation with no demo content.
+- First user material, local persistence, saved-state reopening, explicit demo isolation, and Historical Reader navigation remain passing.
 
-## Residual P3
+## Comparison history
 
-No iconography was added. If canonical start-page icons are later authorized, they may improve scanning, but they are not required for the corrected hierarchy.
+1. Initial implementation capture: visual centering and minimal copy passed on desktop and 390 px.
+2. First interaction run: focus could not be observed because the test iframe was `hidden`. Replaced it with a rendered off-screen 390 × 844 iframe.
+3. Second interaction run: deterministic focus return after Escape failed. Added an explicit close helper that returns focus.
+4. Third interaction run: Cancel retained prior values, making a later invalid-Enter scenario appear valid. Cancel/Escape now reset abandoned form values and custom validity.
+5. Final repeated browser journey: passed with all modal, keyboard, empty-state, persistence, saved, demo, and Historical Reader assertions.
+
+## Residual findings
+
+No P0, P1, P2, or attributable P3 finding remains.
 
 final result: passed
