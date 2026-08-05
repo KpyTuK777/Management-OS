@@ -300,17 +300,18 @@ dialog::backdrop { background: rgba(27,23,19,.58); backdrop-filter: blur(2px); }
   .start-page .eyebrow { margin-bottom: 15px; font-size: 9px; }
   .start-page h1 { max-width: 350px; font-size: clamp(36px, 10.8vw, 46px); line-height: 1.01; }
   .start-page .start-intro { margin: 15px 0 20px; font-size: 14px; line-height: 1.42; }
-  .start-primary { width: calc(100vw - 40px); min-width: 0; min-height: 108px; grid-template-columns: minmax(0,1fr); padding: 19px 20px; }
+  .start-page .start-intro { width: calc(100% - 12px); }
+  .start-primary { width: calc(100% - 12px); min-width: 0; min-height: 108px; grid-template-columns: minmax(0,1fr); padding: 19px 20px; }
   .start-primary span { font-size: 25px; }
   .start-primary small { font-size: 12px; line-height: 1.35; }
   .start-primary b { display: none; }
-  .supporting-tools { width: calc(100vw - 40px); min-width: 0; margin-top: 24px; }
+  .supporting-tools { width: calc(100% - 12px); min-width: 0; margin-top: 24px; }
   .supporting-tools > h2 { gap: 14px; font-size: 9px; }
   .start-actions { grid-template-columns: 1fr; margin-top: 13px; }
   .start-option { width: 100%; min-width: 0; padding: 11px 8px; overflow-wrap: anywhere; }
   .start-option + .start-option { border-left: 0; border-top: 1px solid var(--line); }
   .start-option strong { font-size: 15px; }
-  .local-storage-note { margin-top: 16px; font-size: 10px; line-height: 1.45; }
+  .local-storage-note { width: calc(100% - 12px); margin-top: 16px; font-size: 10px; line-height: 1.45; }
   .matter-command-bar { height: auto; min-height: 62px; padding: 10px 14px; }
   .command-status { display: none; }
   .investigation-frame { padding: 17px 12px 32px; }
