@@ -1,45 +1,55 @@
-# New Investigation Creation Dialog — Design QA
+# Shared Modal Foundation — Design QA
 
-- Desktop implementation: `governance/evidence/INVESTIGATION_CREATION_DIALOG/01-desktop-centered.png`
-- Mobile implementation: `governance/evidence/INVESTIGATION_CREATION_DIALOG/02-mobile-390.png`
-- Desktop viewport: visible 1280 × 800 CSS px iframe in a 1280 × 800 artifact.
-- Mobile viewport: fixed 390 × 844 CSS px iframe inside a 450 × 900 artifact.
-- State: default start page with the New Investigation modal open and focus in the title field.
+- Implementation commit: `14e9a2e`
+- Desktop visual evidence: `governance/evidence/SHARED_MODAL_FOUNDATION/01-add-material-desktop.png`
+- Mobile visual evidence: `governance/evidence/SHARED_MODAL_FOUNDATION/02-add-material-390.png`
+- Desktop test viewport: 1280 × 800 CSS px.
+- Mobile test viewport: exact 390 × 844 CSS px inside a 450 × 900 artifact.
+- State: Add Material opened from the Investigation Workbench through the shared modal foundation.
 
-## Full-view evidence
+## Visual review
 
-The desktop capture shows a horizontally and vertically centered restrained-width modal, calm dimmed backdrop, strong but quiet title, two self-explanatory fields, and a clear primary/secondary action pair. It does not read as a drawer, alert, settings panel, or debug surface.
+Desktop Add Material is centered on both axes with balanced surrounding space, restrained width, calm dimmed background, and clear form focus. The dialog reads as a deliberate interruption rather than a corner-attached technical panel.
 
-The exact 390 px capture shows 20 px safe side margins, balanced top and bottom space, no horizontal overflow, a full-width field stack, and actions that remain readable without crowding.
+At 390 px, the dialog remains centered within 20 px safe side margins, fits within vertical safety bounds, uses internal scrolling when necessary, and shows no horizontal overflow. The close and primary/secondary actions remain visible and readable.
 
-## Required fidelity surfaces
+## Shared coverage
 
-- Typography: existing Management OS editorial/sans pairing retained. Dialog heading is prominent without competing with the start-page hierarchy.
-- Spacing: desktop and mobile modal geometry is balanced; field and footer rhythm is consistent.
-- Colors: existing warm paper, dark ink, brass focus ring, and calm translucent overlay retained.
-- Assets: no imagery or icons are required for this minimal bounded flow.
-- Copy: only “Нове розслідування”, “Назва”, “Що відбувається?”, concise placeholders, “Скасувати”, and “Створити розслідування” remain.
+The reusable geometry and interaction foundation is inherited by:
 
-## Interaction verification
+- New Investigation (`creationDialog`)
+- Add Material (`materialDialog`)
+- Add Hypothesis (`hypothesisDialog`)
+- Edit Situation (`situationDialog`)
 
-- Primary entry action opens a native top-layer modal.
-- Background content is protected by native `showModal()` modality.
-- Focus enters `#creationTitle`.
-- Escape closes without creating state and returns focus to the primary entry action.
-- Close and Cancel clear abandoned values, create no state, and return focus.
-- At 390 px, bounding-rect assertions verify horizontal and vertical centering plus 20 px minimum viewport margins; modal `scrollWidth <= clientWidth` verifies no internal horizontal overflow.
-- Enter from the title field does not submit while the situation field is empty.
-- Enter submits when both required fields are valid.
-- Valid creation opens a genuinely empty Investigation with no demo content.
-- First user material, local persistence, saved-state reopening, explicit demo isolation, and Historical Reader navigation remain passing.
+Both 390 × 844 and 1280 × 800 browser journeys assert for every dialog:
+
+- native top-layer modality;
+- horizontal and vertical centering within 1 px;
+- at least 20 px safe margins on every edge;
+- no horizontal modal overflow;
+- marked-field autofocus;
+- header close dismissal;
+- footer Cancel dismissal;
+- Escape dismissal;
+- focus restoration to the invoker;
+- repeated reopening;
+- no stale `dialog:modal` overlay.
+
+## Interaction and state review
+
+- Shared close resets abandoned form values and custom validity.
+- Dismissed Material, Hypothesis, and Situation dialogs leave Investigation state unchanged.
+- Add Material submit still creates and persists the first user material.
+- New Investigation remains empty and demo-free.
+- Saved reopening, explicit demo isolation, and Historical Reader navigation remain passing.
+- Optional overlay click was not added; native modal dismissal remains explicit through ×, Cancel, and Escape.
 
 ## Comparison history
 
-1. Initial implementation capture: visual centering and minimal copy passed on desktop and 390 px.
-2. First interaction run: focus could not be observed because the test iframe was `hidden`. Replaced it with a rendered off-screen 390 × 844 iframe.
-3. Second interaction run: deterministic focus return after Escape failed. Added an explicit close helper that returns focus.
-4. Third interaction run: Cancel retained prior values, making a later invalid-Enter scenario appear valid. Cancel/Escape now reset abandoned form values and custom validity.
-5. Final repeated browser journey: passed with all modal, keyboard, empty-state, persistence, saved, demo, and Historical Reader assertions.
+1. Initial shared foundation: autofocus fallback selector returned the first close button because selector-list document order overrode intended priority. Corrected to explicitly prefer `[data-modal-autofocus]`.
+2. Initial 390 Workbench run: `100vw` included the browser scrollbar gutter, reducing effective safe margins. Shared modal width and height now use layout-viewport percentages.
+3. Final repeated runs at 390 × 844 and 1280 × 800: all four dialogs and all three dismissal paths passed.
 
 ## Residual findings
 
