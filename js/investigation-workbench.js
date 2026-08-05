@@ -140,7 +140,7 @@
       const inSet = state.workingSet.includes(item.id);
       return `<article class="evidence-card" data-evidence-status="${item.status}">
         <span class="evidence-type" aria-hidden="true">${escapeHtml(item.type.slice(0, 2).toUpperCase())}</span>
-        <button class="card-main compact-item" type="button" data-inspect="${item.id}"><span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.summary)}</p><span class="evidence-card__meta"><span class="semantic-status semantic-status--${item.status}">${statusLabel(item.status)}</span><small>${escapeHtml(item.source)} · ${escapeHtml(item.date)}</small></span></span><span>Інспектор</span></button>
+        <button class="card-main compact-item" type="button" data-inspect="${item.id}"><span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.summary)}</p><span class="evidence-card__meta"><span class="semantic-status semantic-status--${item.status}">${statusLabel(item.status)}</span><small>${escapeHtml(item.source)} · ${escapeHtml(item.date)}</small></span></span><span>Watson</span></button>
         <div class="evidence-actions"><button type="button" data-inspect="${item.id}" aria-label="Переглянути ${escapeHtml(item.title)}">⌕</button><button class="${inSet ? "is-added" : ""}" type="button" data-working-set="${item.id}" aria-label="${inSet ? "Вилучити з" : "Додати до"} робочого набору">${inSet ? "✓" : "+"}</button></div>
       </article>`;
     }).join("") : `<div class="empty-results"><strong>${state.evidence.length ? "Матеріалів із таким статусом немає" : "Матеріалів ще немає"}</strong><p>${state.evidence.length ? "Змініть фільтр або додайте матеріал." : "Додайте перший матеріал. Він залишиться неперевіреним, доки людина не підтвердить його."}</p><button class="primary-button" type="button" data-start-material>Додати матеріал</button></div>`;
@@ -194,12 +194,12 @@
     const summary = item.summary || item.note || item.description || item.text || item.title;
     $("#inspectorContent").innerHTML = `<div class="inspector-summary">${escapeHtml(summary)}</div><dl>${fields.map(([term, value]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("")}</dl><details class="inspector-details"><summary>Технічні деталі</summary><pre>ID: ${escapeHtml(item.id)}\nЛокальний приклад: так\nКанонічні повноваження: відсутні</pre></details>`;
     if (window.innerWidth < 921) $("#inspectorPanel").scrollIntoView({ block: "start", behavior: "smooth" });
-    announce(`Відкрито інспектор: ${item.title || item.text}`);
+    announce(`Відкрито Watson: ${item.title || item.text}`);
   }
 
   function closeInspector() {
     focused = null;
-    $("#inspectorTitle").textContent = "Нічого не вибрано";
+    $("#inspectorTitle").textContent = "Watson";
     $("#inspectorEmpty").classList.remove("hidden");
     $("#inspectorContent").classList.add("hidden");
     $("#inspectorContent").replaceChildren();
@@ -260,6 +260,15 @@
       dialog.addEventListener("cancel", event => { event.preventDefault(); closeModal(dialog); });
       dialog.addEventListener("keydown", event => {
         if (event.key === "Escape") { event.preventDefault(); closeModal(dialog); }
+        if (event.key === "Enter" && event.shiftKey && event.target.matches("textarea") && !event.target.hasAttribute("data-long-form")) {
+          event.preventDefault();
+          event.target.setRangeText("\n", event.target.selectionStart, event.target.selectionEnd, "end");
+          event.target.dispatchEvent(new Event("input", { bubbles: true }));
+        }
+        if (event.key === "Enter" && !event.shiftKey && event.target.matches("input:not([type='button']):not([type='submit']), textarea") && !event.target.hasAttribute("data-long-form")) {
+          event.preventDefault();
+          dialog.querySelector("form")?.requestSubmit();
+        }
       });
       dialog.addEventListener("close", () => {
         const invoker = modalInvokers.get(dialog);
@@ -344,9 +353,6 @@
       renderSavedInvestigations();
       $("#savedInvestigations").classList.toggle("hidden");
       $("#openSaved").setAttribute("aria-expanded", $("#savedInvestigations").classList.contains("hidden") ? "false" : "true");
-    });
-    $("#creationDialog").addEventListener("keydown", event => {
-      if (event.key === "Enter" && event.target === $("#creationTitle")) { event.preventDefault(); $("#creationForm").requestSubmit(); }
     });
     [$("#creationTitle"), $("#creationSituation")].forEach(input => input.addEventListener("input", () => input.setCustomValidity("")));
     $("#creationForm").addEventListener("submit", event => {

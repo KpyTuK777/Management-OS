@@ -41,6 +41,13 @@
         assert(!doc.querySelector("dialog:modal"), `${dialogId} left a stale modal overlay after ${path}`);
       });
     };
+    const assertShiftEnterNewline = (win, field, dialog) => {
+      const initial = field.value;
+      field.setSelectionRange(field.value.length, field.value.length);
+      field.dispatchEvent(new win.KeyboardEvent("keydown", { key: "Enter", shiftKey: true, bubbles: true, cancelable: true }));
+      assert(field.value === `${initial}\n`, `${dialog.id} Shift+Enter did not insert a newline`);
+      assert(dialog.open, `${dialog.id} Shift+Enter submitted accidentally`);
+    };
 
     frame.addEventListener("load", () => {
       try {
@@ -76,6 +83,8 @@
           assert(doc.getElementById("creationDialog").open, "Enter submitted while a required field was empty");
           assert(!localStorage.getItem(key), "Invalid Enter created an Investigation");
           doc.getElementById("creationSituation").value = "Замовлення надходять клієнтам пізніше обіцяного строку.";
+          assertShiftEnterNewline(win, doc.getElementById("creationSituation"), doc.getElementById("creationDialog"));
+          doc.getElementById("creationSituation").value = "Замовлення надходять клієнтам пізніше обіцяного строку.";
           doc.getElementById("creationTitle").dispatchEvent(new win.KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
           assert(doc.querySelectorAll("#knownList .compact-item").length === 0, "New Investigation inherited facts");
           assert(doc.querySelectorAll("#unknownList .compact-item").length === 0, "New Investigation inherited unknowns");
@@ -85,21 +94,37 @@
           assert(doc.querySelectorAll("#timelineList .timeline-event").length === 0, "New Investigation inherited Timeline events");
           assert(doc.querySelectorAll("#workingSetList .working-set-item").length === 0, "New Investigation inherited Working Set");
           assert(!doc.body.textContent.includes("−18%"), "Demo metrics contaminated new Investigation");
+          assert(doc.getElementById("inspectorTitle").textContent === "Watson", "Watson title is not visible");
+          assert(doc.getElementById("inspectorEmpty").textContent.includes("ще не аналізує матеріали"), "Watson unavailable boundary is missing");
+          assert(!doc.body.textContent.includes("Інспектор"), "Legacy Inspector language remains visible");
           doc.querySelector("[data-view='evidence']").click();
           const addMaterialButton = doc.getElementById("addMaterial");
           exerciseModalDismissals(win, doc, addMaterialButton, "materialDialog");
           addMaterialButton.click();
+          doc.getElementById("materialTitle").dispatchEvent(new win.KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
+          assert(doc.getElementById("materialDialog").open, "Invalid Material Enter submitted accidentally");
           doc.getElementById("materialTitle").value = "Журнал доставки";
           doc.getElementById("materialSource").value = "Операційна команда";
           doc.getElementById("materialSummary").value = "Перший неперевірений матеріал користувача.";
-          doc.getElementById("saveMaterial").click();
+          assertShiftEnterNewline(win, doc.getElementById("materialSummary"), doc.getElementById("materialDialog"));
+          doc.getElementById("materialSummary").dispatchEvent(new win.KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
           assert(doc.querySelectorAll("#evidenceList .evidence-card").length === 1, "First user material was not added");
           doc.querySelector("[data-view='reasoning']").click();
           exerciseModalDismissals(win, doc, doc.getElementById("addHypothesis"), "hypothesisDialog");
           assert(doc.querySelectorAll("#hypothesisList .hypothesis-card").length === 0, "Dismissed hypothesis modal changed state");
+          doc.getElementById("addHypothesis").click();
+          doc.getElementById("hypothesisText").value = "Затримка виникає на етапі передачі.";
+          assertShiftEnterNewline(win, doc.getElementById("hypothesisText"), doc.getElementById("hypothesisDialog"));
+          doc.getElementById("hypothesisText").dispatchEvent(new win.KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
+          assert(doc.querySelectorAll("#hypothesisList .hypothesis-card").length === 1, "Valid Hypothesis Enter did not submit");
           doc.querySelector("[data-view='situation']").click();
           exerciseModalDismissals(win, doc, doc.getElementById("editSituation"), "situationDialog");
           assert(doc.getElementById("situationSummary").textContent === "Замовлення надходять клієнтам пізніше обіцяного строку.", "Dismissed situation modal changed state");
+          doc.getElementById("editSituation").click();
+          doc.getElementById("situationInput").value = "Затримки тривають довше очікуваного.";
+          assertShiftEnterNewline(win, doc.getElementById("situationInput"), doc.getElementById("situationDialog"));
+          doc.getElementById("situationInput").dispatchEvent(new win.KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
+          assert(doc.getElementById("situationSummary").textContent.includes("Затримки тривають довше очікуваного."), "Valid Situation Enter did not submit");
           const stored = JSON.parse(localStorage.getItem(key));
           assert(stored.investigations.length === 1, "User Investigation was not persisted");
           assert(stored.investigations[0].data.evidence.length === 1, "First material was not persisted");
