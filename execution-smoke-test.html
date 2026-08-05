@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="uk">
+<meta charset="utf-8">
+<title>Investigation entry smoke test</title>
+<body>
+  <pre id="result">RUNNING</pre>
+  <iframe id="app" src="index.html" hidden></iframe>
+  <script>
+    const result = document.getElementById("result");
+    const frame = document.getElementById("app");
+    const key = "management-os-user-investigations-v1";
+    localStorage.removeItem(key);
+    let stage = 0;
+    const assert = (condition, message) => { if (!condition) throw new Error(message); };
+    const fail = error => { result.textContent = `FAIL: ${error.message}`; };
+
+    frame.addEventListener("load", () => {
+      try {
+        const win = frame.contentWindow;
+        const doc = win.document;
+        if (stage === 0) {
+          assert(!doc.getElementById("startPage").classList.contains("hidden"), "Default entry is not the start page");
+          assert(doc.getElementById("workbenchShell").classList.contains("hidden"), "Demo opened automatically");
+          doc.getElementById("startInvestigation").click();
+          doc.getElementById("creationTitle").value = "Перевірка затримок";
+          doc.getElementById("creationSituation").value = "Замовлення надходять клієнтам пізніше обіцяного строку.";
+          doc.querySelector("[data-close-creation]").click();
+          assert(!localStorage.getItem(key), "Closing creation flow created an Investigation");
+          doc.getElementById("startInvestigation").click();
+          doc.getElementById("creationTitle").value = "Перевірка затримок";
+          doc.getElementById("creationSituation").value = "Замовлення надходять клієнтам пізніше обіцяного строку.";
+          doc.querySelector("#creationForm button[type='submit']").click();
+          assert(doc.querySelectorAll("#knownList .compact-item").length === 0, "New Investigation inherited facts");
+          assert(doc.querySelectorAll("#unknownList .compact-item").length === 0, "New Investigation inherited unknowns");
+          assert(doc.querySelectorAll("#evidenceList .evidence-card").length === 0, "New Investigation inherited Evidence");
+          assert(doc.querySelectorAll("#hypothesisList .hypothesis-card").length === 0, "New Investigation inherited hypotheses");
+          assert(doc.querySelectorAll("#relationshipList .relationship-row").length === 0, "New Investigation inherited Relationships");
+          assert(doc.querySelectorAll("#timelineList .timeline-event").length === 0, "New Investigation inherited Timeline events");
+          assert(doc.querySelectorAll("#workingSetList .working-set-item").length === 0, "New Investigation inherited Working Set");
+          assert(!doc.body.textContent.includes("−18%"), "Demo metrics contaminated new Investigation");
+          doc.querySelector("[data-start-material]").click();
+          doc.getElementById("materialTitle").value = "Журнал доставки";
+          doc.getElementById("materialSource").value = "Операційна команда";
+          doc.getElementById("materialSummary").value = "Перший неперевірений матеріал користувача.";
+          doc.getElementById("saveMaterial").click();
+          assert(doc.querySelectorAll("#evidenceList .evidence-card").length === 1, "First user material was not added");
+          const stored = JSON.parse(localStorage.getItem(key));
+          assert(stored.investigations.length === 1, "User Investigation was not persisted");
+          assert(stored.investigations[0].data.evidence.length === 1, "First material was not persisted");
+          assert(stored.investigations[0].data.known.length === 0, "Stored state contains demo facts");
+          stage = 1;
+          frame.src = `index.html?investigation=${encodeURIComponent(stored.investigations[0].id)}`;
+        } else if (stage === 1) {
+          assert(doc.getElementById("startPage").classList.contains("hidden"), "Saved Investigation did not restore");
+          assert(doc.querySelectorAll("#evidenceList .evidence-card").length === 1, "Restored Investigation lost material");
+          assert(doc.querySelectorAll("#knownList .compact-item").length === 0, "Restored Investigation gained demo facts");
+          stage = 2;
+          frame.src = "index.html?demo=MAT-0247";
+        } else {
+          assert(doc.querySelectorAll("#evidenceList .evidence-card").length === 6, "Explicit demo did not preserve MAT-0247");
+          const stored = JSON.parse(localStorage.getItem(key));
+          assert(stored.investigations[0].data.evidence.length === 1, "Opening demo contaminated user state");
+          result.textContent = "PASS: start → create empty → add material → persist/restore → explicit demo separation";
+        }
+      } catch (error) { fail(error); }
+    });
+  </script>
+</body>
+</html>

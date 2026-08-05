@@ -9,7 +9,24 @@
   <link rel="stylesheet" href="css/investigation-workbench.css">
 </head>
 <body class="investigation-app">
-  <div class="os-shell">
+  <main class="start-page" id="startPage">
+    <section class="start-page__content" aria-labelledby="startTitle">
+      <p class="eyebrow">Management OS · Розслідування</p>
+      <h1 id="startTitle">Почніть із ситуації, яку потрібно зрозуміти</h1>
+      <p>Створіть чистий робочий простір, поверніться до збереженого розслідування або окремо відкрийте приклад.</p>
+      <button class="primary-button start-primary" id="startInvestigation" type="button">Розпочати розслідування</button>
+      <div class="start-actions">
+        <button class="secondary-button" id="openSaved" type="button" aria-expanded="false" aria-controls="savedInvestigations">Відкрити збережене</button>
+        <a class="secondary-button" href="index.html?demo=MAT-0247">Переглянути демонстраційний кейс</a>
+        <a class="secondary-button" href="historical-reader.html">Переглянути історичний розбір</a>
+      </div>
+      <section class="saved-investigations hidden" id="savedInvestigations" aria-labelledby="savedTitle"><h2 id="savedTitle">Збережені розслідування</h2><div id="savedInvestigationList"></div></section>
+    </section>
+  </main>
+
+  <dialog id="creationDialog" aria-labelledby="creationHeading" aria-describedby="creationHint"><form method="dialog" id="creationForm" class="dialog-form"><header><div><p class="eyebrow">Нове розслідування</p><h2 id="creationHeading">З чого починаємо?</h2><p id="creationHint">Двох коротких відповідей достатньо. Решту можна додати під час роботи.</p></div><button type="button" data-close-creation aria-label="Закрити">×</button></header><label>Назва розслідування<input id="creationTitle" autocomplete="off" required maxlength="120" placeholder="Наприклад: Затримки у виконанні замовлень"></label><label>Що відбувається?<textarea id="creationSituation" rows="5" required maxlength="1200" placeholder="Опишіть ситуацію своїми словами. Не потрібно формулювати причину або висновок."></textarea></label><footer><button type="button" data-close-creation class="secondary-button">Скасувати</button><button type="submit" class="primary-button">Створити чисте розслідування</button></footer></form></dialog>
+
+  <div class="os-shell hidden" id="workbenchShell">
     <aside class="os-rail" aria-label="Основна навігація">
       <a class="os-brand" href="index.html" aria-label="Management OS — головна">
         <span class="os-brand__mark">OS</span>

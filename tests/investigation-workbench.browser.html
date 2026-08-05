@@ -14,7 +14,7 @@
     async function run() {
       try {
         localStorage.removeItem("management-os-investigation-workbench-v1");
-        frame.src = "../index.html#situation";
+        frame.src = "../index.html?demo=MAT-0247#situation";
         await new Promise((resolve, reject) => {
           frame.onload = resolve;
           setTimeout(() => reject(new Error("Application load timed out")), 4000);

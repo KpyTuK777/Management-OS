@@ -2,6 +2,7 @@
   "use strict";
 
   const STORAGE_KEY = "management-os-investigation-workbench-v1";
+  const INVESTIGATIONS_KEY = "management-os-user-investigations-v1";
 
   const seed = {
     situation: {
@@ -49,11 +50,15 @@
   const clone = value => JSON.parse(JSON.stringify(value));
   const $ = selector => document.querySelector(selector);
   const $$ = selector => [...document.querySelectorAll(selector)];
-  let state = loadState();
+  let state = clone(seed);
+  let activeInvestigation = null;
+  let activeKind = "demo";
   let currentFilter = "all";
   let focused = null;
+  let demoMetricsMarkup = "";
 
   function loadState() {
+    if (activeKind === "user" && activeInvestigation) return clone(activeInvestigation.data);
     try {
       const stored = JSON.parse(localStorage.getItem(STORAGE_KEY));
       return stored && stored.version === 1 ? { ...clone(seed), ...stored.data } : clone(seed);
@@ -63,7 +68,32 @@
   }
 
   function persist() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: 1, data: state }));
+    if (activeKind === "demo") {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: 1, data: state }));
+      return;
+    }
+    const records = loadInvestigations();
+    const index = records.findIndex(item => item.id === activeInvestigation.id);
+    activeInvestigation = { ...activeInvestigation, updatedAt: new Date().toISOString(), data: clone(state) };
+    if (index >= 0) records[index] = activeInvestigation; else records.unshift(activeInvestigation);
+    localStorage.setItem(INVESTIGATIONS_KEY, JSON.stringify({ version: 1, investigations: records }));
+  }
+
+  function loadInvestigations() {
+    try {
+      const stored = JSON.parse(localStorage.getItem(INVESTIGATIONS_KEY));
+      return stored?.version === 1 && Array.isArray(stored.investigations) ? stored.investigations : [];
+    } catch (_) { return []; }
+  }
+
+  function emptyInvestigation(title, situation) {
+    return {
+      id: `INV-${Date.now()}`,
+      title,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      data: { situation: { summary: situation, revisions: [] }, known: [], unknowns: [], attention: [], evidence: [], hypotheses: [], workingSet: [], timeline: [] }
+    };
   }
 
   function announce(message) {
@@ -92,8 +122,10 @@
     $("#revisionList").innerHTML = state.situation.revisions.map(item => `<li><strong>${escapeHtml(item.at)}</strong> — ${escapeHtml(item.text)}</li>`).join("");
     renderCompactList("#knownList", state.known);
     renderCompactList("#unknownList", state.unknowns);
+    if (!state.known.length) $("#knownList").innerHTML = `<div class="honest-empty"><strong>Нічого ще не підтверджено.</strong><p>Додайте перший матеріал, щоб почати перевірку ситуації.</p><button class="primary-button" type="button" data-start-material>Додати перший матеріал</button></div>`;
+    if (!state.unknowns.length) $("#unknownList").innerHTML = `<div class="honest-empty"><strong>Запишіть питання, які ще потрібно перевірити.</strong><p>Питання не стає фактом або завданням.</p></div>`;
     $("#attentionCount").textContent = `${state.attention.length} відкриті`;
-    $("#attentionGrid").innerHTML = state.attention.map(item => `<button class="attention-card" type="button" data-inspect="${item.id}"><span>${escapeHtml(item.type)}</span><strong>${escapeHtml(item.title)}</strong><small>${escapeHtml(item.note)}</small></button>`).join("");
+    $("#attentionGrid").innerHTML = state.attention.length ? state.attention.map(item => `<button class="attention-card" type="button" data-inspect="${item.id}"><span>${escapeHtml(item.type)}</span><strong>${escapeHtml(item.title)}</strong><small>${escapeHtml(item.note)}</small></button>`).join("") : `<div class="honest-empty"><strong>Суперечностей і прогалин ще не зафіксовано.</strong><p>Тут з’являться лише ті, які ви справді встановите.</p></div>`;
   }
 
   function renderCompactList(selector, items) {
@@ -110,7 +142,7 @@
         <button class="card-main compact-item" type="button" data-inspect="${item.id}"><span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.summary)}</p><span class="evidence-card__meta"><span class="semantic-status semantic-status--${item.status}">${statusLabel(item.status)}</span><small>${escapeHtml(item.source)} · ${escapeHtml(item.date)}</small></span></span><span>Інспектор</span></button>
         <div class="evidence-actions"><button type="button" data-inspect="${item.id}" aria-label="Переглянути ${escapeHtml(item.title)}">⌕</button><button class="${inSet ? "is-added" : ""}" type="button" data-working-set="${item.id}" aria-label="${inSet ? "Вилучити з" : "Додати до"} робочого набору">${inSet ? "✓" : "+"}</button></div>
       </article>`;
-    }).join("") : `<div class="empty-results"><strong>Матеріалів із таким статусом немає</strong><p>Змініть фільтр або додайте локальний матеріал.</p></div>`;
+    }).join("") : `<div class="empty-results"><strong>${state.evidence.length ? "Матеріалів із таким статусом немає" : "Матеріалів ще немає"}</strong><p>${state.evidence.length ? "Змініть фільтр або додайте матеріал." : "Додайте перший матеріал. Він залишиться неперевіреним, доки людина не підтвердить його."}</p><button class="primary-button" type="button" data-start-material>Додати матеріал</button></div>`;
   }
 
   function renderWorkingSet() {
@@ -122,20 +154,20 @@
 
   function renderHypotheses() {
     $("#reasoningTabCount").textContent = state.hypotheses.length;
-    $("#hypothesisList").innerHTML = state.hypotheses.map((item, index) => {
+    $("#hypothesisList").innerHTML = state.hypotheses.length ? state.hypotheses.map((item, index) => {
       const support = item.support.map(evidenceById).filter(Boolean);
       const contradict = item.contradict.map(evidenceById).filter(Boolean);
       return `<article class="hypothesis-card"><button class="card-main compact-item" type="button" data-inspect="${item.id}"><span><span class="hypothesis-card__number">Гіпотеза ${String(index + 1).padStart(2, "0")}</span><h3>${escapeHtml(item.text)}</h3><p><span class="semantic-status semantic-status--unverified">${escapeHtml(item.status)}</span></p><div class="hypothesis-card__evidence"><span>Підтримують: ${support.length} · Суперечать: ${contradict.length}</span><p>${support.map(value => escapeHtml(value.title)).join("; ") || "Підтримувальні матеріали не додано"}</p></div></span><span>Переглянути</span></button></article>`;
-    }).join("");
+    }).join("") : `<div class="empty-results"><strong>Робочих версій ще немає</strong><p>Додавайте гіпотезу лише тоді, коли маєте версію для перевірки.</p></div>`;
     const relationships = state.hypotheses.flatMap(hypothesis => [
       ...hypothesis.support.map(id => ({ evidence: evidenceById(id), hypothesis, relation: "підтримує" })),
       ...hypothesis.contradict.map(id => ({ evidence: evidenceById(id), hypothesis, relation: "суперечить" }))
     ]).filter(item => item.evidence);
-    $("#relationshipList").innerHTML = relationships.map(item => `<div class="relationship-row"><strong>${escapeHtml(item.evidence.title)}</strong><span>— ${item.relation} →</span><strong>${escapeHtml(item.hypothesis.text)}</strong></div>`).join("");
+    $("#relationshipList").innerHTML = relationships.length ? relationships.map(item => `<div class="relationship-row"><strong>${escapeHtml(item.evidence.title)}</strong><span>— ${item.relation} →</span><strong>${escapeHtml(item.hypothesis.text)}</strong></div>`).join("") : `<div class="honest-empty"><strong>Зв’язків ще немає.</strong><p>Вони з’являться, коли матеріали будуть пов’язані з робочими версіями.</p></div>`;
   }
 
   function renderTimeline() {
-    $("#timelineList").innerHTML = state.timeline.map(item => `<li class="timeline-event"><time>${escapeHtml(item.eventTime)}</time><span class="timeline-event__marker" aria-hidden="true"></span><div><button class="card-main compact-item" type="button" data-inspect="${item.id}"><span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p><dl><div><dt>Час події</dt><dd>${escapeHtml(item.eventTime)}</dd></div><div><dt>Час запису</dt><dd>${escapeHtml(item.recordTime)}</dd></div><div><dt>Межа</dt><dd>${escapeHtml(item.certainty)}</dd></div></dl></span><span>Переглянути</span></button></div></li>`).join("");
+    $("#timelineList").innerHTML = state.timeline.length ? state.timeline.map(item => `<li class="timeline-event"><time>${escapeHtml(item.eventTime)}</time><span class="timeline-event__marker" aria-hidden="true"></span><div><button class="card-main compact-item" type="button" data-inspect="${item.id}"><span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p><dl><div><dt>Час події</dt><dd>${escapeHtml(item.eventTime)}</dd></div><div><dt>Час запису</dt><dd>${escapeHtml(item.recordTime)}</dd></div><div><dt>Межа</dt><dd>${escapeHtml(item.certainty)}</dd></div></dl></span><span>Переглянути</span></button></div></li>`).join("") : `<li class="honest-empty"><strong>Подій ще не додано.</strong><p>Хронологія лишається порожньою, доки події не підтверджені матеріалами.</p></li>`;
   }
 
   function inspect(id) {
@@ -203,12 +235,61 @@
     $("#hypothesisEvidence").innerHTML = `<option value="">Без підтримувального матеріалу</option>${state.evidence.map(item => `<option value="${item.id}">${escapeHtml(item.title)} · ${statusLabel(item.status)}</option>`).join("")}`;
   }
 
+  function showStart() {
+    $("#startPage").classList.remove("hidden");
+    $("#workbenchShell").classList.add("hidden");
+    history.replaceState(null, "", location.pathname);
+    renderSavedInvestigations();
+  }
+
+  function renderSavedInvestigations() {
+    const records = loadInvestigations();
+    $("#savedInvestigationList").innerHTML = records.length ? records.map(item => `<button class="saved-investigation" type="button" data-open-investigation="${escapeHtml(item.id)}"><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.data.situation.summary)}</span><small>Оновлено ${new Date(item.updatedAt).toLocaleDateString("uk-UA")}</small></button>`).join("") : `<div class="honest-empty"><strong>Збережених розслідувань ще немає.</strong><p>Створене розслідування збережеться лише в цьому браузері.</p></div>`;
+  }
+
+  function openWorkbench(record, kind) {
+    activeKind = kind;
+    activeInvestigation = kind === "user" ? record : null;
+    state = kind === "user" ? clone(record.data) : loadState();
+    $("#startPage").classList.add("hidden");
+    $("#workbenchShell").classList.remove("hidden");
+    const title = kind === "demo" ? "Чому прибуток знижується, хоча виручка зростає?" : record.title;
+    $(".investigation-header h1").textContent = title;
+    $(".matter-identity strong").textContent = `${kind === "demo" ? "MAT-0247" : record.id} · ${title}`;
+    const rail = $(".rail-matter");
+    rail.querySelector("strong").textContent = kind === "demo" ? "MAT-0247" : record.id;
+    rail.querySelectorAll("span")[0].textContent = title;
+    $(".prototype-state").textContent = kind === "demo" ? "Демонстраційні дані" : "Локально збережено";
+    $("#materialForm .form-boundary").textContent = kind === "demo" ? "Матеріал буде позначено як неперевірений. Це зміна демонстраційного кейсу в цьому браузері." : "Матеріал буде позначено як неперевірений і збережено лише в цьому браузері.";
+    $("#resetWorkspace").classList.toggle("hidden", kind !== "demo");
+    if (kind === "demo") $(".metric-row").innerHTML = demoMetricsMarkup;
+    else $(".metric-row").replaceChildren();
+    $(".metric-row").classList.toggle("hidden", kind !== "demo");
+    $(".revision-history").classList.toggle("hidden", kind !== "demo");
+    $("[data-view='situation'] span").textContent = kind === "demo" ? "5" : "0";
+    const metaValues = $(".investigation-meta").querySelectorAll("dd");
+    if (kind === "user") {
+      metaValues[0].textContent = "У роботі";
+      metaValues[1].textContent = "Ви";
+      metaValues[2].textContent = "щойно";
+      $(".working-set-panel > p").textContent = "Тримайте тут матеріали, які ви зараз активно вивчаєте.";
+      $("#workingSetEmpty strong").textContent = "Робочий набір порожній";
+      $("#workingSetEmpty span").textContent = "Додайте сюди матеріал, який зараз розглядаєте.";
+    }
+    renderAll();
+    closeInspector();
+    const requestedView = location.hash.slice(1);
+    switchView(["situation", "evidence", "reasoning", "timeline"].includes(requestedView) ? requestedView : "situation");
+  }
+
   function bindEvents() {
     document.addEventListener("click", event => {
       const inspectControl = event.target.closest("[data-inspect]");
       const setControl = event.target.closest("[data-working-set]");
       const viewControl = event.target.closest("[data-view]");
       const filterControl = event.target.closest("[data-evidence-filter]");
+      const materialControl = event.target.closest("[data-start-material]");
+      const openControl = event.target.closest("[data-open-investigation]");
       if (inspectControl) inspect(inspectControl.dataset.inspect);
       if (setControl) toggleWorkingSet(setControl.dataset.workingSet);
       if (viewControl) switchView(viewControl.dataset.view);
@@ -217,6 +298,37 @@
         $$("[data-evidence-filter]").forEach(button => button.classList.toggle("is-active", button === filterControl));
         renderEvidence();
       }
+      if (materialControl) { switchView("evidence"); $("#materialDialog").showModal(); }
+      if (openControl) {
+        const record = loadInvestigations().find(item => item.id === openControl.dataset.openInvestigation);
+        if (record) openWorkbench(record, "user");
+      }
+    });
+
+    $("#startInvestigation").addEventListener("click", () => $("#creationDialog").showModal());
+    $("#openSaved").addEventListener("click", () => {
+      renderSavedInvestigations();
+      $("#savedInvestigations").classList.toggle("hidden");
+      $("#openSaved").setAttribute("aria-expanded", $("#savedInvestigations").classList.contains("hidden") ? "false" : "true");
+    });
+    $$('[data-close-creation]').forEach(button => button.addEventListener("click", () => $("#creationDialog").close()));
+    $("#creationForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const titleInput = $("#creationTitle");
+      const situationInput = $("#creationSituation");
+      const title = titleInput.value.trim();
+      const situation = situationInput.value.trim();
+      titleInput.setCustomValidity(title ? "" : "Вкажіть назву розслідування.");
+      situationInput.setCustomValidity(situation ? "" : "Опишіть початкову ситуацію.");
+      if (!title || !situation) { $("#creationForm").reportValidity(); return; }
+      const record = emptyInvestigation(title, situation);
+      activeInvestigation = record;
+      activeKind = "user";
+      state = clone(record.data);
+      persist();
+      $("#creationForm").reset();
+      $("#creationDialog").close();
+      openWorkbench(activeInvestigation, "user");
     });
 
     $("#unknownForm").addEventListener("submit", event => {
@@ -289,6 +401,13 @@
       closeInspector();
       announce("Початковий приклад відновлено.");
     });
+    const backButton = document.createElement("button");
+    backButton.type = "button";
+    backButton.className = "quiet-button";
+    backButton.id = "backToStart";
+    backButton.textContent = "До початку";
+    backButton.addEventListener("click", showStart);
+    $(".command-status").prepend(backButton);
     $("#mobileRailToggle").addEventListener("click", () => {
       const open = document.body.classList.toggle("rail-open");
       $("#mobileRailToggle").setAttribute("aria-expanded", open ? "true" : "false");
@@ -304,10 +423,14 @@
   }
 
   function init() {
-    renderAll();
+    demoMetricsMarkup = $(".metric-row").innerHTML;
     bindEvents();
-    const requestedView = location.hash.slice(1);
-    switchView(["situation", "evidence", "reasoning", "timeline"].includes(requestedView) ? requestedView : "situation");
+    const params = new URLSearchParams(location.search);
+    if (params.get("demo") === "MAT-0247") openWorkbench(null, "demo");
+    else {
+      const record = loadInvestigations().find(item => item.id === params.get("investigation"));
+      if (record) openWorkbench(record, "user"); else showStart();
+    }
   }
 
   init();
