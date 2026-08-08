@@ -16,11 +16,15 @@ Knowledge Base, SOP, Execution, Review, Insights, Hypotheses, and controlled
 Improvement Proposal capabilities. See [Systems](docs/SYSTEMS.md) for the canonical
 module-by-module status and [Sprint tracker](docs/SPRINTS.md) for delivery history.
 
-The current Operational Matter prototype also demonstrates a deterministic,
-progressively constructed Investigation journey: the Living Situation Board starts
-small, Watson guides the next useful reasoning step, and Natural Capture remains
-focused on the owner's contribution. It does not imply backend intelligence or
-capability gating.
+The current local materialization now begins from the organization itself. A user can
+create an honestly empty organization, progressively add departments, roles,
+processes, systems, SOPs, measures, reports, meetings and operational relationships,
+and inspect them through the Organization Map and focused Workbenches. Investigation
+remains available as a contextual work mode, and inherited organizational context is
+kept separate from Evidence, Working Set content, Hypotheses and accepted facts.
+
+The implementation is people-free by default. Watson, integrations, backend services,
+multi-user authorization and deployment are not active capabilities.
 
 ## Technology stack
 
