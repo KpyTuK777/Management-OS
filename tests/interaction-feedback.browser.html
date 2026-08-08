@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="uk">
+<head><meta charset="utf-8"><title>Interaction feedback browser contract</title></head>
+<body data-test-result="running">
+  <h1 id="result">Running interaction feedback contract…</h1>
+  <iframe id="desktop" title="Desktop interaction test" style="position:absolute;left:-10000px;width:1440px;height:1000px;border:0"></iframe>
+  <iframe id="mobile" title="Mobile interaction test" style="position:absolute;left:-10000px;width:390px;height:844px;border:0"></iframe>
+  <script>
+    const result = document.getElementById("result");
+    const desktop = document.getElementById("desktop");
+    const mobile = document.getElementById("mobile");
+    const assert = (condition, message) => { if (!condition) throw new Error(message); };
+    const load = (frame, source) => new Promise((resolve, reject) => {
+      frame.onload = resolve;
+      frame.src = source;
+      setTimeout(() => reject(new Error("Application load timed out")), 5000);
+    });
+    const click = element => element.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+
+    async function run() {
+      try {
+        await Promise.all([
+          load(desktop, "../index.html?demo=MAT-0247#evidence"),
+          load(mobile, "../index.html?demo=MAT-0247#evidence")
+        ]);
+        const doc = desktop.contentDocument;
+        const win = desktop.contentWindow;
+        const mobileDoc = mobile.contentDocument;
+        const style = selector => win.getComputedStyle(doc.querySelector(selector));
+
+        assert(doc.querySelector(".workspace-tabs").getAttribute("role") === "tablist", "Tabs lack tablist semantics");
+        assert([...doc.querySelectorAll("[data-view]")].every(tab => tab.getAttribute("role") === "tab"), "A workspace tab lacks tab semantics");
+        assert(doc.querySelector("[data-view='evidence']").getAttribute("aria-selected") === "true", "Selected tab state is not exposed");
+        assert(doc.querySelector("[data-view='evidence']").tabIndex === 0 && [...doc.querySelectorAll("[data-view]:not([data-view='evidence'])")].every(tab => tab.tabIndex === -1), "Tab roving focus state is inconsistent");
+        doc.querySelector("[data-view='evidence']").focus();
+        doc.querySelector(".workspace-tabs").dispatchEvent(new win.KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true, cancelable: true }));
+        assert(doc.querySelector("[data-view='reasoning']").getAttribute("aria-selected") === "true", "Arrow-key tab activation failed");
+        click(doc.querySelector("[data-view='evidence']"));
+
+        const filter = doc.querySelector("[data-evidence-filter='verified']");
+        click(filter);
+        assert(filter.getAttribute("aria-pressed") === "true", "Selected filter state is not exposed");
+        assert([...doc.querySelectorAll("[data-evidence-filter]")].filter(item => item.getAttribute("aria-pressed") === "true").length === 1, "Filter pressed state is ambiguous");
+
+        click(doc.querySelector("[data-evidence-filter='all']"));
+        const workingSet = doc.querySelector("[data-working-set]");
+        click(workingSet);
+        const updatedWorkingSet = doc.querySelector(`[data-working-set='${workingSet.dataset.workingSet}']`);
+        assert(updatedWorkingSet.getAttribute("aria-pressed") === "true", "Working Set selected state is not exposed");
+
+        const addMaterial = doc.getElementById("addMaterial");
+        addMaterial.focus();
+        assert(addMaterial.matches(":focus-visible"), "Keyboard focus is not focus-visible");
+        const focusStyle = win.getComputedStyle(addMaterial);
+        assert(focusStyle.outlineStyle !== "none" && parseFloat(focusStyle.outlineWidth) >= 3, "Focus ring is missing or too weak");
+
+        click(addMaterial);
+        const close = doc.querySelector("#materialDialog [data-modal-close]");
+        const closeStyle = win.getComputedStyle(close);
+        assert(parseFloat(closeStyle.width) >= 44 && parseFloat(closeStyle.height) >= 44, "Modal close target is smaller than 44px");
+        assert(close.getAttribute("aria-label"), "Modal close control lacks an accessible name");
+        assert(closeStyle.cursor === "pointer", "Modal close control does not signal clickability");
+        assert(closeStyle.transitionDuration.includes("0.16s"), "Modal close feedback is outside the 160ms motion contract");
+        close.focus();
+        assert(close.matches(":focus-visible"), "Modal close focus is not visible");
+        click(close);
+        assert(!doc.getElementById("materialDialog").open, "Modal close click was not accepted");
+
+        const disabled = doc.querySelector(".judgment-boundary button");
+        assert(disabled.disabled && parseFloat(win.getComputedStyle(disabled).opacity) < 0.7, "Disabled control is not visibly unavailable");
+        assert(style(".primary-button").cursor === "pointer", "Primary button does not signal clickability");
+        assert(style(".filter-bar button").transitionDuration.includes("0.16s"), "Filters lack bounded transition feedback");
+        assert(style(".evidence-actions button").width === "40px", "Material icon actions lost their target size");
+
+        const cssText = [...doc.styleSheets].flatMap(sheet => {
+          try { return [...sheet.cssRules].map(rule => rule.cssText); } catch (_) { return []; }
+        }).join("\n");
+        assert(cssText.includes("prefers-reduced-motion: reduce") && cssText.includes("0.01ms"), "Reduced-motion override is missing");
+        assert(mobileDoc.documentElement.scrollWidth <= 390, `390px viewport overflows horizontally: ${mobileDoc.documentElement.scrollWidth}px`);
+
+        document.body.dataset.testResult = "passed";
+        result.textContent = "Interaction feedback browser contract passed";
+      } catch (error) {
+        document.body.dataset.testResult = "failed";
+        result.textContent = `Interaction feedback browser contract failed: ${error.message}`;
+      }
+    }
+    run();
+  </script>
+</body>
+</html>

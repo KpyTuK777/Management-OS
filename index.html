@@ -79,16 +79,16 @@
           </dl>
         </header>
 
-        <nav class="workspace-tabs" aria-label="Розділи розслідування">
-          <button class="is-active" type="button" data-view="situation" aria-selected="true">Ситуація <span>5</span></button>
-          <button type="button" data-view="evidence" aria-selected="false">Матеріали <span id="evidenceTabCount">6</span></button>
-          <button type="button" data-view="reasoning" aria-selected="false">Робочі версії <span id="reasoningTabCount">4</span></button>
-          <button type="button" data-view="timeline" aria-selected="false">Хронологія</button>
+        <nav class="workspace-tabs" role="tablist" aria-label="Розділи розслідування">
+          <button class="is-active" id="situationTab" type="button" role="tab" data-view="situation" aria-controls="situationView" aria-selected="true" tabindex="0">Ситуація <span>5</span></button>
+          <button id="evidenceTab" type="button" role="tab" data-view="evidence" aria-controls="evidenceView" aria-selected="false" tabindex="-1">Матеріали <span id="evidenceTabCount">6</span></button>
+          <button id="reasoningTab" type="button" role="tab" data-view="reasoning" aria-controls="reasoningView" aria-selected="false" tabindex="-1">Робочі версії <span id="reasoningTabCount">4</span></button>
+          <button id="timelineTab" type="button" role="tab" data-view="timeline" aria-controls="timelineView" aria-selected="false" tabindex="-1">Хронологія</button>
         </nav>
 
         <div class="workbench-layout">
           <section class="workbench-canvas" aria-live="polite">
-            <section class="workspace-view is-active" data-workspace-view="situation" aria-labelledby="situationTitle">
+            <section class="workspace-view is-active" id="situationView" role="tabpanel" data-workspace-view="situation" aria-labelledby="situationTab">
               <article class="situation-paper">
                 <header class="paper-heading">
                   <div><p class="eyebrow">Поточна ситуація</p><h2 id="situationTitle">Що зараз відомо</h2></div>
@@ -122,21 +122,21 @@
               </section>
             </section>
 
-            <section class="workspace-view" data-workspace-view="evidence" aria-labelledby="evidenceTitle">
+            <section class="workspace-view" id="evidenceView" role="tabpanel" data-workspace-view="evidence" aria-labelledby="evidenceTab">
               <header class="section-heading sticky-heading">
                 <div><p class="eyebrow">Матеріали розслідування</p><h2 id="evidenceTitle">Докази та джерела</h2><p>Матеріал стає доказом лише після перевірки. Додавання до робочого набору не змінює його статус.</p></div>
                 <button class="primary-button" id="addMaterial" type="button">Додати матеріал</button>
               </header>
               <div class="filter-bar" role="group" aria-label="Фільтр матеріалів">
-                <button class="is-active" type="button" data-evidence-filter="all">Усі</button>
-                <button type="button" data-evidence-filter="verified">Перевірені</button>
-                <button type="button" data-evidence-filter="unverified">Потребують перевірки</button>
-                <button type="button" data-evidence-filter="contradiction">Суперечливі</button>
+                <button class="is-active" type="button" data-evidence-filter="all" aria-pressed="true">Усі</button>
+                <button type="button" data-evidence-filter="verified" aria-pressed="false">Перевірені</button>
+                <button type="button" data-evidence-filter="unverified" aria-pressed="false">Потребують перевірки</button>
+                <button type="button" data-evidence-filter="contradiction" aria-pressed="false">Суперечливі</button>
               </div>
               <div class="evidence-list" id="evidenceList"></div>
             </section>
 
-            <section class="workspace-view" data-workspace-view="reasoning" aria-labelledby="reasoningTitle">
+            <section class="workspace-view" id="reasoningView" role="tabpanel" data-workspace-view="reasoning" aria-labelledby="reasoningTab">
               <header class="section-heading sticky-heading">
                 <div><p class="eyebrow">Робоче пояснення</p><h2 id="reasoningTitle">Гіпотези та зв’язки</h2><p>Гіпотези залишаються попередніми версіями, навіть коли мають підтримувальні матеріали.</p></div>
                 <button class="primary-button" id="addHypothesis" type="button">Додати гіпотезу</button>
@@ -151,7 +151,7 @@
               </aside>
             </section>
 
-            <section class="workspace-view" data-workspace-view="timeline" aria-labelledby="timelineTitle">
+            <section class="workspace-view" id="timelineView" role="tabpanel" data-workspace-view="timeline" aria-labelledby="timelineTab">
               <header class="section-heading sticky-heading"><div><p class="eyebrow">Часовий контекст</p><h2 id="timelineTitle">Хронологія спостережень</h2><p>Події впорядковано лише настільки, наскільки це підтримують матеріали. Час події та час запису показано окремо.</p></div><span class="state-label">Лише читання · частково</span></header>
               <ol class="timeline-list" id="timelineList"></ol>
               <div class="unavailable-note"><strong>Редагування хронології недоступне</strong><p>Interaction contract для зміни порядку й невизначеного часу ще не завершений. Тут показано лише підтверджений read-only subset.</p></div>
@@ -182,7 +182,7 @@
     </main>
   </div>
 
-  <dialog id="materialDialog" aria-labelledby="materialDialogTitle"><form method="dialog" id="materialForm" class="dialog-form"><header><div><p class="eyebrow">Локальний матеріал</p><h2 id="materialDialogTitle">Додати до розслідування</h2></div><button type="button" data-modal-close aria-label="Закрити">×</button></header><label>Назва<input id="materialTitle" data-modal-autofocus required></label><label>Тип<select id="materialType"><option>Звіт</option><option>Нотатка</option><option>Спостереження</option><option>Розмова</option><option>Посилання</option></select></label><label>Джерело<input id="materialSource" placeholder="Наприклад: фінансовий відділ" required></label><label>Короткий зміст<textarea id="materialSummary" rows="4" required></textarea></label><p class="form-boundary">Матеріал буде позначено як неперевірений. Це локальний приклад, а не запис із зовнішньої системи.</p><footer><button type="button" data-modal-close class="secondary-button">Скасувати</button><button type="submit" class="primary-button" id="saveMaterial">Додати матеріал</button></footer></form></dialog>
+  <dialog id="materialDialog" aria-labelledby="materialDialogTitle"><form method="dialog" id="materialForm" class="dialog-form"><header><div><p class="eyebrow">Локальний матеріал</p><h2 id="materialDialogTitle">Додати до розслідування</h2></div><button type="button" data-modal-close aria-label="Закрити">×</button></header><label>Назва<input id="materialTitle" data-modal-autofocus required></label><label>Тип<select id="materialType"><option>Звіт</option><option>Нотатка</option><option>Спостереження</option><option>Розмова</option><option>Фото</option><option>Відео</option><option>Аудіо</option><option>Посилання</option></select></label><label>Джерело<input id="materialSource" placeholder="Наприклад: фінансовий відділ" required></label><label>Короткий зміст<textarea id="materialSummary" rows="4"></textarea></label><p class="form-boundary">Матеріал буде позначено як неперевірений. Це локальний приклад, а не запис із зовнішньої системи.</p><footer><button type="button" data-modal-close class="secondary-button">Скасувати</button><button type="submit" class="primary-button" id="saveMaterial">Додати матеріал</button></footer></form></dialog>
 
   <dialog id="hypothesisDialog" aria-labelledby="hypothesisDialogTitle"><form method="dialog" id="hypothesisForm" class="dialog-form"><header><div><p class="eyebrow">Попередня версія</p><h2 id="hypothesisDialogTitle">Додати гіпотезу</h2></div><button type="button" data-modal-close aria-label="Закрити">×</button></header><label>Формулювання<textarea id="hypothesisText" data-modal-autofocus rows="3" required></textarea></label><label>Матеріал, що підтримує версію<select id="hypothesisEvidence"></select></label><p class="form-boundary">Гіпотеза не стане фактом. Її статус залишиться попереднім до окремого людського судження.</p><footer><button type="button" data-modal-close class="secondary-button">Скасувати</button><button type="submit" class="primary-button" id="saveHypothesis">Додати гіпотезу</button></footer></form></dialog>
 
