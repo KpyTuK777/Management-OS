@@ -37,7 +37,7 @@ Future Engineering Architecture must allocate, without merging semantic owners:
 
 `InformationContribution` would link contributor identity, historical role/department context, contributed Artifact/statement, Investigation or Improvement context, contribution time, recording time, communication form, directness and limitations. Support/contradiction/supersession is a separate governed relationship. Department and Person histories query this same relationship; they do not copy its payload.
 
-The Living Organizational Model should be an organization-scoped projection/aggregate of governed references and explicit manager observations, not a replacement master database. Each constituent retains its semantic owner and source authority. Model updates after Stabilization are reviewed projection updates; Operational Memory cannot automatically mutate current organizational truth.
+The Living Organizational Model Product surface should be an organization-scoped projection of the canonical Operational Operating Model plus governed references and explicitly classified manager observations, not a new aggregate authority or replacement master database. Each constituent retains its semantic owner and source authority. Updates after Stabilization must pass through the Operational Operating Model's governed mutation boundary; Operational Memory cannot automatically mutate current organizational truth.
 
 ## Privacy and human-safety requirements
 

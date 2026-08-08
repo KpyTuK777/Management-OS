@@ -24,11 +24,11 @@ The fixed repository already supplies most lower-level semantics needed for the 
 
 These concepts were present but not composed into a persistent organization-level starting layer. The gap is not evidence for a seventh product layer. P1 remains the primary owner of coherent experience, P2 of operational context/model, P3 Investigation, P4 Decision/change/outcome, P5 learning/memory and P6 bounded assistance.
 
-## Genuine responsibility gap
+## Genuine composition gap
 
-The repository lacks one explicit product composition and durable context identity: a progressively refinable, organization-scoped operational model that remains present before, during and after individual Matters, Investigations and Improvements. Existing Operating Model and Operational System sources support much of its content, but do not currently define this organization-level product workspace, its construction experience, or its feedback contract with completed operational cycles.
+The repository lacks one explicit product composition and durable workspace identity: a progressively refinable, organization-scoped view that remains present before, during and after individual Matters, Investigations and Improvements. The canonical Operational Operating Model already owns the governed representation of the bounded organization and explicitly prohibits a parallel Operational System Model, enterprise graph or Investigation-owned topology. Therefore the gap is in Product composition, interaction and projection—not representational authority.
 
-Disposition: **new canonical concept candidate plus new Product composition**, not merely a new Matter type. The candidate concept is `Living Organizational Model`: the current, historically grounded, explicitly incomplete organizational context assembled from governed references and attributable observations. It does not become a universal source of truth or replace the semantic owners of people, systems, processes, SOPs, Evidence, Decisions or Memory.
+Disposition: **new persistent Product composition/workspace over the existing Operational Operating Model**, not a new canonical model and not merely a new Matter type. `Living Organizational Model` is a candidate human-facing Product name for a current, historically grounded, explicitly incomplete projection assembled from governed references and attributable observations. It has no separate representational authority and cannot become a universal source of truth or replace the semantic owners of people, systems, processes, SOPs, Evidence, Decisions or Memory.
 
 ## Proposed upper-layer model
 
@@ -84,7 +84,7 @@ The relationship must store immutable contribution-time person, role and departm
 
 Canonical adoption would minimally require:
 
-1. define Living Organizational Model responsibility, incompleteness and source boundaries;
+1. reconcile the Living Organizational Model Product name/workspace with the Operational Operating Model's sole governed representational authority, incompleteness and source boundaries;
 2. define Improvement as a distinct operational mode and its transition contracts;
 3. define organization-context inheritance and feedback after Stabilization/Closure;
 4. define Information Contribution and historical organizational-capacity integrity;
@@ -94,7 +94,7 @@ No change is required to Investigation internals, Evidence acceptance, Working S
 
 ## Impact disposition
 
-- Canonical: candidate additions/reconciliation required; not adopted.
+- Canonical: no new model supported; bounded reconciliation/clarification may be required if the Product name is adopted.
 - Product: material new top-level composition and sibling Improvement mode.
 - Interaction: Organization Constructor, Organization Map, Department/Person Workbenches and context-aware entry contracts require definition.
 - Engineering: identity, temporal snapshots, relationship ownership, privacy and projection contracts require assessment; no topology selected.
