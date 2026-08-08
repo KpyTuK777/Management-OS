@@ -1,0 +1,23 @@
+Interaction feedback browser contract
+Date: 2026-08-08
+Browser: Microsoft Edge headless
+Viewport coverage: 1440x1000 and 390x844
+Result: PASS
+DOM evidence: body[data-test-result="passed"]
+Result text: Interaction feedback browser contract passed
+
+Covered assertions:
+- selected tabs exposed with aria-selected
+- filters expose one exclusive aria-pressed state
+- Working Set toggle exposes aria-pressed
+- focus-visible outline is at least 3px
+- close icon has accessible name and 44px target
+- close click dismisses dialog
+- controls use 160ms restrained transitions
+- disabled control is visibly unavailable
+- reduced-motion override exists
+- 390px viewport has no horizontal overflow
+
+Post-pass environment note:
+Later Edge launches failed during browser GPU initialization before DOM return.
+This was not an assertion failure and is retained as verification context.
