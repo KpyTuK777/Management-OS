@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="uk">
+<head><meta charset="utf-8"><title>Operating Model Repository browser contracts</title></head>
+<body>
+  <h1>Operating Model Repository browser contracts</h1>
+  <pre id="result">RUNNING</pre>
+  <script src="../js/operating-model-repository.js"></script>
+  <script>
+    (function () {
+      const lines = [];
+      const assert = (condition, message) => { if (!condition) throw new Error(message); lines.push(`PASS ${message}`); };
+      class MemoryStorage {
+        constructor() { this.map = new Map(); }
+        get length() { return this.map.size; }
+        key(index) { return Array.from(this.map.keys())[index] || null; }
+        getItem(key) { return this.map.has(key) ? this.map.get(key) : null; }
+        setItem(key, value) { this.map.set(String(key), String(value)); }
+        removeItem(key) { this.map.delete(key); }
+      }
+      try {
+        const storage = new MemoryStorage();
+        const adapter = new ManagementOSOperatingModel.BrowserPersistenceAdapter(storage);
+        const repository = new ManagementOSOperatingModel.OperatingModelRepository(adapter);
+        assert(repository.snapshot() === null, "empty repository has no fabricated organization");
+        repository.initializeOrganization("Тестова організація");
+        const initial = repository.snapshot();
+        assert(initial.elements.length === 1 && initial.elements[0].kind === "organization", "organization initializes one governed element");
+        const department = repository.createElement({ kind: "department", label: "Операції", parentId: initial.elements[0].id });
+        const process = repository.createElement({ kind: "process", label: "Обробка запиту", parentId: department.id, details: { input: "Запит", output: "Відповідь", result: "Питання вирішено" } });
+        repository.createRelationship({ family: "responsibility", fromId: department.id, toId: process.id, label: "Відповідає" });
+        const current = repository.snapshot();
+        assert(current.elements.length === 3, "elements retain stable identities");
+        assert(current.relationships.some(item => item.family === "containment" && item.toId === department.id), "containment relationship is created atomically");
+        assert(current.relationships.some(item => item.family === "responsibility"), "operational relationship is retained");
+        assert(repository.query({ term: "обробка" }).elements[0].id === process.id, "search returns governed identity");
+        const beforeImprovement = JSON.stringify(current.elements);
+        repository.createImprovement({ elementId: process.id, title: "Спростити", proposedChange: "Скоротити одну передачу" });
+        assert(JSON.stringify(repository.snapshot().elements) === beforeImprovement, "Improvement proposal does not mutate current governed elements");
+        const context = repository.createInvestigationContext(department.id);
+        assert(context.promoted === false, "Investigation context is not promoted");
+        const reloaded = new ManagementOSOperatingModel.OperatingModelRepository(adapter);
+        assert(reloaded.snapshot().elements.some(item => item.id === process.id), "validated active generation reloads");
+        const info = reloaded.recoveryInfo();
+        assert(info.validatedGenerations >= 2 && info.activeGeneration > 1, "prior validated generation is retained");
+        let invalidRejected = false;
+        try { repository.createRelationship({ family: "dependency", fromId: process.id, toId: process.id }); } catch (_) { invalidRejected = true; }
+        assert(invalidRejected, "invalid self-relationship is rejected without partial commit");
+        const activeKey = storage.getItem("management-os-operating-model-active-v1");
+        storage.setItem(activeKey, `${storage.getItem(activeKey).slice(0, -4)}BROKEN`);
+        const recovered = new ManagementOSOperatingModel.OperatingModelRepository(adapter);
+        assert(recovered.snapshot() && recovered.recoveryInfo().activeGeneration < info.activeGeneration, "corrupted newest generation recovers a prior validated generation");
+        document.getElementById("result").textContent = `${lines.join("\n")}\nRESULT PASS`;
+        document.body.dataset.testResult = "pass";
+      } catch (error) {
+        document.getElementById("result").textContent = `${lines.join("\n")}\nFAIL ${error.stack || error.message}`;
+        document.body.dataset.testResult = "fail";
+      }
+    }());
+  </script>
+</body>
+</html>

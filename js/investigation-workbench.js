@@ -87,13 +87,13 @@
     } catch (_) { return []; }
   }
 
-  function emptyInvestigation(title, situation) {
+  function emptyInvestigation(title, situation, organizationContext) {
     return {
       id: `INV-${Date.now()}`,
       title,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
-      data: { situation: { summary: situation, revisions: [] }, known: [], unknowns: [], attention: [], evidence: [], hypotheses: [], workingSet: [], timeline: [] }
+      data: { situation: { summary: situation, revisions: [] }, known: [], unknowns: [], attention: [], evidence: [], hypotheses: [], workingSet: [], timeline: [], organizationContext: organizationContext || null }
     };
   }
 
@@ -286,6 +286,10 @@
     renderSavedInvestigations();
   }
 
+  function returnToManagementOS() {
+    location.href = "index.html";
+  }
+
   function renderSavedInvestigations() {
     const records = loadInvestigations();
     $("#savedInvestigationList").innerHTML = records.length ? records.map(item => `<button class="saved-investigation" type="button" data-open-investigation="${escapeHtml(item.id)}"><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.data.situation.summary)}</span><small>Оновлено ${new Date(item.updatedAt).toLocaleDateString("uk-UA")}</small></button>`).join("") : `<div class="honest-empty"><strong>Збережених розслідувань ще немає.</strong><p>Створене розслідування збережеться лише в цьому браузері.</p></div>`;
@@ -299,6 +303,18 @@
     $("#workbenchShell").classList.remove("hidden");
     const title = kind === "demo" ? "Чому прибуток знижується, хоча виручка зростає?" : record.title;
     $(".investigation-header h1").textContent = title;
+    let contextBanner = $("#investigationOrganizationContext");
+    if (!contextBanner) {
+      contextBanner = document.createElement("div");
+      contextBanner.id = "investigationOrganizationContext";
+      contextBanner.className = "investigation-context-banner hidden";
+      $(".investigation-header").append(contextBanner);
+    }
+    const organizationContext = kind === "user" ? record.data.organizationContext : null;
+    contextBanner.classList.toggle("hidden", !organizationContext);
+    if (organizationContext) {
+      contextBanner.innerHTML = `<span>Контекст організації</span><strong>${escapeHtml(organizationContext.label)}</strong><small>Посилання не є матеріалом, доказом або фактом.</small>`;
+    } else contextBanner.replaceChildren();
     $(".matter-identity strong").textContent = `${kind === "demo" ? "MAT-0247" : record.id} · ${title}`;
     const rail = $(".rail-matter");
     rail.querySelector("strong").textContent = kind === "demo" ? "MAT-0247" : record.id;
@@ -380,7 +396,13 @@
       titleInput.setCustomValidity(title ? "" : "Вкажіть назву розслідування.");
       situationInput.setCustomValidity(situation ? "" : "Опишіть початкову ситуацію.");
       if (!title || !situation) { $("#creationForm").reportValidity(); return; }
-      const record = emptyInvestigation(title, situation);
+      let organizationContext = null;
+      try {
+        const pending = JSON.parse(sessionStorage.getItem("management-os-pending-organization-context-v1"));
+        if (pending?.version === 1 && pending.elementId && pending.workspaceId) organizationContext = pending;
+      } catch (_) { /* malformed pending context is ignored, never promoted */ }
+      const record = emptyInvestigation(title, situation, organizationContext);
+      sessionStorage.removeItem("management-os-pending-organization-context-v1");
       activeInvestigation = record;
       activeKind = "user";
       state = clone(record.data);
@@ -462,7 +484,7 @@
     backButton.className = "quiet-button";
     backButton.id = "backToStart";
     backButton.textContent = "До початку";
-    backButton.addEventListener("click", showStart);
+    backButton.addEventListener("click", returnToManagementOS);
     $(".command-status").prepend(backButton);
     $("#mobileRailToggle").addEventListener("click", () => {
       const open = document.body.classList.toggle("rail-open");

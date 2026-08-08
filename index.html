@@ -3,13 +3,109 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Management OS — Операційне розслідування</title>
+  <title>Management OS — Жива модель організації</title>
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/investigation-workbench.css">
+  <link rel="stylesheet" href="css/organization-workspace.css">
 </head>
 <body class="investigation-app">
-  <main class="start-page" id="startPage">
+  <div class="lom-app" id="organizationApp">
+    <section class="lom-first-use" id="organizationFirstUse" aria-labelledby="organizationFirstTitle">
+      <div class="lom-first-use__mark" aria-hidden="true">OS</div>
+      <p class="lom-kicker">Management OS · Організація</p>
+      <h1 id="organizationFirstTitle">Почніть з організації</h1>
+      <p>Створіть робочий простір і поступово опишіть, як працює ваша організація.</p>
+      <form id="organizationCreateForm" class="lom-create-form">
+        <label for="organizationName">Назва організації</label>
+        <div><input id="organizationName" autocomplete="organization" maxlength="120" required><button type="submit">Створити організацію</button></div>
+      </form>
+      <nav class="lom-first-use__secondary" aria-label="Інші можливості">
+        <button type="button" data-open-investigations>Відкрити розслідування</button>
+        <a href="historical-reader.html">Історичний розбір</a>
+      </nav>
+      <p class="lom-local-note">Дані зберігаються локально у цьому браузері. Люди та персональні дані не використовуються.</p>
+    </section>
+
+    <div class="lom-shell hidden" id="organizationShell">
+      <aside class="lom-rail">
+        <a class="lom-brand" href="index.html"><span>OS</span><strong>Management OS</strong></a>
+        <nav aria-label="Основна навігація">
+          <button class="is-active" type="button" data-lom-view="map"><span aria-hidden="true">⌘</span><span>Модель організації</span></button>
+          <button type="button" data-lom-view="department"><span aria-hidden="true">□</span><span>Підрозділ</span></button>
+          <button type="button" data-lom-view="role"><span aria-hidden="true">◇</span><span>Роль</span></button>
+          <button type="button" data-lom-view="process"><span aria-hidden="true">→</span><span>Процеси</span></button>
+          <button type="button" data-open-investigations><span aria-hidden="true">?</span><span>Розслідування</span></button>
+          <a href="historical-reader.html"><span aria-hidden="true">◷</span><span>Історичний розбір</span></a>
+        </nav>
+        <div class="lom-rail__bottom"><span>Локальний простір</span><small>Без людей та інтеграцій</small></div>
+      </aside>
+
+      <main class="lom-main">
+        <header class="lom-topbar">
+          <div><p>Жива модель організації</p><h1 id="organizationTitle">Організація</h1></div>
+          <div class="lom-topbar__actions">
+            <label class="lom-search"><span class="sr-only">Пошук</span><input id="organizationSearch" type="search" placeholder="Знайти підрозділ, роль, процес…"><kbd>/</kbd></label>
+            <button class="lom-button lom-button--primary" type="button" data-open-create>Додати</button>
+          </div>
+        </header>
+
+        <section class="lom-statusbar" aria-label="Стан моделі">
+          <span><i class="lom-status-dot"></i><b id="modelStateLabel">Актуальна модель</b></span>
+          <span id="modelSummary">0 елементів</span>
+          <span id="persistenceState">Збережено локально</span>
+        </section>
+
+        <div class="lom-workspace">
+          <section class="lom-canvas" id="mapView" data-lom-panel="map" aria-labelledby="mapTitle">
+            <header class="lom-view-header"><div><p class="lom-kicker">Організація зараз</p><h2 id="mapTitle">Карта організації</h2></div><div class="lom-lenses" role="group" aria-label="Шар карти"><button class="is-active" data-lens="structure" type="button">Структура</button><button data-lens="operations" type="button">Робота</button><button data-lens="flows" type="button">Потоки</button></div></header>
+            <div class="lom-map" id="organizationMap" tabindex="0" aria-label="Карта організації"></div>
+            <div class="lom-map-empty hidden" id="mapEmpty"><strong>Організація створена</strong><p>Додайте перший підрозділ або процес. Модель може залишатися неповною.</p><button class="lom-button lom-button--primary" type="button" data-create-kind="department">Додати підрозділ</button></div>
+          </section>
+
+          <section class="lom-canvas hidden" id="departmentView" data-lom-panel="department" aria-labelledby="departmentTitle">
+            <header class="lom-view-header"><div><p class="lom-kicker">Робочий простір підрозділу</p><h2 id="departmentTitle">Оберіть підрозділ</h2></div><button class="lom-button" type="button" data-create-kind="department">Новий підрозділ</button></header>
+            <div class="lom-workbench-grid" id="departmentWorkbench"></div>
+          </section>
+
+          <section class="lom-canvas hidden" id="processView" data-lom-panel="process" aria-labelledby="processTitle">
+            <header class="lom-view-header"><div><p class="lom-kicker">Як створюється результат</p><h2 id="processTitle">Процеси</h2></div><button class="lom-button" type="button" data-create-kind="process">Новий процес</button></header>
+            <div class="lom-process-list" id="processList"></div>
+          </section>
+
+          <section class="lom-canvas hidden" id="roleView" data-lom-panel="role" aria-labelledby="roleTitle">
+            <header class="lom-view-header"><div><p class="lom-kicker">Роль в операційній системі</p><h2 id="roleTitle">Оберіть роль</h2></div><button class="lom-button" type="button" data-create-kind="role">Нова роль</button></header>
+            <div class="lom-role-workbench" id="roleWorkbench"></div>
+          </section>
+
+          <aside class="lom-inspector" id="organizationInspector" aria-labelledby="organizationInspectorTitle">
+            <header><div><p class="lom-kicker">Інспектор</p><h2 id="organizationInspectorTitle">Оберіть елемент</h2></div><button type="button" id="closeOrganizationInspector" aria-label="Закрити інспектор">×</button></header>
+            <div id="organizationInspectorContent" class="lom-inspector__content"><div class="lom-honest-empty"><strong>Контекст з’явиться тут</strong><p>Оберіть елемент на карті або знайдіть його через пошук.</p></div></div>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <dialog id="organizationCreateDialog" class="lom-dialog" aria-labelledby="organizationCreateDialogTitle">
+      <form method="dialog" id="elementCreateForm">
+        <header><div><p class="lom-kicker">Додати до моделі</p><h2 id="organizationCreateDialogTitle">Новий елемент</h2></div><button type="button" data-lom-close aria-label="Закрити">×</button></header>
+        <label>Що додаємо?<select id="elementKind"><option value="department">Підрозділ</option><option value="role">Роль</option><option value="process">Процес</option><option value="system">Система</option><option value="sop">SOP</option><option value="measure">KPI / показник</option><option value="report">Регулярний звіт</option><option value="meeting">Регулярна зустріч</option><option value="interaction">Взаємодія</option><option value="unknown">Невідома ділянка</option></select></label>
+        <label>Назва<input id="elementLabel" data-lom-autofocus maxlength="120" required></label>
+        <label>Стан<select id="elementQualification"><option value="known">Відомо</option><option value="incomplete">Неповно</option><option value="unknown">Невідомо</option><option value="stale">Потребує оновлення</option><option value="disputed">Є розбіжності</option></select></label>
+        <label id="elementParentField">Де знаходиться?<select id="elementParent"><option value="">Без батьківського елемента</option></select></label>
+        <div class="lom-process-fields hidden" id="processFields"><label>Вхід<input id="processInput" maxlength="160"></label><label>Вихід<input id="processOutput" maxlength="160"></label><label>Очікуваний результат<input id="processResult" maxlength="160"></label></div>
+        <p class="lom-form-boundary">Можна додати лише те, що відомо зараз. Неповний стан — нормальний.</p>
+        <footer><button type="button" class="lom-button" data-lom-close>Скасувати</button><button class="lom-button lom-button--primary" type="submit">Додати</button></footer>
+      </form>
+    </dialog>
+
+    <dialog id="relationshipDialog" class="lom-dialog" aria-labelledby="relationshipDialogTitle"><form method="dialog" id="relationshipForm"><header><div><p class="lom-kicker">Пов’язати роботу</p><h2 id="relationshipDialogTitle">Новий зв’язок</h2></div><button type="button" data-lom-close aria-label="Закрити">×</button></header><label>Тип зв’язку<select id="relationshipFamily"><option value="reporting">Підзвітність</option><option value="responsibility">Відповідальність</option><option value="dependency">Залежність</option><option value="information-flow">Інформаційний потік</option><option value="material-flow">Матеріальний потік</option><option value="association">Використовує / пов’язано</option><option value="interaction">Міжпідрозділова взаємодія</option></select></label><label>Від<select id="relationshipFrom" required></select></label><label>До<select id="relationshipTo" required></select></label><label>Коротке пояснення<input id="relationshipLabel" maxlength="120"></label><footer><button type="button" class="lom-button" data-lom-close>Скасувати</button><button class="lom-button lom-button--primary" type="submit">Створити зв’язок</button></footer></form></dialog>
+
+    <dialog id="improvementDialog" class="lom-dialog" aria-labelledby="improvementDialogTitle"><form method="dialog" id="improvementForm"><header><div><p class="lom-kicker">Вдосконалення</p><h2 id="improvementDialogTitle">Спланувати свідому зміну</h2></div><button type="button" data-lom-close aria-label="Закрити">×</button></header><input id="improvementElementId" type="hidden"><label>Назва<input id="improvementTitle" maxlength="120" required></label><label>Запропонована зміна<textarea id="improvementChange" rows="4" maxlength="800" required></textarea></label><p class="lom-form-boundary">Пропозиція не змінює поточну модель. Планування та виконання поки недоступні.</p><footer><button type="button" class="lom-button" data-lom-close>Скасувати</button><button class="lom-button lom-button--primary" type="submit">Зберегти пропозицію</button></footer></form></dialog>
+    <p class="sr-only" id="organizationAnnouncement" aria-live="polite" aria-atomic="true"></p>
+  </div>
+
+  <main class="start-page hidden" id="startPage">
     <section class="start-page__content" aria-labelledby="startTitle">
       <p class="eyebrow">Management OS · Розслідування</p>
       <h1 id="startTitle">Почніть із ситуації, яку потрібно зрозуміти</h1>
@@ -189,6 +285,8 @@
   <dialog id="situationDialog" aria-labelledby="situationDialogTitle"><form method="dialog" id="situationForm" class="dialog-form"><header><div><p class="eyebrow">Нова версія</p><h2 id="situationDialogTitle">Уточнити поточну ситуацію</h2></div><button type="button" data-modal-close aria-label="Закрити">×</button></header><label>Опис ситуації<textarea id="situationInput" data-modal-autofocus rows="6" required></textarea></label><p class="form-boundary">Попередня версія залишиться в історії. Не додавайте причинного висновку без матеріалів.</p><footer><button type="button" data-modal-close class="secondary-button">Скасувати</button><button type="submit" class="primary-button" id="saveSituation">Зберегти нову версію</button></footer></form></dialog>
 
   <p class="sr-only" id="appAnnouncement" aria-live="polite" aria-atomic="true"></p>
+  <script src="js/operating-model-repository.js"></script>
+  <script src="js/organization-workspace.js"></script>
   <script src="js/investigation-workbench.js"></script>
 </body>
 </html>
