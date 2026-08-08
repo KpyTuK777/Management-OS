@@ -111,14 +111,18 @@
           const addMaterialButton = doc.getElementById("addMaterial");
           exerciseModalDismissals(win, doc, addMaterialButton, "materialDialog");
           addMaterialButton.click();
+          assert(!doc.getElementById("materialSummary").required, "Material description is still required");
+          assert(["Фото", "Відео", "Аудіо"].every(type => [...doc.getElementById("materialType").options].some(option => option.value === type)), "Human-readable media material types are missing");
           doc.getElementById("materialTitle").dispatchEvent(new win.KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
           assert(doc.getElementById("materialDialog").open, "Invalid Material Enter submitted accidentally");
           doc.getElementById("materialTitle").value = "Журнал доставки";
           doc.getElementById("materialSource").value = "Операційна команда";
-          doc.getElementById("materialSummary").value = "Перший неперевірений матеріал користувача.";
-          assertShiftEnterNewline(win, doc.getElementById("materialSummary"), doc.getElementById("materialDialog"));
-          doc.getElementById("materialSummary").dispatchEvent(new win.KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
+          doc.getElementById("materialSource").dispatchEvent(new win.KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
           assert(doc.querySelectorAll("#evidenceList .evidence-card").length === 1, "First user material was not added");
+          assert(doc.querySelector("#evidenceList .evidence-type svg"), "Material type icon is missing");
+          assert(!doc.querySelector("#evidenceList .evidence-type").textContent.trim(), "Developer abbreviation remains in the material icon slot");
+          assert(doc.querySelector("#evidenceList .evidence-type").getAttribute("aria-label").includes("Звіт"), "Material type icon lost its accessible name");
+          assert(parseFloat(win.getComputedStyle(doc.querySelector("#evidenceList .evidence-card__meta small")).fontSize) >= 12, "Material metadata remains too small");
           doc.querySelector("[data-view='reasoning']").click();
           exerciseModalDismissals(win, doc, doc.getElementById("addHypothesis"), "hypothesisDialog");
           assert(doc.querySelectorAll("#hypothesisList .hypothesis-card").length === 0, "Dismissed hypothesis modal changed state");
@@ -142,6 +146,7 @@
           const stored = JSON.parse(localStorage.getItem(key));
           assert(stored.investigations.length === 1, "User Investigation was not persisted");
           assert(stored.investigations[0].data.evidence.length === 1, "First material was not persisted");
+          assert(stored.investigations[0].data.evidence[0].summary === "", "Optional empty material description was not preserved honestly");
           assert(stored.investigations[0].data.known.length === 0, "Stored state contains demo facts");
           savedId = stored.investigations[0].id;
           stage = 1;
@@ -164,6 +169,8 @@
           demoLink.click();
         } else if (stage === 3) {
           assert(doc.querySelectorAll("#evidenceList .evidence-card").length === 6, "Explicit demo did not preserve MAT-0247");
+          assert(doc.querySelectorAll("#evidenceList .evidence-type svg").length === 6, "Demo materials did not receive SVG type icons");
+          assert([...doc.querySelectorAll("#evidenceList .evidence-type")].every(item => !item.textContent.trim()), "Demo retains text type abbreviations");
           const stored = JSON.parse(localStorage.getItem(key));
           assert(stored.investigations[0].data.evidence.length === 1, "Opening demo contaminated user state");
           stage = 4;
