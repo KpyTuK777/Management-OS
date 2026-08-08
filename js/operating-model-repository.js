@@ -71,7 +71,7 @@
   function generationKey(workspaceId, generation) { return `${GENERATION_PREFIX}${workspaceId}-${generation}`; }
 
   class BrowserPersistenceAdapter {
-    constructor(storage) { this.storage = storage || window.localStorage; }
+    constructor(storage) { this.storage = storage || window.localStorage; this.lastLoadStatus = { recovered: false, failed: false }; }
 
     listCandidates() {
       const result = [];
@@ -97,9 +97,18 @@
     load() {
       const pointer = this.storage.getItem(POINTER_KEY);
       const candidates = this.listCandidates();
-      if (!candidates.length) return null;
+      if (!candidates.length) {
+        const hasStoredGenerations = Array.from({ length: this.storage.length }, (_, index) => this.storage.key(index)).some(key => key?.startsWith(GENERATION_PREFIX));
+        this.lastLoadStatus = { recovered: false, failed: hasStoredGenerations };
+        if (hasStoredGenerations) throw new Error("Збережену модель не вдалося безпечно відновити.");
+        return null;
+      }
       const pointed = candidates.find(item => item.key === pointer);
-      return clone((pointed || candidates[0]).envelope);
+      if (pointed) { this.lastLoadStatus = { recovered: false, failed: false }; return clone(pointed.envelope); }
+      const fallback = candidates.find(item => item.envelope.generation === 1 || candidates.some(parent => parent.envelope.workspaceId === item.envelope.workspaceId && parent.envelope.generation === item.envelope.parentGeneration));
+      if (!fallback) { this.lastLoadStatus = { recovered: false, failed: true }; throw new Error("Ланцюг збережених станів пошкоджено."); }
+      this.lastLoadStatus = { recovered: true, failed: false, recoveredGeneration: fallback.envelope.generation };
+      return clone(fallback.envelope);
     }
 
     commit(state, parentEnvelope) {
@@ -214,6 +223,22 @@
       if (!RELATIONSHIP_FAMILIES.has(input.family)) throw new Error("Непідтримуваний тип зв’язку.");
       if (!state.elements.some(item => item.id === input.fromId) || !state.elements.some(item => item.id === input.toId)) throw new Error("Оберіть обидва елементи зв’язку.");
       if (input.fromId === input.toId) throw new Error("Елемент не може бути пов’язаний сам із собою.");
+      if (input.family === "containment") {
+        const childrenByParent = new Map();
+        state.relationships.filter(item => item.family === "containment" && item.lifecycle === "active").forEach(item => {
+          if (!childrenByParent.has(item.fromId)) childrenByParent.set(item.fromId, []);
+          childrenByParent.get(item.fromId).push(item.toId);
+        });
+        const pending = [input.toId];
+        const visited = new Set();
+        while (pending.length) {
+          const current = pending.pop();
+          if (current === input.fromId) throw new Error("Такий зв’язок створить цикл у структурі.");
+          if (visited.has(current)) continue;
+          visited.add(current);
+          pending.push(...(childrenByParent.get(current) || []));
+        }
+      }
       const duplicate = state.relationships.some(item => item.family === input.family && item.fromId === input.fromId && item.toId === input.toId && item.lifecycle === "active");
       if (duplicate) throw new Error("Такий зв’язок уже існує.");
       const relationship = {
@@ -264,7 +289,7 @@
 
     recoveryInfo() {
       const candidates = this.adapter.listCandidates();
-      return { activeGeneration: this.envelope?.generation || 0, validatedGenerations: candidates.length, schemaVersion: SCHEMA_VERSION };
+      return { activeGeneration: this.envelope?.generation || 0, validatedGenerations: candidates.length, schemaVersion: SCHEMA_VERSION, recovered: Boolean(this.adapter.lastLoadStatus?.recovered), failed: Boolean(this.adapter.lastLoadStatus?.failed) };
     }
   }
 

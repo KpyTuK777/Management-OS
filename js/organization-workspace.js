@@ -57,7 +57,7 @@
         $("#creationSituation").value = `Потрібно зрозуміти, що відбувається у контексті «${context.label}». Контекст успадковано як посилання і ще не є матеріалом або доказом.`;
         $("#startInvestigation").click();
       }, 0);
-    }
+    } else sessionStorage.removeItem("management-os-pending-organization-context-v1");
   }
 
   function openDialog(dialog, invoker) {
@@ -82,6 +82,10 @@
     $("#modelSummary").textContent = `${model.elements.length - 1} елементів · ${relationCount} зв’язків`;
     const recovery = repository.recoveryInfo();
     $("#persistenceState").textContent = `Збережено · версія ${recovery.activeGeneration}`;
+    if (recovery.recovered) {
+      $("#modelStateLabel").textContent = "Відновлено попередній надійний стан";
+      $("#modelStateLabel").closest("span").querySelector("i").style.background = "var(--lom-warning)";
+    }
     populateSelects(model);
     renderMap(model);
     renderDepartment(model);
@@ -250,7 +254,15 @@
   }
 
   function init() {
-    repository = new window.ManagementOSOperatingModel.OperatingModelRepository();
+    try { repository = new window.ManagementOSOperatingModel.OperatingModelRepository(); }
+    catch (error) {
+      showOrganization();
+      $("#organizationFirstTitle").textContent = "Модель потребує відновлення";
+      $("#organizationFirstUse > p:not(.lom-kicker)").textContent = error.message;
+      $("#organizationCreateForm").classList.add("hidden");
+      $("#organizationFirstUse .lom-local-note").textContent = "Новий стан не створено. Збережені дані залишено без змін.";
+      return;
+    }
     repository.subscribe(render);
     bindEvents();
     const params = new URLSearchParams(location.search);

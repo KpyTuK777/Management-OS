@@ -45,10 +45,14 @@
         let invalidRejected = false;
         try { repository.createRelationship({ family: "dependency", fromId: process.id, toId: process.id }); } catch (_) { invalidRejected = true; }
         assert(invalidRejected, "invalid self-relationship is rejected without partial commit");
+        let cycleRejected = false;
+        try { repository.createRelationship({ family: "containment", fromId: process.id, toId: initial.elements[0].id }); } catch (_) { cycleRejected = true; }
+        assert(cycleRejected, "containment cycle is rejected without partial commit");
         const activeKey = storage.getItem("management-os-operating-model-active-v1");
         storage.setItem(activeKey, `${storage.getItem(activeKey).slice(0, -4)}BROKEN`);
         const recovered = new ManagementOSOperatingModel.OperatingModelRepository(adapter);
         assert(recovered.snapshot() && recovered.recoveryInfo().activeGeneration < info.activeGeneration, "corrupted newest generation recovers a prior validated generation");
+        assert(recovered.recoveryInfo().recovered === true, "fallback recovery remains explicitly qualified");
         document.getElementById("result").textContent = `${lines.join("\n")}\nRESULT PASS`;
         document.body.dataset.testResult = "pass";
       } catch (error) {

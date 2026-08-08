@@ -247,6 +247,7 @@
 
   function closeModal(dialog) {
     if (!dialog.open) return;
+    if (dialog === $("#creationDialog")) sessionStorage.removeItem("management-os-pending-organization-context-v1");
     const form = dialog.querySelector("form");
     if (form) form.reset();
     dialog.querySelectorAll("input, textarea, select").forEach(field => field.setCustomValidity(""));
