@@ -117,26 +117,6 @@
     return { verified: "Перевірено", unverified: "Потребує перевірки", contradiction: "Суперечливий" }[status] || status;
   }
 
-  function materialTypeIcon(type) {
-    const normalized = String(type).toLocaleLowerCase("uk");
-    const paths = normalized.includes("фото")
-      ? '<rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="8.5" cy="10" r="1.5"/><path d="m4 17 5-4 3 2 3-3 5 5"/>'
-      : normalized.includes("відео")
-        ? '<rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-2v8l-5-2Z"/>'
-        : normalized.includes("аудіо")
-          ? '<rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/>'
-          : normalized.includes("розмов") || normalized.includes("інтерв") || normalized.includes("листув")
-      ? '<path d="M7 8h10M7 12h7"/><path d="M5 19l2.8-3H18a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v6a3 3 0 0 0 2 2.8Z"/>'
-      : normalized.includes("посилан")
-        ? '<path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1.1 1.1"/><path d="M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1.1-1.1"/>'
-        : normalized.includes("спостереж") || normalized.includes("огляд")
-          ? '<path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.5"/>'
-          : normalized.includes("нотат") || normalized.includes("політик")
-            ? '<path d="M6 3h9l4 4v14H6Z"/><path d="M15 3v5h4M9 12h6M9 16h6"/>'
-            : '<path d="M6 3h9l4 4v14H6Z"/><path d="M15 3v5h4M9 13h6"/>';
-    return `<svg viewBox="0 0 24 24" focusable="false" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${paths}</svg>`;
-  }
-
   function renderSituation() {
     $("#situationSummary").textContent = state.situation.summary;
     $("#revisionCount").textContent = `${state.situation.revisions.length} ${state.situation.revisions.length === 1 ? "версія" : "версії"}`;
@@ -159,8 +139,8 @@
     $("#evidenceList").innerHTML = visible.length ? visible.map(item => {
       const inSet = state.workingSet.includes(item.id);
       return `<article class="evidence-card" data-evidence-status="${item.status}">
-        <span class="evidence-type" role="img" aria-label="Тип матеріалу: ${escapeHtml(item.type)}">${materialTypeIcon(item.type)}</span>
-        <button class="card-main compact-item" type="button" data-inspect="${item.id}"><span><h3>${escapeHtml(item.title)}</h3>${item.summary ? `<p>${escapeHtml(item.summary)}</p>` : ""}<span class="evidence-card__meta"><span class="semantic-status semantic-status--${item.status}">${statusLabel(item.status)}</span><small>${escapeHtml(item.source)} · ${escapeHtml(item.date)}</small></span></span><span>Watson</span></button>
+        <span class="evidence-type" aria-hidden="true">${escapeHtml(item.type.slice(0, 2).toUpperCase())}</span>
+        <button class="card-main compact-item" type="button" data-inspect="${item.id}"><span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.summary)}</p><span class="evidence-card__meta"><span class="semantic-status semantic-status--${item.status}">${statusLabel(item.status)}</span><small>${escapeHtml(item.source)} · ${escapeHtml(item.date)}</small></span></span><span>Watson</span></button>
         <div class="evidence-actions"><button type="button" data-inspect="${item.id}" aria-label="Переглянути ${escapeHtml(item.title)}">⌕</button><button class="${inSet ? "is-added" : ""}" type="button" data-working-set="${item.id}" aria-pressed="${inSet}" aria-label="${inSet ? "Вилучити з" : "Додати до"} робочого набору">${inSet ? "✓" : "+"}</button></div>
       </article>`;
     }).join("") : `<div class="empty-results"><strong>${state.evidence.length ? "Матеріалів із таким статусом немає" : "Матеріалів ще немає"}</strong><p>${state.evidence.length ? "Змініть фільтр або додайте матеріал." : "Додайте перший матеріал. Він залишиться неперевіреним, доки людина не підтвердить його."}</p><button class="primary-button" type="button" data-start-material>Додати матеріал</button></div>`;

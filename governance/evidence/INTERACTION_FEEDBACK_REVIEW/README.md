@@ -13,11 +13,11 @@ Command:
 
 `msedge.exe --headless --disable-gpu --no-first-run --allow-file-access-from-files --dump-dom tests/interaction-feedback.browser.html`
 
-Observed result on the completed Edge run:
+Observed result on an intermediate completed Edge run:
 
 `data-test-result="passed"` and `Interaction feedback browser contract passed`.
 
-The contract exercised 1440 × 1000 and 390 × 844 iframes and verified:
+That intermediate contract exercised 1440 × 1000 and 390 × 844 iframes and verified:
 
 - tab selected semantics and roving keyboard focus;
 - filter `aria-pressed` exclusivity;
@@ -31,11 +31,11 @@ The contract exercised 1440 × 1000 and 390 × 844 iframes and verified:
 - reduced-motion override;
 - no horizontal overflow at 390 px.
 
-After the final arrow-key assertion was added, repeat Edge processes encountered an environment-level GPU startup failure (`GPU process isn't usable`) before returning DOM. Static inspection and `git diff --check` completed; this infrastructure noise is recorded rather than represented as an application failure.
+After the arrow-key assertion was added, repeat Edge processes encountered an environment-level GPU startup failure (`GPU process isn't usable`) before returning DOM. Therefore the committed contract is **not recorded as a final PASS**. Static inspection and `git diff --check` completed; the browser rerun remains unconfirmed in this environment.
 
 ## Visual review
 
-Reviewed states and layout in the rendered workbench before the Edge GPU failure:
+Reviewed states and layout in the rendered workbench before the final Edge GPU failure. This is bounded visual-review context, not screenshot evidence:
 
 - default, hover, focus-visible, active, selected, and disabled styling remain within the existing restrained paper/brass visual language;
 - close controls gain a quiet background, border, contrast increase, and slight pressed scale without layout shift;
@@ -49,4 +49,3 @@ Reviewed states and layout in the rendered workbench before the Edge GPU failure
 - Existing interaction browser journey structure remains present.
 - No new external integration, storage model, domain meaning, or authority path.
 - Temporary Edge profiles were removed after verification.
-

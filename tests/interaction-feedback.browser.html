@@ -70,7 +70,7 @@
         assert(disabled.disabled && parseFloat(win.getComputedStyle(disabled).opacity) < 0.7, "Disabled control is not visibly unavailable");
         assert(style(".primary-button").cursor === "pointer", "Primary button does not signal clickability");
         assert(style(".filter-bar button").transitionDuration.includes("0.16s"), "Filters lack bounded transition feedback");
-        assert(style(".evidence-actions button").width === "40px", "Material icon actions lost their target size");
+        assert(style(".evidence-actions button").width === "44px", "Material icon actions are smaller than the 44px target contract");
 
         const cssText = [...doc.styleSheets].flatMap(sheet => {
           try { return [...sheet.cssRules].map(rule => rule.cssText); } catch (_) { return []; }

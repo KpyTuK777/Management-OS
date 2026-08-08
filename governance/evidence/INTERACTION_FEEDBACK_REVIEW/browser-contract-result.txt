@@ -2,9 +2,9 @@ Interaction feedback browser contract
 Date: 2026-08-08
 Browser: Microsoft Edge headless
 Viewport coverage: 1440x1000 and 390x844
-Result: PASS
-DOM evidence: body[data-test-result="passed"]
-Result text: Interaction feedback browser contract passed
+Result: INCOMPLETE FOR COMMITTED REVISION
+Intermediate DOM evidence: body[data-test-result="passed"]
+Intermediate result text: Interaction feedback browser contract passed
 
 Covered assertions:
 - selected tabs exposed with aria-selected
@@ -18,6 +18,6 @@ Covered assertions:
 - reduced-motion override exists
 - 390px viewport has no horizontal overflow
 
-Post-pass environment note:
-Later Edge launches failed during browser GPU initialization before DOM return.
-This was not an assertion failure and is retained as verification context.
+Final environment note:
+After the arrow-key assertion was added, Edge launches failed during browser GPU initialization before DOM return.
+The committed revision therefore has no claimed final browser PASS in this artifact.
