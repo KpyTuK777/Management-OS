@@ -85,6 +85,11 @@ body.lom-mode { margin: 0; min-width: 0; overflow: hidden; background: var(--lom
 .lom-node-field { display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); align-content: center; gap: 14px; }
 .lom-node { position: relative; min-height: 96px; padding: 13px; color: var(--lom-ink); background: linear-gradient(145deg, #202620, #171c19); border: 1px solid var(--lom-line-strong); border-radius: 8px; cursor: pointer; text-align: left; box-shadow: 0 12px 28px rgba(0,0,0,.18); transition: border-color .16s ease, transform .16s ease, opacity .16s ease; }
 .lom-node:hover { transform: translateY(-2px); border-color: rgba(209,167,94,.55); }
+.lom-node[draggable="true"] { cursor: grab; }
+.lom-node.is-dragging { opacity: .42; cursor: grabbing; }
+.lom-node.is-valid-drop { border-color: rgba(128,169,139,.72); }
+.lom-node.is-drop-target { border-color: var(--lom-accent); box-shadow: 0 0 0 4px rgba(209,167,94,.18); transform: translateY(-3px); }
+.lom-node.is-drop-target::after { content: "Перемістити сюди"; position: absolute; left: 50%; bottom: -26px; z-index: 4; translate: -50% 0; width: max-content; padding: 4px 7px; color: #111613; background: var(--lom-accent); border-radius: 4px; font-size: 9px; font-weight: 750; }
 .lom-node.is-selected { border-color: var(--lom-accent); box-shadow: 0 0 0 2px rgba(209,167,94,.12), 0 16px 32px rgba(0,0,0,.25); }
 .lom-node.is-dimmed { opacity: .32; }
 .lom-node--organization { grid-column: 1 / -1; width: min(300px, 100%); justify-self: center; background: linear-gradient(145deg, #2b3029, #1c221e); }
@@ -112,6 +117,11 @@ body.lom-mode { margin: 0; min-width: 0; overflow: hidden; background: var(--lom
 .lom-reporting-summary h3, .lom-operating-view h3 { margin: 0; font: 500 15px/1.2 Georgia, serif; }
 .lom-reporting-summary button { margin: 9px 7px 0 0; padding: 8px 10px; color: var(--lom-ink); background: rgba(8,12,10,.7); border: 1px solid var(--lom-line); border-radius: 6px; cursor: pointer; }
 .lom-reporting-summary b { margin: 0 7px; color: var(--lom-accent); font-size: 9px; }
+.lom-structure-actions { display: flex; justify-content: flex-end; margin-bottom: 10px; }
+.lom-structure-actions button { color: var(--lom-accent); background: transparent; border: 0; cursor: pointer; font-weight: 650; }
+.lom-undo { position: fixed; right: 20px; bottom: 20px; z-index: 80; display: flex; align-items: center; gap: 14px; padding: 12px 14px; color: var(--lom-ink); background: #202620; border: 1px solid var(--lom-line-strong); border-radius: 8px; box-shadow: 0 15px 35px rgba(0,0,0,.35); }
+.lom-undo button { color: var(--lom-accent); background: transparent; border: 0; cursor: pointer; font-weight: 750; }
+.lom-undo.hidden { display: none; }
 .lom-operating-view { display: grid; align-content: start; gap: 20px; }
 .lom-operating-view > header { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--lom-line); }
 .lom-operating-view > header button { color: var(--lom-accent); background: transparent; border: 0; cursor: pointer; font-weight: 650; }

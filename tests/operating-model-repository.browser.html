@@ -38,6 +38,14 @@
         assert(JSON.stringify(repository.snapshot().elements) === beforeImprovement, "Improvement proposal does not mutate current governed elements");
         const context = repository.createInvestigationContext(department.id);
         assert(context.promoted === false, "Investigation context is not promoted");
+        assert(repository.snapshot().investigations.length === 0, "navigation context is never projected as an Investigation");
+        const sibling = repository.createElement({ kind: "department", label: "Комерційний блок", parentId: initial.elements[0].id });
+        const moved = repository.moveElement(department.id, sibling.id);
+        assert(moved.previousParentId === initial.elements[0].id && repository.snapshot().relationships.some(item => item.family === "containment" && item.lifecycle === "active" && item.fromId === sibling.id && item.toId === department.id), "structural move atomically replaces active containment");
+        assert(repository.snapshot().investigations.length === 0, "structural movement cannot create an Investigation");
+        let moveCycleRejected = false;
+        try { repository.moveElement(sibling.id, department.id); } catch (_) { moveCycleRejected = true; }
+        assert(moveCycleRejected, "structural move rejects a containment cycle");
         const reloaded = new ManagementOSOperatingModel.OperatingModelRepository(adapter);
         assert(reloaded.snapshot().elements.some(item => item.id === process.id), "validated active generation reloads");
         const info = reloaded.recoveryInfo();

@@ -301,14 +301,55 @@
 
     createRelationship(input) { return this.transact("create-relationship", state => this.addRelationshipToState(state, input)); }
 
-    createInvestigationContext(elementId) {
-      return this.transact("create-investigation-context", state => {
-        const element = state.elements.find(item => item.id === elementId);
-        if (!element) throw new Error("Контекст не знайдено.");
-        const item = { id: id("investigation-context"), elementId, title: `Дослідити: ${element.label}`, createdAt: now(), promoted: false };
-        state.investigations.push(item);
-        return item;
+    validStructuralParents(elementId) {
+      const state = this.snapshot();
+      const element = state?.elements.find(item => item.id === elementId);
+      if (!element || !["department", "role"].includes(element.kind)) return [];
+      const childrenByParent = new Map();
+      state.relationships.filter(item => item.family === "containment" && item.lifecycle === "active").forEach(item => {
+        if (!childrenByParent.has(item.fromId)) childrenByParent.set(item.fromId, []);
+        childrenByParent.get(item.fromId).push(item.toId);
       });
+      const descendants = new Set();
+      const pending = [...(childrenByParent.get(elementId) || [])];
+      while (pending.length) {
+        const current = pending.pop();
+        if (descendants.has(current)) continue;
+        descendants.add(current);
+        pending.push(...(childrenByParent.get(current) || []));
+      }
+      return state.elements.filter(candidate => {
+        if (candidate.id === elementId || descendants.has(candidate.id)) return false;
+        return element.kind === "role" ? candidate.kind === "department" : ["organization", "department"].includes(candidate.kind);
+      });
+    }
+
+    moveElement(elementId, parentId) {
+      return this.transact("move-structural-element", state => {
+        const element = state.elements.find(item => item.id === elementId);
+        const parent = state.elements.find(item => item.id === parentId);
+        if (!element || !parent) throw new Error("Оберіть елемент і нове місце у структурі.");
+        const validParentIds = new Set(this.validStructuralParents(elementId).map(item => item.id));
+        if (!validParentIds.has(parentId)) throw new Error("Цей елемент не може бути батьківським у структурі.");
+        const current = state.relationships.find(item => item.family === "containment" && item.toId === elementId && item.lifecycle === "active");
+        if (current?.fromId === parentId) return { element, previousParentId: parentId, parentId, changed: false };
+        const previousParentId = current?.fromId || null;
+        if (current) {
+          current.lifecycle = "superseded";
+          current.effectiveTo = now();
+          current.version += 1;
+        }
+        this.addRelationshipToState(state, { family: "containment", fromId: parentId, toId: elementId, label: "містить" });
+        element.version += 1;
+        element.updatedAt = now();
+        return { element, previousParentId, parentId, changed: true };
+      });
+    }
+
+    createInvestigationContext(elementId) {
+      const element = this.snapshot()?.elements.find(item => item.id === elementId);
+      if (!element) throw new Error("Контекст не знайдено.");
+      return { elementId, title: `Дослідити: ${element.label}`, createdAt: now(), promoted: false };
     }
 
     createImprovement(input) {
