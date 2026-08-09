@@ -52,7 +52,7 @@
 
         <section class="lom-statusbar" aria-label="Стан моделі">
           <span><i class="lom-status-dot"></i><b id="modelStateLabel">Актуальна модель</b></span>
-          <span id="modelSummary">0 елементів</span>
+          <span id="modelSummary">Організація готова до наповнення</span>
           <span id="persistenceState">Збережено локально</span>
         </section>
 
@@ -64,7 +64,8 @@
           </section>
 
           <section class="lom-canvas hidden" id="departmentView" data-lom-panel="department" aria-labelledby="departmentTitle">
-            <header class="lom-view-header"><div><p class="lom-kicker">Робочий простір підрозділу</p><h2 id="departmentTitle">Оберіть підрозділ</h2></div><button class="lom-button" type="button" data-create-kind="department">Новий підрозділ</button></header>
+            <header class="lom-view-header"><div><p class="lom-kicker" id="departmentContext">Підрозділ в організації</p><h2 id="departmentTitle">Оберіть підрозділ</h2></div><button class="lom-button" type="button" data-create-kind="department">Новий підрозділ</button></header>
+            <nav class="lom-department-switcher" id="departmentSwitcher" aria-label="Перейти до іншого підрозділу"></nav>
             <div class="lom-workbench-grid" id="departmentWorkbench"></div>
           </section>
 
@@ -91,7 +92,7 @@
         <header><div><p class="lom-kicker">Додати до моделі</p><h2 id="organizationCreateDialogTitle">Новий елемент</h2></div><button type="button" data-lom-close aria-label="Закрити">×</button></header>
         <label>Що додаємо?<select id="elementKind"><option value="department">Підрозділ</option><option value="role">Роль</option><option value="process">Процес</option><option value="system">Система</option><option value="sop">SOP</option><option value="measure">KPI / показник</option><option value="report">Регулярний звіт</option><option value="meeting">Регулярна зустріч</option><option value="interaction">Взаємодія</option><option value="unknown">Невідома ділянка</option></select></label>
         <label>Назва<input id="elementLabel" data-lom-autofocus maxlength="120" required></label>
-        <label>Стан<select id="elementQualification"><option value="known">Відомо</option><option value="incomplete">Неповно</option><option value="unknown">Невідомо</option><option value="stale">Потребує оновлення</option><option value="disputed">Є розбіжності</option></select></label>
+        <details class="lom-knowledge-state"><summary>Що ми про це знаємо?</summary><label>Повнота організаційного знання<select id="elementQualification"><option value="known">Достатньо для роботи</option><option value="incomplete">Знаємо не все</option><option value="unknown">Поки невідомо</option><option value="stale">Потрібно перевірити актуальність</option><option value="disputed">Є різні версії</option></select></label><p>Для звичайного додавання залиште «Достатньо для роботи».</p></details>
         <label id="elementParentField">Де знаходиться?<select id="elementParent"><option value="">Без батьківського елемента</option></select></label>
         <div class="lom-process-fields hidden" id="processFields"><label>Вхід<input id="processInput" maxlength="160"></label><label>Вихід<input id="processOutput" maxlength="160"></label><label>Очікуваний результат<input id="processResult" maxlength="160"></label></div>
         <p class="lom-form-boundary">Можна додати лише те, що відомо зараз. Неповний стан — нормальний.</p>
@@ -99,7 +100,7 @@
       </form>
     </dialog>
 
-    <dialog id="relationshipDialog" class="lom-dialog" aria-labelledby="relationshipDialogTitle"><form method="dialog" id="relationshipForm"><header><div><p class="lom-kicker">Пов’язати роботу</p><h2 id="relationshipDialogTitle">Новий зв’язок</h2></div><button type="button" data-lom-close aria-label="Закрити">×</button></header><label>Тип зв’язку<select id="relationshipFamily"><option value="reporting">Підзвітність</option><option value="responsibility">Відповідальність</option><option value="dependency">Залежність</option><option value="information-flow">Інформаційний потік</option><option value="material-flow">Матеріальний потік</option><option value="association">Використовує / пов’язано</option><option value="interaction">Міжпідрозділова взаємодія</option></select></label><label>Від<select id="relationshipFrom" required></select></label><label>До<select id="relationshipTo" required></select></label><label>Коротке пояснення<input id="relationshipLabel" maxlength="120"></label><footer><button type="button" class="lom-button" data-lom-close>Скасувати</button><button class="lom-button lom-button--primary" type="submit">Створити зв’язок</button></footer></form></dialog>
+    <dialog id="relationshipDialog" class="lom-dialog" aria-labelledby="relationshipDialogTitle"><form method="dialog" id="relationshipForm"><header><div><p class="lom-kicker">Описати спільну роботу</p><h2 id="relationshipDialogTitle">Додати взаємодію</h2></div><button type="button" data-lom-close aria-label="Закрити">×</button></header><label>Що відбувається?<select id="relationshipFamily"><option value="reporting">Підпорядковується / звітує</option><option value="responsibility">Відповідає за</option><option value="dependency">Залежить від</option><option value="information-flow">Передає інформацію</option><option value="material-flow">Передає матеріал або продукт</option><option value="association">Використовує / пов’язано</option><option value="interaction">Взаємодіє з іншим підрозділом</option></select></label><label>Хто або що передає / діє<select id="relationshipFrom" required></select></label><label>Кому або з чим<select id="relationshipTo" required></select></label><label>Що саме передається або відбувається?<input id="relationshipLabel" maxlength="120"></label><footer><button type="button" class="lom-button" data-lom-close>Скасувати</button><button class="lom-button lom-button--primary" type="submit">Додати взаємодію</button></footer></form></dialog>
 
     <dialog id="improvementDialog" class="lom-dialog" aria-labelledby="improvementDialogTitle"><form method="dialog" id="improvementForm"><header><div><p class="lom-kicker">Вдосконалення</p><h2 id="improvementDialogTitle">Спланувати свідому зміну</h2></div><button type="button" data-lom-close aria-label="Закрити">×</button></header><input id="improvementElementId" type="hidden"><label>Назва<input id="improvementTitle" maxlength="120" required></label><label>Запропонована зміна<textarea id="improvementChange" rows="4" maxlength="800" required></textarea></label><p class="lom-form-boundary">Пропозиція не змінює поточну модель. Планування та виконання поки недоступні.</p><footer><button type="button" class="lom-button" data-lom-close>Скасувати</button><button class="lom-button lom-button--primary" type="submit">Зберегти пропозицію</button></footer></form></dialog>
     <p class="sr-only" id="organizationAnnouncement" aria-live="polite" aria-atomic="true"></p>
