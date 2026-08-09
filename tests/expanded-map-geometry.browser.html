@@ -1,0 +1,81 @@
+<!doctype html>
+<!-- Browser contract: run local-file iframe journeys with Chromium --allow-file-access-from-files. -->
+<html lang="uk">
+<head><meta charset="utf-8"><title>Expanded Organization Map geometry</title><style>html,body{margin:0;width:100%;height:100%;overflow:hidden}iframe{display:block;width:100vw;height:100vh;border:0}#result{position:fixed;z-index:100;left:18px;bottom:18px;margin:0;padding:7px 10px;color:#eee;background:#101412;border:1px solid #786746;border-radius:5px;font:12px system-ui}</style></head>
+<body data-test-result="running">
+  <iframe id="app" src="about:blank" title="Expanded Organization Map real application"></iframe>
+  <p id="result">Preparing expanded Map…</p>
+  <script>
+    (function () {
+      const frame = document.getElementById("app");
+      const result = document.getElementById("result");
+      const wait = delay => new Promise(resolve => setTimeout(resolve, delay));
+      function clearOperatingModel() {
+        const keys = [];
+        for (let index = 0; index < localStorage.length; index += 1) keys.push(localStorage.key(index));
+        keys.filter(key => key?.startsWith("management-os-operating-model-")).forEach(key => localStorage.removeItem(key));
+      }
+      async function run() {
+        clearOperatingModel();
+        const loaded = new Promise(resolve => frame.addEventListener("load", resolve, { once: true }));
+        frame.src = `../index.html?expanded-geometry=${Date.now()}`;
+        await loaded;
+        const doc = frame.contentDocument;
+        doc.querySelector("#organizationName").value = "Northstar Home";
+        doc.querySelector("#organizationCreateForm").requestSubmit();
+        await wait(30);
+        for (const name of ["CEO", "Продажі", "Маркетинг", "Виробництво", "Фінанси", "Логістика", "Якість", "Закупівлі", "Сервіс", "ІТ", "Персонал", "Розвиток"]) {
+          doc.querySelector('[data-create-kind="department"]').click();
+          doc.querySelector("#elementLabel").value = name;
+          doc.querySelector("#elementCreateForm").requestSubmit();
+          await wait(12);
+        }
+        let parentLabel = "Продажі";
+        for (const name of ["Онлайн-продажі", "Корпоративний канал", "Регіональний напрям", "Партнерська мережа", "Операційна група", "Команда підтримки", "Зміна підтримки"]) {
+          doc.querySelector('[data-create-kind="department"]').click();
+          doc.querySelector("#elementLabel").value = name;
+          const parentOption = Array.from(doc.querySelector("#elementParent").options).find(option => option.textContent.trim() === parentLabel);
+          if (!parentOption) throw new Error(`Missing parent option: ${parentLabel}`);
+          doc.querySelector("#elementParent").value = parentOption.value;
+          doc.querySelector("#elementCreateForm").requestSubmit();
+          parentLabel = name;
+          await wait(12);
+        }
+        doc.querySelector("#organizationSearch").value = "Маркетинг";
+        doc.querySelector("#organizationSearch").dispatchEvent(new Event("input", { bubbles: true }));
+        await wait(30);
+        const selectedLabel = doc.querySelector("#organizationMap .lom-node.is-selected")?.textContent.trim();
+        const normalMainWidth = Math.round(doc.querySelector(".lom-main").getBoundingClientRect().width);
+        doc.querySelector("#organizationMap").scrollTo(160, 120);
+        const normalScrollLeft = doc.querySelector("#organizationMap").scrollLeft;
+        const normalScrollTop = doc.querySelector("#organizationMap").scrollTop;
+        doc.querySelector("#expandOrganizationMap").click();
+        await wait(40);
+        const viewport = frame.contentWindow.innerWidth;
+        const main = doc.querySelector(".lom-main").getBoundingClientRect();
+        const view = doc.querySelector("#mapView").getBoundingClientRect();
+        const map = doc.querySelector("#organizationMap").getBoundingClientRect();
+        const mapElement = doc.querySelector("#organizationMap");
+        const viewElement = doc.querySelector("#mapView");
+        const geometry = { viewport, normalMainWidth, mainLeft: Math.round(main.left), mainWidth: Math.round(main.width), viewLeft: Math.round(view.left), viewWidth: Math.round(view.width), viewScrollWidth: viewElement.scrollWidth, viewClientWidth: viewElement.clientWidth, viewScrollHeight: viewElement.scrollHeight, viewClientHeight: viewElement.clientHeight, mapLeft: Math.round(map.left), mapRight: viewport - Math.round(map.right), mapWidth: Math.round(map.width), mapHeight: Math.round(map.height), mapScrollWidth: mapElement.scrollWidth, mapScrollHeight: mapElement.scrollHeight, documentWidth: doc.documentElement.scrollWidth, documentHeight: doc.documentElement.scrollHeight, normalScrollLeft, normalScrollTop, expandedScrollLeft: mapElement.scrollLeft, expandedScrollTop: mapElement.scrollTop };
+        frame.dataset.geometry = JSON.stringify(geometry);
+        result.textContent = `viewport ${geometry.viewport} · main ${geometry.mainWidth} · canvas ${geometry.mapWidth} · gutters ${geometry.mapLeft}/${geometry.viewport - Math.round(map.right)}`;
+        const fullWidth = geometry.mainWidth >= viewport - 2 && geometry.mapLeft <= 16 && geometry.mapRight <= 16 && geometry.mapWidth >= viewport - 32;
+        const stableDocument = geometry.documentWidth === viewport && doc.body.scrollWidth === viewport;
+        const internalOverflow = geometry.mapScrollWidth > mapElement.clientWidth && geometry.mapScrollHeight > mapElement.clientHeight && geometry.viewScrollWidth === geometry.viewClientWidth && geometry.viewScrollHeight === geometry.viewClientHeight && geometry.documentHeight === frame.contentWindow.innerHeight;
+        const statePreserved = doc.querySelector('[data-lens="structure"]').classList.contains("is-active") && doc.querySelector("#expandedOrganizationSearch").value === "Маркетинг" && doc.querySelector("#organizationMap .lom-node.is-selected")?.textContent.trim() === selectedLabel && geometry.expandedScrollLeft === normalScrollLeft && geometry.expandedScrollTop === normalScrollTop;
+        doc.querySelector("#expandOrganizationMap").click();
+        await wait(25);
+        const normalUnchanged = Math.round(doc.querySelector(".lom-main").getBoundingClientRect().width) === normalMainWidth && doc.querySelector("#organizationSearch").value === "Маркетинг" && mapElement.scrollLeft === normalScrollLeft && mapElement.scrollTop === normalScrollTop;
+        doc.querySelector("#expandOrganizationMap").click();
+        await wait(25);
+        const reexpandedState = mapElement.scrollLeft === normalScrollLeft && mapElement.scrollTop === normalScrollTop;
+        if (!fullWidth || !stableDocument || !internalOverflow || !statePreserved || !normalUnchanged || !reexpandedState) throw new Error(`geometry ${JSON.stringify(geometry)} overflow=${internalOverflow} state=${statePreserved} normal=${normalUnchanged} reexpanded=${reexpandedState}`);
+        result.textContent += " · RESULT PASS";
+        document.body.dataset.testResult = "pass";
+      }
+      run().catch(error => { result.textContent = `FAIL ${error.message}`; document.body.dataset.testResult = "failed"; });
+    }());
+  </script>
+</body>
+</html>

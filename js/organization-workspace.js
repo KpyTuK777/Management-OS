@@ -324,6 +324,8 @@
   }
 
   function setMapExpanded(expanded) {
+    const map = $("#organizationMap");
+    const scrollPosition = { left: map.scrollLeft, top: map.scrollTop };
     mapExpanded = Boolean(expanded);
     document.body.classList.toggle("lom-map-expanded", mapExpanded);
     const control = $("#expandOrganizationMap");
@@ -333,7 +335,7 @@
       $("#organizationInspector").classList.remove("is-open");
       $(".lom-workspace").classList.remove("has-inspector");
     }
-    window.setTimeout(() => (mapExpanded ? $("#organizationMap") : control).focus(), 0);
+    window.setTimeout(() => { map.scrollTo(scrollPosition); (mapExpanded ? map : control).focus(); }, 0);
   }
 
   function handleOrganizationSearch(value) {
