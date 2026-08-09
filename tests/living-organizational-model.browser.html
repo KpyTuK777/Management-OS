@@ -16,6 +16,9 @@
         for (let index = 0; index < localStorage.length; index += 1) keys.push(localStorage.key(index));
         keys.filter(key => key && key.startsWith("management-os-operating-model-")).forEach(key => localStorage.removeItem(key));
       }
+      function operationalOptionId(doc, label) {
+        return Array.from(doc.querySelector("#elementParent").options).find(option => option.textContent === label)?.value || "";
+      }
       async function run() {
         clearOperatingModel();
         const investigationSentinel = JSON.stringify({ version: 1, investigations: [{ id: "investigation-preservation-sentinel", title: "Збережене розслідування", createdAt: "2026-08-08T00:00:00.000Z", updatedAt: "2026-08-08T00:00:00.000Z", data: { situation: { summary: "Збережений стан", revisions: [] }, known: [], unknowns: [], attention: [], evidence: [], hypotheses: [], workingSet: [], timeline: [] } }] });
@@ -39,14 +42,36 @@
         doc.querySelector("#elementLabel").value = "Маркетинг";
         doc.querySelector("#elementCreateForm").requestSubmit();
         await wait(40);
-        for (const departmentName of ["Виробництво", "Закупівлі", "Логістика", "Відділ якості"]) {
+        for (const departmentName of ["Виробництво", "Закупівлі", "Логістика", "Відділ якості", "Фінанси", "Персонал", "ІТ", "Сервіс", "Розвиток", "Безпека", "Аналітика", "Партнерства", "Юридичний відділ"]) {
           doc.querySelector('[data-create-kind="department"]').click();
           doc.querySelector("#elementLabel").value = departmentName;
           doc.querySelector("#elementCreateForm").requestSubmit();
           await wait(20);
         }
-        assert(doc.querySelectorAll(".lom-structure-branch").length === 6, "Structure composes a six-department organization as connected hierarchy branches");
-        assert(doc.querySelector(".lom-structure-tree") && doc.querySelector(".lom-structure-trunk"), "Structure uses a root and visible hierarchy connector");
+        doc.querySelector('[data-create-kind="department"]').click();
+        doc.querySelector("#elementLabel").value = "Корпоративні продажі";
+        doc.querySelector("#elementParent").value = operationalOptionId(doc, "Операційний відділ");
+        doc.querySelector("#elementCreateForm").requestSubmit();
+        await wait(20);
+        const corporateDepartmentId = Array.from(doc.querySelector("#elementParent").options).find(option => option.textContent === "Корпоративні продажі").value;
+        doc.querySelector('[data-create-kind="department"]').click();
+        doc.querySelector("#elementLabel").value = "Команда ключових клієнтів";
+        doc.querySelector("#elementParent").value = corporateDepartmentId;
+        doc.querySelector("#elementCreateForm").requestSubmit();
+        await wait(20);
+        const teamId = Array.from(doc.querySelector("#elementParent").options).find(option => option.textContent === "Команда ключових клієнтів").value;
+        doc.querySelector('[data-create-kind="role"]').click();
+        doc.querySelector("#elementLabel").value = "Керівник ключових клієнтів";
+        doc.querySelector("#elementParent").value = teamId;
+        doc.querySelector("#elementCreateForm").requestSubmit();
+        await wait(30);
+        assert(doc.querySelectorAll(".lom-hierarchy-node--organization > .lom-hierarchy-children > .lom-hierarchy-node--department").length === 15, "Structure preserves fifteen sibling departments on one spatial level");
+        assert(doc.querySelectorAll(".lom-hierarchy-node--department").length === 17, "Structure recursively renders nested departments");
+        assert(doc.querySelector(".lom-hierarchy-node--department .lom-hierarchy-node--department .lom-hierarchy-node--department .lom-hierarchy-node--role"), "three hierarchy levels preserve a contained role at the nested branch");
+        const structureMap = doc.querySelector("#organizationMap");
+        assert(structureMap.scrollWidth > structureMap.clientWidth, "large Structure intentionally exceeds the bounded Map viewport");
+        structureMap.scrollLeft = 700;
+        assert(structureMap.scrollLeft > 0 && doc.documentElement.scrollWidth === doc.documentElement.clientWidth, "Map pans horizontally without application-level overflow");
         doc.querySelector("[data-open-relationship]").click();
         doc.querySelector("#relationshipFamily").value = "information-flow";
         const operationalOption = Array.from(doc.querySelector("#relationshipFrom").options).find(option => option.textContent.includes("Операційний відділ"));
@@ -63,13 +88,16 @@
         frame.style.width = "390px";
         await wait(20);
         assert(doc.querySelector(".lom-flow-row").textContent.includes("Прогноз попиту") && getComputedStyle(doc.querySelector(".lom-flow-row i")).display !== "none", "390 px Flow preserves source, handoff meaning, destination, and directional arrows");
-        frame.style.width = "100%";
+        assert(doc.documentElement.scrollWidth === doc.documentElement.clientWidth, "organization application has no document overflow at 390 px");
         doc.querySelector('[data-lens="structure"]').click();
-        doc.querySelector('[data-lom-view="department"]').click();
-        assert(doc.querySelectorAll("#departmentSwitcher button").length === 6, "Department Workbench keeps all sibling departments available");
-        doc.querySelector('#departmentSwitcher button:not(.is-active)').click();
         await wait(20);
-        assert(doc.querySelector("#departmentTitle").textContent === "Операційний відділ", "direct sibling navigation changes departments without returning to the map");
+        assert(doc.querySelector("#organizationMap").scrollWidth > doc.querySelector("#organizationMap").clientWidth && doc.documentElement.scrollWidth === doc.documentElement.clientWidth, "390 px exposes a bounded scrollable Map without pretending the full hierarchy fits");
+        frame.style.width = "100%";
+        doc.querySelector('[data-lom-view="department"]').click();
+        assert(doc.querySelectorAll("#departmentSwitcher button").length === 17, "Department Workbench keeps direct navigation across the larger organization");
+        Array.from(doc.querySelectorAll("#departmentSwitcher button")).find(button => button.textContent === "Маркетинг").click();
+        await wait(20);
+        assert(doc.querySelector("#departmentTitle").textContent === "Маркетинг", "direct department navigation changes context without returning to the map");
         doc.querySelector('[data-lom-view="map"]').click();
         doc.querySelector('[data-lom-view="process"]').click();
         doc.querySelector('#processView [data-create-kind="process"]').click();
@@ -112,10 +140,15 @@
         await new Promise(resolve => frame.addEventListener("load", resolve, { once: true }));
         const reloadDoc = frame.contentDocument;
         assert(reloadDoc.querySelector("#organizationTitle").textContent === "Обрій", "organization persists across real-entry reload");
-        assert(reloadDoc.querySelectorAll(".lom-structure-branch").length === 6, "persisted six-department hierarchy recovers into the map");
-        reloadDoc.querySelector("#organizationSearch").value = "Операційний";
+        assert(reloadDoc.querySelectorAll(".lom-hierarchy-node--department").length === 17, "persisted deep hierarchy recovers into the map");
+        reloadDoc.querySelector("#organizationSearch").value = "Команда ключових";
         reloadDoc.querySelector("#organizationSearch").dispatchEvent(new Event("input", { bubbles: true }));
-        assert(reloadDoc.querySelector("#organizationInspectorTitle").textContent === "Операційний відділ", "search focuses governed identity in Inspector");
+        await wait(50);
+        assert(reloadDoc.querySelector("#organizationInspectorTitle").textContent === "Команда ключових клієнтів" && reloadDoc.querySelector("#organizationMap .lom-node.is-selected")?.textContent.includes("Команда ключових клієнтів"), "search focuses a governed nested department in the Map and Inspector");
+        reloadDoc.querySelector("#organizationSearch").value = "Юридичний";
+        reloadDoc.querySelector("#organizationSearch").dispatchEvent(new Event("input", { bubbles: true }));
+        await wait(450);
+        assert(reloadDoc.querySelector("#organizationMap").scrollLeft > 0, "search-to-focus navigates across the large Map canvas");
         assert(!reloadDoc.querySelector("#organizationInspectorContent").textContent.includes("Зв’язки"), "Inspector exposes human organizational facts instead of a raw relationship count");
         reloadDoc.querySelector("#closeOrganizationInspector").click();
         assert(!reloadDoc.querySelector(".lom-workspace").classList.contains("has-inspector"), "closing Inspector restores full workspace width");

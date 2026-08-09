@@ -107,6 +107,21 @@
     return model.relationships.filter(item => allowed.includes(item.family));
   }
 
+  function focusSelectedMapNode() {
+    if (currentLens !== "structure") return;
+    const selected = $("#organizationMap .lom-node.is-selected") || $("#organizationMap .lom-hierarchy-node--organization > .lom-hierarchy-card > .lom-node");
+    const map = $("#organizationMap");
+    if (selected && map) window.setTimeout(() => {
+      const mapRect = map.getBoundingClientRect();
+      const selectedRect = selected.getBoundingClientRect();
+      map.scrollTo({
+        left: map.scrollLeft + selectedRect.left - mapRect.left - (map.clientWidth - selectedRect.width) / 2,
+        top: map.scrollTop + selectedRect.top - mapRect.top - (map.clientHeight - selectedRect.height) / 2,
+        behavior: "auto"
+      });
+    }, 0);
+  }
+
   function renderMap(model) {
     const map = $("#organizationMap");
     const organization = model.elements.find(item => item.kind === "organization");
@@ -120,14 +135,16 @@
     if (currentLens === "structure") {
       const containment = model.relationships.filter(item => item.family === "containment" && item.lifecycle === "active");
       const directChildren = parentId => containment.filter(item => item.fromId === parentId).map(item => elementById(item.toId)).filter(Boolean);
-      const departments = directChildren(organization.id).filter(item => item.kind === "department");
-      const unplacedDepartments = children.filter(item => item.kind === "department" && !departments.some(department => department.id === item.id));
-      const branch = department => {
-        const roles = directChildren(department.id).filter(item => item.kind === "role");
-        return `<div class="lom-structure-branch">${node(department)}${roles.length ? `<div class="lom-role-children">${roles.map(node).join("")}</div>` : `<span class="lom-branch-empty">Ролі ще не описані</span>`}</div>`;
+      const containedIds = new Set(containment.map(item => item.toId));
+      const renderHierarchyNode = item => {
+        const descendants = directChildren(item.id).filter(child => ["department", "role"].includes(child.kind));
+        return `<div class="lom-hierarchy-node lom-hierarchy-node--${escapeHtml(item.kind)}"><div class="lom-hierarchy-card">${node(item)}</div>${descendants.length ? `<div class="lom-hierarchy-children">${descendants.map(renderHierarchyNode).join("")}</div>` : ""}</div>`;
       };
+      const rootChildren = directChildren(organization.id).filter(item => ["department", "role"].includes(item.kind));
+      const unplaced = children.filter(item => ["department", "role"].includes(item.kind) && !containedIds.has(item.id));
       const reporting = visibleRelations.filter(item => item.family === "reporting");
-      map.innerHTML = `<div class="lom-structure-tree"><div class="lom-root-node">${node(organization)}</div><div class="lom-structure-trunk" aria-hidden="true"></div><div class="lom-department-level">${[...departments, ...unplacedDepartments].map(branch).join("")}</div></div>${reporting.length ? `<section class="lom-reporting-summary"><h3>Підпорядкування</h3>${reporting.map(item => `<button type="button" data-element-id="${escapeHtml(item.fromId)}"><span>${escapeHtml(elementById(item.fromId)?.label || "Невідомо")}</span><b>звітує до</b><span>${escapeHtml(elementById(item.toId)?.label || "Невідомо")}</span></button>`).join("")}</section>` : ""}`;
+      map.innerHTML = `<div class="lom-structure-surface" role="group" aria-label="Ієрархія організації — прокручуйте карту горизонтально та вертикально"><div class="lom-structure-tree">${renderHierarchyNode(organization)}</div>${unplaced.length ? `<section class="lom-unplaced"><h3>Ще не розміщено в ієрархії</h3><div>${unplaced.map(node).join("")}</div></section>` : ""}</div>${reporting.length ? `<section class="lom-reporting-summary"><h3>Підпорядкування</h3>${reporting.map(item => `<button type="button" data-element-id="${escapeHtml(item.fromId)}"><span>${escapeHtml(elementById(item.fromId)?.label || "Невідомо")}</span><b>звітує до</b><span>${escapeHtml(elementById(item.toId)?.label || "Невідомо")}</span></button>`).join("")}</section>` : ""}`;
+      focusSelectedMapNode();
       return;
     }
     const meaningful = visibleRelations.filter(item => item.family !== "containment");
@@ -237,7 +254,14 @@
         const kind = $("#elementKind").value;
         const details = kind === "process" ? { input: $("#processInput").value.trim(), output: $("#processOutput").value.trim(), result: $("#processResult").value.trim() } : {};
         const created = repository.createElement({ kind, label: $("#elementLabel").value, qualification: $("#elementQualification").value, parentId: $("#elementParent").value || null, details });
-        selectedId = created.id; closeDialog($("#organizationCreateDialog")); renderInspector(created.id); announce(`${kindLabels[kind]} додано.`);
+        selectedId = created.id;
+        closeDialog($("#organizationCreateDialog"));
+        if (currentView === "department") renderDepartment(state());
+        if (currentView === "role") renderRole(state());
+        if (currentView === "process") renderProcesses(state());
+        renderInspector(created.id);
+        renderMap(state());
+        announce(`${kindLabels[kind]} додано.`);
       } catch (error) { $("#elementLabel").setCustomValidity(error.message); event.currentTarget.reportValidity(); }
     });
     $("#elementLabel").addEventListener("input", event => event.currentTarget.setCustomValidity(""));
