@@ -53,9 +53,15 @@ body.lom-mode { margin: 0; min-width: 0; overflow: hidden; background: var(--lom
 .lom-rail__bottom { display: grid; gap: 4px; margin-top: auto; padding: 14px 10px 0; color: var(--lom-muted); border-top: 1px solid var(--lom-line); font-size: 10px; }
 
 .lom-main { min-width: 0; min-height: 0; display: grid; grid-template-rows: auto auto minmax(0, 1fr); }
-.lom-topbar { display: flex; align-items: center; justify-content: space-between; min-height: 70px; padding: 12px 22px; background: rgba(16,20,18,.94); border-bottom: 1px solid var(--lom-line); }
+.lom-topbar { display: flex; align-items: center; justify-content: space-between; min-width: 0; max-width: 100%; min-height: 70px; box-sizing: border-box; padding: 12px 22px; background: rgba(16,20,18,.94); border-bottom: 1px solid var(--lom-line); }
 .lom-topbar p { margin: 0 0 4px; color: var(--lom-muted); font-size: 10px; }
 .lom-topbar h1 { margin: 0; font: 500 22px/1.1 Georgia, serif; }
+.lom-organization-context { min-width: 0; max-width: min(48vw, 560px); overflow: hidden; }
+.lom-organization-context > p { margin: 0 0 3px; }
+.lom-organization-context > button { display: flex; align-items: center; gap: 8px; min-width: 0; max-width: 100%; padding: 2px 0; color: var(--lom-ink); background: transparent; border: 0; cursor: pointer; text-align: left; }
+.lom-organization-context > button strong { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 500 22px/1.1 Georgia, serif; }
+.lom-organization-context > button span { color: var(--lom-accent); transition: transform .16s ease; }
+.lom-organization-context > button:hover span, .lom-organization-context > button:focus-visible span { transform: translateY(2px); }
 .lom-topbar__actions { display: flex; align-items: center; gap: 10px; }
 .lom-search { display: flex; align-items: center; min-width: min(340px, 36vw); padding: 0 9px; background: var(--lom-panel); border: 1px solid var(--lom-line); border-radius: 7px; }
 .lom-search input { width: 100%; padding: 9px 4px; color: var(--lom-ink); background: transparent; border: 0; outline: 0; font: 500 12px/1 inherit; }
@@ -204,6 +210,7 @@ body.lom-mode { margin: 0; min-width: 0; overflow: hidden; background: var(--lom
 .lom-dialog { width: min(560px, calc(100% - 32px)); max-width: none; max-height: calc(100dvh - 32px); padding: 0; color: #28271f; background: var(--lom-paper); border: 1px solid #b9aa8d; border-radius: 9px; box-shadow: 0 32px 90px rgba(0,0,0,.55); overflow: auto; }
 .lom-dialog::backdrop { background: rgba(5,8,6,.76); backdrop-filter: blur(4px); }
 .lom-dialog form { display: grid; gap: 14px; padding: 20px; }
+.lom-dialog-shell { display: grid; gap: 14px; padding: 20px; }
 .lom-dialog header { display: flex; justify-content: space-between; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid rgba(42,39,30,.18); }
 .lom-dialog h2 { margin: 0; font: 500 24px/1.15 Georgia, serif; }
 .lom-dialog header button { width: 31px; height: 31px; color: #544f42; background: transparent; border: 1px solid rgba(42,39,30,.25); border-radius: 5px; cursor: pointer; }
@@ -214,6 +221,14 @@ body.lom-mode { margin: 0; min-width: 0; overflow: hidden; background: var(--lom
 .lom-dialog footer { display: flex; justify-content: flex-end; gap: 8px; padding-top: 4px; }
 .lom-dialog .lom-button { color: #373228; border-color: rgba(42,39,30,.3); }
 .lom-dialog .lom-button--primary { color: #17130d; }
+.lom-organization-dialog { width: min(520px, calc(100% - 32px)); }
+.lom-organization-list { display: grid; gap: 7px; }
+.lom-organization-list button { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; padding: 12px; color: #343027; background: rgba(255,255,255,.28); border: 1px solid rgba(42,39,30,.18); border-radius: 7px; cursor: pointer; text-align: left; }
+.lom-organization-list button:hover { background: rgba(255,255,255,.55); border-color: rgba(42,39,30,.34); }
+.lom-organization-list button.is-active { background: rgba(166,133,78,.14); border-color: #9d7b43; }
+.lom-organization-list button span { font: 500 16px/1.2 Georgia, serif; }
+.lom-organization-list button small { color: #706754; font-size: 9px; }
+.lom-dialog-shell > footer { display: flex; justify-content: space-between; gap: 8px; padding-top: 5px; }
 .lom-knowledge-state { padding: 10px 11px; color: #514c40; background: rgba(117,99,63,.06); border: 1px solid rgba(42,39,30,.16); border-radius: 6px; }
 .lom-knowledge-state summary { cursor: pointer; font-size: 11px; font-weight: 750; }
 .lom-knowledge-state[open] summary { margin-bottom: 11px; }
@@ -236,6 +251,9 @@ body.lom-mode { margin: 0; min-width: 0; overflow: hidden; background: var(--lom
   .lom-rail nav { display: flex; justify-content: flex-end; overflow-x: auto; }
   .lom-rail nav button, .lom-rail nav a { min-width: 42px; min-height: 38px; }
   .lom-main { min-height: calc(100dvh - 55px); }
+  .lom-topbar { align-items: stretch; flex-direction: column; }
+  .lom-organization-context { width: 100%; max-width: 100%; }
+  .lom-topbar__actions { min-width: 0; max-width: 100%; margin-top: 12px; }
   #mapView { overflow: visible; }
   #mapView .lom-map { flex: 0 0 auto; height: min(65svh, 620px); min-height: 480px; }
   .lom-workspace, .lom-workspace.has-inspector { position: relative; grid-template-columns: 1fr; }
@@ -254,6 +272,7 @@ body.lom-mode { margin: 0; min-width: 0; overflow: hidden; background: var(--lom
   .lom-create-form button { min-height: 44px; }
   .lom-first-use__secondary { width: 100%; flex-direction: column; gap: 9px; }
   .lom-topbar { align-items: stretch; flex-direction: column; padding: 11px 13px; }
+  .lom-organization-context { max-width: 100%; }
   .lom-topbar__actions { align-items: stretch; width: 100%; flex-direction: row; margin-top: 12px; }
   .lom-topbar__actions .lom-button { flex: 0 0 auto; }
   .lom-search { flex: 1 1 auto; min-width: 0; width: auto; box-sizing: border-box; }

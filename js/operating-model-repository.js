@@ -105,10 +105,33 @@
       }
       const pointed = candidates.find(item => item.key === pointer);
       if (pointed) { this.lastLoadStatus = { recovered: false, failed: false }; return clone(pointed.envelope); }
-      const fallback = candidates.find(item => item.envelope.generation === 1 || candidates.some(parent => parent.envelope.workspaceId === item.envelope.workspaceId && parent.envelope.generation === item.envelope.parentGeneration));
+      const pointerWorkspacePrefix = pointer ? pointer.slice(0, pointer.lastIndexOf("-") + 1) : null;
+      const pointerCandidates = pointerWorkspacePrefix ? candidates.filter(item => item.key.startsWith(pointerWorkspacePrefix)) : [];
+      const scopedCandidates = pointerCandidates.length ? pointerCandidates : candidates;
+      const fallback = scopedCandidates.find(item => item.envelope.generation === 1 || scopedCandidates.some(parent => parent.envelope.workspaceId === item.envelope.workspaceId && parent.envelope.generation === item.envelope.parentGeneration));
       if (!fallback) { this.lastLoadStatus = { recovered: false, failed: true }; throw new Error("Ланцюг збережених станів пошкоджено."); }
       this.lastLoadStatus = { recovered: true, failed: false, recoveredGeneration: fallback.envelope.generation };
       return clone(fallback.envelope);
+    }
+
+    listLatestByWorkspace() {
+      const latest = new Map();
+      this.listCandidates().forEach(candidate => {
+        const workspaceId = candidate.envelope.workspaceId;
+        const current = latest.get(workspaceId);
+        if (!current || candidate.envelope.generation > current.envelope.generation) latest.set(workspaceId, candidate);
+      });
+      return Array.from(latest.values()).sort((a, b) => String(b.envelope.committedAt).localeCompare(String(a.envelope.committedAt)));
+    }
+
+    activateWorkspace(workspaceId) {
+      const candidate = this.listLatestByWorkspace().find(item => item.envelope.workspaceId === workspaceId);
+      if (!candidate) throw new Error("Організацію не знайдено у цьому браузері.");
+      this.storage.setItem(POINTER_KEY, candidate.key);
+      const activated = JSON.parse(this.storage.getItem(this.storage.getItem(POINTER_KEY)));
+      if (!this.isValidEnvelope(activated) || activated.workspaceId !== workspaceId) throw new Error("Не вдалося перейти до організації.");
+      this.lastLoadStatus = { recovered: false, failed: false };
+      return clone(activated);
     }
 
     commit(state, parentEnvelope) {
@@ -156,6 +179,10 @@
 
     initializeOrganization(label) {
       if (this.envelope) throw new Error("Організацію вже створено.");
+      return this.createOrganization(label);
+    }
+
+    createOrganization(label) {
       const cleanLabel = String(label || "").trim();
       if (!cleanLabel) throw new Error("Вкажіть назву організації.");
       const workspaceId = id("workspace");
@@ -164,6 +191,26 @@
       this.envelope = this.adapter.commit(state, null);
       this.notify();
       return this.snapshot();
+    }
+
+    listOrganizations() {
+      return this.adapter.listLatestByWorkspace().map(candidate => {
+        const organization = candidate.envelope.state.elements.find(item => item.kind === "organization");
+        return { workspaceId: candidate.envelope.workspaceId, label: organization?.label || "Організація", active: candidate.envelope.workspaceId === this.envelope?.workspaceId };
+      });
+    }
+
+    switchOrganization(workspaceId) {
+      if (!workspaceId || workspaceId === this.envelope?.workspaceId) return this.snapshot();
+      this.envelope = this.adapter.activateWorkspace(workspaceId);
+      this.notify();
+      return this.snapshot();
+    }
+
+    renameOrganization(label) {
+      const organization = this.envelope?.state.elements.find(item => item.kind === "organization");
+      if (!organization) throw new Error("Поточну організацію не знайдено.");
+      return this.reviseElement(organization.id, { label });
     }
 
     makeElement(state, kind, label, qualification, details) {

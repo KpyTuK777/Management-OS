@@ -42,16 +42,41 @@
         assert(reloaded.snapshot().elements.some(item => item.id === process.id), "validated active generation reloads");
         const info = reloaded.recoveryInfo();
         assert(info.validatedGenerations >= 2 && info.activeGeneration > 1, "prior validated generation is retained");
+        const organizationAId = initial.workspaceId;
+        repository.createOrganization("Northstar Home");
+        const emptyB = repository.snapshot();
+        const organizationBId = emptyB.workspaceId;
+        assert(organizationBId !== organizationAId && emptyB.elements.length === 1 && emptyB.relationships.length === 0 && emptyB.investigations.length === 0 && emptyB.improvements.length === 0, "new organization receives an independent genuinely empty state");
+        assert(repository.listOrganizations().length === 2 && repository.listOrganizations().filter(item => item.active).length === 1, "repository lists organizations with one active context");
+        repository.switchOrganization(organizationAId);
+        assert(repository.snapshot().elements.some(item => item.id === process.id), "switching back restores organization A data");
+        repository.switchOrganization(organizationBId);
+        assert(repository.snapshot().elements.length === 1, "organization B remains isolated from organization A");
+        repository.renameOrganization("Northstar Living");
+        const lifecycleReload = new ManagementOSOperatingModel.OperatingModelRepository(adapter);
+        assert(lifecycleReload.snapshot().workspaceId === organizationBId && lifecycleReload.snapshot().elements[0].label === "Northstar Living", "active organization and renamed identity survive reload");
+        lifecycleReload.switchOrganization(organizationAId);
+        assert(lifecycleReload.snapshot().elements.some(item => item.id === process.id), "rename and reload do not leak across organizations");
+        lifecycleReload.switchOrganization(organizationBId);
+        const bOrganization = repository.snapshot().elements.find(item => item.kind === "organization");
+        const bDepartment = repository.createElement({ kind: "department", label: "B-local", parentId: bOrganization.id });
+        const beforeInvalid = JSON.stringify(repository.snapshot());
         let invalidRejected = false;
-        try { repository.createRelationship({ family: "dependency", fromId: process.id, toId: process.id }); } catch (_) { invalidRejected = true; }
+        try { repository.createRelationship({ family: "dependency", fromId: bDepartment.id, toId: bDepartment.id }); } catch (_) { invalidRejected = true; }
         assert(invalidRejected, "invalid self-relationship is rejected without partial commit");
         let cycleRejected = false;
-        try { repository.createRelationship({ family: "containment", fromId: process.id, toId: initial.elements[0].id }); } catch (_) { cycleRejected = true; }
+        try { repository.createRelationship({ family: "containment", fromId: bDepartment.id, toId: bOrganization.id }); } catch (_) { cycleRejected = true; }
         assert(cycleRejected, "containment cycle is rejected without partial commit");
+        assert(JSON.stringify(repository.snapshot()) === beforeInvalid, "rejected B-local relationships leave state and generation unchanged");
         const activeKey = storage.getItem("management-os-operating-model-active-v1");
+        storage.setItem("management-os-operating-model-active-v1", "malformed-pointer");
+        const pointerRecovered = new ManagementOSOperatingModel.OperatingModelRepository(adapter);
+        assert(pointerRecovered.snapshot() && pointerRecovered.listOrganizations().length === 2, "malformed active pointer recovers deterministically from valid organizations");
+        storage.setItem("management-os-operating-model-active-v1", activeKey);
+        const activeGenerationBeforeCorruption = repository.recoveryInfo().activeGeneration;
         storage.setItem(activeKey, `${storage.getItem(activeKey).slice(0, -4)}BROKEN`);
         const recovered = new ManagementOSOperatingModel.OperatingModelRepository(adapter);
-        assert(recovered.snapshot() && recovered.recoveryInfo().activeGeneration < info.activeGeneration, "corrupted newest generation recovers a prior validated generation");
+        assert(recovered.snapshot()?.workspaceId === organizationBId && recovered.recoveryInfo().activeGeneration < activeGenerationBeforeCorruption, "corrupted newest generation recovers a prior validated generation in the active organization");
         assert(recovered.recoveryInfo().recovered === true, "fallback recovery remains explicitly qualified");
         document.getElementById("result").textContent = `${lines.join("\n")}\nRESULT PASS`;
         document.body.dataset.testResult = "pass";

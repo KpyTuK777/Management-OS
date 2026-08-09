@@ -70,6 +70,25 @@
     modalInvokers.get(dialog)?.focus?.();
   }
 
+  function resetOrganizationContext() {
+    selectedId = null;
+    currentView = "map";
+    currentLens = "structure";
+    $("#organizationSearch").value = "";
+    $("#organizationInspector").classList.remove("is-open");
+    $(".lom-workspace").classList.remove("has-inspector");
+    $("#organizationInspectorTitle").textContent = "Оберіть елемент";
+    $("#organizationInspectorContent").innerHTML = `<div class="lom-honest-empty"><strong>Контекст з’явиться тут</strong><p>Оберіть елемент на карті або знайдіть його через пошук.</p></div>`;
+    $$('[data-lom-panel]').forEach(panel => panel.classList.toggle("hidden", panel.dataset.lomPanel !== "map"));
+    $$('[data-lom-view]').forEach(button => button.classList.toggle("is-active", button.dataset.lomView === "map"));
+    $$('[data-lens]').forEach(button => button.classList.toggle("is-active", button.dataset.lens === "structure"));
+  }
+
+  function renderOrganizationList() {
+    const organizations = repository.listOrganizations();
+    $("#organizationList").innerHTML = organizations.map(item => `<button type="button" class="${item.active ? "is-active" : ""}" data-organization-id="${escapeHtml(item.workspaceId)}" ${item.active ? 'aria-current="true"' : ""}><span>${escapeHtml(item.label)}</span><small>${item.active ? "Поточна" : "Перейти"}</small></button>`).join("");
+  }
+
   function render() {
     const model = state();
     const hasOrganization = Boolean(model?.elements.some(item => item.kind === "organization"));
@@ -78,11 +97,12 @@
     if (!hasOrganization) return;
     const organization = model.elements.find(item => item.kind === "organization");
     $("#organizationTitle").textContent = organization.label;
+    renderOrganizationList();
     const departments = model.elements.filter(item => item.kind === "department").length;
     const roles = model.elements.filter(item => item.kind === "role").length;
     $("#modelSummary").textContent = `${departments} підрозділів · ${roles} ролей`;
     const recovery = repository.recoveryInfo();
-    $("#persistenceState").textContent = `Збережено · версія ${recovery.activeGeneration}`;
+    $("#persistenceState").textContent = "Збережено локально";
     if (recovery.recovered) {
       $("#modelStateLabel").textContent = "Відновлено попередній надійний стан";
       $("#modelStateLabel").closest("span").querySelector("i").style.background = "var(--lom-warning)";
@@ -247,6 +267,30 @@
       try { repository.initializeOrganization($("#organizationName").value); announce("Організацію створено."); } catch (error) { $("#organizationName").setCustomValidity(error.message); event.currentTarget.reportValidity(); }
     });
     $("#organizationName").addEventListener("input", event => event.currentTarget.setCustomValidity(""));
+    $("#newOrganizationForm").addEventListener("submit", event => {
+      event.preventDefault();
+      try {
+        repository.createOrganization($("#newOrganizationName").value);
+        closeDialog($("#newOrganizationDialog"));
+        resetOrganizationContext();
+        render();
+        announce("Нову порожню організацію створено.");
+      } catch (error) { $("#newOrganizationName").setCustomValidity(error.message); event.currentTarget.reportValidity(); }
+    });
+    $("#newOrganizationName").addEventListener("input", event => event.currentTarget.setCustomValidity(""));
+    $("#renameOrganizationForm").addEventListener("submit", event => {
+      event.preventDefault();
+      try {
+        repository.renameOrganization($("#renameOrganizationName").value);
+        closeDialog($("#renameOrganizationDialog"));
+        render();
+        announce("Назву організації оновлено.");
+      } catch (error) { $("#renameOrganizationName").setCustomValidity(error.message); event.currentTarget.reportValidity(); }
+    });
+    $("#renameOrganizationName").addEventListener("input", event => event.currentTarget.setCustomValidity(""));
+    $("#organizationMenuButton").addEventListener("click", event => { renderOrganizationList(); openDialog($("#organizationMenuDialog"), event.currentTarget); });
+    $("#newOrganizationButton").addEventListener("click", () => { closeDialog($("#organizationMenuDialog")); $("#newOrganizationName").value = ""; openDialog($("#newOrganizationDialog"), $("#organizationMenuButton")); });
+    $("#renameOrganizationButton").addEventListener("click", () => { closeDialog($("#organizationMenuDialog")); $("#renameOrganizationName").value = state().elements.find(item => item.kind === "organization").label; openDialog($("#renameOrganizationDialog"), $("#organizationMenuButton")); });
     $("#elementKind").addEventListener("change", toggleProcessFields);
     $("#elementCreateForm").addEventListener("submit", event => {
       event.preventDefault();
@@ -290,6 +334,7 @@
       const view = event.target.closest("[data-lom-view]");
       const lens = event.target.closest("[data-lens]");
       const department = event.target.closest("[data-department-id]");
+      const organization = event.target.closest("[data-organization-id]");
       if (event.target.closest("[data-open-investigations]")) showInvestigations();
       if (create) prepareCreate(create.dataset.createKind || "department", create.dataset.parentId || "", create);
       if (element?.dataset.elementId) { selectedId = element.dataset.elementId; renderInspector(selectedId); renderMap(state()); if (elementById(selectedId)?.kind === "department" && currentView === "department") renderDepartment(state()); }
@@ -298,6 +343,7 @@
       if (improve) { const item = elementById(improve.dataset.improveId); $("#improvementElementId").value = item.id; $("#improvementTitle").value = `Вдосконалення: ${item.label}`; $("#improvementChange").value = ""; openDialog($("#improvementDialog"), improve); }
       if (view) switchView(view.dataset.lomView);
       if (department) { selectedId = department.dataset.departmentId; switchView("department"); renderDepartment(state()); renderMap(state()); }
+      if (organization && !organization.classList.contains("is-active")) { repository.switchOrganization(organization.dataset.organizationId); closeDialog($("#organizationMenuDialog")); resetOrganizationContext(); render(); announce("Організацію змінено."); }
       if (lens) { currentLens = lens.dataset.lens; $$('[data-lens]').forEach(button => button.classList.toggle("is-active", button === lens)); renderMap(state()); }
       if (event.target.closest("[data-lom-close]")) closeDialog(event.target.closest("dialog"));
     });

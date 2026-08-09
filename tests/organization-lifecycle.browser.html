@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="uk">
+<head><meta charset="utf-8"><title>Organization lifecycle real-entry journey</title><style>body{font:14px system-ui;margin:0;background:#111;color:#eee}#result{padding:12px;white-space:pre-wrap}iframe{width:100%;height:760px;border:0}</style></head>
+<body>
+  <pre id="result">RUNNING</pre>
+  <iframe id="app" src="../index.html" title="Management OS real application"></iframe>
+  <script>
+    (function () {
+      const output = document.getElementById("result");
+      const frame = document.getElementById("app");
+      const lines = [];
+      const assert = (value, message) => { if (!value) throw new Error(message); lines.push(`PASS ${message}`); };
+      const wait = delay => new Promise(resolve => setTimeout(resolve, delay));
+      const organizationalContent = doc => ["#organizationMap", "#departmentWorkbench", "#roleWorkbench", "#processList", "#organizationInspectorContent"].map(selector => doc.querySelector(selector)?.textContent || "").join(" ");
+      function clearOperatingModel() {
+        const keys = [];
+        for (let index = 0; index < localStorage.length; index += 1) keys.push(localStorage.key(index));
+        keys.filter(key => key && key.startsWith("management-os-operating-model-")).forEach(key => localStorage.removeItem(key));
+      }
+      async function run() {
+        clearOperatingModel();
+        const investigationSentinel = JSON.stringify({ version: 1, investigations: [{ id: "lifecycle-investigation-sentinel", title: "Збережене розслідування", createdAt: "2026-08-09T00:00:00.000Z", updatedAt: "2026-08-09T00:00:00.000Z", data: { situation: { summary: "Не змінювати", revisions: [] }, evidence: [], hypotheses: [], workingSet: [] } }] });
+        localStorage.setItem("management-os-user-investigations-v1", investigationSentinel);
+        frame.src = `../index.html?lifecycle=${Date.now()}`;
+        await new Promise(resolve => frame.addEventListener("load", resolve, { once: true }));
+        let doc = frame.contentDocument;
+        doc.querySelector("#organizationName").value = "Сонечко";
+        doc.querySelector("#organizationCreateForm").requestSubmit();
+        await wait(40);
+        assert(doc.querySelector("#organizationTitle").textContent === "Сонечко", "first organization becomes the visible active context");
+        doc.querySelector('[data-create-kind="department"]').click();
+        doc.querySelector("#elementLabel").value = "Продажі Сонечка";
+        doc.querySelector("#elementCreateForm").requestSubmit();
+        await wait(40);
+        assert(doc.querySelector("#organizationMap").textContent.includes("Продажі Сонечка"), "organization A receives its own department");
+
+        doc.querySelector("#organizationMenuButton").click();
+        assert(doc.querySelectorAll("#organizationList button").length === 1 && doc.querySelector("#organizationList .is-active").textContent.includes("Сонечко"), "organization menu identifies the active organization in human language");
+        doc.querySelector("#newOrganizationButton").click();
+        doc.querySelector("#newOrganizationName").value = "Northstar Home";
+        doc.querySelector("#newOrganizationForm").requestSubmit();
+        await wait(50);
+        assert(doc.querySelector("#organizationTitle").textContent === "Northstar Home", "new organization becomes active");
+        assert(doc.activeElement === doc.querySelector("#organizationMenuButton"), "new-organization dialog returns focus to the visible organization trigger");
+        assert(doc.querySelector("#modelSummary").textContent.includes("0 підрозділів") && doc.querySelector("#mapEmpty").textContent.includes("Додайте перший підрозділ"), "Northstar Home opens as a genuinely empty useful model");
+        assert(!organizationalContent(doc).includes("Продажі Сонечка"), "organization A data does not leak into empty organization B");
+        doc.querySelector('#mapEmpty [data-create-kind="department"]').click();
+        doc.querySelector("#elementLabel").value = "Операції Northstar";
+        doc.querySelector("#elementCreateForm").requestSubmit();
+        await wait(40);
+        assert(doc.querySelector("#organizationMap").textContent.includes("Операції Northstar"), "organization B accepts independent modelling data");
+
+        doc.querySelector("#organizationMenuButton").click();
+        assert(doc.querySelectorAll("#organizationList button").length === 2, "both organizations remain available");
+        Array.from(doc.querySelectorAll("#organizationList button")).find(button => button.textContent.includes("Сонечко")).click();
+        await wait(50);
+        assert(doc.querySelector("#organizationTitle").textContent === "Сонечко" && doc.querySelector("#organizationMap").textContent.includes("Продажі Сонечка"), "A restores its original context and data");
+        assert(!organizationalContent(doc).includes("Операції Northstar"), "B data does not leak into A");
+
+        doc.querySelector("#organizationMenuButton").click();
+        Array.from(doc.querySelectorAll("#organizationList button")).find(button => button.textContent.includes("Northstar Home")).click();
+        await wait(50);
+        assert(doc.querySelector("#organizationMap").textContent.includes("Операції Northstar"), "B restores its independent department");
+        doc.querySelector("#organizationMenuButton").click();
+        doc.querySelector("#renameOrganizationButton").click();
+        doc.querySelector("#renameOrganizationName").value = "Northstar Living";
+        doc.querySelector("#renameOrganizationForm").requestSubmit();
+        await wait(50);
+        assert(doc.querySelector("#organizationTitle").textContent === "Northstar Living", "current organization can be renamed through the Product UI");
+        assert(doc.activeElement === doc.querySelector("#organizationMenuButton"), "rename dialog returns focus to the visible organization trigger");
+        assert(localStorage.getItem("management-os-user-investigations-v1") === investigationSentinel, "organization lifecycle leaves existing Investigation storage untouched");
+
+        frame.src = `../index.html?lifecycle-reload=${Date.now()}`;
+        await new Promise(resolve => frame.addEventListener("load", resolve, { once: true }));
+        doc = frame.contentDocument;
+        assert(doc.querySelector("#organizationTitle").textContent === "Northstar Living" && doc.querySelector("#organizationMap").textContent.includes("Операції Northstar"), "reload restores the active renamed organization and its data");
+        doc.querySelector("#organizationMenuButton").click();
+        Array.from(doc.querySelectorAll("#organizationList button")).find(button => button.textContent.includes("Сонечко")).click();
+        await wait(40);
+        assert(doc.querySelector("#organizationMap").textContent.includes("Продажі Сонечка") && !organizationalContent(doc).includes("Операції Northstar"), "post-reload switching preserves cross-organization isolation");
+        doc.querySelector("#organizationMenuButton").click();
+        doc.querySelector("#renameOrganizationButton").click();
+        doc.querySelector("#renameOrganizationName").value = "Сонечко — надзвичайно довга назва організації для перевірки чесної адаптації вузького робочого простору";
+        doc.querySelector("#renameOrganizationForm").requestSubmit();
+        await wait(30);
+        const desktopOverflowers = Array.from(doc.querySelectorAll("body *")).filter(element => { const rect = element.getBoundingClientRect(); return rect.right > doc.documentElement.clientWidth + 1 || rect.left < -1; }).slice(0, 6).map(element => `${element.tagName.toLowerCase()}#${element.id}.${element.className}:${Math.round(element.getBoundingClientRect().left)}..${Math.round(element.getBoundingClientRect().right)}`);
+        assert(doc.documentElement.scrollWidth === doc.documentElement.clientWidth, `desktop lifecycle UI has no document horizontal overflow (${doc.documentElement.clientWidth}/${doc.documentElement.scrollWidth}; ${desktopOverflowers.join(", ")})`);
+        frame.style.width = "1024px";
+        await wait(30);
+        assert(doc.documentElement.scrollWidth === doc.documentElement.clientWidth, "laptop lifecycle UI remains bounded");
+        frame.style.width = "390px";
+        await wait(40);
+        const triggerRect = doc.querySelector("#organizationMenuButton").getBoundingClientRect();
+        doc.querySelector("#organizationMenuButton").click();
+        const dialogRect = doc.querySelector("#organizationMenuDialog").getBoundingClientRect();
+        assert(doc.documentElement.scrollWidth === doc.documentElement.clientWidth && triggerRect.left >= 0 && triggerRect.right <= doc.documentElement.clientWidth && dialogRect.left >= 0 && dialogRect.right <= doc.documentElement.clientWidth && doc.querySelector("#organizationMenuDialog").open && doc.querySelectorAll("#organizationList button").length === 2, "390 px contains a long active name and keeps switching bounded and usable");
+        output.textContent = `${lines.join("\n")}\nRESULT PASS`;
+        document.body.dataset.testResult = "pass";
+      }
+      frame.addEventListener("load", () => { if (output.textContent === "RUNNING") run().catch(error => { output.textContent = `${lines.join("\n")}\nFAIL ${error.stack || error.message}`; document.body.dataset.testResult = "fail"; }); }, { once: true });
+    }());
+  </script>
+</body>
+</html>

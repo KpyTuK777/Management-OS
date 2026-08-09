@@ -43,7 +43,7 @@
 
       <main class="lom-main">
         <header class="lom-topbar">
-          <div><p>Жива модель організації</p><h1 id="organizationTitle">Організація</h1></div>
+          <div class="lom-organization-context"><p>Зараз працюєте з</p><button type="button" id="organizationMenuButton" aria-haspopup="dialog"><strong id="organizationTitle">Організація</strong><span aria-hidden="true">⌄</span></button></div>
           <div class="lom-topbar__actions">
             <label class="lom-search"><span class="sr-only">Пошук</span><input id="organizationSearch" type="search" placeholder="Знайти підрозділ, роль, процес…"><kbd>/</kbd></label>
             <button class="lom-button lom-button--primary" type="button" data-open-create>Додати</button>
@@ -99,6 +99,12 @@
         <footer><button type="button" class="lom-button" data-lom-close>Скасувати</button><button class="lom-button lom-button--primary" type="submit">Додати</button></footer>
       </form>
     </dialog>
+
+    <dialog id="organizationMenuDialog" class="lom-dialog lom-organization-dialog" aria-labelledby="organizationMenuTitle"><div class="lom-dialog-shell"><header><div><p class="lom-kicker">Ваші організації</p><h2 id="organizationMenuTitle">Перейти до організації</h2></div><button type="button" data-lom-close aria-label="Закрити">×</button></header><div class="lom-organization-list" id="organizationList"></div><footer><button type="button" class="lom-button" id="renameOrganizationButton">Редагувати назву</button><button type="button" class="lom-button lom-button--primary" id="newOrganizationButton">Нова організація</button></footer></div></dialog>
+
+    <dialog id="newOrganizationDialog" class="lom-dialog" aria-labelledby="newOrganizationTitle"><form method="dialog" id="newOrganizationForm"><header><div><p class="lom-kicker">Чистий початок</p><h2 id="newOrganizationTitle">Нова організація</h2></div><button type="button" data-lom-close aria-label="Закрити">×</button></header><label>Назва організації<input id="newOrganizationName" data-lom-autofocus autocomplete="organization" maxlength="120" required></label><p class="lom-form-boundary">Відкриється порожня модель. Дані інших організацій залишаться без змін.</p><footer><button type="button" class="lom-button" data-lom-close>Скасувати</button><button class="lom-button lom-button--primary" type="submit">Створити організацію</button></footer></form></dialog>
+
+    <dialog id="renameOrganizationDialog" class="lom-dialog" aria-labelledby="renameOrganizationTitle"><form method="dialog" id="renameOrganizationForm"><header><div><p class="lom-kicker">Поточна організація</p><h2 id="renameOrganizationTitle">Редагувати організацію</h2></div><button type="button" data-lom-close aria-label="Закрити">×</button></header><label>Назва організації<input id="renameOrganizationName" data-lom-autofocus autocomplete="organization" maxlength="120" required></label><footer><button type="button" class="lom-button" data-lom-close>Скасувати</button><button class="lom-button lom-button--primary" type="submit">Зберегти назву</button></footer></form></dialog>
 
     <dialog id="relationshipDialog" class="lom-dialog" aria-labelledby="relationshipDialogTitle"><form method="dialog" id="relationshipForm"><header><div><p class="lom-kicker">Описати спільну роботу</p><h2 id="relationshipDialogTitle">Додати взаємодію</h2></div><button type="button" data-lom-close aria-label="Закрити">×</button></header><label>Що відбувається?<select id="relationshipFamily"><option value="reporting">Підпорядковується / звітує</option><option value="responsibility">Відповідає за</option><option value="dependency">Залежить від</option><option value="information-flow">Передає інформацію</option><option value="material-flow">Передає матеріал або продукт</option><option value="association">Використовує / пов’язано</option><option value="interaction">Взаємодіє з іншим підрозділом</option></select></label><label>Хто або що передає / діє<select id="relationshipFrom" required></select></label><label>Кому або з чим<select id="relationshipTo" required></select></label><label>Що саме передається або відбувається?<input id="relationshipLabel" maxlength="120"></label><footer><button type="button" class="lom-button" data-lom-close>Скасувати</button><button class="lom-button lom-button--primary" type="submit">Додати взаємодію</button></footer></form></dialog>
 
