@@ -270,6 +270,16 @@
       if (!RELATIONSHIP_FAMILIES.has(input.family)) throw new Error("Непідтримуваний тип зв’язку.");
       if (!state.elements.some(item => item.id === input.fromId) || !state.elements.some(item => item.id === input.toId)) throw new Error("Оберіть обидва елементи зв’язку.");
       if (input.fromId === input.toId) throw new Error("Елемент не може бути пов’язаний сам із собою.");
+      const from = state.elements.find(item => item.id === input.fromId);
+      const to = state.elements.find(item => item.id === input.toId);
+      const organizational = new Set(["organization", "department", "role"]);
+      const work = new Set(["process", "system", "sop", "measure", "report", "meeting"]);
+      const validKinds = input.family === "reporting" ? [new Set(["department", "role"]), organizational]
+        : ["information-flow", "material-flow", "interaction"].includes(input.family) ? [new Set(["department"]), new Set(["department"])]
+          : input.family === "responsibility" ? [new Set(["department", "role"]), work]
+            : input.family === "dependency" ? [new Set([...organizational, "process"]), new Set([...organizational, ...work])]
+              : input.family === "association" ? [new Set([...organizational, "process"]), new Set([...work, "department"])] : null;
+      if (validKinds && (!validKinds[0].has(from.kind) || !validKinds[1].has(to.kind))) throw new Error("Оберіть учасників, які відповідають цьому виду зв’язку.");
       if (input.family === "containment") {
         const childrenByParent = new Map();
         state.relationships.filter(item => item.family === "containment" && item.lifecycle === "active").forEach(item => {

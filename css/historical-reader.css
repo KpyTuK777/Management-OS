@@ -373,7 +373,7 @@
 .blocked-actions button { min-height: 44px; color: #85837d; background: rgba(255,255,255,.025); border: 1px solid rgba(185,153,95,.25); border-radius: 3px; }
 .blocked-explanation { color: var(--reader-brass) !important; font-size: .7rem !important; }
 
-.reader-shell :focus-visible, .historical-reader-page .sidebar :focus-visible { outline: 2px solid var(--reader-focus); outline-offset: 3px; }
+.reader-shell :focus-visible, .historical-reader-page .sidebar :focus-visible { outline: 2px solid var(--reader-focus); outline-offset: 1px; box-shadow: 0 0 0 3px rgba(185,153,95,.12); }
 
 @media (max-width: 1260px) {
   .reader-app { grid-template-columns: 196px minmax(0,1fr); }

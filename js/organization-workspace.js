@@ -22,8 +22,10 @@
   let currentView = "map";
   let currentLens = "structure";
   let mapExpanded = false;
+  let focusMapSelection = false;
   let draggedElementId = null;
   let pendingUndo = null;
+  const lensViewport = { structure: { left: 0, top: 0 }, operations: { left: 0, top: 0 }, flows: { left: 0, top: 0 } };
   const modalInvokers = new WeakMap();
 
   function escapeHtml(value) {
@@ -143,7 +145,27 @@
     const options = model.elements.map(item => `<option value="${escapeHtml(item.id)}">${escapeHtml(item.label)} · ${escapeHtml(kindLabels[item.kind])}</option>`).join("");
     $("#relationshipFrom").innerHTML = options;
     $("#relationshipTo").innerHTML = options;
-    $("#elementParent").innerHTML = `<option value="">Без батьківського елемента</option>${model.elements.filter(item => ["organization", "department"].includes(item.kind)).map(item => `<option value="${escapeHtml(item.id)}">${escapeHtml(item.label)}</option>`).join("")}`;
+    $("#elementParent").innerHTML = `<option value="">Поки не розміщено</option>${model.elements.filter(item => ["organization", "department"].includes(item.kind)).map(item => `<option value="${escapeHtml(item.id)}">${escapeHtml(item.label)}</option>`).join("")}`;
+  }
+
+  function relationshipEndpointKinds(family) {
+    const organizational = ["organization", "department", "role"];
+    const work = ["process", "system", "sop", "measure", "report", "meeting"];
+    if (family === "reporting") return { from: ["department", "role"], to: organizational };
+    if (["information-flow", "material-flow"].includes(family)) return { from: ["department"], to: ["department"] };
+    if (family === "responsibility") return { from: ["department", "role"], to: work };
+    if (family === "interaction") return { from: ["department"], to: ["department"] };
+    if (family === "dependency") return { from: [...organizational, "process"], to: [...organizational, ...work] };
+    return { from: [...organizational, "process"], to: [...work, "department"] };
+  }
+
+  function updateRelationshipEndpoints(family, preferredFrom) {
+    const model = state();
+    const kinds = relationshipEndpointKinds(family);
+    const options = allowed => model.elements.filter(item => allowed.includes(item.kind)).map(item => `<option value="${escapeHtml(item.id)}">${escapeHtml(item.label)} · ${escapeHtml(kindLabels[item.kind])}</option>`).join("");
+    $("#relationshipFrom").innerHTML = options(kinds.from);
+    $("#relationshipTo").innerHTML = options(kinds.to);
+    if (preferredFrom && Array.from($("#relationshipFrom").options).some(option => option.value === preferredFrom)) $("#relationshipFrom").value = preferredFrom;
   }
 
   function visibleForLens(model) {
@@ -174,6 +196,8 @@
     map.classList.toggle("hidden", children.length === 0);
     if (!children.length) { map.replaceChildren(); return; }
     const visibleRelations = visibleForLens(model);
+    const selected = elementById(selectedId);
+    const continuity = selected ? `<button type="button" class="lom-lens-context" data-element-id="${escapeHtml(selected.id)}"><span>Зараз у фокусі</span><strong>${escapeHtml(selected.label)}</strong></button>` : "";
     const relationshipIds = new Set(visibleRelations.flatMap(item => [item.fromId, item.toId]));
     const node = item => `<button type="button" class="lom-node lom-node--${escapeHtml(item.kind)} ${selectedId === item.id ? "is-selected" : ""}" data-element-id="${escapeHtml(item.id)}" ${currentLens === "structure" && ["department", "role"].includes(item.kind) ? 'draggable="true"' : ""}><span class="lom-node__kind">${escapeHtml(kindLabels[item.kind])}</span><strong>${escapeHtml(item.label)}</strong>${item.qualification === "known" ? "" : `<span class="lom-state lom-state--${escapeHtml(item.qualification)}">${escapeHtml(qualificationLabels[item.qualification])}</span>`}</button>`;
     if (currentLens === "structure") {
@@ -188,17 +212,20 @@
       const unplaced = children.filter(item => ["department", "role"].includes(item.kind) && !containedIds.has(item.id));
       const reporting = visibleRelations.filter(item => item.family === "reporting");
       map.innerHTML = `<div class="lom-structure-surface" role="group" aria-label="Ієрархія організації — перетягніть підрозділ або роль до нового місця"><div class="lom-structure-actions"><button type="button" data-create-kind="department">Додати підрозділ</button></div><div class="lom-structure-tree">${renderHierarchyNode(organization)}</div>${unplaced.length ? `<section class="lom-unplaced"><h3>Ще не розміщено в ієрархії</h3><div>${unplaced.map(node).join("")}</div></section>` : ""}</div>${reporting.length ? `<section class="lom-reporting-summary"><h3>Підпорядкування</h3>${reporting.map(item => `<button type="button" data-element-id="${escapeHtml(item.fromId)}"><span>${escapeHtml(elementById(item.fromId)?.label || "Невідомо")}</span><b>звітує до</b><span>${escapeHtml(elementById(item.toId)?.label || "Невідомо")}</span></button>`).join("")}</section>` : ""}`;
-      focusSelectedMapNode();
+      if (focusMapSelection) { focusMapSelection = false; focusSelectedMapNode(); }
+      else window.setTimeout(() => map.scrollTo(lensViewport.structure), 0);
       return;
     }
     const meaningful = visibleRelations.filter(item => item.family !== "containment");
     if (currentLens === "operations") {
       const groups = [["Процеси", ["process"]], ["Системи та SOP", ["system", "sop"]], ["Показники", ["measure"]], ["Звіти та зустрічі", ["report", "meeting"]]];
       const workCards = groups.map(([title, kinds]) => { const items = model.elements.filter(item => kinds.includes(item.kind)); return `<section class="lom-operation-group"><h4>${title}</h4>${items.length ? items.map(item => `<button type="button" data-element-id="${escapeHtml(item.id)}">${escapeHtml(item.label)}</button>`).join("") : `<span>Ще не описано</span>`}</section>`; }).join("");
-      map.innerHTML = `<div class="lom-operating-view"><header><h3>Як організація фактично працює</h3><button type="button" data-open-relationship>Додати робочий зв’язок</button></header><div class="lom-operation-groups">${workCards}<section class="lom-operation-group lom-operation-group--active"><h4>Активна робота</h4><span><b>${organizationInvestigations().length}</b> розслідувань</span><span><b>${model.improvements.length}</b> вдосконалень</span></section></div>${meaningful.length ? `<div class="lom-work-relations"><h4>Відповідальність і взаємодії</h4>${meaningful.map(item => `<button type="button" data-element-id="${escapeHtml(item.fromId)}">${escapeHtml(elementById(item.fromId)?.label || "Невідомо")} <b>${escapeHtml(familyLabels[item.family])}</b> ${escapeHtml(elementById(item.toId)?.label || "Невідомо")}</button>`).join("")}</div>` : ""}</div>`;
+      map.innerHTML = `<div class="lom-operating-view">${continuity}<header><h3>Як організація фактично працює</h3><button type="button" data-open-relationship>Додати робочий зв’язок</button></header><div class="lom-operation-groups">${workCards}<section class="lom-operation-group lom-operation-group--active"><h4>Активна робота</h4><span><b>${organizationInvestigations().length}</b> розслідувань</span><span><b>${model.improvements.length}</b> вдосконалень</span></section></div>${meaningful.length ? `<div class="lom-work-relations"><h4>Відповідальність і взаємодії</h4>${meaningful.map(item => `<button type="button" data-element-id="${escapeHtml(item.fromId)}">${escapeHtml(elementById(item.fromId)?.label || "Невідомо")} <b>${escapeHtml(familyLabels[item.family])}</b> ${escapeHtml(elementById(item.toId)?.label || "Невідомо")}</button>`).join("")}</div>` : ""}</div>`;
+      map.scrollTo(lensViewport.operations);
       return;
     }
-    map.innerHTML = `<div class="lom-operating-view"><header><h3>Передавання між частинами організації</h3><button type="button" data-open-relationship>Додати передавання</button></header>${meaningful.length ? `<div class="lom-flow-list">${meaningful.map(item => `<button type="button" class="lom-flow-row" data-element-id="${escapeHtml(item.fromId)}"><span>${escapeHtml(elementById(item.fromId)?.label || "Невідомо")}</span><i>→</i><strong>${escapeHtml(item.label || familyLabels[item.family])}</strong><i>→</i><span>${escapeHtml(elementById(item.toId)?.label || "Невідомо")}</span></button>`).join("")}</div>` : `<div class="lom-map-no-relations"><span>Передавання інформації, матеріалів або рішень ще не описані</span><button type="button" data-open-relationship>Почати опис</button></div>`}</div>`;
+    map.innerHTML = `<div class="lom-operating-view">${continuity}<header><h3>Передавання між частинами організації</h3><button type="button" data-open-relationship>Додати передавання</button></header>${meaningful.length ? `<div class="lom-flow-list">${meaningful.map(item => `<button type="button" class="lom-flow-row" data-element-id="${escapeHtml(item.fromId)}"><span>${escapeHtml(elementById(item.fromId)?.label || "Невідомо")}</span><i>→</i><strong>${escapeHtml(item.label || familyLabels[item.family])}</strong><i>→</i><span>${escapeHtml(elementById(item.toId)?.label || "Невідомо")}</span></button>`).join("")}</div>` : `<div class="lom-map-no-relations"><span>Передавання ще не описані</span><button type="button" data-open-relationship>Додати передавання</button></div>`}</div>`;
+    map.scrollTo(lensViewport.flows);
   }
 
   function renderDepartment(model) {
@@ -235,13 +262,14 @@
     const linked = relationsFor(selected.id);
     const relatedElements = linked.map(relation => elementById(relation.fromId === selected.id ? relation.toId : relation.fromId)).filter(Boolean);
     const byKind = kind => relatedElements.filter(item => item.kind === kind);
-    const card = (title, kinds, actionKind) => {
+    const card = (title, kinds, actionKind, priority) => {
       const items = kinds.flatMap(byKind);
-      return `<section class="lom-workbench-card"><header><h3>${escapeHtml(title)}</h3><button type="button" data-create-kind="${escapeHtml(actionKind)}" data-parent-id="${escapeHtml(selected.id)}">+</button></header>${items.length ? `<ul>${items.map(item => `<li><button type="button" data-element-id="${escapeHtml(item.id)}"><span>${escapeHtml(item.label)}</span><small>${escapeHtml(qualificationLabels[item.qualification])}</small></button></li>`).join("")}</ul>` : `<p>Ще не додано</p>`}</section>`;
+      return `<section class="lom-workbench-card ${priority ? "lom-workbench-card--primary" : ""} ${items.length ? "" : "is-empty"}"><header><h3>${escapeHtml(title)}</h3><button type="button" data-create-kind="${escapeHtml(actionKind)}" data-parent-id="${escapeHtml(selected.id)}" aria-label="Додати: ${escapeHtml(title.toLocaleLowerCase("uk-UA"))}">+</button></header>${items.length ? `<ul>${items.map(item => `<li><button type="button" data-element-id="${escapeHtml(item.id)}"><span>${escapeHtml(item.label)}</span><small>${escapeHtml(qualificationLabels[item.qualification])}</small></button></li>`).join("")}</ul>` : ""}</section>`;
     };
     const work = investigationsFor(selected.id).length;
     const improvements = model.improvements.filter(item => item.elementId === selected.id).length;
-    $("#departmentWorkbench").innerHTML = `${card("Ролі", ["role"], "role")}${card("Процеси", ["process"], "process")}${card("Системи та SOP", ["system", "sop"], "system")}${card("Показники", ["measure"], "measure")}${card("Звіти та зустрічі", ["report", "meeting"], "report")}<section class="lom-workbench-card lom-workbench-card--work"><header><h3>Активна робота</h3></header><div><span><b>${work}</b> розслідувань</span><span><b>${improvements}</b> вдосконалень</span></div><button type="button" data-investigate-id="${escapeHtml(selected.id)}">Зрозуміти, що відбувається</button><button type="button" data-improve-id="${escapeHtml(selected.id)}">Спланувати зміну</button></section>`;
+    const activeWork = work || improvements;
+    $("#departmentWorkbench").innerHTML = `${card("Ролі та відповідальність", ["role"], "role", true)}${card("Операційні процеси", ["process"], "process", true)}${card("Системи та SOP", ["system", "sop"], "system")}${card("Показники", ["measure"], "measure")}${card("Регулярна робота", ["report", "meeting"], "report")}<section class="lom-workbench-card lom-workbench-card--work ${activeWork ? "" : "is-empty"}"><header><h3>Активна робота</h3></header>${activeWork ? `<div>${work ? `<span><b>${work}</b> розслідувань</span>` : ""}${improvements ? `<span><b>${improvements}</b> вдосконалень</span>` : ""}</div>` : ""}<button type="button" data-investigate-id="${escapeHtml(selected.id)}">Розпочати розслідування</button><button type="button" data-improve-id="${escapeHtml(selected.id)}">Запропонувати зміну</button></section>`;
   }
 
   function renderProcesses(model) {
@@ -279,10 +307,10 @@
     const parentRelation = relations.find(relation => relation.family === "containment" && relation.toId === id);
     const roles = relations.filter(relation => relation.family === "containment" && relation.fromId === id && elementById(relation.toId)?.kind === "role");
     const interactions = relations.filter(relation => ["dependency", "information-flow", "material-flow", "interaction"].includes(relation.family) && elementById(relation.fromId === id ? relation.toId : relation.fromId)?.kind === "department");
-    const workRelations = relations.filter(relation => relation.family !== "containment");
+    const workRelations = relations.filter(relation => !["containment", "reporting"].includes(relation.family));
     const reportingParent = relations.find(relation => relation.family === "reporting" && relation.fromId === id);
-    const facts = [parentRelation ? `<div><dt>Входить до</dt><dd>${escapeHtml(elementById(parentRelation.fromId)?.label || "Організації")}</dd></div>` : "", reportingParent ? `<div><dt>Звітує до</dt><dd>${escapeHtml(elementById(reportingParent.toId)?.label || "Невідомо")}</dd></div>` : "", item.kind === "department" ? `<div><dt>Ролі</dt><dd>${roles.length}</dd></div>` : "", `<div><dt>Активні розслідування</dt><dd>${work.length}</dd></div>`, `<div><dt>Вдосконалення</dt><dd>${improvements.length}</dd></div>`, item.kind === "department" ? `<div><dt>Взаємодії з іншими</dt><dd>${interactions.length}</dd></div>` : ""].join("");
-    $("#organizationInspectorContent").innerHTML = `<div class="lom-inspector-summary"><span>${escapeHtml(kindLabels[item.kind])}</span>${item.qualification === "known" ? "" : `<span class="lom-state lom-state--${escapeHtml(item.qualification)}">${escapeHtml(qualificationLabels[item.qualification])}</span>`}</div><dl>${facts}</dl>${workRelations.length ? `<section><h3>Як пов’язано з роботою</h3><ul>${workRelations.slice(0, 6).map(relation => { const other = elementById(relation.fromId === id ? relation.toId : relation.fromId); return `<li><button type="button" data-element-id="${escapeHtml(other?.id || "")}"><span>${escapeHtml(familyLabels[relation.family])}</span><b>${escapeHtml(other?.label || "Недоступний елемент")}</b></button></li>`; }).join("")}</ul></section>` : ""}<div class="lom-inspector-actions">${["department", "role"].includes(item.kind) ? `<button type="button" data-move-id="${escapeHtml(id)}">Змінити підпорядкування</button>` : ""}<button type="button" data-investigate-id="${escapeHtml(id)}">Зрозуміти, що відбувається</button><button type="button" data-improve-id="${escapeHtml(id)}">Спланувати свідому зміну</button><button type="button" data-open-relationship data-from-id="${escapeHtml(id)}">Інші зв’язки</button></div><details><summary>Історія та технічні відомості</summary><p>Версія ${item.version}. Оновлено ${new Date(item.updatedAt).toLocaleString("uk-UA")}.</p><p>Стан знання: ${escapeHtml(qualificationLabels[item.qualification])}. Технічні ідентифікатори приховано у звичайній роботі.</p></details>`;
+    const facts = [parentRelation ? `<div><dt>Входить до</dt><dd>${escapeHtml(elementById(parentRelation.fromId)?.label || "Організації")}</dd></div>` : "", reportingParent ? `<div><dt>Звітує до</dt><dd>${escapeHtml(elementById(reportingParent.toId)?.label || "Невідомо")}</dd></div>` : "", roles.length ? `<div><dt>Ролі</dt><dd>${roles.length}</dd></div>` : "", work.length ? `<div><dt>Активні розслідування</dt><dd>${work.length}</dd></div>` : "", improvements.length ? `<div><dt>Вдосконалення</dt><dd>${improvements.length}</dd></div>` : "", interactions.length ? `<div><dt>Взаємодії з іншими</dt><dd>${interactions.length}</dd></div>` : ""].join("");
+    $("#organizationInspectorContent").innerHTML = `<div class="lom-inspector-summary"><span>${escapeHtml(kindLabels[item.kind])}</span><span>${escapeHtml(qualificationLabels[item.qualification])}</span></div>${facts ? `<dl>${facts}</dl>` : ""}${workRelations.length ? `<section><h3>Безпосередньо пов’язано</h3><ul>${workRelations.slice(0, 4).map(relation => { const other = elementById(relation.fromId === id ? relation.toId : relation.fromId); return `<li><button type="button" data-element-id="${escapeHtml(other?.id || "")}"><span>${escapeHtml(familyLabels[relation.family])}</span><b>${escapeHtml(other?.label || "Недоступний елемент")}</b></button></li>`; }).join("")}</ul></section>` : ""}<div class="lom-inspector-actions">${["department", "role"].includes(item.kind) ? `<button type="button" data-move-id="${escapeHtml(id)}">Змінити місце у структурі</button>` : ""}<button type="button" data-open-relationship data-from-id="${escapeHtml(id)}">Додати зв’язок</button><button type="button" data-investigate-id="${escapeHtml(id)}">Розпочати розслідування</button><button type="button" data-improve-id="${escapeHtml(id)}">Запропонувати зміну</button></div><details><summary>Історія та технічні відомості</summary><p>Версія ${item.version}. Оновлено ${new Date(item.updatedAt).toLocaleString("uk-UA")}.</p><p>Стан знання: ${escapeHtml(qualificationLabels[item.qualification])}.</p></details>`;
     $("#organizationInspector").classList.add("is-open");
     $(".lom-workspace").classList.add("has-inspector");
   }
@@ -312,7 +340,7 @@
     $("#organizationSearch").value = value;
     $("#expandedOrganizationSearch").value = value;
     const results = repository.query({ term: value }).elements;
-    if (value.trim() && results.length) { selectedId = results[0].id; renderInspector(selectedId); renderMap(state()); }
+    if (value.trim() && results.length) { selectedId = results[0].id; focusMapSelection = true; renderInspector(selectedId); renderMap(state()); }
     $("#modelStateLabel").textContent = value.trim() ? `${results.length} збігів` : "Актуальна модель";
   }
 
@@ -321,6 +349,8 @@
     $("#elementParent").value = parentId || (state()?.elements.find(item => item.kind === "organization")?.id || "");
     $("#elementLabel").value = "";
     $("#elementQualification").value = kind === "unknown" ? "unknown" : "known";
+    $("#organizationCreateDialogTitle").textContent = `Додати ${kindLabels[kind].toLocaleLowerCase("uk-UA")}`;
+    $("#organizationCreateDialogKicker").textContent = parentId ? "У поточному контексті" : "Організація";
     toggleProcessFields();
     openDialog($("#organizationCreateDialog"), invoker);
   }
@@ -357,13 +387,21 @@
   }
 
   function prepareRelationshipDialog(invoker) {
-    const structure = currentLens === "structure";
-    const flow = currentLens === "flows";
-    $("#relationshipDialogTitle").textContent = structure ? "Інші структурні зв’язки" : flow ? "Додати передавання" : "Додати робочий зв’язок";
+    const relationshipContext = currentView === "map" ? currentLens : "operations";
+    const structure = relationshipContext === "structure";
+    const flow = relationshipContext === "flows";
+    $("#relationshipDialogTitle").textContent = structure ? "Вказати, кому звітує" : flow ? "Додати передавання" : "Додати робочий зв’язок";
+    $("#relationshipDialogKicker").textContent = structure ? "Структура" : flow ? "Потоки" : "Робота";
     const allowed = structure ? ["reporting"] : flow ? ["information-flow", "material-flow"] : ["responsibility", "dependency", "association", "interaction"];
     Array.from($("#relationshipFamily").options).forEach(option => { option.hidden = !allowed.includes(option.value); option.disabled = !allowed.includes(option.value); });
     $("#relationshipFamily").value = allowed[0];
-    if (invoker.dataset.fromId) $("#relationshipFrom").value = invoker.dataset.fromId;
+    $("#relationshipFamilyField").classList.toggle("hidden", allowed.length === 1);
+    $("#relationshipFromField").childNodes[0].textContent = structure ? "Хто звітує?" : flow ? "Хто передає?" : "Хто або що?";
+    $("#relationshipToField").childNodes[0].textContent = structure ? "Кому звітує?" : flow ? "Кому передає?" : "З ким або чим?";
+    $("#relationshipLabelField").classList.toggle("hidden", structure);
+    $("#relationshipSubmit").textContent = structure ? "Зберегти підзвітність" : flow ? "Додати передавання" : "Зберегти зв’язок";
+    $("#relationshipLabel").value = "";
+    updateRelationshipEndpoints(allowed[0], invoker.dataset.fromId || "");
     openDialog($("#relationshipDialog"), invoker);
   }
 
@@ -404,13 +442,14 @@
       try {
         const kind = $("#elementKind").value;
         const details = kind === "process" ? { input: $("#processInput").value.trim(), output: $("#processOutput").value.trim(), result: $("#processResult").value.trim() } : {};
-        const created = repository.createElement({ kind, label: $("#elementLabel").value, qualification: $("#elementQualification").value, parentId: $("#elementParent").value || null, details });
-        selectedId = created.id;
+        const parentId = $("#elementParent").value || null;
+        const created = repository.createElement({ kind, label: $("#elementLabel").value, qualification: $("#elementQualification").value, parentId, details });
+        selectedId = currentView === "department" && elementById(parentId)?.kind === "department" ? parentId : created.id;
         closeDialog($("#organizationCreateDialog"));
         if (currentView === "department") renderDepartment(state());
         if (currentView === "role") renderRole(state());
         if (currentView === "process") renderProcesses(state());
-        renderInspector(created.id);
+        renderInspector(selectedId);
         renderMap(state());
         announce(`${kindLabels[kind]} додано.`);
       } catch (error) { $("#elementLabel").setCustomValidity(error.message); event.currentTarget.reportValidity(); }
@@ -421,6 +460,7 @@
       try { repository.createRelationship({ family: $("#relationshipFamily").value, fromId: $("#relationshipFrom").value, toId: $("#relationshipTo").value, label: $("#relationshipLabel").value }); closeDialog($("#relationshipDialog")); announce("Зв’язок створено."); } catch (error) { $("#relationshipTo").setCustomValidity(error.message); event.currentTarget.reportValidity(); }
     });
     $("#relationshipTo").addEventListener("change", event => event.currentTarget.setCustomValidity(""));
+    $("#relationshipFamily").addEventListener("change", event => { $("#relationshipLabel").value = ""; updateRelationshipEndpoints(event.currentTarget.value, ""); });
     $("#moveElementForm").addEventListener("submit", event => {
       event.preventDefault();
       try { moveElement($("#moveElementId").value, $("#moveElementParent").value); closeDialog($("#moveElementDialog")); }
@@ -457,7 +497,7 @@
       if (event.target.closest("[data-open-investigations]")) showInvestigations(null, { history: true });
       if (event.target.closest("[data-return-organization]")) returnToOrganization();
       if (create) prepareCreate(create.dataset.createKind || "department", create.dataset.parentId || "", create);
-      if (element?.dataset.elementId) { selectedId = element.dataset.elementId; renderInspector(selectedId); renderMap(state()); if (elementById(selectedId)?.kind === "department" && currentView === "department") renderDepartment(state()); }
+      if (element?.dataset.elementId) { selectedId = element.dataset.elementId; focusMapSelection = currentView === "map"; renderInspector(selectedId); renderMap(state()); if (elementById(selectedId)?.kind === "department" && currentView === "department") renderDepartment(state()); }
       if (relationship) prepareRelationshipDialog(relationship);
       if (move) openMoveDialog(move.dataset.moveId, move);
       if (investigate) { const item = elementById(investigate.dataset.investigateId); repository.createInvestigationContext(item.id); showInvestigations(item, { history: true }); }
@@ -465,7 +505,7 @@
       if (view) switchView(view.dataset.lomView);
       if (department) { selectedId = department.dataset.departmentId; switchView("department"); renderDepartment(state()); renderMap(state()); }
       if (organization && !organization.classList.contains("is-active")) { repository.switchOrganization(organization.dataset.organizationId); closeDialog($("#organizationMenuDialog")); resetOrganizationContext(); render(); announce("Організацію змінено."); }
-      if (lens) { currentLens = lens.dataset.lens; $$('[data-lens]').forEach(button => button.classList.toggle("is-active", button === lens)); renderMap(state()); }
+      if (lens) { const map = $("#organizationMap"); lensViewport[currentLens] = { left: map.scrollLeft, top: map.scrollTop }; currentLens = lens.dataset.lens; $$('[data-lens]').forEach(button => button.classList.toggle("is-active", button === lens)); renderMap(state()); if (selectedId) renderInspector(selectedId); }
       if (event.target.closest("[data-lom-close]")) closeDialog(event.target.closest("dialog"));
     });
     $("#closeOrganizationInspector").addEventListener("click", () => { $("#organizationInspector").classList.remove("is-open"); $(".lom-workspace").classList.remove("has-inspector"); });

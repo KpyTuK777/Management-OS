@@ -52,7 +52,7 @@
         addMaterial.focus();
         assert(addMaterial.matches(":focus-visible"), "Keyboard focus is not focus-visible");
         const focusStyle = win.getComputedStyle(addMaterial);
-        assert(focusStyle.outlineStyle !== "none" && parseFloat(focusStyle.outlineWidth) >= 3, "Focus ring is missing or too weak");
+        assert(focusStyle.outlineStyle !== "none" && parseFloat(focusStyle.outlineWidth) >= 1 && focusStyle.boxShadow !== "none", "Focus ring is missing or too weak");
 
         click(addMaterial);
         const close = doc.querySelector("#materialDialog [data-modal-close]");
