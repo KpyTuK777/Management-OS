@@ -21,6 +21,7 @@
   let selectedId = null;
   let currentView = "map";
   let currentLens = "structure";
+  let mapExpanded = false;
   let draggedElementId = null;
   let pendingUndo = null;
   const modalInvokers = new WeakMap();
@@ -41,17 +42,28 @@
   function organizationInvestigations() { return actualInvestigations().filter(item => item.data?.organizationContext?.workspaceId === state()?.workspaceId); }
   function investigationsFor(id) { return organizationInvestigations().filter(item => item.data.organizationContext.elementId === id); }
 
-  function showOrganization() {
+  function setSurfaceHistory(surface, replace) {
+    const url = surface === "organization" ? "index.html?surface=organization" : "index.html?surface=investigations";
+    history[replace ? "replaceState" : "pushState"]({ managementSurface: surface, returnToOrganization: surface === "investigations" && !replace }, "", url);
+  }
+  function returnToOrganization() {
+    if (history.state?.managementSurface === "investigations" && history.state.returnToOrganization) history.back();
+    else showOrganization({ history: true });
+  }
+  function showOrganization(options = {}) {
     $("#organizationApp").classList.remove("hidden");
     $("#startPage").classList.add("hidden");
     $("#workbenchShell").classList.add("hidden");
     document.body.classList.add("lom-mode");
+    if (options.history) setSurfaceHistory("organization", options.replace);
   }
-  function showInvestigations(context) {
+  function showInvestigations(context, options = {}) {
+    if (mapExpanded) setMapExpanded(false);
     $("#organizationApp").classList.add("hidden");
     $("#startPage").classList.remove("hidden");
     $("#workbenchShell").classList.add("hidden");
     document.body.classList.remove("lom-mode");
+    if (options.history) setSurfaceHistory("investigations", options.replace);
     if (context) {
       sessionStorage.setItem("management-os-pending-organization-context-v1", JSON.stringify({
         version: 1,
@@ -77,6 +89,7 @@
   }
   function closeDialog(dialog) {
     dialog.close();
+    if (dialog.id === "organizationMenuDialog") $("#organizationMenuButton").setAttribute("aria-expanded", "false");
     modalInvokers.get(dialog)?.focus?.();
   }
 
@@ -107,6 +120,7 @@
     if (!hasOrganization) return;
     const organization = model.elements.find(item => item.kind === "organization");
     $("#organizationTitle").textContent = organization.label;
+    $("#organizationMenuButton").setAttribute("aria-label", `Керувати організаціями. Поточна: ${organization.label}`);
     renderOrganizationList();
     const departments = model.elements.filter(item => item.kind === "department").length;
     const roles = model.elements.filter(item => item.kind === "role").length;
@@ -197,8 +211,27 @@
     }
     $("#departmentTitle").textContent = selected.label;
     const organization = model.elements.find(item => item.kind === "organization");
-    $("#departmentContext").textContent = `${organization.label} · підрозділ`;
-    $("#departmentSwitcher").innerHTML = departments.map(item => `<button type="button" class="${item.id === selected.id ? "is-active" : ""}" data-department-id="${escapeHtml(item.id)}" ${item.id === selected.id ? 'aria-current="page"' : ""}>${escapeHtml(item.label)}</button>`).join("");
+    const containment = model.relationships.filter(item => item.family === "containment" && item.lifecycle === "active");
+    const parentOf = id => containment.find(item => item.toId === id)?.fromId || null;
+    const departmentChildren = id => containment.filter(item => item.fromId === id).map(item => elementById(item.toId)).filter(item => item?.kind === "department");
+    const parentId = parentOf(selected.id);
+    const parent = elementById(parentId);
+    const siblings = parentId ? departmentChildren(parentId) : [selected];
+    const children = departmentChildren(selected.id);
+    const path = [];
+    let cursor = selected;
+    const visited = new Set();
+    while (cursor && !visited.has(cursor.id)) {
+      visited.add(cursor.id);
+      path.unshift(cursor);
+      cursor = elementById(parentOf(cursor.id));
+    }
+    if (!path.some(item => item.id === organization.id)) path.unshift(organization);
+    $("#departmentContext").textContent = `${organization.label} · ${parent?.kind === "department" ? `входить до ${parent.label}` : "підрозділ верхнього рівня"}`;
+    $("#departmentBreadcrumbs").innerHTML = path.map((item, index) => `${index ? '<span aria-hidden="true">›</span>' : ""}<button type="button" ${item.kind === "department" ? `data-department-id="${escapeHtml(item.id)}"` : 'data-lom-view="map"'} ${item.id === selected.id ? 'aria-current="page"' : ""}>${escapeHtml(item.label)}</button>`).join("");
+    $("#departmentSwitcher").innerHTML = siblings.map(item => `<button type="button" class="${item.id === selected.id ? "is-active" : ""}" data-department-id="${escapeHtml(item.id)}" ${item.id === selected.id ? 'aria-current="page"' : ""}>${escapeHtml(item.label)}</button>`).join("");
+    $("#departmentChildren").classList.toggle("hidden", !children.length);
+    $("#departmentChildren").innerHTML = children.length ? `<h3 id="departmentChildrenTitle">Підрозділи всередині ${escapeHtml(selected.label)}</h3><div>${children.map(item => `<button type="button" data-department-id="${escapeHtml(item.id)}">${escapeHtml(item.label)}</button>`).join("")}</div>` : "";
     const linked = relationsFor(selected.id);
     const relatedElements = linked.map(relation => elementById(relation.fromId === selected.id ? relation.toId : relation.fromId)).filter(Boolean);
     const byKind = kind => relatedElements.filter(item => item.kind === kind);
@@ -260,6 +293,27 @@
     $$('[data-lom-view]').forEach(button => button.classList.toggle("is-active", button.dataset.lomView === view));
     if (view === "department") renderDepartment(state());
     if (view === "role") renderRole(state());
+  }
+
+  function setMapExpanded(expanded) {
+    mapExpanded = Boolean(expanded);
+    document.body.classList.toggle("lom-map-expanded", mapExpanded);
+    const control = $("#expandOrganizationMap");
+    control.setAttribute("aria-pressed", String(mapExpanded));
+    control.querySelector("span:last-child").textContent = mapExpanded ? "Повернутися до робочого простору" : "Розгорнути карту";
+    if (mapExpanded) {
+      $("#organizationInspector").classList.remove("is-open");
+      $(".lom-workspace").classList.remove("has-inspector");
+    }
+    window.setTimeout(() => (mapExpanded ? $("#organizationMap") : control).focus(), 0);
+  }
+
+  function handleOrganizationSearch(value) {
+    $("#organizationSearch").value = value;
+    $("#expandedOrganizationSearch").value = value;
+    const results = repository.query({ term: value }).elements;
+    if (value.trim() && results.length) { selectedId = results[0].id; renderInspector(selectedId); renderMap(state()); }
+    $("#modelStateLabel").textContent = value.trim() ? `${results.length} збігів` : "Актуальна модель";
   }
 
   function prepareCreate(kind, parentId, invoker) {
@@ -340,7 +394,8 @@
       } catch (error) { $("#renameOrganizationName").setCustomValidity(error.message); event.currentTarget.reportValidity(); }
     });
     $("#renameOrganizationName").addEventListener("input", event => event.currentTarget.setCustomValidity(""));
-    $("#organizationMenuButton").addEventListener("click", event => { renderOrganizationList(); openDialog($("#organizationMenuDialog"), event.currentTarget); });
+    $("#organizationMenuButton").addEventListener("click", event => { renderOrganizationList(); event.currentTarget.setAttribute("aria-expanded", "true"); openDialog($("#organizationMenuDialog"), event.currentTarget); });
+    $("#expandOrganizationMap").addEventListener("click", () => setMapExpanded(!mapExpanded));
     $("#newOrganizationButton").addEventListener("click", () => { closeDialog($("#organizationMenuDialog")); $("#newOrganizationName").value = ""; openDialog($("#newOrganizationDialog"), $("#organizationMenuButton")); });
     $("#renameOrganizationButton").addEventListener("click", () => { closeDialog($("#organizationMenuDialog")); $("#renameOrganizationName").value = state().elements.find(item => item.kind === "organization").label; openDialog($("#renameOrganizationDialog"), $("#organizationMenuButton")); });
     $("#elementKind").addEventListener("change", toggleProcessFields);
@@ -385,12 +440,9 @@
       try { repository.createImprovement({ elementId: $("#improvementElementId").value, title: $("#improvementTitle").value, proposedChange: $("#improvementChange").value }); closeDialog($("#improvementDialog")); announce("Пропозицію збережено окремо від поточної моделі."); } catch (error) { $("#improvementChange").setCustomValidity(error.message); event.currentTarget.reportValidity(); }
     });
     $("#improvementChange").addEventListener("input", event => event.currentTarget.setCustomValidity(""));
-    $("#organizationSearch").addEventListener("input", event => {
-      const results = repository.query({ term: event.currentTarget.value }).elements;
-      if (event.currentTarget.value.trim() && results.length) { selectedId = results[0].id; renderInspector(selectedId); renderMap(state()); }
-      $("#modelStateLabel").textContent = event.currentTarget.value.trim() ? `${results.length} збігів` : "Актуальна модель";
-    });
-    document.addEventListener("keydown", event => { if (event.key === "/" && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName) && !$("#organizationApp").classList.contains("hidden")) { event.preventDefault(); $("#organizationSearch").focus(); } });
+    $("#organizationSearch").addEventListener("input", event => handleOrganizationSearch(event.currentTarget.value));
+    $("#expandedOrganizationSearch").addEventListener("input", event => handleOrganizationSearch(event.currentTarget.value));
+    document.addEventListener("keydown", event => { if (event.key === "/" && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName) && !$("#organizationApp").classList.contains("hidden")) { event.preventDefault(); $(mapExpanded ? "#expandedOrganizationSearch" : "#organizationSearch").focus(); } });
     document.addEventListener("click", event => {
       const create = event.target.closest("[data-open-create],[data-create-kind]");
       const element = event.target.closest("[data-element-id]");
@@ -402,12 +454,13 @@
       const lens = event.target.closest("[data-lens]");
       const department = event.target.closest("[data-department-id]");
       const organization = event.target.closest("[data-organization-id]");
-      if (event.target.closest("[data-open-investigations]")) showInvestigations();
+      if (event.target.closest("[data-open-investigations]")) showInvestigations(null, { history: true });
+      if (event.target.closest("[data-return-organization]")) returnToOrganization();
       if (create) prepareCreate(create.dataset.createKind || "department", create.dataset.parentId || "", create);
       if (element?.dataset.elementId) { selectedId = element.dataset.elementId; renderInspector(selectedId); renderMap(state()); if (elementById(selectedId)?.kind === "department" && currentView === "department") renderDepartment(state()); }
       if (relationship) prepareRelationshipDialog(relationship);
       if (move) openMoveDialog(move.dataset.moveId, move);
-      if (investigate) { const item = elementById(investigate.dataset.investigateId); repository.createInvestigationContext(item.id); showInvestigations(item); }
+      if (investigate) { const item = elementById(investigate.dataset.investigateId); repository.createInvestigationContext(item.id); showInvestigations(item, { history: true }); }
       if (improve) { const item = elementById(improve.dataset.improveId); $("#improvementElementId").value = item.id; $("#improvementTitle").value = `Вдосконалення: ${item.label}`; $("#improvementChange").value = ""; openDialog($("#improvementDialog"), improve); }
       if (view) switchView(view.dataset.lomView);
       if (department) { selectedId = department.dataset.departmentId; switchView("department"); renderDepartment(state()); renderMap(state()); }
@@ -446,7 +499,15 @@
       draggedElementId = null;
       $$("#organizationMap .lom-node").forEach(node => node.classList.remove("is-dragging", "is-valid-drop", "is-drop-target"));
     });
+    window.addEventListener("popstate", event => {
+      if (event.state?.managementSurface === "investigations") showInvestigations(null);
+      else showOrganization();
+    });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && mapExpanded) { event.preventDefault(); setMapExpanded(false); $("#expandOrganizationMap").focus(); }
+    });
     $$(".lom-dialog").forEach(dialog => dialog.addEventListener("click", event => { if (event.target === dialog) closeDialog(dialog); }));
+    $("#organizationMenuDialog").addEventListener("close", () => $("#organizationMenuButton").setAttribute("aria-expanded", "false"));
   }
 
   function init() {
@@ -462,8 +523,8 @@
     repository.subscribe(render);
     bindEvents();
     const params = new URLSearchParams(location.search);
-    if (params.has("demo") || params.get("mode") === "investigation" || params.has("investigation")) showInvestigations();
-    else showOrganization();
+    if (params.has("demo") || params.get("mode") === "investigation" || params.has("investigation") || params.get("surface") === "investigations") showInvestigations(null, { history: true, replace: true });
+    else showOrganization({ history: true, replace: true });
     render();
   }
 

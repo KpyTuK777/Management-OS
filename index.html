@@ -43,7 +43,7 @@
 
       <main class="lom-main">
         <header class="lom-topbar">
-          <div class="lom-organization-context"><p>Зараз працюєте з</p><button type="button" id="organizationMenuButton" aria-haspopup="dialog"><strong id="organizationTitle">Організація</strong><span aria-hidden="true">⌄</span></button></div>
+          <div class="lom-organization-context"><p>Зараз працюєте з</p><button type="button" id="organizationMenuButton" aria-haspopup="dialog" aria-expanded="false" aria-label="Керувати організаціями"><strong id="organizationTitle">Організація</strong><span class="lom-switch-affordance" aria-hidden="true"><i></i><i></i></span></button></div>
           <div class="lom-topbar__actions">
             <label class="lom-search"><span class="sr-only">Пошук</span><input id="organizationSearch" type="search" placeholder="Знайти підрозділ, роль, процес…"><kbd>/</kbd></label>
             <button class="lom-button lom-button--primary" type="button" data-open-create>Додати</button>
@@ -58,14 +58,16 @@
 
         <div class="lom-workspace">
           <section class="lom-canvas" id="mapView" data-lom-panel="map" aria-labelledby="mapTitle">
-            <header class="lom-view-header"><div><p class="lom-kicker">Організація зараз</p><h2 id="mapTitle">Карта організації</h2></div><div class="lom-lenses" role="group" aria-label="Шар карти"><button class="is-active" data-lens="structure" type="button">Структура</button><button data-lens="operations" type="button">Робота</button><button data-lens="flows" type="button">Потоки</button></div></header>
+            <header class="lom-view-header"><div><p class="lom-kicker">Організація зараз</p><h2 id="mapTitle">Карта організації</h2></div><div class="lom-view-actions"><label class="lom-expanded-search"><span class="sr-only">Знайти на карті</span><input id="expandedOrganizationSearch" type="search" placeholder="Знайти на карті…"></label><div class="lom-lenses" role="group" aria-label="Шар карти"><button class="is-active" data-lens="structure" type="button">Структура</button><button data-lens="operations" type="button">Робота</button><button data-lens="flows" type="button">Потоки</button></div><button class="lom-button lom-expand-map" id="expandOrganizationMap" type="button" aria-pressed="false"><span aria-hidden="true">⛶</span><span>Розгорнути карту</span></button></div></header>
             <div class="lom-map" id="organizationMap" tabindex="0" aria-label="Карта організації"></div>
             <div class="lom-map-empty hidden" id="mapEmpty"><strong>Організація створена</strong><p>Додайте перший підрозділ або процес. Модель може залишатися неповною.</p><button class="lom-button lom-button--primary" type="button" data-create-kind="department">Додати підрозділ</button></div>
           </section>
 
           <section class="lom-canvas hidden" id="departmentView" data-lom-panel="department" aria-labelledby="departmentTitle">
             <header class="lom-view-header"><div><p class="lom-kicker" id="departmentContext">Підрозділ в організації</p><h2 id="departmentTitle">Оберіть підрозділ</h2></div><button class="lom-button" type="button" data-create-kind="department">Новий підрозділ</button></header>
-            <nav class="lom-department-switcher" id="departmentSwitcher" aria-label="Перейти до іншого підрозділу"></nav>
+            <nav class="lom-department-breadcrumbs" id="departmentBreadcrumbs" aria-label="Шлях у структурі"></nav>
+            <nav class="lom-department-switcher" id="departmentSwitcher" aria-label="Сусідні підрозділи"></nav>
+            <section class="lom-department-children" id="departmentChildren" aria-labelledby="departmentChildrenTitle"></section>
             <div class="lom-workbench-grid" id="departmentWorkbench"></div>
           </section>
 
@@ -116,6 +118,7 @@
   </div>
 
   <main class="start-page hidden" id="startPage">
+    <button class="return-organization" type="button" data-return-organization>← Повернутися до організації</button>
     <section class="start-page__content" aria-labelledby="startTitle">
       <p class="eyebrow">Management OS · Розслідування</p>
       <h1 id="startTitle">Почніть із ситуації, яку потрібно зрозуміти</h1>
@@ -144,6 +147,7 @@
 
       <nav class="os-primary-nav" aria-label="Простори Management OS">
         <p>Робочі простори</p>
+        <button type="button" data-return-organization><span aria-hidden="true">⌂</span><span>Повернутися до організації</span></button>
         <a class="is-current" href="index.html" aria-current="page"><span aria-hidden="true">◉</span><span>Розслідування</span></a>
         <a href="historical-reader.html"><span aria-hidden="true">▤</span><span>Історичний розбір</span><small>Навчальний модуль</small></a>
         <a href="knowledge-base.html"><span aria-hidden="true">◇</span><span>Знання</span></a>

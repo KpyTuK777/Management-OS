@@ -103,6 +103,13 @@ const Layout = (() => {
     navigation.setAttribute("aria-label", "Робота з відкритим кейсом");
     readerLinks.forEach(link => navigation.appendChild(createLink(link)));
 
+    const organizationLink = document.createElement("a");
+    organizationLink.href = "index.html?surface=organization";
+    organizationLink.className = "sidebar__organization-return";
+    organizationLink.setAttribute("aria-label", "Повернутися до організації");
+    organizationLink.innerHTML = '<span class="dock-icon" aria-hidden="true">⌂</span><span class="dock-label">Повернутися до організації</span>';
+    navigation.prepend(organizationLink);
+
     const otherSpaces = document.createElement("details");
     const otherSummary = document.createElement("summary");
     const otherNavigation = document.createElement("nav");
