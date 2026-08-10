@@ -65,4 +65,3 @@ This Decision does not authorize:
 ## Human attestation
 
 I confirm this attributable Decision and select only disposition A within the fixed consideration package and controlling supplement. All stated non-effects and subsequent implementation/runtime Decision gates remain in force.
-
