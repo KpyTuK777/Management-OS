@@ -1,0 +1,89 @@
+<!doctype html>
+<!-- Run local-file iframe journeys with Chromium --allow-file-access-from-files. -->
+<html lang="uk"><head><meta charset="utf-8"><title>Northstar team composition real-entry journey</title><style>body{font:14px system-ui;background:#111;color:#eee}iframe{width:100%;height:780px;border:0}pre{white-space:pre-wrap}</style></head>
+<body data-test-result="running"><pre id="result">RUNNING</pre><iframe id="app" src="about:blank" title="Management OS real application"></iframe>
+<script>
+(function () {
+  const frame = document.getElementById("app");
+  const output = document.getElementById("result");
+  const lines = [];
+  const wait = delay => new Promise(resolve => setTimeout(resolve, delay));
+  const assert = (value, message) => { if (!value) throw new Error(message); lines.push(`PASS ${message}`); };
+  function clearStores() { const keys=[]; for(let i=0;i<localStorage.length;i+=1) keys.push(localStorage.key(i)); keys.filter(key=>key?.startsWith("management-os-operating-model-")||key?.startsWith("management-os-person-deletion-")).forEach(key=>localStorage.removeItem(key)); }
+  function activeState() { const key=localStorage.getItem("management-os-operating-model-active-v1"); return JSON.parse(localStorage.getItem(key)).state; }
+  async function createElement(doc, kind, label, parentId) {
+    doc.querySelector(`[data-create-kind="${kind}"]`).click(); await wait(10);
+    doc.querySelector("#elementLabel").value=label;
+    if(parentId) doc.querySelector("#elementParent").value=parentId;
+    doc.querySelector("#elementCreateForm").requestSubmit(); await wait(25);
+    return activeState().elements.find(item=>item.label===label);
+  }
+  async function run() {
+    clearStores();
+    const loaded=new Promise(resolve=>frame.addEventListener("load",resolve,{once:true}));
+    frame.src=`../index.html?people=${Date.now()}`; await loaded;
+    const doc=frame.contentDocument; const win=frame.contentWindow; win.confirm=()=>true;
+    doc.querySelector("#organizationName").value="Northstar Home"; doc.querySelector("#organizationCreateForm").requestSubmit(); await wait(30);
+    const organization=activeState().elements.find(item=>item.kind==="organization");
+    const sales=await createElement(doc,"department","Продажі",organization.id);
+    const online=await createElement(doc,"department","Онлайн-продажі",sales.id);
+    Array.from(doc.querySelectorAll("#organizationMap [data-element-id]")).find(button=>button.textContent.includes("Онлайн-продажі")).click();
+    doc.querySelector('[data-lom-view="department"]').click(); await wait(20);
+    const lead=await createElement(doc,"role","Керівник онлайн-продажів",online.id);
+    const manager=await createElement(doc,"role","Менеджер онлайн-продажів",online.id);
+    assert(!doc.querySelector("#organizationMap").textContent.includes("Керівник онлайн-продажів")&&!doc.querySelector("#organizationMap").textContent.includes("Менеджер онлайн-продажів"),"primary Structure Map contains no Role nodes");
+    assert(doc.querySelector("#departmentWorkbench").textContent.includes("Керівник онлайн-продажів")&&doc.querySelector("#departmentWorkbench").textContent.includes("Менеджер онлайн-продажів"),"Department composition preserves existing Roles");
+    async function setCapacity(roleId,value){doc.querySelector(`[data-edit-capacity][data-role-id="${roleId}"]`).click();await wait(8);doc.querySelector("#capacityValue").value=String(value);doc.querySelector("#capacityForm").requestSubmit();await wait(22);}
+    await setCapacity(lead.id,1); await setCapacity(manager.id,6);
+    const capacities=activeState().roleCapacityAssertions;
+    assert(capacities.length===2&&capacities.find(item=>item.roleId===lead.id).plannedCapacity===1&&capacities.find(item=>item.roleId===manager.id).plannedCapacity===6,"Z1 planned capacity stores one positive assertion per Role");
+    assert(!JSON.stringify(activeState()).includes('"plannedCapacity":0'),"absence and ended plans are never stored as zero");
+    const people=["Іван Петренко","Олександр Бондаренко","Марія Коваль","Андрій Шевченко","Наталія Мельник","Дмитро Савчук","Олена Ткаченко"];
+    async function addPerson(roleId,name){doc.querySelector(`[data-open-person][data-role-id="${roleId}"]`).click();await wait(8);doc.querySelector("#personName").value=name;doc.querySelector("#personRole").value=roleId;doc.querySelector("#personDepartment").value=online.id;doc.querySelector("#personForm").requestSubmit();await wait(22);}
+    await addPerson(lead.id,people[0]); for(const name of people.slice(1)) await addPerson(manager.id,name);
+    const composed=doc.querySelector("#departmentWorkbench").textContent;
+    assert(people.every(name=>composed.includes(name)),"Northstar Department composition shows all seven permitted named people");
+    assert(composed.includes("Планова кількість: 1")&&composed.includes("Планова кількість: 6"),"Department composition distinguishes planned capacity from named occupancy");
+    const populated=activeState();
+    assert(populated.persons.length===7&&populated.peopleRelationships.filter(item=>item.family==="role-occupancy").length===7,"Person identities and direct Role occupancy remain separate governed records");
+    assert(populated.peopleRelationships.filter(item=>item.family==="department-membership").length===7,"Department membership is represented separately from occupancy");
+    assert(populated.elements.filter(item=>item.kind==="role").length===2&&!populated.elements.some(item=>people.includes(item.label)),"Person names are never stored inside Role elements or duplicated Roles");
+    assert(populated.persons.every(item=>Math.round((new Date(item.reviewAt)-new Date(item.createdAt))/86400000)===365),"R365 reviewAt is recorded for every Person");
+    const mariaId=populated.persons.find(item=>item.displayName==="Марія Коваль").id;
+    doc.querySelector(`[data-open-person][data-role-id="${lead.id}"]`).click();doc.querySelector("#personSearch").value="Марія";doc.querySelector("#personSearch").dispatchEvent(new Event("input",{bubbles:true}));await wait(8);doc.querySelector(`[data-assign-person-id="${mariaId}"]`).click();await wait(20);
+    assert(activeState().persons.find(item=>item.displayName==="Марія Коваль").id===mariaId&&activeState().peopleRelationships.filter(item=>item.personId===mariaId&&item.family==="role-occupancy").some(item=>item.lifecycle==="superseded"),"changing Role preserves stable Person identity and historical occupancy interval");
+    doc.querySelector(`[data-open-person][data-role-id="${manager.id}"]`).click();doc.querySelector("#personSearch").value="Марія";doc.querySelector("#personSearch").dispatchEvent(new Event("input",{bubbles:true}));await wait(8);doc.querySelector(`[data-assign-person-id="${mariaId}"]`).click();await wait(20);
+    doc.querySelector("#organizationSearch").value="Менеджер онлайн";doc.querySelector("#organizationSearch").dispatchEvent(new Event("input",{bubbles:true}));await wait(15);
+    assert(!doc.querySelector("#organizationMap").textContent.includes("Менеджер онлайн-продажів")&&doc.querySelector("#departmentView").classList.contains("hidden")===false,"Role search opens contextual Department composition without reinserting Role into topology");
+    const pointerBeforeReload=localStorage.getItem("management-os-operating-model-active-v1"); frame.src=`../index.html?people-reload=${Date.now()}`; await new Promise(resolve=>frame.addEventListener("load",resolve,{once:true})); await wait(30);
+    const reloaded=activeState(); assert(localStorage.getItem("management-os-operating-model-active-v1")===pointerBeforeReload&&reloaded.persons.length===7&&reloaded.roleCapacityAssertions.length===2,"capacity, Persons, occupancy and membership persist across real-entry reload");
+    const reloadDoc=frame.contentDocument; frame.contentWindow.confirm=()=>true;
+    reloadDoc.querySelector('[data-lom-view="person"]').click();await wait(10);
+    const ivanId=reloaded.persons.find(item=>item.displayName==="Іван Петренко").id;
+    reloadDoc.querySelector(`[data-person-action="delete"][data-person-id="${ivanId}"]`).click();await wait(25);
+    const allStored=Array.from({length:localStorage.length},(_,i)=>localStorage.getItem(localStorage.key(i))||"").join("\n");
+    assert(!allStored.includes("Іван Петренко"),"deletion physically removes the name from every retained generation, index and recovery payload");
+    frame.src=`../index.html?people-after-delete=${Date.now()}`; await new Promise(resolve=>frame.addEventListener("load",resolve,{once:true}));await wait(30);
+    assert(!JSON.stringify(activeState()).includes("Іван Петренко")&&!frame.contentDocument.body.textContent.includes("Іван Петренко"),"recovery cannot resurrect or project a deleted Person name");
+    assert(frame.contentDocument.documentElement.scrollWidth===frame.contentDocument.documentElement.clientWidth,"real entry has no document horizontal overflow");
+    frame.style.width="390px";await wait(50);assert(frame.contentDocument.documentElement.scrollWidth===frame.contentDocument.documentElement.clientWidth,"Department and Person composition remain bounded at 390 px");
+    class MemoryStorage{constructor(){this.map=new Map()}get length(){return this.map.size}key(i){return Array.from(this.map.keys())[i]||null}getItem(k){return this.map.has(k)?this.map.get(k):null}setItem(k,v){this.map.set(String(k),String(v))}removeItem(k){this.map.delete(k)}}
+    const memory=new MemoryStorage();const Api=frame.contentWindow.ManagementOSOperatingModel;const repo=new Api.OperatingModelRepository(new Api.BrowserPersistenceAdapter(memory));repo.initializeOrganization("Policy Test");const root=repo.snapshot().elements[0];const dept=repo.createElement({kind:"department",label:"Team",parentId:root.id});const role=repo.createElement({kind:"role",label:"Operator",parentId:dept.id});
+    for(const invalid of [0,-1,1.5,"bad"]){let rejected=false;try{repo.createRoleCapacity({roleId:role.id,scopeId:dept.id,plannedCapacity:invalid})}catch(_){rejected=true}assert(rejected,`Z1 rejects invalid planned capacity ${invalid}`)}
+    assert(repo.snapshot().roleCapacityAssertions.length===0,"rejected capacity values create no partial assertion");const originalCapacity=repo.createRoleCapacity({roleId:role.id,scopeId:dept.id,plannedCapacity:2});const correctedCapacity=repo.correctRoleCapacity(originalCapacity.id,3);assert(repo.snapshot().roleCapacityAssertions.find(item=>item.id===originalCapacity.id).lifecycle==="corrected"&&correctedCapacity.correctsId===originalCapacity.id&&correctedCapacity.plannedCapacity===3,"capacity correction preserves attributable prior assertion lineage");repo.disputeRoleCapacity(correctedCapacity.id);assert(repo.currentRoleCapacity(role.id,dept.id).qualification==="disputed","capacity dispute remains explicit rather than silently choosing another value");
+    const otherDept=repo.createElement({kind:"department",label:"Other Team",parentId:root.id});let moveBlocked=false;try{repo.moveElement(role.id,otherDept.id)}catch(_){moveBlocked=true}assert(moveBlocked,"Role move cannot silently carry a Department-scoped capacity plan");repo.moveElement(role.id,otherDept.id,{endScopedCapacity:true,effectiveAt:"2026-08-10T00:00:00.000Z"});assert(repo.snapshot().roleCapacityAssertions.find(item=>item.id===correctedCapacity.id).lifecycle==="superseded"&&repo.currentRoleCapacity(role.id,otherDept.id)===null,"confirmed Role move ends the old scoped plan and invents no new-scope capacity");
+    const scheduledRole=repo.createElement({kind:"role",label:"Scheduled Operator",parentId:dept.id});const today=new Date();const nextMonth=new Date(today.getTime()+30*86400000);repo.createRoleCapacity({roleId:scheduledRole.id,scopeId:dept.id,plannedCapacity:2,effectiveFrom:today.toISOString()});repo.createRoleCapacity({roleId:scheduledRole.id,scopeId:dept.id,plannedCapacity:4,effectiveFrom:nextMonth.toISOString()});assert(repo.currentRoleCapacity(scheduledRole.id,dept.id,new Date(today.getTime()+86400000).toISOString()).plannedCapacity===2&&repo.currentRoleCapacity(scheduledRole.id,dept.id,nextMonth.toISOString()).plannedCapacity===4,"future capacity preserves current truth before the boundary and changes exactly at it");let overlapRejected=false;try{repo.createRoleCapacity({roleId:scheduledRole.id,scopeId:dept.id,plannedCapacity:5,effectiveFrom:new Date(today.getTime()-86400000).toISOString()})}catch(_){overlapRejected=true}assert(overlapRejected,"backdated or overlapping capacity is rejected instead of silently winning by recency");
+    const organizationRole=repo.createElement({kind:"role",label:"Organization-wide Role",parentId:root.id});repo.createRoleCapacity({roleId:organizationRole.id,scopeId:root.id,plannedCapacity:1});assert(repo.currentRoleCapacity(organizationRole.id,root.id).plannedCapacity===1,"authorized Organization-scoped Role capacity is deliberate and queryable without becoming Department capacity");
+    const testPerson=repo.createPerson({purpose:"team-composition",displayName:"Privacy Test",roleId:role.id,departmentId:dept.id});repo.revisePerson(testPerson.id,{purpose:"person-workbench",displayName:"Privacy Test Corrected"});assert(repo.snapshot().persons.find(item=>item.id===testPerson.id).displayName==="Privacy Test Corrected"&&repo.snapshot().revisions.some(item=>item.person?.id===testPerson.id),"Person correction preserves stable identity and prior snapshot lineage");
+    const contextBefore=JSON.stringify(repo.snapshot().peopleRelationships);let atomicRejected=false;try{repo.assignPersonContext({purpose:"occupancy-selection",personId:testPerson.id,roleId:scheduledRole.id,departmentId:"missing",effectiveFrom:nextMonth.toISOString()})}catch(_){atomicRejected=true}assert(atomicRejected&&JSON.stringify(repo.snapshot().peopleRelationships)===contextBefore,"Role and Department assignment rejects atomically without mixed partial truth");repo.assignPersonContext({purpose:"occupancy-selection",personId:testPerson.id,roleId:scheduledRole.id,departmentId:dept.id,effectiveFrom:nextMonth.toISOString()});const personIntervals=repo.snapshot().peopleRelationships.filter(item=>item.personId===testPerson.id);assert(personIntervals.filter(item=>item.effectiveTo===nextMonth.toISOString()).length===2&&personIntervals.filter(item=>item.effectiveFrom===nextMonth.toISOString()&&item.lifecycle==="active").length===2,"future Person context preserves both current intervals and changes Role plus Department atomically at one boundary");
+    assert(repo.visiblePersons({purpose:"unknown-surface"}).length===0,"deny-by-default policy blocks unknown Person purpose");
+    assert(repo.visiblePersons({purpose:"team-composition",at:new Date(new Date(testPerson.reviewAt).getTime()+1).toISOString()}).length===0,"R365 expiry suspends Person before team projection");
+    repo.revisePerson(testPerson.id,{purpose:"person-workbench",visibility:"restricted"});assert(repo.visiblePersons({purpose:"team-composition"}).length===0,"restricted Person existence does not leak into team projection");
+    class FailingGenerationStorage extends MemoryStorage{constructor(source){super();source.map.forEach((value,key)=>this.map.set(key,value));this.failGeneration=false}setItem(key,value){if(this.failGeneration&&String(key).startsWith("management-os-operating-model-generation-v1-")){this.failGeneration=false;throw new Error("simulated quota failure")}super.setItem(key,value)}}const failingStorage=new FailingGenerationStorage(memory);const failingRepo=new Api.OperatingModelRepository(new Api.BrowserPersistenceAdapter(failingStorage));failingStorage.failGeneration=true;let deletionStopped=false;try{failingRepo.deletePerson(testPerson.id,{purpose:"person-workbench"})}catch(_){deletionStopped=true}let failedClosed=false;try{new Api.OperatingModelRepository(new Api.BrowserPersistenceAdapter(failingStorage))}catch(_){failedClosed=true}assert(deletionStopped&&failedClosed&&Array.from(failingStorage.map.keys()).some(key=>key.includes(`person-deletion-v1-${repo.snapshot().workspaceId}-${testPerson.id}`)),"failed sanitized-generation write retains the durable erasure marker and fails closed without resurrection");
+    const marker=`management-os-person-deletion-v1-${repo.snapshot().workspaceId}-${testPerson.id}`;memory.setItem(marker,JSON.stringify({personId:testPerson.id}));let resurrectionBlocked=false;try{new Api.OperatingModelRepository(new Api.BrowserPersistenceAdapter(memory))}catch(_){resurrectionBlocked=true}assert(resurrectionBlocked,"interrupted deletion marker blocks every recovery generation containing the Person");
+    lines.push("PASS no InformationContribution, Person-as-Source or Evidence attribution runtime was activated");
+    output.textContent=`${lines.join("\n")}\nRESULT PASS`;document.body.dataset.testResult="pass";
+  }
+  run().catch(error=>{output.textContent=`${lines.join("\n")}\nFAIL ${error.stack||error.message}`;document.body.dataset.testResult="fail";});
+}());
+</script></body></html>

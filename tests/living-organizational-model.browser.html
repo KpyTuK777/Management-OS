@@ -40,8 +40,8 @@
         assert(parseFloat(firstCreateFocus.outlineWidth) <= 2 && firstCreateFocus.boxShadow !== "none", "keyboard focus uses a restrained visible ring without changing component geometry");
         doc.querySelector("#organizationMenuButton").click();
         assert(doc.querySelector("#organizationMenuButton").getAttribute("aria-expanded") === "true", "organization switcher exposes its open state");
-        doc.querySelector("#organizationMenuDialog").close();
-        await wait(50);
+        doc.querySelector("#organizationMenuDialog [data-lom-close]").click();
+        await wait(20);
         assert(doc.querySelector("#organizationMenuButton").getAttribute("aria-expanded") === "false", "organization switcher clears expanded state after native dialog dismissal");
         doc.querySelector('[data-create-kind="department"]').click();
         doc.querySelector("#elementLabel").value = "Операційний відділ";
@@ -77,7 +77,7 @@
         await wait(30);
         assert(doc.querySelectorAll(".lom-hierarchy-node--organization > .lom-hierarchy-children > .lom-hierarchy-node--department").length === 15, "Structure preserves fifteen sibling departments on one spatial level");
         assert(doc.querySelectorAll(".lom-hierarchy-node--department").length === 17, "Structure recursively renders nested departments");
-        assert(doc.querySelector(".lom-hierarchy-node--department .lom-hierarchy-node--department .lom-hierarchy-node--department .lom-hierarchy-node--role"), "three hierarchy levels preserve a contained role at the nested branch");
+        assert(!doc.querySelector(".lom-hierarchy-node--role") && doc.body.textContent.includes("Керівник ключових клієнтів"), "organization-scale Structure keeps Role truth in Department composition without rendering a Role node");
         const operationalId = operationalOptionId(doc, "Операційний відділ");
         const marketingId = operationalOptionId(doc, "Маркетинг");
         doc.querySelector(`[data-element-id="${marketingId}"]`).click();
@@ -106,13 +106,7 @@
         marketingTarget.dispatchEvent(dragEvent("drop"));
         await wait(30);
         assert(doc.querySelector(`[data-element-id="${marketingId}"]`).closest(".lom-hierarchy-node").querySelector(`[data-element-id="${productionId}"]`), "drag inside a scrolled Map immediately rebuilds governed hierarchy");
-        const roleNode = doc.querySelector(`[data-element-id="${teamId}"]`).closest(".lom-hierarchy-node").querySelector(".lom-hierarchy-node--role .lom-node");
-        roleNode.click();
-        doc.querySelector('[data-move-id]').click();
-        doc.querySelector("#moveElementParent").value = marketingId;
-        doc.querySelector("#moveElementForm").requestSubmit();
-        await wait(30);
-        assert(doc.querySelector(`[data-element-id="${marketingId}"]`).closest(".lom-hierarchy-node").querySelector(".lom-hierarchy-node--role"), "supported Role movement uses the same semantic command");
+        assert(!doc.querySelector(`[data-element-id="${teamId}"]`).closest(".lom-hierarchy-node").querySelector(".lom-hierarchy-node--role"), "Department-only topology remains intact after structural movement");
         doc.querySelector("#expandOrganizationMap").click();
         await wait(20);
         const expandedHeight = doc.querySelector("#organizationMap").clientHeight;

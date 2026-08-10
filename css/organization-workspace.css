@@ -354,6 +354,40 @@ body.lom-map-expanded #mapView .lom-view-header { margin-bottom: 10px; }
 body.lom-map-expanded #mapView .lom-map { flex: 1 1 auto; height: auto; min-height: 0; }
 body.lom-map-expanded .lom-expanded-search { display: block; }
 
+.lom-team-composition { grid-column: 1 / -1; }
+.lom-team-composition > header p { margin: 4px 0 0; color: var(--lom-muted); font-size: .78rem; }
+.lom-team-role { padding: 14px 0; border-top: 1px solid var(--lom-line); }
+.lom-team-role > header { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.lom-team-role > header button, .lom-team-role li button { padding: 0; border: 0; color: var(--lom-ink); background: transparent; text-align: left; }
+.lom-team-role > header span { color: var(--lom-accent); font-size: .78rem; }
+.lom-team-role ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 6px; margin: 12px 0; padding: 0; list-style: none; }
+.lom-team-role li button { width: 100%; padding: 9px 10px; border: 1px solid var(--lom-line); border-radius: 5px; background: var(--lom-panel-2); }
+.lom-team-role > p { color: var(--lom-muted); }
+.lom-team-role footer { display: flex; flex-wrap: wrap; gap: 8px; }
+.lom-team-role footer button, .lom-role-capacity button, .lom-role-occupants button { border: 1px solid var(--lom-line); border-radius: 4px; padding: 7px 9px; color: var(--lom-ink); background: transparent; }
+.lom-role-capacity { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 14px 0; padding: 12px; border: 1px solid var(--lom-line); background: var(--lom-panel-2); }
+.lom-role-occupants { margin: 14px 0; }
+.lom-role-occupants ul { padding-left: 18px; }
+.lom-person-workbench { max-width: 860px; }
+.lom-person-card { border: 1px solid var(--lom-line); border-radius: 6px; padding: 18px; background: var(--lom-panel); }
+.lom-person-card > header { display: flex; justify-content: space-between; gap: 20px; align-items: start; }
+.lom-person-card h3 { margin: 6px 0 0; font-family: var(--lom-serif); font-size: 1.45rem; }
+.lom-person-card dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.lom-person-card dl div { padding: 12px; background: var(--lom-panel-2); }
+.lom-person-card dt { color: var(--lom-muted); font-size: .72rem; text-transform: uppercase; }
+.lom-person-card dd { margin: 5px 0 0; }
+.lom-person-card footer { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.lom-person-card footer button { border: 1px solid var(--lom-line); border-radius: 4px; padding: 8px 10px; color: var(--lom-ink); background: transparent; }
+.lom-person-search-results { display: grid; gap: 5px; max-height: 150px; overflow: auto; }
+.lom-person-search-results button { padding: 9px 10px; color: var(--lom-ink); background: var(--lom-panel-2); border: 1px solid var(--lom-line); border-radius: 4px; text-align: left; }
+.lom-dialog-separator { display: flex; align-items: center; gap: 10px; color: var(--lom-muted); font-size: .75rem; }
+.lom-dialog-separator::before, .lom-dialog-separator::after { content: ""; flex: 1; border-top: 1px solid var(--lom-line); }
+
+@media (max-width: 520px) {
+  .lom-team-role > header, .lom-person-card > header { align-items: stretch; flex-direction: column; gap: 6px; }
+  .lom-person-card dl { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 540px) {
   .lom-view-actions { width: 100%; align-items: stretch; flex-direction: column; }
   .lom-expand-map { justify-content: center; }

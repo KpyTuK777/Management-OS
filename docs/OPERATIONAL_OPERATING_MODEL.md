@@ -91,6 +91,20 @@ AI may identify missing, stale, or conflicting operating context and propose a
 correction or collection action. It may not silently create, infer, approve, or
 change durable operating facts, process projections, or relationships.
 
+### Planned Role capacity
+
+Planned Role capacity is a dedicated, temporal scalar assertion scoped to one
+Role and one Department or Organization. Its value is a positive whole number. Ending or
+withdrawing the current plan means that no current assertion remains; zero is
+not stored, and absence means "not specified" rather than zero.
+
+This assertion is planning context only. It does not establish or infer named
+people, Role occupancy, vacancy, headcount, approval, funding, or Position/Slot
+identity. Person-to-Role occupancy and Person-to-Department membership remain
+separate governed relationship assertions. Corrections and supersession retain
+lineage; a Role move does not transfer a Department-scoped capacity assertion to
+the new Department.
+
 ## Capability use
 
 - **Operational Investigation** uses the model to assess Evidence access,
