@@ -21,6 +21,7 @@
       </form>
       <nav class="lom-first-use__secondary" aria-label="Інші можливості">
         <button type="button" data-open-investigations>Відкрити розслідування</button>
+        <a href="materials.html">Матеріали</a>
         <a href="historical-reader.html">Історичний розбір</a>
       </nav>
       <p class="lom-local-note">Дані зберігаються локально у цьому браузері. Люди та персональні дані не використовуються.</p>
@@ -36,8 +37,12 @@
           <button type="button" data-lom-view="role"><span aria-hidden="true">◇</span><span>Роль</span></button>
           <button type="button" data-lom-view="person"><span aria-hidden="true">○</span><span>Люди</span></button>
           <button type="button" data-lom-view="process"><span aria-hidden="true">→</span><span>Процеси</span></button>
+          <a href="materials.html"><span aria-hidden="true">▤</span><span>Матеріали</span></a>
           <p class="lom-nav-group">Робочі простори</p>
           <button type="button" data-open-investigations><span aria-hidden="true">?</span><span>Розслідування</span></button>
+          <a href="improvements.html"><span aria-hidden="true">△</span><span>Вдосконалення</span></a>
+          <a href="memory.html"><span aria-hidden="true">◫</span><span>Операційна пам’ять</span></a>
+          <a href="watson.html"><span aria-hidden="true">W</span><span>Watson</span></a>
           <a href="historical-reader.html"><span aria-hidden="true">◷</span><span>Історичний розбір</span></a>
         </nav>
         <div class="lom-rail__bottom"><span>Локальний простір</span><small>Без людей та інтеграцій</small></div>
@@ -247,7 +252,7 @@
             <section class="workspace-view" id="evidenceView" role="tabpanel" data-workspace-view="evidence" aria-labelledby="evidenceTab">
               <header class="section-heading sticky-heading">
                 <div><p class="eyebrow">Матеріали розслідування</p><h2 id="evidenceTitle">Докази та джерела</h2><p>Матеріал стає доказом лише після перевірки. Додавання до робочого набору не змінює його статус.</p></div>
-                <button class="primary-button" id="addMaterial" type="button">Додати матеріал</button>
+                <div><button class="secondary-button" id="attachMaterial" type="button">Додати з матеріалів</button> <button class="primary-button" id="addMaterial" type="button">Новий матеріал</button></div>
               </header>
               <div class="filter-bar" role="group" aria-label="Фільтр матеріалів">
                 <button class="is-active" type="button" data-evidence-filter="all" aria-pressed="true">Усі</button>
@@ -317,7 +322,7 @@
     </main>
   </div>
 
-  <dialog id="materialDialog" aria-labelledby="materialDialogTitle"><form method="dialog" id="materialForm" class="dialog-form"><header><div><p class="eyebrow">Матеріал розслідування</p><h2 id="materialDialogTitle">Додати матеріал</h2></div><button type="button" data-modal-close aria-label="Закрити">×</button></header><label>Заголовок<input id="materialTitle" data-modal-autofocus required maxlength="160"></label><label>Файл <small>PDF, зображення, аудіо, відео, текст або CSV · до 1 МБ</small><input id="materialFile" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,.gif,.mp3,.wav,.ogg,.mp4,.webm,.txt,.md,.csv,.tsv,application/pdf,image/*,audio/*,video/*,text/*"></label><label>Опис або текст<textarea id="materialSummary" rows="5" maxlength="3000"></textarea></label><p class="form-boundary">Матеріал зберігається локально. Він не стає доказом або фактом автоматично.</p><footer><button type="button" data-modal-close class="secondary-button">Скасувати</button><button type="submit" class="primary-button" id="saveMaterial">Додати матеріал</button></footer></form></dialog>
+  <dialog id="materialDialog" aria-labelledby="materialDialogTitle"><form method="dialog" id="materialForm" class="dialog-form"><header><div><p class="eyebrow">Матеріал розслідування</p><h2 id="materialDialogTitle">Додати матеріал</h2></div><button type="button" data-modal-close aria-label="Закрити">×</button></header><label>Заголовок<input id="materialTitle" data-modal-autofocus required maxlength="160"></label><label>Файл <small>PDF, зображення, аудіо, відео, текст або CSV</small><input id="materialFile" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,.gif,.mp3,.wav,.ogg,.mp4,.webm,.txt,.md,.csv,.tsv,application/pdf,image/*,audio/*,video/*,text/*"></label><label>Опис або текст<textarea id="materialSummary" rows="5" maxlength="3000"></textarea></label><p class="form-boundary">Матеріал зберігається локально. Він не стає доказом або фактом автоматично.</p><footer><button type="button" data-modal-close class="secondary-button">Скасувати</button><button type="submit" class="primary-button" id="saveMaterial">Додати матеріал</button></footer></form></dialog>
 
   <dialog id="hypothesisDialog" aria-labelledby="hypothesisDialogTitle"><form method="dialog" id="hypothesisForm" class="dialog-form"><header><div><p class="eyebrow">Попередня версія</p><h2 id="hypothesisDialogTitle">Додати гіпотезу</h2></div><button type="button" data-modal-close aria-label="Закрити">×</button></header><label>Формулювання<textarea id="hypothesisText" data-modal-autofocus rows="3" required></textarea></label><label>Матеріал, що підтримує версію<select id="hypothesisEvidence"></select></label><p class="form-boundary">Гіпотеза не стане фактом. Її статус залишиться попереднім до окремого людського судження.</p><footer><button type="button" data-modal-close class="secondary-button">Скасувати</button><button type="submit" class="primary-button" id="saveHypothesis">Додати гіпотезу</button></footer></form></dialog>
 
@@ -326,6 +331,7 @@
   <dialog id="linkHypothesisDialog" aria-labelledby="linkHypothesisTitle"><form method="dialog" id="linkHypothesisForm" class="dialog-form"><header><h2 id="linkHypothesisTitle">Прив’язати існуючу гіпотезу</h2><button type="button" data-modal-close aria-label="Закрити">×</button></header><label>Гіпотеза<select id="existingHypothesisSelect" data-modal-autofocus required></select></label><p class="form-boundary" id="hypothesisEmptyHint">Список формується з записів модуля Hypotheses.</p><footer><button type="button" data-modal-close class="secondary-button">Скасувати</button><button type="submit" class="primary-button">Прив’язати</button></footer></form></dialog>
 
   <dialog id="causeDialog" aria-labelledby="causeDialogTitle"><form method="dialog" id="causeForm" class="dialog-form"><header><h2 id="causeDialogTitle">Причину знайдено</h2><button type="button" data-modal-close aria-label="Закрити">×</button></header><label>Висновок<textarea id="causeConclusionInput" data-modal-autofocus rows="5" required maxlength="1600"></textarea></label><footer><button type="button" data-modal-close class="secondary-button">Скасувати</button><button type="submit" class="primary-button">Зберегти висновок</button></footer></form></dialog>
+  <dialog id="attachMaterialDialog" aria-labelledby="attachMaterialTitle"><form method="dialog" id="attachMaterialForm" class="dialog-form"><header><h2 id="attachMaterialTitle">Додати існуючий матеріал</h2><button type="button" data-modal-close aria-label="Закрити">×</button></header><label>Матеріал<select id="existingMaterialSelect" required></select></label><p class="form-boundary">Файл не копіюється. Розслідування посилатиметься на один матеріал.</p><footer><button type="button" data-modal-close class="secondary-button">Скасувати</button><button type="submit" class="primary-button">Додати до розслідування</button></footer></form></dialog>
 
   <p class="sr-only" id="appAnnouncement" aria-live="polite" aria-atomic="true"></p>
   <script src="js/operating-model-repository.js"></script>
@@ -334,6 +340,7 @@
   <script src="js/storage.js"></script>
   <script src="js/learning-analysis.js"></script>
   <script src="js/hypothesis-analysis.js"></script>
+  <script src="js/material-store.js"></script>
   <script src="js/investigation-workbench.js"></script>
 </body>
 </html>

@@ -123,7 +123,10 @@
   }
 
   function evidenceById(id) {
-    return state.evidence.find(item => item.id === id);
+    const item = state.evidence.find(entry => entry.id === id);
+    if (!item?.materialId || typeof MaterialStore === "undefined") return item;
+    const material = MaterialStore.get(item.materialId);
+    return material ? { ...item, title: material.title, summary: material.description || material.text || material.fileName || material.url || "Матеріал", source: material.sourceName || "Організаційний матеріал", date: new Date(material.contributedAt).toLocaleString("uk-UA"), mimeType: material.mimeType, fileName: material.fileName, url: material.url } : { ...item, title: "Матеріал недоступний", summary: "Посилання збережено, але сам матеріал недоступний у цьому браузері." };
   }
 
   function itemById(id) {
@@ -228,7 +231,7 @@
     $("#closeInvestigation").textContent = activeInvestigation.status === "closed" ? "Розслідування закрито" : "Перейти до рішення і зміни";
     $("#closeInvestigation").disabled = activeInvestigation.status === "closed" || !activeInvestigation.causeFound;
     const closed = activeInvestigation.status === "closed";
-    ["#addMaterial", "#addHypothesis", "#editSituation", "#linkExistingHypothesis", "#markCauseFound"].forEach(selector => { $(selector).disabled = closed; });
+    ["#addMaterial", "#attachMaterial", "#addHypothesis", "#editSituation", "#linkExistingHypothesis", "#markCauseFound"].forEach(selector => { $(selector).disabled = closed; });
     [...$("#unknownForm").elements].forEach(control => control.disabled = closed);
   }
 
@@ -309,8 +312,17 @@
     if (item.contradict) fields.push(["Суперечать", item.contradict.map(id => evidenceById(id)?.title).filter(Boolean).join("; ") || "Немає"]);
     const summary = item.summary || item.note || item.description || item.text || item.title;
     $("#inspectorContent").innerHTML = `<div class="inspector-summary">${escapeHtml(summary)}</div>${materialPreview(item)}<dl>${fields.map(([term, value]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("")}</dl><details class="inspector-details"><summary>Технічні деталі</summary><pre>ID: ${escapeHtml(item.id)}\nЛокальний приклад: так\nКанонічні повноваження: відсутні</pre></details>`;
+    if (item.materialId) renderUniversalMaterialPreview(item);
     if (window.innerWidth < 921) $("#inspectorPanel").scrollIntoView({ block: "start", behavior: "smooth" });
     announce(`Відкрито Watson: ${item.title || item.text}`);
+  }
+
+  async function renderUniversalMaterialPreview(item) {
+    const material = MaterialStore.get(item.materialId); const blob = await MaterialStore.getPayload(item.materialId); if (focused !== item.id || !material) return;
+    let preview = "";
+    if (blob) { const url = URL.createObjectURL(blob); if (material.mimeType.startsWith("image/")) preview = `<img class="material-preview" src="${url}" alt="${escapeHtml(material.title)}">`; else if (material.mimeType.startsWith("audio/")) preview = `<audio class="material-preview" controls src="${url}"></audio>`; else if (material.mimeType.startsWith("video/")) preview = `<video class="material-preview" controls src="${url}"></video>`; else if (material.mimeType === "application/pdf") preview = `<object class="material-preview material-preview--document" data="${url}" type="application/pdf"></object>`; else if (material.mimeType.startsWith("text/") || /\.(csv|tsv)$/i.test(material.fileName || "")) preview = `<pre class="material-text-preview">${escapeHtml((await blob.text()).slice(0, 30000))}</pre>`; else preview = `<a class="secondary-button" href="${url}" download="${escapeHtml(material.fileName)}">Завантажити файл</a>`; }
+    if (material.url) preview += `<a class="secondary-button" href="${escapeHtml(material.url)}" target="_blank" rel="noopener">Відкрити посилання</a>`;
+    $("#inspectorContent").insertAdjacentHTML("afterbegin", preview || `<p>Файл недоступний у цьому браузері.</p>`);
   }
 
   function closeInspector() {
@@ -561,19 +573,16 @@
       const file = $("#materialFile").files[0];
       const summary = $("#materialSummary").value.trim();
       if (!file && !summary) { $("#materialSummary").setCustomValidity("Додайте текст або оберіть файл."); $("#materialSummary").reportValidity(); return; }
-      if (file && file.size > 1024 * 1024) { $("#materialFile").setCustomValidity("Файл має бути не більшим за 1 МБ для локального збереження."); $("#materialFile").reportValidity(); return; }
       $("#materialSummary").setCustomValidity(""); $("#materialFile").setCustomValidity("");
-      const [dataUrl, fileText] = file ? await Promise.all([readFile(file), readFileText(file)]) : [null, ""];
+      const context = activeInvestigation?.data?.organizationContext;
+      const material = await MaterialStore.create({ title: $("#materialTitle").value.trim(), description: summary, text: file ? null : summary, file, contexts: [{ type: "investigation", id: activeInvestigation.id, label: activeInvestigation.title }, ...(context ? [{ type: "organization-element", id: context.elementId, label: context.label }] : [])] });
       const item = {
         id: `evidence-${Date.now()}`,
         type: file ? "Файл" : "Текст",
-        title: $("#materialTitle").value.trim(),
-        source: "Додано власником",
-        summary: summary || `Файл ${file.name}`,
-        fileName: file?.name || null,
-        mimeType: file?.type || null,
-        dataUrl,
-        fileText,
+        materialId: material.id,
+        title: material.title,
+        source: material.sourceName || "Додано власником",
+        summary: material.description || material.fileName || "Матеріал",
         status: "unverified",
         attribution: "Додано власником у локальному прототипі",
         timestamp: new Date().toISOString(),
@@ -587,6 +596,21 @@
       closeModal($("#materialDialog"));
       renderEvidence();
       announce(`${item.title} додано як неперевірений локальний матеріал.`);
+    });
+
+    $("#attachMaterial").addEventListener("click", event => {
+      const linked = new Set(state.evidence.map(item => item.materialId).filter(Boolean));
+      const materials = MaterialStore.list().filter(item => !linked.has(item.id));
+      $("#existingMaterialSelect").innerHTML = materials.map(item => `<option value="${escapeHtml(item.id)}">${escapeHtml(item.title)}</option>`).join("");
+      $("#attachMaterialForm").querySelector("button[type='submit']").disabled = materials.length === 0;
+      openModal($("#attachMaterialDialog"), event.currentTarget);
+    });
+    $("#attachMaterialForm").addEventListener("submit", event => {
+      event.preventDefault(); const material = MaterialStore.get($("#existingMaterialSelect").value); if (!material) return;
+      state.evidence.push({ id: `evidence-${Date.now()}`, materialId: material.id, type: "Матеріал", title: material.title, source: material.sourceName || "Організаційний матеріал", summary: material.description || material.fileName || material.url || "Матеріал", status: "unverified", timestamp: new Date().toISOString(), date: new Date(material.contributedAt).toLocaleString("uk-UA"), recordTime: new Date().toLocaleString("uk-UA") });
+      if (!persist()) { state.evidence.pop(); announce("Не вдалося додати матеріал до розслідування."); return; }
+      MaterialStore.link(material.id, { type: "investigation", id: activeInvestigation.id, label: activeInvestigation.title });
+      closeModal($("#attachMaterialDialog")); renderEvidence(); announce("Існуючий матеріал додано до розслідування без копіювання.");
     });
 
     $("#hypothesisForm").addEventListener("submit", event => {
