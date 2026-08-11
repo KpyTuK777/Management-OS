@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Усі розслідування — Management OS</title>
+  <link rel="stylesheet" href="css/investigation-workbench.css">
+</head>
+<body class="investigation-app registry-page">
+  <main class="registry-shell">
+    <header class="registry-header">
+      <div><p class="eyebrow">Management OS · Розслідування</p><h1>Усі розслідування</h1><p>Відкриті та закриті справи, збережені у цьому браузері.</p></div>
+      <a class="primary-button" href="index.html">Нове розслідування</a>
+    </header>
+    <nav class="filter-bar" aria-label="Фільтр розслідувань">
+      <button class="is-active" type="button" data-status="all" aria-pressed="true">Усі</button>
+      <button type="button" data-status="open" aria-pressed="false">Відкриті</button>
+      <button type="button" data-status="closed" aria-pressed="false">Закриті</button>
+    </nav>
+    <section class="registry-list" id="investigationRegistry" aria-live="polite"></section>
+  </main>
+  <script src="js/investigations.js"></script>
+</body>
+</html>

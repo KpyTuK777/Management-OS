@@ -87,14 +87,24 @@
     } catch (_) { return []; }
   }
 
-  function emptyInvestigation(title, situation, organizationContext) {
+  function emptyInvestigation(title, situation, date, organizationContext) {
     return {
       id: `INV-${Date.now()}`,
       title,
+      date,
+      status: "open",
+      causeFound: false,
+      conclusion: "",
+      closedAt: null,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
-      data: { situation: { summary: situation, revisions: [] }, known: [], unknowns: [], attention: [], evidence: [], hypotheses: [], workingSet: [], timeline: [], organizationContext: organizationContext || null }
+      data: { situation: { summary: situation, revisions: [] }, known: [], unknowns: [], attention: [], evidence: [], hypotheses: [], linkedHypotheses: [], workingSet: [], timeline: [], organizationContext: organizationContext || null }
     };
+  }
+
+  function systemHypotheses() {
+    if (typeof HypothesisAnalysis === "undefined" || typeof LearningAnalysis === "undefined" || typeof loadInsightsSourceCollections !== "function") return [];
+    return HypothesisAnalysis.generateHypotheses(LearningAnalysis.calculateInsightsData(loadInsightsSourceCollections()));
   }
 
   function announce(message) {
@@ -167,6 +177,21 @@
     $("#relationshipList").innerHTML = relationships.length ? relationships.map(item => `<div class="relationship-row"><strong>${escapeHtml(item.evidence.title)}</strong><span>— ${item.relation} →</span><strong>${escapeHtml(item.hypothesis.text)}</strong></div>`).join("") : `<div class="honest-empty"><strong>Зв’язків ще немає.</strong><p>Вони з’являться, коли матеріали будуть пов’язані з робочими версіями.</p></div>`;
   }
 
+  function renderInvestigationLifecycle() {
+    if (activeKind !== "user" || !activeInvestigation) return;
+    const linkedIds = state.linkedHypotheses || [];
+    const available = systemHypotheses();
+    const linked = linkedIds.map(id => available.find(item => item.id === id)).filter(Boolean);
+    $("#linkedHypothesesList").innerHTML = linked.length
+      ? linked.map(item => `<p class="linked-hypothesis"><strong>${escapeHtml(item.statement)}</strong></p>`).join("")
+      : "<p>Ще не прив’язано.</p>";
+    $("#causeState").textContent = activeInvestigation.causeFound ? "Причину знайдено" : "Причину ще не зафіксовано";
+    $("#causeConclusion").textContent = activeInvestigation.conclusion || "Після перевірки доказів зафіксуйте людський висновок.";
+    $("#markCauseFound").textContent = activeInvestigation.causeFound ? "Змінити висновок" : "Причину знайдено";
+    $("#closeInvestigation").textContent = activeInvestigation.status === "closed" ? "Розслідування закрито" : "Закрити розслідування";
+    $("#closeInvestigation").disabled = activeInvestigation.status === "closed";
+  }
+
   function renderTimeline() {
     $("#timelineList").innerHTML = state.timeline.length ? state.timeline.map(item => `<li class="timeline-event"><time>${escapeHtml(item.eventTime)}</time><span class="timeline-event__marker" aria-hidden="true"></span><div><button class="card-main compact-item" type="button" data-inspect="${item.id}"><span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p><dl><div><dt>Час події</dt><dd>${escapeHtml(item.eventTime)}</dd></div><div><dt>Час запису</dt><dd>${escapeHtml(item.recordTime)}</dd></div><div><dt>Межа</dt><dd>${escapeHtml(item.certainty)}</dd></div></dl></span><span>Переглянути</span></button></div></li>`).join("") : `<li class="honest-empty"><strong>Подій ще не додано.</strong><p>Хронологія лишається порожньою, доки події не підтверджені матеріалами.</p></li>`;
   }
@@ -229,7 +254,7 @@
       button.setAttribute("aria-selected", active ? "true" : "false");
       button.tabIndex = active ? 0 : -1;
     });
-    history.replaceState(null, "", `#${view}`);
+    history.replaceState(null, "", `${location.pathname}${location.search}#${view}`);
     announce(`Відкрито розділ ${$("[data-view].is-active").textContent.trim()}`);
   }
 
@@ -293,13 +318,14 @@
 
   function renderSavedInvestigations() {
     const records = loadInvestigations();
-    $("#savedInvestigationList").innerHTML = records.length ? records.map(item => `<button class="saved-investigation" type="button" data-open-investigation="${escapeHtml(item.id)}"><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.data.situation.summary)}</span><small>Оновлено ${new Date(item.updatedAt).toLocaleDateString("uk-UA")}</small></button>`).join("") : `<div class="honest-empty"><strong>Збережених розслідувань ще немає.</strong><p>Створене розслідування збережеться лише в цьому браузері.</p></div>`;
+    $("#savedInvestigationList").innerHTML = records.length ? records.map(item => `<button class="saved-investigation" type="button" data-open-investigation="${escapeHtml(item.id)}"><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.data.situation.summary)}</span><small>${item.status === "closed" ? "Закрито" : "Відкрите"} · ${new Date(item.updatedAt).toLocaleDateString("uk-UA")}</small></button>`).join("") : `<div class="honest-empty"><strong>Збережених розслідувань ще немає.</strong><p>Створене розслідування збережеться лише в цьому браузері.</p></div>`;
   }
 
   function openWorkbench(record, kind) {
     activeKind = kind;
     activeInvestigation = kind === "user" ? record : null;
     state = kind === "user" ? clone(record.data) : loadState();
+    if (!Array.isArray(state.linkedHypotheses)) state.linkedHypotheses = [];
     $("#startPage").classList.add("hidden");
     $("#workbenchShell").classList.remove("hidden");
     const title = kind === "demo" ? "Чому прибуток знижується, хоча виручка зростає?" : record.title;
@@ -330,14 +356,15 @@
     $("[data-view='situation'] span").textContent = kind === "demo" ? "5" : "0";
     const metaValues = $(".investigation-meta").querySelectorAll("dd");
     if (kind === "user") {
-      metaValues[0].textContent = "У роботі";
+      metaValues[0].textContent = record.status === "closed" ? "Закрито" : record.causeFound ? "Причину знайдено" : "У роботі";
       metaValues[1].textContent = "Ви";
-      metaValues[2].textContent = "щойно";
+      metaValues[2].textContent = new Date(record.updatedAt).toLocaleDateString("uk-UA");
       $(".working-set-panel > p").textContent = "Тримайте тут матеріали, які ви зараз активно вивчаєте.";
       $("#workingSetEmpty strong").textContent = "Робочий набір порожній";
       $("#workingSetEmpty span").textContent = "Додайте сюди матеріал, який зараз розглядаєте.";
     }
     renderAll();
+    renderInvestigationLifecycle();
     closeInspector();
     const requestedView = location.hash.slice(1);
     switchView(["situation", "evidence", "reasoning", "timeline"].includes(requestedView) ? requestedView : "situation");
@@ -382,6 +409,7 @@
       switchView(tabs[target].dataset.view);
     });
     $("#startInvestigation").addEventListener("click", event => openModal($("#creationDialog"), event.currentTarget));
+    $("#creationDate").value = new Date().toISOString().slice(0, 10);
     $("#openSaved").addEventListener("click", () => {
       renderSavedInvestigations();
       $("#savedInvestigations").classList.toggle("hidden");
@@ -394,15 +422,16 @@
       const situationInput = $("#creationSituation");
       const title = titleInput.value.trim();
       const situation = situationInput.value.trim();
+      const date = $("#creationDate").value;
       titleInput.setCustomValidity(title ? "" : "Вкажіть назву розслідування.");
       situationInput.setCustomValidity(situation ? "" : "Опишіть початкову ситуацію.");
-      if (!title || !situation) { $("#creationForm").reportValidity(); return; }
+      if (!title || !situation || !date) { $("#creationForm").reportValidity(); return; }
       let organizationContext = null;
       try {
         const pending = JSON.parse(sessionStorage.getItem("management-os-pending-organization-context-v1"));
         if (pending?.version === 1 && pending.elementId && pending.workspaceId) organizationContext = pending;
       } catch (_) { /* malformed pending context is ignored, never promoted */ }
-      const record = emptyInvestigation(title, situation, organizationContext);
+      const record = emptyInvestigation(title, situation, date, organizationContext);
       sessionStorage.removeItem("management-os-pending-organization-context-v1");
       activeInvestigation = record;
       activeKind = "user";
@@ -430,16 +459,17 @@
       event.preventDefault();
       const item = {
         id: `evidence-${Date.now()}`,
-        type: $("#materialType").value,
+        type: "Текст",
         title: $("#materialTitle").value.trim(),
-        source: $("#materialSource").value.trim(),
+        source: "Додано власником",
         summary: $("#materialSummary").value.trim(),
         status: "unverified",
         attribution: "Додано власником у локальному прототипі",
-        date: "Сьогодні",
+        timestamp: new Date().toISOString(),
+        date: new Date().toLocaleString("uk-UA"),
         locator: "Локальний матеріал · локатор відсутній",
         eventTime: "Не вказано",
-        recordTime: "Сьогодні"
+        recordTime: new Date().toLocaleString("uk-UA")
       };
       state.evidence.push(item);
       persist();
@@ -468,6 +498,48 @@
       closeModal($("#situationDialog"));
       renderSituation();
       announce("Поточну ситуацію уточнено. Попередню версію збережено в історії.");
+    });
+
+    $("#linkExistingHypothesis").addEventListener("click", event => {
+      const linked = state.linkedHypotheses || [];
+      const available = systemHypotheses().filter(item => !linked.includes(item.id));
+      $("#existingHypothesisSelect").innerHTML = available.map(item => `<option value="${escapeHtml(item.id)}">${escapeHtml(item.statement)}</option>`).join("");
+      $("#hypothesisEmptyHint").textContent = available.length ? "Список формується з записів модуля Hypotheses." : "Немає доступних гіпотез для прив’язки.";
+      $("#linkHypothesisForm").querySelector("button[type='submit']").disabled = available.length === 0;
+      openModal($("#linkHypothesisDialog"), event.currentTarget);
+    });
+    $("#linkHypothesisForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const id = $("#existingHypothesisSelect").value;
+      if (!id) return;
+      state.linkedHypotheses = [...new Set([...(state.linkedHypotheses || []), id])];
+      persist();
+      closeModal($("#linkHypothesisDialog"));
+      renderInvestigationLifecycle();
+      announce("Існуючу гіпотезу прив’язано до розслідування.");
+    });
+    $("#markCauseFound").addEventListener("click", event => {
+      $("#causeConclusionInput").value = activeInvestigation?.conclusion || "";
+      openModal($("#causeDialog"), event.currentTarget);
+    });
+    $("#causeForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const conclusion = $("#causeConclusionInput").value.trim();
+      if (!conclusion || activeKind !== "user") return;
+      activeInvestigation.causeFound = true;
+      activeInvestigation.conclusion = conclusion;
+      persist();
+      closeModal($("#causeDialog"));
+      renderInvestigationLifecycle();
+      openWorkbench(activeInvestigation, "user");
+    });
+    $("#closeInvestigation").addEventListener("click", () => {
+      if (activeKind !== "user" || !activeInvestigation || !window.confirm("Закрити це розслідування?")) return;
+      activeInvestigation.status = "closed";
+      activeInvestigation.closedAt = new Date().toISOString();
+      persist();
+      openWorkbench(activeInvestigation, "user");
+      announce("Розслідування закрито й збережено локально.");
     });
 
     $("#closeInspector").addEventListener("click", closeInspector);
@@ -499,6 +571,7 @@
     renderWorkingSet();
     renderHypotheses();
     renderTimeline();
+    renderInvestigationLifecycle();
   }
 
   function init() {

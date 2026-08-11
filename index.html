@@ -132,11 +132,12 @@
     <section class="start-page__content" aria-labelledby="startTitle">
       <p class="eyebrow">Management OS · Розслідування</p>
       <h1 id="startTitle">Почніть із ситуації, яку потрібно зрозуміти</h1>
-      <button class="start-primary" id="startInvestigation" type="button">Розпочати розслідування</button>
+      <button class="start-primary" id="startInvestigation" type="button">Нове розслідування</button>
       <section class="supporting-tools" aria-labelledby="supportingToolsTitle">
         <h2 id="supportingToolsTitle"><span>Додаткові інструменти</span></h2>
         <div class="start-actions">
           <button class="start-option" id="openSaved" type="button" aria-expanded="false" aria-controls="savedInvestigations"><strong>Відкрити збережене</strong></button>
+          <a class="start-option" href="investigations.html"><strong>Усі розслідування</strong></a>
           <a class="start-option" href="index.html?demo=MAT-0247"><strong>Демонстраційний кейс</strong></a>
           <a class="start-option" href="historical-reader.html"><strong>Історичний розбір</strong></a>
         </div>
@@ -146,7 +147,7 @@
     </section>
   </main>
 
-  <dialog id="creationDialog" aria-labelledby="creationHeading"><form method="dialog" id="creationForm" class="dialog-form"><header><h2 id="creationHeading">Нове розслідування</h2><button type="button" data-modal-close aria-label="Закрити">×</button></header><label>Назва<input id="creationTitle" data-modal-autofocus autocomplete="off" required maxlength="120"></label><label>Що відбувається?<textarea id="creationSituation" rows="4" required maxlength="1200"></textarea></label><footer><button type="button" data-modal-close class="secondary-button">Скасувати</button><button type="submit" class="primary-button">Створити розслідування</button></footer></form></dialog>
+  <dialog id="creationDialog" aria-labelledby="creationHeading"><form method="dialog" id="creationForm" class="dialog-form"><header><h2 id="creationHeading">Нове розслідування</h2><button type="button" data-modal-close aria-label="Закрити">×</button></header><label>Назва<input id="creationTitle" data-modal-autofocus autocomplete="off" required maxlength="120"></label><label>Опис симптому<textarea id="creationSituation" rows="4" required maxlength="1200"></textarea></label><label>Дата<input id="creationDate" type="date" required></label><footer><button type="button" data-modal-close class="secondary-button">Скасувати</button><button type="submit" class="primary-button">Створити розслідування</button></footer></form></dialog>
 
   <div class="os-shell hidden" id="workbenchShell">
     <aside class="os-rail" aria-label="Основна навігація">
@@ -267,8 +268,10 @@
                 <div id="relationshipList" class="relationship-list"></div>
               </section>
               <aside class="judgment-boundary">
-                <span aria-hidden="true">◆</span><div><strong>Рішення залишається за людиною</strong><p>Management OS допомагає організувати матеріали й перевірити робочі версії, але не встановлює причину та не приймає рішення.</p></div><button type="button" disabled title="Потребує окремого дозволу">Зафіксувати рішення</button>
+                <span aria-hidden="true">◆</span><div><strong id="causeState">Причину ще не зафіксовано</strong><p id="causeConclusion">Після перевірки доказів зафіксуйте людський висновок. Потребує окремого дозволу людини.</p></div><button type="button" id="markCauseFound">Причину знайдено</button>
               </aside>
+              <aside class="judgment-boundary" id="linkedHypothesesSection"><span aria-hidden="true">↗</span><div><strong>Гіпотези із системи</strong><div id="linkedHypothesesList"><p>Ще не прив’язано.</p></div></div><button type="button" id="linkExistingHypothesis">Прив’язати гіпотезу</button></aside>
+              <aside class="judgment-boundary"><span aria-hidden="true">✓</span><div><strong>Завершення розслідування</strong><p>Закриту справу можна переглядати, а її дані залишаться у браузері.</p></div><button type="button" id="closeInvestigation">Закрити розслідування</button></aside>
             </section>
 
             <section class="workspace-view" id="timelineView" role="tabpanel" data-workspace-view="timeline" aria-labelledby="timelineTab">
@@ -302,15 +305,23 @@
     </main>
   </div>
 
-  <dialog id="materialDialog" aria-labelledby="materialDialogTitle"><form method="dialog" id="materialForm" class="dialog-form"><header><div><p class="eyebrow">Локальний матеріал</p><h2 id="materialDialogTitle">Додати до розслідування</h2></div><button type="button" data-modal-close aria-label="Закрити">×</button></header><label>Назва<input id="materialTitle" data-modal-autofocus required></label><label>Тип<select id="materialType"><option>Звіт</option><option>Нотатка</option><option>Спостереження</option><option>Розмова</option><option>Посилання</option></select></label><label>Джерело<input id="materialSource" placeholder="Наприклад: фінансовий відділ" required></label><label>Короткий зміст<textarea id="materialSummary" rows="4" required></textarea></label><p class="form-boundary">Матеріал буде позначено як неперевірений. Це локальний приклад, а не запис із зовнішньої системи.</p><footer><button type="button" data-modal-close class="secondary-button">Скасувати</button><button type="submit" class="primary-button" id="saveMaterial">Додати матеріал</button></footer></form></dialog>
+  <dialog id="materialDialog" aria-labelledby="materialDialogTitle"><form method="dialog" id="materialForm" class="dialog-form"><header><div><p class="eyebrow">Текстовий доказ</p><h2 id="materialDialogTitle">Додати доказ</h2></div><button type="button" data-modal-close aria-label="Закрити">×</button></header><label>Заголовок<input id="materialTitle" data-modal-autofocus required maxlength="160"></label><label>Текст<textarea id="materialSummary" rows="5" required maxlength="3000"></textarea></label><p class="form-boundary">Дата й час додавання будуть записані автоматично. Доказ зберігається лише в цьому браузері.</p><footer><button type="button" data-modal-close class="secondary-button">Скасувати</button><button type="submit" class="primary-button" id="saveMaterial">Додати доказ</button></footer></form></dialog>
 
   <dialog id="hypothesisDialog" aria-labelledby="hypothesisDialogTitle"><form method="dialog" id="hypothesisForm" class="dialog-form"><header><div><p class="eyebrow">Попередня версія</p><h2 id="hypothesisDialogTitle">Додати гіпотезу</h2></div><button type="button" data-modal-close aria-label="Закрити">×</button></header><label>Формулювання<textarea id="hypothesisText" data-modal-autofocus rows="3" required></textarea></label><label>Матеріал, що підтримує версію<select id="hypothesisEvidence"></select></label><p class="form-boundary">Гіпотеза не стане фактом. Її статус залишиться попереднім до окремого людського судження.</p><footer><button type="button" data-modal-close class="secondary-button">Скасувати</button><button type="submit" class="primary-button" id="saveHypothesis">Додати гіпотезу</button></footer></form></dialog>
 
   <dialog id="situationDialog" aria-labelledby="situationDialogTitle"><form method="dialog" id="situationForm" class="dialog-form"><header><div><p class="eyebrow">Нова версія</p><h2 id="situationDialogTitle">Уточнити поточну ситуацію</h2></div><button type="button" data-modal-close aria-label="Закрити">×</button></header><label>Опис ситуації<textarea id="situationInput" data-modal-autofocus rows="6" required></textarea></label><p class="form-boundary">Попередня версія залишиться в історії. Не додавайте причинного висновку без матеріалів.</p><footer><button type="button" data-modal-close class="secondary-button">Скасувати</button><button type="submit" class="primary-button" id="saveSituation">Зберегти нову версію</button></footer></form></dialog>
 
+  <dialog id="linkHypothesisDialog" aria-labelledby="linkHypothesisTitle"><form method="dialog" id="linkHypothesisForm" class="dialog-form"><header><h2 id="linkHypothesisTitle">Прив’язати існуючу гіпотезу</h2><button type="button" data-modal-close aria-label="Закрити">×</button></header><label>Гіпотеза<select id="existingHypothesisSelect" data-modal-autofocus required></select></label><p class="form-boundary" id="hypothesisEmptyHint">Список формується з записів модуля Hypotheses.</p><footer><button type="button" data-modal-close class="secondary-button">Скасувати</button><button type="submit" class="primary-button">Прив’язати</button></footer></form></dialog>
+
+  <dialog id="causeDialog" aria-labelledby="causeDialogTitle"><form method="dialog" id="causeForm" class="dialog-form"><header><h2 id="causeDialogTitle">Причину знайдено</h2><button type="button" data-modal-close aria-label="Закрити">×</button></header><label>Висновок<textarea id="causeConclusionInput" data-modal-autofocus rows="5" required maxlength="1600"></textarea></label><footer><button type="button" data-modal-close class="secondary-button">Скасувати</button><button type="submit" class="primary-button">Зберегти висновок</button></footer></form></dialog>
+
   <p class="sr-only" id="appAnnouncement" aria-live="polite" aria-atomic="true"></p>
   <script src="js/operating-model-repository.js"></script>
   <script src="js/organization-workspace.js"></script>
+  <script src="js/storage-utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/learning-analysis.js"></script>
+  <script src="js/hypothesis-analysis.js"></script>
   <script src="js/investigation-workbench.js"></script>
 </body>
 </html>
