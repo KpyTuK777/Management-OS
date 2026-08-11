@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="uk">
+<head><meta charset="utf-8"><title>Investigation lifecycle journey</title></head>
+<body data-test-result="running">
+  <h1 id="result">Running lifecycle journey…</h1>
+  <iframe id="app" title="Management OS lifecycle test" style="position:absolute;left:-10000px;width:390px;height:844px;border:0"></iframe>
+  <script>
+    const result = document.getElementById("result");
+    const frame = document.getElementById("app");
+    const assert = (condition, message) => { if (!condition) throw new Error(message); };
+    const submit = form => form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+    async function load(url) { await new Promise((resolve, reject) => { frame.onload = resolve; frame.src = url; setTimeout(() => reject(new Error("load timeout")), 5000); }); }
+    async function run() {
+      try {
+        const id = "INV-LIFECYCLE-TEST";
+        localStorage.setItem("management-os-user-investigations-v1", JSON.stringify({ version: 1, investigations: [{ id, title: "Затримка відвантажень", date: "2026-08-11", status: "open", causeFound: false, conclusion: "", createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(), data: { situation: { summary: "Відвантаження затримуються", revisions: [] }, known: [], unknowns: [], attention: [], evidence: [], hypotheses: [], linkedHypotheses: [], workingSet: [], timeline: [], organizationContext: null } }] }));
+        await load(`../index.html?investigation=${id}#reasoning`);
+        let app = frame.contentDocument;
+        app.getElementById("markCauseFound").click();
+        app.getElementById("causeConclusionInput").value = "Причина — неповна передача замовлень між командами.";
+        submit(app.getElementById("causeForm"));
+        app.querySelector("[data-view='change']").click();
+        [["decisionText","Стандартизувати передачу"],["decisionRationale","Прибирає встановлену причину"],["decisionOwner","Марина Коваль"],["decisionOutcome","Відвантаження вчасно"],["intendedState","Повні замовлення передаються без втрат"],["changeDescription","Ввести контроль передачі"],["changeCheckpoint","Щотижня"],["expectedSignal","95% вчасно"],["changeSteps","Додати контрольний список\nНавчити команду"]].forEach(([id, value]) => app.getElementById(id).value = value);
+        submit(app.getElementById("decisionForm")); submit(app.getElementById("changePlanForm"));
+        app.querySelectorAll("[data-execution-step]").forEach(control => { control.checked = true; control.dispatchEvent(new Event("change", { bubbles: true })); });
+        app.getElementById("monitoringActual").value = "96% відвантажень виконано вчасно"; submit(app.getElementById("monitoringForm"));
+        app.getElementById("stabilizationStatus").value = "stable"; app.getElementById("stabilizationBasis").value = "Показник тримається дві контрольні точки"; submit(app.getElementById("stabilizationForm"));
+        app.getElementById("closeToMemory").click();
+        await load(`../index.html?investigation=${id}#change`); app = frame.contentDocument;
+        const stored = JSON.parse(localStorage.getItem("management-os-user-investigations-v1")).investigations.find(item => item.id === id);
+        assert(stored.status === "closed", "Case did not persist as closed");
+        assert(stored.data.lifecycle.memory, "Operational memory was not preserved");
+        assert(app.getElementById("changeStageLabel").textContent.includes("операційній пам’яті"), "Reload did not restore lifecycle state");
+        document.body.dataset.testResult = "passed"; result.textContent = "Investigation lifecycle journey passed";
+      } catch (error) { document.body.dataset.testResult = "failed"; result.textContent = `Investigation lifecycle journey failed: ${error.message}`; }
+    }
+    run();
+  </script>
+</body>
+</html>

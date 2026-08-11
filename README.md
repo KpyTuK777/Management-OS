@@ -23,8 +23,14 @@ and inspect them through the Organization Map and focused Workbenches. Investiga
 remains available as a contextual work mode, and inherited organizational context is
 kept separate from Evidence, Working Set content, Hypotheses and accepted facts.
 
-The implementation is people-free by default. Watson, integrations, backend services,
-multi-user authorization and deployment are not active capabilities.
+Named people can now be represented as organizational members without employee
+scoring or HR dossier semantics. Investigation continues through a human Cause,
+accountable Decision, Change Plan, execution steps, monitoring observations,
+stabilization judgment and locally preserved closure memory. Investigation materials
+may include locally inspectable text, images, audio, video, PDF and text/CSV files.
+
+Watson, external integrations, backend services, multi-user authorization and
+deployment are not active capabilities; the product remains honestly usable without AI.
 
 ## Technology stack
 
