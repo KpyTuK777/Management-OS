@@ -32,6 +32,11 @@ may include locally inspectable text, images, audio, video, PDF and text/CSV fil
 Watson, external integrations, backend services, multi-user authorization and
 deployment are not active capabilities; the product remains honestly usable without AI.
 
+The current product also includes reusable operational Materials backed by
+IndexedDB file payloads, Person-attributed information contributions, a general
+Improvement workflow, searchable Operational Memory, and the first honest Watson
+runtime for local retrieval and confirmed structured organization capture.
+
 ## Technology stack
 
 - HTML
