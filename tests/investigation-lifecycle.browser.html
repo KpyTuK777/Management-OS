@@ -22,7 +22,7 @@
         app.querySelector("[data-view='change']").click();
         [["decisionText","Стандартизувати передачу"],["decisionRationale","Прибирає встановлену причину"],["decisionOwner","Марина Коваль"],["decisionOutcome","Відвантаження вчасно"],["intendedState","Повні замовлення передаються без втрат"],["changeDescription","Ввести контроль передачі"],["changeCheckpoint","Щотижня"],["expectedSignal","95% вчасно"],["changeSteps","Додати контрольний список\nНавчити команду"]].forEach(([id, value]) => app.getElementById(id).value = value);
         submit(app.getElementById("decisionForm")); submit(app.getElementById("changePlanForm"));
-        app.querySelectorAll("[data-execution-step]").forEach(control => { control.checked = true; control.dispatchEvent(new Event("change", { bubbles: true })); });
+        while (app.querySelector("[data-execution-step]:not(:checked)")) { const control = app.querySelector("[data-execution-step]:not(:checked)"); control.checked = true; control.dispatchEvent(new Event("change", { bubbles: true })); }
         app.getElementById("monitoringActual").value = "96% відвантажень виконано вчасно"; submit(app.getElementById("monitoringForm"));
         app.getElementById("stabilizationStatus").value = "stable"; app.getElementById("stabilizationBasis").value = "Показник тримається дві контрольні точки"; submit(app.getElementById("stabilizationForm"));
         app.getElementById("closeToMemory").click();

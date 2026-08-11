@@ -69,15 +69,22 @@
   }
 
   function persist() {
-    if (activeKind === "demo") {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: 1, data: state }));
-      return;
+    try {
+      if (activeKind === "demo") {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: 1, data: state }));
+        return true;
+      }
+      const records = loadInvestigations();
+      const index = records.findIndex(item => item.id === activeInvestigation.id);
+      const next = { ...activeInvestigation, updatedAt: new Date().toISOString(), data: clone(state) };
+      if (index >= 0) records[index] = next; else records.unshift(next);
+      localStorage.setItem(INVESTIGATIONS_KEY, JSON.stringify({ version: 1, investigations: records }));
+      activeInvestigation = next;
+      return true;
+    } catch (_) {
+      announce("Не вдалося зберегти зміни: локальне сховище браузера переповнене.");
+      return false;
     }
-    const records = loadInvestigations();
-    const index = records.findIndex(item => item.id === activeInvestigation.id);
-    activeInvestigation = { ...activeInvestigation, updatedAt: new Date().toISOString(), data: clone(state) };
-    if (index >= 0) records[index] = activeInvestigation; else records.unshift(activeInvestigation);
-    localStorage.setItem(INVESTIGATIONS_KEY, JSON.stringify({ version: 1, investigations: records }));
   }
 
   function loadInvestigations() {
@@ -181,7 +188,7 @@
       return `<article class="evidence-card" data-evidence-status="${item.status}">
         <span class="evidence-type" aria-hidden="true">${escapeHtml(item.type.slice(0, 2).toUpperCase())}</span>
         <button class="card-main compact-item" type="button" data-inspect="${item.id}"><span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.summary)}</p><span class="evidence-card__meta"><span class="semantic-status semantic-status--${item.status}">${statusLabel(item.status)}</span><small>${escapeHtml(item.source)} · ${escapeHtml(item.date)}</small></span></span><span>Watson</span></button>
-        <div class="evidence-actions"><button type="button" data-inspect="${item.id}" aria-label="Переглянути ${escapeHtml(item.title)}">⌕</button><button class="${inSet ? "is-added" : ""}" type="button" data-working-set="${item.id}" aria-pressed="${inSet}" aria-label="${inSet ? "Вилучити з" : "Додати до"} робочого набору">${inSet ? "✓" : "+"}</button></div>
+        <div class="evidence-actions"><button type="button" data-inspect="${item.id}" aria-label="Переглянути ${escapeHtml(item.title)}">⌕</button><button class="${inSet ? "is-added" : ""}" type="button" data-working-set="${item.id}" aria-pressed="${inSet}" aria-label="${inSet ? "Вилучити з" : "Додати до"} робочого набору">${inSet ? "✓" : "+"}</button>${activeKind === "user" && item.status !== "verified" ? `<button type="button" data-mark-evidence="${item.id}" aria-label="Визнати матеріал доказом">E</button>` : ""}</div>
       </article>`;
     }).join("") : `<div class="empty-results"><strong>${state.evidence.length ? "Матеріалів із таким статусом немає" : "Матеріалів ще немає"}</strong><p>${state.evidence.length ? "Змініть фільтр або додайте матеріал." : "Додайте перший матеріал. Він залишиться неперевіреним, доки людина не підтвердить його."}</p><button class="primary-button" type="button" data-start-material>Додати матеріал</button></div>`;
   }
@@ -218,8 +225,11 @@
     $("#causeState").textContent = activeInvestigation.causeFound ? "Причину знайдено" : "Причину ще не зафіксовано";
     $("#causeConclusion").textContent = activeInvestigation.conclusion || "Після перевірки доказів зафіксуйте людський висновок.";
     $("#markCauseFound").textContent = activeInvestigation.causeFound ? "Змінити висновок" : "Причину знайдено";
-    $("#closeInvestigation").textContent = activeInvestigation.status === "closed" ? "Розслідування закрито" : "Закрити розслідування";
-    $("#closeInvestigation").disabled = activeInvestigation.status === "closed";
+    $("#closeInvestigation").textContent = activeInvestigation.status === "closed" ? "Розслідування закрито" : "Перейти до рішення і зміни";
+    $("#closeInvestigation").disabled = activeInvestigation.status === "closed" || !activeInvestigation.causeFound;
+    const closed = activeInvestigation.status === "closed";
+    ["#addMaterial", "#addHypothesis", "#editSituation", "#linkExistingHypothesis", "#markCauseFound"].forEach(selector => { $(selector).disabled = closed; });
+    [...$("#unknownForm").elements].forEach(control => control.disabled = closed);
   }
 
   function ensureLifecycle() {
@@ -262,13 +272,14 @@
       $("#changeSteps").value = lifecycle.steps.map(step => step.text).join("\n");
     }
     $("#executionSteps").innerHTML = lifecycle.steps.length ? lifecycle.steps.map(step => `<label class="execution-step ${step.complete ? "is-complete" : ""}"><input type="checkbox" data-execution-step="${escapeHtml(step.id)}" ${step.complete ? "checked" : ""} ${activeInvestigation?.status === "closed" ? "disabled" : ""}><strong>${escapeHtml(step.text)}</strong><small>${step.complete ? "Виконано" : "У роботі"}</small></label>`).join("") : `<p class="honest-empty">Після збереження плану тут з’являться кроки.</p>`;
-    $("#monitoringHistory").innerHTML = lifecycle.observations.map(item => `<article class="monitoring-entry"><strong>${new Date(item.at).toLocaleString("uk-UA")}</strong><p>${escapeHtml(item.actual)}</p>${item.deviation ? `<small>Відхилення: ${escapeHtml(item.deviation)}</small>` : ""}</article>`).join("");
+    $("#monitoringHistory").innerHTML = lifecycle.observations.map(item => `<article class="monitoring-entry"><strong>${new Date(item.at).toLocaleString("uk-UA")}</strong><p><b>Очікували:</b> ${escapeHtml(lifecycle.plan?.expectedSignal || "Не вказано")}</p><p><b>Спостерігаємо:</b> ${escapeHtml(item.actual)}</p>${item.deviation ? `<small>Відхилення: ${escapeHtml(item.deviation)}</small>` : ""}${item.nextCheckpoint ? `<small>Наступна точка: ${escapeHtml(item.nextCheckpoint)}</small>` : ""}</article>`).join("");
     if (lifecycle.stabilization) {
       $("#stabilizationStatus").value = lifecycle.stabilization.status;
       $("#stabilizationBasis").value = lifecycle.stabilization.basis;
     }
-    $("#closeToMemory").disabled = !hasStabilization || activeInvestigation?.status === "closed";
-    const stage = activeInvestigation?.status === "closed" ? "Закрито · в операційній пам’яті" : hasStabilization ? "Готове до закриття" : hasObservation ? "Стабілізація" : allStepsDone ? "Моніторинг" : hasPlan ? "Виконання" : hasDecision ? "Планування зміни" : hasCause ? "Рішення" : "Очікує причини";
+    const readyToClose = hasStabilization && lifecycle.stabilization.status === "stable" && allStepsDone;
+    $("#closeToMemory").disabled = !readyToClose || activeInvestigation?.status === "closed";
+    const stage = activeInvestigation?.status === "closed" ? "Закрито · в операційній пам’яті" : readyToClose ? "Готове до закриття" : hasStabilization ? "Потрібна подальша робота" : hasObservation ? "Стабілізація" : allStepsDone ? "Моніторинг" : hasPlan ? "Виконання" : hasDecision ? "Планування зміни" : hasCause ? "Рішення" : "Очікує причини";
     $("#changeStageLabel").textContent = stage;
   }
 
@@ -459,6 +470,7 @@
       const filterControl = event.target.closest("[data-evidence-filter]");
       const materialControl = event.target.closest("[data-start-material]");
       const openControl = event.target.closest("[data-open-investigation]");
+      const evidenceControl = event.target.closest("[data-mark-evidence]");
       if (inspectControl) inspect(inspectControl.dataset.inspect);
       if (setControl) toggleWorkingSet(setControl.dataset.workingSet);
       if (viewControl) switchView(viewControl.dataset.view);
@@ -472,6 +484,14 @@
         renderEvidence();
       }
       if (materialControl) { switchView("evidence"); openModal($("#materialDialog"), materialControl); }
+      if (evidenceControl) {
+        const item = evidenceById(evidenceControl.dataset.markEvidence);
+        if (item && window.confirm("Визнати цей матеріал доказом у поточному розслідуванні?")) {
+          item.status = "verified";
+          item.verifiedAt = new Date().toISOString();
+          persist(); renderEvidence(); announce("Матеріал визнано доказом людським рішенням.");
+        }
+      }
       if (openControl) {
         const record = loadInvestigations().find(item => item.id === openControl.dataset.openInvestigation);
         if (record) openWorkbench(record, "user");
@@ -541,7 +561,7 @@
       const file = $("#materialFile").files[0];
       const summary = $("#materialSummary").value.trim();
       if (!file && !summary) { $("#materialSummary").setCustomValidity("Додайте текст або оберіть файл."); $("#materialSummary").reportValidity(); return; }
-      if (file && file.size > 2 * 1024 * 1024) { $("#materialFile").setCustomValidity("Файл має бути не більшим за 2 МБ для локального збереження."); $("#materialFile").reportValidity(); return; }
+      if (file && file.size > 1024 * 1024) { $("#materialFile").setCustomValidity("Файл має бути не більшим за 1 МБ для локального збереження."); $("#materialFile").reportValidity(); return; }
       $("#materialSummary").setCustomValidity(""); $("#materialFile").setCustomValidity("");
       const [dataUrl, fileText] = file ? await Promise.all([readFile(file), readFileText(file)]) : [null, ""];
       const item = {
@@ -563,7 +583,7 @@
         recordTime: new Date().toLocaleString("uk-UA")
       };
       state.evidence.push(item);
-      persist();
+      if (!persist()) { state.evidence.pop(); window.alert("Файл не додано: у локальному сховищі недостатньо місця."); return; }
       closeModal($("#materialDialog"));
       renderEvidence();
       announce(`${item.title} додано як неперевірений локальний матеріал.`);
@@ -624,26 +644,23 @@
       renderInvestigationLifecycle();
       openWorkbench(activeInvestigation, "user");
     });
-    $("#closeInvestigation").addEventListener("click", () => {
-      if (activeKind !== "user" || !activeInvestigation || !window.confirm("Закрити це розслідування?")) return;
-      activeInvestigation.status = "closed";
-      activeInvestigation.closedAt = new Date().toISOString();
-      persist();
-      openWorkbench(activeInvestigation, "user");
-      announce("Розслідування закрито й збережено локально.");
-    });
+    $("#closeInvestigation").addEventListener("click", () => { if (activeInvestigation?.causeFound) switchView("change"); });
     $("#decisionForm").addEventListener("submit", event => {
       event.preventDefault();
       const lifecycle = ensureLifecycle();
+      const previousDecision = JSON.stringify(lifecycle.decision);
       lifecycle.decision = { text: $("#decisionText").value.trim(), rationale: $("#decisionRationale").value.trim(), owner: $("#decisionOwner").value.trim(), outcome: $("#decisionOutcome").value.trim(), risks: $("#decisionRisks").value.trim(), at: new Date().toISOString() };
+      if (previousDecision && previousDecision !== JSON.stringify(lifecycle.decision)) { lifecycle.plan = null; lifecycle.steps = []; lifecycle.observations = []; lifecycle.stabilization = null; }
       persist(); renderChangeLifecycle(); announce("Рішення збережено. Тепер можна спланувати зміну.");
     });
     $("#changePlanForm").addEventListener("submit", event => {
       event.preventDefault();
       const lifecycle = ensureLifecycle();
+      const previousPlan = JSON.stringify(lifecycle.plan);
       lifecycle.plan = { intendedState: $("#intendedState").value.trim(), description: $("#changeDescription").value.trim(), checkpoint: $("#changeCheckpoint").value.trim(), expectedSignal: $("#expectedSignal").value.trim(), at: new Date().toISOString() };
       const previous = new Map(lifecycle.steps.map(step => [step.text, step]));
       lifecycle.steps = $("#changeSteps").value.split("\n").map(text => text.trim()).filter(Boolean).map((text, index) => previous.get(text) || { id: `step-${Date.now()}-${index}`, text, complete: false, completedAt: null });
+      if (previousPlan && previousPlan !== JSON.stringify(lifecycle.plan)) { lifecycle.observations = []; lifecycle.stabilization = null; }
       persist(); renderChangeLifecycle(); announce("План зміни збережено. Кроки готові до виконання.");
     });
     $("#executionSteps").addEventListener("change", event => {
@@ -667,7 +684,7 @@
     });
     $("#closeToMemory").addEventListener("click", () => {
       const lifecycle = ensureLifecycle();
-      if (!lifecycle.stabilization || activeKind !== "user") return;
+      if (!lifecycle.stabilization || lifecycle.stabilization.status !== "stable" || !lifecycle.steps.every(step => step.complete) || activeKind !== "user") return;
       lifecycle.memory = { summary: activeInvestigation.conclusion, decision: lifecycle.decision?.text || "", outcome: lifecycle.observations[0]?.actual || "", stabilizedAs: lifecycle.stabilization.status, closedAt: new Date().toISOString() };
       activeInvestigation.status = "closed"; activeInvestigation.closedAt = lifecycle.memory.closedAt;
       persist(); openWorkbench(activeInvestigation, "user"); switchView("change"); announce("Справу закрито й збережено в операційній пам’яті.");
