@@ -691,6 +691,10 @@
     if (params.has("demo") || params.get("mode") === "investigation" || params.has("investigation") || params.get("surface") === "investigations") showInvestigations(null, { history: true, replace: true });
     else showOrganization({ history: true, replace: true });
     render();
+    const contextId = params.get("context");
+    const personId = params.get("person");
+    if (contextId && state()?.elements.some(item => item.id === contextId)) { const item = elementById(contextId); selectedId = contextId; switchView(item.kind === "department" ? "department" : item.kind === "role" ? "role" : item.kind === "process" ? "process" : "map"); renderInspector(contextId); }
+    if (personId && repository.visiblePersons({ purpose:"person-workbench" }).some(item => item.id === personId)) { selectedId = personId; switchView("person"); renderPerson(state()); }
   }
 
   document.addEventListener("DOMContentLoaded", init);

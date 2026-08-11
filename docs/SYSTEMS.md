@@ -270,3 +270,12 @@ responsibilities.
 - **Future responsibilities:** Preferences, terminology, visual settings, and future integrations.
 
 See [Architecture](ARCHITECTURE.md) for implementation boundaries and [Roadmap](ROADMAP.md) for delivery direction.
+
+## Integrated runtime surfaces
+
+The current application also provides Universal Materials with IndexedDB file
+payloads, federated cross-capability search, a shared Operational Memory reader for
+closed Investigations and Improvements, and an honest Watson runtime. Watson uses
+privacy-filtered local retrieval and applies confirmed organization proposals as
+one repository transaction. Optional OpenAI-compatible credentials live only in
+the current browser tab; no secret is committed or persisted durably.

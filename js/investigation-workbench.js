@@ -126,7 +126,7 @@
     const item = state.evidence.find(entry => entry.id === id);
     if (!item?.materialId || typeof MaterialStore === "undefined") return item;
     const material = MaterialStore.get(item.materialId);
-    return material ? { ...item, title: material.title, summary: material.description || material.text || material.fileName || material.url || "Матеріал", source: material.sourceName || "Організаційний матеріал", date: new Date(material.contributedAt).toLocaleString("uk-UA"), mimeType: material.mimeType, fileName: material.fileName, url: material.url } : { ...item, title: "Матеріал недоступний", summary: "Посилання збережено, але сам матеріал недоступний у цьому браузері." };
+    return material ? { ...item, title: material.title, summary: material.description || material.text || material.fileName || material.url || "Матеріал", source: MaterialStore.safeSourceName(material) || "Організаційний матеріал", date: new Date(material.contributedAt).toLocaleString("uk-UA"), mimeType: material.mimeType, fileName: material.fileName, url: material.url } : { ...item, title: "Матеріал недоступний", summary: "Посилання збережено, але сам матеріал недоступний у цьому браузері." };
   }
 
   function itemById(id) {

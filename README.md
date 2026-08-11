@@ -37,6 +37,12 @@ IndexedDB file payloads, Person-attributed information contributions, a general
 Improvement workflow, searchable Operational Memory, and the first honest Watson
 runtime for local retrieval and confirmed structured organization capture.
 
+The integrated shell now provides federated search across the organization,
+permitted people, Materials, active work and Operational Memory. Closed
+Investigations and Improvements share one Memory reader. Watson supports optional
+OpenAI-compatible configuration stored only for the current browser tab and keeps
+local retrieval available when the provider is absent or fails.
+
 ## Technology stack
 
 - HTML

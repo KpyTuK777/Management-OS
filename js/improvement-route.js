@@ -1,0 +1,1 @@
+(function () { "use strict"; const id = new URLSearchParams(location.search).get("open"); if (!id) return; const control = document.querySelector(`[data-open="${CSS.escape(id)}"]`); if (control) control.click(); })();

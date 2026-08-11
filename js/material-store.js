@@ -42,5 +42,9 @@
   function get(materialId) { const found = metadata().find(item => item.id === materialId); return found ? clone(found) : null; }
   function link(materialId, context) { const items = metadata(); const item = items.find(entry => entry.id === materialId); if (!item) throw new Error("Матеріал не знайдено."); if (!item.contexts.some(entry => entry.type === context.type && entry.id === context.id)) item.contexts.push(clone(context)); item.updatedAt = new Date().toISOString(); saveMetadata(items); return clone(item); }
   function correct(materialId, text) { const items = metadata(); const item = items.find(entry => entry.id === materialId); if (!item) throw new Error("Матеріал не знайдено."); item.corrections.push({ text: text.trim(), at: new Date().toISOString() }); item.updatedAt = new Date().toISOString(); saveMetadata(items); return clone(item); }
-  window.MaterialStore = { create, list, get, link, correct, getPayload };
+  function safeSourceName(material) {
+    if (!material?.sourcePersonId) return material?.sourceName || null;
+    try { const api = window.ManagementOSOperatingModel; if (!api) return "Захищене джерело"; const repository = new api.OperatingModelRepository(new api.BrowserPersistenceAdapter()); const person = repository.visiblePersons({ purpose:"person-workbench" }).find(item => item.id === material.sourcePersonId); return person?.displayName || "Захищене джерело"; } catch (_) { return "Захищене джерело"; }
+  }
+  window.MaterialStore = { create, list, get, link, correct, getPayload, safeSourceName };
 })();
