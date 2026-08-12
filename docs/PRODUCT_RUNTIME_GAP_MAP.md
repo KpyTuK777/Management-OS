@@ -4,7 +4,7 @@ Runtime synthesis at starting HEAD `6b35084560ddd13ce496d5ad5f60f162da607841`.
 
 | Capability | Runtime state | Practical finding |
 | --- | --- | --- |
-| Coherent application shell | PARTIAL | Organization and Investigation share the main shell; legacy modules remain separate pages. |
+| Coherent application shell | IMPLEMENTED AND USABLE | Core operational surfaces share context-aware navigation and return paths; Historical Learning remains a bounded reader inside the same product. |
 | Federated search | IMPLEMENTED AND USABLE | Organization elements, permitted people, Materials, active work and completed Memory are grouped with direct context routes. |
 | Living Organization | IMPLEMENTED AND USABLE | Organization, nested departments, roles, named people, capacity, processes, systems, SOPs, measures, reports, meetings and relationships persist locally. |
 | Person workspace | IMPLEMENTED AND USABLE | Named people, role/department placement and reporting context are available without HR scoring. |
@@ -17,9 +17,9 @@ Runtime synthesis at starting HEAD `6b35084560ddd13ce496d5ad5f60f162da607841`.
 | Stabilization and closure | IMPLEMENTED AND USABLE | Human stabilization judgment gates Case closure and preserves a compact memory summary. |
 | Improvement sibling mode | IMPLEMENTED AND USABLE | Healthy-system entry, intended state, Decision, plan, execution, monitoring, stabilization and closure work without Cause machinery. |
 | Operational Memory | IMPLEMENTED AND USABLE | Closed Investigation and Improvement narratives, search, context return and deterministic recurrence context share one workspace. |
-| Knowledge continuity | IMPLEMENTED BUT FRAGMENTED | Notes → Knowledge → SOP works; Case learning promotion is missing. |
-| Historical Learning | IMPLEMENTED BUT FRAGMENTED | Historical Reader is usable but not connected to organizational or Case memory. |
+| Knowledge continuity | IMPLEMENTED BUT FRAGMENTED | Operational Memory returns to current organizational context and Materials; explicit promotion into Knowledge → SOP remains a separate human action. |
+| Historical Learning | IMPLEMENTED BUT FRAGMENTED | Historical Reader is reachable through the integrated shell but published historical learning is deliberately separate from source-owned Operational Memory. |
 | Watson | PARTIAL | Privacy-filtered local retrieval, atomic confirmed organization capture and optional session-only OpenAI-compatible provider execution work. Advanced reasoning remains bounded. |
-| Calendar, Tasks, Analytics | LEGACY / NEEDS RECONCILIATION | Placeholder pages; they are not allowed to masquerade as working capabilities. |
+| Calendar, Tasks, Analytics | HONEST BOUNDARY | These routes explain where live work actually resides and do not present placeholder data or a second system of record. |
 
 Implementation follows the vertical runtime priority: Organization context → inspectable Material → Investigation → human Cause → Decision → Change → Execution → Monitoring → Stabilization → Memory.

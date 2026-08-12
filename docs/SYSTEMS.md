@@ -279,3 +279,10 @@ closed Investigations and Improvements, and an honest Watson runtime. Watson use
 privacy-filtered local retrieval and applies confirmed organization proposals as
 one repository transaction. Optional OpenAI-compatible credentials live only in
 the current browser tab; no secret is committed or persisted durably.
+
+Context continuity is carried in explicit local routes rather than a second data
+store. A Department, Person, Process, Investigation, Improvement, Memory entry or
+Material can open another capability and return to its originating workspace.
+Closed work is read-only in its source workflow and is rendered through the shared
+Operational Memory narrative. CSV/TSV previews are parsed locally; unsupported
+workbook content is preserved for download and never represented as interpreted.

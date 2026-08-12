@@ -43,6 +43,13 @@ Investigations and Improvements share one Memory reader. Watson supports optiona
 OpenAI-compatible configuration stored only for the current browser tab and keeps
 local retrieval available when the provider is absent or fails.
 
+Working context now follows the user between organization, people, processes,
+Materials, Investigation, Improvement, Memory and Watson, with explicit return
+links instead of standalone dead ends. CSV and TSV Materials render as accessible
+tables; unsupported spreadsheet formats remain downloadable without pretending to
+have been interpreted. Calendar, Tasks and Analytics identify their honest future
+integration boundary instead of presenting empty parallel products.
+
 ## Technology stack
 
 - HTML

@@ -444,7 +444,7 @@
     const organizationContext = kind === "user" ? record.data.organizationContext : null;
     contextBanner.classList.toggle("hidden", !organizationContext);
     if (organizationContext) {
-      contextBanner.innerHTML = `<span>Контекст організації</span><strong>${escapeHtml(organizationContext.label)}</strong><small>Посилання не є матеріалом, доказом або фактом.</small>`;
+      contextBanner.innerHTML = `<span>Контекст організації</span><strong>${escapeHtml(organizationContext.label)}</strong><small>Посилання не є матеріалом, доказом або фактом.</small><a href="index.html?context=${encodeURIComponent(organizationContext.elementId)}">Повернутися до контексту</a><a href="watson.html?context=${encodeURIComponent(record.id)}&type=investigation&contextLabel=${encodeURIComponent(record.title)}&return=${encodeURIComponent(`index.html?investigation=${record.id}`)}">Запитати Watson</a>`;
     } else contextBanner.replaceChildren();
     $(".matter-identity strong").textContent = `${kind === "demo" ? "MAT-0247" : record.id} · ${title}`;
     const rail = $(".rail-matter");
