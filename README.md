@@ -50,6 +50,14 @@ tables; unsupported spreadsheet formats remain downloadable without pretending t
 have been interpreted. Calendar, Tasks and Analytics identify their honest future
 integration boundary instead of presenting empty parallel products.
 
+Management OS now presents these capabilities through one persistent product
+shell. The organization remains visible while the workspace changes, and the same
+navigation, visual language and responsive behavior continue through operational
+work and Historical Learning. Watson is no longer a navigation destination: it is
+a compact contextual layer available from the current workspace. Manual controls
+remain first-class, while natural-language structural changes are shown as a
+human-readable proposal and require confirmation before one repository mutation.
+
 ## Technology stack
 
 - HTML

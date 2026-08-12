@@ -286,3 +286,19 @@ Material can open another capability and return to its originating workspace.
 Closed work is read-only in its source workflow and is rendered through the shared
 Operational Memory narrative. CSV/TSV previews are parsed locally; unsupported
 workbook content is preserved for download and never represented as interpreted.
+
+## Unified product shell and Watson
+
+Management OS is one application even where the current implementation retains
+separate HTML routes. A single persistent shell owns global navigation, active
+organization context, responsive behavior and the compact Watson affordance.
+Historical Learning preserves its bounded reading atmosphere inside this shell;
+it is not a separate product.
+
+Watson is not a primary destination. The current workspace and selected object
+provide its first interpretation hint, while explicit user language may request a
+different supported intent. Watson reads, retrieves, structures and previews; a
+significant organizational mutation follows only after human confirmation and is
+committed through the existing operating-model repository. Manual UI uses the same
+model and remains fully available. Internal relationship and persistence mechanics
+do not belong in the primary operational language.

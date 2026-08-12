@@ -442,6 +442,8 @@
       $(".investigation-header").append(contextBanner);
     }
     const organizationContext = kind === "user" ? record.data.organizationContext : null;
+    window.dispatchEvent(new CustomEvent("management-os:context", { detail: { workspace:"Розслідування", mode:record.status === "closed" ? "Завершено" : "У роботі", type:"investigation", id:record.id, label:record.title, organization:organizationContext?.organizationLabel } }));
+    window.ManagementOSWatson?.setContext({ workspace:"Розслідування", mode:record.status === "closed" ? "Завершено" : "У роботі", type:"investigation", id:record.id, label:record.title, organization:organizationContext?.organizationLabel });
     contextBanner.classList.toggle("hidden", !organizationContext);
     if (organizationContext) {
       contextBanner.innerHTML = `<span>Контекст організації</span><strong>${escapeHtml(organizationContext.label)}</strong><small>Посилання не є матеріалом, доказом або фактом.</small><a href="index.html?context=${encodeURIComponent(organizationContext.elementId)}">Повернутися до контексту</a><a href="watson.html?context=${encodeURIComponent(record.id)}&type=investigation&contextLabel=${encodeURIComponent(record.title)}&return=${encodeURIComponent(`index.html?investigation=${record.id}`)}">Запитати Watson</a>`;

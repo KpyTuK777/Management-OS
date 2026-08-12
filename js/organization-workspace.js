@@ -362,6 +362,9 @@
     currentView = view;
     $$('[data-lom-panel]').forEach(panel => panel.classList.toggle("hidden", panel.dataset.lomPanel !== view));
     $$('[data-lom-view]').forEach(button => button.classList.toggle("is-active", button.dataset.lomView === view));
+    const selected = elementById(selectedId);
+    window.dispatchEvent(new CustomEvent("management-os:context", { detail: { workspace:"Організація", mode:view, type:selected?.kind || "organization", id:selected?.id || state()?.elements.find(item => item.kind === "organization")?.id || "", label:selected?.label || state()?.elements.find(item => item.kind === "organization")?.label || "Організація" } }));
+    window.ManagementOSWatson?.setContext({ workspace:"Організація", mode:view, type:selected?.kind || "organization", id:selected?.id || state()?.elements.find(item => item.kind === "organization")?.id || "", label:selected?.label || state()?.elements.find(item => item.kind === "organization")?.label || "Організація" });
     if (view === "department") renderDepartment(state());
     if (view === "role") renderRole(state());
     if (view === "person") renderPerson(state());
@@ -694,6 +697,8 @@
     if (params.has("demo") || params.get("mode") === "investigation" || params.has("investigation") || params.get("surface") === "investigations") showInvestigations(null, { history: true, replace: true });
     else showOrganization({ history: true, replace: true });
     render();
+    const requestedView = params.get("view");
+    if (["map","department","role","person","process"].includes(requestedView)) switchView(requestedView);
     const contextId = params.get("context");
     const personId = params.get("person");
     if (contextId && state()?.elements.some(item => item.id === contextId)) { const item = elementById(contextId); selectedId = contextId; switchView(item.kind === "department" ? "department" : item.kind === "role" ? "role" : item.kind === "process" ? "process" : "map"); renderInspector(contextId); }
