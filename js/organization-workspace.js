@@ -50,8 +50,9 @@
   function investigationsFor(id) { return organizationInvestigations().filter(item => item.data.organizationContext.elementId === id); }
 
   function setSurfaceHistory(surface, replace) {
-    const url = surface === "organization" ? "index.html?surface=organization" : "index.html?surface=investigations";
-    history[replace ? "replaceState" : "pushState"]({ managementSurface: surface, returnToOrganization: surface === "investigations" && !replace }, "", url);
+    const requestedView = surface === "organization" ? new URLSearchParams(location.search).get("view") : null;
+    const url = requestedView ? `index.html?view=${encodeURIComponent(requestedView)}` : surface === "organization" ? "index.html?surface=organization" : "index.html?surface=investigations";
+    history[replace ? "replaceState" : "pushState"]({ managementSurface: surface, view: requestedView, returnToOrganization: surface === "investigations" && !replace }, "", url);
   }
   function returnToOrganization() {
     if (history.state?.managementSurface === "investigations" && history.state.returnToOrganization) history.back();
@@ -368,6 +369,17 @@
     if (view === "department") renderDepartment(state());
     if (view === "role") renderRole(state());
     if (view === "person") renderPerson(state());
+    if (view === "process") renderProcesses(state());
+  }
+
+  function openCanonicalView(view, { history = false, replace = false } = {}) {
+    const model = state();
+    if (view === "department" && elementById(selectedId)?.kind !== "department") selectedId = model?.elements.find(item => item.kind === "department")?.id || null;
+    if (view === "role" && elementById(selectedId)?.kind !== "role") selectedId = model?.elements.find(item => item.kind === "role")?.id || null;
+    if (view === "person" && !repository.visiblePersons({ purpose: "person-workbench" }).some(item => item.id === selectedId)) selectedId = repository.visiblePersons({ purpose: "person-workbench" })[0]?.id || null;
+    if (view === "process" && elementById(selectedId)?.kind !== "process") selectedId = model?.elements.find(item => item.kind === "process")?.id || null;
+    switchView(view);
+    if (history) window.history[replace ? "replaceState" : "pushState"]({ managementSurface: "organization", view }, "", `index.html?view=${encodeURIComponent(view)}`);
   }
 
   function setMapExpanded(expanded) {
@@ -633,7 +645,7 @@
       if (move) openMoveDialog(move.dataset.moveId, move);
       if (investigate) { const item = elementById(investigate.dataset.investigateId); repository.createInvestigationContext(item.id); showInvestigations(item, { history: true }); }
       if (improve) { const item = elementById(improve.dataset.improveId); $("#improvementElementId").value = item.id; $("#improvementTitle").value = `Вдосконалення: ${item.label}`; $("#improvementChange").value = ""; openDialog($("#improvementDialog"), improve); }
-      if (view) switchView(view.dataset.lomView);
+      if (view) openCanonicalView(view.dataset.lomView, { history: true });
       if (department) { selectedId = department.dataset.departmentId; switchView("department"); renderDepartment(state()); renderMap(state()); }
       if (organization && !organization.classList.contains("is-active")) { repository.switchOrganization(organization.dataset.organizationId); closeDialog($("#organizationMenuDialog")); resetOrganizationContext(); render(); announce("Організацію змінено."); }
       if (lens) { const map = $("#organizationMap"); lensViewport[currentLens] = { left: map.scrollLeft, top: map.scrollTop }; currentLens = lens.dataset.lens; $$('[data-lens]').forEach(button => button.classList.toggle("is-active", button === lens)); renderMap(state()); if (selectedId) renderInspector(selectedId); }
@@ -672,7 +684,7 @@
     });
     window.addEventListener("popstate", event => {
       if (event.state?.managementSurface === "investigations") showInvestigations(null);
-      else showOrganization();
+      else { showOrganization(); openCanonicalView(event.state?.view || "map"); }
     });
     document.addEventListener("keydown", event => {
       if (event.key === "Escape" && mapExpanded) { event.preventDefault(); setMapExpanded(false); $("#expandOrganizationMap").focus(); }
@@ -698,7 +710,7 @@
     else showOrganization({ history: true, replace: true });
     render();
     const requestedView = params.get("view");
-    if (["map","department","role","person","process"].includes(requestedView)) switchView(requestedView);
+    if (["map","department","role","person","process"].includes(requestedView)) openCanonicalView(requestedView, { history: true, replace: true });
     const contextId = params.get("context");
     const personId = params.get("person");
     if (contextId && state()?.elements.some(item => item.id === contextId)) { const item = elementById(contextId); selectedId = contextId; switchView(item.kind === "department" ? "department" : item.kind === "role" ? "role" : item.kind === "process" ? "process" : "map"); renderInspector(contextId); }

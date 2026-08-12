@@ -411,7 +411,7 @@
   function showStart() {
     $("#startPage").classList.remove("hidden");
     $("#workbenchShell").classList.add("hidden");
-    history.replaceState(null, "", location.pathname);
+    history.replaceState(null, "", `${location.pathname}${location.search}`);
     renderSavedInvestigations();
   }
 

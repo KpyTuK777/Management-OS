@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="uk">
+<meta charset="utf-8">
+<title>Unified shell corrections browser regression</title>
+<body>
+  <pre id="result">RUNNING</pre>
+  <iframe id="app" title="Management OS correction test" style="width:390px;height:844px;border:0"></iframe>
+  <script src="../js/operating-model-repository.js"></script>
+  <script>
+    const result = document.getElementById("result");
+    const frame = document.getElementById("app");
+    if (new URLSearchParams(location.search).get("viewport") === "desktop") { frame.style.width = "1280px"; frame.style.height = "800px"; }
+    const assert = (condition, message) => { if (!condition) throw new Error(message); };
+    const fail = error => { result.textContent = `FAIL: ${error.message}`; };
+    const repository = new ManagementOSOperatingModel.OperatingModelRepository(new ManagementOSOperatingModel.BrowserPersistenceAdapter());
+    repository.createOrganization("Northstar Home");
+    let model = repository.snapshot();
+    const root = model.elements.find(item => item.kind === "organization");
+    const sales = repository.createElement({ kind: "department", label: "Продажі", parentId: root.id });
+    const operations = repository.createElement({ kind: "department", label: "Операції", parentId: root.id });
+    const role = repository.createElement({ kind: "role", label: "Керівник продажів", parentId: sales.id });
+    repository.createElement({ kind: "process", label: "Кваліфікація ліда", parentId: sales.id, details: { input: "Лід", output: "Рішення", result: "Кваліфікований лід" } });
+    repository.createPerson({ purpose: "team-composition", displayName: "Олена Коваль", roleId: role.id, departmentId: sales.id });
+    let stage = 0;
+    const routes = ["department", "role", "person", "process"];
+
+    frame.addEventListener("load", async () => {
+      await new Promise(resolve => setTimeout(resolve, 100));
+      try {
+        const win = frame.contentWindow;
+        const doc = win.document;
+        if (stage < routes.length) {
+          const view = routes[stage];
+          assert(!doc.querySelector(`[data-lom-panel="${view}"]`).classList.contains("hidden"), `${view} destination is hidden at ${win.location.href}`);
+          assert(doc.querySelector(`#mosNavigation a[href="index.html?view=${view}"]`).matches(".is-active"), `${view} nav state is inactive`);
+          assert(doc.querySelector(".mos-watson"), `${view} lost persistent Watson`);
+          assert(doc.getElementById("mosOrganization").textContent === "Northstar Home", `${view} lost organization context`);
+          stage += 1;
+          frame.src = `../index.html?view=${routes[stage] || "department"}`;
+          return;
+        }
+        if (stage === 4) {
+          assert(win.ManagementOSWatson.resolveDepartmentReference("Продажах").matches[0].id === sales.id, "inflected parent was not resolved");
+          assert(win.ManagementOSWatson.resolveDepartmentReference("Неіснуючий").status === "missing", "missing parent did not remain unresolved");
+          const explicit = win.ManagementOSWatson.interpretStructuralPlacement("Додай у Продажі підрозділ B2B");
+          assert(explicit.parentId === sales.id, "explicit parent did not override context");
+          const selected = win.ManagementOSWatson.bindProposalContext({ intent: "organization", departments: [{ label: "SMB", parent: "" }], people: [], parentId: sales.id });
+          assert(selected.departments[0].parentId === sales.id, "selected Department was not used as parent");
+          const form = doc.getElementById("mosWatsonForm");
+          doc.getElementById("mosWatsonInput").value = "Додай у Продажі підрозділ B2B";
+          form.requestSubmit();
+          setTimeout(() => {
+            try {
+              const proposal = doc.getElementById("mosWatsonProposal");
+              assert(proposal.textContent.includes("Продажі") && proposal.textContent.includes("└── B2B"), "proposal does not show explicit hierarchy");
+              stage = 5;
+              proposal.querySelector("[data-watson-confirm]").click();
+            } catch (error) { fail(error); }
+          }, 250);
+          return;
+        }
+        if (stage === 5) {
+          const reviewRepository = new ManagementOSOperatingModel.OperatingModelRepository(new ManagementOSOperatingModel.BrowserPersistenceAdapter());
+          model = reviewRepository.snapshot();
+          const b2b = model.elements.filter(item => item.kind === "department" && item.label === "B2B");
+          assert(b2b.length === 1, "B2B was not created exactly once");
+          assert(model.relationships.some(link => link.lifecycle === "active" && link.fromId === sales.id && link.toId === b2b[0].id), "B2B was not persisted under Продажі");
+          assert(!model.relationships.some(link => link.lifecycle === "active" && link.fromId === root.id && link.toId === b2b[0].id), "B2B silently fell back to root");
+          const missing = win.ManagementOSWatson.interpretStructuralPlacement("Додай у Неіснуючий підрозділ Enterprise");
+          assert(missing.intent === "clarification", "nonexistent parent did not require clarification");
+          doc.getElementById("mosWatsonInput").value = "Додай у Продажі підрозділ B2B";
+          doc.getElementById("mosWatsonForm").requestSubmit();
+          setTimeout(() => { stage = 6; doc.querySelector("[data-watson-confirm]").click(); }, 250);
+          return;
+        }
+        if (stage === 6) {
+          const reviewRepository = new ManagementOSOperatingModel.OperatingModelRepository(new ManagementOSOperatingModel.BrowserPersistenceAdapter());
+          model = reviewRepository.snapshot();
+          assert(model.elements.filter(item => item.kind === "department" && item.label === "B2B").length === 1, "repeated confirmation created a duplicate B2B");
+          reviewRepository.createElement({ kind: "department", label: "Продажі", parentId: operations.id });
+          stage = 7;
+          frame.contentWindow.location.reload();
+          return;
+        }
+        if (stage === 7) {
+          assert(win.ManagementOSWatson.resolveDepartmentReference("Продажі").status === "ambiguous", "duplicate Department name did not require clarification");
+          result.textContent = "PASS: routes, context, Watson hierarchy, ambiguity, duplicate protection, and reload persistence";
+        }
+      } catch (error) { fail(error); }
+    });
+    frame.src = "../index.html?view=department";
+    setTimeout(() => { if (result.textContent === "RUNNING") result.textContent = "FAIL: timed out"; }, 8000);
+  </script>
+</body>
+</html>
