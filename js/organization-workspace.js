@@ -34,6 +34,7 @@
   function announce(message) { $("#organizationAnnouncement").textContent = message; }
   function state() { return repository.snapshot(); }
   function elementById(id) { return state()?.elements.find(item => item.id === id); }
+  function activeElements(model = state()) { return model?.elements.filter(item => item.lifecycle === "active") || []; }
   function personById(id) { return state()?.persons?.find(item => item.id === id); }
   function activePeopleRelations(at = new Date().toISOString()) {
     const time = new Date(at).getTime();
@@ -130,8 +131,8 @@
     $("#organizationTitle").textContent = organization.label;
     $("#organizationMenuButton").setAttribute("aria-label", `Керувати організаціями. Поточна: ${organization.label}`);
     renderOrganizationList();
-    const departments = model.elements.filter(item => item.kind === "department").length;
-    const roles = model.elements.filter(item => item.kind === "role").length;
+    const departments = activeElements(model).filter(item => item.kind === "department").length;
+    const roles = activeElements(model).filter(item => item.kind === "role").length;
     $("#modelSummary").textContent = `${departments} підрозділів · ${roles} ролей`;
     const recovery = repository.recoveryInfo();
     $("#persistenceState").textContent = "Збережено локально";
@@ -149,10 +150,10 @@
   }
 
   function populateSelects(model) {
-    const options = model.elements.map(item => `<option value="${escapeHtml(item.id)}">${escapeHtml(item.label)} · ${escapeHtml(kindLabels[item.kind])}</option>`).join("");
+    const options = activeElements(model).map(item => `<option value="${escapeHtml(item.id)}">${escapeHtml(item.label)} · ${escapeHtml(kindLabels[item.kind])}</option>`).join("");
     $("#relationshipFrom").innerHTML = options;
     $("#relationshipTo").innerHTML = options;
-    $("#elementParent").innerHTML = `<option value="">Поки не розміщено</option>${model.elements.filter(item => ["organization", "department"].includes(item.kind)).map(item => `<option value="${escapeHtml(item.id)}">${escapeHtml(item.label)}</option>`).join("")}`;
+    $("#elementParent").innerHTML = `<option value="">Поки не розміщено</option>${activeElements(model).filter(item => ["organization", "department"].includes(item.kind)).map(item => `<option value="${escapeHtml(item.id)}">${escapeHtml(item.label)}</option>`).join("")}`;
   }
 
   function relationshipEndpointKinds(family) {
@@ -169,7 +170,7 @@
   function updateRelationshipEndpoints(family, preferredFrom) {
     const model = state();
     const kinds = relationshipEndpointKinds(family);
-    const options = allowed => model.elements.filter(item => allowed.includes(item.kind)).map(item => `<option value="${escapeHtml(item.id)}">${escapeHtml(item.label)} · ${escapeHtml(kindLabels[item.kind])}</option>`).join("");
+    const options = allowed => activeElements(model).filter(item => allowed.includes(item.kind)).map(item => `<option value="${escapeHtml(item.id)}">${escapeHtml(item.label)} · ${escapeHtml(kindLabels[item.kind])}</option>`).join("");
     $("#relationshipFrom").innerHTML = options(kinds.from);
     $("#relationshipTo").innerHTML = options(kinds.to);
     if (preferredFrom && Array.from($("#relationshipFrom").options).some(option => option.value === preferredFrom)) $("#relationshipFrom").value = preferredFrom;
@@ -198,7 +199,7 @@
   function renderMap(model) {
     const map = $("#organizationMap");
     const organization = model.elements.find(item => item.kind === "organization");
-    const children = model.elements.filter(item => item.kind === "department");
+    const children = activeElements(model).filter(item => item.kind === "department");
     $("#mapEmpty").classList.toggle("hidden", children.length > 0);
     map.classList.toggle("hidden", children.length === 0);
     if (!children.length) { map.replaceChildren(); return; }
@@ -226,7 +227,7 @@
     const meaningful = visibleRelations.filter(item => item.family !== "containment");
     if (currentLens === "operations") {
       const groups = [["Процеси", ["process"]], ["Системи та SOP", ["system", "sop"]], ["Показники", ["measure"]], ["Звіти та зустрічі", ["report", "meeting"]]];
-      const workCards = groups.map(([title, kinds]) => { const items = model.elements.filter(item => kinds.includes(item.kind)); return `<section class="lom-operation-group"><h4>${title}</h4>${items.length ? items.map(item => `<button type="button" data-element-id="${escapeHtml(item.id)}">${escapeHtml(item.label)}</button>`).join("") : `<span>Ще не описано</span>`}</section>`; }).join("");
+      const workCards = groups.map(([title, kinds]) => { const items = activeElements(model).filter(item => kinds.includes(item.kind)); return `<section class="lom-operation-group"><h4>${title}</h4>${items.length ? items.map(item => `<button type="button" data-element-id="${escapeHtml(item.id)}">${escapeHtml(item.label)}</button>`).join("") : `<span>Ще не описано</span>`}</section>`; }).join("");
       map.innerHTML = `<div class="lom-operating-view">${continuity}<header><h3>Як організація фактично працює</h3><button type="button" data-open-relationship>Додати робочий зв’язок</button></header><div class="lom-operation-groups">${workCards}<section class="lom-operation-group lom-operation-group--active"><h4>Активна робота</h4><span><b>${organizationInvestigations().length}</b> розслідувань</span><span><b>${model.improvements.length}</b> вдосконалень</span></section></div>${meaningful.length ? `<div class="lom-work-relations"><h4>Відповідальність і взаємодії</h4>${meaningful.map(item => `<button type="button" data-element-id="${escapeHtml(item.fromId)}">${escapeHtml(elementById(item.fromId)?.label || "Невідомо")} <b>${escapeHtml(familyLabels[item.family])}</b> ${escapeHtml(elementById(item.toId)?.label || "Невідомо")}</button>`).join("")}</div>` : ""}</div>`;
       map.scrollTo(lensViewport.operations);
       return;
@@ -236,8 +237,8 @@
   }
 
   function renderDepartment(model) {
-    const departments = model.elements.filter(item => item.kind === "department");
-    const selected = model.elements.find(item => item.id === selectedId && item.kind === "department") || departments[0];
+    const departments = activeElements(model).filter(item => item.kind === "department");
+    const selected = activeElements(model).find(item => item.id === selectedId && item.kind === "department") || departments[0];
     if (!selected) {
       $("#departmentTitle").textContent = "Підрозділів ще немає";
       $("#departmentWorkbench").innerHTML = `<div class="lom-honest-empty lom-span-all"><strong>Додайте перший підрозділ</strong><p>Ролі, процеси та взаємодії можна додавати поступово.</p><button class="lom-button lom-button--primary" type="button" data-create-kind="department">Додати підрозділ</button></div>`;
@@ -290,13 +291,13 @@
   }
 
   function renderProcesses(model) {
-    const processes = model.elements.filter(item => item.kind === "process");
+    const processes = activeElements(model).filter(item => item.kind === "process");
     $("#processList").innerHTML = processes.length ? processes.map(item => `<article class="lom-process-card"><header><div><span class="lom-state lom-state--${escapeHtml(item.qualification)}">${escapeHtml(qualificationLabels[item.qualification])}</span><h3>${escapeHtml(item.label)}</h3></div><button type="button" data-element-id="${escapeHtml(item.id)}">Переглянути</button></header><div class="lom-process-flow"><span><small>Вхід</small><b>${escapeHtml(item.details.input || "Не визначено")}</b></span><i>→</i><span><small>Процес</small><b>${escapeHtml(item.label)}</b></span><i>→</i><span><small>Вихід</small><b>${escapeHtml(item.details.output || "Не визначено")}</b></span><i>→</i><span><small>Результат</small><b>${escapeHtml(item.details.result || "Не визначено")}</b></span></div></article>`).join("") : `<div class="lom-honest-empty"><strong>Процеси ще не описані</strong><p>Почніть з входу, роботи, виходу та очікуваного результату.</p><button class="lom-button lom-button--primary" type="button" data-create-kind="process">Додати процес</button></div>`;
   }
 
   function renderRole(model) {
-    const roles = model.elements.filter(item => item.kind === "role");
-    const selected = model.elements.find(item => item.id === selectedId && item.kind === "role") || roles[0];
+    const roles = activeElements(model).filter(item => item.kind === "role");
+    const selected = activeElements(model).find(item => item.id === selectedId && item.kind === "role") || roles[0];
     if (!selected) {
       $("#roleTitle").textContent = "Ролей ще немає";
       $("#roleWorkbench").innerHTML = `<div class="lom-honest-empty"><strong>Опишіть першу роль</strong><p>Роль — це відповідальність у роботі, а не профіль людини.</p><button class="lom-button lom-button--primary" type="button" data-create-kind="role">Додати роль</button></div>`;
@@ -353,7 +354,7 @@
     const workRelations = relations.filter(relation => !["containment", "reporting"].includes(relation.family));
     const reportingParent = relations.find(relation => relation.family === "reporting" && relation.fromId === id);
     const facts = [parentRelation ? `<div><dt>Входить до</dt><dd>${escapeHtml(elementById(parentRelation.fromId)?.label || "Організації")}</dd></div>` : "", reportingParent ? `<div><dt>Звітує до</dt><dd>${escapeHtml(elementById(reportingParent.toId)?.label || "Невідомо")}</dd></div>` : "", roles.length ? `<div><dt>Ролі</dt><dd>${roles.length}</dd></div>` : "", work.length ? `<div><dt>Активні розслідування</dt><dd>${work.length}</dd></div>` : "", improvements.length ? `<div><dt>Вдосконалення</dt><dd>${improvements.length}</dd></div>` : "", interactions.length ? `<div><dt>Взаємодії з іншими</dt><dd>${interactions.length}</dd></div>` : ""].join("");
-    $("#organizationInspectorContent").innerHTML = `<div class="lom-inspector-summary"><span>${escapeHtml(kindLabels[item.kind])}</span><span>${escapeHtml(qualificationLabels[item.qualification])}</span></div>${facts ? `<dl>${facts}</dl>` : ""}${workRelations.length ? `<section><h3>Безпосередньо пов’язано</h3><ul>${workRelations.slice(0, 4).map(relation => { const other = elementById(relation.fromId === id ? relation.toId : relation.fromId); return `<li><button type="button" data-element-id="${escapeHtml(other?.id || "")}"><span>${escapeHtml(familyLabels[relation.family])}</span><b>${escapeHtml(other?.label || "Недоступний елемент")}</b></button></li>`; }).join("")}</ul></section>` : ""}<div class="lom-inspector-actions">${["department", "role"].includes(item.kind) ? `<button type="button" data-move-id="${escapeHtml(id)}">Змінити місце у структурі</button>` : ""}<button type="button" data-open-relationship data-from-id="${escapeHtml(id)}">Додати зв’язок</button><button type="button" data-investigate-id="${escapeHtml(id)}">Розпочати розслідування</button><button type="button" data-improve-id="${escapeHtml(id)}">Запропонувати зміну</button></div><details><summary>Історія та технічні відомості</summary><p>Версія ${item.version}. Оновлено ${new Date(item.updatedAt).toLocaleString("uk-UA")}.</p><p>Стан знання: ${escapeHtml(qualificationLabels[item.qualification])}.</p></details>`;
+    $("#organizationInspectorContent").innerHTML = `<div class="lom-inspector-summary"><span>${escapeHtml(kindLabels[item.kind])}</span><span>${escapeHtml(qualificationLabels[item.qualification])}</span></div>${facts ? `<dl>${facts}</dl>` : ""}${workRelations.length ? `<section><h3>Безпосередньо пов’язано</h3><ul>${workRelations.slice(0, 4).map(relation => { const other = elementById(relation.fromId === id ? relation.toId : relation.fromId); return `<li><button type="button" data-element-id="${escapeHtml(other?.id || "")}"><span>${escapeHtml(familyLabels[relation.family])}</span><b>${escapeHtml(other?.label || "Недоступний елемент")}</b></button></li>`; }).join("")}</ul></section>` : ""}<div class="lom-inspector-actions">${item.kind === "department" ? `<button type="button" data-edit-department-id="${escapeHtml(id)}">Змінити назву</button>` : ""}${["department", "role"].includes(item.kind) ? `<button type="button" data-move-id="${escapeHtml(id)}">Змінити місце у структурі</button>` : ""}<button type="button" data-open-relationship data-from-id="${escapeHtml(id)}">Додати зв’язок</button><button type="button" data-investigate-id="${escapeHtml(id)}">Розпочати розслідування</button><button type="button" data-improve-id="${escapeHtml(id)}">Запропонувати зміну</button>${item.kind === "department" ? `<button type="button" class="lom-danger-action" data-remove-department-id="${escapeHtml(id)}">Прибрати зі структури</button>` : ""}</div><details><summary>Історія змін</summary><p>Оновлено ${new Date(item.updatedAt).toLocaleString("uk-UA")}.</p><p>${escapeHtml(qualificationLabels[item.qualification])}.</p></details>`;
     $("#organizationInspectorContent").insertAdjacentHTML("beforeend", `<nav class="lom-context-actions"><a href="materials.html?context=${encodeURIComponent(id)}&type=${encodeURIComponent(item.kind)}&contextLabel=${encodeURIComponent(item.label)}">Матеріали</a><a href="watson.html?context=${encodeURIComponent(id)}&type=${encodeURIComponent(item.kind)}&contextLabel=${encodeURIComponent(item.label)}&return=${encodeURIComponent(`index.html?context=${id}`)}">Запитати Watson</a></nav>`);
     $("#organizationInspector").classList.add("is-open");
     $(".lom-workspace").classList.add("has-inspector");
@@ -374,10 +375,10 @@
 
   function openCanonicalView(view, { history = false, replace = false } = {}) {
     const model = state();
-    if (view === "department" && elementById(selectedId)?.kind !== "department") selectedId = model?.elements.find(item => item.kind === "department")?.id || null;
-    if (view === "role" && elementById(selectedId)?.kind !== "role") selectedId = model?.elements.find(item => item.kind === "role")?.id || null;
+    if (view === "department" && (elementById(selectedId)?.kind !== "department" || elementById(selectedId)?.lifecycle !== "active")) selectedId = activeElements(model).find(item => item.kind === "department")?.id || null;
+    if (view === "role" && (elementById(selectedId)?.kind !== "role" || elementById(selectedId)?.lifecycle !== "active")) selectedId = activeElements(model).find(item => item.kind === "role")?.id || null;
     if (view === "person" && !repository.visiblePersons({ purpose: "person-workbench" }).some(item => item.id === selectedId)) selectedId = repository.visiblePersons({ purpose: "person-workbench" })[0]?.id || null;
-    if (view === "process" && elementById(selectedId)?.kind !== "process") selectedId = model?.elements.find(item => item.kind === "process")?.id || null;
+    if (view === "process" && (elementById(selectedId)?.kind !== "process" || elementById(selectedId)?.lifecycle !== "active")) selectedId = activeElements(model).find(item => item.kind === "process")?.id || null;
     switchView(view);
     if (history) window.history[replace ? "replaceState" : "pushState"]({ managementSurface: "organization", view }, "", `index.html?view=${encodeURIComponent(view)}`);
   }
@@ -493,8 +494,8 @@
 
   function preparePersonDialog(invoker) {
     const model = state();
-    const roles = model.elements.filter(item => item.kind === "role");
-    const departments = model.elements.filter(item => item.kind === "department");
+    const roles = activeElements(model).filter(item => item.kind === "role");
+    const departments = activeElements(model).filter(item => item.kind === "department");
     $("#personName").value = "";
     $("#personSearch").value = "";
     $("#personSearchResults").replaceChildren();
@@ -504,6 +505,21 @@
     if (invoker.dataset.departmentId) $("#personDepartment").value = invoker.dataset.departmentId;
     $("#personEffectiveFrom").value = new Date().toISOString().slice(0, 10);
     openDialog($("#personDialog"), invoker);
+  }
+
+  function removalSummary(impact) {
+    const entries = [[impact.people, "людей"], [impact.roles, "ролей"], [impact.departments, "дочірніх підрозділів"], [impact.processes, "процесів"], [impact.otherElements, "інших елементів"], [impact.otherLinks, "активних зв’язків"]].filter(([count]) => count);
+    return entries.length ? `<strong>Спочатку перенесіть залежності:</strong><ul>${entries.map(([count, label]) => `<li>${count} ${label}</li>`).join("")}</ul>` : `<strong>«${escapeHtml(impact.department.label)}» не має активних залежностей.</strong>`;
+  }
+
+  function openDepartmentRemoval(elementId, invoker) {
+    const impact = repository.departmentRemovalImpact(elementId);
+    $("#removeDepartmentId").value = elementId;
+    $("#removeDepartmentDialogTitle").textContent = `Прибрати «${impact.department.label}»?`;
+    $("#removeDepartmentSummary").innerHTML = removalSummary(impact);
+    const blocked = impact.people + impact.roles + impact.departments + impact.processes + impact.otherElements + impact.otherLinks > 0;
+    $("#removeDepartmentConfirm").disabled = blocked;
+    openDialog($("#removeDepartmentDialog"), invoker);
   }
 
   function bindEvents() {
@@ -568,6 +584,17 @@
       catch (error) { $("#moveElementParent").setCustomValidity(error.message); event.currentTarget.reportValidity(); }
     });
     $("#moveElementParent").addEventListener("change", event => event.currentTarget.setCustomValidity(""));
+    $("#editDepartmentForm").addEventListener("submit", event => {
+      event.preventDefault();
+      try { repository.reviseElement($("#editDepartmentId").value, { label: $("#editDepartmentName").value }); closeDialog($("#editDepartmentDialog")); render(); announce("Назву підрозділу оновлено."); }
+      catch (error) { $("#editDepartmentName").setCustomValidity(error.message); event.currentTarget.reportValidity(); }
+    });
+    $("#editDepartmentName").addEventListener("input", event => event.currentTarget.setCustomValidity(""));
+    $("#removeDepartmentForm").addEventListener("submit", event => {
+      event.preventDefault();
+      try { const label = elementById($("#removeDepartmentId").value)?.label; repository.retireDepartment($("#removeDepartmentId").value); selectedId = null; closeDialog($("#removeDepartmentDialog")); $("#organizationInspector").classList.remove("is-open"); $(".lom-workspace").classList.remove("has-inspector"); render(); announce(`«${label}» прибрано з активної структури. Історію збережено.`); }
+      catch (error) { $("#removeDepartmentSummary").innerHTML = `<strong>${escapeHtml(error.message)}</strong>`; }
+    });
     $("#capacityForm").addEventListener("submit", event => {
       event.preventDefault();
       try {
@@ -611,6 +638,8 @@
       const element = event.target.closest("[data-element-id]");
       const relationship = event.target.closest("[data-open-relationship]");
       const move = event.target.closest("[data-move-id]");
+      const editDepartment = event.target.closest("[data-edit-department-id]");
+      const removeDepartment = event.target.closest("[data-remove-department-id]");
       const investigate = event.target.closest("[data-investigate-id]");
       const improve = event.target.closest("[data-improve-id]");
       const view = event.target.closest("[data-lom-view]");
@@ -643,6 +672,8 @@
       if (element?.dataset.elementId) { selectedId = element.dataset.elementId; focusMapSelection = currentView === "map"; renderInspector(selectedId); renderMap(state()); if (elementById(selectedId)?.kind === "department" && currentView === "department") renderDepartment(state()); }
       if (relationship) prepareRelationshipDialog(relationship);
       if (move) openMoveDialog(move.dataset.moveId, move);
+      if (editDepartment) { const item = elementById(editDepartment.dataset.editDepartmentId); $("#editDepartmentId").value = item.id; $("#editDepartmentName").value = item.label; openDialog($("#editDepartmentDialog"), editDepartment); }
+      if (removeDepartment) openDepartmentRemoval(removeDepartment.dataset.removeDepartmentId, removeDepartment);
       if (investigate) { const item = elementById(investigate.dataset.investigateId); repository.createInvestigationContext(item.id); showInvestigations(item, { history: true }); }
       if (improve) { const item = elementById(improve.dataset.improveId); $("#improvementElementId").value = item.id; $("#improvementTitle").value = `Вдосконалення: ${item.label}`; $("#improvementChange").value = ""; openDialog($("#improvementDialog"), improve); }
       if (view) openCanonicalView(view.dataset.lomView, { history: true });

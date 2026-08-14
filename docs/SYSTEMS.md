@@ -52,7 +52,7 @@ responsibilities.
 ## Operational Case
 
 - **Purpose:** Guide a bounded operational learning and change process from current condition through justified decision, Countermeasure, outcome verification, and standardization judgment.
-- **Current status:** Approved future architecture; no Case entity, persistence, interface, migration, or AI behavior is implemented.
+- **Current status:** The canonical Case aggregate remains documented and not implemented. The current runtime separately provides a persistent Investigation-centered lifecycle through human Cause, Decision, Intended State, Change Plan, Execution, Monitoring, Stabilization and Closure; this is related product behavior, not a 1:1 Case implementation.
 - **Future responsibilities:** Own Case intent, current and intended conditions, success and guardrail measures, iterative learning-and-change cycles, typed domain relationships, decision timeline, monitoring, outcome verification, closure disposition, and learning synthesis.
 - **Boundary:** A Case is not mandatory for routine work and does not own linked Facts, Reports, SOPs, Executions, Reviews, Recommendations, Knowledge, projects, or tasks. Home remains the primary workspace, and durable organizational learning requires explicit promotion. See [Operational Case Architecture](OPERATIONAL_CASE_ARCHITECTURE.md).
 - **Unified experience:** The owner works on one enduring Operational Matter
@@ -92,7 +92,7 @@ responsibilities.
 ## Operational Memory
 
 - **Purpose:** Preserve authoritative operational episodes and connect them into explainable, contextual, and revisable organizational experience for future Investigations.
-- **Current status:** Approved future architecture; no Operational Memory store, Experience Pattern entity, detection, retrieval, model training, interface, or migration is implemented.
+- **Current status:** A shared, searchable Operational Memory store and reader for closed Investigations and Improvements are implemented and usable, including narrative, organizational/material context and return links. The canonical Experience Pattern entity, governed pattern detection, model training and canonical Case-derived memory architecture remain documented and not implemented.
 - **Future responsibilities:** Relate completed Cases, accepted Inflection Points, decisions, interventions, outcomes, Knowledge, and governed Experience Patterns without duplicating their source authority.
 - **Boundary:** Experience Patterns are derived historical context. They never override current Evidence, establish Cause through repetition, silently become Knowledge or SOPs, alter the Personal Operational Model, or authorize action. Operational Memory is not a primary navigation module. See [Operational Memory Architecture](OPERATIONAL_MEMORY_ARCHITECTURE.md).
 
@@ -302,3 +302,13 @@ significant organizational mutation follows only after human confirmation and is
 committed through the existing operating-model repository. Manual UI uses the same
 model and remains fully available. Internal relationship and persistence mechanics
 do not belong in the primary operational language.
+
+For structural Department changes, explicit parent language overrides the selected
+Department; otherwise the selected Department is used when the request is sufficiently
+clear. Missing or ambiguous parents require one bounded clarification. The proposal
+shows parent and child before confirmation. Department rename and move use the same
+operating-model repository as manual controls. Safe removal retires an empty Department
+from the active structure while preserving its record and superseded containment;
+active people, roles, child Departments, processes, other elements or links block the
+operation until they are moved. Watson exposes the same removal rule and never performs
+it without confirmation.

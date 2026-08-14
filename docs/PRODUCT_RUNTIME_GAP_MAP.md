@@ -1,12 +1,12 @@
 # Product Runtime Gap Map
 
-Runtime synthesis at starting HEAD `6b35084560ddd13ce496d5ad5f60f162da607841`.
+Runtime synthesis reconciled against starting HEAD `19aecc5246381146087c110985bee4ed0784f7da`.
 
 | Capability | Runtime state | Practical finding |
 | --- | --- | --- |
 | Coherent application shell | IMPLEMENTED AND USABLE | Organization, Materials, Investigation, Improvement, Memory and Historical Learning use one persistent navigation and visual frame. |
 | Federated search | IMPLEMENTED AND USABLE | Organization elements, permitted people, Materials, active work and completed Memory are grouped with direct context routes. |
-| Living Organization | IMPLEMENTED AND USABLE | Organization, nested departments, roles, named people, capacity, processes, systems, SOPs, measures, reports, meetings and relationships persist locally. |
+| Living Organization | IMPLEMENTED AND USABLE | Organization switching, nested departments, structural drag/drop, Department rename/move/safe retirement, roles, named people, capacity, processes and relationships persist locally. Retirement preserves the record and historical containment; active dependencies must be moved first. |
 | Person workspace | IMPLEMENTED AND USABLE | Named people, role/department placement and reporting context are available without HR scoring. |
 | End-to-End process | PARTIAL | Processes and relationships exist; a guided cross-department flow reader is still missing. |
 | Universal materials | IMPLEMENTED AND USABLE | One reusable Material identity, IndexedDB file payloads, metadata search, contextual links, preview and Investigation references are implemented. |
@@ -19,7 +19,8 @@ Runtime synthesis at starting HEAD `6b35084560ddd13ce496d5ad5f60f162da607841`.
 | Operational Memory | IMPLEMENTED AND USABLE | Closed Investigation and Improvement narratives, search, context return and deterministic recurrence context share one workspace. |
 | Knowledge continuity | IMPLEMENTED BUT FRAGMENTED | Operational Memory returns to current organizational context and Materials; explicit promotion into Knowledge → SOP remains a separate human action. |
 | Historical Learning | IMPLEMENTED BUT FRAGMENTED | Historical Reader is reachable through the integrated shell but published historical learning is deliberately separate from source-owned Operational Memory. |
-| Watson | PARTIAL | A persistent context-aware layer provides privacy-filtered retrieval and human-readable organization proposals with atomic confirmed mutation. Optional session-only provider execution remains bounded. |
+| Watson | IMPLEMENTED / PARTIAL | The persistent context-aware layer provides privacy-filtered retrieval, explicit-parent precedence, selected-Department fallback, visible hierarchy proposals, duplicate protection, and confirmed organization creation/removal through the operating-model repository. Ambiguous or missing parents require clarification. Free-form reasoning and optional session-only provider execution remain bounded. |
+| Canonical Operational Case / Matter | DOCUMENTED / NOT IMPLEMENTED | No canonical Case or Matter aggregate exists. The current production behavior is an Investigation-centered lifecycle with Decision, Intended State, Change Plan, Execution, Monitoring, Stabilization and Closure. |
 | Calendar, Tasks, Analytics | HONEST BOUNDARY | These routes explain where live work actually resides and do not present placeholder data or a second system of record. |
 
 Implementation follows the vertical runtime priority: Organization context → inspectable Material → Investigation → human Cause → Decision → Change → Execution → Monitoring → Stabilization → Memory.

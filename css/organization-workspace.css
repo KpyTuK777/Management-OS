@@ -186,7 +186,10 @@ body.lom-mode { margin: 0; min-width: 0; overflow: hidden; background: var(--lom
 .lom-inspector-actions { display: grid; gap: 7px; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--lom-line); }
 .lom-inspector-actions::before { content: "Дії"; color: var(--lom-muted); font-size: 8px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
 .lom-inspector-actions button { padding: 9px; color: #d2d8d3; background: transparent; border: 1px solid var(--lom-line-strong); border-radius: 6px; cursor: pointer; font: 600 10px/1.25 inherit; }
-.lom-inspector-actions button:first-child { color: #17130d; background: var(--lom-accent); border-color: var(--lom-accent); }
+.lom-inspector-actions button:hover { color: #f2eadb; background: rgba(255,255,255,.07); border-color: rgba(226,197,133,.48); }
+.lom-inspector-actions .lom-danger-action { color: #efb2a7; border-color: rgba(216,112,93,.42); }
+.lom-button--danger { color: #fff7f2; background: #8d382d; border-color: #8d382d; }
+.lom-button--danger:hover { background: #a64537; border-color: #a64537; }
 .lom-inspector details { margin-top: 18px; padding-top: 13px; color: var(--lom-muted); border-top: 1px solid var(--lom-line); font-size: 10px; line-height: 1.5; }
 .lom-muted { color: var(--lom-muted); font-size: 11px; }
 

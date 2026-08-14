@@ -29,8 +29,10 @@ accountable Decision, Change Plan, execution steps, monitoring observations,
 stabilization judgment and locally preserved closure memory. Investigation materials
 may include locally inspectable text, images, audio, video, PDF and text/CSV files.
 
-Watson, external integrations, backend services, multi-user authorization and
-deployment are not active capabilities; the product remains honestly usable without AI.
+Watson is active as a bounded contextual layer: deterministic local retrieval and
+confirmed structural proposals work without a provider, while optional provider-backed
+answers are session-only. External integrations, backend services, multi-user
+authorization and deployment are not active capabilities.
 
 The current product also includes reusable operational Materials backed by
 IndexedDB file payloads, Person-attributed information contributions, a general
@@ -57,6 +59,12 @@ work and Historical Learning. Watson is no longer a navigation destination: it i
 a compact contextual layer available from the current workspace. Manual controls
 remain first-class, while natural-language structural changes are shown as a
 human-readable proposal and require confirmation before one repository mutation.
+Explicit parent language takes precedence over the selected Department, and the
+proposal shows the resulting hierarchy before mutation. Departments can be renamed,
+moved, and removed from the active structure; removal retires an empty Department
+without erasing history and blocks while people, roles, child Departments, processes,
+or other active links still depend on it. The same safe removal is available through
+Watson after a human-readable proposal and confirmation.
 
 ## Technology stack
 

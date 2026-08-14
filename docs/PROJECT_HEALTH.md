@@ -13,10 +13,10 @@ authoritative.
 | Property | Value |
 | --- | --- |
 | Target release | Beta |
-| Snapshot date | 2026-07-23 |
-| Current maturity | Late Prototype moving toward Alpha |
+| Snapshot date | 2026-08-14 |
+| Current maturity | Usable local prototype; not release-ready |
 | Overall status | **Blocked** |
-| Primary blockers | Product maturity, documentation, testing, data safety, and release readiness |
+| Primary blockers | Release evidence, supported-browser coverage, accessibility/security assessment, backup/sync, and deployment readiness |
 | Accountable owner | Product Architect |
 | Final release authority | Product Owner |
 
@@ -39,32 +39,31 @@ of readiness.
 
 | Dimension | State | Release blocker | Evidence | Evidence owner | Next action | Reviewed |
 | --- | --- | --- | --- | --- | --- | --- |
-| Product maturity | **Blocking** | Yes | [Product Maturity](PRODUCT_MATURITY.md), [Roadmap](ROADMAP.md) | Product Owner | Complete Alpha exit evidence and approve frozen Beta scope. | 2026-07-22 |
-| Documentation readiness | **Blocking** | Yes | [Documentation Backlog](DOCUMENTATION_BACKLOG.md), [Documentation Map](DOCUMENTATION_MAP.md) | Product Architect and document owners | Complete all Stage 1 P0 work and its exit criteria. | 2026-07-22 |
+| Product functionality | **Needs Attention** | No | [Runtime Gap Map](PRODUCT_RUNTIME_GAP_MAP.md), browser regressions | Product Owner | Continue bounded product validation; do not equate broad local functionality with Beta readiness. | 2026-08-14 |
+| Documentation readiness | **Needs Attention** | Potentially | [Runtime Gap Map](PRODUCT_RUNTIME_GAP_MAP.md), [Systems](SYSTEMS.md), [Documentation Map](DOCUMENTATION_MAP.md) | Product Architect and document owners | Keep active status documents reconciled; historical architecture remains historical. | 2026-08-14 |
 | Architecture health | **Ready** | No | [Architecture](ARCHITECTURE.md), [Systems](SYSTEMS.md), [Data Model](DATA_MODEL.md), [Documentation Map](DOCUMENTATION_MAP.md), [Sprint 10 consistency review](SPRINTS.md#sprint-10) | Product Architect | Reassess after a material approved architecture change or before the next release gate. | 2026-07-23 |
 | Technical debt | **Not Assessed** | Potentially | [Development](DEVELOPMENT.md), Sprint and review findings | Lead Software Engineer | Establish governed debt evidence and assess release impact. | 2026-07-22 |
-| Testing readiness | **Blocking** | Yes | [Documentation Backlog](DOCUMENTATION_BACKLOG.md), [Development](DEVELOPMENT.md), Quality Lead findings | Lead Software Engineer and assigned Quality Lead | Create `TESTING.md`, regression matrix, supported-browser policy, and repeatable quality evidence. | 2026-07-22 |
+| Testing readiness | **Blocking** | Yes | Browser regression files, [Development](DEVELOPMENT.md), Quality Lead findings | Lead Software Engineer and assigned Quality Lead | Consolidate the existing deterministic browser journeys into a supported-browser regression matrix and repeatable release evidence. | 2026-08-14 |
 | Design and accessibility | **Not Assessed** | Potentially | [Design System](DESIGN_SYSTEM.md) | Design Owner | Create and execute the accessibility verification process. | 2026-07-22 |
 | Data safety and recovery | **Blocking** | Yes | [Data Model](DATA_MODEL.md), [Product Maturity](PRODUCT_MATURITY.md) | Product Architect and Lead Software Engineer | Document and verify persistence, compatibility, backup limitations, and recovery. | 2026-07-22 |
 | Release readiness | **Blocking** | Yes | [Product Maturity](PRODUCT_MATURITY.md), [Changelog](CHANGELOG.md), applicable Quality Lead findings | Product Owner | Define the Beta release checklist, disposition blockers, and complete mandatory gates using verified domain evidence. | 2026-07-22 |
 | Governance maturity | **Ready** | No | [Team Governance](TEAM.md), [Methodology](METHODOLOGY.md), [Documentation Map](DOCUMENTATION_MAP.md) | Product Owner and Product Architect | Continue producing review and audit evidence during delivery. | 2026-07-22 |
-| AI readiness | **Not Applicable** | No | [Product Vision](PRODUCT_VISION.md), [Architecture](ARCHITECTURE.md), [Product Maturity](PRODUCT_MATURITY.md) | Product Architect and AI Strategist | Keep AI outside Beta scope; reassess immediately if AI behavior enters scope. | 2026-07-22 |
+| Watson / AI readiness | **Needs Attention** | Potentially | [Systems](SYSTEMS.md), [Watson Professional Ethos](WATSON_PROFESSIONAL_ETHOS.md) | Product Architect and AI Strategist | Treat deterministic local behavior as implemented/partial; assess provider security, quality and release scope separately. | 2026-08-14 |
 
 ## Blocking conditions
 
 Management OS is not ready for Beta release because:
 
-- the product has not yet satisfied Alpha exit criteria or frozen Beta scope;
-- Stage 1 documentation readiness is incomplete;
-- no canonical testing strategy, regression matrix, or supported-browser policy
-  exists;
+- the repository has useful local product functionality but no complete Beta release evidence;
+- deterministic browser journeys exist, but no canonical supported-browser policy
+  or release regression matrix exists;
 - persistence, backup limitations, and recovery evidence are incomplete;
 - no Beta release checklist or complete release evidence exists.
 
-Technical debt and accessibility also require current assessment before they can
-support a release decision. Architecture consistency was reviewed in Sprint 10;
-this does not resolve the independent product, testing, data-safety, documentation,
-or release-readiness blockers.
+Technical debt, security and accessibility also require current assessment before
+they can support a release decision. The implemented local runtime does not resolve
+testing, backup/sync, multi-user authorization, backend, deployment or release-readiness
+blockers.
 
 ## Approved exceptions
 

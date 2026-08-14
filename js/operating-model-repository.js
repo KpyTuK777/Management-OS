@@ -439,6 +439,38 @@
       });
     }
 
+    departmentRemovalImpact(elementId) {
+      const state = this.snapshot();
+      const department = state?.elements.find(item => item.id === elementId && item.kind === "department" && item.lifecycle === "active");
+      if (!department) throw new Error("Активний підрозділ не знайдено.");
+      const activeContainment = state.relationships.filter(item => item.family === "containment" && item.lifecycle === "active");
+      const children = activeContainment.map(link => link.fromId === elementId ? state.elements.find(item => item.id === link.toId && item.lifecycle === "active") : null).filter(Boolean);
+      const people = state.peopleRelationships.filter(item => item.family === "department-membership" && item.targetId === elementId && item.lifecycle === "active").length;
+      const count = kind => children.filter(item => item.kind === kind).length;
+      const otherLinks = state.relationships.filter(item => item.lifecycle === "active" && item.family !== "containment" && (item.fromId === elementId || item.toId === elementId)).length;
+      return { department, people, departments: count("department"), roles: count("role"), processes: count("process"), otherElements: children.filter(item => !["department", "role", "process"].includes(item.kind)).length, otherLinks };
+    }
+
+    retireDepartment(elementId) {
+      const impact = this.departmentRemovalImpact(elementId);
+      const dependentCount = impact.people + impact.departments + impact.roles + impact.processes + impact.otherElements + impact.otherLinks;
+      if (dependentCount) throw new Error("Спочатку перенесіть людей, ролі, дочірні підрозділи, процеси та інші активні зв’язки.");
+      return this.transact("retire-department", state => {
+        const department = state.elements.find(item => item.id === elementId && item.kind === "department" && item.lifecycle === "active");
+        if (!department) throw new Error("Активний підрозділ не знайдено.");
+        state.revisions.push({ id: id("revision"), command: "element-snapshot", recordedAt: now(), element: clone(department) });
+        state.relationships.filter(item => item.family === "containment" && item.toId === elementId && item.lifecycle === "active").forEach(item => {
+          item.lifecycle = "superseded";
+          item.effectiveTo = now();
+          item.version += 1;
+        });
+        department.lifecycle = "retired";
+        department.version += 1;
+        department.updatedAt = now();
+        return { department, impact };
+      });
+    }
+
     createInvestigationContext(elementId) {
       const element = this.snapshot()?.elements.find(item => item.id === elementId);
       if (!element) throw new Error("Контекст не знайдено.");
